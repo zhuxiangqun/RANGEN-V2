@@ -1,0 +1,140 @@
+{
+  "system_name": "knowledge_management_system",
+  "version": "1.0.0",
+  "description": "知识库管理系统 - 第四独立系统",
+  
+  "storage": {
+    "vector_index_path": "data/knowledge_management/vector_index.bin",
+    "metadata_path": "data/knowledge_management/metadata.json",
+    "raw_data_path": "data/knowledge_management/raw_data"
+  },
+  
+  "vector": {
+    "default_dimension": 768,
+    "index_type": "IndexFlatIP",
+    "similarity_threshold": 0.7
+  },
+  
+  "modalities": {
+    "text": {
+      "enabled": true,
+      "encoder": "jina",
+      "model": "jina-embeddings-v2-base-en"
+    },
+    "image": {
+      "enabled": false,
+      "encoder": "clip",
+      "model": "openai/clip-vit-base-patch32"
+    },
+    "audio": {
+      "enabled": false,
+      "encoder": "wav2vec",
+      "model": "facebook/wav2vec2-base"
+    },
+    "video": {
+      "enabled": false,
+      "encoder": "video_clip",
+      "model": "laion/CLIP-ViT-H-14-laion2B-s32B-b79K"
+    }
+  },
+  
+  "api": {
+    "enabled": true,
+    "host": "localhost",
+    "port": 8001,
+    "version": "v1"
+  },
+  
+  "_comment": "⚠️ api_keys: 不推荐在此处存储API密钥，建议使用环境变量 JINA_API_KEY",
+  "api_keys": {
+    "jina": null
+  },
+  
+  "logging": {
+    "level": "INFO",
+    "file": "logs/knowledge_management.log",
+    "max_size_mb": 100
+  },
+
+  "filtering": {
+    "blacklist_terms": [
+      "united states the white house",
+      "table of contents",
+      "navigation menu",
+      "copyright",
+      "all rights reserved",
+      "advertisement",
+      "login to edit",
+      "cite error",
+      "retrieved from"
+    ],
+    "graylist_terms": [
+      "disambiguation",
+      "stub",
+      "categories",
+      "references"
+    ],
+    "whitelist_core_facts": [],
+    "max_content_length": 10000000
+  },
+
+  "core_facts": [],
+
+  "frames_benchmark": {
+    "enabled": true,
+    "dataset_name": "datasets/frames-benchmark",
+    "description": "FRAMES-Benchmark 数据集配置",
+    "cache_dir": "data/frames_benchmark",
+    "auto_import": false,
+    "splits": ["test"],
+    "processing": {
+      "include_questions": true,
+      "include_answers": true,
+      "include_justifications": true,
+      "include_wikipedia_pages": true,
+      "content_separator": "\\n\\n"
+    }
+  },
+
+  "retrieval_strategies": {
+    "default_top_k": 15,
+    "attribute_top_k": 5,
+    "relationship_top_k": 8,
+    "relevance_threshold": 0.6,
+    "relevance_threshold_relaxed": 0.4,
+    "use_graph_first": false,
+    "graph_timeout_ms": 1500,
+    "vector_rerank": true,
+    "vector_rerank_model": "cross-encoder/ms-marco-MiniLM-L-12-v2",
+    "max_content_length": 10000000,
+    "query_extraction_rules": {
+      "attribute": ["mother", "father", "maiden name", "first name", "last name", "wife", "husband", "spouse", "birth", "born", "death", "died", "assassinated"],
+      "ordinal": ["nth", "order", "term", "in office", "preceded", "succeeded", "first lady", "president"],
+      "relationship": ["relationship", "spouse", "parent", "sibling", "child"]
+    },
+    "fallback_order": [
+      "graph",
+      "vector"
+    ]
+  },
+  
+  "knowledge_graph": {
+    "enabled": true,
+    "storage_type": "json",
+    "entities_path": "data/knowledge_management/graph/entities.json",
+    "relations_path": "data/knowledge_management/graph/relations.json",
+    "auto_extract": false,
+    "use_ner": false,
+    "use_re": false
+  },
+  
+  "llamaindex": {
+    "enabled": false,
+    "description": "LlamaIndex 集成配置（阶段1：增强检索能力）",
+    "query_expansion": true,
+    "multi_strategy_retrieval": true,
+    "rerank_enabled": true,
+    "_comment": "⚠️ 启用 LlamaIndex 需要安装: pip install 'llama-index>=0.9.0'，并设置环境变量 ENABLE_LLAMAINDEX=true"
+  }
+}
+

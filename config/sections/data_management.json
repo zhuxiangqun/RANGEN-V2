@@ -1,0 +1,13 @@
+{
+  "name": "data_management",
+  "config": {
+    "cache_size": 1000,
+    "cache_ttl": 3600,
+    "enable_persistence": true,
+    "backup_interval": 86400,
+    "max_file_size": 10485760
+  },
+  "description": "data_management配置",
+  "last_updated": 1760878947.451028,
+  "version": "1.0.0"
+}

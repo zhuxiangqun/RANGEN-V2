@@ -1,0 +1,101 @@
+name: security-validation
+version: 1.0.0
+description: "安全验证技能。输入安全检查、敏感信息过滤、权限验证。"
+author: rangen
+tags:
+  - security
+  - validation
+  - permission
+  - privacy
+dependencies: ["validation"]
+scope: bundled
+
+config:
+  type: validation
+  mode: evaluative
+  domain: security
+
+prompt_template: |
+  ## 安全验证技能
+  
+  输入安全检查、敏感信息过滤、权限验证。
+  
+  ### 安全检查类型
+  
+  **1. 输入安全**
+  - SQL注入检测
+  - XSS跨站脚本
+  - 命令注入
+  - 路径遍历
+  
+  **2. 敏感信息**
+  - 密码/密钥
+  - 个人身份信息(PII)
+  - 金融信息
+  - 医疗信息
+  
+  **3. 权限验证**
+  - 认证状态
+  - 资源权限
+  - API访问权限
+  - 数据访问级别
+  
+  ### 安全检查规则
+  
+  | 检查项 | 模式/规则 | 处理 |
+  |-------|---------|------|
+  | SQL注入 | ' OR '1'='1 | 拒绝 |
+  | XSS | <script> | 转义 |
+  | 命令注入 | ; rm -rf | 拒绝 |
+  | 路径遍历 | ../../../etc | 拒绝 |
+  
+  ### 敏感信息处理
+  
+  **识别**
+  - 正则匹配
+  - 关键词库
+  - 机器学习
+  
+  **处理**
+  - 脱敏处理
+  - 完全过滤
+  - 日志屏蔽
+  
+  **示例**
+  ```
+  电话: 138****1234
+  邮箱: a***@example.com
+  身份证: 110101****1234****
+  ```
+  
+  ### 权限模型
+  
+  **RBAC (基于角色)**
+  - 角色分配权限
+  - 用户属于角色
+  - 简单易管理
+  
+  **ABAC (基于属性)**
+  - 属性决定权限
+  - 灵活复杂
+  - 细粒度控制
+  
+  ### 安全最佳实践
+  
+  1. 默认拒绝
+  2. 最小权限
+  3. 敏感数据加密
+  4. 完整审计日志
+  5. 定期安全更新
+
+tools:
+  - name: check_input_security
+    description: "检查输入安全"
+  - name: filter_sensitive_data
+    description: "过滤敏感数据"
+  - name: validate_permissions
+    description: "验证权限"
+
+related_skills:
+  - validation
+  - error-handling

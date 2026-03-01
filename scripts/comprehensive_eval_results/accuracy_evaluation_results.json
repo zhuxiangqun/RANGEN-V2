@@ -1,0 +1,222 @@
+{
+  "timestamp": "2025-08-16T17:46:05.958240",
+  "total_queries": 20,
+  "successful_queries": 20,
+  "category_results": {
+    "简单事实查询": {
+      "total": 5,
+      "successful": 5,
+      "accuracy_scores": [],
+      "avg_accuracy": 0.3264666666666666,
+      "avg_confidence": 0.0,
+      "avg_execution_time": 0.06878929138183594
+    },
+    "复杂推理查询": {
+      "total": 5,
+      "successful": 5,
+      "accuracy_scores": [],
+      "avg_accuracy": 0.31742499999999996,
+      "avg_confidence": 0.0,
+      "avg_execution_time": 0.003846263885498047
+    },
+    "多步骤推理查询": {
+      "total": 5,
+      "successful": 5,
+      "accuracy_scores": [],
+      "avg_accuracy": 0.32102608695652174,
+      "avg_confidence": 0.0,
+      "avg_execution_time": 0.0038736820220947265
+    },
+    "FRAMES风格查询": {
+      "total": 5,
+      "successful": 5,
+      "accuracy_scores": [],
+      "avg_accuracy": 0.32564634273772197,
+      "avg_confidence": 0.0,
+      "avg_execution_time": 0.003858327865600586
+    }
+  },
+  "overall_accuracy": 0.3226410240902276,
+  "detailed_results": [
+    {
+      "query": "What is the capital of France?",
+      "answer": "This is a reasoning query. intelligent_fallback analysis indicates that multi-step logical reasoning...",
+      "accuracy": 0.363,
+      "confidence": 0.0,
+      "execution_time": 0.32875800132751465,
+      "success": true,
+      "category": "简单事实查询"
+    },
+    {
+      "query": "Who wrote Romeo and Juliet?",
+      "answer": "This is a reasoning query. intelligent_fallback analysis indicates that multi-step logical reasoning...",
+      "accuracy": 0.28,
+      "confidence": 0.0,
+      "execution_time": 0.00432896614074707,
+      "success": true,
+      "category": "简单事实查询"
+    },
+    {
+      "query": "What is the chemical symbol for gold?",
+      "answer": "This is a reasoning query. intelligent_fallback analysis indicates that multi-step logical reasoning...",
+      "accuracy": 0.358,
+      "confidence": 0.0,
+      "execution_time": 0.003565073013305664,
+      "success": true,
+      "category": "简单事实查询"
+    },
+    {
+      "query": "In which year did World War II end?",
+      "answer": "Based on intelligent_fallback reasoning analysis, the following conclusions were reached:\n步骤2: 分析时间相...",
+      "accuracy": 0.28,
+      "confidence": 0.0,
+      "execution_time": 0.003619670867919922,
+      "success": true,
+      "category": "简单事实查询"
+    },
+    {
+      "query": "What is the largest planet in our solar system?",
+      "answer": "This is a reasoning query. intelligent_fallback analysis indicates that multi-step logical reasoning...",
+      "accuracy": 0.35133333333333333,
+      "confidence": 0.0,
+      "execution_time": 0.003674745559692383,
+      "success": true,
+      "category": "简单事实查询"
+    },
+    {
+      "query": "If a person was born in 1990 and graduated from college at age 22, in which year did they graduate?",
+      "answer": "Based on intelligent_fallback reasoning analysis, the following conclusions were reached:\n步骤1: 分析时间相...",
+      "accuracy": 0.28,
+      "confidence": 0.0,
+      "execution_time": 0.004094123840332031,
+      "success": true,
+      "category": "复杂推理查询"
+    },
+    {
+      "query": "If a train travels at 60 mph for 2.5 hours, how far does it travel?",
+      "answer": "This is a reasoning query. intelligent_fallback analysis indicates that multi-step logical reasoning...",
+      "accuracy": 0.374,
+      "confidence": 0.0,
+      "execution_time": 0.0037500858306884766,
+      "success": true,
+      "category": "复杂推理查询"
+    },
+    {
+      "query": "If a rectangle has a length of 8 units and an area of 40 square units, what is its width?",
+      "answer": "Based on intelligent_fallback analysis, the query involves complex reasoning processes that require ...",
+      "accuracy": 0.28,
+      "confidence": 0.0,
+      "execution_time": 0.0036170482635498047,
+      "success": true,
+      "category": "复杂推理查询"
+    },
+    {
+      "query": "If a company's revenue increased by 15% from $1,000,000 to $1,150,000, what was the original revenue?",
+      "answer": "Based on intelligent_fallback analysis, the query involves complex reasoning processes that require ...",
+      "accuracy": 0.293125,
+      "confidence": 0.0,
+      "execution_time": 0.003731966018676758,
+      "success": true,
+      "category": "复杂推理查询"
+    },
+    {
+      "query": "If a recipe calls for 2 cups of flour for 12 cookies, how many cups are needed for 36 cookies?",
+      "answer": "Based on intelligent_fallback reasoning analysis, the following conclusions were reached:\n步骤1: 识别计算要...",
+      "accuracy": 0.36,
+      "confidence": 0.0,
+      "execution_time": 0.004038095474243164,
+      "success": true,
+      "category": "复杂推理查询"
+    },
+    {
+      "query": "If John is 5 years older than Mary, and Mary is twice as old as her brother Tom who is 10, how old is John?",
+      "answer": "Based on intelligent_fallback analysis, the query involves complex reasoning processes that require ...",
+      "accuracy": 0.36,
+      "confidence": 0.0,
+      "execution_time": 0.003960132598876953,
+      "success": true,
+      "category": "多步骤推理查询"
+    },
+    {
+      "query": "If a car travels 300 miles in 5 hours, then stops for 1 hour, then travels 200 miles in 3 hours, what is the average speed for the entire trip?",
+      "answer": "Based on intelligent_fallback analysis, the query involves complex reasoning processes that require ...",
+      "accuracy": 0.3371304347826087,
+      "confidence": 0.0,
+      "execution_time": 0.00374603271484375,
+      "success": true,
+      "category": "多步骤推理查询"
+    },
+    {
+      "query": "If a store offers a 20% discount on a $100 item, and then charges 8% tax on the discounted price, what is the final price?",
+      "answer": "Based on intelligent_fallback analysis, the query involves complex reasoning processes that require ...",
+      "accuracy": 0.34800000000000003,
+      "confidence": 0.0,
+      "execution_time": 0.003874063491821289,
+      "success": true,
+      "category": "多步骤推理查询"
+    },
+    {
+      "query": "If a rectangle has a perimeter of 24 units and a length of 8 units, what is its area?",
+      "answer": "Based on intelligent_fallback analysis, the query involves complex reasoning processes that require ...",
+      "accuracy": 0.28,
+      "confidence": 0.0,
+      "execution_time": 0.003985166549682617,
+      "success": true,
+      "category": "多步骤推理查询"
+    },
+    {
+      "query": "If a company's profit margin is 25% and they want to make $50,000 profit, what should their revenue be?",
+      "answer": "Based on intelligent_fallback analysis, the query involves complex reasoning processes that require ...",
+      "accuracy": 0.28,
+      "confidence": 0.0,
+      "execution_time": 0.0038030147552490234,
+      "success": true,
+      "category": "多步骤推理查询"
+    },
+    {
+      "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and her surname is the same as the second assassinated president's mother's maiden name, what is my future wife's name?",
+      "answer": "Based on intelligent_fallback analysis, the query involves complex reasoning processes that require ...",
+      "accuracy": 0.2872413793103448,
+      "confidence": 0.0,
+      "execution_time": 0.003726959228515625,
+      "success": true,
+      "category": "FRAMES风格查询"
+    },
+    {
+      "query": "Imagine there is a building called Bronte tower whose height in feet is the same number as the dewey decimal classification for the Charlotte Bronte book that was published in 1847. Where would this building rank among tallest buildings in New York City?",
+      "answer": "Based on intelligent_fallback analysis, the query involves complex reasoning processes that require ...",
+      "accuracy": 0.29966666666666664,
+      "confidence": 0.0,
+      "execution_time": 0.003804922103881836,
+      "success": true,
+      "category": "FRAMES风格查询"
+    },
+    {
+      "query": "What is the name of the person who was the first to discover the element that has the same number of protons as the number of letters in the word 'chemistry'?",
+      "answer": "Based on intelligent_fallback analysis, the query involves complex reasoning processes that require ...",
+      "accuracy": 0.3620909090909091,
+      "confidence": 0.0,
+      "execution_time": 0.004052877426147461,
+      "success": true,
+      "category": "FRAMES风格查询"
+    },
+    {
+      "query": "If a person was born on the same day as the first person to walk on the moon, and their name has the same number of letters as the number of planets in our solar system, what is their name?",
+      "answer": "Based on intelligent_fallback analysis, the query involves complex reasoning processes that require ...",
+      "accuracy": 0.34248275862068966,
+      "confidence": 0.0,
+      "execution_time": 0.003985881805419922,
+      "success": true,
+      "category": "FRAMES风格查询"
+    },
+    {
+      "query": "How many years earlier would Punxsutawney Phil have to be canonically alive to have made a Groundhog Day prediction in the same state as the US capitol?",
+      "answer": "Based on intelligent_fallback analysis, the query involves complex reasoning processes that require ...",
+      "accuracy": 0.33675,
+      "confidence": 0.0,
+      "execution_time": 0.003720998764038086,
+      "success": true,
+      "category": "FRAMES风格查询"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "description": "模型配置 - 系统使用的各种模型参数",
+    "version": "1.0.0",
+    "created": "2025-01-09",
+    "last_modified": "2025-01-09"
+  },
+  "default_model": {
+    "name": "default",
+    "type": "transformer",
+    "max_seq_length": 512,
+    "vocab_size": 30522,
+    "hidden_size": 768,
+    "num_attention_heads": 12,
+    "num_hidden_layers": 12,
+    "intermediate_size": 3072
+  },
+  "evaluation_models": {
+    "lightweight": {
+      "name": "lightweight_eval",
+      "max_seq_length": 256,
+      "batch_size": 8
+    },
+    "standard": {
+      "name": "standard_eval", 
+      "max_seq_length": 512,
+      "batch_size": 4
+    },
+    "comprehensive": {
+      "name": "comprehensive_eval",
+      "max_seq_length": 1024,
+      "batch_size": 2
+    }
+  },
+  "model_paths": {
+    "cache_dir": "./models/cache",
+    "model_dir": "./models",
+    "temp_dir": "./models/temp"
+  },
+  "performance_settings": {
+    "gpu_memory_fraction": 0.8,
+    "cpu_threads": 4,
+    "enable_mixed_precision": true,
+    "gradient_checkpointing": false
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "evaluation_mode": "lightweight",
+  "sample_count": 2,
+  "timeout_seconds": 60,
+  "max_reasoning_steps": 2,
+  "skip_complex_reasoning": true,
+  "metadata": {
+    "last_optimized": "2025-09-08T19:19:31.899004",
+    "optimizer_version": "1.0.0",
+    "optimization_count": 0
+  }
+}

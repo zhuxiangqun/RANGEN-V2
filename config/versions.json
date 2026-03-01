@@ -1,0 +1,781 @@
+[
+  {
+    "version_id": "2326a387",
+    "timestamp": "2025-09-07T15:39:20.695979",
+    "config_data": {
+      "citation_level_factors.high": 3,
+      "citation_level_factors.medium": 2,
+      "citation_level_factors.low": 1,
+      "wiki_complexity_multiplier.low": 1.0,
+      "wiki_complexity_multiplier.medium": 1.2,
+      "wiki_complexity_multiplier.high": 1.8,
+      "complexity_weights.chinese": 1.2,
+      "complexity_weights.japanese": 1.2,
+      "complexity_weights.korean": 1.1,
+      "complexity_weights.arabic": 1.1,
+      "complexity_weights.thai": 1.1,
+      "complexity_weights.cyrillic": 1.0,
+      "complexity_weights.devanagari": 1.1,
+      "complexity_weights.latin": 1.0,
+      "complexity_weights.digits": 0.3,
+      "complexity_weights.punctuation": 0.05,
+      "complexity_weights.whitespace": 0.0,
+      "type_definitions.alert_levels": {
+        "INFO": "info",
+        "WARNING": "warning",
+        "ERROR": "error",
+        "CRITICAL": "critical",
+        "description": "告警级别定义"
+      },
+      "type_definitions.alert_status": {
+        "ACTIVE": "active",
+        "ACKNOWLEDGED": "acknowledged",
+        "RESOLVED": "resolved",
+        "description": "告警状态定义"
+      },
+      "type_definitions.component_states": {
+        "REGISTERED": "registered",
+        "INITIALIZING": "initializing",
+        "INITIALIZED": "initialized",
+        "FAILED": "failed",
+        "DISABLED": "disabled",
+        "description": "组件状态定义"
+      },
+      "type_definitions.component_types": {
+        "TOOL": "tool",
+        "SERVICE": "service",
+        "MANAGER": "manager",
+        "INTERFACE": "interface",
+        "description": "组件类型定义"
+      },
+      "type_definitions.message_types": {
+        "TASK_REQUEST": "task_request",
+        "TASK_RESPONSE": "task_response",
+        "DATA_SHARE": "data_share",
+        "STATUS_UPDATE": "status_update",
+        "ERROR_REPORT": "error_report",
+        "COORDINATION_SIGNAL": "coordination_signal",
+        "description": "消息类型定义"
+      },
+      "type_definitions.message_priorities": {
+        "LOW": 1,
+        "NORMAL": 2,
+        "HIGH": 3,
+        "URGENT": 4,
+        "description": "消息优先级定义"
+      },
+      "type_definitions.metric_types": {
+        "COUNTER": "counter",
+        "GAUGE": "gauge",
+        "HISTOGRAM": "histogram",
+        "TIMER": "timer",
+        "description": "指标类型定义"
+      },
+      "complexity_indicators.long_words": {
+        "type": "word_length",
+        "threshold": 6,
+        "description": "长单词数量",
+        "weight": 1.0
+      },
+      "complexity_indicators.technical_terms": {
+        "type": "keyword_match",
+        "keywords": [
+          "technical_terms"
+        ],
+        "description": "技术术语数量",
+        "weight": 1.5
+      },
+      "complexity_indicators.question_count": {
+        "type": "character_count",
+        "character": "?",
+        "description": "问号数量",
+        "weight": 0.8
+      },
+      "complexity_indicators.exclamation_count": {
+        "type": "character_count",
+        "character": "!",
+        "description": "感叹号数量",
+        "weight": 0.8
+      },
+      "complexity_indicators.number_count": {
+        "type": "pattern_count",
+        "pattern": "isdigit",
+        "description": "数字字符数量",
+        "weight": 0.6
+      },
+      "complexity_indicators.capital_count": {
+        "type": "pattern_count",
+        "pattern": "isupper",
+        "description": "大写字母数量",
+        "weight": 0.4
+      },
+      "semantic_categories.question": {
+        "keywords": [
+          "question_keywords"
+        ],
+        "description": "问题类语义",
+        "priority": 1
+      },
+      "semantic_categories.mathematical": {
+        "keywords": [
+          "mathematical_keywords"
+        ],
+        "description": "数学类语义",
+        "priority": 2
+      },
+      "semantic_categories.comparative": {
+        "keywords": [
+          "comparative_keywords"
+        ],
+        "description": "比较类语义",
+        "priority": 3
+      },
+      "semantic_categories.temporal": {
+        "keywords": [
+          "temporal_keywords"
+        ],
+        "description": "时间类语义",
+        "priority": 4
+      },
+      "semantic_categories.spatial": {
+        "keywords": [
+          "spatial_keywords"
+        ],
+        "description": "空间类语义",
+        "priority": 5
+      },
+      "semantic_categories.analytical": {
+        "keywords": [
+          "analytical_keywords"
+        ],
+        "description": "分析类语义",
+        "priority": 6
+      },
+      "semantic_categories.causal": {
+        "keywords": [
+          "causal_keywords"
+        ],
+        "description": "因果类语义",
+        "priority": 7
+      },
+      "semantic_categories.process": {
+        "keywords": [
+          "process_keywords"
+        ],
+        "description": "过程类语义",
+        "priority": 8
+      },
+      "algorithm_parameters": {
+        "description": "算法参数 - 现由自适应算法参数优化器提供",
+        "dynamic_provider": "src.utils.algorithm_parameter_optimizer",
+        "fallback_values": {
+          "performance_metrics_limit": 10000,
+          "recent_scores_window": 10,
+          "older_scores_window": 20,
+          "performance_improvement_threshold": 1.05,
+          "performance_decline_threshold": 0.95,
+          "score_adjustment_factor_up": 1.05,
+          "score_adjustment_factor_down": 0.95,
+          "answer_length_threshold_long": 100,
+          "answer_length_threshold_medium": 50,
+          "answer_length_threshold_short": 20,
+          "answer_length_threshold_min": 10,
+          "sentence_complexity_threshold": 0.7,
+          "confidence_base_score": 0.5,
+          "similarity_boost_factor": 0.2,
+          "time_decay_factor": 0.9,
+          "relevance_weight": 0.3,
+          "accuracy_weight": 0.4,
+          "completeness_weight": 0.3,
+          "min_word_count": 5
+        }
+      },
+      "algorithm_parameters.description": "算法参数配置",
+      "data_structures.chinese_affirmative_words": [
+        "是",
+        "为",
+        "在",
+        "有",
+        "包含",
+        "根据",
+        "基于"
+      ],
+      "data_structures.chinese_relevance_words": [
+        "相关",
+        "关于",
+        "涉及",
+        "有关"
+      ],
+      "data_structures.chinese_uncertainty_words": [
+        "可能",
+        "也许",
+        "大概",
+        "不确定"
+      ],
+      "data_structures.technical_terms": [
+        "系统",
+        "方法",
+        "技术",
+        "研究",
+        "分析",
+        "数据",
+        "历史",
+        "事实",
+        "记录",
+        "档案"
+      ],
+      "data_structures.citation_indicators": [
+        "根据",
+        "来源",
+        "参考",
+        "引用",
+        "据",
+        "from",
+        "according",
+        "based on"
+      ],
+      "data_structures.fallback_indicators": [
+        "fallback_score",
+        "error_code"
+      ],
+      "data_structures.description": "数据结构配置",
+      "cache_settings.default_max_size": 1000,
+      "cache_settings.default_ttl": 300,
+      "cache_settings.max_size_multiplier": 1.5,
+      "cache_settings.ttl_decay_factor": 0.8,
+      "cache_settings.min_ttl": 60,
+      "cache_settings.description": "缓存系统配置",
+      "thread_pool_settings.default_max_workers": 4,
+      "thread_pool_settings.evaluation_max_workers": 4,
+      "thread_pool_settings.scheduler_thread_workers": 4,
+      "thread_pool_settings.scheduler_process_workers": 2,
+      "thread_pool_settings.module_max_workers": 4,
+      "thread_pool_settings.description": "线程池和进程池配置",
+      "internationalization.default_language": "zh-CN",
+      "internationalization.supported_languages": [
+        "zh-CN",
+        "en-US",
+        "ja-JP"
+      ],
+      "internationalization.fallback_language": "en-US",
+      "internationalization.messages": {
+        "zh-CN": {
+          "welcome_message": "🤖 智能化助手 - 高级交互界面",
+          "help_hint": "💡 输入 /help 查看帮助",
+          "exit_hint": "💡 输入 /exit 退出系统",
+          "user_prompt": "👤 您: ",
+          "processing_message": "🤔 正在思考...",
+          "goodbye_message": "👋 感谢使用，再见！",
+          "help_title": "🆘 帮助信息",
+          "help_commands": "📝 快捷命令:",
+          "help_cmd_help": "  /help     - 显示帮助",
+          "help_cmd_status": "  /status   - 系统状态",
+          "help_cmd_history": "  /history  - 会话历史",
+          "help_cmd_clear": "  /clear    - 清空历史",
+          "help_cmd_config": "  /config   - 配置信息",
+          "help_cmd_exit": "  /exit     - 退出系统",
+          "help_tips": "💡 使用提示:",
+          "help_tip_input": "  • 输入问题获取智能回答",
+          "help_tip_analysis": "  • 系统会自动分析查询类型",
+          "help_tip_suggestions": "  • 支持智能建议和纠错",
+          "status_title": "📊 系统状态",
+          "status_start_time": "🕒 会话开始时间: ",
+          "status_sessions": "💬 会话轮数: ",
+          "status_theme": "🎯 界面主题: ",
+          "status_language": "🌐 界面语言: ",
+          "status_suggestions": "💡 智能建议: ",
+          "status_voice": "🎤 语音功能: ",
+          "enabled": "开启",
+          "disabled": "关闭",
+          "history_title": "📚 会话历史",
+          "no_history": "暂无历史记录",
+          "history_cleared": "✅ 会话历史已清空",
+          "config_title": "⚙️ 当前配置",
+          "query_analysis": "🔍 查询分析: ",
+          "suggestions": "💡 建议: ",
+          "assistant_response": "🤖 助手: ",
+          "confidence": "📊 置信度: ",
+          "source": "📚 来源: ",
+          "processing_time": "⚡ 处理时间: ",
+          "error_processing": "❌ 处理请求时出现错误: ",
+          "error_query": "❌ 处理查询失败: ",
+          "unknown_command": "❌ 未知命令: ",
+          "command_failed": "❌ 执行命令失败: ",
+          "session_saved": "✅ 会话已保存到: ",
+          "session_loaded": "✅ 会话已加载: ",
+          "query_short": "查询较短",
+          "query_long": "查询较长",
+          "query_keywords": "关键词: ",
+          "query_type": "类型: ",
+          "query_type_fact": "事实性问题",
+          "query_type_explanation": "解释性问题",
+          "query_type_comparison": "比较性问题",
+          "query_type_calculation": "计算性问题",
+          "query_type_general": "一般性问题",
+          "suggestion_detail": "查看详细解释",
+          "suggestion_more_detail": "添加更多细节",
+          "suggestion_add_question": "添加问号",
+          "ai_response_template": "这是对\"{query}\"的智能回答。",
+          "ai_error_response": "抱歉，暂时无法处理您的请求。",
+          "ai_error_source": "错误处理"
+        },
+        "en-US": {
+          "welcome_message": "🤖 Intelligent Assistant - Advanced Interactive Interface",
+          "help_hint": "💡 Type /help for help",
+          "exit_hint": "💡 Type /exit to exit",
+          "user_prompt": "👤 You: ",
+          "processing_message": "🤔 Thinking...",
+          "goodbye_message": "👋 Thanks for using, goodbye!",
+          "help_title": "🆘 Help Information",
+          "help_commands": "📝 Quick Commands:",
+          "help_cmd_help": "  /help     - Show help",
+          "help_cmd_status": "  /status   - System status",
+          "help_cmd_history": "  /history  - Session history",
+          "help_cmd_clear": "  /clear    - Clear history",
+          "help_cmd_config": "  /config   - Configuration",
+          "help_cmd_exit": "  /exit     - Exit system",
+          "help_tips": "💡 Usage Tips:",
+          "help_tip_input": "  • Enter questions to get intelligent answers",
+          "help_tip_analysis": "  • System automatically analyzes query types",
+          "help_tip_suggestions": "  • Supports intelligent suggestions and corrections",
+          "status_title": "📊 System Status",
+          "status_start_time": "🕒 Session start time: ",
+          "status_sessions": "💬 Session rounds: ",
+          "status_theme": "🎯 Interface theme: ",
+          "status_language": "🌐 Interface language: ",
+          "status_suggestions": "💡 Smart suggestions: ",
+          "status_voice": "🎤 Voice feature: ",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "history_title": "📚 Session History",
+          "no_history": "No history records yet",
+          "history_cleared": "✅ Session history cleared",
+          "config_title": "⚙️ Current Configuration",
+          "query_analysis": "🔍 Query Analysis: ",
+          "suggestions": "💡 Suggestions: ",
+          "assistant_response": "🤖 Assistant: ",
+          "confidence": "📊 Confidence: ",
+          "source": "📚 Source: ",
+          "processing_time": "⚡ Processing time: ",
+          "error_processing": "❌ Error processing request: ",
+          "error_query": "❌ Failed to process query: ",
+          "unknown_command": "❌ Unknown command: ",
+          "command_failed": "❌ Command execution failed: ",
+          "session_saved": "✅ Session saved to: ",
+          "session_loaded": "✅ Session loaded: ",
+          "query_short": "Query is short",
+          "query_long": "Query is long",
+          "query_keywords": "Keywords: ",
+          "query_type": "Type: ",
+          "query_type_fact": "Factual question",
+          "query_type_explanation": "Explanatory question",
+          "query_type_comparison": "Comparative question",
+          "query_type_calculation": "Calculation question",
+          "query_type_general": "General question",
+          "suggestion_detail": "View detailed explanation",
+          "suggestion_more_detail": "Add more details",
+          "suggestion_add_question": "Add question mark",
+          "ai_response_template": "This is an intelligent answer to \"{query}\".",
+          "ai_error_response": "Sorry, unable to process your request at the moment.",
+          "ai_error_source": "Error handling"
+        }
+      },
+      "internationalization.description": "国际化配置",
+      "timeout": 120
+    },
+    "change_description": "测试动态配置更新",
+    "author": "test_user",
+    "checksum": "074cf9680143829e1926f63e6b0952b7",
+    "parent_version": null
+  },
+  {
+    "version_id": "1b5ff273",
+    "timestamp": "2025-09-07T15:39:20.696738",
+    "config_data": {
+      "citation_level_factors.high": 3,
+      "citation_level_factors.medium": 2,
+      "citation_level_factors.low": 1,
+      "wiki_complexity_multiplier.low": 1.0,
+      "wiki_complexity_multiplier.medium": 1.2,
+      "wiki_complexity_multiplier.high": 1.8,
+      "complexity_weights.chinese": 1.2,
+      "complexity_weights.japanese": 1.2,
+      "complexity_weights.korean": 1.1,
+      "complexity_weights.arabic": 1.1,
+      "complexity_weights.thai": 1.1,
+      "complexity_weights.cyrillic": 1.0,
+      "complexity_weights.devanagari": 1.1,
+      "complexity_weights.latin": 1.0,
+      "complexity_weights.digits": 0.3,
+      "complexity_weights.punctuation": 0.05,
+      "complexity_weights.whitespace": 0.0,
+      "type_definitions.alert_levels": {
+        "INFO": "info",
+        "WARNING": "warning",
+        "ERROR": "error",
+        "CRITICAL": "critical",
+        "description": "告警级别定义"
+      },
+      "type_definitions.alert_status": {
+        "ACTIVE": "active",
+        "ACKNOWLEDGED": "acknowledged",
+        "RESOLVED": "resolved",
+        "description": "告警状态定义"
+      },
+      "type_definitions.component_states": {
+        "REGISTERED": "registered",
+        "INITIALIZING": "initializing",
+        "INITIALIZED": "initialized",
+        "FAILED": "failed",
+        "DISABLED": "disabled",
+        "description": "组件状态定义"
+      },
+      "type_definitions.component_types": {
+        "TOOL": "tool",
+        "SERVICE": "service",
+        "MANAGER": "manager",
+        "INTERFACE": "interface",
+        "description": "组件类型定义"
+      },
+      "type_definitions.message_types": {
+        "TASK_REQUEST": "task_request",
+        "TASK_RESPONSE": "task_response",
+        "DATA_SHARE": "data_share",
+        "STATUS_UPDATE": "status_update",
+        "ERROR_REPORT": "error_report",
+        "COORDINATION_SIGNAL": "coordination_signal",
+        "description": "消息类型定义"
+      },
+      "type_definitions.message_priorities": {
+        "LOW": 1,
+        "NORMAL": 2,
+        "HIGH": 3,
+        "URGENT": 4,
+        "description": "消息优先级定义"
+      },
+      "type_definitions.metric_types": {
+        "COUNTER": "counter",
+        "GAUGE": "gauge",
+        "HISTOGRAM": "histogram",
+        "TIMER": "timer",
+        "description": "指标类型定义"
+      },
+      "complexity_indicators.long_words": {
+        "type": "word_length",
+        "threshold": 6,
+        "description": "长单词数量",
+        "weight": 1.0
+      },
+      "complexity_indicators.technical_terms": {
+        "type": "keyword_match",
+        "keywords": [
+          "technical_terms"
+        ],
+        "description": "技术术语数量",
+        "weight": 1.5
+      },
+      "complexity_indicators.question_count": {
+        "type": "character_count",
+        "character": "?",
+        "description": "问号数量",
+        "weight": 0.8
+      },
+      "complexity_indicators.exclamation_count": {
+        "type": "character_count",
+        "character": "!",
+        "description": "感叹号数量",
+        "weight": 0.8
+      },
+      "complexity_indicators.number_count": {
+        "type": "pattern_count",
+        "pattern": "isdigit",
+        "description": "数字字符数量",
+        "weight": 0.6
+      },
+      "complexity_indicators.capital_count": {
+        "type": "pattern_count",
+        "pattern": "isupper",
+        "description": "大写字母数量",
+        "weight": 0.4
+      },
+      "semantic_categories.question": {
+        "keywords": [
+          "question_keywords"
+        ],
+        "description": "问题类语义",
+        "priority": 1
+      },
+      "semantic_categories.mathematical": {
+        "keywords": [
+          "mathematical_keywords"
+        ],
+        "description": "数学类语义",
+        "priority": 2
+      },
+      "semantic_categories.comparative": {
+        "keywords": [
+          "comparative_keywords"
+        ],
+        "description": "比较类语义",
+        "priority": 3
+      },
+      "semantic_categories.temporal": {
+        "keywords": [
+          "temporal_keywords"
+        ],
+        "description": "时间类语义",
+        "priority": 4
+      },
+      "semantic_categories.spatial": {
+        "keywords": [
+          "spatial_keywords"
+        ],
+        "description": "空间类语义",
+        "priority": 5
+      },
+      "semantic_categories.analytical": {
+        "keywords": [
+          "analytical_keywords"
+        ],
+        "description": "分析类语义",
+        "priority": 6
+      },
+      "semantic_categories.causal": {
+        "keywords": [
+          "causal_keywords"
+        ],
+        "description": "因果类语义",
+        "priority": 7
+      },
+      "semantic_categories.process": {
+        "keywords": [
+          "process_keywords"
+        ],
+        "description": "过程类语义",
+        "priority": 8
+      },
+      "algorithm_parameters": {
+        "description": "算法参数 - 现由自适应算法参数优化器提供",
+        "dynamic_provider": "src.utils.algorithm_parameter_optimizer",
+        "fallback_values": {
+          "performance_metrics_limit": 10000,
+          "recent_scores_window": 10,
+          "older_scores_window": 20,
+          "performance_improvement_threshold": 1.05,
+          "performance_decline_threshold": 0.95,
+          "score_adjustment_factor_up": 1.05,
+          "score_adjustment_factor_down": 0.95,
+          "answer_length_threshold_long": 100,
+          "answer_length_threshold_medium": 50,
+          "answer_length_threshold_short": 20,
+          "answer_length_threshold_min": 10,
+          "sentence_complexity_threshold": 0.7,
+          "confidence_base_score": 0.5,
+          "similarity_boost_factor": 0.2,
+          "time_decay_factor": 0.9,
+          "relevance_weight": 0.3,
+          "accuracy_weight": 0.4,
+          "completeness_weight": 0.3,
+          "min_word_count": 5
+        }
+      },
+      "algorithm_parameters.description": "算法参数配置",
+      "data_structures.chinese_affirmative_words": [
+        "是",
+        "为",
+        "在",
+        "有",
+        "包含",
+        "根据",
+        "基于"
+      ],
+      "data_structures.chinese_relevance_words": [
+        "相关",
+        "关于",
+        "涉及",
+        "有关"
+      ],
+      "data_structures.chinese_uncertainty_words": [
+        "可能",
+        "也许",
+        "大概",
+        "不确定"
+      ],
+      "data_structures.technical_terms": [
+        "系统",
+        "方法",
+        "技术",
+        "研究",
+        "分析",
+        "数据",
+        "历史",
+        "事实",
+        "记录",
+        "档案"
+      ],
+      "data_structures.citation_indicators": [
+        "根据",
+        "来源",
+        "参考",
+        "引用",
+        "据",
+        "from",
+        "according",
+        "based on"
+      ],
+      "data_structures.fallback_indicators": [
+        "fallback_score",
+        "error_code"
+      ],
+      "data_structures.description": "数据结构配置",
+      "cache_settings.default_max_size": 1000,
+      "cache_settings.default_ttl": 300,
+      "cache_settings.max_size_multiplier": 1.5,
+      "cache_settings.ttl_decay_factor": 0.8,
+      "cache_settings.min_ttl": 60,
+      "cache_settings.description": "缓存系统配置",
+      "thread_pool_settings.default_max_workers": 4,
+      "thread_pool_settings.evaluation_max_workers": 4,
+      "thread_pool_settings.scheduler_thread_workers": 4,
+      "thread_pool_settings.scheduler_process_workers": 2,
+      "thread_pool_settings.module_max_workers": 4,
+      "thread_pool_settings.description": "线程池和进程池配置",
+      "internationalization.default_language": "zh-CN",
+      "internationalization.supported_languages": [
+        "zh-CN",
+        "en-US",
+        "ja-JP"
+      ],
+      "internationalization.fallback_language": "en-US",
+      "internationalization.messages": {
+        "zh-CN": {
+          "welcome_message": "🤖 智能化助手 - 高级交互界面",
+          "help_hint": "💡 输入 /help 查看帮助",
+          "exit_hint": "💡 输入 /exit 退出系统",
+          "user_prompt": "👤 您: ",
+          "processing_message": "🤔 正在思考...",
+          "goodbye_message": "👋 感谢使用，再见！",
+          "help_title": "🆘 帮助信息",
+          "help_commands": "📝 快捷命令:",
+          "help_cmd_help": "  /help     - 显示帮助",
+          "help_cmd_status": "  /status   - 系统状态",
+          "help_cmd_history": "  /history  - 会话历史",
+          "help_cmd_clear": "  /clear    - 清空历史",
+          "help_cmd_config": "  /config   - 配置信息",
+          "help_cmd_exit": "  /exit     - 退出系统",
+          "help_tips": "💡 使用提示:",
+          "help_tip_input": "  • 输入问题获取智能回答",
+          "help_tip_analysis": "  • 系统会自动分析查询类型",
+          "help_tip_suggestions": "  • 支持智能建议和纠错",
+          "status_title": "📊 系统状态",
+          "status_start_time": "🕒 会话开始时间: ",
+          "status_sessions": "💬 会话轮数: ",
+          "status_theme": "🎯 界面主题: ",
+          "status_language": "🌐 界面语言: ",
+          "status_suggestions": "💡 智能建议: ",
+          "status_voice": "🎤 语音功能: ",
+          "enabled": "开启",
+          "disabled": "关闭",
+          "history_title": "📚 会话历史",
+          "no_history": "暂无历史记录",
+          "history_cleared": "✅ 会话历史已清空",
+          "config_title": "⚙️ 当前配置",
+          "query_analysis": "🔍 查询分析: ",
+          "suggestions": "💡 建议: ",
+          "assistant_response": "🤖 助手: ",
+          "confidence": "📊 置信度: ",
+          "source": "📚 来源: ",
+          "processing_time": "⚡ 处理时间: ",
+          "error_processing": "❌ 处理请求时出现错误: ",
+          "error_query": "❌ 处理查询失败: ",
+          "unknown_command": "❌ 未知命令: ",
+          "command_failed": "❌ 执行命令失败: ",
+          "session_saved": "✅ 会话已保存到: ",
+          "session_loaded": "✅ 会话已加载: ",
+          "query_short": "查询较短",
+          "query_long": "查询较长",
+          "query_keywords": "关键词: ",
+          "query_type": "类型: ",
+          "query_type_fact": "事实性问题",
+          "query_type_explanation": "解释性问题",
+          "query_type_comparison": "比较性问题",
+          "query_type_calculation": "计算性问题",
+          "query_type_general": "一般性问题",
+          "suggestion_detail": "查看详细解释",
+          "suggestion_more_detail": "添加更多细节",
+          "suggestion_add_question": "添加问号",
+          "ai_response_template": "这是对\"{query}\"的智能回答。",
+          "ai_error_response": "抱歉，暂时无法处理您的请求。",
+          "ai_error_source": "错误处理"
+        },
+        "en-US": {
+          "welcome_message": "🤖 Intelligent Assistant - Advanced Interactive Interface",
+          "help_hint": "💡 Type /help for help",
+          "exit_hint": "💡 Type /exit to exit",
+          "user_prompt": "👤 You: ",
+          "processing_message": "🤔 Thinking...",
+          "goodbye_message": "👋 Thanks for using, goodbye!",
+          "help_title": "🆘 Help Information",
+          "help_commands": "📝 Quick Commands:",
+          "help_cmd_help": "  /help     - Show help",
+          "help_cmd_status": "  /status   - System status",
+          "help_cmd_history": "  /history  - Session history",
+          "help_cmd_clear": "  /clear    - Clear history",
+          "help_cmd_config": "  /config   - Configuration",
+          "help_cmd_exit": "  /exit     - Exit system",
+          "help_tips": "💡 Usage Tips:",
+          "help_tip_input": "  • Enter questions to get intelligent answers",
+          "help_tip_analysis": "  • System automatically analyzes query types",
+          "help_tip_suggestions": "  • Supports intelligent suggestions and corrections",
+          "status_title": "📊 System Status",
+          "status_start_time": "🕒 Session start time: ",
+          "status_sessions": "💬 Session rounds: ",
+          "status_theme": "🎯 Interface theme: ",
+          "status_language": "🌐 Interface language: ",
+          "status_suggestions": "💡 Smart suggestions: ",
+          "status_voice": "🎤 Voice feature: ",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "history_title": "📚 Session History",
+          "no_history": "No history records yet",
+          "history_cleared": "✅ Session history cleared",
+          "config_title": "⚙️ Current Configuration",
+          "query_analysis": "🔍 Query Analysis: ",
+          "suggestions": "💡 Suggestions: ",
+          "assistant_response": "🤖 Assistant: ",
+          "confidence": "📊 Confidence: ",
+          "source": "📚 Source: ",
+          "processing_time": "⚡ Processing time: ",
+          "error_processing": "❌ Error processing request: ",
+          "error_query": "❌ Failed to process query: ",
+          "unknown_command": "❌ Unknown command: ",
+          "command_failed": "❌ Command execution failed: ",
+          "session_saved": "✅ Session saved to: ",
+          "session_loaded": "✅ Session loaded: ",
+          "query_short": "Query is short",
+          "query_long": "Query is long",
+          "query_keywords": "Keywords: ",
+          "query_type": "Type: ",
+          "query_type_fact": "Factual question",
+          "query_type_explanation": "Explanatory question",
+          "query_type_comparison": "Comparative question",
+          "query_type_calculation": "Calculation question",
+          "query_type_general": "General question",
+          "suggestion_detail": "View detailed explanation",
+          "suggestion_more_detail": "Add more details",
+          "suggestion_add_question": "Add question mark",
+          "ai_response_template": "This is an intelligent answer to \"{query}\".",
+          "ai_error_response": "Sorry, unable to process your request at the moment.",
+          "ai_error_source": "Error handling"
+        }
+      },
+      "internationalization.description": "国际化配置",
+      "timeout": 120,
+      "max_workers": 8
+    },
+    "change_description": "测试监听器",
+    "author": "test_user",
+    "checksum": "3988e848e819431b32fe7fcc57b1be3a",
+    "parent_version": "2326a387"
+  }
+]

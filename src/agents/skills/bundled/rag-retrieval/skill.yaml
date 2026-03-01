@@ -1,0 +1,82 @@
+name: rag-retrieval
+version: 1.0.0
+description: "RAG检索优化技能。从知识库中检索相关信息，包括向量检索、关键词检索、混合检索策略。"
+author: rangen
+tags:
+  - rag
+  - retrieval
+  - knowledge
+  - vector
+dependencies: []
+scope: bundled
+
+config:
+  type: retrieval
+  mode: assistive
+  domain: rag
+
+prompt_template: |
+  ## RAG检索技能
+  
+  从知识库中检索相关信息用于回答用户问题。
+  
+  ### 检索策略
+  
+  **1. 向量检索**
+  - 使用语义相似度匹配
+  - 适用于概念理解
+  - 阈值：0.7-0.85
+  
+  **2. 关键词检索**
+  - 精确匹配关键词
+  - 适用于专有名词、术语
+  - 用于过滤或补充
+  
+  **3. 混合检索**
+  - 向量 + 关键词组合
+  - RRF融合排序
+  - 平衡召回率和精确率
+  
+  ### 检索流程
+  
+  1. **查询理解**
+     - 提取核心实体
+     - 识别查询意图
+     - 扩展相关术语
+  
+  2. **检索执行**
+     - 选择合适的检索策略
+     - 设置检索数量(通常5-15条)
+     - 应用过滤条件
+  
+  3. **结果处理**
+     - 相关性排序
+     - 去重处理
+     - 片段拼接
+  
+  ### 常见问题处理
+  
+  | 问题 | 解决方案 |
+  |------|---------|
+  | 召回太低 | 降低阈值，添加同义词 |
+  | 精确太低 | 提高阈值，增加关键词过滤 |
+  | 无结果 | 扩展查询，尝试不同表述 |
+  | 结果重复 | 去重，RRF融合 |
+  
+  ### 检索质量指标
+  
+  - Hit Rate @K: 前K个结果包含相关信息
+  - MRR: 平均倒数排名
+  - NDCG: 归一化折损累积增益
+
+tools:
+  - name: vector_search
+    description: "向量语义检索"
+  - name: keyword_search
+    description: "关键词精确检索"
+  - name: hybrid_search
+    description: "混合检索"
+
+related_skills:
+  - knowledge-query
+  - answer-generation

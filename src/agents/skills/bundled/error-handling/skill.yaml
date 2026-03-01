@@ -1,0 +1,101 @@
+name: error-handling
+version: 1.0.0
+description: "错误处理技能。系统错误处理、异常捕获、错误恢复、降级策略。"
+author: rangen
+tags:
+  - error
+  - exception
+  - recovery
+  - handling
+dependencies: ["validation"]
+scope: bundled
+
+config:
+  type: management
+  mode: assistive
+  domain: system
+
+prompt_template: |
+  ## 错误处理技能
+  
+  系统错误处理、异常捕获、错误恢复。
+  
+  ### 错误分类
+  
+  **1. 可恢复错误**
+  - 网络超时: 重试
+  - 临时不可用: 等待后重试
+  - 资源不足: 等待后重试
+  
+  **2. 不可恢复错误**
+  - 认证失败: 提示用户
+  - 权限不足: 拒绝请求
+  - 格式错误: 返回修正提示
+  
+  **3. 系统错误**
+  - 内存溢出: 清理资源
+  - 死循环: 中断执行
+  - 崩溃: 记录日志，重启
+  
+  ### 错误处理策略
+  
+  **重试机制**
+  | 错误类型 | 重试次数 | 退避策略 |
+  |---------|---------|---------|
+  | 网络超时 | 3次 | 指数退避 |
+  | 临时不可用 | 2次 | 固定延迟 |
+  | 限流 | 5次 | 线性退避 |
+  
+  **降级处理**
+  - 主服务不可用: 使用备用
+  - 外部API失败: 返回缓存
+  - 复杂计算: 简化处理
+  
+  **错误传播**
+  - 底层错误: 转换为用户友好
+  - 敏感信息: 脱敏处理
+  - 堆栈信息: 仅开发环境显示
+  
+  ### 错误响应格式
+  
+  ```json
+  {
+    "success": false,
+    "error": {
+      "code": "ERROR_CODE",
+      "message": "用户友好的错误信息",
+      "details": "技术细节（仅开发环境）",
+      "recoverable": true/false,
+      "retry_after": 5
+    }
+  }
+  ```
+  
+  ### 日志规范
+  
+  | 级别 | 使用场景 |
+  |------|---------|
+  | DEBUG | 调试信息 |
+  | INFO | 正常流程 |
+  | WARNING | 异常但可处理 |
+  | ERROR | 错误需关注 |
+  | CRITICAL | 系统级错误 |
+  
+  ### 最佳实践
+  
+  1. 区分用户错误和系统错误
+  2. 提供清晰的错误信息
+  3. 记录足够的上下文
+  4. 有恢复方案
+
+tools:
+  - name: handle_error
+    description: "处理错误"
+  - name: retry_operation
+    description: "重试操作"
+  - name: degrade_gracefully
+    description: "降级处理"
+
+related_skills:
+  - validation
+  - tool-execution

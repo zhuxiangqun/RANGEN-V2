@@ -1,0 +1,114 @@
+# 文档同步系统配置示例
+
+# ===================================================
+# 示例1: 最小化配置 (只监控核心文档)
+# ===================================================
+minimal_config:
+  monitoring:
+    doc_filter_mode: "selective"  # 选择性监控
+    selective_docs:
+      # 只监控最重要的5个文档
+      - "docs/architecture/accurate_system_analysis.md"
+      - "docs/architecture/comprehensive_optimization_plan.md"
+      - "docs/implementation/chief_agent_unified_architecture_implementation_summary.md"
+      - "docs/usage/system_usage_guide.md"
+      - "docs/documentation_sync_system_guide.md"
+
+# ===================================================
+# 示例2: 标准配置 (按优先级分层监控)
+# ===================================================
+standard_config:
+  monitoring:
+    doc_filter_mode: "categorized"  # 按类别监控
+    categorized_docs:
+      # 高优先级 - 每次代码变更都同步
+      high_priority:
+        - "docs/architecture/accurate_system_analysis.md"
+        - "docs/architecture/comprehensive_optimization_plan.md"
+        - "docs/implementation/chief_agent_unified_architecture_implementation_summary.md"
+        - "docs/usage/system_usage_guide.md"
+        - "docs/documentation_sync_system_guide.md"
+
+      # 中优先级 - 定期同步
+      medium_priority:
+        - "docs/architecture/architecture_layering_refactor_plan.md"
+        - "docs/architecture/intelligent_agent_system_optimization_plan.md"
+        - "docs/implementation/final_completion_report.md"
+        - "docs/implementation/system_agents_inventory.md"
+        - "docs/testing/chief_agent_unified_architecture_test_guide.md"
+
+      # 低优先级 - 按需同步 (默认关闭)
+      low_priority: []
+
+# ===================================================
+# 示例3: 开发配置 (监控架构和实现文档)
+# ===================================================
+development_config:
+  monitoring:
+    doc_filter_mode: "selective"
+    selective_docs:
+      # 架构设计文档
+      - "docs/architecture/*.md"  # 使用通配符匹配所有架构文档
+      # 实现文档
+      - "docs/implementation/chief_agent_unified_architecture_implementation_summary.md"
+      - "docs/implementation/final_completion_report.md"
+      - "docs/implementation/system_agents_inventory.md"
+      # 使用文档
+      - "docs/usage/system_usage_guide.md"
+      - "docs/usage/quick_start.md"
+
+# ===================================================
+# 示例4: 测试配置 (监控测试相关文档)
+# ===================================================
+testing_config:
+  monitoring:
+    doc_filter_mode: "selective"
+    selective_docs:
+      - "docs/testing/*.md"       # 所有测试文档
+      - "docs/implementation/test_*.md"  # 测试相关的实现文档
+      - "docs/fixes/test_*.md"    # 测试修复文档
+      - "docs/troubleshooting/*.md"  # 故障排除文档
+
+# ===================================================
+# 示例5: 运维配置 (监控使用和故障排除文档)
+# ===================================================
+operations_config:
+  monitoring:
+    doc_filter_mode: "selective"
+    selective_docs:
+      - "docs/usage/*.md"         # 所有使用文档
+      - "docs/installation/*.md"  # 安装配置文档
+      - "docs/troubleshooting/*.md"  # 故障排除文档
+      - "docs/tools/*.md"         # 工具使用文档
+
+# ===================================================
+# 示例6: 完整配置 (监控所有文档 - 默认行为)
+# ===================================================
+full_config:
+  monitoring:
+    doc_filter_mode: "all"  # 监控所有文档
+    # 不需要指定selective_docs或categorized_docs
+
+# ===================================================
+# 使用说明
+# ===================================================
+
+# 如何切换配置：
+# 1. 复制相应配置到主配置文件 documentation_sync_config.yaml
+# 2. 根据需要修改文档列表
+# 3. 重启同步系统
+
+# 支持的通配符：
+# - *.md 匹配所有markdown文件
+# - docs/architecture/*.md 匹配architecture目录下的所有markdown文件
+# - docs/*/guide.md 匹配任何子目录下的guide.md文件
+
+# 优先级说明：
+# - selective模式：精确控制每个文档
+# - categorized模式：按优先级分层管理
+# - all模式：监控所有文档（适合小项目）
+
+# 建议配置策略：
+# - 小项目 (< 20个文档): 使用 all 模式
+# - 中等项目 (20-50个文档): 使用 categorized 模式
+# - 大项目 (> 50个文档): 使用 selective 模式，只监控核心文档

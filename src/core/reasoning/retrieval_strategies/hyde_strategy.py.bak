@@ -1,0 +1,287 @@
+
+"""
+HyDE (Hypothetical Document Embeddings) 策略实现
+
+基于RAG_OPTIMIZATION_PLAN.md P0阶段实现：
+- 生成假设性答案文档
+- 使用假设文档的向量进行检索
+- 提高隐含意图的召回率
+支持Relation-Enhanced模式以补偿知识图谱缺失
+"""
+
+import asyncio
+import time
+import logging
+from typing import Dict, List, Any, Optional
+
+from .base_strategy import BaseRetrievalStrategy, RetrievalResult
+
+logger = logging.getLogger(__name__)
+
+
+class HyDEStrategy(BaseRetrievalStrategy):
+    """
+    HyDE检索策略实现
+    
+    实现Hypothetical Document Embeddings策略：
+    1. 使用LLM生成假设性答案文档
+    2. 对假设文档进行向量化
+    3. 使用假设文档向量进行相似度检索
+    4. 返回检索到的真实文档
+    
+    包含"Relation-Enhanced HyDE"以支持无知识图谱场景
+    """
+    
+    def __init__(self, llm_service, knowledge_service, config: Optional[Dict] = None):
+        """
+        初始化HyDE策略
+        
+        Args:
+            llm_service: LLM服务接口
+            knowledge_service: 知识检索服务
+            config: 配置参数
+        """
+        super().__init__(name="hyde", config=config)
+        self.llm = llm_service
+        self.kms = knowledge_service
+        
+        # 标准HyDE提示词模板
+        self.std_prompt_template = (
+            "Please write a concise passage that answers question: {query}\n"
+            "Passage:"
+        )
+        
+        # 关系增强HyDE提示词模板（无知识图谱优化）
+        self.relation_prompt_template = (
+            "Based on this question, please reason about possible information relationships to form a search context:\n"
+            "Question: {query}\n\n"
+            "Please consider:\n"
+            "1. What core entities are involved?\n"
+            "2. What are potential relationships between these entities?\n"
+            "3. What types of evidence are needed?\n"
+            "4. What are the temporal/causal/contrastive relationships?\n\n"
+            "Reasoning Framework (Hypothetical Context):"
+        )
+        
+        # HyDE特定配置
+        self.max_hypothetical_tokens = self.config.get('max_hypothetical_tokens', 300)
+        self.temperature = self.config.get('temperature', 0.3)
+        self.top_k = self.config.get('top_k', 5)
+        self.force_rerank = self.config.get('force_rerank', True)
+        self.context_expansion_beta_threshold = self.config.get('context_expansion_beta_threshold', 1.3)
+        
+        self.logger.info("HyDE策略初始化完成")
+    
+    async def execute(self, query: str, context: Dict[str, Any]) -> RetrievalResult:
+        """
+        执行HyDE检索策略
+        
+        Args:
+            query: 原始查询
+            context: 上下文信息，包含beta参数等
+            
+        Returns:
+            检索结果
+        """
+        start_time = time.time()
+        
+try:
+            # 步骤1: 生成假设性文档
+            # P3优化: 优先使用Phi-3预生成的HyDE文档
+            phi3_generated = context.get("hyde_context", {}).get("phi3_generated")
+            if phi3_generated:
+                hypothetical_doc = phi3_generated
+                self.logger.info("HyDE策略: 复用Phi-3预生成的假设文档 (Skip LLM Call)")
+            else:
+                # 单独处理LLM调用，避免异常阻止fallback
+                try:
+                    hypothetical_doc = await self._generate_hypothetical_document(
+                        query, use_relation_enhanced
+                    )
+                except Exception as llm_e:
+                    self.logger.error(f"LLM生成假设文档异常: {llm_e}")
+                    # LLM异常时仍尝试fallback
+                    return await self._fallback_retrieval(query, context, start_time)
+                
+                if not hypothetical_doc:
+                    self.logger.warning("假设文档生成失败（LLM返回空），回退到普通检索")
+                    return await self._fallback_retrieval(query, context, start_time)
+            
+            self.logger.info(f"生成假设文档: {hypothetical_doc[:100]}...")
+            
+            # 步骤2: 使用假设文档进行检索
+            search_results = await self._retrieve_with_hypothetical_document(
+                query, hypothetical_doc, use_relation_enhanced
+            )
+            
+            execution_time = time.time() - start_time
+            
+            self.logger.info(f"HyDE策略执行完成，耗时: {execution_time:.2f}秒，检索到{len(search_results)}个文档")
+            
+            return RetrievalResult(
+                documents=search_results,
+                strategy_name=self.name,
+                execution_time=execution_time,
+                metadata={
+                    "original_query": query,
+                    "hypothetical_document": hypothetical_doc,
+                    "beta": beta,
+                    "mode": "relation_enhanced" if use_relation_enhanced else "standard",
+                    "context_expansion": use_relation_enhanced,
+                    "top_k": self.top_k
+                },
+                success=True
+            )
+            
+        except Exception as e:
+            self.logger.error(f"HyDE策略执行失败: {e}")
+            return RetrievalResult.from_error("hyde", str(e))
+    
+    async def _generate_hypothetical_document(
+        self, query: str, use_relation_enhanced: bool = False
+    ) -> Optional[str]:
+        """生成假设性文档"""
+        try:
+            if use_relation_enhanced:
+                prompt = self.relation_prompt_template.format(query=query)
+                max_tokens = self.max_hypothetical_tokens
+            else:
+                prompt = self.std_prompt_template.format(query=query)
+                max_tokens = self.max_hypothetical_tokens // 2  # 标准模式使用更少token
+            
+            hypothetical_doc = await self.llm.generate(
+                prompt=prompt,
+                temperature=self.temperature,
+                max_tokens=max_tokens
+            )
+            
+            if hypothetical_doc and len(hypothetical_doc.strip()) > 10:
+                return hypothetical_doc.strip()
+            else:
+                self.logger.warning("生成的假设文档为空或过短")
+                return None
+                
+        except Exception as e:
+            self.logger.error(f"生成假设文档失败: {e}")
+            return None
+    
+    async def _retrieve_with_hypothetical_document(
+        self,
+        original_query: str,
+        hypothetical_doc: str,
+        use_relation_enhanced: bool
+    ) -> List[Dict[str, Any]]:
+        """使用假设文档进行检索"""
+        try:
+            # 构建检索参数
+            top_k = self.top_k
+            
+            # 如果存在原子接口，优先使用
+            if hasattr(self.kms, 'search_vector'):
+                # search_vector通常不支持expand_context
+                search_results = await self.kms.search_vector(
+                    hypothetical_doc, top_k=top_k
+                )
+            else:
+                # 使用完整的query_knowledge接口
+                search_results = self.kms.query_knowledge(
+                    query=hypothetical_doc,
+                    top_k=top_k,
+                    expand_context=use_relation_enhanced,  # 为增强模式启用Small-to-Big
+                    use_rerank=self.force_rerank
+                )
+            
+            # 标准化结果格式
+            if isinstance(search_results, list):
+                return search_results
+            elif isinstance(search_results, dict) and "documents" in search_results:
+                return search_results["documents"]
+            else:
+                self.logger.warning(f"未知的检索结果格式: {type(search_results)}")
+                return []
+                
+        except Exception as e:
+            self.logger.error(f"假设文档检索失败: {e}")
+            raise
+    
+    async def _fallback_retrieval(
+        self,
+        query: str,
+        context: Dict[str, Any],
+        start_time: float
+    ) -> RetrievalResult:
+        """回退到普通检索"""
+        try:
+            self.logger.info("执行回退检索策略")
+            
+            # 使用原始查询进行普通检索
+            if hasattr(self.kms, 'search_vector'):
+                search_results = await self.kms.search_vector(query, top_k=self.top_k)
+            else:
+                search_results = self.kms.query_knowledge(
+                    query=query,
+                    top_k=self.top_k,
+                    use_rerank=self.force_rerank
+                )
+            
+            # 标准化结果格式
+            if isinstance(search_results, list):
+                documents = search_results
+            elif isinstance(search_results, dict) and "documents" in search_results:
+                documents = search_results["documents"]
+            else:
+                documents = []
+            
+            execution_time = time.time() - start_time
+            
+            return RetrievalResult(
+                documents=documents,
+                strategy_name="hyde_fallback",
+                execution_time=execution_time,
+                metadata={
+                    "original_query": query,
+                    "fallback_reason": "hypothetical_document_generation_failed",
+                    "beta": context.get("beta", 1.0)
+                },
+                success=len(documents) > 0  # 只有当检索到文档时才认为成功
+            )
+            
+        except Exception as e:
+            self.logger.error(f"回退检索也失败了: {e}")
+            return RetrievalResult.from_error("hyde_fallback", str(e))
+    
+    def _update_instance_attributes(self, new_config: Dict[str, Any]) -> None:
+        """更新HyDE特定实例属性"""
+        if 'temperature' in new_config:
+            self.temperature = new_config['temperature']
+        if 'max_hypothetical_tokens' in new_config:
+            self.max_hypothetical_tokens = new_config['max_hypothetical_tokens']
+        if 'top_k' in new_config:
+            self.top_k = new_config['top_k']
+        if 'force_rerank' in new_config:
+            self.force_rerank = new_config['force_rerank']
+        if 'context_expansion_beta_threshold' in new_config:
+            self.context_expansion_beta_threshold = new_config['context_expansion_beta_threshold']
+    
+    def get_strategy_info(self) -> Dict[str, Any]:
+        """获取策略信息"""
+        return {
+            "name": self.name,
+            "description": "HyDE (Hypothetical Document Embeddings) 检索策略",
+            "version": "1.0.0",
+            "config": self.config,
+            "capabilities": [
+                "hypothetical_document_generation",
+                "vector_search_with_hypothetical_embeddings",
+                "relation_enhanced_mode",
+                "context_expansion",
+                "rerank_enhancement",
+                "fallback_retrieval",
+                "phi3_integration"
+            ],
+            "enabled": self.enabled
+        }
+
+
+# 向后兼容性别名
+MinimalHyDEStrategy = HyDEStrategy

@@ -1,0 +1,84 @@
+name: reasoning-chain
+version: 1.0.0
+description: "推理链构建技能。构建多步推理链，处理复杂问题，包括CoT、ToT等推理策略。"
+author: rangen
+tags:
+  - reasoning
+  - chain
+  - logic
+  - cot
+dependencies: ["query-analysis"]
+scope: bundled
+
+config:
+  type: reasoning
+  mode: assistive
+  domain: ai
+
+prompt_template: |
+  ## 推理链构建技能
+  
+  构建多步推理链，处理复杂问题。
+  
+  ### 推理模式
+  
+  **1. Chain of Thought (CoT)**
+  - 逐步思考
+  - 中间步骤可见
+  - 适用于复杂推理
+  
+  **2. Tree of Thought (ToT)**
+  - 多路径探索
+  - 评估选择
+  - 适用于需要探索的问题
+  
+  **3. ReAct**
+  - 推理 + 行动交替
+  - 工具使用
+  - 适用于需要外部信息的推理
+  
+  ### 推理流程
+  
+  **问题分析**
+  1. 识别问题类型
+  2. 确定需要的知识
+  3. 规划推理步骤
+  
+  **推理执行**
+  1. 执行第一步推理
+  2. 验证中间结论
+  3. 继续下一步
+  4. 直至得出最终答案
+  
+  **结果验证**
+  1. 检查结论合理性
+  2. 回溯推理过程
+  3. 识别潜在错误
+  
+  ### 复杂问题处理
+  
+  | 问题类型 | 策略 |
+  |---------|------|
+  | 多跳问题 | 分解为单跳，逐步推理 |
+  | 条件问题 | 先处理条件，再推理结论 |
+  | 比较问题 | 分别分析，再对比 |
+  | 因果问题 | 识别原因和结果 |
+  
+  ### 推理质量标准
+  
+  - **有效性**: 结论由前提必然推出
+  - **可靠性**: 前提真实可靠
+  - **完整性**: 覆盖所有相关因素
+  - **透明性**: 推理过程可解释
+
+tools:
+  - name: cot_reasoning
+    description: "思维链推理"
+  - name: tot_reasoning
+    description: "思维树推理"
+  - name: react_reasoning
+    description: "推理+行动模式"
+
+related_skills:
+  - query-analysis
+  - tool-execution

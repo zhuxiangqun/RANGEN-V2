@@ -1,0 +1,11 @@
+{
+  "embedding": {
+    "dimension": 384,
+    "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "device": "cpu"
+  },
+  "faiss": {
+    "index_type": "flat",
+    "similarity_threshold": 0.6
+  }
+}

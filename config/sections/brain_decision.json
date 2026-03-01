@@ -1,0 +1,14 @@
+{
+  "name": "brain_decision",
+  "config": {
+    "nTc_threshold": 0.8,
+    "evidence_accumulation_timeout": 30.0,
+    "commitment_lock_duration": 5.0,
+    "dynamic_threshold_adjustment": true,
+    "orthogonal_jump_threshold": 0.7,
+    "max_trajectory_points": 100
+  },
+  "description": "brain_decision配置",
+  "last_updated": 1760878947.451185,
+  "version": "1.0.0"
+}

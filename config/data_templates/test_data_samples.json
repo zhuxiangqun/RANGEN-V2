@@ -1,0 +1,29 @@
+{
+  "name": "test_data_samples",
+  "template_type": "test_data",
+  "config": {
+    "sample_count": 100,
+    "data_types": [
+      "string",
+      "number",
+      "boolean",
+      "array",
+      "object"
+    ],
+    "string_length_range": [
+      5,
+      50
+    ],
+    "number_range": [
+      0,
+      1000
+    ],
+    "array_length_range": [
+      1,
+      10
+    ]
+  },
+  "description": "测试数据样本模板",
+  "created_at": 1760879087.593287,
+  "updated_at": 1760879087.593288
+}

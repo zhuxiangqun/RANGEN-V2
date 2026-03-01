@@ -1,0 +1,66 @@
+name: fact-check
+version: 1.0.0
+description: "Verify claims in generated output against sources. Use as a separate pass AFTER content generation to catch hallucinations."
+author: jwynia
+tags:
+  - research
+  - verification
+  - quality
+  - diagnostic
+dependencies: ["web-search"]
+scope: bundled
+
+config:
+  type: diagnostic
+  mode: evaluative
+  domain: research
+
+prompt_template: |
+  ## Fact-Check Skill
+  
+  Systematic verification of claims in generated content.
+  
+  ### The Problem:
+  LLMs generate plausible-sounding content by predicting what should come next. This produces hallucinations—confident statements that feel true but aren't.
+  
+  ### Solution:
+  Verification must be a separate cognitive pass with:
+  - Fresh attention focused on each claim
+  - Explicit source checking
+  - Adversarial stance toward content
+  
+  ### Diagnostic States:
+  
+  **F1: No Verification Pass**
+  - Risk: Hallucinations pass through undetected
+  - Fix: Run verification pass before delivery
+  
+  **F2: Self-Verification (Invalid)**
+  - Risk: False confidence
+  - Fix: Complete generation first, then run separate verification
+  
+  **F3: Memory-Based Verification (Unreliable)**
+  - Risk: Hallucinations verified by hallucinated knowledge
+  - Fix: Require explicit source citation
+  
+  **F4: Selective Verification**
+  - Risk: Unchecked claims may contain errors
+  - Fix: Extract ALL claims systematically
+  
+  **F5: Verification Complete**
+  - All claims extracted, checked against sources
+  - Confidence levels assigned
+  
+  ### Verification Process:
+  1. Extract ALL verifiable claims from content
+  2. For each claim, search for supporting sources
+  3. Mark claims as: Verified | Unverified | Conflicting
+  4. Assign confidence levels
+  5. Present findings with sources
+
+tools: []
+
+related_skills:
+  - web-search
+  - research-workflow
+  - claim-investigation

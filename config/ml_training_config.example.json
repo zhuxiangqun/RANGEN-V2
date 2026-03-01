@@ -1,0 +1,27 @@
+{
+  "ml_training": {
+    "data_collection_enabled": true,
+    "data_storage_path": "data/ml_training",
+    "parallel_classifier_enabled": true,
+    "parallel_classifier": {
+      "threshold": 0.5,
+      "model_path": null
+    },
+    "confidence_estimator": {
+      "enabled": false,
+      "model_path": null
+    },
+    "logic_parser": {
+      "enabled": false,
+      "model_path": null
+    },
+    "training": {
+      "enabled": false,
+      "schedule": "weekly",
+      "min_samples": 100,
+      "batch_size": 32,
+      "epochs": 10
+    }
+  }
+}
+

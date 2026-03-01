@@ -1,0 +1,90 @@
+name: query-analysis
+version: 1.0.0
+description: "查询分析技能。分析用户查询，识别意图，分解复杂查询，生成检索策略。"
+author: rangen
+tags:
+  - query
+  - analysis
+  - intent
+  - nlp
+dependencies: []
+scope: bundled
+
+config:
+  type: analysis
+  mode: assistive
+  domain: nlp
+
+prompt_template: |
+  ## 查询分析技能
+  
+  分析用户查询，理解意图，分解复杂查询。
+  
+  ### 查询类型识别
+  
+  **1. 事实型查询**
+  - 寻求具体答案
+  - Who, What, When, Where
+  - 需要精确检索
+  
+  **2. 解释型查询**
+  - 寻求概念理解
+  - Why, How
+  - 需要综合多源信息
+  
+  **3. 列表型查询**
+  - 寻求多个项目
+  - 列出XXX
+  - 需要广度优先检索
+  
+  **4. 比较型查询**
+  - 对比两个或多个实体
+  - 区别/比较
+  - 需要多角度检索
+  
+  **5. 评估型查询**
+  - 寻求意见或评价
+  - 最好/推荐
+  - 需要权威来源
+  
+  ### 查询分解策略
+  
+  **简单查询**
+  - 直接检索
+  - 无需分解
+  
+  **复合查询**
+  - 识别子问题
+  - 分别检索
+  - 合并结果
+  
+  **多跳查询**
+  - 识别推理链
+  - 逐步检索
+  - 链式推理
+  
+  ### 实体识别
+  
+  - 人名、机构名
+  - 时间、日期
+  - 地点、专业术语
+  - 专有名词
+  
+  ### 查询优化技巧
+  
+  1. 添加领域限定词
+  2. 使用同义词扩展
+  3. 添加时间范围
+  4. 识别否定词处理
+
+tools:
+  - name: classify_query
+    description: "识别查询类型"
+  - name: extract_entities
+    description: "提取查询实体"
+  - name: decompose_query
+    description: "分解复杂查询"
+
+related_skills:
+  - rag-retrieval
+  - reasoning-chain

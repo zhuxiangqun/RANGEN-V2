@@ -1,0 +1,89 @@
+2025-08-16 10:43:00,024 - __main__ - INFO - 🚀 启动优化的准确度评测系统
+2025-08-16 10:43:00,029 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 10:43:00,029 - __main__ - INFO - 🚀 开始全面准确度评测...
+2025-08-16 10:43:00,030 - __main__ - INFO - 🚀 初始化研究系统...
+2025-08-16 10:43:00,132 - intelligent_config - INFO - ✅ 统一配置管理中心初始化完成
+2025-08-16 10:43:00,134 - src.research_system_improved_v8 - INFO - 🔧 初始化基本组件
+2025-08-16 10:43:00,134 - src.research_system_improved_v8 - INFO - ✅ 配置管理器已整合到统一配置管理中心
+2025-08-16 10:43:00,134 - src.research_system_improved_v8 - INFO - ✅ 智能学习系统初始化完成
+2025-08-16 10:43:00,134 - src.research_system_improved_v8 - INFO - ✅ 移除独立FAISS内存系统，将使用知识检索智能体的FAISS
+2025-08-16 10:43:00,134 - src.research_system_improved_v8 - INFO - ✅ 跳过Wiki处理器初始化，将使用FRAMES数据集wikilink内容
+2025-08-16 10:43:00,134 - src.research_system_improved_v8 - INFO - ✅ 基本组件初始化完成
+2025-08-16 10:43:00,134 - src.research_system_improved_v8 - INFO - 系统基础初始化完成，智能体和知识库将按需初始化
+2025-08-16 10:43:00,134 - __main__ - INFO - ✅ 研究系统初始化完成
+2025-08-16 10:43:00,134 - __main__ - INFO - ✅ 加载测试查询完成，共 20 个查询
+2025-08-16 10:43:00,134 - __main__ - INFO - 📊 开始评测类别: 基础查询 (5 个查询)
+2025-08-16 10:43:00,134 - __main__ - INFO - 处理批次 1/1
+2025-08-16 10:43:00,135 - src.research_system_improved_v8 - INFO - 🚀 开始智能研究任务: 什么是人工智能？
+2025-08-16 10:43:00,135 - src.research_system_improved_v8 - WARNING - ⚠️ 核心组件 {component_name} 不可用
+2025-08-16 10:43:00,135 - src.research_system_improved_v8 - WARNING - ⚠️ 核心组件 {component_name} 不可用
+2025-08-16 10:43:00,135 - src.research_system_improved_v8 - WARNING - ⚠️ 核心组件 {component_name} 不可用
+2025-08-16 10:43:00,135 - src.research_system_improved_v8 - WARNING - ⚠️ 核心组件 {component_name} 不可用
+2025-08-16 10:43:00,135 - src.research_system_improved_v8 - ERROR - 验证核心组件失败: 'UnifiedConfigCenter' object has no attribute 'get_parameter'
+2025-08-16 10:43:00,135 - src.research_system_improved_v8 - WARNING - ⚠️ 核心组件不完整，进行智能初始化
+2025-08-16 10:43:00,135 - src.research_system_improved_v8 - INFO - 🔄 开始智能组件恢复...
+2025-08-16 10:43:00,136 - src.research_system_improved_v8 - INFO - 🔧 尝试恢复LLM客户端...
+2025-08-16 10:43:00,375 - src.utils.deepseek_client - INFO - DeepSeek客户端初始化完成，模型: deepseek-reasoner
+2025-08-16 10:43:00,375 - src.research_system_improved_v8 - INFO - ✅ DeepSeek LLM客户端初始化完成
+2025-08-16 10:43:00,375 - src.research_system_improved_v8 - INFO - ✅ LLM客户端恢复成功
+2025-08-16 10:43:00,375 - src.research_system_improved_v8 - INFO - 🔧 尝试恢复知识检索智能体...
+2025-08-16 10:43:00,475 - src.agents.enhanced_knowledge_retrieval_agent - INFO - ✅ 统一配置管理中心初始化成功
+2025-08-16 10:43:00,481 - src.config.model_config - INFO - 模型配置加载完成: 维度={self.embedding_dimension}
+2025-08-16 10:43:00,483 - faiss.loader - INFO - Loading faiss.
+2025-08-16 10:43:00,584 - faiss.loader - INFO - Successfully loaded faiss.
+2025-08-16 10:43:00,590 - faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-08-16 10:43:00,590 - memory.enhanced_faiss - INFO - 📁 索引文件不存在，将创建新索引
+2025-08-16 10:43:00,591 - memory.enhanced_faiss - INFO - 🆕 创建新的FAISS索引，维度: 384
+2025-08-16 10:43:00,591 - memory.enhanced_faiss - INFO - 🔄 预加载任务已调度
+2025-08-16 10:43:00,591 - src.agents.enhanced_knowledge_retrieval_agent - INFO - ✅ FAISS内存系统初始化成功
+2025-08-16 10:43:00,591 - src.agents.enhanced_knowledge_retrieval_agent - INFO - 增强知识检索智能体初始化完成，使用统一工具
+2025-08-16 10:43:00,591 - src.research_system_improved_v8 - INFO - ✅ 知识检索智能体恢复成功
+2025-08-16 10:43:00,591 - src.research_system_improved_v8 - INFO - 🔧 尝试恢复推理智能体...
+2025-08-16 10:43:00,692 - src.agents.enhanced_reasoning_agent - INFO - ✅ 统一配置管理中心初始化成功
+2025-08-16 10:43:00,692 - src.agents.enhanced_reasoning_agent - INFO - 答案生成配置加载完成: max_iterations=5, timeout=300
+2025-08-16 10:43:00,692 - src.research_system_improved_v8 - INFO - ✅ 推理智能体恢复成功
+2025-08-16 10:43:00,692 - src.research_system_improved_v8 - INFO - 🔧 尝试恢复答案生成智能体...
+2025-08-16 10:43:00,692 - src.research_system_improved_v8 - INFO - ✅ 答案生成智能体恢复成功
+2025-08-16 10:43:00,693 - src.research_system_improved_v8 - INFO - 🔄 智能组件恢复完成
+2025-08-16 10:43:00,693 - src.research_system_improved_v8 - INFO - 🔍 步骤1: 智能查询分析
+2025-08-16 10:43:00,693 - src.research_system_improved_v8 - INFO - 🎯 步骤2: 智能策略生成
+2025-08-16 10:43:00,693 - src.research_system_improved_v8 - INFO - 📚 步骤3: 智能知识检索
+2025-08-16 10:43:00,694 - src.research_system_improved_v8 - WARNING - ⚠️ 知识检索异常: {e}
+2025-08-16 10:43:00,694 - src.research_system_improved_v8 - INFO - 🔄 执行智能知识检索降级策略
+2025-08-16 10:43:00,694 - src.agents.enhanced_knowledge_retrieval_agent - INFO - 开始知识检索: 什么是人工智能？...
+2025-08-16 10:43:00,737 - src.agents.enhanced_knowledge_retrieval_agent - INFO - 🎯 智能检索参数: top_k=10, threshold=0.500, complexity=0.100
+2025-08-16 10:43:00,739 - src.utils.performance_optimizer - INFO - ✅ tracemalloc已启用
+2025-08-16 10:43:00,739 - src.utils.performance_optimizer - INFO - ✅ psutil已启用，支持内存监控
+2025-08-16 10:43:00,739 - src.agents.enhanced_knowledge_retrieval_agent - INFO - 📊 正常模式 - 批处理阈值: 50（已提高门槛）
+2025-08-16 10:43:00,739 - src.agents.enhanced_knowledge_retrieval_agent - INFO - 使用FAISS内存系统进行知识检索
+2025-08-16 10:43:00,739 - memory.enhanced_faiss - WARNING - 索引未初始化或知识库为空
+2025-08-16 10:43:00,739 - src.agents.enhanced_knowledge_retrieval_agent - INFO - FAISS内存返回空结果
+2025-08-16 10:43:00,739 - src.agents.enhanced_knowledge_retrieval_agent - INFO - 📊 数据量适中（10条），直接检索，不使用批处理
+2025-08-16 10:43:00,739 - src.agents.enhanced_knowledge_retrieval_agent - INFO - 使用FRAMES数据集wikilink内容进行知识检索
+2025-08-16 10:43:00,739 - memory.enhanced_faiss - WARNING - 索引未初始化或知识库为空
+2025-08-16 10:43:00,739 - src.agents.enhanced_knowledge_retrieval_agent - INFO - FAISS wikilink知识检索无结果
+2025-08-16 10:43:00,740 - src.agents.enhanced_knowledge_retrieval_agent - INFO - FRAMES wikilink知识检索无结果
+2025-08-16 10:43:00,740 - src.agents.enhanced_knowledge_retrieval_agent - INFO - 🔍 向量检索无直接结果，启用智能知识生成策略...
+2025-08-16 10:43:00,740 - src.agents.enhanced_knowledge_retrieval_agent - INFO - 🧠 智能合成了 1 条知识
+2025-08-16 10:43:00,740 - src.agents.enhanced_knowledge_retrieval_agent - INFO - ✅ 智能合成了 1 条相关知识
+2025-08-16 10:43:00,740 - src.agents.enhanced_knowledge_retrieval_agent - INFO - 知识检索完成，共找到 1 条知识
+2025-08-16 10:43:00,740 - src.research_system_improved_v8 - INFO - ✅ 简化检索策略成功
+2025-08-16 10:43:00,740 - src.research_system_improved_v8 - INFO - 🧠 步骤4: 智能推理分析
+2025-08-16 10:43:00,741 - src.research_system_improved_v8 - INFO - 🕒 智能超时设置: 30.0秒 (复杂度: 0.10)
+2025-08-16 10:43:00,741 - src.research_system_improved_v8 - INFO - 🔍 标准查询，使用常规推理模式
+2025-08-16 10:43:00,741 - src.research_system_improved_v8 - INFO - 🔄 按需初始化智能体...
+2025-08-16 10:43:00,761 - src.research_system_improved_v8 - ERROR - 智能体初始化失败: No module named 'rl'
+2025-08-16 10:43:00,761 - src.research_system_improved_v8 - INFO - ✅ 智能体初始化完成
+2025-08-16 10:43:00,762 - src.research_system_improved_v8 - ERROR - 安全推理执行失败: 推理智能体未初始化或不可用
+2025-08-16 10:43:00,762 - src.research_system_improved_v8 - WARNING - ⚠️ 推理分析出现异常: {e}
+2025-08-16 10:43:00,762 - src.research_system_improved_v8 - INFO - 🔄 执行智能推理降级策略
+2025-08-16 10:43:00,762 - src.research_system_improved_v8 - INFO - ✅ 智能降级推理完成，置信度: {confidence:.2f}
+2025-08-16 10:43:00,762 - src.research_system_improved_v8 - INFO - ✍️ 步骤5: 智能答案生成
+2025-08-16 10:43:00,763 - src.utils.performance_monitor - INFO - 性能监控线程已启动
+2025-08-16 10:43:00,763 - src.utils.performance_monitor - INFO - 性能监控系统初始化完成
+2025-08-16 10:43:00,763 - src.utils.performance_monitor - INFO - 智能体 EnhancedReasoningAgent 已注册到性能监控系统
+2025-08-16 11:08:23,928 - src.research_system_improved_v8 - INFO - ✅ 缓存清理完成
+2025-08-16 11:08:24,497 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 11:08:24,519 - src.utils.evaluation_timeout_manager - INFO - 🧹 强制清理所有资源...
+2025-08-16 11:08:24,545 - src.utils.evaluation_timeout_manager - INFO - ✅ 资源清理完成
+2025-08-16 11:08:24,569 - src.utils.evaluation_timeout_manager - INFO - ✅ 超时管理器资源清理完成

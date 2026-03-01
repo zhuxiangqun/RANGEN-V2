@@ -1,0 +1,47 @@
+name: web-search
+version: 1.0.0
+description: "Search the web using the agent's built-in WebSearch tool. Use when you need to find current information, verify facts, or research topics."
+author: jwynia
+tags:
+  - research
+  - web
+  - search
+  - utility
+dependencies: []
+scope: bundled
+
+# Skill configuration
+config:
+  mode: generative
+  domain: research
+  
+# Prompt template for this skill
+prompt_template: |
+  ## Web Search Skill
+  
+  You can search the web using the WebSearch tool.
+  
+  ### When to Use:
+  - Finding current information not in your training data
+  - Verifying facts or finding sources
+  - Research requires real-time web data
+  
+  ### Effective Query Strategies:
+  - Be specific: "React 19 useActionState hook tutorial" instead of "react hooks"
+  - Include year: "TypeScript best practices 2025"
+  - Use domain-specific terms: "web performance optimization Core Web Vitals"
+  
+  ### Output:
+  After receiving search results:
+  1. Cite sources - Always include URLs
+  2. Synthesize - Combine information from multiple results
+  3. Verify - Cross-reference claims across sources
+
+# Tool schemas if this skill provides tools
+tools: []
+
+# Related skills
+related_skills:
+  - web-search-tavily
+  - research-workflow
+  - fact-check

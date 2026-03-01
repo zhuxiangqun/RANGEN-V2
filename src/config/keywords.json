@@ -1,0 +1,63 @@
+{
+  "question": {
+    "base_keywords": [
+      "什么",
+      "如何",
+      "为什么",
+      "哪里",
+      "什么时候",
+      "谁",
+      "what",
+      "how",
+      "why",
+      "where",
+      "when",
+      "who"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "analysis": {
+    "base_keywords": [
+      "分析",
+      "解释",
+      "原因",
+      "影响",
+      "探讨",
+      "研究",
+      "analyze",
+      "explain",
+      "reason",
+      "impact",
+      "study",
+      "research"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {
+      "technical": [
+        "性能",
+        "架构",
+        "优化",
+        "复杂度"
+      ]
+    },
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "calculation": {
+    "base_keywords": [],
+    "learned_keywords": [],
+    "domain_specific": {
+      "technical": [
+        "算法",
+        "空间",
+        "时间",
+        "复杂度"
+      ]
+    },
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  }
+}

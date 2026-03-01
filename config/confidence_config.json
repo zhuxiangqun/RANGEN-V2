@@ -1,0 +1,91 @@
+{
+  "confidence_thresholds": {
+    "default": 0.5,
+    "low": 0.4,
+    "medium": 0.6,
+    "high": 0.7,
+    "very_high": 0.8,
+    "high_plus": 0.75,
+    "minimum": 0.3,
+    "threshold": 0.6,
+    "uncertainty": 0.3,
+    "algorithmic_base": 0.3,
+    "fallback_base": 0.4,
+    "success_rate": 0.6,
+    "accuracy": 0.7,
+    "quality": 0.5,
+    "verified": 0.6,
+    "unverified": 0.3,
+    "learning": 0.7,
+    "citation": 0.6,
+    "error": 0.3,
+    "memory": 0.7,
+    "base": 0.5,
+    "length_factor": 0.2,
+    "density_factor": 0.2,
+    "temperature_factor": 0.2,
+    "min": 0.3,
+    "max": 0.9
+  },
+  "dynamic_adjustment": {
+    "enabled": true,
+    "learning_rate": 0.01,
+    "adaptation_threshold": 0.05,
+    "performance_window": 20,
+    "context_sensitivity": 0.8,
+    "system_load_adjustment": true,
+    "memory_usage_adjustment": true
+  },
+  "context_rules": {
+    "query_complexity": {
+      "low": {
+        "confidence_multiplier": 1.1,
+        "threshold_adjustment": 0.05
+      },
+      "medium": {
+        "confidence_multiplier": 1.0,
+        "threshold_adjustment": 0.0
+      },
+      "high": {
+        "confidence_multiplier": 0.9,
+        "threshold_adjustment": -0.05
+      }
+    },
+    "query_type": {
+      "factual": {
+        "confidence_multiplier": 1.1,
+        "threshold_adjustment": 0.05
+      },
+      "analytical": {
+        "confidence_multiplier": 1.0,
+        "threshold_adjustment": 0.0
+      },
+      "comparative": {
+        "confidence_multiplier": 0.95,
+        "threshold_adjustment": -0.02
+      }
+    },
+    "system_load": {
+      "low": {
+        "confidence_multiplier": 1.05,
+        "threshold_adjustment": 0.02
+      },
+      "medium": {
+        "confidence_multiplier": 1.0,
+        "threshold_adjustment": 0.0
+      },
+      "high": {
+        "confidence_multiplier": 0.95,
+        "threshold_adjustment": -0.03
+      }
+    }
+  },
+  "config_source": "dynamic_confidence_config.json",
+  "last_updated": "2025-08-11",
+  "description": "智能动态置信度配置文件，支持上下文感知和自适应调整",
+  "metadata": {
+    "last_optimized": "2025-09-08T19:19:31.899081",
+    "optimizer_version": "1.0.0",
+    "optimization_count": 0
+  }
+}

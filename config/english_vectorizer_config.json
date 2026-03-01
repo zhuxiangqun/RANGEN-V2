@@ -1,0 +1,16 @@
+{
+  "model_type": "sentence_transformers",
+  "model_name": "all-mpnet-base-v2",
+  "language": "english",
+  "vector_dimension": 768,
+  "max_seq_length": 512,
+  "embedding_cache_ttl": 86400,
+  "fallback_to_jina": true,
+  "jina_model": "jina-embeddings-v3",
+  "local_files_only": false,
+  "use_hf_mirror": true,
+  "hf_endpoint": "https://hf-mirror.com",
+  "batch_size": 32,
+  "normalize_embeddings": true,
+  "device": "auto"
+}

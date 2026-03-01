@@ -1,0 +1,79 @@
+sequenceDiagram
+    title ReAct Agent 详细处理流程
+    participant Client as Client/API
+    participant Router as Configurable Router
+    participant Context as ContextManager
+    participant ReAct as ReAct Agent
+    participant Exec as ExecutionCoordinator
+    participant Tools as ToolRegistry
+    participant KMS as KMS API
+    participant Monitor as Perf/Error Monitor
+
+    Note over Client,Monitor: ==== 阶段1: 请求接收与路由 ====
+    Client->>Router: 查询请求(query, session_id)
+    activate Router
+
+    Router->>Context: 缓存查询(get_cache)
+    activate Context
+    Context-->>Router: 返回缓存结果(null或数据)
+    deactivate Context
+
+    alt 缓存命中
+        Router-->>Client: 直接返回缓存答案
+        Note over Router: 快速路径结束
+    else 缓存未命中
+        Router->>ReAct: 启动ReAct处理(query)
+        activate ReAct
+
+        Note over ReAct,Monitor: ==== 阶段2: ReAct循环处理 ====
+
+        loop ReAct循环 [最大5次迭代]
+            ReAct->>ReAct: Think: 分析当前状态，计划下一步
+            Note right of ReAct: 生成思考日志<br/>判断是否需要继续
+
+            ReAct->>Exec: 执行动作(action_plan)
+            activate Exec
+
+            Exec->>Tools: 调用工具(tool_name, params)
+            activate Tools
+
+            alt 工具类型判断
+                opt 知识检索
+                    Tools->>KMS: 知识查询(kms_search)
+                    activate KMS
+                    KMS-->>Tools: 检索结果
+                    deactivate KMS
+                opt 计算/推理
+                    Tools->>Tools: 本地计算/推理
+                opt 其他工具
+                    Tools->>Tools: 执行专用工具
+            end
+
+            Tools-->>Exec: 工具执行结果
+            deactivate Tools
+
+            Exec-->>ReAct: 观察结果(observation)
+            deactivate Exec
+
+            ReAct->>ReAct: Observe: 评估结果，更新状态
+            Note right of ReAct: 检查是否满足终止条件<br/>或达到最大迭代次数
+        end
+
+        Note over ReAct,Context: ==== 阶段3: 结果生成与缓存 ====
+        ReAct->>Context: 保存结果到缓存(set_cache)
+        activate Context
+        Context-->>ReAct: 缓存确认
+        deactivate Context
+
+        ReAct-->>Router: 返回最终答案(answer, citations)
+        deactivate ReAct
+
+        Router-->>Client: 响应完整答案
+    end
+
+    Note over Router,Monitor: ==== 阶段4: 监控与清理 ====
+    Monitor->>Monitor: 记录性能指标(各阶段耗时)
+    Monitor->>Monitor: 错误统计与告警(如有)
+
+    deactivate Router
+    Note over Client,Monitor: ==== 流程结束 ====

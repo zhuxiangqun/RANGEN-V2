@@ -1,0 +1,38 @@
+{
+  "evaluation_type": "accuracy_evaluation",
+  "evaluation_time": "2025-08-16T23:20:09.931140",
+  "total_queries": 3,
+  "successful_queries": 0,
+  "overall_success_rate": 0.0,
+  "overall_average_quality": 0.0,
+  "total_execution_time": 7.224082946777344e-05,
+  "results": [
+    {
+      "query": "什么是人工智能？",
+      "category": "factual",
+      "execution_time": 0.0,
+      "quality_score": 0.0,
+      "success": false,
+      "error": "ResearchRequest.__init__() got an unexpected keyword argument 'category'",
+      "timestamp": "2025-08-16T23:20:09.931097"
+    },
+    {
+      "query": "机器学习的基本原理是什么？",
+      "category": "factual",
+      "execution_time": 0.0,
+      "quality_score": 0.0,
+      "success": false,
+      "error": "ResearchRequest.__init__() got an unexpected keyword argument 'category'",
+      "timestamp": "2025-08-16T23:20:09.931119"
+    },
+    {
+      "query": "深度学习与传统机器学习的区别是什么？",
+      "category": "factual",
+      "execution_time": 0.0,
+      "quality_score": 0.0,
+      "success": false,
+      "error": "ResearchRequest.__init__() got an unexpected keyword argument 'category'",
+      "timestamp": "2025-08-16T23:20:09.931136"
+    }
+  ]
+}

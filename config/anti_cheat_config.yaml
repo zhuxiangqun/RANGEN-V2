@@ -1,0 +1,124 @@
+# 反作弊配置文件
+anti_cheat:
+  # 检测设置
+  detection:
+    enabled: true
+    scan_interval: 300  # 扫描间隔（秒）
+    confidence_threshold: 0.5  # 置信度阈值
+    severity_threshold: 3  # 严重程度阈值
+    
+  # 监控设置
+  monitoring:
+    enabled: true
+    real_time: true
+    alert_threshold: 0.7  # 告警阈值
+    retention_days: 7  # 数据保留天数
+    
+  # 质量检查设置
+  quality:
+    enabled: true
+    check_hardcoded_values: true
+    check_simplified_logic: true
+    check_missing_validation: true
+    check_error_handling: true
+    
+  # 智能验证设置
+  validation:
+    enabled: true
+    test_consistency: true
+    test_variability: true
+    test_complexity: true
+    test_content_analysis: true
+    
+  # 作弊模式定义
+  cheat_patterns:
+    mock_simulation:
+      keywords: ["模拟", "mock", "fake", "假", "测试数据", "dummy", "simulate"]
+      severity: 5
+      enabled: true
+      
+    hardcoded_answer:
+      keywords: ["expected_answer", "标准答案", "正确答案", "ground_truth"]
+      severity: 5
+      enabled: true
+      
+    direct_return:
+      keywords: ["直接返回", "直接给出", "return.*{", "return.*["]
+      severity: 4
+      enabled: true
+      
+    fake_processing:
+      keywords: ["假装", "假装处理", "虚假", "伪处理"]
+      severity: 4
+      enabled: true
+      
+    template_based:
+      keywords: ["模板", "template", "格式化", "format"]
+      severity: 3
+      enabled: true
+  
+  # 白名单设置
+  whitelist:
+    patterns:
+      - "config_template"
+      - "template_config"
+      - "format_config"
+      - "配置模板"
+      - "模板配置"
+      - "test_mock"
+      - "mock_test"
+      - "测试模拟"
+      - "模拟测试"
+      - "log_template"
+      - "template_log"
+      - "日志模板"
+    
+  # 告警设置
+  alerts:
+    email:
+      enabled: false
+      recipients: []
+      smtp_server: ""
+      smtp_port: 587
+      
+    webhook:
+      enabled: false
+      url: ""
+      
+    log:
+      enabled: true
+      level: "WARNING"
+      file: "anti_cheat_alerts.log"
+      
+  # 报告设置
+  reports:
+    generate_on_scan: true
+    save_to_file: true
+    include_code_snippets: true
+    include_suggestions: true
+    
+  # 自动修复设置
+  auto_fix:
+    enabled: false  # 谨慎启用
+    backup_original: true
+    max_changes_per_file: 10
+    
+  # 排除设置
+  exclusions:
+    files:
+      - "**/test_*.py"
+      - "**/*_test.py"
+      - "**/mock_*.py"
+      - "**/*_mock.py"
+      
+    directories:
+      - "tests/"
+      - "test/"
+      - "mocks/"
+      - "fixtures/"
+      
+    functions:
+      - "test_*"
+      - "*_test"
+      - "mock_*"
+      - "*_mock"

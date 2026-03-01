@@ -1,0 +1,106 @@
+name: performance-optimization
+version: 1.0.0
+description: "性能优化技能。识别性能瓶颈，优化检索速度、减少延迟、提升吞吐量。"
+author: rangen
+tags:
+  - performance
+  - optimization
+  - latency
+  - throughput
+dependencies: []
+scope: bundled
+
+config:
+  type: optimization
+  mode: assistive
+  domain: system
+
+prompt_template: |
+  ## 性能优化技能
+  
+  识别和解决系统性能瓶颈。
+  
+  ### 性能指标
+  
+  | 指标 | 目标 | 监控 |
+  |------|------|------|
+  | 延迟 P99 | < 2s | 95%请求 |
+  | 吞吐量 | > 10 QPS | 持续 |
+  | 错误率 | < 1% | 稳定 |
+  | 资源使用 | < 80% | CPU/内存 |
+  
+  ### 优化领域
+  
+  **1. RAG检索优化**
+  - 向量索引优化
+  - 批量检索
+  - 结果缓存
+  - 近似算法
+  
+  **2. LLM调用优化**
+  - 流式响应
+  - 缓存响应
+  - 批量请求
+  - 模型选择
+  
+  **3. 系统优化**
+  - 连接池
+  - 异步IO
+  - 并发控制
+  - 资源限制
+  
+  ### 优化策略
+  
+  **缓存策略**
+  | 数据类型 | 缓存时间 | 淘汰策略 |
+  |---------|---------|---------|
+  | 检索结果 | 5-15分钟 | LRU |
+  | LLM响应 | 1-24小时 | TTL |
+  | 静态数据 | 长期 | 主动刷新 |
+  
+  **并发控制**
+  - 信号量限制并发
+  - 队列缓冲请求
+  - 熔断防止雪崩
+  
+  ### 性能排查流程
+  
+  1. **监控发现**
+     - 延迟升高
+     - 错误增加
+     - 资源告警
+  
+  2. **分析定位**
+     - 链路追踪
+     - 日志分析
+     - 指标对比
+  
+  3. **优化实施**
+     - 缓存
+     - 异步
+     - 索引
+  
+  4. **验证效果**
+     - 指标对比
+     - A/B测试
+  
+  ### 常见问题与解决
+  
+  | 问题 | 原因 | 解决方案 |
+  |------|------|---------|
+  | 检索慢 | 索引未优化 | 优化向量索引 |
+  | LLM慢 | 网络/模型 | 缓存/流式 |
+  | OOM | 内存泄漏 | 限制并发 |
+  | 超时 | 资源不足 | 扩容/优化 |
+
+tools:
+  - name: analyze_performance
+    description: "分析性能瓶颈"
+  - name: optimize_retrieval
+    description: "优化检索性能"
+  - name: optimize_cache
+    description: "优化缓存策略"
+
+related_skills:
+  - rag-retrieval
+  - error-handling

@@ -1,0 +1,39 @@
+================================================================================
+RANGEN系统依赖关系分析报告
+================================================================================
+
+分析概览:
+----------------------------------------
+📁 项目根目录: /Users/syu/workdata/person/zy/RANGEN-main(syu-python)
+📄 总文件数: 552
+🔍 已分析文件: 552
+
+🚨 循环依赖检测结果:
+----------------------------------------
+循环依赖 1: src.memory.enhanced_faiss_memory -> src.utils.wiki_vector_storage -> src.memory.enhanced_faiss_memory
+
+📊 依赖链分析:
+----------------------------------------
+scripts.test_real_system_integration: 35 层依赖
+  依赖链: scripts.test_real_system_integration -> src.utils.agent_collaboration_optimizer -> src.utils.prompt_engine...
+tests.integration_test_suite: 34 层依赖
+  依赖链: tests.integration_test_suite -> src.utils.performance_monitor -> src.bootstrap.application_bootstrap...
+demo_async_architecture: 33 层依赖
+  依赖链: demo_async_architecture -> src.interfaces.async_interfaces -> src.bootstrap.application_bootstrap...
+test_async_simple: 33 层依赖
+  依赖链: test_async_simple -> src.interfaces.async_interfaces -> src.bootstrap.application_bootstrap...
+tests.test_async_integration: 33 层依赖
+  依赖链: tests.test_async_integration -> src.bootstrap.application_bootstrap -> src.agents.enhanced_knowledge_retrieval_agent...
+src.utils.performance_monitor: 33 层依赖
+  依赖链: src.utils.performance_monitor -> src.bootstrap.application_bootstrap -> src.agents.enhanced_knowledge_retrieval_agent...
+src.bootstrap.application_bootstrap_backup: 32 层依赖
+  依赖链: src.bootstrap.application_bootstrap_backup -> src.agents.enhanced_knowledge_retrieval_agent -> src.services.faiss_service...
+src.bootstrap.application_bootstrap: 32 层依赖
+  依赖链: src.bootstrap.application_bootstrap -> src.agents.enhanced_knowledge_retrieval_agent -> src.services.faiss_service...
+src.utils.agent_dependency_injector: 29 层依赖
+  依赖链: src.utils.agent_dependency_injector -> src.agents.enhanced_knowledge_retrieval_agent -> src.services.faiss_service...
+scripts.system_integrity_check: 28 层依赖
+  依赖链: scripts.system_integrity_check -> src.utils.wiki_vector_storage -> src.utils.unified_import_manager...
+
+
+================================================================================

@@ -1,0 +1,14 @@
+{
+  "name": "training_samples",
+  "template_type": "ml_training",
+  "config": {
+    "feature_count": 10,
+    "sample_count": 1000,
+    "target_classes": 5,
+    "noise_level": 0.1,
+    "validation_split": 0.2
+  },
+  "description": "机器学习训练样本模板",
+  "created_at": 1760879087.593483,
+  "updated_at": 1760879087.593484
+}

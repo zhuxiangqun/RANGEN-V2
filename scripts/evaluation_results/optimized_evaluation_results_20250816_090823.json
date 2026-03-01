@@ -1,0 +1,47 @@
+{
+  "timestamp": "2025-08-16T09:08:23.524626",
+  "total_queries": 20,
+  "total_successful": 20,
+  "overall_accuracy": 1.0,
+  "overall_quality": 0.0,
+  "overall_confidence": 0.0,
+  "total_execution_time": 0.0,
+  "average_execution_time": 0.0,
+  "category_results": {
+    "基础查询": {
+      "category": "基础查询",
+      "total_queries": 5,
+      "successful_queries": 5,
+      "failed_queries": 0,
+      "accuracy_scores": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "quality_scores": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "confidence_scores": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "execution_times": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "detailed_results": [
+        {
+          "success": true,
+          "result": 

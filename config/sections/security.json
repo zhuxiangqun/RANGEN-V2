@@ -1,0 +1,17 @@
+{
+  "name": "security",
+  "config": {
+    "enable_validation": true,
+    "max_input_length": 1000,
+    "allowed_file_types": [
+      ".txt",
+      ".json",
+      ".csv"
+    ],
+    "rate_limit_per_minute": 100,
+    "enable_encryption": true
+  },
+  "description": "security配置",
+  "last_updated": 1760878947.450685,
+  "version": "1.0.0"
+}

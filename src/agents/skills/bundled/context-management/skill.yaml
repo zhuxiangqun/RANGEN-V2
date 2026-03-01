@@ -1,0 +1,90 @@
+name: context-management
+version: 1.0.0
+description: "上下文管理技能。管理对话历史，压缩上下文，维护会话状态，支持多轮对话。"
+author: rangen
+tags:
+  - context
+  - conversation
+  - memory
+  - session
+dependencies: []
+scope: bundled
+
+config:
+  type: management
+  mode: assistive
+  domain: agent
+
+prompt_template: |
+  ## 上下文管理技能
+  
+  管理对话历史，维护会话状态，支持多轮对话。
+  
+  ### 上下文组件
+  
+  **1. 对话历史**
+  - 用户消息
+  - 系统消息
+  - 助手响应
+  
+  **2. 会话状态**
+  - 用户偏好
+  - 任务进度
+  - 变量状态
+  
+  **3. 知识引用**
+  - 检索历史
+  - 已验证信息
+  - 关键结论
+  
+  ### 上下文策略
+  
+  **1. 完整保留**
+  - 短对话
+  - 关键信息
+  - 精确度要求高
+  
+  **2. 摘要压缩**
+  - 长对话
+  - 历史信息
+  - 提取关键点
+  
+  **3. 选择性保留**
+  - 特定实体
+  - 任务相关
+  - 用户指定
+  
+  ### 上下文维护
+  
+  | 场景 | 策略 |
+  |------|------|
+  | 新会话 | 初始化空状态 |
+  | 继续会话 | 加载历史 |
+  | 切换话题 | 清理无关 |
+  | 复杂任务 | 分段管理 |
+  
+  ### 上下文质量
+  
+  - **相关性**: 保留与当前任务相关的
+  - **准确性**: 确保信息准确
+  - **完整性**: 不丢失关键信息
+  - **效率**: 控制上下文长度
+  
+  ### 最佳实践
+  
+  1. 定期摘要长对话
+  2. 标记重要信息
+  3. 清理过期数据
+  4. 跟踪任务状态
+
+tools:
+  - name: load_context
+    description: "加载会话上下文"
+  - name: save_context
+    description: "保存会话上下文"
+  - name: compress_context
+    description: "压缩上下文"
+
+related_skills:
+  - reasoning-chain
+  - answer-generation

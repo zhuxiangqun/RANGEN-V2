@@ -1,0 +1,13 @@
+{
+  "name": "performance",
+  "config": {
+    "enable_monitoring": true,
+    "metrics_interval": 60,
+    "memory_threshold": 0.8,
+    "cpu_threshold": 0.8,
+    "enable_profiling": false
+  },
+  "description": "performance配置",
+  "last_updated": 1760878947.45111,
+  "version": "1.0.0"
+}

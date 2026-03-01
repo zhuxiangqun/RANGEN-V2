@@ -1,0 +1,25 @@
+{
+  "name": "historical_metrics",
+  "template_type": "metrics",
+  "config": {
+    "base_score": 0.7,
+    "trend_factor": 0.01,
+    "noise_range": 0.1,
+    "days_count": 30,
+    "metrics": [
+      "overall_score",
+      "code_quality",
+      "architecture_score",
+      "maintainability",
+      "performance",
+      "security",
+      "test_coverage",
+      "documentation",
+      "complexity",
+      "technical_debt"
+    ]
+  },
+  "description": "历史指标数据模板",
+  "created_at": 1760879087.59314,
+  "updated_at": 1760879087.593141
+}

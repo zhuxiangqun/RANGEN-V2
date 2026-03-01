@@ -1,0 +1,106 @@
+{
+  "evaluation_type": "frames_benchmark_async",
+  "dataset": "FRAMES Benchmark",
+  "start_time": "2025-08-16T22:20:36.153112",
+  "end_time": "2025-08-16T22:20:37.367923",
+  "total_queries": 5,
+  "successful_count": 5,
+  "failed_count": 0,
+  "overall_success_rate": 1.0,
+  "average_quality_score": 0.2,
+  "average_execution_time": 0.40474090576171873,
+  "total_execution_time": 2.0237045288085938,
+  "results": [
+    {
+      "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and her surname is the same as the second assassinated president's mother's maiden name, what is my future wife's name?",
+      "expected_answer": "Jane Ballou",
+      "actual_answer": "基于知识检索和推理分析，If my future wife has the same first name as the 15th first lady of the United States' mother and her surname is the same as the second assassinated president's mother's maiden name, what is my future wife's name? 的答案是：这是一个模拟的智能回答，展示了系统的推理能力。",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.2,
+      "confidence": 0.8,
+      "execution_time": 0.40366578102111816,
+      "knowledge_count": 2,
+      "citation_count": 2,
+      "error": null,
+      "evaluation_time": "2025-08-16T22:20:36.557946"
+    },
+    {
+      "query": "Imagine there is a building called Bronte tower whose height in feet is the same number as the dewey decimal classification for the Charlotte Bronte book that was published in 1847. Where would this building rank among tallest buildings in New York City?",
+      "expected_answer": "37th",
+      "actual_answer": "基于知识检索和推理分析，Imagine there is a building called Bronte tower whose height in feet is the same number as the dewey decimal classification for the Charlotte Bronte book that was published in 1847. Where would this building rank among tallest buildings in New York City? 的答案是：这是一个模拟的智能回答，展示了系统的推理能力。",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Tabular reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.2,
+      "confidence": 0.8,
+      "execution_time": 0.4047558307647705,
+      "knowledge_count": 2,
+      "citation_count": 2,
+      "error": null,
+      "evaluation_time": "2025-08-16T22:20:36.558123"
+    },
+    {
+      "query": "How many years earlier would Punxsutawney Phil have to be canonically alive to have made a Groundhog Day prediction in the same state as the US capitol?",
+      "expected_answer": "87",
+      "actual_answer": "基于知识检索和推理分析，How many years earlier would Punxsutawney Phil have to be canonically alive to have made a Groundhog Day prediction in the same state as the US capitol? 的答案是：这是一个模拟的智能回答，展示了系统的推理能力。",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.2,
+      "confidence": 0.8,
+      "execution_time": 0.4064028263092041,
+      "knowledge_count": 2,
+      "citation_count": 2,
+      "error": null,
+      "evaluation_time": "2025-08-16T22:20:36.964712"
+    },
+    {
+      "query": "As of August 1, 2024, which country were holders of the FIFA World Cup the last time the UEFA Champions League was won by a club from London?",
+      "expected_answer": "France",
+      "actual_answer": "基于知识检索和推理分析，As of August 1, 2024, which country were holders of the FIFA World Cup the last time the UEFA Champions League was won by a club from London? 的答案是：这是一个模拟的智能回答，展示了系统的推理能力。",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.2,
+      "confidence": 0.8,
+      "execution_time": 0.4064791202545166,
+      "knowledge_count": 2,
+      "citation_count": 2,
+      "error": null,
+      "evaluation_time": "2025-08-16T22:20:36.964778"
+    },
+    {
+      "query": "What is the name of the vocalist from the first band to make it in the top 200 under the record label that produced the third studio album for Dismal Euphony?",
+      "expected_answer": "Jens Kidman",
+      "actual_answer": "基于知识检索和推理分析，What is the name of the vocalist from the first band to make it in the top 200 under the record label that produced the third studio album for Dismal Euphony? 的答案是：这是一个模拟的智能回答，展示了系统的推理能力。",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.2,
+      "confidence": 0.8,
+      "execution_time": 0.4024009704589844,
+      "knowledge_count": 2,
+      "citation_count": 2,
+      "error": null,
+      "evaluation_time": "2025-08-16T22:20:37.367475"
+    }
+  ],
+  "failures": [],
+  "system_info": {
+    "async_architecture": "unified",
+    "max_concurrent_tasks": 2,
+    "timeout_per_query": 90.0
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "name": "reasoning_engine",
+  "description": "推理引擎配置",
+  "version": "1.0.0",
+  "last_updated": 1698234567.0,
+  "config": {
+    "confidence": {
+      "high": 0.9,
+      "medium": 0.8,
+      "low": 0.7,
+      "default": 0.5
+    },
+    "relevance": {
+      "high": 0.95,
+      "medium": 0.8,
+      "low": 0.6,
+      "threshold": 0.3
+    },
+    "weights": {
+      "important_words": 0.25,
+      "phrase_match": 0.35,
+      "answer_indicators": 0.15,
+      "number_match": 0.3,
+      "entity_match": 0.2,
+      "type_specific": 0.2
+    },
+    "answer_quality": {
+      "person_name": 0.3,
+      "location_name": 0.3,
+      "number": 0.3,
+      "event": 0.3,
+      "element": 0.3
+    },
+    "length_scores": {
+      "person_short": 0.2,
+      "person_medium": 0.1,
+      "location_short": 0.2,
+      "location_medium": 0.1,
+      "number_pure": 0.3,
+      "number_mixed": 0.1
+    },
+    "format_scores": {
+      "person_format": 0.2,
+      "location_format": 0.2,
+      "number_format": 0.2,
+      "event_format": 0.2
+    },
+    "penalties": {
+      "analytical_language": -0.3
+    },
+    "query_keywords": {
+      "mathematical": ["how many", "how old", "how much", "calculate"],
+      "factual": ["who", "what", "when", "where"],
+      "causal": ["why", "how", "explain"],
+      "comparative": ["compare", "difference", "similar"],
+      "temporal": ["if", "when", "then", "after", "before"],
+      "time_related": ["year", "age", "born", "died", "when"]
+    },
+    "semantic_groups": {
+      "person": ["who", "name", "person", "people", "individual"],
+      "location": ["where", "city", "country", "place", "location"],
+      "number": ["how many", "number", "count", "amount", "quantity"],
+      "time": ["when", "year", "date", "time", "period"],
+      "event": ["what", "happened", "event", "occurred", "battle"]
+    },
+    "evidence_patterns": {
+      "historical_facts": [
+        "born in \\d{4}",
+        "died in \\d{4}",
+        "president.*\\d{4}",
+        "first lady",
+        "assassinated"
+      ],
+      "geographical_facts": [
+        "city.*population",
+        "country.*capital",
+        "state.*born",
+        "located in"
+      ],
+      "mathematical_facts": [
+        "\\d+ years",
+        "\\d+ percent",
+        "age.*\\d+",
+        "ranked.*\\d+"
+      ],
+      "cultural_facts": [
+        "album.*\\d{4}",
+        "movie.*\\d{4}",
+        "book.*\\d{4}",
+        "award.*\\d{4}"
+      ]
+    },
+    "person_patterns": [
+      "[A-Z][a-z]+ [A-Z][a-z]+",
+      "(?:Dr\\.|Mr\\.|Ms\\.|Mrs\\.|Prof\\.|Rev\\.)\\s+[A-Z][a-z]+",
+      "[A-Z][a-z]+ (?:Jr\\.|Sr\\.|III|IV|V)",
+      "[A-Z][a-z]+(?:[-']?[A-Z][a-z]+)+",
+      "[\\u4e00-\\u9fff]{2,4}",
+      "[\\u3040-\\u309f\\u30a0-\\u30ff\\u4e00-\\u9fff]+"
+    ],
+    "person_indicators": [
+      "named", "called", "known as", "born", "died", 
+      "president", "actor", "author", "director", "founder"
+    ],
+    "location_patterns": [
+      "[A-Z][a-z]+(?: [A-Z][a-z]+)*",
+      "[A-Z][a-z]+(?: [A-Z][a-z]+)*,\\s*[A-Z]{2}",
+      "United (?:States|Kingdom|Arab Emirates)",
+      "[A-Z][a-z]+,\\s*[A-Z][a-z]+",
+      "[\\u4e00-\\u9fff]+(?:市|省|县|区|州)",
+      "[\\u3040-\\u309f\\u30a0-\\u30ff\\u4e00-\\u9fff]+(?:都|府|県|市)"
+    ],
+    "location_indicators": [
+      "located", "city", "country", "state", "capital", 
+      "born in", "from", "situated", "based in"
+    ]
+  }
+}

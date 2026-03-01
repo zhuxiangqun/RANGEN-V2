@@ -1,0 +1,26 @@
+{
+  "name": "mock_agent_data",
+  "template_type": "agent",
+  "config": {
+    "agent_types": [
+      "knowledge",
+      "reasoning",
+      "answer",
+      "citation"
+    ],
+    "capabilities": [
+      "search",
+      "analyze",
+      "generate",
+      "validate"
+    ],
+    "performance_metrics": [
+      "accuracy",
+      "speed",
+      "reliability"
+    ]
+  },
+  "description": "模拟智能体数据模板",
+  "created_at": 1760879087.593393,
+  "updated_at": 1760879087.593393
+}

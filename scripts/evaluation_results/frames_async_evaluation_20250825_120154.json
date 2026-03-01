@@ -1,0 +1,332 @@
+{
+  "evaluation_type": "frames_benchmark_async_enhanced",
+  "dataset": "FRAMES Benchmark",
+  "start_time": "2025-08-25T12:01:25.683219",
+  "end_time": "2025-08-25T12:01:54.276221",
+  "total_queries": 5,
+  "successful_count": 5,
+  "failed_count": 0,
+  "overall_success_rate": 1.0,
+  "average_quality_score": 0.348,
+  "average_execution_time": 2.721501588821411,
+  "total_execution_time": 13.607507944107056,
+  "results": [
+    {
+      "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and her surname is the same as the second assassinated president's mother's maiden name, what is my future wife's name?",
+      "expected_answer": "Jane Ballou",
+      "actual_answer": "Jane Ballou",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.44999999999999996,
+      "innovation_score": 0.0,
+      "confidence": 0.8,
+      "execution_time": 6.790340185165405,
+      "pipeline_execution_time": 6.790611743927002,
+      "knowledge_count": 1,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-08-25T12:01:54.259502",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 1.0
+    },
+    {
+      "query": "Imagine there is a building called Bronte tower whose height in feet is the same number as the dewey decimal classification for the Charlotte Bronte book that was published in 1847. Where would this building rank among tallest buildings in New York City?",
+      "expected_answer": "37th",
+      "actual_answer": "37th",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Tabular reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.37,
+      "innovation_score": 0.0,
+      "confidence": 0.8,
+      "execution_time": 6.790425777435303,
+      "pipeline_execution_time": 6.790625095367432,
+      "knowledge_count": 1,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-08-25T12:01:54.259721",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 1.0
+    },
+    {
+      "query": "How many years earlier would Punxsutawney Phil have to be canonically alive to have made a Groundhog Day prediction in the same state as the US capitol?",
+      "expected_answer": "87",
+      "actual_answer": "87",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.37,
+      "innovation_score": 0.0,
+      "confidence": 0.8,
+      "execution_time": 0.011021137237548828,
+      "pipeline_execution_time": 6.8017449378967285,
+      "knowledge_count": 1,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-08-25T12:01:54.270982",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 1.0
+    },
+    {
+      "query": "As of August 1, 2024, which country were holders of the FIFA World Cup the last time the UEFA Champions League was won by a club from London?",
+      "expected_answer": "France",
+      "actual_answer": "France",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.37,
+      "innovation_score": 0.0,
+      "confidence": 0.8,
+      "execution_time": 0.011150836944580078,
+      "pipeline_execution_time": 6.801855087280273,
+      "knowledge_count": 1,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-08-25T12:01:54.271164",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 1.0
+    },
+    {
+      "query": "What is the name of the vocalist from the first band to make it in the top 200 under the record label that produced the third studio album for Dismal Euphony?",
+      "expected_answer": "Jens Kidman",
+      "actual_answer": "John Lennon",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.18000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.8,
+      "execution_time": 0.00457000732421875,
+      "pipeline_execution_time": 6.806581020355225,
+      "knowledge_count": 1,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-08-25T12:01:54.275954",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    }
+  ],
+  "failures": [],
+  "frames_accuracy_analysis": {
+    "average_frames_accuracy": 0.8,
+    "high_accuracy_count": 4,
+    "medium_accuracy_count": 0,
+    "low_accuracy_count": 1,
+    "accuracy_distribution": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.0
+    ]
+  },
+  "reasoning_innovation_analysis": {
+    "average_innovation_score": 0.0,
+    "innovation_metrics": {
+      "multi_hop_reasoning": 0,
+      "constraint_satisfaction": 0,
+      "temporal_reasoning": 0,
+      "numerical_computation": 0,
+      "knowledge_integration": 0
+    },
+    "innovation_efficiency": {
+      "multi_hop_efficiency": 0.0,
+      "constraint_satisfaction_efficiency": 0.0,
+      "temporal_reasoning_efficiency": 0.0,
+      "numerical_computation_efficiency": 0.0,
+      "knowledge_integration_efficiency": 0.0
+    }
+  },
+  "module_performance_analysis": {
+    "module_timing_statistics": {
+      "knowledge_retrieval": {
+        "count": 0,
+        "total_time": 0.0,
+        "average_time": 0.0,
+        "median_time": 0.0,
+        "min_time": 0.0,
+        "max_time": 0.0,
+        "std_dev": 0.0
+      },
+      "reasoning": {
+        "count": 0,
+        "total_time": 0.0,
+        "average_time": 0.0,
+        "median_time": 0.0,
+        "min_time": 0.0,
+        "max_time": 0.0,
+        "std_dev": 0.0
+      },
+      "answer_generation": {
+        "count": 0,
+        "total_time": 0.0,
+        "average_time": 0.0,
+        "median_time": 0.0,
+        "min_time": 0.0,
+        "max_time": 0.0,
+        "std_dev": 0.0
+      },
+      "citation": {
+        "count": 0,
+        "total_time": 0.0,
+        "average_time": 0.0,
+        "median_time": 0.0,
+        "min_time": 0.0,
+        "max_time": 0.0,
+        "std_dev": 0.0
+      },
+      "total_pipeline": {
+        "count": 5,
+        "total_time": 33.99141788482666,
+        "average_time": 6.798283576965332,
+        "median_time": 6.8017449378967285,
+        "min_time": 6.790611743927002,
+        "max_time": 6.806581020355225,
+        "std_dev": 0.007264530865599558
+      }
+    },
+    "module_execution_distribution": {
+      "knowledge_retrieval": {
+        "main_flow": 5,
+        "exception_handling": 0,
+        "simple_processing": 0
+      },
+      "reasoning": {
+        "main_flow": 5,
+        "exception_handling": 0,
+        "simple_processing": 0
+      },
+      "answer_generation": {
+        "main_flow": 5,
+        "exception_handling": 0,
+        "simple_processing": 0
+      },
+      "citation": {
+        "main_flow": 5,
+        "exception_handling": 0,
+        "simple_processing": 0
+      }
+    },
+    "performance_bottlenecks": [
+      {
+        "type": "highest_total_time",
+        "module": "total_pipeline",
+        "time": 33.99141788482666,
+        "percentage": 100.0
+      },
+      {
+        "type": "highest_average_time",
+        "module": "total_pipeline",
+        "time": 6.798283576965332,
+        "impact_level": "high"
+      }
+    ],
+    "optimization_recommendations": [
+      "total_pipeline模块平均执行时间过长(6.80s)，建议优化算法或增加缓存"
+    ]
+  },
+  "quality_analysis": {
+    "high_quality_count": 0,
+    "medium_quality_count": 1,
+    "low_quality_count": 4,
+    "quality_distribution": {
+      "mean": 0.348,
+      "median": 0.37,
+      "std": 0.1,
+      "min": 0.18000000000000002,
+      "max": 0.44999999999999996,
+      "distribution": "normal"
+    }
+  },
+  "performance_analysis": {
+    "fast_queries": 3,
+    "normal_queries": 0,
+    "slow_queries": 2,
+    "pipeline_timing_analysis": {
+      "total_pipeline_time": 33.99141788482666,
+      "average_pipeline_time": 6.798283576965332,
+      "median_pipeline_time": 6.8017449378967285,
+      "min_pipeline_time": 6.790611743927002,
+      "max_pipeline_time": 6.806581020355225,
+      "pipeline_efficiency": 0.0,
+      "slow_pipeline_count": 5
+    }
+  },
+  "system_info": {
+    "async_architecture": "unified",
+    "max_concurrent_tasks": 2,
+    "timeout_per_query": 90.0,
+    "memory_usage": {
+      "percent": 79.2,
+      "available_gb": 3.33,
+      "used_gb": 5.81,
+      "total_gb": 16.0
+    }
+  }
+}

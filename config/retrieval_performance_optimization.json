@@ -1,0 +1,56 @@
+{
+  "name": "retrieval_performance_optimization",
+  "description": "RAG Retrieval性能优化配置 - 减少响应时间40-60%",
+  "version": "1.0.0",
+  "last_updated": 1767160658,
+  "optimizations_applied": [
+    "reduce_top_k_from_15_to_5",
+    "increase_similarity_threshold_from_0.05_to_0.6",
+    "disable_vector_rerank",
+    "disable_graph_search_first",
+    "optimize_llamaindex_usage"
+  ],
+  "config": {
+    "knowledge_retrieval": {
+      "knowledge_retrieval_top_k": 5,
+      "similarity_threshold": 0.6,
+      "confidence_threshold": 0.5,
+      "max_query_length": 2000,
+      "min_content_length": 10
+    },
+    "retrieval_strategies": {
+      "use_graph_first": false,
+      "graph_timeout_ms": 1500,
+      "vector_rerank": false,
+      "vector_rerank_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+      "use_llamaindex": false,
+      "max_content_length": 2000
+    },
+    "performance_targets": {
+      "target_response_time_seconds": 12,
+      "target_cpu_reduction_percent": 40,
+      "target_memory_reduction_percent": 30,
+      "min_quality_score": 80
+    }
+  },
+  "baseline_values": {
+    "original_top_k": 15,
+    "original_similarity_threshold": 0.05,
+    "original_use_graph_first": true,
+    "original_vector_rerank": true,
+    "original_use_llamaindex": true,
+    "original_response_time_seconds": 30
+  },
+  "expected_improvements": {
+    "response_time_reduction": "40-60%",
+    "cpu_usage_reduction": "30-50%",
+    "memory_usage_reduction": "20-30%"
+  },
+  "quality_assurance": {
+    "enable_monitoring": true,
+    "quality_check_interval_minutes": 30,
+    "auto_rollback_on_quality_drop": true,
+    "quality_drop_threshold_percent": 5
+  },
+  "rollback_command": "cp src/services/knowledge_retrieval_service.py.backup src/services/knowledge_retrieval_service.py"
+}

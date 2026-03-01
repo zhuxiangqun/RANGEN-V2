@@ -1,0 +1,95 @@
+name: knowledge-graph
+version: 1.0.0
+description: "知识图谱技能。知识图谱查询、实体关系推理、多跳查询。"
+author: rangen
+tags:
+  - knowledge-graph
+  - kg
+  - entity
+  - relation
+dependencies: ["rag-retrieval"]
+scope: bundled
+
+config:
+  type: retrieval
+  mode: assistive
+  domain: knowledge
+
+prompt_template: |
+  ## 知识图谱技能
+  
+  知识图谱查询、实体关系推理。
+  
+  ### 图谱基本概念
+  
+  **实体 (Entity)**
+  - 现实世界对象
+  - 人物、地点、概念
+  - 唯一标识
+  
+  **关系 (Relation)**
+  - 实体间连接
+  - 类型化边
+  - 有向/无向
+  
+  **属性 (Property)**
+  - 实体特征
+  - 键值对
+  - 类型约束
+  
+  ### 查询模式
+  
+  **1. 实体查询**
+  - 根据ID查询
+  - 根据属性查询
+  - 模糊匹配
+  
+  **2. 关系查询**
+  - 直接关系
+  - 路径查询
+  - 邻居查询
+  
+  **3. 推理查询**
+  - 隐含关系
+  - 传递闭包
+  - 规则推理
+  
+  ### 多跳查询
+  
+  **单跳**: A → B
+  **双跳**: A → B → C  
+  **多跳**: A → ... → Z
+  
+  ### 查询优化
+  
+  | 策略 | 适用场景 |
+  |------|---------|
+  | 索引优化 | 频繁查询 |
+  | 缓存结果 | 热点数据 |
+  | 批量查询 | 多次查询 |
+  | 剪枝 | 深层次查询 |
+  
+  ### RAG+图谱结合
+  
+  - 图谱提供结构化知识
+  - RAG提供非结构化补充
+  - 联合查询提升效果
+  
+  ### 最佳实践
+  
+  1. 合理设计Schema
+  2. 定期更新图谱
+  3. 清理孤立节点
+  4. 监控查询性能
+
+tools:
+  - name: query_entity
+    description: "查询实体"
+  - name: query_relation
+    description: "查询关系"
+  - name: multi_hop_query
+    description: "多跳查询"
+
+related_skills:
+  - rag-retrieval
+  - reasoning-chain

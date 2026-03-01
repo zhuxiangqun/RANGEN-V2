@@ -1,0 +1,47 @@
+# 知识库管理系统独立依赖
+# 第四系统：Knowledge Management System
+
+# 核心依赖
+numpy>=1.24.0
+faiss-cpu>=1.7.4  # 向量索引
+requests>=2.31.0  # API调用
+pydantic>=2.0.0   # 数据验证
+
+# 多模态支持
+Pillow>=10.0.0    # 图像处理
+librosa>=0.10.0   # 音频处理（可选）
+opencv-python>=4.8.0  # 视频处理（可选）
+
+# 文本处理
+jina>=3.15.0      # 文本向量化（使用Jina API）
+sentence-transformers>=2.2.0  # 🆕 免费本地embedding模型（Jina API的fallback替代方案）
+
+# 数据存储
+sqlalchemy>=2.0.0  # 元数据存储（可选）
+python-dotenv>=1.0.0  # 环境变量管理
+
+# API框架（可选，如果需要REST API）
+fastapi>=0.104.0  # REST API框架
+uvicorn>=0.24.0   # ASGI服务器
+
+# 工具库
+python-dateutil>=2.8.0
+pathlib>=1.0.1
+beautifulsoup4>=4.12.0  # HTML 解析（Wikipedia 内容提取）
+
+# 🆕 LlamaIndex 集成（可选依赖，阶段1：增强检索能力）
+# 如需使用 LlamaIndex 增强功能，请安装：
+# pip install "llama-index>=0.9.0"
+# 或安装完整版本（包含所有文档加载器）：
+# pip install "llama-index[all]>=0.9.0"
+# llamaindex>=0.9.0  # 可选：LlamaIndex 集成（注释掉，需要时手动安装）
+
+# 🚀 阶段2：贝叶斯优化（可选依赖）
+# 如需使用贝叶斯优化功能，请安装：
+# pip install "scikit-optimize>=0.9.0"
+# scikit-optimize>=0.9.0  # 可选：贝叶斯优化（注释掉，需要时手动安装）
+
+# 🚀 阶段3：本地LLM支持 (Phi-3 Mini)
+llama-cpp-python>=0.2.0
+huggingface-hub>=0.19.0
+

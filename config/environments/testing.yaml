@@ -1,0 +1,117 @@
+# RANGEN Testing Configuration
+# ============================
+# Config optimized for running tests
+
+system:
+  name: "RANGEN V2"
+  version: "2.0.0"
+  environment: "testing"
+  debug: false
+  log_level: "INFO"
+
+llm:
+  provider: "mock"
+  deepseek:
+    api_key: "mock-key-for-testing"
+    base_url: "http://localhost:9999"
+    reasoning_model: "mock-reasoner"
+    validation_model: "mock-chat"
+    citation_model: "mock-chat"
+    fallback_model: "mock-chat"
+  openai:
+    api_key: "mock-key-for-testing"
+    base_url: "http://localhost:9999"
+    model: "mock-gpt"
+
+knowledge_base:
+  vector_store_path: "./data/vector_store_test"
+  embedding_model: "all-MiniLM-L6-v2"
+  local_embedding_model: "all-MiniLM-L6-v2"
+  model_cache:
+    cache_dir: "./.cache/test"
+    use_local_models: false
+    auto_download: false
+
+kms:
+  enabled: false
+  config_path: "knowledge_management_system/config/system_config.json"
+  service:
+    host: "localhost"
+    port: 8001
+    timeout: 5
+    retry_attempts: 1
+  features:
+    vector_rerank: false
+    small_to_big_retrieval: false
+    knowledge_graph: false
+    multi_modal: false
+  performance:
+    default_top_k: 5
+    similarity_threshold: 0.8
+    max_content_length: 100000
+
+neural_models:
+  embedding:
+    primary_model: "all-MiniLM-L6-v2"
+    secondary_model: "all-MiniLM-L6-v2"
+    model_path: "./.cache/test"
+  cross_encoder:
+    model_name: "cross-encoder/ms-marco-MiniLM-L-6-v2"
+    enabled: false
+
+agents:
+  reasoning_agent:
+    enabled: true
+    llm_provider: "mock"
+    model: "mock-reasoner"
+    timeout: 10
+    max_tokens: 1024
+  validation_agent:
+    enabled: true
+    llm_provider: "mock"
+    model: "mock-chat"
+    timeout: 5
+  citation_agent:
+    enabled: true
+    llm_provider: "mock"
+    model: "mock-chat"
+    timeout: 5
+
+performance:
+  max_concurrent_tasks: 2
+  task_timeout: 30
+  memory_limit: "512MB"
+  cache:
+    deduplication_window: 10
+    long_term_cache_window: 30
+
+retrieval:
+  max_query_length: 500
+  top_k_results: 3
+  enable_reranking: false
+  rerank_top_k: 5
+  enable_context_expansion: false
+  context_expansion_threshold: 1.0
+
+security:
+  input_validation:
+    enabled: true
+    max_query_length: 5000
+  rate_limiting:
+    enabled: false
+    requests_per_minute: 1000
+
+monitoring:
+  enabled: false
+  metrics_interval: 300
+  health_check_enabled: false
+  performance_tracking: false
+
+integrations:
+  langgraph:
+    enabled: false
+    fallback_on_error: true
+  opentelemetry:
+    enabled: false
+    service_name: "rangen-v2-test"
+    endpoint: "http://localhost:4317"

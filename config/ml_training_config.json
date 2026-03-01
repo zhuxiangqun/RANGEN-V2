@@ -1,0 +1,129 @@
+{
+  "_comments": {
+    "_note": "此配置文件使用 _comments 字段存储注释说明，不影响JSON解析",
+    "_description": "ML/RL训练配置文件 - 控制核心推理系统中的ML/RL功能启用和参数设置",
+    "_usage": "修改配置后重启系统即可生效，无需重新编译"
+  },
+  "ml_training": {
+    "_section_comments": {
+      "data_collection": "数据收集配置 - 自动收集推理执行轨迹用于ML训练",
+      "parallel_classifier": "并行查询分类器 - 检测查询是否包含并行结构",
+      "logic_parser": "逻辑结构解析器 - 解析查询中的AND、OR、IF-THEN等逻辑结构",
+      "adaptive_retry": "自适应重试智能体 - 使用强化学习优化重试策略",
+      "dynamic_planner": "动态规划器 - 根据查询动态调整推理策略",
+      "fewshot_learner": "Few-shot模式学习器 - 从少量示例学习新查询模式",
+      "knowledge_transfer": "跨任务知识迁移 - 将知识从一个任务类型迁移到相似任务",
+      "rl_parallel_planner": "RL并行规划器 - 使用强化学习优化并行分解策略",
+      "deep_confidence": "深度置信度评估器 - 使用深度学习评估步骤结果的置信度",
+      "transformer_planner": "Transformer计划生成器 - 端到端生成执行计划",
+      "gnn_optimizer": "GNN计划优化器 - 使用图神经网络优化执行计划",
+      "continuous_learning": "持续学习系统 - 自动训练和更新ML/RL模型",
+      "training": "批量训练配置 - 用于 scripts/train_ml_models.py"
+    },
+    "data_collection_enabled": true,
+    "_data_collection_enabled_comment": "是否启用数据收集（自动收集推理执行轨迹用于ML训练）",
+    "data_storage_path": "data/ml_training",
+    "_data_storage_path_comment": "数据存储路径（相对于项目根目录）",
+    "parallel_classifier_enabled": true,
+    "_parallel_classifier_enabled_comment": "是否启用并行查询分类器（检测查询是否包含并行结构）",
+    "parallel_classifier": {
+      "_comment": "并行查询分类器详细配置",
+      "threshold": 0.5,
+      "_threshold_comment": "并行检测的置信度阈值（0-1，值越高要求越严格）",
+      "model_path": null,
+      "_model_path_comment": "预训练模型路径（null表示使用默认模型或规则）。如果已训练模型，设置为 'data/ml_models/parallel_query_classifier/model.pkl'"
+    },
+    "confidence_estimator": {
+      "_comment": "置信度评估器配置（已废弃，建议使用 deep_confidence）",
+      "enabled": false,
+      "model_path": null
+    },
+    "logic_parser": {
+      "_comment": "逻辑结构解析器（解析查询中的AND、OR、IF-THEN等逻辑结构）",
+      "enabled": true,
+      "model_path": null,
+      "_model_path_comment": "预训练模型路径（null表示使用规则或默认模型）"
+    },
+    "adaptive_retry": {
+      "_comment": "自适应重试智能体（使用强化学习优化重试策略）",
+      "enabled": true,
+      "exploration_rate": 0.1,
+      "_exploration_rate_comment": "探索率（0-1，值越高越倾向于尝试新策略）",
+      "learning_rate": 0.01,
+      "_learning_rate_comment": "学习率（RL算法的学习速率）",
+      "max_buffer_size": 1000,
+      "_max_buffer_size_comment": "经验回放缓冲区最大大小"
+    },
+    "dynamic_planner": {
+      "_comment": "动态规划器（根据查询动态调整推理策略）",
+      "enabled": true
+    },
+    "fewshot_learner": {
+      "_comment": "Few-shot模式学习器（从少量示例学习新查询模式）",
+      "enabled": true,
+      "model_path": null,
+      "_model_path_comment": "预训练模型路径"
+    },
+    "knowledge_transfer": {
+      "_comment": "跨任务知识迁移（将知识从一个任务类型迁移到相似任务）",
+      "enabled": true,
+      "similarity_threshold": 0.7,
+      "_similarity_threshold_comment": "任务相似度阈值（0-1，值越高要求越相似）"
+    },
+    "rl_parallel_planner": {
+      "_comment": "RL并行规划器（使用强化学习优化并行分解策略）",
+      "enabled": true,
+      "exploration_rate": 0.1,
+      "_exploration_rate_comment": "探索率（0-1）",
+      "learning_rate": 0.01,
+      "_learning_rate_comment": "学习率",
+      "discount_factor": 0.95,
+      "_discount_factor_comment": "折扣因子（未来奖励的折扣率，0-1）",
+      "max_buffer_size": 1000,
+      "_max_buffer_size_comment": "经验回放缓冲区最大大小"
+    },
+    "deep_confidence": {
+      "_comment": "深度置信度评估器（使用深度学习评估步骤结果的置信度）",
+      "enabled": true,
+      "model_path": null,
+      "_model_path_comment": "预训练模型路径（LSTM + 注意力机制模型）"
+    },
+    "transformer_planner": {
+      "_comment": "Transformer计划生成器（端到端生成执行计划）",
+      "enabled": true,
+      "model_path": null,
+      "_model_path_comment": "预训练模型路径（Transformer编码器-解码器模型）"
+    },
+    "gnn_optimizer": {
+      "_comment": "GNN计划优化器（使用图神经网络优化执行计划）",
+      "enabled": true,
+      "model_path": null,
+      "_model_path_comment": "预训练模型路径（GAT模型）"
+    },
+    "continuous_learning": {
+      "_comment": "持续学习系统（自动训练和更新ML/RL模型）",
+      "enabled": true,
+      "storage_path": "data/ml_models",
+      "_storage_path_comment": "模型存储路径",
+      "max_training_history": 1000,
+      "_max_training_history_comment": "最大训练历史记录数",
+      "auto_training_enabled": false,
+      "_auto_training_enabled_comment": "是否启用自动训练（定期自动训练模型）",
+      "min_samples_for_training": 100,
+      "_min_samples_for_training_comment": "触发训练的最小样本数"
+    },
+    "training": {
+      "_comment": "批量训练配置（用于 scripts/train_ml_models.py）",
+      "enabled": false,
+      "_enabled_comment": "是否启用批量训练",
+      "schedule": "weekly",
+      "_schedule_comment": "训练计划（'daily', 'weekly', 'monthly'）",
+      "min_samples": 100,
+      "_min_samples_comment": "最小样本数（达到此数量才触发训练）",
+      "batch_size": 32,
+      "_batch_size_comment": "批次大小",
+      "epochs": 10,
+      "_epochs_comment": "训练轮数"
+    }
+  }
+}

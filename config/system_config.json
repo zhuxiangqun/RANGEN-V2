@@ -1,0 +1,25 @@
+{
+  "max_function_length": 50,
+  "max_class_length": 200,
+  "max_parameters": 5,
+  "max_nesting_depth": 4,
+  "max_cyclomatic_complexity": 10,
+  "min_docstring_coverage": 0.8,
+  "timeout": 30.0,
+  "max_retries": 3,
+  "max_concurrent": 3,
+  "log_level": "INFO",
+  "log_format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+  "vector_db_path": "data/vector_db",
+  "faiss_index_path": "data/faiss_index",
+  "sample_count": 50,
+  "evaluation_timeout": 60.0,
+  "ai_model_timeout": 30.0,
+  "ai_max_tokens": 1000,
+  "filtering": {
+    "max_content_length": 10000000,
+    "blacklist_terms": [],
+    "graylist_terms": [],
+    "whitelist_core_facts": []
+  }
+}

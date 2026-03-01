@@ -1,0 +1,100 @@
+name: answer-generation
+version: 1.0.0
+description: "答案生成技能。基于检索结果生成高质量回答，包括总结、合成、引用管理。"
+author: rangen
+tags:
+  - answer
+  - generation
+  - synthesis
+  - llm
+dependencies: ["rag-retrieval"]
+scope: bundled
+
+config:
+  type: generation
+  mode: generative
+  domain: nlp
+
+prompt_template: |
+  ## 答案生成技能
+  
+  基于检索结果生成高质量、准确、有引用支撑的回答。
+  
+  ### 生成流程
+  
+  **1. 信息整合**
+  - 汇总所有检索结果
+  - 识别关键信息点
+  - 去除冗余信息
+  
+  **2. 内容组织**
+  - 按逻辑顺序组织
+  - 重要信息前置
+  - 适当分段
+  
+  **3. 答案撰写**
+  - 使用检索结果中的原文
+  - 保持信息准确性
+  - 避免幻觉
+  
+  ### 答案结构
+  
+  **直接回答型**
+  ```
+  [核心答案]
+  
+  [详细说明]
+  - 要点1
+  - 要点2
+  
+  [来源引用]
+  ```
+  
+  **解释说明型**
+  ```
+  [概念定义]
+  
+  [原理说明]
+  
+  [示例]
+  
+  [相关来源]
+  ```
+  
+  **列表型**
+  ```
+  [列表标题]
+  
+  1. 项目1 - 简述
+  2. 项目2 - 简述
+  ...
+  ```
+  
+  ### 质量检查点
+  
+  | 检查项 | 标准 |
+  |--------|------|
+  | 准确性 | 与检索结果一致 |
+  | 完整性 | 覆盖问题所有方面 |
+  | 清晰度 | 语言简洁明了 |
+  | 可信度 | 有引用支撑 |
+  
+  ### 常见问题处理
+  
+  | 问题 | 解决方案 |
+  |------|---------|
+  | 信息不足 | 明确说明信息有限 |
+  | 矛盾信息 | 列出不同观点 |
+  | 无关结果 | 过滤并说明 |
+  | 多个答案 | 提供多个并说明差异 |
+
+tools:
+  - name: synthesize_answer
+    description: "综合信息生成答案"
+  - name: validate_answer
+    description: "验证答案准确性"
+
+related_skills:
+  - rag-retrieval
+  - citation-generation
+  - fact-check

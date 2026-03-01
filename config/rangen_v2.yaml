@@ -1,0 +1,152 @@
+# RANGEN V2 Configuration
+# Environment-based configuration for production deployment
+
+# System Configuration
+system:
+  name: "RANGEN V2"
+  version: "2.0.0"
+  environment: "${ENVIRONMENT:development}"
+  debug: false
+  log_level: "${LOG_LEVEL:INFO}"
+
+# LLM Provider Configuration
+llm:
+  provider: "${LLM_PROVIDER:deepseek}"
+  
+  # DeepSeek Configuration
+  deepseek:
+    api_key: "${DEEPSEEK_API_KEY}"
+    base_url: "${DEEPSEEK_BASE_URL:https://api.deepseek.com/v1}"
+    reasoning_model: "${REASONING_MODEL:deepseek-reasoner}"
+    validation_model: "${VALIDATION_MODEL:deepseek-chat}"
+    citation_model: "${CITATION_MODEL:deepseek-chat}"
+    fallback_model: "${DEEPSEEK_FALLBACK_MODEL:deepseek-chat}"
+  
+  # OpenAI Configuration (alternative)
+  openai:
+    api_key: "${OPENAI_API_KEY}"
+    base_url: "${OPENAI_BASE_URL:https://api.openai.com/v1}"
+    model: "${OPENAI_MODEL:gpt-3.5-turbo}"
+
+# Knowledge Base Configuration
+knowledge_base:
+  vector_store_path: "${VECTOR_STORE_PATH:./data/vector_store}"
+  embedding_model: "${EMBEDDING_MODEL:all-mpnet-base-v2}"
+  local_embedding_model: "${LOCAL_EMBEDDING_MODEL:all-mpnet-base-v2}"
+  
+  # Model Cache Configuration
+  model_cache:
+    cache_dir: "~/.cache/huggingface/hub"
+    use_local_models: true
+    auto_download: true
+
+# Knowledge Management System (KMS) Configuration
+kms:
+  enabled: "${KMS_ENABLED:true}"
+  config_path: "${KMS_CONFIG_PATH:knowledge_management_system/config/system_config.json}"
+  
+  # KMS Service Integration
+  service:
+    host: "${KMS_HOST:localhost}"
+    port: "${KMS_PORT:8001}"
+    timeout: "${KMS_TIMEOUT:30}"
+    retry_attempts: "${KMS_RETRY_ATTEMPTS:3}"
+  
+  # KMS Feature Flags
+  features:
+    vector_rerank: "${KMS_VECTOR_RERANK:true}"
+    small_to_big_retrieval: "${KMS_SMALL_TO_BIG:true}"
+    knowledge_graph: "${KMS_KNOWLEDGE_GRAPH:true}"
+    multi_modal: "${KMS_MULTIMODAL:false}"
+  
+  # KMS Performance Settings
+  performance:
+    default_top_k: "${KMS_DEFAULT_TOP_K:15}"
+    similarity_threshold: "${KMS_SIMILARITY_THRESHOLD:0.6}"
+    max_content_length: "${KMS_MAX_CONTENT_LENGTH:2000000}"
+
+# Neural Models Configuration
+neural_models:
+  # Embedding Models
+  embedding:
+    primary_model: "all-mpnet-base-v2"  # 768 dimensions
+    secondary_model: "all-MiniLM-L6-v2"  # 384 dimensions
+    model_path: "${MODEL_CACHE_DIR:~/.cache/huggingface/hub}"
+  
+  # Cross-encoder for re-ranking
+  cross_encoder:
+    model_name: "cross-encoder/ms-marco-MiniLM-L-6-v2"
+    enabled: true
+
+# Agent Configuration
+agents:
+  reasoning_agent:
+    enabled: true
+    llm_provider: "${LLM_PROVIDER:deepseek}"
+    model: "${REASONING_MODEL:deepseek-reasoner}"
+    timeout: 60
+    max_tokens: "${MAX_TOKENS:8192}"
+  
+  validation_agent:
+    enabled: true
+    llm_provider: "${LLM_PROVIDER:deepseek}"
+    model: "${VALIDATION_MODEL:deepseek-chat}"
+    timeout: 30
+  
+  citation_agent:
+    enabled: true
+    llm_provider: "${LLM_PROVIDER:deepseek}"
+    model: "${CITATION_MODEL:deepseek-chat}"
+    timeout: 15
+
+# Performance Configuration
+performance:
+  max_concurrent_tasks: "${MAX_CONCURRENT_TASKS:10}"
+  task_timeout: "${TASK_TIMEOUT:300}"
+  memory_limit: "${MEMORY_LIMIT:2048}MB"
+  
+  # Caching Configuration
+  cache:
+    deduplication_window: "${DEDUPLICATION_WINDOW:60}"
+    long_term_cache_window: "${LONG_TERM_CACHE_WINDOW:300}"
+    
+# Retrieval Configuration
+retrieval:
+  # Query processing
+  max_query_length: 1000
+  top_k_results: 5
+  
+  # Re-ranking
+  enable_reranking: true
+  rerank_top_k: 10
+  
+  # Context expansion
+  enable_context_expansion: true
+  context_expansion_threshold: 1.3
+
+# Security Configuration
+security:
+  input_validation:
+    enabled: true
+    max_query_length: 10000
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 60
+
+# Monitoring Configuration
+monitoring:
+  enabled: true
+  metrics_interval: 30
+  health_check_enabled: true
+  performance_tracking: true
+
+# Integration Configuration
+integrations:
+  langgraph:
+    enabled: true
+    fallback_on_error: true
+  
+  opentelemetry:
+    enabled: false
+    service_name: "rangen-v2"
+    endpoint: "${OTEL_ENDPOINT:http://localhost:4317}"

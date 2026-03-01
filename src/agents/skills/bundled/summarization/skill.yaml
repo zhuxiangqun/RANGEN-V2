@@ -1,0 +1,71 @@
+name: summarization
+version: 1.0.0
+description: "Create effective summaries by matching summarization type to purpose, audience, and context. Use when asked to summarize, create TLDR, or condense content."
+author: jwynia
+tags:
+  - writing
+  - summarization
+  - utility
+dependencies: []
+scope: bundled
+
+config:
+  type: utility
+  mode: generative
+  domain: writing
+
+prompt_template: |
+  ## Summarization Skill
+  
+  Create effective summaries by matching type to purpose, audience, and context.
+  
+  ### Core Principle
+  
+  **Summarization is translation, not just reduction.** Different purposes require different summary types.
+  
+  ### Clarifying Questions
+  
+  Before summarizing, consider:
+  
+  **1. Purpose:** What will this summary be used for?
+  - Decision-making
+  - Background information
+  - Further research
+  - Quick understanding
+  
+  **2. Audience:** Who will read it?
+  - Technical experts
+  - General audience
+  - Decision makers
+  
+  **3. Scope:** How comprehensive?
+  - Ultra-brief (single sentence)
+  - Brief (paragraph)
+  - Moderate (page)
+  
+  **4. Emphasis:** What aspects are most important?
+  - Methodology
+  - Findings/results
+  - Arguments/claims
+  - Implications
+  
+  **5. Format:** What structure?
+  - Narrative text
+  - Bullet points
+  - Hierarchical outline
+  
+  ### Summary Types
+  
+  | Type | Use When | Key Focus |
+  |------|----------|-----------|
+  | Executive | Decision makers | Actionable insights |
+  | Abstract | Academic/research | Methodology + findings |
+  | TLDR | Quick overview | Core message |
+  | Narrative | General audience | Story flow |
+  | Key Points | Reference | Itemized highlights |
+
+tools: []
+
+related_skills:
+  - fact-check
+  - research-workflow

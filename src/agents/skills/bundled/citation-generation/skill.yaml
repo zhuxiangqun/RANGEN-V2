@@ -1,0 +1,84 @@
+name: citation-generation
+version: 1.0.0
+description: "引文生成技能。为答案添加来源引用，标注参考位置，保持学术规范。"
+author: rangen
+tags:
+  - citation
+  - reference
+  - source
+  - attribution
+dependencies: ["answer-generation"]
+scope: bundled
+
+config:
+  type: generation
+  mode: generative
+  domain: academic
+
+prompt_template: |
+  ## 引文生成技能
+  
+  为生成的回答添加准确的来源引用和参考标注。
+  
+  ### 引文格式
+  
+  **行内引用**
+  - 使用编号 [1], [2], ...
+  - 引用位置：句末或观点后
+  
+  **脚注格式**
+  - 底部列出完整来源
+  - 包含：标题、作者、日期、URL
+  
+  ### 引用原则
+  
+  1. **准确性**
+     - 引用与内容一致
+     - 正确标注页码（如有）
+  
+  2. **必要性**
+     - 仅引用关键信息
+     - 避免过度引用
+  
+  3. **时效性**
+     - 优先引用最新来源
+     - 标注发布日期
+  
+  4. **权威性**
+     - 优先引用权威来源
+     - 注明来源可信度
+  
+  ### 引用格式示例
+  
+  ```
+  根据研究显示[1]，...
+  
+  [1] Smith, J. (2024). "Title of Article". 
+      Journal Name. https://example.com
+  ```
+  
+  ### 场景处理
+  
+  | 场景 | 处理方式 |
+  |------|---------|
+  | 多个来源支持 | 合并引用 [1,2] |
+  | 间接引用 | 标注"根据..." |
+  | 无来源 | 标注"信息未找到" |
+  | 冲突信息 | 列出不同来源 |
+  
+  ### 引文质量检查
+  
+  - [ ] 所有事实都有引用
+  - [ ] 引用格式一致
+  - [ ] 链接可访问
+  - [ ] 日期标注清晰
+
+tools:
+  - name: format_citation
+    description: "格式化引文"
+  - name: validate_citations
+    description: "验证引文有效性"
+
+related_skills:
+  - answer-generation
+  - fact-check

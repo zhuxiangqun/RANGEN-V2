@@ -1,0 +1,113 @@
+# RANGEN Production Configuration
+# ===============================
+# Optimized config for production deployment
+
+system:
+  name: "RANGEN V2"
+  version: "2.0.0"
+  environment: "production"
+  debug: false
+  log_level: "WARNING"
+
+llm:
+  provider: "${LLM_PROVIDER:deepseek}"
+  deepseek:
+    api_key: "${DEEPSEEK_API_KEY:}"
+    base_url: "${DEEPSEEK_BASE_URL:https://api.deepseek.com/v1}"
+    reasoning_model: "${REASONING_MODEL:deepseek-reasoner}"
+    validation_model: "${VALIDATION_MODEL:deepseek-chat}"
+    citation_model: "${CITATION_MODEL:deepseek-chat}"
+    fallback_model: "${DEEPSEEK_FALLBACK_MODEL:deepseek-chat}"
+
+knowledge_base:
+  vector_store_path: "${VECTOR_STORE_PATH:/data/vector_store}"
+  embedding_model: "${EMBEDDING_MODEL:all-mpnet-base-v2}"
+  local_embedding_model: "${LOCAL_EMBEDDING_MODEL:all-mpnet-base-v2}"
+  model_cache:
+    cache_dir: "~/.cache/huggingface/hub"
+    use_local_models: true
+    auto_download: false
+
+kms:
+  enabled: "${KMS_ENABLED:true}"
+  config_path: "${KMS_CONFIG_PATH:knowledge_management_system/config/system_config.json}"
+  service:
+    host: "${KMS_HOST:kms-service}"
+    port: "${KMS_PORT:8001}"
+    timeout: "${KMS_TIMEOUT:30}"
+    retry_attempts: "${KMS_RETRY_ATTEMPTS:3}"
+  features:
+    vector_rerank: "${KMS_VECTOR_RERANK:true}"
+    small_to_big_retrieval: "${KMS_SMALL_TO_BIG:true}"
+    knowledge_graph: "${KMS_KNOWLEDGE_GRAPH:true}"
+    multi_modal: "${KMS_MULTIMODAL:false}"
+  performance:
+    default_top_k: "${KMS_DEFAULT_TOP_K:15}"
+    similarity_threshold: "${KMS_SIMILARITY_THRESHOLD:0.6}"
+    max_content_length: "${KMS_MAX_CONTENT_LENGTH:2000000}"
+
+neural_models:
+  embedding:
+    primary_model: "all-mpnet-base-v2"
+    secondary_model: "all-MiniLM-L6-v2"
+    model_path: "${MODEL_CACHE_DIR:/data/models}"
+  cross_encoder:
+    model_name: "cross-encoder/ms-marco-MiniLM-L-6-v2"
+    enabled: true
+
+agents:
+  reasoning_agent:
+    enabled: true
+    llm_provider: "${LLM_PROVIDER:deepseek}"
+    model: "${REASONING_MODEL:deepseek-reasoner}"
+    timeout: 120
+    max_tokens: 16384
+  validation_agent:
+    enabled: true
+    llm_provider: "${LLM_PROVIDER:deepseek}"
+    model: "${VALIDATION_MODEL:deepseek-chat}"
+    timeout: 60
+  citation_agent:
+    enabled: true
+    llm_provider: "${LLM_PROVIDER:deepseek}"
+    model: "${CITATION_MODEL:deepseek-chat}"
+    timeout: 30
+
+performance:
+  max_concurrent_tasks: "${MAX_CONCURRENT_TASKS:20}"
+  task_timeout: "${TASK_TIMEOUT:600}"
+  memory_limit: "4096MB"
+  cache:
+    deduplication_window: 120
+    long_term_cache_window: 600
+
+retrieval:
+  max_query_length: 5000
+  top_k_results: 10
+  enable_reranking: true
+  rerank_top_k: 20
+  enable_context_expansion: true
+  context_expansion_threshold: 1.5
+
+security:
+  input_validation:
+    enabled: true
+    max_query_length: 50000
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 120
+
+monitoring:
+  enabled: true
+  metrics_interval: 60
+  health_check_enabled: true
+  performance_tracking: true
+
+integrations:
+  langgraph:
+    enabled: true
+    fallback_on_error: false
+  opentelemetry:
+    enabled: true
+    service_name: "rangen-v2"
+    endpoint: "${OTEL_ENDPOINT:http://otel-collector:4317}"

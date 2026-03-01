@@ -1,0 +1,14 @@
+{
+  "name": "system",
+  "config": {
+    "name": "RANGEN核心系统",
+    "version": "1.0.0",
+    "debug_mode": false,
+    "log_level": "INFO",
+    "max_concurrent_queries": 3,
+    "timeout_seconds": 30
+  },
+  "description": "system配置",
+  "last_updated": 1760878947.450533,
+  "version": "1.0.0"
+}

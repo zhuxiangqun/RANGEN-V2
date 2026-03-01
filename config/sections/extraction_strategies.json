@@ -1,0 +1,13 @@
+{
+  "llm_fallback": {
+    "enabled": true,
+    "prompt_template": "请从以下内容中提取问题的答案。问题：{query}。内容：{content}。请只返回最可能的答案，不要包含任何解释。如果无法确定答案，请返回'无法确定'。",
+    "max_retries": 2,
+    "timeout": 10
+  },
+  "validation_rules": {
+    "min_answer_length": 1,
+    "max_answer_length": 100,
+    "exclude_common_words": ["the", "this", "that", "it", "he", "she", "they", "we", "you", "无法确定", "不确定", "不知道"]
+  }
+}

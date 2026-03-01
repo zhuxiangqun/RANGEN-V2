@@ -1,0 +1,2436 @@
+INFO:__main__:Starting production simulation...
+/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/.venv/lib/python3.13/site-packages/keras/src/export/tf2onnx_lib.py:8: FutureWarning: In the future `np.object` will be defined as the corresponding NumPy scalar.
+  if not hasattr(np, "object"):
+INFO:src.utils.unified_centers:微服务组件初始化完成
+INFO:src.utils.unified_centers:边缘计算组件初始化完成
+INFO:src.utils.unified_centers:量子计算组件初始化完成
+INFO:src.utils.unified_centers:环境变量配置加载完成
+INFO:src.utils.unified_centers:✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+INFO:src.utils.unified_centers:✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+INFO:src.utils.unified_centers:统一配置中心初始化完成
+INFO:src.utils.unified_intelligent_center:统一智能中心初始化完成
+INFO:src.utils.unified_centers:Registered center: get_unified_intelligent_center
+INFO:src.utils.unified_centers:Registered center: get_unified_config_center
+INFO:src.tools.monitoring.performance_monitor:智能优化功能初始化完成
+INFO:src.tools.monitoring.performance_monitor:自适应优化初始化完成
+INFO:src.tools.monitoring.performance_monitor:动态调整初始化完成
+INFO:src.tools.monitoring.performance_monitor:性能调优初始化完成
+INFO:src.tools.monitoring.performance_monitor:增强性能监控器初始化完成
+INFO:src.utils.unified_centers:Registered center: get_performance_monitor
+INFO:src.utils.unified_context:动态上下文刷新线程已启动
+INFO:src.utils.unified_context:统一上下文管理器初始化完成
+INFO:src.utils.unified_context:动态上下文刷新线程已启动
+INFO:src.utils.unified_context:统一上下文管理器初始化完成
+INFO:src.utils.unified_centers:Registered center: get_unified_context_manager
+INFO:src.utils.unified_security_center:威胁情报初始化完成
+INFO:src.utils.unified_security_center:行为分析初始化完成
+INFO:src.utils.unified_security_center:安全自动化初始化完成
+INFO:src.utils.unified_security_center:审计系统初始化完成
+INFO:src.utils.unified_security_center:增强安全功能初始化完成
+INFO:src.utils.unified_centers:Registered center: get_unified_security_center
+2026-01-14 17:13:33,728 - core.unified_dependency_manager - INFO - 依赖 'unified_intelligent_center' 注册成功
+2026-01-14 17:13:33,728 - core.unified_dependency_manager - INFO - 依赖 'unified_config_center' 注册成功
+2026-01-14 17:13:33,728 - core.unified_dependency_manager - INFO - 依赖 'unified_threshold_manager' 注册成功
+2026-01-14 17:13:33,728 - core.unified_dependency_manager - INFO - 依赖 'unified_scoring_center' 注册成功
+2026-01-14 17:13:33,728 - core.unified_dependency_manager - INFO - 依赖 'prompt_engine' 注册成功
+2026-01-14 17:13:33,728 - core.unified_dependency_manager - INFO - 依赖 'memory_optimizer' 注册成功
+2026-01-14 17:13:33,728 - core.unified_dependency_manager - INFO - 依赖 'security_center' 注册成功
+2026-01-14 17:13:33,728 - core.unified_dependency_manager - INFO - 依赖 'performance_monitor' 注册成功
+2026-01-14 17:13:33,728 - core.unified_dependency_manager - INFO - 依赖 'unified_answer_center' 注册成功
+2026-01-14 17:13:33,728 - core.unified_dependency_manager - INFO - 工厂 'unified_intelligent_center' 注册成功
+2026-01-14 17:13:33,728 - core.unified_dependency_manager - INFO - 工厂 'unified_config_center' 注册成功
+2026-01-14 17:13:33,728 - core.unified_dependency_manager - INFO - 工厂 'prompt_engine' 注册成功
+2026-01-14 17:13:33,728 - core.unified_dependency_manager - INFO - 工厂 'memory_optimizer' 注册成功
+2026-01-14 17:13:33,728 - core.unified_dependency_manager - INFO - 工厂 'performance_monitor' 注册成功
+2026-01-14 17:13:33,728 - core.unified_dependency_manager - INFO - 工厂 'security_center' 注册成功
+2026-01-14 17:13:33,728 - core.unified_dependency_manager - INFO - ✅ 统一依赖管理器初始化完成
+INFO:src.utils.unified_centers:Registered center: get_unified_dependency_manager
+INFO:src.utils.unified_centers:Registered center: get_unified_dependency_manager
+INFO:src.utils.unified_centers:Registered center: get_unified_tokenization_manager
+INFO:src.utils.unified_centers:Registered center: get_unified_tokenization_manager
+INFO:src.utils.unified_centers:Registered center: get_unified_threshold_manager
+INFO:src.utils.unified_centers:Registered center: get_unified_threshold_manager
+INFO:src.utils.unified_centers:Registered center: get_unified_model_manager
+INFO:src.utils.unified_centers:Registered center: get_unified_model_manager
+INFO:src.utils.unified_intelligent_processor:统一智能处理基础类初始化完成
+INFO:src.utils.unified_centers:Registered center: get_unified_intelligent_processor
+INFO:src.utils.unified_centers:Registered center: get_unified_intelligent_processor
+2026-01-14 17:13:33 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+INFO:src.core.llm_integration:LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-14 17:13:33 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-reasoner, base_url=https://api.deepseek.com/v1
+INFO:src.core.llm_integration:LLM Integration initialized: provider=deepseek, model=deepseek-reasoner, base_url=https://api.deepseek.com/v1
+INFO:src.utils.unified_complexity_model_service:✅ LLM集成初始化成功
+INFO:src.core.adaptive_optimizer:✅ 加载历史性能数据: 360条记录
+INFO:src.utils.unified_complexity_model_service:✅ ML/RL优化器初始化成功
+INFO:src.utils.unified_complexity_model_service:✅ 统一复杂度判断和模型选择服务初始化完成
+INFO:src.utils.unified_centers:Registered center: get_unified_complexity_model_service
+INFO:src.utils.unified_centers:Registered center: get_unified_complexity_model_service
+INFO:__main__:Initializing UnifiedResearchSystem...
+INFO:src.unified_research_system:🚀 开始初始化统一异步研究系统...
+INFO:src.unified_research_system:🔧 初始化核心组件...
+2026-01-14 17:13:33 - src.agents.tools.tool_registry - INFO - ToolRegistry initialized
+INFO:src.agents.tools.tool_registry:ToolRegistry initialized
+INFO:src.unified_research_system:✅ 工具注册表初始化成功
+INFO:src.utils.unified_centers:环境变量配置加载完成
+INFO:src.utils.unified_centers:✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+INFO:src.utils.unified_centers:✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+INFO:src.utils.unified_centers:统一配置中心初始化完成
+2026-01-14 17:13:33 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+INFO:src.core.llm_integration:LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+INFO:src.unified_research_system:✅ LLM客户端初始化成功（用于Agent循环）
+INFO:src.unified_research_system:🔧 开始注册Agent Tools...
+2026-01-14 17:13:33 - src.agents.tools.tool_registry - INFO - Registered tool: knowledge_retrieval (retrieval)
+INFO:src.agents.tools.tool_registry:Registered tool: knowledge_retrieval (retrieval)
+2026-01-14 17:13:33 - src.agents.tools.tool_registry - INFO - Registered tool: reasoning (utility)
+INFO:src.agents.tools.tool_registry:Registered tool: reasoning (utility)
+2026-01-14 17:13:33 - src.agents.tools.tool_registry - INFO - Registered tool: answer_generation (utility)
+INFO:src.agents.tools.tool_registry:Registered tool: answer_generation (utility)
+2026-01-14 17:13:33 - src.agents.tools.tool_registry - INFO - Registered tool: citation (utility)
+INFO:src.agents.tools.tool_registry:Registered tool: citation (utility)
+INFO:src.agents.tools.multimodal_tool:✅ 多模态处理工具初始化完成
+2026-01-14 17:13:33 - src.agents.tools.tool_registry - INFO - Registered tool: multimodal (utility)
+INFO:src.agents.tools.tool_registry:Registered tool: multimodal (utility)
+INFO:src.unified_research_system:✅ Agent Tools注册成功
+2026-01-14 17:13:33 - src.agents.tools.tool_registry - INFO - Registered tool: search (retrieval)
+INFO:src.agents.tools.tool_registry:Registered tool: search (retrieval)
+2026-01-14 17:13:33 - src.agents.tools.tool_registry - INFO - Registered tool: calculator (utility)
+INFO:src.agents.tools.tool_registry:Registered tool: calculator (utility)
+INFO:src.unified_research_system:✅ Utility Tools注册成功（RAG功能由RAGTool提供，内部使用RAGAgent）
+INFO:src.unified_research_system:✅ 所有工具注册完成
+INFO:src.unified_research_system:✅ 核心组件初始化完成
+INFO:src.unified_research_system:🤖 初始化智能体...
+2026-01-14 17:13:33,748 - core.ai_algorithm_integrator - INFO - 责任链设置完成，链长度: 3
+INFO:src.config.unified_config_manager:加载了 8 个配置节
+2026-01-14 17:13:33,751 - core.ai_algorithm_integrator - INFO - 增强AI功能初始化完成
+2026-01-14 17:13:33,751 - core.ai_algorithm_integrator - INFO - 机器学习管道初始化完成
+2026-01-14 17:13:33,751 - core.ai_algorithm_integrator - INFO - 模型管理系统初始化完成
+2026-01-14 17:13:33,751 - core.ai_algorithm_integrator - INFO - 智能决策系统初始化完成
+2026-01-14 17:13:33,751 - core.ai_algorithm_integrator - INFO - AI算法集成器初始化完成 - 已集成大脑决策机制
+INFO:src.unified_research_system:✅ AI算法集成器初始化成功
+INFO:src.unified_research_system:🔄 [初始化] 开始初始化Entry Router...
+INFO:src.unified_research_system:🔍 [DEBUG] Entry Router初始化前: _use_langgraph=False
+INFO:src.core.entry_router:✅ Entry Router: 统一复杂度判断服务已初始化（支持LLM判断）
+INFO:src.unified_research_system:✅ Entry Router初始化成功（使用统一复杂度判断服务，支持LLM判断）
+INFO:src.unified_research_system:🔍 [DEBUG] Entry Router初始化后: _entry_router=True
+INFO:src.unified_research_system:✅ [初始化] Entry Router初始化完成
+INFO:src.unified_research_system:🔄 [初始化] 开始初始化智能协调层...
+WARNING:src.unified_research_system:⚠️ 智能协调层初始化失败: ReasoningExpert.__init__() takes 1 positional argument but 3 were given
+INFO:src.unified_research_system:✅ [初始化] 智能协调层初始化完成
+INFO:src.core.langgraph_opentelemetry_integration:✅ OpenTelemetry 初始化成功
+INFO:src.unified_research_system:🔄 [初始化] 正在创建统一工作流...
+INFO:src.core.langgraph_unified_workflow:✅ 状态版本管理器已初始化
+INFO:src.core.langgraph_unified_workflow:✅ 动态工作流管理器已准备
+INFO:src.core.langgraph_unified_workflow:✅ 错误恢复器已准备
+INFO:src.core.langgraph_unified_workflow:✅ 性能优化器已初始化（缓存、LLM优化器、并行执行器）
+INFO:src.core.langgraph_opentelemetry_integration:✅ OpenTelemetry 控制台导出器已配置
+INFO:src.core.langgraph_unified_workflow:✅ OpenTelemetry 监控已启用
+INFO:src.core.reasoning.utils:✅ 已加载ML训练配置: config/ml_training_config.json
+INFO:src.utils.semantic_understanding_pipeline:语义理解管道初始化完成
+INFO:src.utils.unified_rule_manager:✅ 统一规则管理中心已初始化
+INFO:src.core.reasoning.engine:✅ 统一规则管理中心已初始化（推理引擎）
+2026-01-14 17:13:34 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-reasoner, base_url=https://api.deepseek.com/v1
+INFO:src.core.llm_integration:LLM Integration initialized: provider=deepseek, model=deepseek-reasoner, base_url=https://api.deepseek.com/v1
+INFO:src.core.reasoning.engine:✅ 推理模型初始化完成: deepseek-reasoner
+2026-01-14 17:13:34 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+INFO:src.core.llm_integration:LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+INFO:src.core.reasoning.engine:✅ 快速模型初始化成功: deepseek-chat
+INFO:src.utils.prompt_engine:从文件加载了 35 个模板
+INFO:src.utils.prompt_engine:提示词引擎初始化完成
+INFO:src.core.reasoning.engine:✅ 所有推理模板已从配置文件加载: 7 个
+INFO:src.core.reasoning.engine:提示词工程初始化成功
+INFO:src.utils.mcp_protocol:高级MCP协议初始化完成
+INFO:src.utils.unified_context_engineering_center:✅ MCP协议处理器已集成
+INFO:src.utils.unified_context_engineering_center:统一上下文工程中心初始化完成（延迟加载模式）
+INFO:src.core.reasoning.engine:✅ 统一上下文工程中心初始化成功
+INFO:src.utils.prompt_engine:从文件加载了 35 个模板
+INFO:src.utils.prompt_engine:提示词引擎初始化完成
+WARNING:src.core.reasoning.engine:统一提示词管理器初始化失败: name 'PromptEngineeringAgentWrapper' is not defined，将使用fallback提示词
+2026-01-14 17:13:34 - src.agents.tools.tool_registry - WARNING - Overwriting existing tool: knowledge_retrieval
+WARNING:src.agents.tools.tool_registry:Overwriting existing tool: knowledge_retrieval
+2026-01-14 17:13:34 - src.agents.tools.tool_registry - INFO - Registered tool: knowledge_retrieval (retrieval)
+INFO:src.agents.tools.tool_registry:Registered tool: knowledge_retrieval (retrieval)
+2026-01-14 17:13:34 - src.agents.retrieval_agent - INFO - RetrievalAgent initialized: retrieval_agent
+INFO:src.agents.retrieval_agent:RetrievalAgent initialized: retrieval_agent
+INFO:src.core.reasoning.engine:✅ 知识检索Agent初始化成功
+INFO:src.core.reasoning.learning_manager:✅ 学习数据已从文件加载: data/learning/learning_data.json
+INFO:src.core.reasoning.learning_manager:   错误模式: 0条, 成功模式: 0条
+INFO:src.core.adaptive_optimizer:✅ 加载历史性能数据: 360条记录
+INFO:src.core.reasoning.evidence_processor:✅ 证据处理器：自适应优化器已初始化（ML/RL增强）
+INFO:src.core.reasoning.engine:✅ 统一证据处理框架初始化成功
+INFO:src.core.reasoning.reasoning_orchestrator.quick_fix_enhancer:✅ QuickFixPromptEnhancer 初始化完成
+INFO:src.core.reasoning.reasoning_orchestrator.reasoning_orchestrator:🔧 初始化推理编排器组件...
+INFO:src.core.reasoning.reasoning_orchestrator.smart_query_analyzer:✅ SmartQueryAnalyzer 初始化完成
+INFO:src.core.reasoning.reasoning_orchestrator.reasoning_orchestrator:✅ SmartQueryAnalyzer 初始化成功
+INFO:src.core.reasoning.reasoning_orchestrator.reasoning_step_planner:✅ ReasoningStepPlanner 初始化完成
+INFO:src.core.reasoning.reasoning_orchestrator.reasoning_orchestrator:✅ ReasoningStepPlanner 初始化成功
+INFO:src.core.reasoning.reasoning_orchestrator.dynamic_knowledge_manager:✅ DynamicKnowledgeManager 初始化完成
+INFO:src.core.reasoning.reasoning_orchestrator.reasoning_orchestrator:✅ DynamicKnowledgeManager 初始化成功
+INFO:src.core.reasoning.reasoning_orchestrator.prompt_enhancer:✅ PromptEnhancer 初始化完成
+INFO:src.core.reasoning.reasoning_orchestrator.reasoning_orchestrator:✅ PromptEnhancer 初始化成功
+INFO:src.core.reasoning.reasoning_orchestrator.adaptive_quality_validator:✅ AdaptiveQualityValidator 初始化完成
+INFO:src.core.reasoning.reasoning_orchestrator.reasoning_orchestrator:✅ AdaptiveQualityValidator 初始化成功
+INFO:src.core.reasoning.reasoning_orchestrator.reasoning_orchestrator:✅ AdaptiveQualityValidator 初始化成功
+INFO:src.core.reasoning.reasoning_orchestrator.reasoning_orchestrator:🎉 推理编排器初始化完成
+INFO:src.core.reasoning.cache_manager:✅ 加载缓存完成: 0 有效, 0 过期, 0 无效
+INFO:src.core.reasoning.cache_manager:✅ 缓存管理器初始化完成，容量: 1000, TTL: 86400s
+INFO:src.core.reasoning.subquery_processor:✅ 统一规则管理中心已初始化（子查询处理器）
+INFO:src.core.reasoning.engine:✅ 使用统一证据处理框架的检索处理器（向后兼容）
+INFO:src.core.reasoning.cognitive_answer_extractor:CognitiveAnswerExtractor initialized (Rebuilt Version)
+INFO:src.core.reasoning.answer_extraction.answer_extractor:认知答案提取器已初始化
+INFO:src.utils.semantic_understanding_pipeline:语义理解管道初始化完成
+INFO:src.core.reasoning.answer_extraction.answer_extractor:统一规则管理中心已初始化
+INFO:src.core.reasoning.answer_extraction.extraction_strategies:DEBUG: LLMExtractionStrategy initialized
+INFO:src.core.reasoning.hierarchical_answer_validator:✅ 统一规则管理中心已初始化（分层验证器）
+INFO:src.core.reasoning.answer_extraction.answer_extractor:分层答案验证器已初始化
+INFO:src.core.reasoning.step_generator:✅ 配置系统初始化成功
+INFO:src.core.reasoning.validators.step_validator:✅ StepValidator 初始化完成，包含4个验证器
+INFO:src.core.reasoning.step_generator:✅ 验证器系统初始化成功
+INFO:src.core.reasoning.managers.llm_manager:✅ LLM管理器初始化完成
+INFO:src.core.reasoning.step_generator:✅ LLM管理器初始化成功
+INFO:src.core.reasoning.managers.prompt_manager:✅ 模板已注册: step_generation v1.0
+INFO:src.core.reasoning.managers.prompt_manager:✅ 模板已注册: step_validation v1.0
+INFO:src.core.reasoning.managers.prompt_manager:✅ 模板已注册: complexity_analysis v1.0
+INFO:src.core.reasoning.managers.prompt_manager:✅ 提示词管理器初始化完成，支持3个模板
+INFO:src.core.reasoning.step_generator:✅ 提示词管理器初始化成功
+INFO:src.core.reasoning.managers.cache_manager:✅ LLM缓存管理器初始化完成，最大容量: 1000
+INFO:src.core.reasoning.managers.cache_manager:✅ 内容验证器已添加，现在有1个验证器
+INFO:src.core.reasoning.managers.cache_manager:✅ 内容验证器已添加，现在有2个验证器
+INFO:src.core.reasoning.managers.cache_manager:✅ 默认内容验证器已添加
+INFO:src.core.reasoning.step_generator:✅ 新缓存管理器初始化成功
+INFO:src.core.reasoning.step_generator:🛑 [系统重构] 已禁用所有 ML 模型加载 (P0 修复)
+INFO:src.core.reasoning.engine:✅ 数据收集管道已启用: data/ml_training
+INFO:src.core.reasoning.engine:✅ 自适应重试智能体已启用
+INFO:src.core.reasoning.engine:✅ 动态规划器已启用
+INFO:src.core.reasoning.engine:✅ 跨任务知识迁移已启用
+INFO:DeepConfidenceEstimator:✅ 成功加载模型: data/ml_models/deep_confidence_estimator.pkl (类型: lstm_attention)
+INFO:DeepConfidenceEstimator:✅ 成功加载模型: data/ml_models/deep_confidence_estimator.pkl
+INFO:src.core.reasoning.ml_framework.model_auto_loader:✅ [deep_confidence_estimator] 从默认路径加载模型: data/ml_models/deep_confidence_estimator.pkl
+INFO:src.core.reasoning.engine:✅ 深度置信度评估模型已启用
+INFO:src.core.reasoning.engine:✅ 持续学习系统已启用
+INFO:ContinuousLearningSystem:✅ 模型已注册: deep_confidence_estimator
+INFO:ContinuousLearningSystem:✅ 训练已调度: deep_confidence_estimator (weekly)
+INFO:ContinuousLearningSystem:✅ 模型已注册: adaptive_retry_agent
+INFO:ContinuousLearningSystem:✅ 训练已调度: adaptive_retry_agent (weekly)
+INFO:src.core.reasoning.engine:✅ RealReasoningEngine 初始化完成（模块化版本）
+INFO:src.core.langgraph_reasoning_nodes:✅ 推理引擎初始化成功
+INFO:src.core.langgraph_unified_workflow:✅ 推理节点初始化成功
+WARNING:src.core.langgraph_agent_nodes:⚠️ 首席Agent初始化失败: No module named 'src.agents.chief_agent_wrapper'
+WARNING:src.core.langgraph_agent_nodes:⚠️ ReAct Agent初始化失败: No module named 'src.agents.langgraph_react_agent'
+WARNING:src.core.langgraph_agent_nodes:⚠️ 专家智能体初始化准备失败: No module named 'src.agents.expert_agents'
+INFO:src.core.langgraph_unified_workflow:✅ Agent节点初始化成功
+INFO:src.core.langgraph_core_nodes:✅ 将通过系统工具注册表进行知识检索
+WARNING:src.core.langgraph_core_nodes:⚠️ 提示词工程智能体初始化失败: name 'PromptEngineeringAgentWrapper' is not defined
+WARNING:src.core.langgraph_core_nodes:⚠️ 上下文工程智能体初始化失败: No module named 'src.agents.context_engineering_agent_wrapper'
+INFO:src.core.langgraph_unified_workflow:✅ 核心功能节点（RAG、提示词工程、上下文工程）初始化成功
+INFO:src.core.langgraph_unified_workflow:✅ 详细处理节点初始化成功
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 专家智能体节点函数检查:
+INFO:src.core.langgraph_unified_workflow:   - memory_agent_func: True
+INFO:src.core.langgraph_unified_workflow:   - knowledge_retrieval_agent_func: True
+INFO:src.core.langgraph_unified_workflow:   - reasoning_agent_func: True
+INFO:src.core.langgraph_unified_workflow:   - answer_generation_agent_func: True
+INFO:src.core.langgraph_unified_workflow:   - citation_agent_func: True
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 添加所有可能的节点（包括备选节点）以完整显示系统架构
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 核心大脑节点（ChiefAgent）已添加到工作流
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] RAG检索节点已添加到工作流
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 提示词工程节点已添加到工作流
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 上下文工程节点已添加到工作流
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 推理节点已添加到工作流
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 添加标准能力节点: capability_knowledge_retrieval
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 添加标准能力节点: capability_reasoning
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 添加标准能力节点: capability_answer_generation
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 添加标准能力节点: capability_citation
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 协作、配置、学习和能力节点已添加到工作流
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 专家智能体节点已添加到工作流: ['memory_agent', 'knowledge_retrieval_agent', 'reasoning_agent', 'answer_generation_agent', 'citation_agent']
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 查询分析和调度优化节点已添加到工作流
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 详细处理节点已从主流程中移除（避免显示为独立节点）
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 查询分析和调度优化已集成：route_query → query_analysis → scheduling_optimization
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 上下文工程节点已连接到主流程
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 提示词工程节点已连接到主流程
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] RAG检索节点已连接到主流程
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 核心功能节点已集成，路由节点: rag_retrieval
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] Simple路径: route_query → simple_query → chief_agent（可视化完整路径）
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] Complex路径: route_query → complex_query → chief_agent（可视化完整路径）
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 推理链能力集成到 reasoning_agent，所有路径通过多智能体协调路径
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 统一架构：所有路径都通过核心大脑（ChiefAgent）协调
+INFO:src.core.langgraph_unified_workflow:   → 路由映射:
+INFO:src.core.langgraph_unified_workflow:      - simple: route_query → simple_query → chief_agent
+INFO:src.core.langgraph_unified_workflow:      - complex: route_query → complex_query → chief_agent
+INFO:src.core.langgraph_unified_workflow:      - reasoning: route_query → chief_agent（推理链能力集成到 reasoning_agent）
+INFO:src.core.langgraph_unified_workflow:      - multi_agent: route_query → chief_agent
+INFO:src.core.langgraph_unified_workflow:   → 执行策略:
+INFO:src.core.langgraph_unified_workflow:      - simple: 快速路径（跳过部分智能体，优化性能）
+INFO:src.core.langgraph_unified_workflow:      - reasoning: 通过 reasoning_agent 使用推理链能力（needs_reasoning_chain=True）
+INFO:src.core.langgraph_unified_workflow:      - complex/multi_agent: 完整智能体序列（memory_agent → knowledge_retrieval_agent → reasoning_agent → answer_generation_agent → citation_agent）
+INFO:src.core.langgraph_unified_workflow:   → 推理链能力:
+INFO:src.core.langgraph_unified_workflow:      - 推理链是 reasoning_agent 的内部能力，不需要独立的推理链路径
+INFO:src.core.langgraph_unified_workflow:      - reasoning_agent 会根据 needs_reasoning_chain 标志自动选择推理模式
+INFO:src.core.langgraph_unified_workflow:      - 所有路径都可以通过 reasoning_agent 使用推理链能力
+INFO:src.core.langgraph_unified_workflow:   → 可视化增强: 所有节点都通过条件路由可达，LangGraph的draw_mermaid()能显示完整工作流图
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 添加边: simple_query → chief_agent（保持执行逻辑）
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 添加边: complex_query → chief_agent（保持执行逻辑）
+INFO:src.core.langgraph_unified_workflow:⚠️ [工作流构建] 能力节点路由已弃用：能力节点现在作为主流程节点的内部能力
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 能力节点可用: knowledge_retrieval -> capability_knowledge_retrieval
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 能力节点可用: reasoning_path -> capability_reasoning
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 能力节点可用: answer_generation -> capability_answer_generation
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 能力节点可用: single_agent_flow -> capability_answer_generation
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] standardized_interface_adapter 直接连接到 format（能力节点作为主流程节点的内部能力）
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 协作、配置优化、反馈收集、学习和能力路由已添加
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] simple_query 和 complex_query 通过主流程路由到 chief_agent，不添加备选路径边
+INFO:src.core.langgraph_unified_workflow:⚠️ [工作流构建] 独立的推理链路径节点已保留（向后兼容），但不会被路由到
+INFO:src.core.langgraph_unified_workflow:   → 推理链能力已集成到 reasoning_agent 中，所有路径都通过多智能体协调路径
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 核心大脑（ChiefAgent）已连接到专家智能体序列入口（memory_agent）
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 专家智能体节点序列已连接 (5 条边):
+INFO:src.core.langgraph_unified_workflow:   - memory_agent → node_learning_monitor → knowledge_retrieval_agent
+INFO:src.core.langgraph_unified_workflow:   - knowledge_retrieval_agent → node_learning_monitor → reasoning_agent
+INFO:src.core.langgraph_unified_workflow:   - reasoning_agent → node_learning_monitor → answer_generation_agent
+INFO:src.core.langgraph_unified_workflow:   - answer_generation_agent → node_learning_monitor → citation_agent
+INFO:src.core.langgraph_unified_workflow:   - citation_agent → node_learning_monitor → synthesize
+INFO:src.core.langgraph_unified_workflow:✅ 动态工作流管理器已初始化
+INFO:src.core.langgraph_unified_workflow:✅ 工作流编译成功
+INFO:src.core.langgraph_unified_workflow:✅ 错误恢复器已初始化
+INFO:src.core.langgraph_unified_workflow:📊 [工作流构建] 工作流包含 33 个节点: ['__start__', 'route_query', 'synthesize', 'format', 'simple_query', 'complex_query', 'chief_agent', 'rag_retrieval', 'prompt_engineering', 'context_engineering', 'generate_steps', 'execute_step', 'gather_evidence', 'extract_step_answer', 'synthesize_reasoning_answer', 'feedback_collection', 'node_learning_monitor', 'learning_aggregation', 'knowledge_distribution', 'continuous_learning_monitor', 'standardized_interface_adapter', 'capability_knowledge_retrieval', 'capability_reasoning', 'capability_answer_generation', 'capability_citation', 'memory_agent', 'knowledge_retrieval_agent', 'reasoning_agent', 'answer_generation_agent', 'citation_agent', 'query_analysis', 'scheduling_optimization', '__end__']
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] generate_steps 节点已添加到工作流
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] 专家智能体节点已添加到工作流 (5/5): ['memory_agent', 'knowledge_retrieval_agent', 'reasoning_agent', 'answer_generation_agent', 'citation_agent']
+INFO:src.core.langgraph_unified_workflow:📊 [工作流构建] 工作流包含 30 条边
+WARNING:src.core.langgraph_unified_workflow:⚠️ [工作流构建] 推理路径边未添加（如果使用了子图封装，这是正常行为）
+INFO:src.core.langgraph_unified_workflow:✅ [工作流构建] Mermaid 图表包含 generate_steps 节点
+INFO:src.core.langgraph_unified_workflow:📊 [工作流构建] 所有添加的节点（共 31 个）: ['route_query', 'synthesize', 'format', 'simple_query', 'complex_query', 'chief_agent', 'rag_retrieval', 'prompt_engineering', 'context_engineering', 'generate_steps', 'execute_step', 'gather_evidence', 'extract_step_answer', 'synthesize_reasoning_answer', 'feedback_collection', 'node_learning_monitor', 'learning_aggregation', 'knowledge_distribution', 'continuous_learning_monitor', 'standardized_interface_adapter', 'capability_knowledge_retrieval', 'capability_reasoning', 'capability_answer_generation', 'capability_citation', 'memory_agent', 'knowledge_retrieval_agent', 'reasoning_agent', 'answer_generation_agent', 'citation_agent', 'query_analysis', 'scheduling_optimization']
+INFO:src.core.langgraph_unified_workflow:✅ 统一研究系统工作流（MVP）初始化完成
+INFO:src.unified_research_system:✅ [初始化] 统一工作流（MVP）初始化完成
+INFO:src.unified_research_system:✅ [初始化] 工作流对象: CompiledStateGraph
+INFO:src.unified_research_system:🔄 [初始化] 开始初始化ChiefAgent...
+INFO:src.unified_research_system:🤖 开始初始化首席Agent...
+WARNING:src.unified_research_system:⚠️ 首席Agent初始化失败: No module named 'src.agents.chief_agent_wrapper'，将尝试使用标准Agent循环
+Traceback (most recent call last):
+  File "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/src/unified_research_system.py", line 925, in _initialize_chief_agent
+    from src.agents.chief_agent_wrapper import ChiefAgentWrapper as ChiefAgent
+ModuleNotFoundError: No module named 'src.agents.chief_agent_wrapper'
+INFO:src.unified_research_system:✅ [初始化] ChiefAgent初始化完成
+INFO:src.unified_research_system:🔄 [初始化] 开始初始化传统流程Agent...
+ERROR:src.unified_research_system:❌ 传统流程Agent初始化失败: No module named 'backup_legacy_agents.base_agent'
+Traceback (most recent call last):
+  File "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/src/unified_research_system.py", line 1172, in _initialize_traditional_agents
+    from backup_legacy_agents.answer_generation_agent_wrapper import AnswerGenerationAgentWrapper as AnswerGenerationAgent
+  File "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/backup_legacy_agents/answer_generation_agent_wrapper.py", line 12, in <module>
+    from .expert_agents import AnswerGenerationAgent
+  File "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/backup_legacy_agents/expert_agents.py", line 11, in <module>
+    from .base_agent import AgentResult
+ModuleNotFoundError: No module named 'backup_legacy_agents.base_agent'
+WARNING:src.unified_research_system:⚠️ [初始化] 传统流程Agent初始化失败: No module named 'backup_legacy_agents.base_agent'，但将继续初始化其他Agent
+INFO:src.unified_research_system:🔄 [初始化] 开始初始化ReAct Agent...
+INFO:src.unified_research_system:🔍 [DEBUG] 调用前状态: _react_agent=None, _use_react_agent=False
+INFO:src.unified_research_system:🔍 [诊断] 开始初始化ReAct Agent（ReasoningExpert）...
+INFO:src.unified_research_system:🔍 [诊断] ReasoningExpert导入成功
+INFO:src.utils.unified_centers:环境变量配置加载完成
+INFO:src.utils.unified_centers:✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+INFO:src.utils.unified_centers:✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+INFO:src.utils.unified_centers:统一配置中心初始化完成
+INFO:src.agents.base_agent.reasoning_expert:动态配置加载完成
+INFO:src.agents.base_agent.reasoning_expert:智能能力初始化完成
+INFO:src.agents.base_agent.reasoning_expert:智能体 reasoning_expert 初始化完成
+🚀 DEBUG: 加载修复后的 cognitive_answer_extractor.py - 版本: 2026-01-10-fixed (Rebuilt)
+🔧 初始化AgentNodes...
+❌ ChiefAgent初始化失败: No module named 'src.agents.chief_agent_wrapper'
+🔧 AgentNodes初始化完成: True
+2026-01-14 17:13:34 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+INFO:src.core.llm_integration:LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+INFO:src.agents.expert_agent:✅ LLM客户端初始化成功（用于思考阶段）
+INFO:src.agents.expert_agent:✅ 专家Agent初始化完成: reasoning_expert, 领域=逻辑推理与分析, 能力水平=0.95
+INFO:src.unified_research_system:🔍 [诊断] ReasoningExpert实例创建成功: <class 'src.agents.reasoning_expert.ReasoningExpert'>
+INFO:src.unified_research_system:✅ ReAct Agent初始化成功（使用ReasoningExpert）
+INFO:src.unified_research_system:✅ [初始化] ReAct Agent初始化完成
+INFO:src.unified_research_system:🔍 [DEBUG] 调用后状态: _react_agent=<src.agents.reasoning_expert.ReasoningExpert object at 0x16ef59400>, _use_react_agent=True
+INFO:src.unified_research_system:🔄 [初始化] 开始初始化学习系统...
+WARNING:src.unified_research_system:⚠️ 学习系统初始化失败: No module named 'src.agents.learning_system_wrapper'
+INFO:src.unified_research_system:✅ [初始化] 学习系统初始化完成
+INFO:src.unified_research_system:🔄 [初始化] 开始初始化ML/RL调度优化器...
+INFO:src.unified_research_system:🚀 开始初始化ML/RL调度优化器...
+INFO:src.utils.ml_scheduling_optimizer:✅ 加载ML调度优化历史数据: 性能记录=10, ML数据=3
+INFO:src.unified_research_system:✅ ML调度优化器初始化成功
+INFO:src.utils.rl_scheduling_optimizer:✅ 加载RL调度优化历史数据: Q表大小=6
+INFO:src.unified_research_system:✅ RL调度优化器初始化成功
+INFO:src.unified_research_system:✅ ML/RL调度优化器初始化完成
+INFO:src.unified_research_system:✅ [初始化] ML/RL调度优化器初始化完成
+INFO:src.unified_research_system:✅ 智能体初始化完成
+INFO:src.unified_research_system:✅ 统一异步研究系统初始化完成
+INFO:__main__:UnifiedResearchSystem initialized successfully.
+INFO:__main__:
+--- Executing Query 1 ---
+INFO:__main__:Query: If my future wife has the same first name as the 15th first lady of the United States' mother and her surname is the same as the second assassinated president's mother's maiden name, what is my future wife's name?
+INFO:src.unified_research_system:🔍 开始执行研究任务: If my future wife has the same first name as the 1...
+🔍 [DEBUG] 开始执行研究任务: If my future wife has the same first name as the 1...
+🔍 [DEBUG] _is_initialized=True, _entry_router=True, _use_langgraph=False
+INFO:src.unified_research_system:🔍 [DEBUG] Entry Router状态: True, LangGraph启用: False, LangGraph Agent: False
+🔍 [DEBUG] Entry Router状态: True, LangGraph启用: False, LangGraph Agent: False
+INFO:src.unified_research_system:🚦 使用Entry Router进行路由决策
+INFO:src.core.entry_router:============================================================
+INFO:src.core.entry_router:🚦 [Entry Router] 开始路由决策
+INFO:src.core.entry_router:📝 [Entry Router] 查询: If my future wife has the same first name as the 15th first lady of the United States' mother and he...
+🚦 [DEBUG] [Entry Router] 开始路由决策: If my future wife has the same first name as the 1...
+INFO:src.core.entry_router:🔍 [Entry Router] 开始复杂度分析...
+🔍 [DEBUG] [Entry Router] 开始复杂度分析...
+{
+    "name": "workflow.build",
+    "context": {
+        "trace_id": "0x2bad36e721c81f019e58b4ff15607a65",
+        "span_id": "0x1957bfa4aa1346ea",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:13:34.368286Z",
+    "end_time": "2026-01-14T09:13:34.567171Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "workflow.type": "UnifiedResearchWorkflow",
+        "system.available": true,
+        "workflow.nodes_count": 31
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+WARNING:src.core.entry_router:⚠️ [Entry Router] 复杂度判断超时（10秒），使用fallback
+⚠️ [DEBUG] [Entry Router] 复杂度判断超时（10秒），使用fallback
+INFO:src.utils.unified_complexity_model_service:✅ LLM统一分析成功: complex (评分: 8.50)
+INFO:src.utils.unified_complexity_model_service:✅ LLM统一分析成功: complex (评分: 8.50)
+INFO:src.core.entry_router:✅ [Entry Router] 规则复杂度判断: complex (评分: 8.50, 耗时: 12.820秒)
+INFO:src.core.entry_router:💻 [Entry Router] 系统状态: load=71.5%, mas_healthy=False
+INFO:src.core.entry_router:✅ [Entry Router] 路由决策: ReAct Agent (深度推理)
+INFO:src.core.entry_router:   📌 决策理由: 需要推理链（needs_reasoning_chain=False）或复杂度=complex
+INFO:src.core.entry_router:⏱️ [Entry Router] 路由决策完成，耗时: 22.926秒
+INFO:src.core.entry_router:============================================================
+INFO:src.unified_research_system:✅ [Entry Router] 路由决策: react_agent
+INFO:src.unified_research_system:🔍 [DEBUG] LangGraph启用: False, LangGraph Agent可用: False
+INFO:src.unified_research_system:🚀 使用统一工作流（MVP）执行查询
+INFO:src.unified_research_system:🔄 [统一工作流] 开始执行查询...
+🔄 [DEBUG] [统一工作流] 开始执行查询: If my future wife has the same first name as the 1...
+INFO:src.core.langgraph_unified_workflow:🔄 [统一工作流] 开始执行工作流...
+🔄 [DEBUG] [统一工作流] 开始执行工作流...
+INFO:src.core.langgraph_unified_workflow:🚀 [Route Query] 开始处理查询: If my future wife has the same first name as the 1...
+INFO:src.core.langgraph_unified_workflow:🔀 [Route Query] 分析查询复杂度...
+INFO:src.core.langgraph_unified_workflow:✅ [Route Query] 路由到复杂查询路径 (复杂度: 3.00)
+INFO:src.core.langgraph_detailed_processing_nodes:🔍 [Query Analysis] 开始查询分析（使用LLM判断复杂度）...
+INFO:src.core.langgraph_detailed_processing_nodes:✅ [Query Analysis] LLM复杂度判断: complex (评分: 8.50)
+INFO:src.core.langgraph_detailed_processing_nodes:✅ [Query Analysis] 分析完成: 类型=multi_hop, 复杂度=complex (LLM评分: 8.50), 长度=213
+INFO:src.core.langgraph_detailed_processing_nodes:⚙️ [Scheduling Optimization] 开始调度优化...
+INFO:src.core.langgraph_detailed_processing_nodes:✅ [Scheduling Optimization] ML策略: 知识超时=15.0s, 推理超时=250.0s, 并行=False
+INFO:src.core.langgraph_detailed_processing_nodes:✅ [Scheduling Optimization] RL策略: 知识超时=12.0s, 推理超时=200.0s, 并行=False
+INFO:src.core.langgraph_detailed_processing_nodes:✅ [Scheduling Optimization] 调度优化完成: 策略类型=ml
+INFO:src.core.langgraph_core_nodes:🔗 [Context Engineering] 开始增强上下文...
+WARNING:src.core.langgraph_core_nodes:⚠️ [Context Engineering] 上下文工程智能体不可用，使用原始上下文
+INFO:src.core.langgraph_core_nodes:📝 [Prompt Engineering] 开始生成提示词...
+WARNING:src.core.langgraph_core_nodes:⚠️ [Prompt Engineering] 提示词工程智能体不可用，使用简单提示词
+INFO:src.core.langgraph_core_nodes:🔍 [RAG Retrieval] 开始知识检索...
+WARNING:src.core.langgraph_core_nodes:⚠️ [RAG Retrieval] 工具执行失败: ToolRegistry.register_tool.<locals>.BaseToolAdapter.execute() takes 1 positional argument but 2 were given
+{
+    "name": "node.route_query",
+    "context": {
+        "trace_id": "0xaffeedc04742d391b3db9fc07fb37974",
+        "span_id": "0x7b0d87df9babdda0",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:13:57.625576Z",
+    "end_time": "2026-01-14T09:13:57.626001Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "route_query",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 0.0,
+        "route_path": "simple",
+        "retry_count": 0,
+        "duration_seconds": 0.0004620552062988281,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.query_analysis",
+    "context": {
+        "trace_id": "0xe0ccaf4cbed7dc0b247ef4d73d708665",
+        "span_id": "0xf97d21132d4cf65d",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:13:57.627616Z",
+    "end_time": "2026-01-14T09:13:57.627891Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "query_analysis",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 3.0,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0002818107604980469,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.scheduling_optimization",
+    "context": {
+        "trace_id": "0x9367adb631e9875f38be915d30296bf2",
+        "span_id": "0xa45f44a581abb0ae",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:13:57.628922Z",
+    "end_time": "2026-01-14T09:13:57.629406Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "scheduling_optimization",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0004887580871582031,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.context_engineering",
+    "context": {
+        "trace_id": "0x246dd57c3f894bc8c720c32912724d13",
+        "span_id": "0x0731a0f59df1baeb",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:13:57.630504Z",
+    "end_time": "2026-01-14T09:13:57.630637Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "context_engineering",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.00013899803161621094,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.prompt_engineering",
+    "context": {
+        "trace_id": "0x8c562d832758ab6c68f937e7f9292ddc",
+        "span_id": "0xf6cf105cf64c4ae0",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:13:57.631489Z",
+    "end_time": "2026-01-14T09:13:57.631604Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "prompt_engineering",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.00011801719665527344,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.rag_retrieval",
+    "context": {
+        "trace_id": "0x48db377339fe9c6b26ee38519a37988c",
+        "span_id": "0x2059723691e7b9d8",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:13:57.632437Z",
+    "end_time": "2026-01-14T09:13:57.632580Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "rag_retrieval",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.00014638900756835938,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+INFO:src.utils.unified_complexity_model_service:✅ LLM统一分析成功: complex (评分: 8.50)
+INFO:src.core.langgraph_unified_workflow:✅ [Route Decision] 统一服务判断：需要推理链能力
+INFO:src.core.langgraph_unified_workflow:   → 复杂度: complex (评分: 8.50)
+INFO:src.core.langgraph_unified_workflow:   → 判断因素: 估计推理步骤: 8, 涉及领域: US History, Presidential History, Genealogy, 查询类型: multi_domain_historical_reasoning
+INFO:src.core.langgraph_unified_workflow:   → 推理链能力将通过 reasoning_agent 使用（所有路径都通过多智能体协调路径）
+INFO:src.core.langgraph_agent_nodes:🧠 [核心大脑] ChiefAgent 开始协调多智能体系统
+INFO:src.core.langgraph_agent_nodes:🔍 [核心大脑] 路由路径: complex, 复杂度: 8.50, 需要推理链: False
+INFO:src.core.langgraph_agent_nodes:🔧 [核心大脑] 使用完整智能体序列策略（Complex/Multi-agent查询）
+WARNING:src.core.langgraph_agent_nodes:⚠️ [完整智能体序列] 首席Agent不可用，使用单个Agent执行
+INFO:src.core.langgraph_agent_nodes:🧠 [Memory Agent] 开始记忆管理
+WARNING:src.core.langgraph_agent_nodes:⚠️ [Memory Agent] 记忆智能体不可用
+INFO:src.core.langgraph_agent_nodes:📝 [Answer Generation Agent] 开始答案生成
+WARNING:src.core.langgraph_agent_nodes:⚠️ [Answer Generation Agent] 答案生成智能体不可用
+INFO:src.core.langgraph_agent_nodes:📚 [Citation Agent] 开始引用生成
+INFO:src.core.langgraph_agent_nodes:🔍 [Knowledge Retrieval Agent] 开始知识检索
+INFO:src.core.capability_service:✅ 能力注册成功: knowledge_retrieval v1.0.0
+INFO:src.core.capability_service:✅ 能力注册成功: reasoning v1.0.0
+INFO:src.core.capability_service:✅ 能力注册成功: answer_generation v1.0.0
+INFO:src.core.capability_service:✅ 能力注册成功: citation v1.0.0
+INFO:src.core.capability_service:✅ 能力注册成功: code_generation v1.0.0
+INFO:src.core.capability_service:✅ 能力注册成功: data_analysis v1.0.0
+INFO:src.core.capability_service:✅ 能力服务初始化完成，已注册 6 个能力
+INFO:src.core.langgraph_agent_nodes:🧩 [Reasoning Agent] 开始推理分析
+WARNING:src.core.langgraph_agent_nodes:⚠️ [Reasoning Agent] 推理智能体不可用
+INFO:src.core.langgraph_unified_workflow:🔗 [Synthesize] 综合证据和答案...
+WARNING:src.core.langgraph_unified_workflow:⚠️ [Synthesize] 没有证据或答案
+INFO:src.core.langgraph_unified_workflow:✅ [Synthesize] 综合完成，答案长度: 31
+INFO:src.core.langgraph_agent_nodes:✅ [Knowledge Retrieval Agent] 使用能力服务执行知识检索
+WARNING:src.core.langgraph_unified_workflow:⚠️ [错误恢复] 工作流执行出错，尝试恢复: At key 'user_context': Can receive only one value per step. Use an Annotated key to handle multiple values.
+For troubleshooting, visit: https://docs.langchain.com/oss/python/langgraph/errors/INVALID_CONCURRENT_GRAPH_UPDATE
+INFO:src.core.langgraph_error_recovery:🔄 [错误恢复] 尝试从错误中恢复 (thread_id=temp_5c502f28, error_node=unknown, retry=1/3)
+INFO:src.core.langgraph_unified_workflow:✅ [检查点恢复] 找到检查点: thread_id=temp_5c502f28
+INFO:src.core.langgraph_error_recovery:📊 [错误恢复] 错误分类: fatal
+ERROR:src.core.langgraph_error_recovery:❌ [错误恢复] 错误类型为 fatal，无法自动恢复
+ERROR:src.core.langgraph_unified_workflow:❌ [错误恢复] 从错误中恢复失败，使用初始状态
+INFO:src.core.langgraph_unified_workflow:✅ [统一工作流] 工作流执行完成，开始转换结果...
+🔧 [核心大脑] 匹配策略3: route_path=complex, complexity_score=8.5
+🔧 [完整智能体序列] 检查chief_agent: False
+✅ [DEBUG] [统一工作流] 工作流执行完成，开始转换结果...
+INFO:src.core.langgraph_unified_workflow:✅ [统一工作流] 结果转换完成: success=False, answer长度=0
+✅ [DEBUG] [统一工作流] 结果转换完成: success=False
+INFO:src.unified_research_system:✅ [统一工作流] 工作流执行完成，开始转换ResearchResult...
+✅ [DEBUG] [统一工作流] 工作流执行完成，开始转换ResearchResult...
+INFO:src.unified_research_system:✅ [统一工作流] ResearchResult转换完成: success=False, answer长度=0
+✅ [DEBUG] [统一工作流] ResearchResult转换完成: success=False
+INFO:__main__:Query 1 execution completed.
+INFO:__main__:Success: False
+INFO:__main__:Answer: None
+ERROR:__main__:Query 1 failed or no answer returned.
+INFO:__main__:
+--- Executing Query 2 ---
+INFO:__main__:Query: Imagine there is a building called Bronte tower whose height in feet is the same number as the dewey decimal classification for the Charlotte Bronte book that was published in 1847. Where would this building rank among tallest buildings in New York City, as of August 2024?
+INFO:src.unified_research_system:🔍 开始执行研究任务: Imagine there is a building called Bronte tower wh...
+🔍 [DEBUG] 开始执行研究任务: Imagine there is a building called Bronte tower wh...
+🔍 [DEBUG] _is_initialized=True, _entry_router=True, _use_langgraph=False
+INFO:src.unified_research_system:🔍 [DEBUG] Entry Router状态: True, LangGraph启用: False, LangGraph Agent: False
+🔍 [DEBUG] Entry Router状态: True, LangGraph启用: False, LangGraph Agent: False
+INFO:src.unified_research_system:🚦 使用Entry Router进行路由决策
+INFO:src.core.entry_router:============================================================
+INFO:src.core.entry_router:🚦 [Entry Router] 开始路由决策
+INFO:src.core.entry_router:📝 [Entry Router] 查询: Imagine there is a building called Bronte tower whose height in feet is the same number as the dewey...
+🚦 [DEBUG] [Entry Router] 开始路由决策: Imagine there is a building called Bronte tower wh...
+INFO:src.core.entry_router:🔍 [Entry Router] 开始复杂度分析...
+🔍 [DEBUG] [Entry Router] 开始复杂度分析...
+{
+    "name": "node.memory_agent",
+    "context": {
+        "trace_id": "0x05e11e6f9237e72fcda3aeb7f90c5c83",
+        "span_id": "0x88e640cd9238261b",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:14:10.255863Z",
+    "end_time": "2026-01-14T09:14:10.256498Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "memory_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0006470680236816406,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.answer_generation_agent",
+    "context": {
+        "trace_id": "0x7cdbb5faf56d7d5e71652fa718e247f7",
+        "span_id": "0x0acbb41d499accae",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:14:10.261107Z",
+    "end_time": "2026-01-14T09:14:10.261504Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "answer_generation_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0004258155822753906,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.citation_agent",
+    "context": {
+        "trace_id": "0xd8f747177fe90034cb0143ee85f2caaa",
+        "span_id": "0x03eb7d83d768de86",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:14:10.261567Z",
+    "end_time": "2026-01-14T09:14:10.261763Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "citation_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0002040863037109375,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.reasoning_agent",
+    "context": {
+        "trace_id": "0xeeb09b087705a3c7979cb5a9725b1a8e",
+        "span_id": "0x88f26cab559b3836",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:14:10.265751Z",
+    "end_time": "2026-01-14T09:14:10.266002Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "reasoning_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.00026106834411621094,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.synthesize",
+    "context": {
+        "trace_id": "0x70878799445b16280d22ebf45525bd6e",
+        "span_id": "0xd10866ec204d74bb",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:14:10.266048Z",
+    "end_time": "2026-01-14T09:14:10.266186Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "synthesize",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.00014400482177734375,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.knowledge_retrieval_agent",
+    "context": {
+        "trace_id": "0x076e110483965630000875014cb0f67d",
+        "span_id": "0xd7168ca3f73c8b70",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:14:10.261811Z",
+    "end_time": "2026-01-14T09:14:10.367842Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "knowledge_retrieval_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.10593414306640625,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+WARNING:src.core.entry_router:⚠️ [Entry Router] 复杂度判断超时（10秒），使用fallback
+⚠️ [DEBUG] [Entry Router] 复杂度判断超时（10秒），使用fallback
+INFO:src.utils.unified_complexity_model_service:✅ LLM统一分析成功: complex (评分: 8.50)
+INFO:src.utils.unified_complexity_model_service:✅ LLM统一分析成功: complex (评分: 9.00)
+INFO:src.core.entry_router:✅ [Entry Router] 规则复杂度判断: complex (评分: 9.00, 耗时: 19.780秒)
+INFO:src.core.entry_router:💻 [Entry Router] 系统状态: load=73.5%, mas_healthy=False
+INFO:src.core.entry_router:✅ [Entry Router] 路由决策: ReAct Agent (深度推理)
+INFO:src.core.entry_router:   📌 决策理由: 需要推理链（needs_reasoning_chain=False）或复杂度=complex
+INFO:src.core.entry_router:⏱️ [Entry Router] 路由决策完成，耗时: 29.889秒
+INFO:src.core.entry_router:============================================================
+INFO:src.unified_research_system:✅ [Entry Router] 路由决策: react_agent
+INFO:src.unified_research_system:🔍 [DEBUG] LangGraph启用: False, LangGraph Agent可用: False
+INFO:src.unified_research_system:🚀 使用统一工作流（MVP）执行查询
+INFO:src.unified_research_system:🔄 [统一工作流] 开始执行查询...
+🔄 [DEBUG] [统一工作流] 开始执行查询: Imagine there is a building called Bronte tower wh...
+INFO:src.core.langgraph_unified_workflow:🔄 [统一工作流] 开始执行工作流...
+🔄 [DEBUG] [统一工作流] 开始执行工作流...
+INFO:src.core.langgraph_unified_workflow:🚀 [Route Query] 开始处理查询: Imagine there is a building called Bronte tower wh...
+INFO:src.core.langgraph_unified_workflow:🔀 [Route Query] 分析查询复杂度...
+INFO:src.core.langgraph_unified_workflow:✅ [Route Query] 路由到复杂查询路径 (复杂度: 3.00)
+INFO:src.core.langgraph_detailed_processing_nodes:🔍 [Query Analysis] 开始查询分析（使用LLM判断复杂度）...
+INFO:src.core.langgraph_detailed_processing_nodes:✅ [Query Analysis] LLM复杂度判断: complex (评分: 9.00)
+INFO:src.core.langgraph_detailed_processing_nodes:✅ [Query Analysis] 分析完成: 类型=numerical, 复杂度=complex (LLM评分: 9.00), 长度=273
+INFO:src.core.langgraph_detailed_processing_nodes:⚙️ [Scheduling Optimization] 开始调度优化...
+INFO:src.core.langgraph_detailed_processing_nodes:✅ [Scheduling Optimization] ML策略: 知识超时=15.0s, 推理超时=250.0s, 并行=False
+INFO:src.core.langgraph_detailed_processing_nodes:✅ [Scheduling Optimization] RL策略: 知识超时=15.0s, 推理超时=200.0s, 并行=True
+INFO:src.core.langgraph_detailed_processing_nodes:✅ [Scheduling Optimization] 调度优化完成: 策略类型=ml
+INFO:src.core.langgraph_core_nodes:🔗 [Context Engineering] 开始增强上下文...
+WARNING:src.core.langgraph_core_nodes:⚠️ [Context Engineering] 上下文工程智能体不可用，使用原始上下文
+INFO:src.core.langgraph_core_nodes:📝 [Prompt Engineering] 开始生成提示词...
+WARNING:src.core.langgraph_core_nodes:⚠️ [Prompt Engineering] 提示词工程智能体不可用，使用简单提示词
+INFO:src.core.langgraph_core_nodes:🔍 [RAG Retrieval] 开始知识检索...
+WARNING:src.core.langgraph_core_nodes:⚠️ [RAG Retrieval] 工具执行失败: ToolRegistry.register_tool.<locals>.BaseToolAdapter.execute() takes 1 positional argument but 2 were given
+{
+    "name": "node.route_query",
+    "context": {
+        "trace_id": "0x7692f4565fde8c85797901460b913cda",
+        "span_id": "0xcf0261bc74c384d1",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:14:40.372652Z",
+    "end_time": "2026-01-14T09:14:40.372974Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "route_query",
+        "query": "Imagine there is a building called Bronte tower whose height in feet is the same number as the dewey",
+        "complexity_score": 0.0,
+        "route_path": "simple",
+        "retry_count": 0,
+        "duration_seconds": 0.00038909912109375,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.query_analysis",
+    "context": {
+        "trace_id": "0x7d6e19ad8c0eecdfba48139fb839ae0e",
+        "span_id": "0x44ed0760bcbb9cfc",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:14:40.374009Z",
+    "end_time": "2026-01-14T09:14:40.374236Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "query_analysis",
+        "query": "Imagine there is a building called Bronte tower whose height in feet is the same number as the dewey",
+        "complexity_score": 3.0,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.00023317337036132812,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.scheduling_optimization",
+    "context": {
+        "trace_id": "0x757df6d95756d90766063ff57a4cfce3",
+        "span_id": "0x17c63aa7b6db7b29",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:14:40.375606Z",
+    "end_time": "2026-01-14T09:14:40.376304Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "scheduling_optimization",
+        "query": "Imagine there is a building called Bronte tower whose height in feet is the same number as the dewey",
+        "complexity_score": 9.0,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0007102489471435547,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.context_engineering",
+    "context": {
+        "trace_id": "0xe653b0e0bd8468b2dd7c3cd95f8c1d8f",
+        "span_id": "0x836ee165e073a39d",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:14:40.377842Z",
+    "end_time": "2026-01-14T09:14:40.378054Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "context_engineering",
+        "query": "Imagine there is a building called Bronte tower whose height in feet is the same number as the dewey",
+        "complexity_score": 9.0,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.00022101402282714844,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.prompt_engineering",
+    "context": {
+        "trace_id": "0x580f24a935732c5518e110e326d244fc",
+        "span_id": "0x56715505d2c85aab",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:14:40.379235Z",
+    "end_time": "2026-01-14T09:14:40.379390Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "prompt_engineering",
+        "query": "Imagine there is a building called Bronte tower whose height in feet is the same number as the dewey",
+        "complexity_score": 9.0,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0001690387725830078,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.rag_retrieval",
+    "context": {
+        "trace_id": "0xc820a057ac14495e9433f4d1a909922b",
+        "span_id": "0x075b6837593913c5",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:14:40.380448Z",
+    "end_time": "2026-01-14T09:14:40.380583Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "rag_retrieval",
+        "query": "Imagine there is a building called Bronte tower whose height in feet is the same number as the dewey",
+        "complexity_score": 9.0,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.00013899803161621094,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+INFO:src.utils.unified_complexity_model_service:✅ LLM统一分析成功: complex (评分: 8.50)
+INFO:src.core.langgraph_unified_workflow:✅ [Route Decision] 统一服务判断：需要推理链能力
+INFO:src.core.langgraph_unified_workflow:   → 复杂度: complex (评分: 8.50)
+INFO:src.core.langgraph_unified_workflow:   → 判断因素: 估计推理步骤: 7, 涉及领域: literature, library_science, architecture, 查询类型: multi_domain_calculation_and_ranking
+INFO:src.core.langgraph_unified_workflow:   → 推理链能力将通过 reasoning_agent 使用（所有路径都通过多智能体协调路径）
+INFO:src.core.langgraph_agent_nodes:🧠 [核心大脑] ChiefAgent 开始协调多智能体系统
+INFO:src.core.langgraph_agent_nodes:🔍 [核心大脑] 路由路径: complex, 复杂度: 9.00, 需要推理链: False
+INFO:src.core.langgraph_agent_nodes:🔧 [核心大脑] 使用完整智能体序列策略（Complex/Multi-agent查询）
+WARNING:src.core.langgraph_agent_nodes:⚠️ [完整智能体序列] 首席Agent不可用，使用单个Agent执行
+INFO:src.core.langgraph_agent_nodes:🧠 [Memory Agent] 开始记忆管理
+WARNING:src.core.langgraph_agent_nodes:⚠️ [Memory Agent] 记忆智能体不可用
+INFO:src.core.langgraph_agent_nodes:📝 [Answer Generation Agent] 开始答案生成
+WARNING:src.core.langgraph_agent_nodes:⚠️ [Answer Generation Agent] 答案生成智能体不可用
+INFO:src.core.langgraph_agent_nodes:📚 [Citation Agent] 开始引用生成
+INFO:src.core.langgraph_agent_nodes:🔍 [Knowledge Retrieval Agent] 开始知识检索
+INFO:src.core.langgraph_agent_nodes:🧩 [Reasoning Agent] 开始推理分析
+WARNING:src.core.langgraph_agent_nodes:⚠️ [Reasoning Agent] 推理智能体不可用
+INFO:src.core.langgraph_unified_workflow:🔗 [Synthesize] 综合证据和答案...
+WARNING:src.core.langgraph_unified_workflow:⚠️ [Synthesize] 没有证据或答案
+INFO:src.core.langgraph_unified_workflow:✅ [Synthesize] 综合完成，答案长度: 31
+INFO:src.core.langgraph_agent_nodes:✅ [Knowledge Retrieval Agent] 使用能力服务执行知识检索
+WARNING:src.core.langgraph_unified_workflow:⚠️ [错误恢复] 工作流执行出错，尝试恢复: At key 'user_context': Can receive only one value per step. Use an Annotated key to handle multiple values.
+For troubleshooting, visit: https://docs.langchain.com/oss/python/langgraph/errors/INVALID_CONCURRENT_GRAPH_UPDATE
+INFO:src.core.langgraph_error_recovery:🔄 [错误恢复] 尝试从错误中恢复 (thread_id=temp_4234f1d7, error_node=unknown, retry=1/3)
+INFO:src.core.langgraph_unified_workflow:✅ [检查点恢复] 找到检查点: thread_id=temp_4234f1d7
+INFO:src.core.langgraph_error_recovery:📊 [错误恢复] 错误分类: fatal
+ERROR:src.core.langgraph_error_recovery:❌ [错误恢复] 错误类型为 fatal，无法自动恢复
+ERROR:src.core.langgraph_unified_workflow:❌ [错误恢复] 从错误中恢复失败，使用初始状态
+INFO:src.core.langgraph_unified_workflow:✅ [统一工作流] 工作流执行完成，开始转换结果...
+🔧 [核心大脑] 匹配策略3: route_path=complex, complexity_score=9.0
+🔧 [完整智能体序列] 检查chief_agent: False
+✅ [DEBUG] [统一工作流] 工作流执行完成，开始转换结果...
+INFO:src.core.langgraph_unified_workflow:✅ [统一工作流] 结果转换完成: success=False, answer长度=0
+✅ [DEBUG] [统一工作流] 结果转换完成: success=False
+INFO:src.unified_research_system:✅ [统一工作流] 工作流执行完成，开始转换ResearchResult...
+✅ [DEBUG] [统一工作流] 工作流执行完成，开始转换ResearchResult...
+INFO:src.unified_research_system:✅ [统一工作流] ResearchResult转换完成: success=False, answer长度=0
+✅ [DEBUG] [统一工作流] ResearchResult转换完成: success=False
+INFO:__main__:Query 2 execution completed.
+INFO:__main__:Success: False
+INFO:__main__:Answer: None
+ERROR:__main__:Query 2 failed or no answer returned.
+INFO:__main__:
+--- Executing Query 3 ---
+INFO:__main__:Query: How many years earlier would Punxsutawney Phil have to be canonically alive to have made a Groundhog Day prediction in the same state as the US capitol?
+INFO:src.unified_research_system:🔍 开始执行研究任务: How many years earlier would Punxsutawney Phil hav...
+🔍 [DEBUG] 开始执行研究任务: How many years earlier would Punxsutawney Phil hav...
+🔍 [DEBUG] _is_initialized=True, _entry_router=True, _use_langgraph=False
+INFO:src.unified_research_system:🔍 [DEBUG] Entry Router状态: True, LangGraph启用: False, LangGraph Agent: False
+🔍 [DEBUG] Entry Router状态: True, LangGraph启用: False, LangGraph Agent: False
+INFO:src.unified_research_system:🚦 使用Entry Router进行路由决策
+INFO:src.core.entry_router:============================================================
+INFO:src.core.entry_router:🚦 [Entry Router] 开始路由决策
+INFO:src.core.entry_router:📝 [Entry Router] 查询: How many years earlier would Punxsutawney Phil have to be canonically alive to have made a Groundhog...
+🚦 [DEBUG] [Entry Router] 开始路由决策: How many years earlier would Punxsutawney Phil hav...
+INFO:src.core.entry_router:🔍 [Entry Router] 开始复杂度分析...
+🔍 [DEBUG] [Entry Router] 开始复杂度分析...
+{
+    "name": "node.memory_agent",
+    "context": {
+        "trace_id": "0x75b4a047a993fe0fcf5c05dcaffc78c4",
+        "span_id": "0x66c10dab43b67455",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:14:55.648308Z",
+    "end_time": "2026-01-14T09:14:55.648979Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "memory_agent",
+        "query": "Imagine there is a building called Bronte tower whose height in feet is the same number as the dewey",
+        "complexity_score": 9.0,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0007159709930419922,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.answer_generation_agent",
+    "context": {
+        "trace_id": "0x2550c727cd62acf3e791926ca0e70ab9",
+        "span_id": "0x47d8ff06bd790596",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:14:55.651854Z",
+    "end_time": "2026-01-14T09:14:55.652168Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "answer_generation_agent",
+        "query": "Imagine there is a building called Bronte tower whose height in feet is the same number as the dewey",
+        "complexity_score": 9.0,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.00032401084899902344,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.citation_agent",
+    "context": {
+        "trace_id": "0xe136d0809e8dab3b36ad7e9fda11ab58",
+        "span_id": "0x26a5f19a997ff56d",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:14:55.652219Z",
+    "end_time": "2026-01-14T09:14:55.652394Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "citation_agent",
+        "query": "Imagine there is a building called Bronte tower whose height in feet is the same number as the dewey",
+        "complexity_score": 9.0,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0001800060272216797,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.reasoning_agent",
+    "context": {
+        "trace_id": "0x7874bb3eb276764b05a05797df305389",
+        "span_id": "0x5856898d9eb450f5",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:14:55.652797Z",
+    "end_time": "2026-01-14T09:14:55.653213Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "reasoning_agent",
+        "query": "Imagine there is a building called Bronte tower whose height in feet is the same number as the dewey",
+        "complexity_score": 9.0,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.00044274330139160156,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.synthesize",
+    "context": {
+        "trace_id": "0x2924feddee8907c60b3502b7ddff665c",
+        "span_id": "0x3389a5954c534b35",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:14:55.653276Z",
+    "end_time": "2026-01-14T09:14:55.653444Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "synthesize",
+        "query": "Imagine there is a building called Bronte tower whose height in feet is the same number as the dewey",
+        "complexity_score": 9.0,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.00017690658569335938,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.knowledge_retrieval_agent",
+    "context": {
+        "trace_id": "0x4859daea053e93043948e51ab2329f38",
+        "span_id": "0x54f9bb1d94fa49c5",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:14:55.652440Z",
+    "end_time": "2026-01-14T09:14:55.754787Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "knowledge_retrieval_agent",
+        "query": "Imagine there is a building called Bronte tower whose height in feet is the same number as the dewey",
+        "complexity_score": 9.0,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.1022481918334961,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+WARNING:src.core.entry_router:⚠️ [Entry Router] 复杂度判断超时（10秒），使用fallback
+⚠️ [DEBUG] [Entry Router] 复杂度判断超时（10秒），使用fallback
+INFO:src.utils.unified_complexity_model_service:✅ LLM统一分析成功: complex (评分: 8.50)
+INFO:src.utils.unified_complexity_model_service:✅ LLM统一分析成功: complex (评分: 8.50)
+INFO:src.core.entry_router:✅ [Entry Router] 规则复杂度判断: complex (评分: 8.50, 耗时: 11.929秒)
+INFO:src.core.entry_router:💻 [Entry Router] 系统状态: load=70.2%, mas_healthy=False
+INFO:src.core.entry_router:✅ [Entry Router] 路由决策: ReAct Agent (深度推理)
+INFO:src.core.entry_router:   📌 决策理由: 需要推理链（needs_reasoning_chain=False）或复杂度=complex
+INFO:src.core.entry_router:⏱️ [Entry Router] 路由决策完成，耗时: 22.035秒
+INFO:src.core.entry_router:============================================================
+INFO:src.unified_research_system:✅ [Entry Router] 路由决策: react_agent
+INFO:src.unified_research_system:🔍 [DEBUG] LangGraph启用: False, LangGraph Agent可用: False
+INFO:src.unified_research_system:🚀 使用统一工作流（MVP）执行查询
+INFO:src.unified_research_system:🔄 [统一工作流] 开始执行查询...
+🔄 [DEBUG] [统一工作流] 开始执行查询: How many years earlier would Punxsutawney Phil hav...
+INFO:src.core.langgraph_unified_workflow:🔄 [统一工作流] 开始执行工作流...
+🔄 [DEBUG] [统一工作流] 开始执行工作流...
+INFO:src.core.langgraph_unified_workflow:🚀 [Route Query] 开始处理查询: How many years earlier would Punxsutawney Phil hav...
+INFO:src.core.langgraph_unified_workflow:🔀 [Route Query] 分析查询复杂度...
+INFO:src.core.langgraph_unified_workflow:✅ [Route Query] 路由到复杂查询路径 (复杂度: 3.00)
+INFO:src.core.langgraph_detailed_processing_nodes:🔍 [Query Analysis] 开始查询分析（使用LLM判断复杂度）...
+INFO:src.core.langgraph_detailed_processing_nodes:✅ [Query Analysis] LLM复杂度判断: complex (评分: 8.50)
+INFO:src.core.langgraph_detailed_processing_nodes:✅ [Query Analysis] 分析完成: 类型=numerical, 复杂度=complex (LLM评分: 8.50), 长度=152
+INFO:src.core.langgraph_detailed_processing_nodes:⚙️ [Scheduling Optimization] 开始调度优化...
+INFO:src.core.langgraph_detailed_processing_nodes:✅ [Scheduling Optimization] ML策略: 知识超时=15.0s, 推理超时=250.0s, 并行=False
+INFO:src.core.langgraph_detailed_processing_nodes:✅ [Scheduling Optimization] RL策略: 知识超时=12.0s, 推理超时=200.0s, 并行=False
+INFO:src.core.langgraph_detailed_processing_nodes:✅ [Scheduling Optimization] 调度优化完成: 策略类型=ml
+INFO:src.core.langgraph_core_nodes:🔗 [Context Engineering] 开始增强上下文...
+WARNING:src.core.langgraph_core_nodes:⚠️ [Context Engineering] 上下文工程智能体不可用，使用原始上下文
+INFO:src.core.langgraph_core_nodes:📝 [Prompt Engineering] 开始生成提示词...
+WARNING:src.core.langgraph_core_nodes:⚠️ [Prompt Engineering] 提示词工程智能体不可用，使用简单提示词
+INFO:src.core.langgraph_core_nodes:🔍 [RAG Retrieval] 开始知识检索...
+WARNING:src.core.langgraph_core_nodes:⚠️ [RAG Retrieval] 工具执行失败: ToolRegistry.register_tool.<locals>.BaseToolAdapter.execute() takes 1 positional argument but 2 were given
+{
+    "name": "node.route_query",
+    "context": {
+        "trace_id": "0xdff5f2d4c5edd148c0d9b746126d1744",
+        "span_id": "0x8ebc65c948ce3ee3",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:15:17.903937Z",
+    "end_time": "2026-01-14T09:15:17.904239Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "route_query",
+        "query": "How many years earlier would Punxsutawney Phil have to be canonically alive to have made a Groundhog",
+        "complexity_score": 0.0,
+        "route_path": "simple",
+        "retry_count": 0,
+        "duration_seconds": 0.0003719329833984375,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.query_analysis",
+    "context": {
+        "trace_id": "0xd7849ad3ec7fdd10acde371345d813cb",
+        "span_id": "0xe29eb289828164dd",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:15:17.905297Z",
+    "end_time": "2026-01-14T09:15:17.905527Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "query_analysis",
+        "query": "How many years earlier would Punxsutawney Phil have to be canonically alive to have made a Groundhog",
+        "complexity_score": 3.0,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0002429485321044922,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.scheduling_optimization",
+    "context": {
+        "trace_id": "0xd09af9420c3a52e97f28e300b573e277",
+        "span_id": "0x0002c485285adae5",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:15:17.906988Z",
+    "end_time": "2026-01-14T09:15:17.907628Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "scheduling_optimization",
+        "query": "How many years earlier would Punxsutawney Phil have to be canonically alive to have made a Groundhog",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0006539821624755859,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.context_engineering",
+    "context": {
+        "trace_id": "0xbdbdd84db7a598669e8ee7fd4aef56a0",
+        "span_id": "0x18e2b422068aa117",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:15:17.912851Z",
+    "end_time": "2026-01-14T09:15:17.913109Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "context_engineering",
+        "query": "How many years earlier would Punxsutawney Phil have to be canonically alive to have made a Groundhog",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0002689361572265625,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.prompt_engineering",
+    "context": {
+        "trace_id": "0x20a4afbdb6c8a9546150869ddb6adf50",
+        "span_id": "0xdfe7db2d1f25ddcc",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:15:17.914178Z",
+    "end_time": "2026-01-14T09:15:17.914297Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "prompt_engineering",
+        "query": "How many years earlier would Punxsutawney Phil have to be canonically alive to have made a Groundhog",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0001289844512939453,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.rag_retrieval",
+    "context": {
+        "trace_id": "0xbe7a609a33bc0c1a1b08b1a11072a99f",
+        "span_id": "0xaf53179d8c553612",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:15:17.915163Z",
+    "end_time": "2026-01-14T09:15:17.915288Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "rag_retrieval",
+        "query": "How many years earlier would Punxsutawney Phil have to be canonically alive to have made a Groundhog",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0001289844512939453,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+INFO:src.utils.unified_complexity_model_service:✅ LLM统一分析成功: complex (评分: 8.50)
+INFO:src.core.langgraph_unified_workflow:✅ [Route Decision] 统一服务判断：需要推理链能力
+INFO:src.core.langgraph_unified_workflow:   → 复杂度: complex (评分: 8.50)
+INFO:src.core.langgraph_unified_workflow:   → 判断因素: 估计推理步骤: 6, 涉及领域: american_culture, geography, history, 查询类型: temporal_calculation_with_historical_context
+INFO:src.core.langgraph_unified_workflow:   → 推理链能力将通过 reasoning_agent 使用（所有路径都通过多智能体协调路径）
+INFO:src.core.langgraph_agent_nodes:🧠 [核心大脑] ChiefAgent 开始协调多智能体系统
+INFO:src.core.langgraph_agent_nodes:🔍 [核心大脑] 路由路径: complex, 复杂度: 8.50, 需要推理链: False
+INFO:src.core.langgraph_agent_nodes:🔧 [核心大脑] 使用完整智能体序列策略（Complex/Multi-agent查询）
+WARNING:src.core.langgraph_agent_nodes:⚠️ [完整智能体序列] 首席Agent不可用，使用单个Agent执行
+INFO:src.core.langgraph_agent_nodes:🧠 [Memory Agent] 开始记忆管理
+WARNING:src.core.langgraph_agent_nodes:⚠️ [Memory Agent] 记忆智能体不可用
+INFO:src.core.langgraph_agent_nodes:📝 [Answer Generation Agent] 开始答案生成
+WARNING:src.core.langgraph_agent_nodes:⚠️ [Answer Generation Agent] 答案生成智能体不可用
+INFO:src.core.langgraph_agent_nodes:📚 [Citation Agent] 开始引用生成
+INFO:src.core.langgraph_agent_nodes:🔍 [Knowledge Retrieval Agent] 开始知识检索
+INFO:src.core.langgraph_agent_nodes:🧩 [Reasoning Agent] 开始推理分析
+WARNING:src.core.langgraph_agent_nodes:⚠️ [Reasoning Agent] 推理智能体不可用
+INFO:src.core.langgraph_unified_workflow:🔗 [Synthesize] 综合证据和答案...
+WARNING:src.core.langgraph_unified_workflow:⚠️ [Synthesize] 没有证据或答案
+INFO:src.core.langgraph_unified_workflow:✅ [Synthesize] 综合完成，答案长度: 31
+INFO:src.core.langgraph_agent_nodes:✅ [Knowledge Retrieval Agent] 使用能力服务执行知识检索
+WARNING:src.core.langgraph_unified_workflow:⚠️ [错误恢复] 工作流执行出错，尝试恢复: At key 'user_context': Can receive only one value per step. Use an Annotated key to handle multiple values.
+For troubleshooting, visit: https://docs.langchain.com/oss/python/langgraph/errors/INVALID_CONCURRENT_GRAPH_UPDATE
+INFO:src.core.langgraph_error_recovery:🔄 [错误恢复] 尝试从错误中恢复 (thread_id=temp_20a81620, error_node=unknown, retry=1/3)
+INFO:src.core.langgraph_unified_workflow:✅ [检查点恢复] 找到检查点: thread_id=temp_20a81620
+INFO:src.core.langgraph_error_recovery:📊 [错误恢复] 错误分类: fatal
+ERROR:src.core.langgraph_error_recovery:❌ [错误恢复] 错误类型为 fatal，无法自动恢复
+ERROR:src.core.langgraph_unified_workflow:❌ [错误恢复] 从错误中恢复失败，使用初始状态
+INFO:src.core.langgraph_unified_workflow:✅ [统一工作流] 工作流执行完成，开始转换结果...
+🔧 [核心大脑] 匹配策略3: route_path=complex, complexity_score=8.5
+🔧 [完整智能体序列] 检查chief_agent: False
+✅ [DEBUG] [统一工作流] 工作流执行完成，开始转换结果...
+INFO:src.core.langgraph_unified_workflow:✅ [统一工作流] 结果转换完成: success=False, answer长度=0
+✅ [DEBUG] [统一工作流] 结果转换完成: success=False
+INFO:src.unified_research_system:✅ [统一工作流] 工作流执行完成，开始转换ResearchResult...
+✅ [DEBUG] [统一工作流] 工作流执行完成，开始转换ResearchResult...
+INFO:src.unified_research_system:✅ [统一工作流] ResearchResult转换完成: success=False, answer长度=0
+✅ [DEBUG] [统一工作流] ResearchResult转换完成: success=False
+INFO:__main__:Query 3 execution completed.
+INFO:__main__:Success: False
+INFO:__main__:Answer: None
+ERROR:__main__:Query 3 failed or no answer returned.
+INFO:__main__:
+--- Executing Query 4 ---
+INFO:__main__:Query: As of August 1, 2024, which country were holders of the FIFA World Cup the last time the UEFA Champions League was won by a club from London?
+INFO:src.unified_research_system:🔍 开始执行研究任务: As of August 1, 2024, which country were holders o...
+🔍 [DEBUG] 开始执行研究任务: As of August 1, 2024, which country were holders o...
+🔍 [DEBUG] _is_initialized=True, _entry_router=True, _use_langgraph=False
+INFO:src.unified_research_system:🔍 [DEBUG] Entry Router状态: True, LangGraph启用: False, LangGraph Agent: False
+🔍 [DEBUG] Entry Router状态: True, LangGraph启用: False, LangGraph Agent: False
+INFO:src.unified_research_system:🚦 使用Entry Router进行路由决策
+INFO:src.core.entry_router:============================================================
+INFO:src.core.entry_router:🚦 [Entry Router] 开始路由决策
+INFO:src.core.entry_router:📝 [Entry Router] 查询: As of August 1, 2024, which country were holders of the FIFA World Cup the last time the UEFA Champi...
+🚦 [DEBUG] [Entry Router] 开始路由决策: As of August 1, 2024, which country were holders o...
+INFO:src.core.entry_router:🔍 [Entry Router] 开始复杂度分析...
+🔍 [DEBUG] [Entry Router] 开始复杂度分析...
+{
+    "name": "node.memory_agent",
+    "context": {
+        "trace_id": "0x3a16d06b89e4e6658934a503fc9f39b9",
+        "span_id": "0x0e481472a0ceb0bf",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:15:29.523767Z",
+    "end_time": "2026-01-14T09:15:29.524499Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "memory_agent",
+        "query": "How many years earlier would Punxsutawney Phil have to be canonically alive to have made a Groundhog",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0008008480072021484,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.answer_generation_agent",
+    "context": {
+        "trace_id": "0xef5bdcc30e0e8b196eb6260789a6fe7b",
+        "span_id": "0x9ebeb72c092ad98b",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:15:29.527422Z",
+    "end_time": "2026-01-14T09:15:29.527771Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "answer_generation_agent",
+        "query": "How many years earlier would Punxsutawney Phil have to be canonically alive to have made a Groundhog",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0003631114959716797,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.citation_agent",
+    "context": {
+        "trace_id": "0xbb7f99ab5601b917d635abe6df36f88c",
+        "span_id": "0xcf36be00bf6215a2",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:15:29.527823Z",
+    "end_time": "2026-01-14T09:15:29.527994Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "citation_agent",
+        "query": "How many years earlier would Punxsutawney Phil have to be canonically alive to have made a Groundhog",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.00017595291137695312,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.reasoning_agent",
+    "context": {
+        "trace_id": "0x203445695415cdade028c2e1551bbb1d",
+        "span_id": "0xa43410ecc2bd8b2c",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:15:29.528270Z",
+    "end_time": "2026-01-14T09:15:29.528467Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "reasoning_agent",
+        "query": "How many years earlier would Punxsutawney Phil have to be canonically alive to have made a Groundhog",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.00019979476928710938,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.synthesize",
+    "context": {
+        "trace_id": "0xcb86cc932cf25b2120ea53a8209c7cde",
+        "span_id": "0x830433c512e516ae",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:15:29.528504Z",
+    "end_time": "2026-01-14T09:15:29.528644Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "synthesize",
+        "query": "How many years earlier would Punxsutawney Phil have to be canonically alive to have made a Groundhog",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.00014400482177734375,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.knowledge_retrieval_agent",
+    "context": {
+        "trace_id": "0x716678517cf214c7761aa49f4b403951",
+        "span_id": "0x264c5b0de0ed50fb",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:15:29.528035Z",
+    "end_time": "2026-01-14T09:15:29.630660Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "knowledge_retrieval_agent",
+        "query": "How many years earlier would Punxsutawney Phil have to be canonically alive to have made a Groundhog",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.10246992111206055,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+WARNING:src.core.entry_router:⚠️ [Entry Router] 复杂度判断超时（10秒），使用fallback
+⚠️ [DEBUG] [Entry Router] 复杂度判断超时（10秒），使用fallback
+INFO:src.utils.unified_complexity_model_service:✅ LLM统一分析成功: complex (评分: 8.50)
+INFO:src.utils.unified_complexity_model_service:✅ LLM统一分析成功: complex (评分: 8.50)
+INFO:src.core.entry_router:✅ [Entry Router] 规则复杂度判断: complex (评分: 8.50, 耗时: 14.712秒)
+INFO:src.core.entry_router:💻 [Entry Router] 系统状态: load=71.5%, mas_healthy=False
+INFO:src.core.entry_router:✅ [Entry Router] 路由决策: ReAct Agent (深度推理)
+INFO:src.core.entry_router:   📌 决策理由: 需要推理链（needs_reasoning_chain=False）或复杂度=complex
+INFO:src.core.entry_router:⏱️ [Entry Router] 路由决策完成，耗时: 24.816秒
+INFO:src.core.entry_router:============================================================
+INFO:src.unified_research_system:✅ [Entry Router] 路由决策: react_agent
+INFO:src.unified_research_system:🔍 [DEBUG] LangGraph启用: False, LangGraph Agent可用: False
+INFO:src.unified_research_system:🚀 使用统一工作流（MVP）执行查询
+INFO:src.unified_research_system:🔄 [统一工作流] 开始执行查询...
+🔄 [DEBUG] [统一工作流] 开始执行查询: As of August 1, 2024, which country were holders o...
+INFO:src.core.langgraph_unified_workflow:🔄 [统一工作流] 开始执行工作流...
+🔄 [DEBUG] [统一工作流] 开始执行工作流...
+INFO:src.core.langgraph_unified_workflow:🚀 [Route Query] 开始处理查询: As of August 1, 2024, which country were holders o...
+INFO:src.core.langgraph_unified_workflow:🔀 [Route Query] 分析查询复杂度...
+INFO:src.core.langgraph_unified_workflow:✅ [Route Query] 路由到复杂查询路径 (复杂度: 3.00)
+INFO:src.core.langgraph_detailed_processing_nodes:🔍 [Query Analysis] 开始查询分析（使用LLM判断复杂度）...
+INFO:src.core.langgraph_detailed_processing_nodes:✅ [Query Analysis] LLM复杂度判断: complex (评分: 8.50)
+INFO:src.core.langgraph_detailed_processing_nodes:✅ [Query Analysis] 分析完成: 类型=general, 复杂度=complex (LLM评分: 8.50), 长度=141
+INFO:src.core.langgraph_detailed_processing_nodes:⚙️ [Scheduling Optimization] 开始调度优化...
+INFO:src.core.langgraph_detailed_processing_nodes:✅ [Scheduling Optimization] ML策略: 知识超时=15.0s, 推理超时=250.0s, 并行=False
+INFO:src.core.langgraph_detailed_processing_nodes:✅ [Scheduling Optimization] RL策略: 知识超时=12.0s, 推理超时=200.0s, 并行=False
+INFO:src.core.langgraph_detailed_processing_nodes:✅ [Scheduling Optimization] 调度优化完成: 策略类型=ml
+INFO:src.core.langgraph_core_nodes:🔗 [Context Engineering] 开始增强上下文...
+WARNING:src.core.langgraph_core_nodes:⚠️ [Context Engineering] 上下文工程智能体不可用，使用原始上下文
+INFO:src.core.langgraph_core_nodes:📝 [Prompt Engineering] 开始生成提示词...
+WARNING:src.core.langgraph_core_nodes:⚠️ [Prompt Engineering] 提示词工程智能体不可用，使用简单提示词
+INFO:src.core.langgraph_core_nodes:🔍 [RAG Retrieval] 开始知识检索...
+WARNING:src.core.langgraph_core_nodes:⚠️ [RAG Retrieval] 工具执行失败: ToolRegistry.register_tool.<locals>.BaseToolAdapter.execute() takes 1 positional argument but 2 were given
+{
+    "name": "node.route_query",
+    "context": {
+        "trace_id": "0x33756c3b4e1bc2d3d89e84b5899d77ac",
+        "span_id": "0x1f3c823463c837b5",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:15:54.560166Z",
+    "end_time": "2026-01-14T09:15:54.560751Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "route_query",
+        "query": "As of August 1, 2024, which country were holders of the FIFA World Cup the last time the UEFA Champi",
+        "complexity_score": 0.0,
+        "route_path": "simple",
+        "retry_count": 0,
+        "duration_seconds": 0.0006568431854248047,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.query_analysis",
+    "context": {
+        "trace_id": "0x88f1bfc908183aed8204a6119362e68a",
+        "span_id": "0xad02f10404b0b9c6",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:15:54.562213Z",
+    "end_time": "2026-01-14T09:15:54.562565Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "query_analysis",
+        "query": "As of August 1, 2024, which country were holders of the FIFA World Cup the last time the UEFA Champi",
+        "complexity_score": 3.0,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0003628730773925781,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.scheduling_optimization",
+    "context": {
+        "trace_id": "0x2e22b8dddefb4accc1a39be2c4fcb73d",
+        "span_id": "0x7360055fef190b1b",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:15:54.563736Z",
+    "end_time": "2026-01-14T09:15:54.564253Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "scheduling_optimization",
+        "query": "As of August 1, 2024, which country were holders of the FIFA World Cup the last time the UEFA Champi",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0005249977111816406,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.context_engineering",
+    "context": {
+        "trace_id": "0xe437115701dbe262c60f7f106464f3a9",
+        "span_id": "0xacfa20e85f957621",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:15:54.565429Z",
+    "end_time": "2026-01-14T09:15:54.565571Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "context_engineering",
+        "query": "As of August 1, 2024, which country were holders of the FIFA World Cup the last time the UEFA Champi",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0001499652862548828,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.prompt_engineering",
+    "context": {
+        "trace_id": "0x8646e9e981bdc7d17a696bb8eac27902",
+        "span_id": "0x8e1f244d4907cdb0",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:15:54.566531Z",
+    "end_time": "2026-01-14T09:15:54.566663Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "prompt_engineering",
+        "query": "As of August 1, 2024, which country were holders of the FIFA World Cup the last time the UEFA Champi",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0001399517059326172,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.rag_retrieval",
+    "context": {
+        "trace_id": "0x44e534ce512edee50c8dff9694f03cdd",
+        "span_id": "0x97bebebed47d8bb9",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:15:54.568080Z",
+    "end_time": "2026-01-14T09:15:54.568331Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "rag_retrieval",
+        "query": "As of August 1, 2024, which country were holders of the FIFA World Cup the last time the UEFA Champi",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0002701282501220703,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+INFO:src.utils.unified_complexity_model_service:✅ LLM统一分析成功: complex (评分: 8.50)
+INFO:src.core.langgraph_unified_workflow:✅ [Route Decision] 统一服务判断：需要推理链能力
+INFO:src.core.langgraph_unified_workflow:   → 复杂度: complex (评分: 8.50)
+INFO:src.core.langgraph_unified_workflow:   → 判断因素: 估计推理步骤: 6, 涉及领域: sports_football, sports_history, temporal_reasoning, 查询类型: multi_domain_temporal_reasoning
+INFO:src.core.langgraph_unified_workflow:   → 推理链能力将通过 reasoning_agent 使用（所有路径都通过多智能体协调路径）
+INFO:src.core.langgraph_agent_nodes:🧠 [核心大脑] ChiefAgent 开始协调多智能体系统
+INFO:src.core.langgraph_agent_nodes:🔍 [核心大脑] 路由路径: complex, 复杂度: 8.50, 需要推理链: False
+INFO:src.core.langgraph_agent_nodes:🔧 [核心大脑] 使用完整智能体序列策略（Complex/Multi-agent查询）
+WARNING:src.core.langgraph_agent_nodes:⚠️ [完整智能体序列] 首席Agent不可用，使用单个Agent执行
+INFO:src.core.langgraph_agent_nodes:🧠 [Memory Agent] 开始记忆管理
+WARNING:src.core.langgraph_agent_nodes:⚠️ [Memory Agent] 记忆智能体不可用
+INFO:src.core.langgraph_agent_nodes:📝 [Answer Generation Agent] 开始答案生成
+WARNING:src.core.langgraph_agent_nodes:⚠️ [Answer Generation Agent] 答案生成智能体不可用
+INFO:src.core.langgraph_agent_nodes:📚 [Citation Agent] 开始引用生成
+INFO:src.core.langgraph_agent_nodes:🔍 [Knowledge Retrieval Agent] 开始知识检索
+INFO:src.core.langgraph_agent_nodes:🧩 [Reasoning Agent] 开始推理分析
+WARNING:src.core.langgraph_agent_nodes:⚠️ [Reasoning Agent] 推理智能体不可用
+INFO:src.core.langgraph_unified_workflow:🔗 [Synthesize] 综合证据和答案...
+WARNING:src.core.langgraph_unified_workflow:⚠️ [Synthesize] 没有证据或答案
+INFO:src.core.langgraph_unified_workflow:✅ [Synthesize] 综合完成，答案长度: 31
+INFO:src.core.langgraph_agent_nodes:✅ [Knowledge Retrieval Agent] 使用能力服务执行知识检索
+WARNING:src.core.langgraph_unified_workflow:⚠️ [错误恢复] 工作流执行出错，尝试恢复: At key 'user_context': Can receive only one value per step. Use an Annotated key to handle multiple values.
+For troubleshooting, visit: https://docs.langchain.com/oss/python/langgraph/errors/INVALID_CONCURRENT_GRAPH_UPDATE
+INFO:src.core.langgraph_error_recovery:🔄 [错误恢复] 尝试从错误中恢复 (thread_id=temp_54dafbc1, error_node=unknown, retry=1/3)
+INFO:src.core.langgraph_unified_workflow:✅ [检查点恢复] 找到检查点: thread_id=temp_54dafbc1
+INFO:src.core.langgraph_error_recovery:📊 [错误恢复] 错误分类: fatal
+ERROR:src.core.langgraph_error_recovery:❌ [错误恢复] 错误类型为 fatal，无法自动恢复
+ERROR:src.core.langgraph_unified_workflow:❌ [错误恢复] 从错误中恢复失败，使用初始状态
+INFO:src.core.langgraph_unified_workflow:✅ [统一工作流] 工作流执行完成，开始转换结果...
+🔧 [核心大脑] 匹配策略3: route_path=complex, complexity_score=8.5
+🔧 [完整智能体序列] 检查chief_agent: False
+✅ [DEBUG] [统一工作流] 工作流执行完成，开始转换结果...
+INFO:src.core.langgraph_unified_workflow:✅ [统一工作流] 结果转换完成: success=False, answer长度=0
+✅ [DEBUG] [统一工作流] 结果转换完成: success=False
+INFO:src.unified_research_system:✅ [统一工作流] 工作流执行完成，开始转换ResearchResult...
+✅ [DEBUG] [统一工作流] 工作流执行完成，开始转换ResearchResult...
+INFO:src.unified_research_system:✅ [统一工作流] ResearchResult转换完成: success=False, answer长度=0
+✅ [DEBUG] [统一工作流] ResearchResult转换完成: success=False
+INFO:__main__:Query 4 execution completed.
+INFO:__main__:Success: False
+INFO:__main__:Answer: None
+ERROR:__main__:Query 4 failed or no answer returned.
+ERROR:__main__:
+Some queries failed.
+{
+    "name": "node.memory_agent",
+    "context": {
+        "trace_id": "0x892ad9a7d9450b05e199280d78b7c510",
+        "span_id": "0xa7e48a8c44c8c628",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:16:08.961331Z",
+    "end_time": "2026-01-14T09:16:08.961980Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "memory_agent",
+        "query": "As of August 1, 2024, which country were holders of the FIFA World Cup the last time the UEFA Champi",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0007159709930419922,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.answer_generation_agent",
+    "context": {
+        "trace_id": "0x0938e4737ca29940a1659f5d1cfb5813",
+        "span_id": "0xb956e2f0d1228547",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:16:08.965330Z",
+    "end_time": "2026-01-14T09:16:08.965752Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "answer_generation_agent",
+        "query": "As of August 1, 2024, which country were holders of the FIFA World Cup the last time the UEFA Champi",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.00043582916259765625,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.citation_agent",
+    "context": {
+        "trace_id": "0x201b0ab8f73d7beb95f8789db3ef359f",
+        "span_id": "0x405c5a5568e256f7",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:16:08.965826Z",
+    "end_time": "2026-01-14T09:16:08.966017Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "citation_agent",
+        "query": "As of August 1, 2024, which country were holders of the FIFA World Cup the last time the UEFA Champi",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0002048015594482422,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.reasoning_agent",
+    "context": {
+        "trace_id": "0xf99448e7e21e80036f6936a02eb36d03",
+        "span_id": "0x10d55494466fc6f8",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:16:08.966239Z",
+    "end_time": "2026-01-14T09:16:08.966435Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "reasoning_agent",
+        "query": "As of August 1, 2024, which country were holders of the FIFA World Cup the last time the UEFA Champi",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.00019812583923339844,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.synthesize",
+    "context": {
+        "trace_id": "0x55faf8e301f88e3d4a7732fc037012fb",
+        "span_id": "0xef10e86145c3fe93",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:16:08.966473Z",
+    "end_time": "2026-01-14T09:16:08.966617Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "synthesize",
+        "query": "As of August 1, 2024, which country were holders of the FIFA World Cup the last time the UEFA Champi",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0001442432403564453,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.knowledge_retrieval_agent",
+    "context": {
+        "trace_id": "0x099f4e88a1d7d805444126a8024e1fea",
+        "span_id": "0x8ebf243a8e658b56",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-14T09:16:08.966062Z",
+    "end_time": "2026-01-14T09:16:09.068343Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "knowledge_retrieval_agent",
+        "query": "As of August 1, 2024, which country were holders of the FIFA World Cup the last time the UEFA Champi",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.10216498374938965,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}

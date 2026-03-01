@@ -1,0 +1,73 @@
+{
+  "intent_patterns": {
+    "question": [
+      "what",
+      "how",
+      "why",
+      "when",
+      "where",
+      "who"
+    ],
+    "explanation": [
+      "explain",
+      "describe",
+      "tell"
+    ],
+    "comparison": [
+      "compare",
+      "difference",
+      "similar"
+    ],
+    "analysis": [
+      "analyze",
+      "analysis",
+      "study"
+    ]
+  },
+  "domain_patterns": {
+    "technology": [
+      "computer",
+      "software",
+      "hardware",
+      "programming"
+    ],
+    "science": [
+      "research",
+      "study",
+      "experiment",
+      "theory"
+    ],
+    "business": [
+      "company",
+      "market",
+      "profit",
+      "strategy"
+    ]
+  },
+  "content_type_patterns": {
+    "technical": [
+      "技术",
+      "算法",
+      "编程",
+      "代码",
+      "technology",
+      "algorithm"
+    ],
+    "academic": [
+      "研究",
+      "论文",
+      "学术",
+      "理论",
+      "research",
+      "paper"
+    ],
+    "business": [
+      "商业",
+      "市场",
+      "经济",
+      "投资",
+      "business",
+      "market"
+    ]
+  }
+}

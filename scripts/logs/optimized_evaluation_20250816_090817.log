@@ -1,0 +1,93 @@
+2025-08-16 09:08:17,224 - __main__ - INFO - 🚀 启动优化的准确度评测系统
+2025-08-16 09:08:17,228 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:17,228 - __main__ - INFO - 🚀 开始全面准确度评测...
+2025-08-16 09:08:17,228 - __main__ - INFO - 🚀 初始化研究系统...
+2025-08-16 09:08:17,331 - intelligent_config - INFO - ✅ 统一配置管理中心初始化完成
+2025-08-16 09:08:17,333 - src.research_system_improved_v8 - INFO - 🔧 初始化基本组件
+2025-08-16 09:08:17,333 - src.research_system_improved_v8 - INFO - ✅ 配置管理器已整合到统一配置管理中心
+2025-08-16 09:08:17,333 - src.research_system_improved_v8 - INFO - ✅ 智能学习系统初始化完成
+2025-08-16 09:08:17,333 - src.research_system_improved_v8 - INFO - ✅ 移除独立FAISS内存系统，将使用知识检索智能体的FAISS
+2025-08-16 09:08:17,333 - src.research_system_improved_v8 - INFO - ✅ 跳过Wiki处理器初始化，将使用FRAMES数据集wikilink内容
+2025-08-16 09:08:17,333 - src.research_system_improved_v8 - INFO - ✅ 基本组件初始化完成
+2025-08-16 09:08:17,333 - src.research_system_improved_v8 - INFO - 系统基础初始化完成，智能体和知识库将按需初始化
+2025-08-16 09:08:17,333 - __main__ - INFO - ✅ 研究系统初始化完成
+2025-08-16 09:08:17,333 - __main__ - INFO - ✅ 加载测试查询完成，共 20 个查询
+2025-08-16 09:08:17,334 - __main__ - INFO - 📊 开始评测类别: 基础查询 (5 个查询)
+2025-08-16 09:08:17,334 - __main__ - INFO - 处理批次 1/1
+2025-08-16 09:08:17,334 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:17,439 - src.utils.evaluation_performance_optimizer - ERROR - 分析查询复杂度失败: object of type 'OptimizedAccuracyEvaluator' has no len()
+2025-08-16 09:08:17,440 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:17,545 - src.utils.evaluation_performance_optimizer - ERROR - 分析查询复杂度失败: object of type 'OptimizedAccuracyEvaluator' has no len()
+2025-08-16 09:08:17,547 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:17,647 - src.utils.evaluation_performance_optimizer - ERROR - 分析查询复杂度失败: object of type 'OptimizedAccuracyEvaluator' has no len()
+2025-08-16 09:08:17,649 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:17,750 - src.utils.evaluation_performance_optimizer - ERROR - 分析查询复杂度失败: object of type 'OptimizedAccuracyEvaluator' has no len()
+2025-08-16 09:08:17,751 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:17,855 - src.utils.evaluation_performance_optimizer - ERROR - 分析查询复杂度失败: object of type 'OptimizedAccuracyEvaluator' has no len()
+2025-08-16 09:08:17,958 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 09:08:18,063 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 09:08:18,169 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 09:08:18,273 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 09:08:18,379 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 09:08:18,880 - __main__ - INFO - ✅ 类别 基础查询 评测完成 - 成功率: 100.00%, 平均质量: 0.00
+2025-08-16 09:08:18,881 - __main__ - INFO - 📊 开始评测类别: 技术查询 (5 个查询)
+2025-08-16 09:08:18,881 - __main__ - INFO - 处理批次 1/1
+2025-08-16 09:08:18,881 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:18,987 - src.utils.evaluation_performance_optimizer - ERROR - 分析查询复杂度失败: object of type 'OptimizedAccuracyEvaluator' has no len()
+2025-08-16 09:08:18,988 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:19,090 - src.utils.evaluation_performance_optimizer - ERROR - 分析查询复杂度失败: object of type 'OptimizedAccuracyEvaluator' has no len()
+2025-08-16 09:08:19,091 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:19,196 - src.utils.evaluation_performance_optimizer - ERROR - 分析查询复杂度失败: object of type 'OptimizedAccuracyEvaluator' has no len()
+2025-08-16 09:08:19,197 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:19,303 - src.utils.evaluation_performance_optimizer - ERROR - 分析查询复杂度失败: object of type 'OptimizedAccuracyEvaluator' has no len()
+2025-08-16 09:08:19,305 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:19,406 - src.utils.evaluation_performance_optimizer - ERROR - 分析查询复杂度失败: object of type 'OptimizedAccuracyEvaluator' has no len()
+2025-08-16 09:08:19,508 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 09:08:19,613 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 09:08:19,714 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 09:08:19,819 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 09:08:19,923 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 09:08:20,425 - __main__ - INFO - ✅ 类别 技术查询 评测完成 - 成功率: 100.00%, 平均质量: 0.00
+2025-08-16 09:08:20,425 - __main__ - INFO - 📊 开始评测类别: 应用查询 (5 个查询)
+2025-08-16 09:08:20,425 - __main__ - INFO - 处理批次 1/1
+2025-08-16 09:08:20,426 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:20,532 - src.utils.evaluation_performance_optimizer - ERROR - 分析查询复杂度失败: object of type 'OptimizedAccuracyEvaluator' has no len()
+2025-08-16 09:08:20,533 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:20,634 - src.utils.evaluation_performance_optimizer - ERROR - 分析查询复杂度失败: object of type 'OptimizedAccuracyEvaluator' has no len()
+2025-08-16 09:08:20,636 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:20,742 - src.utils.evaluation_performance_optimizer - ERROR - 分析查询复杂度失败: object of type 'OptimizedAccuracyEvaluator' has no len()
+2025-08-16 09:08:20,743 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:20,844 - src.utils.evaluation_performance_optimizer - ERROR - 分析查询复杂度失败: object of type 'OptimizedAccuracyEvaluator' has no len()
+2025-08-16 09:08:20,846 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:20,951 - src.utils.evaluation_performance_optimizer - ERROR - 分析查询复杂度失败: object of type 'OptimizedAccuracyEvaluator' has no len()
+2025-08-16 09:08:21,057 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 09:08:21,161 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 09:08:21,267 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 09:08:21,373 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 09:08:21,474 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 09:08:21,975 - __main__ - INFO - ✅ 类别 应用查询 评测完成 - 成功率: 100.00%, 平均质量: 0.00
+2025-08-16 09:08:21,975 - __main__ - INFO - 📊 开始评测类别: 分析查询 (5 个查询)
+2025-08-16 09:08:21,976 - __main__ - INFO - 处理批次 1/1
+2025-08-16 09:08:21,976 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:22,078 - src.utils.evaluation_performance_optimizer - ERROR - 分析查询复杂度失败: object of type 'OptimizedAccuracyEvaluator' has no len()
+2025-08-16 09:08:22,080 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:22,181 - src.utils.evaluation_performance_optimizer - ERROR - 分析查询复杂度失败: object of type 'OptimizedAccuracyEvaluator' has no len()
+2025-08-16 09:08:22,183 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:22,288 - src.utils.evaluation_performance_optimizer - ERROR - 分析查询复杂度失败: object of type 'OptimizedAccuracyEvaluator' has no len()
+2025-08-16 09:08:22,290 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:22,396 - src.utils.evaluation_performance_optimizer - ERROR - 分析查询复杂度失败: object of type 'OptimizedAccuracyEvaluator' has no len()
+2025-08-16 09:08:22,397 - src.utils.evaluation_performance_optimizer - INFO - ✅ 内存跟踪已启用
+2025-08-16 09:08:22,503 - src.utils.evaluation_performance_optimizer - ERROR - 分析查询复杂度失败: object of type 'OptimizedAccuracyEvaluator' has no len()
+2025-08-16 09:08:22,607 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 09:08:22,710 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 09:08:22,811 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 09:08:22,917 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 09:08:23,022 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成
+2025-08-16 09:08:23,524 - __main__ - INFO - ✅ 类别 分析查询 评测完成 - 成功率: 100.00%, 平均质量: 0.00
+2025-08-16 09:08:23,524 - __main__ - INFO - 🎉 全面评测完成！总耗时: 6.19秒
+2025-08-16 09:08:23,524 - __main__ - INFO - 📊 总体准确率: 100.00%
+2025-08-16 09:08:23,524 - __main__ - INFO - 📊 总体质量: 0.00
+2025-08-16 09:08:23,524 - __main__ - INFO - 📊 总体置信度: 0.00
+2025-08-16 09:08:23,526 - __main__ - ERROR - ❌ 保存结果失败: Object of type coroutine is not JSON serializable
+2025-08-16 09:08:23,526 - __main__ - INFO - 🎉 评测系统运行完成！
+2025-08-16 09:08:23,526 - src.utils.evaluation_performance_optimizer - INFO - ✅ 评测性能优化器资源清理完成

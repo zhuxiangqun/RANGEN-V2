@@ -1,0 +1,93 @@
+# FRAMES评测系统配置
+frames_evaluation:
+  # 基本配置
+  max_concurrent_tasks: 1
+  timeout_per_query: 30.0
+
+# FAISS内存系统配置
+faiss_memory:
+  dimension: 384  # 使用all-MiniLM-L6-v2模型的实际维度
+  model_name: "all-MiniLM-L6-v2"  # 使用正确的sentence-transformer模型
+  
+  # 默认分数
+  default_quality_score: 0.1
+  default_innovation_score: 0.1
+  
+  # 创新性评分配置
+  innovation:
+    major_reasoning_weight: 0.2      # 主要推理类型权重
+    minor_reasoning_weight: 0.1      # 次要推理类型权重
+    max_score: 1.0                   # 最大创新性分数
+    default_score: 0.3               # 默认创新性分数
+  
+  # 质量评估配置
+  quality:
+    similarity_weight: 0.3           # 答案相似度权重
+    reasoning_weight: 0.2            # 推理覆盖度权重
+    completeness_weight: 0.2         # 完整性权重
+    content_weight: 0.3              # 内容质量权重
+    min_score: 0.1                   # 最小质量分数
+    max_score: 1.0                   # 最大质量分数
+    default_score: 0.3               # 默认质量分数
+    high_threshold: 0.7              # 高质量阈值
+    medium_threshold: 0.4            # 中等质量阈值
+  
+  # 准确率配置
+  accuracy:
+    high_threshold: 0.8              # 高准确率阈值
+    medium_threshold: 0.5            # 中等准确率阈值
+  
+  # 性能配置
+  performance:
+    fast_threshold: 0.1              # 快速查询阈值（秒）
+    slow_threshold: 1.0              # 慢查询阈值（秒）
+
+# 性能监控配置
+performance_monitor:
+  # 告警阈值
+  alert_thresholds:
+    cpu_usage: 80.0                  # CPU使用率超过80%
+    memory_usage: 60.0               # 内存使用率超过60%（降低阈值）
+    disk_usage: 90.0                 # 磁盘使用率超过90%
+    response_time: 5.0               # 响应时间超过5秒
+    error_rate: 10.0                 # 错误率超过10%
+  
+  # 监控配置
+  monitor_interval: 5.0              # 监控间隔（秒）
+  memory_optimization_threshold: 70.0  # 内存优化阈值（降低）
+  light_optimization_threshold: 50.0   # 轻度优化阈值（降低）
+  
+  # 指标配置
+  metrics_maxlen: 1000               # 指标历史记录最大长度
+  join_timeout: 5.0                  # 线程等待超时时间
+
+# 推理智能体配置
+reasoning_agent:
+  # 复杂度阈值
+  complexity_threshold: 0.7
+  max_iterations: 5
+  max_knowledge_items: 5
+  max_knowledge_length: 200
+  
+  # 执行时间配置
+  max_execution_time: 10.0           # 最大执行时间10秒
+  
+  # 长度阈值配置
+  context_length_threshold: 25       # 上下文长度阈值
+  query_length_threshold: 60         # 查询长度阈值
+  dynamic_length_threshold_factor: 0.6  # 动态长度阈值因子
+  
+  # 复杂度配置
+  complexity_threshold_dynamic: 0.5  # 动态复杂度阈值
+  length_normalization_factor: 100.0  # 长度标准化因子
+  
+  # 动态参数配置
+  dynamic_parameters:
+    complexity_divisor: 15.0
+    default_success_rate: 0.6
+    query_preview_length: 100
+    default_complexity: 0.5
+    default_confidence: 0.6
+    complexity_threshold: 0.7
+    max_iterations: 5
+    timeout_threshold: 10.0

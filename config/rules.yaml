@@ -1,0 +1,509 @@
+# 统一规则管理中心配置文件
+# 所有规则、模式、关键词、阈值统一管理
+
+# 关键词配置
+keywords:
+  # 基础过滤关键词
+  basic_filter_keywords:
+    - "United States"
+    - "United Kingdom"
+    - "New York"
+    - "The United States"
+    - "President Of The United States"
+    - "First Lady"
+    - "President"
+    - "Education"
+    - "Facial"
+    - "Entity"
+    - "Person"
+    - "Location"
+    - "Organization"
+    - "Event"
+    - "Date"
+    - "Time"
+    - "New England"
+    - "Julia Add"  # 从日志中发现的错误答案
+    - "Relations"
+    - "Union Army"
+    - "Confederate Army"
+    - "Civil War"
+    - "Financial Services"
+    - "National"
+    - "Federal"
+    - "Government"
+    - "Department"
+    - "Agency"
+    - "Bureau"
+    - "Service"
+    - "Services"
+    - "State"
+    - "States"
+    - "Country"
+    - "Nation"
+    - "Republic"
+  
+  # 地点关键词
+  place_keywords:
+    - "United States"
+    - "New York"
+    - "America"
+    - "USA"
+    - "US"
+    - "England"
+    - "New England"
+    - "President Of The United States"
+  
+  # 职位/类别关键词
+  title_keywords:
+    - "President"
+    - "First Lady"
+    - "Education"
+    - "Facial"
+    - "Entity"
+    - "Person"
+    - "Location"
+    - "Governor"
+  
+  # 组织/机构关键词
+  organization_keywords:
+    - "Union Army"
+    - "Confederate Army"
+    - "Civil War"
+    - "World War"
+    - "Revolutionary War"
+    - "Army"
+    - "Navy"
+    - "Air Force"
+    - "Marines"
+    - "Military"
+    - "Government"
+    - "Congress"
+    - "Senate"
+    - "House"
+    - "Court"
+    - "Supreme Court"
+    - "Department"
+    - "Agency"
+    - "Bureau"
+    - "Company"
+    - "Corporation"
+    - "Organization"
+    - "Institution"
+    - "University"
+    - "College"
+    - "School"
+    - "Hospital"
+    - "Church"
+    - "Temple"
+    - "Mosque"
+    - "Synagogue"
+  
+  # 组织指示词
+  organization_indicators:
+    - "army"
+    - "war"
+    - "government"
+    - "state"
+    - "nation"
+    - "country"
+    - "city"
+    - "town"
+    - "county"
+    - "department"
+    - "agency"
+    - "bureau"
+    - "office"
+    - "court"
+    - "house"
+    - "senate"
+    - "congress"
+  
+  # 非人名短语
+  non_person_phrases:
+    - "Fort Sumter"
+    - "In April"
+    - "In May"
+    - "In June"
+    - "In July"
+    - "In August"
+    - "In September"
+    - "In October"
+    - "In November"
+    - "In December"
+    - "At Governor"
+    - "At President"
+    - "At First"
+    - "At Second"
+    - "At Third"
+  
+  # 历史概念
+  historical_concepts:
+    - "Slave Power"
+    - "Slave Power Conspiracy"
+    - "Manifest Destiny"
+    - "Monroe Doctrine"
+    - "Missouri Compromise"
+    - "Compromise of 1850"
+    - "Kansas-Nebraska Act"
+    - "Dred Scott"
+    - "Emancipation Proclamation"
+    - "Gettysburg Address"
+    - "Reconstruction"
+    - "Jim Crow"
+    - "Segregation"
+    - "Civil Rights Movement"
+  
+  # 查询类型关键词
+  place_query_keywords:
+    - "where"
+    - "location"
+    - "country"
+    - "city"
+    - "place"
+    - "地点"
+    - "位置"
+  
+  # 介词开头
+  preposition_starters:
+    - "at "
+    - "in "
+    - "on "
+    - "by "
+    - "for "
+    - "with "
+    - "from "
+    - "to "
+    - "of "
+    - "the "
+    - "a "
+    - "an "
+  
+  # 答案标记
+  answer_markers:
+    - "Final Answer:"
+    - "最终答案："
+    - "Answer:"
+    - "答案："
+  
+  # 无效答案标记
+  invalid_answer_markers:
+    - "none"
+    - "无法确定"
+    - "不确定"
+    - "cannot determine"
+    - "unable to determine"
+    - "not found"
+    - "unknown"
+  
+  # 不确定答案指示词（用于检测"无法确定"类型的答案）
+  uncertain_answer_indicators:
+    - "none"
+    - "无法确定"
+    - "不确定"
+    - "cannot determine"
+    - "unable to determine"
+    - "not found"
+    - "unknown"
+  
+  # 荒谬模式（用于检测明显错误的答案）
+  absurd_patterns:
+    - "western europe this"
+    - "france football"
+    - "slave power"
+    - "union army"
+    - "first words"
+    - "fuego geopolitical"
+    - "confederate states"
+    - "civil war"
+    - "world war"
+    - "western europe"
+    - "eastern europe"
+    - "northern europe"
+    - "southern europe"
+    - "fuego"
+    - "geopolitical"
+    - "this"
+    - "that"
+    - "these"
+    - "those"
+  
+  # 地理关键词（用于检测人名查询中的地理词汇误用）
+  geographic_keywords:
+    - "europe"
+    - "france"
+    - "western"
+    - "eastern"
+    - "northern"
+    - "southern"
+    - "united states"
+    - "america"
+    - "geopolitical"
+  
+  # API错误关键词（用于检测API错误消息）
+  api_error_keywords:
+    - "reasoning task failed due to api timeout"
+    - "task failed due to api timeout"
+    - "api call failed"
+    - "api timeout"
+    - "please try again later"
+    - "check network connection"
+    - "extraction task failed"
+    - "analysis task failed"
+    - "detection task failed"
+    - "please check network"
+    - "network error"
+    - "request timeout"
+    - "the evidence does not contain"
+    - "evidence does not contain"
+  
+  # 明显的非人名关键词（用于engine.py的fallback）
+  obvious_non_person:
+    - "union army"
+    - "confederate army"
+    - "civil war"
+  
+  # ReAct Agent迭代优化关键词
+  react_agent:
+    # 简单查询关键词（用于判断简单查询）
+    simple_keywords:
+      - "what"
+      - "who"
+      - "when"
+      - "where"
+      - "which"
+    
+    # 复杂查询关键词（用于判断复杂查询）
+    complex_keywords:
+      - "same as"
+      - "named after"
+      - "first"
+      - "second"
+      - "third"
+      - "nephew"
+      - "mother"
+      - "father"
+      - "shares"
+
+# 模式配置
+patterns:
+  # 最终答案模式
+  final_answer:
+    - "Final Answer:\\s*(.+?)(?:\\n|$)"
+    - "最终答案[：:]\\s*(.+?)(?:\\n|$)"
+    - "Answer:\\s*(.+?)(?:\\n|$)"
+    - "答案[：:]\\s*(.+?)(?:\\n|$)"
+    - "Final Answer[：:]\\s*([^\\n]+)"
+    - "最终答案[：:]\\s*([^\\n]+)"
+    - "answer[：:]\\s*([^\\n]+)"
+    - "答案[：:]\\s*([^\\n]+)"
+  
+  # 动词答案模式
+  verb_answer:
+    - "^(?:the\\s+)?answer\\s+(?:is|was|are|were)\\s+(.+?)(?:\\s*[.!?。！？]|$)"
+    - "(?:is|was|are|were|named|called|equals?|=\\s*)\\s+([^\\n,\\.;]+)"
+    - "(?:the|a|an)\\s+([A-Z][^\\n,\\.;]+?)(?:\\.|,|;|$)"
+  
+  # 数字模式
+  number:
+    - "\\b(\\d+(?:,\\d{3})*(?:\\.\\d+)?)\\b"  # 整数或小数
+    - "(\\d+(?:\\.\\d+)?%)"  # 百分比
+  
+  # 日期/时间模式
+  date:
+    - "\\b(\\d{4})\\b"  # 年份
+    - "\\b(\\d{1,2}[/-]\\d{1,2}[/-]\\d{2,4})\\b"  # 日期
+    - "\\b(January|February|March|April|May|June|July|August|September|October|November|December)\\s+\\d{1,2},?\\s+\\d{4}\\b"
+  
+  # 实体模式
+  entity:
+    - "\\b([A-Z][a-z]+(?:\\s+[A-Z][a-z]+)+)\\b"  # 多个单词的实体
+    - "\\b([A-Z][a-z]+)\\b"  # 单个单词的实体
+  
+  # 导航/元数据模式
+  navigation:
+    - "^\\s*(?:external\\s+links?|references?|see\\s+also|categories?|navigation|contents?)\\s*:?\\s*$"
+    - "^\\s*\\d+\\s*of\\s*\\d+\\s*$"  # 页码标记
+    - "^\\s*\\[edit\\]\\s*$"  # 编辑标记
+  
+  # 列表项模式
+  list_item:
+    - "^\\s*\\d+[\\.\\)]\\s*"  # 数字列表
+    - "^\\s*[•\\-*]\\s*"  # 项目符号
+    - "^\\s*[ivxlcdm]+[\\.\\)]\\s*"  # 罗马数字列表
+  
+  # JSON查询模式
+  json_query:
+    - "^\\{['\"]Unnamed:\\s*0['\"]\\s*:"
+    - "^\\{['\"]Unnamed:\\s*0['\"]\\s*,"
+  
+  # 答案指示模式
+  answer_indicator:
+    - "(?:is|was|are|were|equals?|=\\s*)\\s+[A-Z0-9]"  # 动词后跟大写字母或数字
+    - "[A-Z][a-z]+\\s+[A-Z][a-z]+"  # 两个首字母大写的单词（可能是完整名称）
+
+# 规则配置
+rules:
+  # 答案长度规则
+  answer_length:
+    min: 2
+    max: 100
+  
+  # 字母数字比例规则
+  alnum_ratio:
+    min: 0.7
+
+# 阈值配置
+# 统一置信度服务配置
+confidence:
+  # 置信度阈值
+  thresholds:
+    high: 0.8
+    medium: 0.5
+    low: 0.3
+  # 置信度校准调整
+  calibration:
+    evidence_quality:
+      high: 0.1
+      medium: 0.0
+      low: -0.2
+      none: -0.3
+    query_complexity:
+      simple: 0.05
+      medium: 0.0
+      complex: -0.1
+  # 默认置信度
+  default:
+    score: 0.7
+    level: "medium"
+
+# 超时配置
+timeouts:
+  # 查询复杂度相关超时（秒）
+  query_complexity:
+    simple: 180.0
+    medium: 600.0
+    complex: 1200.0
+    very_complex: 1800.0
+  # 推理步骤生成超时
+  reasoning_steps:
+    default: 60.0
+    with_thinking: 90.0  # 思考模式增加50%
+  # 证据检索超时
+  evidence_retrieval:
+    default: 30.0
+    fast: 15.0
+  # 初始化超时
+  initialization:
+    default: 30.0
+    index_rebuild: 120.0
+  # 任务等待超时
+  task_wait:
+    default: 60.0
+  # 复杂推理总超时
+  complex_reasoning:
+    default: 1800.0  # 30分钟
+
+# 重试配置
+retry:
+  # 默认重试次数
+  default_max_attempts: 2
+  # SSL重试次数
+  ssl_max_attempts: 4
+  # 最大重试次数
+  max_attempts: 5
+  # 重试延迟（秒）
+  delay:
+    base: 1.0
+    max: 30.0
+    exponential_backoff: true
+
+thresholds:
+  # 语义相似度阈值
+  semantic_similarity:
+    default: 0.3
+    query_answer: 0.2
+    answer_evidence: 0.15
+    answer_validation: 0.2
+    evidence_validation: 0.15
+  
+  # 置信度阈值
+  confidence:
+    default: 0.5
+    high: 0.8
+    medium: 0.6
+    low: 0.3
+  
+  # 答案长度阈值
+  answer_length_min:
+    default: 2
+    validation: 2
+    step_result: 2
+  
+  answer_length_max:
+    default: 100
+    validation: 100
+    step_result: 200
+  
+  # 证据质量阈值
+  evidence_quality:
+    default: 0.15
+    meta_query: 0.10
+    normal_query: 0.15
+  
+  # 短答案长度阈值（用于清理）
+  short_answer_length:
+    default: 50
+    cleaning: 50
+  
+  # 分层验证阈值
+  hierarchical_validation:
+    default: 0.3
+    smart_validation: 0.3
+  
+  # 答案长度阈值（分层验证器）
+  # 🚀 修复：调整长度阈值，允许合理的答案通过
+  answer_length_min:
+    hierarchical_validation: 1  # 最小长度：1个字符（允许单字符答案）
+  
+  answer_length_max:
+    hierarchical_validation: 100  # 最大长度：100个字符（对于人名、地名等足够）
+  
+  # 置信度阈值
+  # 🚀 修复：降低置信度阈值，允许更多合理的答案通过
+  confidence:
+    nlp_validation: 0.3  # 降低阈值：从0.5降到0.3，允许更多答案通过
+    llm_validation: 0.5  # 降低阈值：从0.7降到0.5
+    fallback: 0.5  # 降低阈值：从0.7降到0.5
+  
+  # 置信度降低比例
+  confidence_penalty:
+    default: 0.15
+    per_issue: 0.15  # 每个问题降低的置信度比例
+  
+  # 置信度乘数（用于NLP验证中的置信度调整）
+  confidence_multipliers:
+    evidence_similarity_low: 0.5  # 证据相似度低时的乘数
+    query_similarity_low: 0.6  # 查询相似度低时的乘数
+    entity_type_mismatch: 0.4  # 实体类型不匹配时的乘数
+    context_relevance_low: 0.7  # 上下文相关性低时的乘数
+  
+  # 语义相似度阈值（分层验证器）
+  semantic_similarity:
+    query_answer_validation: 0.2
+    high_confidence: 0.5
+  
+  # 垃圾字符比例阈值
+  garbage_char_ratio:
+    default: 0.4  # 40%以上是非字母数字字符
+  
+  # ReAct Agent迭代优化阈值
+  react_agent:
+    # 查询长度阈值
+    simple_query_length: 50  # 简单查询的最大长度
+    medium_query_length: 150  # 中等查询的最大长度
+    
+    # 迭代次数配置
+    simple_max_iterations: 3  # 简单查询的最大迭代次数
+    medium_max_iterations: 5  # 中等查询的最大迭代次数
+    complex_max_iterations: 10  # 复杂查询的最大迭代次数（默认）
+

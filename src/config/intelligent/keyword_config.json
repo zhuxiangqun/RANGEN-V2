@@ -1,0 +1,397 @@
+{
+  "question": {
+    "base_keywords": [
+      "什么",
+      "如何",
+      "为什么",
+      "哪里",
+      "什么时候",
+      "谁",
+      "what",
+      "how",
+      "why",
+      "where",
+      "when",
+      "who"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "comparison": {
+    "base_keywords": [
+      "比较",
+      "对比",
+      "差异",
+      "相同",
+      "不同",
+      "优劣",
+      "优缺点",
+      "compare",
+      "contrast",
+      "difference",
+      "similar",
+      "versus",
+      "pros and cons"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "analysis": {
+    "base_keywords": [
+      "分析",
+      "解析",
+      "研究",
+      "探讨",
+      "调查",
+      "考察",
+      "analyze",
+      "analysis",
+      "research",
+      "study",
+      "investigate",
+      "examine"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "calculation": {
+    "base_keywords": [
+      "计算",
+      "算",
+      "多少",
+      "数值",
+      "数据",
+      "统计",
+      "calculate",
+      "compute",
+      "number",
+      "value",
+      "data",
+      "statistics",
+      "how many",
+      "how much",
+      "quantity",
+      "amount"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "temporal": {
+    "base_keywords": [
+      "time",
+      "when",
+      "before",
+      "after",
+      "year"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "factual": {
+    "base_keywords": [
+      "when",
+      "where",
+      "who"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "reasoning": {
+    "base_keywords": [
+      "为什么",
+      "如何",
+      "解释",
+      "分析",
+      "推理",
+      "原因",
+      "结果",
+      "why",
+      "how",
+      "explain",
+      "analyze",
+      "reason",
+      "analysis",
+      "explanation",
+      "reasoning",
+      "why does",
+      "why is",
+      "why are",
+      "why can",
+      "why will"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "definition": {
+    "base_keywords": [
+      "定义",
+      "概念",
+      "含义",
+      "是什么",
+      "指什么",
+      "意思",
+      "definition",
+      "concept",
+      "meaning",
+      "what is"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "procedure": {
+    "base_keywords": [
+      "步骤",
+      "方法",
+      "流程",
+      "如何做",
+      "怎么做",
+      "过程",
+      "procedure",
+      "method",
+      "process",
+      "step",
+      "how to"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "deductive": {
+    "base_keywords": [
+      "if",
+      "then",
+      "assume",
+      "given",
+      "therefore",
+      "假设",
+      "如果",
+      "那么"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "inductive": {
+    "base_keywords": [
+      "usually",
+      "generally",
+      "always",
+      "typically",
+      "often",
+      "通常",
+      "一般",
+      "总是"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "abductive": {
+    "base_keywords": [
+      "why",
+      "reason",
+      "explain",
+      "cause",
+      "because",
+      "为什么",
+      "原因",
+      "解释"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "numerical": {
+    "base_keywords": [
+      "how many",
+      "number",
+      "count",
+      "quantity",
+      "total",
+      "sum",
+      "amount",
+      "calculate",
+      "compute",
+      "多少",
+      "数量"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "causal": {
+    "base_keywords": [
+      "why",
+      "how",
+      "cause",
+      "reason",
+      "because",
+      "result",
+      "effect",
+      "为什么",
+      "原因"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "mathematical": {
+    "base_keywords": [
+      "calculate",
+      "compute",
+      "math",
+      "sum",
+      "total",
+      "add",
+      "multiply",
+      "divide",
+      "subtract",
+      "计算",
+      "数学"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "comparative": {
+    "base_keywords": [
+      "compare",
+      "difference",
+      "similar",
+      "different",
+      "better",
+      "worse",
+      "versus",
+      "vs",
+      "比较",
+      "对比"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "multiple_constraints": {
+    "base_keywords": [
+      "same",
+      "both",
+      "and",
+      "multiple",
+      "several",
+      "all",
+      "each",
+      "together",
+      "相同",
+      "多个"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "numerical_reasoning": {
+    "base_keywords": [
+      "number",
+      "count",
+      "how many",
+      "total",
+      "sum",
+      "calculate",
+      "compute",
+      "数字",
+      "计算"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "temporal_reasoning": {
+    "base_keywords": [
+      "year",
+      "time",
+      "when",
+      "date",
+      "before",
+      "after",
+      "during",
+      "时间",
+      "日期"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "tabular_reasoning": {
+    "base_keywords": [
+      "table",
+      "chart",
+      "data",
+      "row",
+      "column",
+      "cell",
+      "表格",
+      "数据"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "causal_reasoning": {
+    "base_keywords": [
+      "why",
+      "because",
+      "cause",
+      "reason",
+      "effect",
+      "result",
+      "为什么",
+      "原因"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  },
+  "comparative_reasoning": {
+    "base_keywords": [
+      "compare",
+      "vs",
+      "versus",
+      "difference",
+      "similar",
+      "different",
+      "比较",
+      "对比"
+    ],
+    "learned_keywords": [],
+    "domain_specific": {},
+    "semantic_patterns": [],
+    "confidence_scores": {}
+  }
+}

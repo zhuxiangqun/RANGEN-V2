@@ -1,0 +1,73 @@
+[
+  {
+    "id": "r1",
+    "query": "Who was the 15th first lady of the United States?",
+    "expected": "Harriet Lane",
+    "type": "ordinal",
+    "notes": "序号类，图谱优先，核心事实兜底"
+  },
+  {
+    "id": "r2",
+    "query": "What is the maiden name of James Garfield's mother?",
+    "expected": "Ballou",
+    "type": "attribute",
+    "notes": "属性类，字段约束+核心事实"
+  },
+  {
+    "id": "r3",
+    "query": "What is the first name of the 15th first lady?",
+    "expected": "Harriet",
+    "type": "attribute",
+    "notes": "属性类，字段约束"
+  },
+  {
+    "id": "r4",
+    "query": "Who was the second assassinated president of the United States?",
+    "expected": "James A. Garfield",
+    "type": "ordinal",
+    "notes": "序号类，核心事实兜底"
+  },
+  {
+    "id": "r5",
+    "query": "Combine the first name of the 15th first lady with the maiden name of James Garfield's mother",
+    "expected": "Harriet Ballou",
+    "type": "composite",
+    "notes": "组合题，需多步结果拼接"
+  },
+  {
+    "id": "r6",
+    "query": "Who was the wife of the 14th president of the United States?",
+    "expected": "Jane Pierce",
+    "type": "relationship",
+    "notes": "关系/配偶，字段约束+图谱优先"
+  },
+  {
+    "id": "r7",
+    "query": "Who succeeded Abraham Lincoln as president?",
+    "expected": "Andrew Johnson",
+    "type": "ordinal",
+    "notes": "preceded/succeeded 序列关系"
+  },
+  {
+    "id": "r8",
+    "query": "Who preceded John F. Kennedy as president?",
+    "expected": "Dwight D. Eisenhower",
+    "type": "ordinal",
+    "notes": "preceded/succeeded 序列关系"
+  },
+  {
+    "id": "r9",
+    "query": "Who was the spouse of Mary Todd Lincoln?",
+    "expected": "Abraham Lincoln",
+    "type": "relationship",
+    "notes": "关系/配偶，字段约束+图谱优先"
+  },
+  {
+    "id": "r10",
+    "query": "What was the term in office of James Buchanan?",
+    "expected": "1857–1861",
+    "type": "attribute",
+    "notes": "term/in office 属性"
+  }
+]
+

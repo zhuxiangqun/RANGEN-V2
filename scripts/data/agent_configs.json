@@ -1,0 +1,197 @@
+{
+  "reasoning_agent": {
+    "confidence_threshold": 0.8,
+    "confidence_high": 0.8,
+    "confidence_medium": 0.6,
+    "confidence_low": 0.5,
+    "confidence_fallback": 0.3,
+    "confidence_warning_threshold": 0.7,
+    "complexity_threshold": 0.7,
+    "complexity_default": 0.5,
+    "query_preview_length": 50,
+    "complexity_word_factor": 15.0,
+    "complexity_length_factor": 200.0,
+    "complexity_word_length_factor": 8.0,
+    "max_reasoning_steps": 5,
+    "question_keywords": [
+      "什么",
+      "怎么",
+      "为什么",
+      "如何",
+      "?",
+      "？"
+    ],
+    "explanation_keywords": [
+      "解释",
+      "说明",
+      "描述",
+      "介绍"
+    ],
+    "comparison_keywords": [
+      "比较",
+      "对比",
+      "区别",
+      "差异"
+    ],
+    "analysis_keywords": [
+      "分析",
+      "评估",
+      "评价",
+      "判断"
+    ],
+    "temporal_keywords": [
+      "时间",
+      "日期",
+      "年份",
+      "月份",
+      "季节"
+    ],
+    "spatial_keywords": [
+      "地点",
+      "位置",
+      "城市",
+      "国家",
+      "地区"
+    ],
+    "person_keywords": [
+      "人物",
+      "人名",
+      "专家",
+      "学者",
+      "领导"
+    ],
+    "quantitative_keywords": [
+      "数量",
+      "数字",
+      "统计",
+      "数据",
+      "比例"
+    ],
+    "calculation_keywords": [
+      "计算",
+      "运算",
+      "公式",
+      "算法",
+      "数学"
+    ],
+    "logical_keywords": [
+      "逻辑",
+      "推理",
+      "因果",
+      "关系",
+      "条件",
+      "如果",
+      "那么",
+      "因为",
+      "所以"
+    ],
+    "causal_keywords": [
+      "原因",
+      "结果",
+      "导致",
+      "引起",
+      "影响",
+      "作用",
+      "机制",
+      "原理"
+    ],
+    "scientific_keywords": [
+      "科学",
+      "实验",
+      "假设",
+      "理论",
+      "证据",
+      "研究",
+      "方法",
+      "验证"
+    ],
+    "sequential_keywords": [
+      "顺序",
+      "步骤",
+      "过程",
+      "阶段",
+      "先后",
+      "第一",
+      "第二",
+      "然后",
+      "最后"
+    ],
+    "complexity_high_threshold": 0.7,
+    "complexity_low_threshold": 0.3
+  },
+  "knowledge_retrieval_agent": {
+    "default_top_k": 10,
+    "default_similarity_threshold": 0.3,
+    "quality_relevance_weight": 0.7,
+    "quality_quantity_weight": 0.3,
+    "confidence_quality_weight": 0.6,
+    "confidence_quantity_weight": 0.4,
+    "quantity_factor_divisor": 10.0,
+    "quantity_factor_divisor_quality": 5.0,
+    "default_relevance_score": 0.5,
+    "default_confidence_score": 0.5,
+    "default_fallback_confidence": 0.3,
+    "temporal_keywords": [
+      "时间",
+      "日期",
+      "年份",
+      "月份",
+      "季节"
+    ],
+    "spatial_keywords": [
+      "地点",
+      "位置",
+      "城市",
+      "国家",
+      "地区"
+    ],
+    "person_keywords": [
+      "人物",
+      "人名",
+      "专家",
+      "学者",
+      "领导"
+    ],
+    "quantitative_keywords": [
+      "数量",
+      "数字",
+      "统计",
+      "数据",
+      "比例"
+    ],
+    "calculation_keywords": [
+      "计算",
+      "运算",
+      "公式",
+      "算法",
+      "数学"
+    ],
+    "comparison_keywords": [
+      "比较",
+      "对比",
+      "区别",
+      "差异"
+    ],
+    "specific_years": [
+      "2024",
+      "2023",
+      "2022",
+      "2021",
+      "2020"
+    ],
+    "specific_cities": [
+      "北京",
+      "上海",
+      "广州",
+      "深圳",
+      "杭州"
+    ],
+    "specific_positions": [
+      "CEO",
+      "CTO",
+      "CFO",
+      "经理",
+      "主管"
+    ]
+  }
+}

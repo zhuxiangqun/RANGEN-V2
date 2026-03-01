@@ -1,0 +1,9 @@
+{
+  "routing_rps": 1686.2879427491657,
+  "routing_avg_time": 0.0005930185317993164,
+  "orchestration_rps": 7.0001018618465185,
+  "orchestration_avg_time": 0.1428550640741984,
+  "concurrent_time": 0.010814905166625977,
+  "concurrent_queries": 20,
+  "timestamp": 1767065117.883924
+}

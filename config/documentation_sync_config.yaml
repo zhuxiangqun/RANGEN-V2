@@ -1,0 +1,196 @@
+# 文档同步系统配置文件
+
+# 监控配置
+monitoring:
+  # 源代码目录
+  source_dirs:
+    - "src"
+
+  # 文档目录
+  doc_dirs:
+    - "docs"
+
+  # 文档筛选模式 (all: 全部文档, selective: 选择性监控, categorized: 按类别监控)
+  doc_filter_mode: "categorized"
+
+  # 选择性监控配置 (当doc_filter_mode为selective时使用)
+  selective_docs:
+    # 核心架构文档 - 必须同步
+    - "docs/architecture/accurate_system_analysis.md"
+    - "docs/architecture/comprehensive_optimization_plan.md"
+    - "docs/architecture/architecture_layering_refactor_plan.md"
+    - "docs/architecture/intelligent_agent_system_optimization_plan.md"
+
+    # 关键实现文档
+    - "docs/implementation/chief_agent_unified_architecture_implementation_summary.md"
+    - "docs/implementation/final_completion_report.md"
+    - "docs/implementation/system_agents_inventory.md"
+
+    # 重要使用文档
+    - "docs/usage/quick_start.md"
+    - "docs/usage/system_usage_guide.md"
+    - "docs/usage/langgraph_usage_guide.md"
+
+    # 同步系统自身文档
+    - "docs/documentation_sync_system_guide.md"
+    - "docs/documentation_sync_system_summary.md"
+
+  # 按类别监控配置 (当doc_filter_mode为categorized时使用)
+  categorized_docs:
+    # 高优先级 - 核心系统文档 (每次变更都同步)
+    high_priority:
+      - "docs/architecture/accurate_system_analysis.md"
+      - "docs/architecture/comprehensive_optimization_plan.md"
+      - "docs/implementation/chief_agent_unified_architecture_implementation_summary.md"
+      - "docs/usage/system_usage_guide.md"
+      - "docs/documentation_sync_system_guide.md"
+
+    # 中优先级 - 重要功能文档 (定期同步)
+    medium_priority:
+      - "docs/architecture/architecture_layering_refactor_plan.md"
+      - "docs/architecture/intelligent_agent_system_optimization_plan.md"
+      - "docs/implementation/final_completion_report.md"
+      - "docs/implementation/system_agents_inventory.md"
+      - "docs/testing/chief_agent_unified_architecture_test_guide.md"
+
+    # 低优先级 - 辅助文档 (按需同步)
+    low_priority:
+      - "docs/analysis/*.md"          # 所有分析文档
+      - "docs/implementation/*.md"    # 所有实现文档(除核心外)
+      - "docs/usage/*.md"             # 所有使用文档(除核心外)
+      - "docs/tools/*.md"             # 工具文档
+      - "docs/troubleshooting/*.md"   # 故障排除文档
+
+  # 忽略的文件模式
+  ignored_patterns:
+    - "__pycache__"
+    - "*.pyc"
+    - "*.pyo"
+    - ".git"
+    - "*.tmp"
+    - "*.bak"
+    - "*.log"
+    - "node_modules"
+
+# 变更检测配置
+change_detection:
+  # 检测间隔（秒）
+  detection_interval: 30
+
+  # 批处理超时时间（秒）
+  batch_timeout: 300
+
+  # 是否启用Git检测
+  enable_git_detection: true
+
+  # 是否启用文件系统监听
+  enable_filesystem_watch: true
+
+# 质量保证配置
+quality_assurance:
+  # 质量基准分数
+  baseline_score: 80.0
+
+  # 验证规则
+  validation_rules:
+    # 必需文档
+    required_docs:
+      - "architecture_overview"
+      - "api_reference"
+      - "user_guide"
+
+    # 最小文档长度
+    min_doc_length: 100
+
+    # API覆盖率阈值
+    api_coverage_threshold: 0.8
+
+  # 术语标准
+  terminology_standards:
+    "智能体": ["agent", "智能代理"]
+    "架构": ["architecture"]
+    "同步": ["sync", "synchronization"]
+
+# 更新触发器配置
+update_trigger:
+  # Webhook配置
+  webhook:
+    enabled: true
+    port: 8080
+    path: "/webhook/docs-sync"
+
+  # 定时触发器配置
+  scheduled:
+    enabled: true
+    type: "daily"  # daily, interval
+    hour: 2        # 凌晨2点
+    minute: 0
+    interval_hours: 24  # 如果使用interval类型
+
+  # 手动触发器配置
+  manual:
+    enabled: true
+
+# 安全配置
+security:
+  # Bearer Token验证
+  bearer_tokens:
+    - "your-secure-token-here"  # 替换为实际的token
+    - "another-token-if-needed" # 可以添加多个token
+
+  # Webhook签名验证 (GitHub/GitLab风格)
+  enable_signature_verification: false  # 生产环境建议启用
+  webhook_secret: "your-webhook-secret-here"  # GitHub webhook secret
+
+  # 速率限制
+  rate_limit:
+    max_requests_per_minute: 10  # 每分钟最大请求数
+    enable_ip_filtering: true     # 启用IP过滤
+
+# 版本控制配置
+version_control:
+  # 是否启用版本控制集成
+  enabled: true
+
+  # Git仓库路径
+  repo_path: "."
+
+  # 同步标签前缀
+  sync_tag_prefix: "sync_"
+
+# 报告配置
+reporting:
+  # 报告输出目录
+  output_dir: "reports"
+
+  # 报告格式
+  formats:
+    - "markdown"
+    - "json"
+
+  # 历史记录保留天数
+  history_retention_days: 90
+
+# 日志配置
+logging:
+  level: "INFO"
+  file: "logs/documentation_sync.log"
+  max_file_size: "10MB"
+  backup_count: 5
+
+# 数据存储配置
+storage:
+  # 数据目录
+  data_dir: "data"
+
+  # 缓存配置
+  cache:
+    enabled: true
+    max_size: "100MB"
+    ttl: 3600  # 秒
+
+  # 历史记录配置
+  history:
+    max_sync_history: 1000
+    max_quality_history: 100
+    compression: true

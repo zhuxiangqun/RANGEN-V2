@@ -1,0 +1,101 @@
+name: validation
+version: 1.0.0
+description: "输入输出验证技能。验证用户输入、Agent输出、数据格式，确保系统可靠性。"
+author: rangen
+tags:
+  - validation
+  - input
+  - output
+  - checking
+dependencies: []
+scope: bundled
+
+config:
+  type: validation
+  mode: evaluative
+  domain: quality
+
+prompt_template: |
+  ## 输入输出验证技能
+  
+  验证用户输入、Agent输出、数据格式。
+  
+  ### 验证类型
+  
+  **1. 输入验证**
+  - 用户查询格式
+  - 参数合法性
+  - 安全检查
+  
+  **2. 输出验证**
+  - 格式正确性
+  - 内容完整性
+  - 引用有效性
+  
+  **3. 数据验证**
+  - 类型检查
+  - 范围检查
+  - 约束检查
+  
+  ### 验证规则
+  
+  | 类型 | 检查项 | 处理方式 |
+  |------|-------|---------|
+  | 必填 | 字段是否存在 | 拒绝请求 |
+  | 格式 | 正则/类型匹配 | 提示修正 |
+  | 范围 | 数值/长度限制 | 截断或拒绝 |
+  | 语义 | 业务逻辑 | 业务错误 |
+  | 安全 | XSS/SQL注入 | 过滤或拒绝 |
+  
+  ### 验证流程
+  
+  **输入验证**
+  1. 解析输入数据
+  2. 应用验证规则
+  3. 返回验证结果
+  4. 错误提示具体
+  
+  **输出验证**
+  1. 检查输出格式
+  2. 验证内容完整性
+  3. 检查引用有效性
+  4. 标记潜在问题
+  
+  ### 常见验证模式
+  
+  ```python
+  # 必填检查
+  if not field:
+      raise ValidationError("字段必填")
+  
+  # 格式检查
+  if not re.match(pattern, value):
+      raise ValidationError("格式错误")
+  
+  # 范围检查
+  if not min <= value <= max:
+      raise ValidationError("超出范围")
+  
+  # 业务规则
+  if not business_rule(value):
+      raise ValidationError("不满足业务规则")
+  ```
+  
+  ### 验证最佳实践
+  
+  1. 尽早验证（Fail Fast）
+  2. 清晰错误信息
+  3. 验证与业务分离
+  4. 日志记录验证失败
+
+tools:
+  - name: validate_input
+    description: "验证输入数据"
+  - name: validate_output
+    description: "验证输出数据"
+  - name: validate_format
+    description: "验证数据格式"
+
+related_skills:
+  - quality-control
+  - error-handling

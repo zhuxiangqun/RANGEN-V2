@@ -1,0 +1,7 @@
+{
+    "evaluation_mode": "lightweight",
+    "sample_count": 2,
+    "timeout_seconds": 60,
+    "max_reasoning_steps": 2,
+    "skip_complex_reasoning": true
+}

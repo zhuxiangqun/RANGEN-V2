@@ -1,0 +1,35 @@
+{
+  "evaluation_type": "accuracy_evaluation",
+  "evaluation_time": "2025-08-16T23:20:43.436624",
+  "total_queries": 3,
+  "successful_queries": 3,
+  "overall_success_rate": 1.0,
+  "overall_average_quality": 0.8000000000000002,
+  "total_execution_time": 1.2122938632965088,
+  "results": [
+    {
+      "query": "什么是人工智能？",
+      "category": "factual",
+      "execution_time": 0.40416717529296875,
+      "quality_score": 0.8,
+      "success": true,
+      "timestamp": "2025-08-16T23:20:42.628519"
+    },
+    {
+      "query": "机器学习的基本原理是什么？",
+      "category": "factual",
+      "execution_time": 0.4034738540649414,
+      "quality_score": 0.8,
+      "success": true,
+      "timestamp": "2025-08-16T23:20:43.032107"
+    },
+    {
+      "query": "深度学习与传统机器学习的区别是什么？",
+      "category": "factual",
+      "execution_time": 0.4043409824371338,
+      "quality_score": 0.8,
+      "success": true,
+      "timestamp": "2025-08-16T23:20:43.436560"
+    }
+  ]
+}
