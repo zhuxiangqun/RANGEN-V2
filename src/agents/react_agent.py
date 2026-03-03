@@ -4,6 +4,17 @@ ReAct Agent
 实现思考-行动-观察循环的智能体
 """
 
+# =============================================================================
+# 文件结构说明 - 方便快速理解代码组织
+# =============================================================================
+# 第一部分: 类型定义 - Action 数据类
+# 第二部分: ReActAgent 类 - 主 Agent 类  
+# 第三部分: 执行入口 - run, execute 方法
+# 第四部分: ReAct 循环核心 - _think, _plan_action, _act, _is_task_complete
+# 第五部分: 优化增强 - _pre_plan, _compress_observations, _evaluate_action_success
+# 第六部分: 工具方法 - _format_observations, _parse_json_response
+# =============================================================================
+
 import time
 import json
 import logging
@@ -81,6 +92,11 @@ class ReActAgent(BaseAgent):
         self.max_iterations = config_center.get_config_value(
             'thresholds', 'react_agent.complex_max_iterations', 10
         )
+
+        # 动态重规划 - 错误重试阈值
+        self.max_error_retry = config_center.get_config_value(
+            'thresholds', 'react_agent.max_error_retry', 3
+        )
         self.max_think_time = 30.0  # 思考阶段最大时间（秒）
         
         # LLM客户端（用于思考阶段）
@@ -88,6 +104,16 @@ class ReActAgent(BaseAgent):
         self._init_llm_client()
         
         self.module_logger.info(f"✅ ReAct Agent初始化完成: {agent_name}")
+
+    def _d(self, message: str, *args):
+        """诊断日志helper - 仅在diagnostic_mode开启时记录详细信息"""
+        if self.diagnostic_mode:
+            self.module_logger.info(message, *args)
+
+    def _dl(self, message: str, *args):
+        """诊断日志helper (debug级别) - 仅在diagnostic_mode开启时记录"""
+        if self.diagnostic_mode:
+            self.module_logger.debug(message, *args)
     
     def _init_rule_manager(self):
         """🚀 初始化统一规则管理器"""
@@ -255,6 +281,7 @@ class ReActAgent(BaseAgent):
             # ReAct循环
             iteration = 0
             task_complete = False
+            error_count = 0  # 错误计数，用于触发重规划
             
             # 🔍 优先级1: 添加循环开始日志
             self.module_logger.info(f"🔍 [诊断] ========== ReAct循环开始 ==========")
@@ -326,6 +353,23 @@ class ReActAgent(BaseAgent):
                 self.module_logger.info(f"🔍 [诊断] ========== 行动阶段开始 ==========")
                 observation = await self._act(action)
                 self.observations.append(observation)
+
+                # 错误计数跟踪
+                if not observation.get('success', True):
+                    error_count += 1
+                    self.module_logger.warning(f"⚠️ 行动失败，错误计数: {error_count}/{self.max_error_retry}")
+                    
+                    # 连续失败达到阈值时触发重规划
+                    if error_count >= self.max_error_retry:
+                        self.module_logger.warning(f"🔄 达到最大错误阈值({self.max_error_retry})，触发重规划...")
+                        self.observations = []
+                        self.thoughts = []
+                        self.actions = []
+                        error_count = 0
+                else:
+                    if error_count > 0:
+                        self.module_logger.info(f"✅ 行动成功，重置错误计数")
+                        error_count = 0
                 
                 # 🔍 诊断：记录观察结果
                 self.module_logger.info(f"🔍 [诊断] ========== 观察结果 ==========")
@@ -1327,3 +1371,103 @@ Return the action plan in JSON format:
                     pass
             return None
 
+    # ============================================================================
+    # 优化增强方法 - Phase 1-3
+    # ============================================================================
+
+    async def _pre_plan(self, query: str) -> List[Dict[str, Any]]:
+        """Phase 1: 预规划阶段 - 一次生成行动序列，减少迭代次数"""
+        self.module_logger.info(f"[预规划] 开始为查询生成行动计划: {query[:50]}...")
+        
+        available_tools = self.tool_registry.list_tools()
+        
+        prompt = f"""你是一个智能规划助手。请为以下用户查询生成一个行动计划序列。
+
+用户查询: {query}
+
+可用工具: {', '.join(available_tools)}
+
+请分析查询并生成行动计划。
+
+请以JSON数组格式返回，每个元素包含:
+- tool_name: 工具名称
+- params: 工具参数
+- reasoning: 为什么选择这个工具
+
+只返回JSON，不要其他内容。"""
+        
+        try:
+            response = await self.llm_client.chat([{"role": "user", "content": prompt}])
+            content_text = response.get('content', '') if isinstance(response, dict) else str(response)
+            
+            import json
+            try:
+                plan = json.loads(content_text)
+            except json.JSONDecodeError:
+                json_match = re.search(r'\[[\s\S]*\]', content_text)
+                if json_match:
+                    plan = json.loads(json_match.group())
+                else:
+                    return []
+            
+            if not isinstance(plan, list):
+                return []
+            
+            max_plan_steps = 5
+            plan = plan[:max_plan_steps]
+            
+            self.module_logger.info(f"[预规划] 成功生成 {len(plan)} 个步骤的计划")
+            return plan
+            
+        except Exception as e:
+            self.module_logger.warning(f"[预规划] 生成计划失败: {e}")
+            return []
+
+    def _compress_observations(self, observations: List[Dict[str, Any]], max_keep: int = 3) -> List[Dict[str, Any]]:
+        """Phase 2: 上下文压缩 - 减少 token 消耗"""
+        if not observations or len(observations) <= max_keep:
+            return observations
+        
+        recent = observations[-max_keep:]
+        older = observations[:-max_keep]
+        
+        # 生成摘要
+        summary_parts = [f"共执行了 {len(older)} 次行动"]
+        tools_used = list(set(obs.get('tool_name', 'unknown') for obs in older))
+        summary_parts.append(f"使用的工具: {', '.join(tools_used)}")
+        
+        return recent + [{"_summary": " | ".join(summary_parts)}]
+
+    async def _evaluate_action_success(self, query: str, thought: str, observations: List[Dict[str, Any]]) -> float:
+        """Phase 3: System-2 深度推理 - 评估行动成功率"""
+        self.module_logger.info("[System-2] 开始评估行动成功率...")
+        
+        observations_text = self._format_observations(observations)
+        
+        evaluation_prompt = f"""请评估以下任务的行动策略成功率。
+
+用户查询: {query}
+当前思考: {thought}
+已收集信息: {observations_text if observations_text else '（暂无）'}
+
+请以JSON格式返回: {{"success_probability": 0.0-1.0, "reason": "理由"}}
+只返回JSON。"""
+        
+        try:
+            response = await self.llm_client.chat([{"role": "user", "content": evaluation_prompt}])
+            content_text = response.get('content', '') if isinstance(response, dict) else str(response)
+            
+            import json
+            try:
+                result = json.loads(content_text)
+            except json.JSONDecodeError:
+                json_match = re.search(r'\{[\s\S]*\}', content_text)
+                result = json.loads(json_match.group()) if json_match else {"success_probability": 0.5}
+            
+            prob = max(0.0, min(1.0, result.get('success_probability', 0.5)))
+            self.module_logger.info(f"[System-2] 评估结果: 成功率={prob:.2%}")
+            return prob
+            
+        except Exception as e:
+            self.module_logger.warning(f"[System-2] 评估失败: {e}")
+            return 0.5
