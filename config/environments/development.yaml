@@ -111,3 +111,43 @@ integrations:
     enabled: false
     service_name: "rangen-v2-dev"
     endpoint: "http://localhost:4317"
+  mcp:
+    enabled: true
+    log_level: "INFO"
+    server:
+      main:
+        enabled: true
+        name: "rangen-tools"
+        description: "RANGEN Internal Tools MCP Server"
+        transport: "stdio"
+        stdio:
+          command: "python -m src.agents.tools.mcp_server"
+        http:
+          enabled: true
+          host: "0.0.0.0"
+          port: 8080
+      local_demo:
+        enabled: true
+        name: "local-tools"
+        description: "Local Demo Tools MCP Server"
+        transport: "stdio"
+        stdio:
+          command: "python -m src.agents.tools.mcp_local_server"
+    client:
+      default_transport: "stdio"
+      timeout: 30
+      servers:
+        - name: "rangen-tools"
+          description: "RANGEN Internal Tools"
+          transport: "stdio"
+          server_url: "python -m src.agents.tools.mcp_server"
+          auto_connect: true
+        - name: "local-demo"
+          description: "Local Demo Tools"
+          transport: "stdio"
+          server_url: "python -m src.agents.tools.mcp_local_server"
+          auto_connect: false
+    integration:
+      auto_start_servers: true
+      auto_register_tools: true
+      enable_context_protocol: true

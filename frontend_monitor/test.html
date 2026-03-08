@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前端测试页面</title>
+</head>
+<body>
+    <h1>前端测试页面</h1>
+    <div id="test-output"></div>
+    <script>
+        console.log('🚀 测试页面JavaScript已加载')
+        console.log('🚀 测试console.log是否工作')
+        
+        const output = document.getElementById('test-output')
+        output.innerHTML = '<p>✅ JavaScript已执行</p><p>请查看Console标签页</p>'
+        
+        // 测试API调用
+        fetch('/api/logs')
+            .then(response => response.json())
+            .then(data => {
+                console.log('📡 API测试成功:', data)
+                output.innerHTML += `<p>✅ API调用成功: ${data.samples?.length || 0} 个样本</p>`
+            })
+            .catch(error => {
+                console.error('📡 API测试失败:', error)
+                output.innerHTML += `<p>❌ API调用失败: ${error.message}</p>`
+            })
+    </script>
+</body>
+</html>
+

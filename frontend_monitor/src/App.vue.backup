@@ -1,0 +1,1172 @@
+<template>
+  <div id="app">
+    <el-container class="app-container">
+      <el-header class="app-header">
+        <h1>🔬 RANGEN 系统监控</h1>
+        <div class="header-content">
+          <div class="header-actions">
+            <div class="action-group">
+              <el-input-number
+                v-model="sampleCount"
+                :min="1"
+                :max="1000"
+                :step="1"
+                controls-position="right"
+                style="width: 120px; margin-right: 8px;"
+              />
+              <el-button type="success" @click="runCoreSystem" :loading="coreSystemRunning" :disabled="coreSystemRunning">
+                <el-icon><VideoPlay /></el-icon>
+                {{ coreSystemRunning ? '运行中...' : '运行核心系统' }}
+              </el-button>
+              <el-button v-if="coreSystemRunning" type="warning" size="small" @click="cancelCurrentTask('core')" style="margin-left: 8px;">
+                <el-icon><Close /></el-icon>
+                取消
+              </el-button>
+            </div>
+            <div class="action-group">
+              <el-button type="primary" @click="runEvaluation" :loading="evaluationRunning" :disabled="evaluationRunning">
+                <el-icon><Document /></el-icon>
+                {{ evaluationRunning ? '运行中...' : '运行评测系统' }}
+              </el-button>
+              <el-button v-if="evaluationRunning" type="warning" size="small" @click="cancelCurrentTask('eval')" style="margin-left: 8px;">
+                <el-icon><Close /></el-icon>
+                取消
+              </el-button>
+            </div>
+            <div class="action-group">
+              <el-button @click="refreshLogs">
+                <el-icon><Refresh /></el-icon>
+                刷新日志
+              </el-button>
+              <el-switch
+                v-model="autoRefresh"
+                active-text="自动刷新"
+                inactive-text="手动刷新"
+                @change="handleAutoRefreshChange"
+              />
+              <el-switch
+                v-model="realTimeMode"
+                active-text="实时模式"
+                inactive-text="轮询模式"
+                :disabled="!autoRefresh"
+                @change="handleRealTimeModeChange"
+              />
+            </div>
+          </div>
+          <!-- 🚀 修复：进度条独立一行显示，不遮盖按钮 -->
+          <div v-if="coreSystemRunning" class="progress-container">
+            <div class="progress-wrapper">
+              <el-progress 
+                :percentage="coreSystemProgress.percent" 
+                :status="coreSystemProgress.percent === 100 ? 'success' : ''"
+                :stroke-width="20"
+                :show-text="false"
+              />
+              <div class="progress-info">
+                <span class="progress-text">
+                  进度: {{ coreSystemProgress.current }}/{{ coreSystemProgress.total }} ({{ coreSystemProgress.percent }}%)
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </el-header>
+      
+      <el-main class="app-main">
+        <!-- 样本详情视图 -->
+        <div v-if="currentView === 'detail'" class="detail-view">
+          <div class="detail-header">
+            <el-button 
+              type="primary" 
+              :icon="ArrowLeft" 
+              @click="backToList"
+              style="margin-bottom: 16px;"
+            >
+              返回样本列表
+            </el-button>
+            <div v-if="!selectedSample" style="padding: 20px; text-align: center;">
+              <el-empty description="未找到样本数据，请返回列表" />
+            </div>
+          </div>
+          <ReasoningProcess 
+            v-if="selectedSample"
+            :samples="[selectedSample]" 
+            :auto-refresh="autoRefresh"
+            :total-samples="1"
+            :current-progress="selectedSample.completed ? 1 : 0"
+            :task-status="selectedSample.is_running ? 'running' : 'completed'"
+            :auto-expand="true"
+          />
+        </div>
+        
+        <!-- 列表视图 -->
+        <div v-else>
+          <el-tabs v-model="activeTab" type="border-card">
+            <el-tab-pane label="样本列表" name="samples">
+              <div v-if="coreSystemRunning || samples.length > 0">
+                <SampleList 
+                  :samples="samples" 
+                  @sample-click="handleSampleClick"
+                />
+              </div>
+              <el-empty v-else description="暂无样本数据，请先运行核心系统" />
+            </el-tab-pane>
+            
+            <el-tab-pane label="推理过程" name="reasoning">
+              <ReasoningProcess 
+                :samples="samples" 
+                :auto-refresh="autoRefresh"
+                :total-samples="coreSystemProgress.total || sampleCount"
+                :current-progress="coreSystemProgress.current"
+                :task-status="coreTaskStatus"
+              />
+            </el-tab-pane>
+            
+            <el-tab-pane label="智能体调用关系" name="agents">
+              <AgentCallGraph :agent-calls="agentCalls" :auto-refresh="autoRefresh" />
+            </el-tab-pane>
+            
+            <el-tab-pane label="评测结果" name="evaluation">
+              <EvaluationResults :evaluation-result="evaluationResult" :loading="evaluationRunning" />
+            </el-tab-pane>
+            
+            <el-tab-pane label="MCP管理" name="mcp">
+              <MCPManagement />
+            </el-tab-pane>
+            
+            <el-tab-pane label="工具管理" name="tools">
+              <ToolManagement />
+            </el-tab-pane>
+            
+            <el-tab-pane label="外部集成" name="external">
+              <ExternalMCPManagement />
+            </el-tab-pane>
+            <el-tab-pane label="路由监控" name="routing">
+              <RoutingMonitor />
+            </el-tab-pane>
+          </el-tabs>
+        </div>
+      </el-main>
+    </el-container>
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted, onUnmounted, computed, watch } from 'vue'
+import { Document, Refresh, VideoPlay, Close, ArrowLeft } from '@element-plus/icons-vue'
+import { ElMessage } from 'element-plus'
+import ReasoningProcess from './components/ReasoningProcess.vue'
+import AgentCallGraph from './components/AgentCallGraph.vue'
+import EvaluationResults from './components/EvaluationResults.vue'
+import SampleList from './components/SampleList.vue'
+import MCPManagement from './components/MCPManagement.vue'
+import ToolManagement from './components/ToolManagement.vue'
+import ExternalMCPManagement from './components/ExternalMCPManagement.vue'
+import RoutingMonitor from './components/RoutingMonitor.vue'
+
+// 🚀 保护：防止外部 OAuth 流程干扰前端系统
+if (typeof window !== 'undefined' && (window.location.href.includes('oauth') || window.location.href.includes('accounts.google.com'))) {
+  // 如果被重定向到 OAuth 页面，重定向回前端系统
+  const frontendUrl = window.location.origin
+  if (frontendUrl.includes('localhost') || frontendUrl.includes('127.0.0.1')) {
+    console.warn('⚠️ 检测到 OAuth 重定向，重定向回前端系统')
+    window.location.href = frontendUrl
+  }
+}
+import { apiService } from './services/api'
+
+const activeTab = ref('samples') // 默认显示样本列表
+const samples = ref([])
+const agentCalls = ref([])
+const evaluationResult = ref(null)
+const evaluationRunning = ref(false)
+const coreSystemRunning = ref(false)
+const sampleCount = ref(10)
+const autoRefresh = ref(true)
+const realTimeMode = ref(true) // 默认启用实时模式
+// 🚀 新增：核心系统进度
+const coreSystemProgress = ref({
+  current: 0,
+  total: 0,
+  percent: 0
+})
+// 🚀 新增：视图状态管理
+const currentView = ref('list') // 'list' 或 'detail'
+const selectedSampleId = ref(null)
+// 🚀 新增：选中的样本
+const selectedSample = computed(() => {
+  if (!selectedSampleId.value) return null
+  return samples.value.find(s => s.id === selectedSampleId.value) || null
+})
+let refreshInterval = null
+let logEventSource = null
+
+const refreshLogs = async () => {
+  try {
+    const data = await apiService.getLogs()
+    // 🚀 优化：减少日志输出，只在开发环境或需要调试时输出
+    // console.log('📊 获取到的数据:', data)
+    
+    // 🚀 修复：强制更新samples，确保Vue响应式正常工作
+    if (data.samples) {
+      // 确保是数组
+      if (Array.isArray(data.samples)) {
+        samples.value = [...data.samples]  // 使用展开运算符创建新数组，确保响应式
+      } else {
+        console.warn('⚠️ data.samples不是数组:', typeof data.samples)
+        samples.value = []
+      }
+    } else {
+      // 只有在明确返回null时才清空
+      if (data.samples === null) {
+        samples.value = []
+      }
+    }
+    
+    if (data.agent_calls) {
+      // 🚀 修复：确保是数组并强制更新
+      if (Array.isArray(data.agent_calls)) {
+        agentCalls.value = [...data.agent_calls]  // 使用展开运算符创建新数组
+      } else {
+        console.warn('⚠️ data.agent_calls不是数组:', typeof data.agent_calls)
+        agentCalls.value = []
+      }
+    }
+  } catch (error) {
+    console.error('刷新日志失败:', error)
+    // 🚀 修复：刷新失败时不显示错误提示，避免干扰用户
+    // ElMessage.error('刷新日志失败: ' + (error.message || error))
+  }
+}
+
+// 🚀 新增：合并样本数据，支持增量更新推理步骤
+const mergeSampleData = (existingSamples, newSamples) => {
+  if (!newSamples || newSamples.length === 0) {
+    return existingSamples
+  }
+  
+  // 创建现有样本的映射（按ID索引）
+  const sampleMap = new Map()
+  existingSamples.forEach(sample => {
+    sampleMap.set(sample.id, { ...sample })
+  })
+  
+  // 合并新数据
+  newSamples.forEach(newSample => {
+    const sampleId = newSample.id
+    if (sampleMap.has(sampleId)) {
+      // 样本已存在，合并数据
+      const existing = sampleMap.get(sampleId)
+      
+      // 合并步骤：追加新步骤，避免重复
+      const existingStepIds = new Set(
+        existing.steps?.map(step => step.id || `${step.type}-${step.number}-${step.timestamp}`) || []
+      )
+      
+      const mergedSteps = [...(existing.steps || [])]
+      if (newSample.steps && newSample.steps.length > 0) {
+        newSample.steps.forEach(newStep => {
+          const stepId = newStep.id || `${newStep.type}-${newStep.number}-${newStep.timestamp}`
+          if (!existingStepIds.has(stepId)) {
+            // 新步骤，追加
+            mergedSteps.push(newStep)
+            existingStepIds.add(stepId)
+          } else {
+            // 步骤已存在，更新内容（可能步骤信息有更新）
+            const existingIndex = mergedSteps.findIndex(
+              s => (s.id || `${s.type}-${s.number}-${s.timestamp}`) === stepId
+            )
+            if (existingIndex >= 0) {
+              mergedSteps[existingIndex] = { ...mergedSteps[existingIndex], ...newStep }
+            }
+          }
+        })
+      }
+      
+      // 按步骤编号或时间戳排序
+      mergedSteps.sort((a, b) => {
+        if (a.number !== undefined && b.number !== undefined) {
+          return a.number - b.number
+        }
+        if (a.timestamp && b.timestamp) {
+          return a.timestamp - b.timestamp
+        }
+        return 0
+      })
+      
+      // 更新样本数据
+      sampleMap.set(sampleId, {
+        ...existing,
+        ...newSample,
+        steps: mergedSteps,
+        // 保留运行状态，除非新数据明确标记为完成
+        is_running: newSample.completed === false ? true : (newSample.is_running !== undefined ? newSample.is_running : existing.is_running),
+        status: newSample.status || existing.status
+      })
+    } else {
+      // 新样本，直接添加
+      sampleMap.set(sampleId, { ...newSample })
+    }
+  })
+  
+  // 转换为数组并按ID排序
+  const mergedArray = Array.from(sampleMap.values())
+  mergedArray.sort((a, b) => a.id - b.id)
+  
+  return mergedArray
+}
+
+const startRealTimeLogStream = () => {
+  // 关闭旧的连接
+  if (logEventSource) {
+    logEventSource.close()
+  }
+  
+  // 创建新的SSE连接
+  logEventSource = apiService.createLogStream(
+    (data) => {
+      // 实时更新数据
+      // 🚀 优化：减少日志输出，只在开发环境或需要调试时输出
+      // console.log('📊 SSE收到数据:', data)
+      
+      // 🚀 改进：增量更新样本数据，支持动态追加推理步骤
+      if (data.samples && data.samples.length > 0) {
+        samples.value = mergeSampleData(samples.value, data.samples)
+        // 🚀 优化：移除详细的调试日志
+        // console.log('📊 SSE合并后 samples.value.length:', samples.value.length)
+      }
+      
+      // 增量更新智能体调用
+      if (data.agent_calls && Array.isArray(data.agent_calls) && data.agent_calls.length > 0) {
+        // 合并智能体调用，避免重复
+        const existingCallKeys = new Set(
+          agentCalls.value.map(call => `${call.from}-${call.to}-${call.timestamp}-${call.sample_id}`)
+        )
+        
+        const newCalls = data.agent_calls.filter(call => {
+          const callKey = `${call.from}-${call.to}-${call.timestamp}-${call.sample_id}`
+          return !existingCallKeys.has(callKey)
+        })
+        
+        if (newCalls.length > 0) {
+          // 🚀 优化：移除详细的调试日志
+          // console.log('📊 SSE新增agentCalls，数量:', newCalls.length)
+          agentCalls.value = [...agentCalls.value, ...newCalls]
+          // 按时间戳排序
+          agentCalls.value.sort((a, b) => (a.timestamp || 0) - (b.timestamp || 0))
+        }
+      }
+    },
+    (error) => {
+      console.error('实时日志流错误:', error)
+      // 如果SSE失败，回退到轮询模式
+      if (realTimeMode.value) {
+        setTimeout(() => {
+          if (realTimeMode.value) {
+            startRealTimeLogStream()
+          }
+        }, 2000)
+      }
+    }
+  )
+}
+
+const stopRealTimeLogStream = () => {
+  if (logEventSource) {
+    // 🚀 修复：确保正确关闭 SSE 连接
+    try {
+      logEventSource.close()
+    } catch (error) {
+      // 忽略关闭时的错误
+      console.log('关闭 SSE 连接时出现错误（可忽略）:', error)
+    }
+    logEventSource = null
+  }
+}
+
+// 🚀 改进：任务状态管理
+const currentCoreTaskId = ref(null)
+const currentEvalTaskId = ref(null)
+const taskStatusInterval = ref(null)
+const coreTaskStatus = ref('idle') // 'idle', 'running', 'completed', 'failed'
+
+const runCoreSystem = async () => {
+  coreSystemRunning.value = true
+  coreTaskStatus.value = 'running'
+  // 🚀 修复：启动任务时重置进度，确保初始显示为0%而不是100%
+  coreSystemProgress.value = {
+    current: 0,
+    total: sampleCount.value || 0,
+    percent: 0
+  }
+  // 🚀 新增：清空前端显示的旧数据，避免产生误解
+  samples.value = []
+  agentCalls.value = []
+  evaluationResult.value = null
+  
+  try {
+    const result = await apiService.runCoreSystem(sampleCount.value)
+    currentCoreTaskId.value = result.task_id
+    ElMessage.success(`核心系统启动成功，正在处理 ${sampleCount.value} 个样本（已清理旧日志和评测报告）`)
+    // 切换到样本列表标签页，以便查看样本列表
+    activeTab.value = 'samples'
+    currentView.value = 'list'
+    // 🚀 修复：确保自动刷新已开启
+    if (!autoRefresh.value) {
+      autoRefresh.value = true
+    }
+    // 🚀 修复：立即刷新一次日志，然后启动自动刷新
+    refreshLogs()
+    handleAutoRefreshChange(true)
+    // 🚀 改进：开始轮询任务状态
+    startTaskStatusPolling(result.task_id, 'core')
+  } catch (error) {
+    console.error('运行核心系统失败:', error)
+    ElMessage.error('运行核心系统失败: ' + (error.message || error))
+    coreSystemRunning.value = false
+    coreTaskStatus.value = 'failed'
+    // 🚀 修复：任务启动失败时重置进度
+    coreSystemProgress.value = { current: 0, total: 0, percent: 0 }
+  }
+}
+
+const runEvaluation = async () => {
+  evaluationRunning.value = true
+  try {
+    const result = await apiService.runEvaluation()
+    currentEvalTaskId.value = result.task_id
+    ElMessage.success('评测系统已启动，正在运行...')
+    // 切换到评测结果标签页
+    activeTab.value = 'evaluation'
+    // 🚀 改进：开始轮询任务状态
+    startTaskStatusPolling(result.task_id, 'eval')
+  } catch (error) {
+    console.error('运行评测失败:', error)
+    ElMessage.error('运行评测失败: ' + (error.message || error))
+    evaluationRunning.value = false
+  }
+}
+
+// 🚀 新增：轮询任务状态
+const startTaskStatusPolling = (taskId, type) => {
+  // 清除旧的轮询
+  if (taskStatusInterval.value) {
+    clearInterval(taskStatusInterval.value)
+  }
+  
+  // 立即查询一次
+  pollTaskStatus(taskId, type)
+  
+  // 每2秒轮询一次
+  taskStatusInterval.value = setInterval(() => {
+    pollTaskStatus(taskId, type)
+  }, 2000)
+}
+
+// 🚀 新增：查询任务状态
+const pollTaskStatus = async (taskId, type) => {
+  try {
+    const status = await apiService.getTaskStatus(taskId)
+    // 🚀 优化：减少日志输出，只在需要调试时输出
+    // if (type === 'eval') {
+    //   console.log('📊 评测任务状态:', { taskId, status: status.status, duration: status.duration })
+    // }
+    
+    // 🚀 新增：更新进度信息（无论任务是否完成）
+    if (type === 'core') {
+      // 🚀 新增：更新任务状态
+      coreTaskStatus.value = status.status || 'idle'
+      
+      const current = status.current_progress !== undefined ? status.current_progress : 0
+      const total = status.total_samples || status.sample_count || sampleCount.value || 0
+      
+      // 🚀 修复：确保进度百分比计算正确，避免初始显示100%的问题
+      let percent = 0
+      if (status.progress_percent !== undefined && status.progress_percent !== null) {
+        // 如果后端返回了进度百分比，使用后端的值
+        percent = status.progress_percent
+      } else if (total > 0 && current >= 0) {
+        // 如果后端没有返回，根据 current 和 total 计算
+        percent = Math.round((current / total) * 100)
+        // 🚀 修复：确保百分比不超过100%（除非任务已完成）
+        if (percent > 100 && status.status !== 'completed') {
+          percent = 99  // 任务运行中时，最多显示99%
+        }
+      } else {
+        // 如果 total 为 0 或 current 无效，显示 0%
+        percent = 0
+      }
+      
+      // 🚀 修复：只有当进度真正变化时才更新，避免不必要的响应式更新
+      if (coreSystemProgress.value.current !== current || 
+          coreSystemProgress.value.total !== total || 
+          coreSystemProgress.value.percent !== percent) {
+        coreSystemProgress.value = {
+          current: current,
+          total: total,
+          percent: percent
+        }
+        
+        // 🚀 优化：减少日志输出，只在需要调试时输出
+        // console.log('📊 更新进度:', { current, total, percent, status: status.status, backend_percent: status.progress_percent })
+      }
+      
+      // 如果任务正在运行，也刷新日志数据
+      if (status.status === 'running') {
+        refreshLogs()
+      }
+    }
+    
+    if (status.status === 'completed') {
+      // 任务完成
+      if (type === 'eval') {
+        // 🚀 优化：减少日志输出
+        // console.log('📊 评测完成，更新evaluationResult:', {...})
+        evaluationResult.value = {
+          success: true,
+          report: status.report || '',
+          accuracy: status.accuracy || 0,
+          success_rate: status.success_rate || 0,
+          avg_time: status.avg_time || 0,
+          sample_count: status.sample_count || 0,
+          stdout: status.output || '',
+          analysis: status.analysis || {}  // 🚀 添加分析数据，确保是对象
+        }
+        // console.log('📊 evaluationResult.value已更新:', {...})
+        ElMessage.success('评测系统运行完成')
+        evaluationRunning.value = false
+        // 🚀 修复：评测完成后，刷新日志数据，但不切换标签页（让用户自己选择）
+        refreshLogs()
+      } else if (type === 'core') {
+        ElMessage.success('核心系统运行完成')
+        coreSystemRunning.value = false
+        coreTaskStatus.value = 'completed'
+        // 🚀 修复：核心系统完成后，刷新日志数据
+        refreshLogs()
+        // 🚀 重置进度
+        coreSystemProgress.value = { current: 0, total: 0, percent: 0 }
+      }
+      
+      // 停止轮询
+      if (taskStatusInterval.value) {
+        clearInterval(taskStatusInterval.value)
+        taskStatusInterval.value = null
+      }
+    } else if (status.status === 'failed' || status.status === 'cancelled') {
+      // 任务失败或取消
+      if (type === 'eval') {
+        ElMessage.error(`评测系统${status.status === 'cancelled' ? '已取消' : '运行失败'}`)
+        evaluationRunning.value = false
+      } else if (type === 'core') {
+        ElMessage.error(`核心系统${status.status === 'cancelled' ? '已取消' : '运行失败'}`)
+        coreSystemRunning.value = false
+      }
+      
+      // 停止轮询
+      if (taskStatusInterval.value) {
+        clearInterval(taskStatusInterval.value)
+        taskStatusInterval.value = null
+      }
+    }
+    // running状态继续轮询，不更新UI
+  } catch (error) {
+    // 🚀 修复：如果任务不存在（404），停止轮询
+    if (error.response && error.response.status === 404) {
+      console.log('任务不存在（404），停止轮询')
+      if (taskStatusInterval.value) {
+        clearInterval(taskStatusInterval.value)
+        taskStatusInterval.value = null
+      }
+      if (type === 'core') {
+        coreSystemRunning.value = false
+        coreSystemProgress.value = { current: 0, total: 0, percent: 0 }
+      } else if (type === 'eval') {
+        evaluationRunning.value = false
+      }
+    } else {
+      console.error('查询任务状态失败:', error)
+    }
+  }
+}
+
+// 🚀 改进：取消任务，等待任务真正停止后才恢复按钮状态
+const cancelCurrentTask = async (type) => {
+  try {
+    const taskId = type === 'core' ? currentCoreTaskId.value : currentEvalTaskId.value
+    if (!taskId) {
+      ElMessage.warning('没有正在运行的任务')
+      return
+    }
+    
+    // 🚀 修复：发送取消请求
+    await apiService.cancelTask(taskId)
+    ElMessage.info('正在停止任务，请稍候...')
+    
+    // 🚀 修复：轮询任务状态，直到确认任务已停止
+    const maxWaitTime = 10000 // 最多等待10秒
+    const pollInterval = 500 // 每500ms轮询一次
+    const startTime = Date.now()
+    
+    const checkTaskStopped = async () => {
+      try {
+        const status = await apiService.getTaskStatus(taskId)
+        
+        // 如果任务状态是 cancelled 或 failed，说明已停止
+        if (status.status === 'cancelled' || status.status === 'failed') {
+          // 任务已确认停止
+          if (type === 'core') {
+            coreSystemRunning.value = false
+            currentCoreTaskId.value = null
+            coreTaskStatus.value = 'cancelled'
+            coreSystemProgress.value = { current: 0, total: 0, percent: 0 }
+          } else {
+            evaluationRunning.value = false
+            currentEvalTaskId.value = null
+          }
+          
+          // 停止轮询
+          if (taskStatusInterval.value) {
+            clearInterval(taskStatusInterval.value)
+            taskStatusInterval.value = null
+          }
+          
+          ElMessage.success('任务已成功停止')
+          return true
+        }
+        
+        // 如果任务状态仍然是 running，继续等待
+        if (status.status === 'running') {
+          return false
+        }
+        
+        // 其他状态（completed等），也认为已停止
+        if (type === 'core') {
+          coreSystemRunning.value = false
+          currentCoreTaskId.value = null
+          coreTaskStatus.value = status.status
+        } else {
+          evaluationRunning.value = false
+          currentEvalTaskId.value = null
+        }
+        
+        // 停止轮询
+        if (taskStatusInterval.value) {
+          clearInterval(taskStatusInterval.value)
+          taskStatusInterval.value = null
+        }
+        
+        ElMessage.success('任务已停止')
+        return true
+      } catch (error) {
+        // 如果任务不存在（404），说明任务已停止
+        if (error.response && error.response.status === 404) {
+          if (type === 'core') {
+            coreSystemRunning.value = false
+            currentCoreTaskId.value = null
+            coreTaskStatus.value = 'cancelled'
+            coreSystemProgress.value = { current: 0, total: 0, percent: 0 }
+          } else {
+            evaluationRunning.value = false
+            currentEvalTaskId.value = null
+          }
+          
+          // 停止轮询
+          if (taskStatusInterval.value) {
+            clearInterval(taskStatusInterval.value)
+            taskStatusInterval.value = null
+          }
+          
+          ElMessage.success('任务已停止')
+          return true
+        }
+        
+        // 其他错误，继续等待
+        console.warn('查询任务状态失败，继续等待:', error)
+        return false
+      }
+    }
+    
+    // 🚀 优化：使用 Promise 方式轮询，直到任务停止
+    const waitForTaskStopped = async () => {
+      while (Date.now() - startTime < maxWaitTime) {
+        const stopped = await checkTaskStopped()
+        if (stopped) {
+          return true
+        }
+        
+        // 等待一段时间后继续检查
+        await new Promise(resolve => setTimeout(resolve, pollInterval))
+      }
+      
+      // 超时后，即使任务状态未确认，也恢复按钮状态（避免无限等待）
+      console.warn('等待任务停止超时，强制恢复按钮状态')
+      if (type === 'core') {
+        coreSystemRunning.value = false
+        currentCoreTaskId.value = null
+        coreTaskStatus.value = 'cancelled'
+        coreSystemProgress.value = { current: 0, total: 0, percent: 0 }
+      } else {
+        evaluationRunning.value = false
+        currentEvalTaskId.value = null
+      }
+      
+      // 停止轮询
+      if (taskStatusInterval.value) {
+        clearInterval(taskStatusInterval.value)
+        taskStatusInterval.value = null
+      }
+      
+      ElMessage.warning('任务取消请求已发送，但确认停止超时。按钮已恢复可用状态。')
+      return false
+    }
+    
+    // 开始等待任务停止（不阻塞，异步执行）
+    waitForTaskStopped()
+    
+  } catch (error) {
+    console.error('取消任务失败:', error)
+    ElMessage.error('取消任务失败: ' + (error.message || error))
+    // 即使取消请求失败，也尝试恢复按钮状态（避免按钮一直禁用）
+    if (type === 'core') {
+      coreSystemRunning.value = false
+      currentCoreTaskId.value = null
+    } else {
+      evaluationRunning.value = false
+      currentEvalTaskId.value = null
+    }
+  }
+}
+
+const handleAutoRefreshChange = (value) => {
+  if (value) {
+    if (realTimeMode.value) {
+      // 实时模式：使用SSE
+      startRealTimeLogStream()
+    } else {
+      // 轮询模式：使用定时器
+      refreshInterval = setInterval(refreshLogs, 2000) // 每2秒刷新一次
+    }
+  } else {
+    // 停止实时流
+    stopRealTimeLogStream()
+    // 停止轮询
+    if (refreshInterval) {
+      clearInterval(refreshInterval)
+      refreshInterval = null
+    }
+  }
+}
+
+const handleRealTimeModeChange = (value) => {
+  if (autoRefresh.value) {
+    // 如果自动刷新已开启，需要切换模式
+    if (value) {
+      // 切换到实时模式
+      if (refreshInterval) {
+        clearInterval(refreshInterval)
+        refreshInterval = null
+      }
+      startRealTimeLogStream()
+    } else {
+      // 切换到轮询模式
+      stopRealTimeLogStream()
+      refreshInterval = setInterval(refreshLogs, 2000)
+    }
+  }
+}
+
+// 🚀 新增：保存状态到localStorage
+const saveState = () => {
+  try {
+    const state = {
+      coreSystemRunning: coreSystemRunning.value,
+      currentCoreTaskId: currentCoreTaskId.value,
+      coreTaskStatus: coreTaskStatus.value,
+      coreSystemProgress: coreSystemProgress.value,
+      evaluationRunning: evaluationRunning.value,
+      currentEvalTaskId: currentEvalTaskId.value,
+      activeTab: activeTab.value,
+      currentView: currentView.value,
+      selectedSampleId: selectedSampleId.value,
+      autoRefresh: autoRefresh.value,
+      realTimeMode: realTimeMode.value,
+      sampleCount: sampleCount.value
+    }
+    localStorage.setItem('rangen_frontend_state', JSON.stringify(state))
+  } catch (e) {
+    console.warn('保存状态失败:', e)
+  }
+}
+
+// 🚀 新增：从localStorage恢复状态
+const restoreState = () => {
+  try {
+    const saved = localStorage.getItem('rangen_frontend_state')
+    if (saved) {
+      const state = JSON.parse(saved)
+      
+      // 恢复基本状态
+      activeTab.value = state.activeTab || 'samples'
+      currentView.value = state.currentView || 'list'
+      selectedSampleId.value = state.selectedSampleId || null
+      autoRefresh.value = state.autoRefresh !== undefined ? state.autoRefresh : true
+      realTimeMode.value = state.realTimeMode !== undefined ? state.realTimeMode : true
+      sampleCount.value = state.sampleCount || 10
+      
+      // 恢复任务状态
+      if (state.currentCoreTaskId) {
+        currentCoreTaskId.value = state.currentCoreTaskId
+        coreSystemRunning.value = state.coreSystemRunning || false
+        coreTaskStatus.value = state.coreTaskStatus || 'idle'
+        coreSystemProgress.value = state.coreSystemProgress || { current: 0, total: 0, percent: 0 }
+        
+        // 如果任务还在运行，恢复轮询
+        if (state.coreSystemRunning && state.coreTaskStatus === 'running') {
+          // 验证任务是否真的还在运行
+          startTaskStatusPolling(state.currentCoreTaskId, 'core')
+        }
+      }
+      
+      if (state.currentEvalTaskId) {
+        currentEvalTaskId.value = state.currentEvalTaskId
+        evaluationRunning.value = state.evaluationRunning || false
+        
+        // 如果评测任务还在运行，恢复轮询
+        if (state.evaluationRunning) {
+          startTaskStatusPolling(state.currentEvalTaskId, 'eval')
+        }
+      }
+    }
+  } catch (e) {
+    console.warn('恢复状态失败:', e)
+  }
+}
+
+// 🚀 新增：监听状态变化，自动保存
+watch([coreSystemRunning, currentCoreTaskId, coreTaskStatus, evaluationRunning, currentEvalTaskId, activeTab, currentView, selectedSampleId], () => {
+  saveState()
+}, { deep: true })
+
+onMounted(() => {
+  // 🚀 修复：先恢复状态，再刷新日志
+  restoreState()
+  refreshLogs()
+  if (autoRefresh.value) {
+    handleAutoRefreshChange(true)
+  }
+})
+
+// 🚀 新增：处理样本点击
+const handleSampleClick = (sampleId) => {
+  selectedSampleId.value = sampleId
+  currentView.value = 'detail'
+}
+
+// 🚀 新增：返回列表视图
+const backToList = () => {
+  currentView.value = 'list'
+  selectedSampleId.value = null
+}
+
+onUnmounted(() => {
+  // 清理资源
+  stopRealTimeLogStream()
+  if (refreshInterval) {
+    clearInterval(refreshInterval)
+  }
+  if (taskStatusInterval.value) {
+    clearInterval(taskStatusInterval.value)
+  }
+})
+</script>
+
+<style scoped>
+.app-container {
+  height: 100vh;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0 20px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.action-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.action-group:last-child {
+  border-right: none;
+}
+
+.app-main {
+  padding: 20px;
+  background: #f5f7fa;
+}
+
+:deep(.el-tabs__content) {
+  padding: 20px;
+}
+
+/* 🚀 改进：参考 fogsight 的动画设计，增强进度条视觉效果 */
+.progress-container {
+  width: 100%;
+  margin-top: 12px;
+  padding: 0 12px;
+}
+
+.progress-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.progress-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  pointer-events: none;
+  animation: progressTextPulse 2s ease-in-out infinite;
+}
+
+@keyframes progressTextPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+.progress-text {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+}
+
+/* 确保进度条文字在深色背景上可见 */
+:deep(.el-progress__text) {
+  color: white !important;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* 进度条内部动画 */
+:deep(.el-progress-bar__outer) {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+:deep(.el-progress-bar__inner) {
+  background: linear-gradient(90deg, 
+    #67c23a 0%, 
+    #85ce61 50%, 
+    #67c23a 100%
+  ) !important;
+  background-size: 200% 100%;
+  animation: progressGradient 2s linear infinite;
+  border-radius: 10px;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px rgba(103, 194, 58, 0.5);
+}
+
+@keyframes progressGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* 详情视图样式 */
+.detail-view {
+  padding: 20px;
+}
+
+.detail-header {
+  margin-bottom: 16px;
+}
+
+/* 🚀 改进：参考 fogsight 的动画设计，添加更流畅的动画效果 */
+
+/* 进度条动画 */
+.progress-container {
+  animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 100px;
+  }
+}
+
+/* 进度条脉冲效果 */
+.progress-wrapper {
+  position: relative;
+}
+
+.progress-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.3), 
+    transparent
+  );
+  animation: shimmer 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* 按钮动画 */
+.el-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.el-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.el-button:active {
+  transform: translateY(0);
+}
+
+/* 卡片和内容动画 */
+:deep(.sample-content) {
+  animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 标签页切换动画 */
+:deep(.el-tabs__content) {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 状态标签动画 */
+:deep(.el-tag) {
+  transition: all 0.3s ease;
+}
+
+:deep(.el-tag:hover) {
+  transform: scale(1.05);
+}
+
+/* 加载状态动画 */
+.loading-pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* 成功/错误状态动画 */
+.status-success {
+  animation: successPop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.status-error {
+  animation: errorShake 0.5s ease-in-out;
+}
+
+@keyframes successPop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes errorShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+</style>
+

@@ -1,0 +1,25 @@
+{
+  "name": "rangen-frontend-monitor",
+  "version": "1.0.0",
+  "description": "RANGEN系统前端监控界面 - 独立运行，可视化推理过程和智能体调用关系",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.0",
+    "axios": "^1.6.0",
+    "echarts": "^5.4.0",
+    "element-plus": "^2.4.0",
+    "marked": "^17.0.0",
+    "vue": "^3.4.0",
+    "vue-echarts": "^6.6.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "typescript": "^5.9.3",
+    "vite": "^5.0.0"
+  }
+}
