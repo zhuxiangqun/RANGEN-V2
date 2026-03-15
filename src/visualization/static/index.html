@@ -806,6 +806,164 @@
             background: white;
             padding: 20px;
         }
+        
+        /* Agent Creation 相关样式 */
+        .btn-primary, .btn-secondary, .btn-tab {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #5568d3 0%, #653a92 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-primary:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+        
+        .btn-secondary:hover {
+            background: #e0e0e0;
+            transform: translateY(-1px);
+        }
+        
+        .btn-tab {
+            background: #f8f9fa;
+            color: #666;
+            border: 1px solid #dee2e6;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            padding: 8px 16px;
+            margin-right: 5px;
+        }
+        
+        .btn-tab.active {
+            background: white;
+            color: #333;
+            border-color: #dee2e6;
+            border-bottom: 1px solid white;
+            position: relative;
+            top: 1px;
+            font-weight: 600;
+        }
+        
+        .creation-step {
+            display: none;
+        }
+        
+        .creation-step.active {
+            display: block;
+        }
+        
+        .capability-content {
+            display: none;
+        }
+        
+        .capability-content.active {
+            display: block;
+        }
+        
+        /* 状态颜色 */
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status-warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .status-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        /* 配置预览样式 */
+        .config-item {
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .config-item h5 {
+            margin: 0 0 5px 0;
+            font-size: 13px;
+            color: #333;
+        }
+        
+        .config-item p {
+            margin: 0;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .tool-list, .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 5px;
+        }
+        
+        .tool-tag, .skill-tag {
+            background: #e9ecef;
+            color: #495057;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            display: inline-block;
+        }
+        
+        .tool-tag.available {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .skill-tag.available {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .tool-tag.missing {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .skill-tag.missing {
+            background: #fff3cd;
+            color: #856404;
+        }
     </style>
 </head>
 <body>
@@ -847,6 +1005,7 @@
         <button class="tab" onclick="switchTab('node-monitoring')">Node Monitoring</button>
         <button class="tab" onclick="switchTab('system-health')">System Health</button>
         <button class="tab" onclick="switchTab('monitoring')">System Monitoring</button>
+        <button class="tab" onclick="switchTab('agent-creation')">🤖 Agent Creation</button>
     </div>
     
     <!-- Tab 内容 -->
@@ -1154,6 +1313,162 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Tab 6: Agent Creation -->
+        <div id="tab-agent-creation" class="tab-content">
+            <div style="display: flex; flex-direction: column; gap: 20px; height: 100%;">
+                <!-- 创建进度指示器 -->
+                <div id="agent-creation-progress" style="display: none;">
+                    <div style="display: flex; align-items: center; gap: 10px; background: #f5f5f5; padding: 10px; border-radius: 5px;">
+                        <div style="width: 100%; background: #e0e0e0; border-radius: 3px; height: 6px;">
+                            <div id="progress-bar" style="width: 0%; height: 100%; background: #4caf50; border-radius: 3px; transition: width 0.3s;"></div>
+                        </div>
+                        <span id="progress-text" style="font-size: 12px; color: #666;">0%</span>
+                    </div>
+                    <div id="status-message" style="margin-top: 10px; font-size: 13px; color: #555;"></div>
+                </div>
+                
+                <!-- 主要创建区域 -->
+                <div style="display: flex; flex-direction: row; gap: 20px; flex: 1; min-height: 0;">
+                    <!-- 左侧：需求输入和配置 -->
+                    <div class="panel" style="flex: 1; min-width: 400px; display: flex; flex-direction: column;">
+                        <h2>🤖 自然语言Agent创建</h2>
+                        <p style="color: #666; font-size: 13px; margin-bottom: 20px;">
+                            用自然语言描述您需要的Agent，系统将自动匹配Tools和Skills并创建配置。
+                        </p>
+                        
+                        <!-- 步骤1: 需求输入 -->
+                        <div class="creation-step active" id="step-input">
+                            <h3 style="margin-top: 0;">步骤1: 描述您的需求</h3>
+                            <textarea id="agent-description" placeholder="例如：创建一个能分析CSV文件并生成图表的Agent，还能自动生成报告..." 
+                                      style="width: 100%; height: 120px; padding: 12px; font-size: 14px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 15px; resize: vertical;"></textarea>
+                            
+                            <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                                <button class="btn-primary" onclick="parseAgentRequirements()" style="flex: 1;">
+                                    🚀 智能解析
+                                </button>
+                                <button class="btn-secondary" onclick="clearAgentForm()" style="flex: 1;">
+                                    🗑️ 清空
+                                </button>
+                            </div>
+                            
+                            <!-- 示例提示 -->
+                            <div style="background: #f9f9f9; padding: 12px; border-radius: 5px; border-left: 4px solid #667eea; font-size: 13px;">
+                                <strong>💡 示例：</strong>
+                                <ul style="margin: 5px 0 0 15px; color: #555;">
+                                    <li>创建一个能分析CSV文件并生成图表的Agent</li>
+                                    <li>帮我做一个能抓取网页内容并摘要的Agent</li>
+                                    <li>需要处理PDF文件并提取表格数据的Agent</li>
+                                    <li>创建一个能监控系统日志并发送告警的Agent</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 步骤2: 配置预览 -->
+                        <div class="creation-step" id="step-preview" style="display: none;">
+                            <h3 style="margin-top: 0;">步骤2: 配置预览</h3>
+                            
+                            <!-- 解析结果 -->
+                            <div id="parse-result" style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 5px; border: 1px solid #e9ecef;">
+                                <h4 style="margin-top: 0; color: #333;">解析结果</h4>
+                                <div id="parse-details"></div>
+                            </div>
+                            
+                            <!-- 配置详情 -->
+                            <div style="margin-bottom: 20px;">
+                                <h4 style="margin-bottom: 10px;">配置详情</h4>
+                                <div id="config-preview" style="padding: 15px; background: white; border: 1px solid #ddd; border-radius: 5px; max-height: 300px; overflow-y: auto;"></div>
+                            </div>
+                            
+                            <!-- 验证状态 -->
+                            <div id="validation-result" style="margin-bottom: 20px; padding: 12px; border-radius: 5px; display: none;"></div>
+                            
+                            <div style="display: flex; gap: 10px;">
+                                <button class="btn-primary" onclick="createAgentFromConfig()" id="create-agent-btn" style="flex: 2;">
+                                    ✅ 确认创建Agent
+                                </button>
+                                <button class="btn-secondary" onclick="adjustAgentConfig()" style="flex: 1;">
+                                    ⚙️ 调整配置
+                                </button>
+                                <button class="btn-secondary" onclick="backToInput()" style="flex: 1;">
+                                    ↩️ 返回修改
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 步骤3: 创建结果 -->
+                        <div class="creation-step" id="step-result" style="display: none;">
+                            <h3 style="margin-top: 0;">步骤3: 创建结果</h3>
+                            <div id="creation-result" style="padding: 20px; background: #f8f9fa; border-radius: 5px; border: 1px solid #e9ecef; margin-bottom: 20px;">
+                                <p style="color: #666; font-style: italic;">正在创建Agent...</p>
+                            </div>
+                            
+                            <div style="display: flex; gap: 10px;">
+                                <button class="btn-primary" onclick="viewCreatedAgent()" id="view-agent-btn" style="flex: 1; display: none;">
+                                    👁️ 查看Agent详情
+                                </button>
+                                <button class="btn-secondary" onclick="testCreatedAgent()" id="test-agent-btn" style="flex: 1; display: none;">
+                                    🧪 测试Agent
+                                </button>
+                                <button class="btn-secondary" onclick="resetAgentCreation()" style="flex: 1;">
+                                    🔄 创建新Agent
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 右侧：可用能力和信息 -->
+                    <div class="panel" style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
+                        <h2>🛠️ 可用能力</h2>
+                        <p style="color: #666; font-size: 13px; margin-bottom: 15px;">
+                            系统当前可用的Tools和Skills，将根据您的需求自动匹配。
+                        </p>
+                        
+                        <!-- 能力查看器 -->
+                        <div style="margin-bottom: 20px;">
+                            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                                <button class="btn-tab active" onclick="switchCapabilityTab('tools')" id="tab-tools">
+                                    Tools
+                                </button>
+                                <button class="btn-tab" onclick="switchCapabilityTab('skills')" id="tab-skills">
+                                    Skills
+                                </button>
+                                <button class="btn-tab" onclick="switchCapabilityTab('keywords')" id="tab-keywords">
+                                    关键词映射
+                                </button>
+                            </div>
+                            
+                            <!-- Tools列表 -->
+                            <div id="capability-tools" class="capability-content" style="display: block; max-height: 400px; overflow-y: auto;">
+                                <p style="color: #999; font-style: italic; text-align: center; padding: 20px;">正在加载可用Tools...</p>
+                            </div>
+                            
+                            <!-- Skills列表 -->
+                            <div id="capability-skills" class="capability-content" style="display: none; max-height: 400px; overflow-y: auto;">
+                                <p style="color: #999; font-style: italic; text-align: center; padding: 20px;">正在加载可用Skills...</p>
+                            </div>
+                            
+                            <!-- 关键词映射 -->
+                            <div id="capability-keywords" class="capability-content" style="display: none; max-height: 400px; overflow-y: auto;">
+                                <p style="color: #999; font-style: italic; text-align: center; padding: 20px;">正在加载关键词映射...</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 系统信息 -->
+                        <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid #eee;">
+                            <h4 style="margin-bottom: 10px;">📊 系统状态</h4>
+                            <div id="agent-system-status" style="font-size: 13px; color: #555;">
+                                <p>✅ Agent服务: <span id="agent-service-status">就绪</span></p>
+                                <p>✅ 能力检查器: <span id="capability-checker-status">就绪</span></p>
+                                <p>🤖 已创建Agent: <span id="total-agents-count">加载中...</span></p>
+                                <p>🛠️ 可用Tools: <span id="total-tools-count">加载中...</span></p>
+                                <p>🎯 可用Skills: <span id="total-skills-count">加载中...</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     
     <script>
@@ -1180,6 +1495,28 @@
                 fontFamily: 'Arial, sans-serif'
             }
         });
+        
+        // 🚨 WebSocket连接监控包装器
+        (function() {
+            const OriginalWebSocket = window.WebSocket;
+            window.WebSocket = function(url, protocols) {
+                console.log('🔍 [WebSocket监控] 连接尝试:', url);
+                // 检查URL格式
+                if (url && url.includes('/ws') && !url.includes('/ws/')) {
+                    console.warn('⚠️ [WebSocket监控] 检测到无效的WebSocket连接: 缺少executionId');
+                    console.trace('调用栈跟踪');
+                    // 可以选择抛出错误或返回一个模拟的WebSocket对象
+                    // 但为了调试，我们允许连接继续，以便看到错误
+                }
+                return new OriginalWebSocket(url, protocols);
+            };
+            // 复制原型和方法
+            window.WebSocket.prototype = OriginalWebSocket.prototype;
+            window.WebSocket.CONNECTING = OriginalWebSocket.CONNECTING;
+            window.WebSocket.OPEN = OriginalWebSocket.OPEN;
+            window.WebSocket.CLOSING = OriginalWebSocket.CLOSING;
+            window.WebSocket.CLOSED = OriginalWebSocket.CLOSED;
+        })();
         
         let currentExecutionId = null;
         let websocket = null;
@@ -4528,6 +4865,13 @@
         
         // 连接 WebSocket
         function connectWebSocket(executionId) {
+            // 🚀 新增：验证 executionId
+            if (!executionId || executionId.trim() === '') {
+                console.warn('⚠️ [WebSocket] executionId 为空或无效，跳过WebSocket连接');
+                showInfo('WebSocket连接跳过: 执行ID无效');
+                return;
+            }
+            
             const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
             const wsUrl = `${protocol}//${window.location.host}/ws/${executionId}`;
 
@@ -4628,6 +4972,13 @@
         const baseReconnectDelay = 1000; // 1秒
 
         function reconnectWebSocket(executionId) {
+            // 🚀 新增：验证 executionId
+            if (!executionId || executionId.trim() === '') {
+                console.warn('⚠️ [WebSocket] executionId 为空或无效，跳过重连');
+                showInfo('WebSocket重连跳过: 执行ID无效');
+                return;
+            }
+            
             console.log(`🔄 [WebSocket] 正在尝试重连: ${executionId}, 尝试次数: ${reconnectAttempts + 1}`);
 
             // 检查是否超过最大重连次数
@@ -5848,6 +6199,582 @@
                 console.error('❌ [历史数据] 加载历史执行数据失败:', error);
             }
         }
+        
+        // ================================================
+        // 🤖 Agent Creation Functions
+        // ================================================
+        
+        // 当前Agent创建状态
+        let agentCreationState = {
+            currentStep: 'input',
+            parsedConfig: null,
+            createdAgent: null,
+            lastValidation: null
+        };
+        
+        // 切换能力标签页
+        function switchCapabilityTab(tabName) {
+            // 更新标签按钮状态
+            document.querySelectorAll('.btn-tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+            
+            // 显示对应内容
+            document.querySelectorAll('.capability-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            document.getElementById(`capability-${tabName}`).style.display = 'block';
+            
+            // 如果切换到Tools或Skills，刷新数据
+            if (tabName === 'tools' || tabName === 'skills') {
+                loadAvailableCapabilities();
+            }
+        }
+        
+        // 加载可用能力
+        async function loadAvailableCapabilities() {
+            try {
+                console.log('🔄 [Agent创建] 加载可用能力...');
+                
+                const response = await fetch('/api/v1/agents/available-capabilities');
+                const data = await response.json();
+                
+                if (data.success) {
+                    // 更新Tools列表
+                    const toolsDiv = document.getElementById('capability-tools');
+                    if (toolsDiv) {
+                        toolsDiv.innerHTML = renderCapabilities(data.tools, 'Tools');
+                    }
+                    
+                    // 更新Skills列表
+                    const skillsDiv = document.getElementById('capability-skills');
+                    if (skillsDiv) {
+                        skillsDiv.innerHTML = renderCapabilities(data.skills, 'Skills');
+                    }
+                    
+                    // 更新关键词映射
+                    const keywordsDiv = document.getElementById('capability-keywords');
+                    if (keywordsDiv) {
+                        keywordsDiv.innerHTML = renderKeywords(data.keyword_mappings);
+                    }
+                    
+                    // 更新系统状态
+                    updateSystemStatus(data.system_status);
+                    
+                    console.log('✅ [Agent创建] 能力加载完成');
+                } else {
+                    console.error('❌ [Agent创建] 能力加载失败:', data.error);
+                }
+            } catch (error) {
+                console.error('❌ [Agent创建] 加载能力时发生错误:', error);
+            }
+        }
+        
+        // 渲染能力列表
+        function renderCapabilities(capabilities, type) {
+            if (!capabilities || Object.keys(capabilities).length === 0) {
+                return `<p style="color: #999; font-style: italic; text-align: center; padding: 20px;">暂无可用${type}</p>`;
+            }
+            
+            let html = '';
+            for (const [category, items] of Object.entries(capabilities)) {
+                html += `<div style="margin-bottom: 15px;">`;
+                html += `<h5 style="margin: 0 0 8px 0; font-size: 13px; color: #333; background: #f0f0f0; padding: 5px 10px; border-radius: 3px;">${category}</h5>`;
+                
+                if (items && items.length > 0) {
+                    items.forEach(item => {
+                        html += `<div style="padding: 6px 10px; margin: 3px 0; background: white; border: 1px solid #eee; border-radius: 4px; font-size: 12px;">`;
+                        html += `<strong>${item.name || item.id}</strong>`;
+                        if (item.description) {
+                            html += `<br/><span style="color: #666;">${item.description}</span>`;
+                        }
+                        html += `</div>`;
+                    });
+                }
+                html += `</div>`;
+            }
+            
+            return html;
+        }
+        
+        // 渲染关键词映射
+        function renderKeywords(keywordMappings) {
+            if (!keywordMappings || (!keywordMappings.tools?.length && !keywordMappings.skills?.length)) {
+                return `<p style="color: #999; font-style: italic; text-align: center; padding: 20px;">暂无关键词映射</p>`;
+            }
+            
+            let html = '<div style="font-size: 12px;">';
+            
+            if (keywordMappings.tools && keywordMappings.tools.length > 0) {
+                html += `<h5 style="margin: 0 0 8px 0; font-size: 13px; color: #333;">Tools关键词 (${keywordMappings.tools.length})</h5>`;
+                html += `<div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 15px;">`;
+                keywordMappings.tools.forEach(keyword => {
+                    html += `<span class="tool-tag">${keyword}</span>`;
+                });
+                html += `</div>`;
+            }
+            
+            if (keywordMappings.skills && keywordMappings.skills.length > 0) {
+                html += `<h5 style="margin: 0 0 8px 0; font-size: 13px; color: #333;">Skills关键词 (${keywordMappings.skills.length})</h5>`;
+                html += `<div style="display: flex; flex-wrap: wrap; gap: 6px;">`;
+                keywordMappings.skills.forEach(keyword => {
+                    html += `<span class="skill-tag">${keyword}</span>`;
+                });
+                html += `</div>`;
+            }
+            
+            html += '</div>';
+            return html;
+        }
+        
+        // 更新系统状态
+        function updateSystemStatus(systemStatus) {
+            const statusDiv = document.getElementById('agent-system-status');
+            if (!statusDiv || !systemStatus) return;
+            
+            // 更新Agent数量
+            const agentsCount = document.getElementById('total-agents-count');
+            if (agentsCount && systemStatus.total_agents !== undefined) {
+                agentsCount.textContent = systemStatus.total_agents;
+            }
+            
+            // 更新Tools数量
+            const toolsCount = document.getElementById('total-tools-count');
+            if (toolsCount && systemStatus.total_tools !== undefined) {
+                toolsCount.textContent = systemStatus.total_tools;
+            }
+            
+            // 更新Skills数量
+            const skillsCount = document.getElementById('total-skills-count');
+            if (skillsCount && systemStatus.total_skills !== undefined) {
+                skillsCount.textContent = systemStatus.total_skills;
+            }
+        }
+        
+        // 显示创建进度
+        function showAgentCreationProgress(show, step, message, status) {
+            const progressDiv = document.getElementById('agent-creation-progress');
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            const statusMessage = document.getElementById('status-message');
+            
+            if (!progressDiv) return;
+            
+            if (show) {
+                progressDiv.style.display = 'block';
+                
+                // 更新进度
+                const progressPercent = step * 25; // 4步：0%, 25%, 50%, 75%, 100%
+                if (progressBar) progressBar.style.width = `${progressPercent}%`;
+                if (progressText) progressText.textContent = `${progressPercent}%`;
+                
+                // 更新状态消息
+                if (statusMessage) {
+                    statusMessage.textContent = message;
+                    statusMessage.className = `status-${status}`;
+                }
+            } else {
+                progressDiv.style.display = 'none';
+            }
+        }
+        
+        // 解析Agent需求
+        async function parseAgentRequirements() {
+            const description = document.getElementById('agent-description').value.trim();
+            
+            if (!description) {
+                alert('请输入Agent需求描述');
+                return;
+            }
+            
+            if (description.length < 5) {
+                alert('描述太短，请提供更详细的需求');
+                return;
+            }
+            
+            // 显示进度
+            showAgentCreationProgress(true, 1, '正在解析需求...', 'info');
+            
+            try {
+                console.log('🔄 [Agent创建] 解析需求:', description);
+                
+                const response = await fetch('/api/v1/agents/parse-requirements', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ description: description })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    console.log('✅ [Agent创建] 需求解析成功:', data);
+                    
+                    // 保存解析结果
+                    agentCreationState.parsedConfig = data;
+                    agentCreationState.lastValidation = data.validation;
+                    
+                    // 更新解析结果显示
+                    updateParseResultDisplay(data);
+                    
+                    // 更新配置预览
+                    updateConfigPreview(data.preview);
+                    
+                    // 显示验证结果
+                    showValidationResult(data.validation);
+                    
+                    // 切换到预览步骤
+                    switchCreationStep('preview');
+                    
+                    showAgentCreationProgress(true, 2, '需求解析完成，请检查配置', 'success');
+                    
+                    // 自动加载可用能力
+                    loadAvailableCapabilities();
+                } else {
+                    console.error('❌ [Agent创建] 需求解析失败:', data.error);
+                    showAgentCreationProgress(false, 0, '');
+                    alert(`解析失败: ${data.error || '未知错误'}`);
+                }
+            } catch (error) {
+                console.error('❌ [Agent创建] 解析需求时发生错误:', error);
+                showAgentCreationProgress(false, 0, '');
+                alert(`请求失败: ${error.message}`);
+            }
+        }
+        
+        // 更新解析结果显示
+        function updateParseResultDisplay(parseData) {
+            const parseDiv = document.getElementById('parse-details');
+            if (!parseDiv) return;
+            
+            let html = '<div style="font-size: 13px;">';
+            
+            // 显示解析结果
+            if (parseData.parse_result) {
+                const result = parseData.parse_result;
+                html += `<p><strong>解析关键词:</strong> ${result.keywords?.join(', ') || '无'}</p>`;
+                html += `<p><strong>Agent类型:</strong> ${result.agent_type || 'general'}</p>`;
+                html += `<p><strong>原始描述:</strong> ${result.description || ''}</p>`;
+            }
+            
+            // 显示匹配配置
+            if (parseData.matched_config) {
+                const config = parseData.matched_config;
+                html += `<p><strong>匹配置信度:</strong> ${(config.confidence * 100).toFixed(1)}%</p>`;
+            }
+            
+            html += '</div>';
+            parseDiv.innerHTML = html;
+        }
+        
+        // 更新配置预览
+        function updateConfigPreview(preview) {
+            const previewDiv = document.getElementById('config-preview');
+            if (!previewDiv) return;
+            
+            if (!preview) {
+                previewDiv.innerHTML = '<p style="color: #999; font-style: italic;">无配置信息</p>';
+                return;
+            }
+            
+            let html = '<div style="font-size: 13px;">';
+            
+            // Agent基本信息
+            html += `<div class="config-item">`;
+            html += `<h5>Agent信息</h5>`;
+            html += `<p><strong>名称:</strong> ${preview.name || '未命名'}</p>`;
+            html += `<p><strong>类型:</strong> ${preview.type || 'general'}</p>`;
+            html += `<p><strong>描述:</strong> ${preview.description || '无'}</p>`;
+            html += `</div>`;
+            
+            // Tools列表
+            if (preview.tools && preview.tools.length > 0) {
+                html += `<div class="config-item">`;
+                html += `<h5>Tools (${preview.tools.length})</h5>`;
+                html += `<div class="tool-list">`;
+                preview.tools.forEach(tool => {
+                    html += `<span class="tool-tag available">${tool}</span>`;
+                });
+                html += `</div>`;
+                html += `</div>`;
+            }
+            
+            // Skills列表
+            if (preview.skills && preview.skills.length > 0) {
+                html += `<div class="config-item">`;
+                html += `<h5>Skills (${preview.skills.length})</h5>`;
+                html += `<div class="skill-list">`;
+                preview.skills.forEach(skill => {
+                    html += `<span class="skill-tag available">${skill}</span>`;
+                });
+                html += `</div>`;
+                html += `</div>`;
+            }
+            
+            // 配置信息
+            if (preview.config) {
+                html += `<div class="config-item">`;
+                html += `<h5>配置信息</h5>`;
+                for (const [key, value] of Object.entries(preview.config)) {
+                    html += `<p><strong>${key}:</strong> ${typeof value === 'object' ? JSON.stringify(value) : value}</p>`;
+                }
+                html += `</div>`;
+            }
+            
+            html += '</div>';
+            previewDiv.innerHTML = html;
+        }
+        
+        // 显示验证结果
+        function showValidationResult(validation) {
+            const validationDiv = document.getElementById('validation-result');
+            if (!validationDiv || !validation) return;
+            
+            validationDiv.style.display = 'block';
+            
+            if (validation.is_valid) {
+                validationDiv.className = 'status-success';
+                validationDiv.innerHTML = `
+                    <h5 style="margin: 0 0 5px 0;">✅ 验证通过</h5>
+                    <p style="margin: 0; font-size: 13px;">${validation.message || '配置验证通过，可以创建Agent'}</p>
+                `;
+                
+                // 启用创建按钮
+                const createBtn = document.getElementById('create-agent-btn');
+                if (createBtn) {
+                    createBtn.disabled = false;
+                    createBtn.innerHTML = '✅ 确认创建Agent';
+                }
+            } else {
+                validationDiv.className = 'status-error';
+                validationDiv.innerHTML = `
+                    <h5 style="margin: 0 0 5px 0;">❌ 验证失败</h5>
+                    <p style="margin: 0; font-size: 13px;">${validation.message || '配置验证失败，无法创建Agent'}</p>
+                `;
+                
+                // 禁用创建按钮
+                const createBtn = document.getElementById('create-agent-btn');
+                if (createBtn) {
+                    createBtn.disabled = true;
+                    createBtn.innerHTML = '❌ 无法创建 (验证失败)';
+                }
+            }
+        }
+        
+        // 切换创建步骤
+        function switchCreationStep(step) {
+            // 更新状态
+            agentCreationState.currentStep = step;
+            
+            // 隐藏所有步骤
+            document.querySelectorAll('.creation-step').forEach(stepDiv => {
+                stepDiv.style.display = 'none';
+                stepDiv.classList.remove('active');
+            });
+            
+            // 显示当前步骤
+            const stepDiv = document.getElementById(`step-${step}`);
+            if (stepDiv) {
+                stepDiv.style.display = 'block';
+                stepDiv.classList.add('active');
+            }
+            
+            // 更新进度显示
+            const progressSteps = { input: 1, preview: 2, result: 3 };
+            showAgentCreationProgress(true, progressSteps[step] || 0, getStepMessage(step), 'info');
+        }
+        
+        // 获取步骤消息
+        function getStepMessage(step) {
+            const messages = {
+                'input': '请输入需求描述',
+                'preview': '检查配置并确认创建',
+                'result': 'Agent创建中...'
+            };
+            return messages[step] || '';
+        }
+        
+        // 清空表单
+        function clearAgentForm() {
+            document.getElementById('agent-description').value = '';
+            agentCreationState = {
+                currentStep: 'input',
+                parsedConfig: null,
+                createdAgent: null,
+                lastValidation: null
+            };
+            switchCreationStep('input');
+            showAgentCreationProgress(false, 0, '');
+        }
+        
+        // 返回输入步骤
+        function backToInput() {
+            switchCreationStep('input');
+        }
+        
+        // 调整配置
+        function adjustAgentConfig() {
+            // 这里可以添加配置调整界面
+            alert('配置调整功能即将推出，目前使用自动生成的配置');
+        }
+        
+        // 创建Agent
+        async function createAgentFromConfig() {
+            const description = document.getElementById('agent-description').value.trim();
+            
+            if (!description) {
+                alert('请先输入Agent需求描述');
+                return;
+            }
+            
+            // 显示进度
+            showAgentCreationProgress(true, 3, '正在创建Agent...', 'info');
+            
+            try {
+                console.log('🔄 [Agent创建] 创建Agent:', description);
+                
+                const response = await fetch('/api/v1/agents/from-natural-language', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 
+                        description: description,
+                        auto_create: true
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    console.log('✅ [Agent创建] Agent创建成功:', data);
+                    
+                    // 保存创建的Agent
+                    agentCreationState.createdAgent = data.agent;
+                    
+                    // 切换到结果步骤
+                    switchCreationStep('result');
+                    
+                    // 更新结果显示
+                    updateCreationResult(data);
+                    
+                    showAgentCreationProgress(true, 4, 'Agent创建成功!', 'success');
+                    
+                    // 3秒后隐藏进度条
+                    setTimeout(() => {
+                        showAgentCreationProgress(false, 0, '');
+                    }, 3000);
+                } else {
+                    console.error('❌ [Agent创建] Agent创建失败:', data.error);
+                    showAgentCreationProgress(false, 0, '');
+                    alert(`创建失败: ${data.error || '未知错误'}`);
+                }
+            } catch (error) {
+                console.error('❌ [Agent创建] 创建Agent时发生错误:', error);
+                showAgentCreationProgress(false, 0, '');
+                alert(`请求失败: ${error.message}`);
+            }
+        }
+        
+        // 更新创建结果显示
+        function updateCreationResult(creationData) {
+            const resultDiv = document.getElementById('creation-result');
+            if (!resultDiv) return;
+            
+            let html = '<div style="font-size: 14px;">';
+            
+            if (creationData.agent) {
+                const agent = creationData.agent;
+                html += `<div class="status-success" style="padding: 15px; margin-bottom: 15px;">`;
+                html += `<h4 style="margin: 0 0 10px 0; color: #155724;">✅ Agent创建成功!</h4>`;
+                html += `<p><strong>Agent ID:</strong> ${agent.id || '未知'}</p>`;
+                html += `<p><strong>名称:</strong> ${agent.name || '未命名'}</p>`;
+                html += `<p><strong>创建时间:</strong> ${new Date().toLocaleString()}</p>`;
+                if (creationData.execution_time) {
+                    html += `<p><strong>创建耗时:</strong> ${creationData.execution_time.toFixed(2)}秒</p>`;
+                }
+                html += `</div>`;
+                
+                // Agent详情
+                html += `<div class="config-item">`;
+                html += `<h5>Agent配置详情</h5>`;
+                html += `<pre style="font-size: 12px; background: #f8f9fa; padding: 10px; border-radius: 4px; overflow: auto;">${JSON.stringify(agent, null, 2)}</pre>`;
+                html += `</div>`;
+                
+                // 显示操作按钮
+                document.getElementById('view-agent-btn').style.display = 'block';
+                document.getElementById('test-agent-btn').style.display = 'block';
+            } else if (creationData.preview) {
+                html += `<div class="status-info" style="padding: 15px;">`;
+                html += `<h4 style="margin: 0 0 10px 0;">ℹ️ 仅生成配置预览</h4>`;
+                html += `<p>未执行实际创建，仅返回配置预览。</p>`;
+                html += `</div>`;
+            } else {
+                html += `<div class="status-error" style="padding: 15px;">`;
+                html += `<h4 style="margin: 0 0 10px 0;">❌ 创建失败</h4>`;
+                html += `<p>${creationData.error || '未知错误'}</p>`;
+                html += `</div>`;
+            }
+            
+            html += '</div>';
+            resultDiv.innerHTML = html;
+        }
+        
+        // 重置创建过程
+        function resetAgentCreation() {
+            clearAgentForm();
+            document.getElementById('view-agent-btn').style.display = 'none';
+            document.getElementById('test-agent-btn').style.display = 'none';
+        }
+        
+        // 查看创建的Agent
+        function viewCreatedAgent() {
+            if (!agentCreationState.createdAgent) {
+                alert('请先创建Agent');
+                return;
+            }
+            alert('查看Agent详情功能即将推出');
+            // 这里可以跳转到Agent详情页面
+        }
+        
+        // 测试创建的Agent
+        function testCreatedAgent() {
+            if (!agentCreationState.createdAgent) {
+                alert('请先创建Agent');
+                return;
+            }
+            alert('测试Agent功能即将推出');
+            // 这里可以打开Agent测试界面
+        }
+        
+        // 初始化Agent Creation标签页
+        function initAgentCreation() {
+            console.log('🔄 [Agent创建] 初始化Agent Creation标签页');
+            
+            // 加载可用能力
+            loadAvailableCapabilities();
+            
+            // 设置默认标签页
+            switchCapabilityTab('tools');
+            
+            // 重置状态
+            resetAgentCreation();
+        }
+        
+        // 修改switchTab函数以支持Agent Creation标签页
+        const originalSwitchTab = window.switchTab;
+        window.switchTab = function(tabId) {
+            originalSwitchTab(tabId);
+            
+            // 如果切换到Agent Creation标签页，初始化
+            if (tabId === 'agent-creation') {
+                setTimeout(() => {
+                    initAgentCreation();
+                }, 100);
+            }
+        };
         
         window.onload = () => {
             loadWorkflowGraph();

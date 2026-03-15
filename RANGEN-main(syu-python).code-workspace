@@ -1,0 +1,18 @@
+{
+    "folders": [
+        {
+            "path": ".",
+            "name": "RANGEN"
+        }
+    ],
+    "settings": {
+        "terminal.integrated.env.osx": {
+            "DEEPSEEK_API_KEY": "sk-0694fb514e114ababb5e0a737a0602a8",
+            "LLM_PROVIDER": "deepseek",
+            "RAG_SIMILARITY_THRESHOLD": "0.7",
+            "RAG_TOP_K": "5"
+        },
+        "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+        "python.analysis.typeCheckingMode": "basic"
+    }
+}

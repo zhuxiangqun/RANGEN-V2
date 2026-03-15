@@ -1,0 +1,66 @@
+{
+  "api_keys": {
+    "DEEPSEEK_API_KEY": {
+      "configured": false,
+      "length": 0,
+      "masked": null
+    },
+    "OPENAI_API_KEY": {
+      "configured": false,
+      "length": 0,
+      "masked": null
+    }
+  },
+  "agents": {
+    "RAGExpert": {
+      "success": true,
+      "lightweight_mode": false,
+      "config_center": true,
+      "threshold_manager": true
+    },
+    "ReasoningExpert": {
+      "success": true,
+      "config_center": true,
+      "threshold_manager": true,
+      "parallel_executor": true
+    },
+    "AgentCoordinator": {
+      "success": true,
+      "config_center": true,
+      "threshold_manager": true
+    }
+  },
+  "centers": {
+    "config_center": {
+      "success": true,
+      "type": "UnifiedConfigCenter"
+    },
+    "threshold_manager": {
+      "success": true,
+      "type": "UnifiedThresholdManager"
+    }
+  },
+  "executions": {
+    "RAGExpert": {
+      "success": false,
+      "execution_time": 0.050481319427490234,
+      "error": "No module named 'dotenv'",
+      "has_data": false,
+      "data_type": null
+    },
+    "ReasoningExpert": {
+      "success": false,
+      "execution_time": 2.876936912536621,
+      "error": "'AgentResult' object has no attribute 'get'",
+      "has_data": false,
+      "data_type": null
+    },
+    "AgentCoordinator": {
+      "success": true,
+      "execution_time": 1.9073486328125e-05,
+      "error": null,
+      "has_data": true,
+      "data_type": "dict"
+    }
+  }
+}

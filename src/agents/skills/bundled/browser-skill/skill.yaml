@@ -1,0 +1,85 @@
+author: SkillFactory
+description: 浏览器自动化工具，模拟用户在浏览器中的操作，支持网页浏览、表单填写、截图等功能
+name: browser-skill
+prompt_template: '## 技能说明
+
+
+  ### 功能描述
+
+  你是一个浏览器自动化助手，能够模拟用户操作浏览器。
+
+
+  ### 使用方式
+
+  1. 导航：打开指定网页
+
+  2. 交互：点击、输入、选择
+
+  3. 提取：获取页面内容、截图
+
+  4. 自动化：执行预定义的浏览器操作序列
+
+
+  ### 支持的操作
+
+  - 打开网页 (navigate)
+
+  - 点击元素 (click)
+
+  - 填写表单 (fill_form)
+
+  - 获取元素文本 (get_text)
+
+  - 截图 (screenshot)
+
+  - 执行JavaScript (execute_js)
+
+
+  ### 注意事项
+
+  - 需要配置浏览器驱动
+
+  - 部分网站有反爬虫机制
+
+  - 截图可能包含敏感信息'
+prototype_type: mcp_integration
+scope: custom
+tools:
+- description: 导航到指定URL
+  name: navigate
+  parameters:
+    url:
+      description: 目标网页URL
+      type: string
+  returns: 页面内容
+- description: 点击页面元素
+  name: click
+  parameters:
+    selector:
+      description: CSS选择器或元素路径
+      type: string
+  returns: 操作结果
+- description: 填写表单
+  name: fill_form
+  parameters:
+    form_data:
+      description: 表单数据字典
+      type: object
+  returns: 提交结果
+- description: 截图
+  name: screenshot
+  parameters:
+    selector:
+      description: 截图区域选择器(可选)
+      type: string
+  returns: 截图文件路径
+triggers:
+- 浏览器
+- 网页
+- 截图
+- 自动化
+- browser
+- navigate
+- click
+- screenshot
+version: 1.0.0

@@ -1,0 +1,19 @@
+{
+  "test_timestamp": "2026-01-05T15:59:14.019744",
+  "overall_success_rate": 100.0,
+  "detailed_results": {
+    "lightweight_mode": {
+      "success": true,
+      "message": "轻量级模式工作正常"
+    },
+    "full_mode": {
+      "success": true,
+      "message": "完整模式工作正常"
+    }
+  },
+  "summary": {
+    "lightweight_mode_available": true,
+    "full_mode_available": true,
+    "recommendation": "轻量级模式用于快速测试，完整模式用于生产环境"
+  }
+}

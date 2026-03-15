@@ -1,0 +1,39 @@
+{
+  "query_results": {
+    "008c0109": {
+      "query": "Which fast food chain did the sponsor of the Women's 2018 Volleyball Thailand League acquire rights to in 1987?",
+      "expected_answer": "Kentucky Fried Chicken",
+      "actual_answer": "研究过程中发生错误: 'FallbackKnowledgeAgent' object has no attribute 'search_knowledge'",
+      "reasoning_types": [
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.36,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.01535487174987793,
+      "pipeline_execution_time": 0.015022039413452148,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'FallbackKnowledgeAgent' object has no attribute 'search_knowledge'",
+      "evaluation_time": "2025-09-07T20:03:16.490819",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.03287671232876712
+    }
+  },
+  "total_queries": 1,
+  "successful_queries": 0,
+  "overall_success_rate": 0.0,
+  "last_update": "2025-09-07T20:03:16.491141"
+}

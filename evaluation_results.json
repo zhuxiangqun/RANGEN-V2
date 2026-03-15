@@ -1,0 +1,680 @@
+{
+  "log_file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/research_system.log",
+  "analysis_time": "2025-12-02T07:38:00.843211",
+  "file_size": 8133,
+  "total_lines": 179,
+  "sample_count": 1,
+  "frames_analysis": {
+    "accuracy": {
+      "real_accuracy": 1.0,
+      "total_comparisons": 1,
+      "correct_count": 1,
+      "exact_matches": 1,
+      "similarity_matches": 0,
+      "expected_answers": [
+        "Jane Ballou"
+      ],
+      "actual_answers": [
+        "Jane Ballou"
+      ],
+      "confidence_stats": {
+        "average": 0.29090909090909095,
+        "max": 0.8,
+        "min": 0.0,
+        "count": 11,
+        "sum": 3.2
+      },
+      "average_accuracy": 1.0,
+      "max_accuracy": 1.0,
+      "min_accuracy": 1.0,
+      "total_tests": 1
+    },
+    "reasoning_efficiency": {
+      "time_stats": {
+        "average": 372.80800008773804,
+        "max": 372.80800008773804,
+        "min": 372.80800008773804,
+        "count": 2,
+        "sum": 745.6160001754761
+      },
+      "step_stats": {
+        "average": 8.0,
+        "max": 8.0,
+        "min": 8.0,
+        "count": 2,
+        "sum": 16.0
+      },
+      "avg_time_per_step": 46.601000010967255,
+      "efficiency_score": 0.51
+    },
+    "innovation": {
+      "innovation_stats": {
+        "average": 0.5,
+        "max": 0.5,
+        "min": 0.5,
+        "count": 2,
+        "sum": 1.0
+      },
+      "avg_innovation": 0.5,
+      "max_innovation": 0.5,
+      "min_innovation": 0.5,
+      "innovation_count": 2,
+      "innovation_score": 0.5
+    },
+    "vector_search": {
+      "vector_stats": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "avg_similarity": 0.0,
+      "search_quality": 0.0,
+      "search_count": 0
+    }
+  },
+  "performance_analysis": {
+    "response_time": {
+      "time_stats": {
+        "average": 372.8093333625793,
+        "max": 372.81,
+        "min": 372.80800008773804,
+        "count": 6,
+        "sum": 2236.856000175476
+      },
+      "response_categories": {
+        "fast": 0,
+        "normal": 0,
+        "slow": 0,
+        "very_slow": 6
+      },
+      "avg_response_time": 372.8093333625793,
+      "max_response_time": 372.81,
+      "min_response_time": 372.80800008773804
+    },
+    "resource_usage": {
+      "memory": {
+        "log_data": {
+          "average": 0.0,
+          "max": 0.0,
+          "min": 0.0,
+          "count": 0,
+          "sum": 0.0
+        },
+        "current_usage": 84.3,
+        "current_available": 2698313728,
+        "current_total": 17179869184
+      },
+      "cpu": {
+        "log_data": {
+          "average": 0.0,
+          "max": 0.0,
+          "min": 0.0,
+          "count": 0,
+          "sum": 0.0
+        },
+        "current_usage": 0.0,
+        "core_count": 8
+      },
+      "disk": {
+        "log_data": {
+          "average": 0.0,
+          "max": 0.0,
+          "min": 0.0,
+          "count": 0,
+          "sum": 0.0
+        },
+        "current_usage": 29.5,
+        "current_free": 26860937216,
+        "current_total": 245107195904
+      }
+    },
+    "throughput": {
+      "processing_events": 0,
+      "time_span": 0.0,
+      "throughput": 0.0,
+      "events_per_second": 0.0,
+      "events_per_minute": 0.0
+    },
+    "memory_efficiency": {
+      "memory_usage_stats": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "efficiency_score": 0.0,
+      "avg_memory_usage": 0.0
+    },
+    "cpu_efficiency": {
+      "cpu_usage_stats": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "load_stats": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "efficiency_score": 0.0,
+      "avg_cpu_usage": 0.0
+    }
+  },
+  "quality_analysis": {
+    "error_analysis": {
+      "error_count": 0,
+      "warning_count": 0,
+      "error_rate": 0.0,
+      "warning_rate": 0.0,
+      "error_types": {
+        "connection": 0,
+        "timeout": 0,
+        "validation": 0,
+        "permission": 0,
+        "resource": 0,
+        "data": 0,
+        "system": 0,
+        "other": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "stability": {
+      "status_distribution": {
+        "True": 1
+      },
+      "stability_score": 0.0,
+      "restart_count": 0,
+      "total_status_changes": 1
+    },
+    "code_quality": {
+      "quality_stats": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "avg_quality_score": 0.0,
+      "complexity_indicators": 5,
+      "optimization_indicators": 8,
+      "quality_trend": "insufficient_data"
+    },
+    "reliability": {
+      "success_count": 22,
+      "failure_count": 1,
+      "reliability_score": 0.9565217391304348,
+      "recovery_count": 0,
+      "total_operations": 23
+    },
+    "maintainability": {
+      "maintenance_indicators": 6,
+      "modularity_indicators": 52,
+      "documentation_indicators": 3,
+      "maintainability_score": 1.0
+    }
+  },
+  "intelligence_analysis": {
+    "ai_algorithm_usage": {
+      "algorithm_usage": {
+        "neural_network": 1,
+        "machine_learning": 3,
+        "deep_learning": 1,
+        "reinforcement_learning": 0,
+        "natural_language_processing": 1,
+        "computer_vision": 0,
+        "clustering": 0,
+        "classification": 0,
+        "regression": 0,
+        "optimization": 1
+      },
+      "total_ai_mentions": 7,
+      "ai_usage_rate": 0.006183745583038869,
+      "most_used_algorithm": "machine_learning"
+    },
+    "learning_capability": {
+      "learning_indicators": 50,
+      "learning_type_usage": {
+        "supervised": 0,
+        "unsupervised": 0,
+        "reinforcement": 0,
+        "transfer": 0,
+        "online": 0
+      },
+      "performance_stats": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "learning_activity_score": 0.5
+    },
+    "reasoning_ability": {
+      "reasoning_indicators": 91,
+      "reasoning_type_usage": {
+        "logical": 2,
+        "causal": 1,
+        "analogical": 0,
+        "abductive": 0,
+        "statistical": 0
+      },
+      "reasoning_steps": {
+        "average": 8.0,
+        "max": 8.0,
+        "min": 8.0,
+        "count": 2,
+        "sum": 16.0
+      },
+      "reasoning_complexity": 10.0
+    },
+    "adaptation": {
+      "adaptation_indicators": 40,
+      "adaptation_type_usage": {
+        "parameter_adaptation": 0,
+        "structure_adaptation": 0,
+        "behavior_adaptation": 0,
+        "environment_adaptation": 0
+      },
+      "adaptation_scores": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "adaptation_activity": 0.8
+    },
+    "intelligence_score": {
+      "ai_score": 0.6183745583038869,
+      "learning_score": 0.5,
+      "reasoning_score": 1.0,
+      "adaptation_score": 0.8,
+      "overall_intelligence_score": 0.7875000000000001,
+      "intelligence_level": "good",
+      "ai_algorithm_score": 0.85
+    }
+  },
+  "system_health_analysis": {
+    "resource_health": {
+      "memory": {
+        "health_score": 1.0,
+        "current_usage": 84.3,
+        "log_data": {
+          "average": 0.9,
+          "max": 0.9,
+          "min": 0.9,
+          "count": 1,
+          "sum": 0.9
+        },
+        "status": "critical"
+      },
+      "cpu": {
+        "health_score": 1.0,
+        "current_usage": 0.0,
+        "log_data": {
+          "average": 0.1,
+          "max": 0.1,
+          "min": 0.1,
+          "count": 1,
+          "sum": 0.1
+        },
+        "status": "good"
+      },
+      "disk": {
+        "health_score": 1.0,
+        "current_usage": 29.5,
+        "log_data": {
+          "average": 0.0,
+          "max": 0.0,
+          "min": 0.0,
+          "count": 0,
+          "sum": 0.0
+        },
+        "status": "good"
+      }
+    },
+    "error_health": {
+      "error_count": 0,
+      "warning_count": 0,
+      "error_rate": 0.0,
+      "warning_rate": 0.0,
+      "error_health_score": 1.0,
+      "warning_health_score": 1.0,
+      "error_trend": "decreasing",
+      "overall_error_health": 1.0
+    },
+    "performance_health": {
+      "response_time": {
+        "health_score": 0.2,
+        "stats": {
+          "average": 372.81,
+          "max": 372.81,
+          "min": 372.81,
+          "count": 2,
+          "sum": 745.62
+        },
+        "status": "poor"
+      },
+      "throughput": {
+        "health_score": 0.5,
+        "stats": {
+          "average": 0.0,
+          "max": 0.0,
+          "min": 0.0,
+          "count": 0,
+          "sum": 0.0
+        },
+        "status": "unknown"
+      },
+      "overall_performance_health": 0.35
+    },
+    "stability_health": {
+      "restart_count": 0,
+      "recovery_count": 0,
+      "success_count": 22,
+      "stability_score": 1,
+      "stability_status": "excellent"
+    },
+    "overall_health": {
+      "overall_health_score": 0.8375000000000001,
+      "health_level": "good",
+      "dimension_scores": {
+        "resource": 1.0,
+        "error": 1.0,
+        "performance": 0.35,
+        "stability": 1
+      },
+      "recommendations": [
+        "性能较差，建议优化响应时间和吞吐量"
+      ]
+    }
+  },
+  "reasoning_analysis": {
+    "logical_reasoning": {
+      "logical_indicators": 9,
+      "reasoning_steps": {
+        "average": 8.0,
+        "max": 8.0,
+        "min": 8.0,
+        "count": 1,
+        "sum": 8.0
+      },
+      "complexity_indicators": 0,
+      "logical_reasoning_score": 0.18
+    },
+    "causal_reasoning": {
+      "causal_indicators": 20,
+      "chain_lengths": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "strength_scores": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "causal_reasoning_score": 0.6666666666666666
+    },
+    "analogical_reasoning": {
+      "analogical_indicators": 2,
+      "similarity_scores": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "analogy_counts": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "analogical_reasoning_score": 0.08
+    },
+    "abductive_reasoning": {
+      "abductive_indicators": 0,
+      "hypothesis_scores": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "hypothesis_counts": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "abductive_reasoning_score": 0.0
+    },
+    "spatial_reasoning": {
+      "spatial_indicators": 0,
+      "complexity_scores": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "operation_counts": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "spatial_reasoning_score": 0.0
+    },
+    "temporal_reasoning": {
+      "temporal_indicators": 9,
+      "sequence_lengths": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "prediction_scores": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "temporal_reasoning_score": 0.45
+    },
+    "overall_reasoning": {
+      "overall_reasoning_score": 0.22944444444444445,
+      "reasoning_scores": {
+        "logical": 0.18,
+        "causal": 0.6666666666666666,
+        "analogical": 0.08,
+        "abductive": 0.0,
+        "spatial": 0.0,
+        "temporal": 0.45
+      },
+      "reasoning_distribution": {
+        "logical": 2,
+        "causal": 1,
+        "analogical": 0,
+        "abductive": 0,
+        "spatial": 0,
+        "temporal": 0
+      },
+      "reasoning_level": "below_average",
+      "strongest_reasoning_type": "causal",
+      "weakest_reasoning_type": "abductive"
+    }
+  },
+  "frames_accuracy": {
+    "real_accuracy": 1.0,
+    "total_comparisons": 1,
+    "correct_count": 1,
+    "exact_matches": 1,
+    "similarity_matches": 0,
+    "expected_answers": [
+      "Jane Ballou"
+    ],
+    "actual_answers": [
+      "Jane Ballou"
+    ],
+    "confidence_stats": {
+      "average": 0.29090909090909095,
+      "max": 0.8,
+      "min": 0.0,
+      "count": 11,
+      "sum": 3.2
+    },
+    "average_accuracy": 1.0,
+    "max_accuracy": 1.0,
+    "min_accuracy": 1.0,
+    "total_tests": 1
+  },
+  "reasoning_efficiency": {
+    "time_stats": {
+      "average": 372.80800008773804,
+      "max": 372.80800008773804,
+      "min": 372.80800008773804,
+      "count": 2,
+      "sum": 745.6160001754761
+    },
+    "step_stats": {
+      "average": 8.0,
+      "max": 8.0,
+      "min": 8.0,
+      "count": 2,
+      "sum": 16.0
+    },
+    "avg_time_per_step": 46.601000010967255,
+    "efficiency_score": 0.51
+  },
+  "method_innovation": {
+    "innovation_stats": {
+      "average": 0.5,
+      "max": 0.5,
+      "min": 0.5,
+      "count": 2,
+      "sum": 1.0
+    },
+    "avg_innovation": 0.5,
+    "max_innovation": 0.5,
+    "min_innovation": 0.5,
+    "innovation_count": 2,
+    "innovation_score": 0.5
+  },
+  "intelligence_level": 0.7295936395759717,
+  "agent_coordination": {
+    "maintenance_indicators": 6,
+    "modularity_indicators": 52,
+    "documentation_indicators": 3,
+    "maintainability_score": 1.0
+  },
+  "module_integration": {
+    "maintenance_indicators": 6,
+    "modularity_indicators": 52,
+    "documentation_indicators": 3,
+    "maintainability_score": 1.0
+  },
+  "ml_learning": {
+    "ml_activities": 6,
+    "ml_score": 1.0
+  },
+  "rl_learning": {
+    "rl_activities": 11,
+    "rl_score": 1.0
+  },
+  "self_learning": {
+    "self_learning_activities": 7,
+    "self_learning_score": 1.0
+  },
+  "performance_metrics": {
+    "average_time": 0.0,
+    "max_time": 0.0,
+    "min_time": 0.0
+  },
+  "system_health": {
+    "memory_usage": 0.9,
+    "cpu_usage": 0.1,
+    "active_connections": 2,
+    "cache_hit_rate": 0.5,
+    "reasoning_engine_pool": {
+      "pool_size": 0,
+      "in_use_count": 0,
+      "created_count": 0,
+      "max_size": 5,
+      "total_active_instances": 0,
+      "discarded_count": 0,
+      "utilization_rate": 0.0
+    }
+  },
+  "research_report_quality": {
+    "report_count": 2,
+    "report_quality_score": 0.4
+  },
+  "ml_rl_synergy": {
+    "synergy_count": 1,
+    "synergy_score": 1.0
+  },
+  "prompt_context_synergy": {
+    "prompt_context_synergy_count": 1,
+    "prompt_context_synergy_score": 1.0
+  },
+  "complex_reasoning": {
+    "reasoning_activities": 2,
+    "average_steps": 8.0,
+    "reasoning_score": 1.0
+  },
+  "query_processing_flow": {
+    "flow_steps": {
+      "查询接收": 2,
+      "查询处理": 1,
+      "结果生成": 0,
+      "查询完成": 0
+    },
+    "sample_flow_steps": {
+      "查询接收": 1,
+      "查询处理": 0,
+      "查询完成": 0
+    },
+    "total_flow_activities": 3,
+    "sample_total_flow_activities": 1,
+    "unique_sample_ids": 1,
+    "flow_completeness_score": 0.3,
+    "sample_flow_completeness_score": 0.3333333333333333
+  },
+  "queries_analyzed": 1,
+  "query_count": 1,
+  "success_rate_analysis": {
+    "query_success_rate": 1.0,
+    "query_success_count": 1,
+    "query_error_count": 0,
+    "query_total": 1,
+    "sample_success_rate": 1.0,
+    "sample_success_count": 1,
+    "sample_total": 1,
+    "success_rate": 1.0
+  },
+  "success_rate": 1.0,
+  "error_analysis": {
+    "error|错误|exception|异常": 0,
+    "warning|警告|warning": 0,
+    "critical|严重|critical": 0
+  }
+}

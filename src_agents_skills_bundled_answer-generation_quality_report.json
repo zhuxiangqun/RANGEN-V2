@@ -1,0 +1,72 @@
+{
+  "skill_dir": "src/agents/skills/bundled/answer-generation",
+  "overall_status": "passed",
+  "summary": "质量检查通过",
+  "checks": [
+    {
+      "name": "成功检查",
+      "status": "passed",
+      "message": "\u001b[0m SKILL.md 文件存在",
+      "details": {}
+    },
+    {
+      "name": "成功检查",
+      "status": "passed",
+      "message": "\u001b[0m skill.yaml 文件存在",
+      "details": {}
+    },
+    {
+      "name": "成功检查",
+      "status": "passed",
+      "message": "\u001b[0m skill.yaml 格式正确",
+      "details": {}
+    },
+    {
+      "name": "成功检查",
+      "status": "passed",
+      "message": "\u001b[0m skill.yaml 所有必填字段都存在",
+      "details": {}
+    },
+    {
+      "name": "警告检查",
+      "status": "warning",
+      "message": "\u001b[0m SKILL.md 缺少以下章节: ## 技能描述 ## 使用示例 ## 工具列表",
+      "details": {}
+    },
+    {
+      "name": "成功检查",
+      "status": "passed",
+      "message": "\u001b[0m triggers 字段非空",
+      "details": {}
+    },
+    {
+      "name": "成功检查",
+      "status": "passed",
+      "message": "\u001b[0m tools 字段非空",
+      "details": {}
+    },
+    {
+      "name": "警告检查",
+      "status": "warning",
+      "message": "\u001b[0m skill.yaml 缺少 prototype_type 字段（将在分类阶段自动添加）",
+      "details": {}
+    },
+    {
+      "name": "成功检查",
+      "status": "passed",
+      "message": "\u001b[0m ✅ 所有关键检查通过！技能质量合格。",
+      "details": {}
+    },
+    {
+      "name": "成功检查",
+      "status": "passed",
+      "message": "\u001b[0m 🎉 技能质量检查完成，可以进入下一阶段！",
+      "details": {}
+    }
+  ],
+  "recommendations": [
+    "可以进入下一开发阶段",
+    "建议完善文档和测试用例"
+  ],
+  "timestamp": 1772899795.195861
+}

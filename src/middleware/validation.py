@@ -225,6 +225,10 @@ class InputValidationMiddleware(BaseHTTPMiddleware):
         if not self.enable_output_encoding or not self.output_encoder:
             return None
         
+        # Skip StreamingResponse (it does not have body attribute)
+        if not hasattr(response, 'body'):
+            return None
+        
         try:
             # 只处理JSON响应
             content_type = response.headers.get("content-type", "")
@@ -365,7 +369,14 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
         response.headers["X-Frame-Options"] = "DENY"
         response.headers["X-XSS-Protection"] = "1; mode=block"
         response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
-        response.headers["Content-Security-Policy"] = "default-src 'self'"
+        
+        # CSP: 对 /docs 和 /redoc 允许外部资源
+        path = request.url.path
+        if path in ["/docs", "/redoc", "/openapi.json"]:
+            response.headers["Content-Security-Policy"] = "default-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://fastapi.tiangolo.com data:"
+        else:
+            response.headers["Content-Security-Policy"] = "default-src 'self'"
+        
         response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
         response.headers["Permissions-Policy"] = "geolocation=(), microphone=(), camera=()"
         

@@ -1,0 +1,304 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+FRAMES基准评测器
+
+独立的FRAMES基准评测实现，通过标准接口与生产系统交互。
+"""
+
+import os
+import json
+import time
+import asyncio
+import logging
+from typing import Dict, Any, List, Optional
+from datetime import datetime
+
+from ..interfaces import (
+    ResearchSystemInterface, 
+    DatasetInterface, 
+    MetricsInterface,
+    EvaluationRequest, 
+    EvaluationResult, 
+    EvaluationReport
+)
+
+class FramesDatasetLoader(DatasetInterface):
+    """FRAMES数据集加载器"""
+    
+    def __init__(self, data_path: str = None):
+        self.data_path = data_path or os.environ.get('FRAMES_DATA_PATH', 'data/frames-benchmark/queries.json')
+        self.logger = logging.getLogger(__name__)
+    
+    def load_samples(self, count: int = None) -> List[Dict[str, Any]]:
+        """加载FRAMES数据集样本"""
+        try:
+            if not os.path.exists(self.data_path):
+                raise FileNotFoundError(f"FRAMES数据集文件不存在: {self.data_path}")
+            
+            with open(self.data_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            
+            if not isinstance(data, list):
+                raise ValueError("FRAMES数据集格式错误：应为列表格式")
+            
+            # 限制样本数量
+            if count and count < len(data):
+                data = data[:count]
+            
+            self.logger.info(f"成功加载 {len(data)} 个FRAMES样本")
+            return data
+            
+        except Exception as e:
+            self.logger.error(f"加载FRAMES数据集失败: {e}")
+            return []
+    
+    def get_dataset_info(self) -> Dict[str, Any]:
+        """获取数据集信息"""
+        try:
+            if os.path.exists(self.data_path):
+                file_size = os.path.getsize(self.data_path)
+                return {
+                    "name": "FRAMES Benchmark",
+                    "path": self.data_path,
+                    "file_size": file_size,
+                    "file_size_mb": file_size / (1024 * 1024)
+                }
+        except Exception as e:
+            self.logger.error(f"获取数据集信息失败: {e}")
+        
+        return {"name": "FRAMES Benchmark", "path": self.data_path}
+
+class FramesMetricsCalculator(MetricsInterface):
+    """FRAMES评测指标计算器"""
+    
+    def __init__(self):
+        self.logger = logging.getLogger(__name__)
+    
+    def calculate_accuracy(self, result: EvaluationResult, expected: str) -> float:
+        """计算FRAMES准确率"""
+        try:
+            if not result.success or not result.answer:
+                return 0.0
+            
+            # 简单的字符串相似度计算
+            actual = result.answer.lower().strip()
+            expected = expected.lower().strip()
+            
+            if actual == expected:
+                return 1.0
+            
+            # 计算编辑距离相似度
+            similarity = self._calculate_similarity(actual, expected)
+            return similarity
+            
+        except Exception as e:
+            self.logger.error(f"计算准确率失败: {e}")
+            return 0.0
+    
+    def calculate_quality_score(self, result: EvaluationResult) -> float:
+        """计算质量分数"""
+        try:
+            if not result.success:
+                return 0.0
+            
+            # 基于置信度和执行时间的质量分数
+            confidence_score = result.confidence
+            time_score = max(0, 1 - result.execution_time / 30.0)  # 30秒为满分
+            
+            quality_score = (confidence_score * 0.7 + time_score * 0.3)
+            return min(1.0, max(0.0, quality_score))
+            
+        except Exception as e:
+            self.logger.error(f"计算质量分数失败: {e}")
+            return 0.0
+    
+    def calculate_performance_metrics(self, results: List[EvaluationResult]) -> Dict[str, float]:
+        """计算性能指标"""
+        try:
+            if not results:
+                return {}
+            
+            successful_results = [r for r in results if r.success]
+            execution_times = [r.execution_time for r in successful_results]
+            
+            return {
+                "total_queries": len(results),
+                "successful_queries": len(successful_results),
+                "success_rate": len(successful_results) / len(results) if results else 0.0,
+                "average_execution_time": sum(execution_times) / len(execution_times) if execution_times else 0.0,
+                "min_execution_time": min(execution_times) if execution_times else 0.0,
+                "max_execution_time": max(execution_times) if execution_times else 0.0
+            }
+            
+        except Exception as e:
+            self.logger.error(f"计算性能指标失败: {e}")
+            return {}
+    
+    def _calculate_similarity(self, s1: str, s2: str) -> float:
+        """计算字符串相似度"""
+        if not s1 or not s2:
+            return 0.0
+        
+        # 简单的Jaccard相似度
+        set1 = set(s1.split())
+        set2 = set(s2.split())
+        
+        if not set1 and not set2:
+            return 1.0
+        
+        intersection = len(set1.intersection(set2))
+        union = len(set1.union(set2))
+        
+        return intersection / union if union > 0 else 0.0
+
+class FramesEvaluator:
+    """FRAMES基准评测器"""
+    
+    def __init__(self, 
+                 research_system: ResearchSystemInterface,
+                 dataset_loader: DatasetInterface = None,
+                 metrics_calculator: MetricsInterface = None,
+                 timeout: float = 30.0,
+                 max_concurrent: int = 3):
+        
+        self.research_system = research_system
+        self.dataset_loader = dataset_loader or FramesDatasetLoader()
+        self.metrics_calculator = metrics_calculator or FramesMetricsCalculator()
+        self.timeout = timeout
+        self.max_concurrent = max_concurrent
+        self.logger = logging.getLogger(__name__)
+    
+    async def evaluate(self, sample_count: int = None) -> EvaluationReport:
+        """执行FRAMES基准评测"""
+        self.logger.info("开始FRAMES基准评测")
+        
+        # 加载数据集
+        samples = self.dataset_loader.load_samples(sample_count)
+        if not samples:
+            self.logger.error("无法加载FRAMES数据集")
+            return self._create_empty_report()
+        
+        # 执行评测
+        results = []
+        semaphore = asyncio.Semaphore(self.max_concurrent)
+        
+        async def evaluate_sample(sample: Dict[str, Any]) -> EvaluationResult:
+            async with semaphore:
+                return await self._evaluate_single_sample(sample)
+        
+        # 并发执行评测
+        tasks = [evaluate_sample(sample) for sample in samples]
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+        
+        # 处理异常结果
+        processed_results = []
+        for i, result in enumerate(results):
+            if isinstance(result, Exception):
+                self.logger.error(f"样本 {i} 评测失败: {result}")
+                processed_results.append(EvaluationResult(
+                    query=samples[i].get("query", ""),
+                    answer="",
+                    confidence=0.0,
+                    execution_time=0.0,
+                    success=False,
+                    error=str(result)
+                ))
+            else:
+                processed_results.append(result)
+        
+        # 生成报告
+        report = self._generate_report(processed_results)
+        self.logger.info(f"FRAMES基准评测完成: {report.successful_queries}/{report.total_queries} 成功")
+        
+        return report
+    
+    async def _evaluate_single_sample(self, sample: Dict[str, Any]) -> EvaluationResult:
+        """评测单个样本"""
+        try:
+            query = sample.get("query", "")
+            expected_answer = sample.get("answer", "")
+            
+            # 创建评测请求
+            request = EvaluationRequest(
+                query=query,
+                context={
+                    "dataset": "frames_benchmark",
+                    "expected_answer": expected_answer,
+                    "reasoning_types": sample.get("reasoning", [])
+                },
+                timeout=self.timeout
+            )
+            
+            # 执行研究
+            start_time = time.time()
+            result = await self.research_system.research(request)
+            execution_time = time.time() - start_time
+            
+            # 计算准确率
+            accuracy = self.metrics_calculator.calculate_accuracy(result, expected_answer)
+            
+            # 计算质量分数
+            quality_score = self.metrics_calculator.calculate_quality_score(result)
+            
+            return EvaluationResult(
+                query=query,
+                answer=result.answer,
+                confidence=result.confidence,
+                execution_time=execution_time,
+                success=result.success,
+                error=result.error,
+                metadata={
+                    "expected_answer": expected_answer,
+                    "accuracy": accuracy,
+                    "quality_score": quality_score,
+                    "reasoning_types": sample.get("reasoning", [])
+                }
+            )
+            
+        except Exception as e:
+            self.logger.error(f"评测样本失败: {e}")
+            return EvaluationResult(
+                query=sample.get("query", ""),
+                answer="",
+                confidence=0.0,
+                execution_time=0.0,
+                success=False,
+                error=str(e)
+            )
+    
+    def _generate_report(self, results: List[EvaluationResult]) -> EvaluationReport:
+        """生成评测报告"""
+        successful_results = [r for r in results if r.success]
+        
+        # 计算平均准确率
+        accuracies = [r.metadata.get("accuracy", 0.0) for r in successful_results if r.metadata]
+        average_accuracy = sum(accuracies) / len(accuracies) if accuracies else 0.0
+        
+        # 计算平均执行时间
+        execution_times = [r.execution_time for r in successful_results]
+        average_execution_time = sum(execution_times) / len(execution_times) if execution_times else 0.0
+        
+        return EvaluationReport(
+            total_queries=len(results),
+            successful_queries=len(successful_results),
+            failed_queries=len(results) - len(successful_results),
+            average_accuracy=average_accuracy,
+            average_execution_time=average_execution_time,
+            results=results,
+            metadata={
+                "evaluation_type": "frames_benchmark",
+                "dataset_info": self.dataset_loader.get_dataset_info()
+            }
+        )
+    
+    def _create_empty_report(self) -> EvaluationReport:
+        """创建空报告"""
+        return EvaluationReport(
+            total_queries=0,
+            successful_queries=0,
+            failed_queries=0,
+            average_accuracy=0.0,
+            average_execution_time=0.0,
+            results=[]
+        )

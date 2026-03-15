@@ -1,0 +1,2365 @@
+/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/.venv/lib/python3.13/site-packages/keras/src/export/tf2onnx_lib.py:8: FutureWarning: In the future `np.object` will be defined as the corresponding NumPy scalar.
+  if not hasattr(np, "object"):
+2026-01-15 10:08:49,594 - src.utils.unified_centers - INFO - 微服务组件初始化完成
+2026-01-15 10:08:49,594 - src.utils.unified_centers - INFO - 边缘计算组件初始化完成
+2026-01-15 10:08:49,594 - src.utils.unified_centers - INFO - 量子计算组件初始化完成
+2026-01-15 10:08:49,597 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:08:49,607 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:08:49,608 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:08:49,608 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:08:49,608 - src.utils.unified_intelligent_center - INFO - 统一智能中心初始化完成
+2026-01-15 10:08:49,608 - src.utils.unified_centers - INFO - Registered center: get_unified_intelligent_center
+2026-01-15 10:08:49,608 - src.utils.unified_centers - INFO - Registered center: get_unified_config_center
+2026-01-15 10:08:49,608 - src.tools.monitoring.performance_monitor - INFO - 智能优化功能初始化完成
+2026-01-15 10:08:49,608 - src.tools.monitoring.performance_monitor - INFO - 自适应优化初始化完成
+2026-01-15 10:08:49,608 - src.tools.monitoring.performance_monitor - INFO - 动态调整初始化完成
+2026-01-15 10:08:49,608 - src.tools.monitoring.performance_monitor - INFO - 性能调优初始化完成
+2026-01-15 10:08:49,608 - src.tools.monitoring.performance_monitor - INFO - 增强性能监控器初始化完成
+2026-01-15 10:08:49,608 - src.utils.unified_centers - INFO - Registered center: get_performance_monitor
+2026-01-15 10:08:49,609 - src.utils.unified_context - INFO - 动态上下文刷新线程已启动
+2026-01-15 10:08:49,609 - src.utils.unified_context - INFO - 统一上下文管理器初始化完成
+2026-01-15 10:08:49,609 - src.utils.unified_context - INFO - 动态上下文刷新线程已启动
+2026-01-15 10:08:49,609 - src.utils.unified_context - INFO - 统一上下文管理器初始化完成
+2026-01-15 10:08:49,609 - src.utils.unified_centers - INFO - Registered center: get_unified_context_manager
+2026-01-15 10:08:49,610 - src.utils.unified_security_center - INFO - 威胁情报初始化完成
+2026-01-15 10:08:49,610 - src.utils.unified_security_center - INFO - 行为分析初始化完成
+2026-01-15 10:08:49,610 - src.utils.unified_security_center - INFO - 安全自动化初始化完成
+2026-01-15 10:08:49,610 - src.utils.unified_security_center - INFO - 审计系统初始化完成
+2026-01-15 10:08:49,610 - src.utils.unified_security_center - INFO - 增强安全功能初始化完成
+2026-01-15 10:08:49,610 - src.utils.unified_centers - INFO - Registered center: get_unified_security_center
+2026-01-15 10:08:49,611 - core.unified_dependency_manager - INFO - 依赖 'unified_intelligent_center' 注册成功
+2026-01-15 10:08:49,611 - core.unified_dependency_manager - INFO - 依赖 'unified_config_center' 注册成功
+2026-01-15 10:08:49,611 - core.unified_dependency_manager - INFO - 依赖 'unified_threshold_manager' 注册成功
+2026-01-15 10:08:49,611 - core.unified_dependency_manager - INFO - 依赖 'unified_scoring_center' 注册成功
+2026-01-15 10:08:49,611 - core.unified_dependency_manager - INFO - 依赖 'prompt_engine' 注册成功
+2026-01-15 10:08:49,611 - core.unified_dependency_manager - INFO - 依赖 'memory_optimizer' 注册成功
+2026-01-15 10:08:49,611 - core.unified_dependency_manager - INFO - 依赖 'security_center' 注册成功
+2026-01-15 10:08:49,611 - core.unified_dependency_manager - INFO - 依赖 'performance_monitor' 注册成功
+2026-01-15 10:08:49,611 - core.unified_dependency_manager - INFO - 依赖 'unified_answer_center' 注册成功
+2026-01-15 10:08:49,611 - core.unified_dependency_manager - INFO - 工厂 'unified_intelligent_center' 注册成功
+2026-01-15 10:08:49,611 - core.unified_dependency_manager - INFO - 工厂 'unified_config_center' 注册成功
+2026-01-15 10:08:49,611 - core.unified_dependency_manager - INFO - 工厂 'prompt_engine' 注册成功
+2026-01-15 10:08:49,611 - core.unified_dependency_manager - INFO - 工厂 'memory_optimizer' 注册成功
+2026-01-15 10:08:49,611 - core.unified_dependency_manager - INFO - 工厂 'performance_monitor' 注册成功
+2026-01-15 10:08:49,611 - core.unified_dependency_manager - INFO - 工厂 'security_center' 注册成功
+2026-01-15 10:08:49,611 - core.unified_dependency_manager - INFO - ✅ 统一依赖管理器初始化完成
+2026-01-15 10:08:49,611 - src.utils.unified_centers - INFO - Registered center: get_unified_dependency_manager
+2026-01-15 10:08:49,611 - src.utils.unified_centers - INFO - Registered center: get_unified_dependency_manager
+2026-01-15 10:08:49,612 - src.utils.unified_centers - INFO - Registered center: get_unified_tokenization_manager
+2026-01-15 10:08:49,612 - src.utils.unified_centers - INFO - Registered center: get_unified_tokenization_manager
+2026-01-15 10:08:49,612 - src.utils.unified_centers - INFO - Registered center: get_unified_threshold_manager
+2026-01-15 10:08:49,612 - src.utils.unified_centers - INFO - Registered center: get_unified_threshold_manager
+2026-01-15 10:08:49,613 - src.utils.unified_centers - INFO - Registered center: get_unified_model_manager
+2026-01-15 10:08:49,613 - src.utils.unified_centers - INFO - Registered center: get_unified_model_manager
+2026-01-15 10:08:49,613 - src.utils.unified_intelligent_processor - INFO - 统一智能处理基础类初始化完成
+2026-01-15 10:08:49,613 - src.utils.unified_centers - INFO - Registered center: get_unified_intelligent_processor
+2026-01-15 10:08:49,613 - src.utils.unified_centers - INFO - Registered center: get_unified_intelligent_processor
+2026-01-15 10:08:49 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:08:49,615 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:08:49 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-reasoner, base_url=https://api.deepseek.com/v1
+2026-01-15 10:08:49,615 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-reasoner, base_url=https://api.deepseek.com/v1
+2026-01-15 10:08:49,615 - src.utils.unified_complexity_model_service - INFO - ✅ LLM集成初始化成功
+2026-01-15 10:08:49,618 - src.core.adaptive_optimizer - INFO - ✅ 加载历史性能数据: 360条记录
+2026-01-15 10:08:49,618 - src.utils.unified_complexity_model_service - INFO - ✅ ML/RL优化器初始化成功
+2026-01-15 10:08:49,618 - src.utils.unified_complexity_model_service - INFO - ✅ 统一复杂度判断和模型选择服务初始化完成
+2026-01-15 10:08:49,618 - src.utils.unified_centers - INFO - Registered center: get_unified_complexity_model_service
+2026-01-15 10:08:49,618 - src.utils.unified_centers - INFO - Registered center: get_unified_complexity_model_service
+
+================================================================================
+🔬 DIAGNOSTIC TRACE FOR QUERY:
+If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?
+================================================================================
+
+
+----------------------------------------
+📊 1. COMPLEXITY JUDGMENT
+----------------------------------------
+2026-01-15 10:08:49,619 - src.core.entry_router - INFO - ✅ Entry Router: 统一复杂度判断服务已初始化（支持LLM判断）
+2026-01-15 10:08:49,619 - src.core.entry_router - INFO - ✅ Entry Router: 统一工作流已启用，将优先使用统一工作流路径
+Running complexity assessment...
+2026-01-15 10:09:01,910 - src.utils.unified_complexity_model_service - INFO - ✅ LLM统一分析成功: complex (评分: 8.50)
+Complexity Level: COMPLEX
+Score: 8.5
+Needs Reasoning Chain: True
+
+----------------------------------------
+🚀 2. EXECUTION TRACE
+----------------------------------------
+🔍 [DEBUG] 系统未初始化，开始初始化...
+2026-01-15 10:09:01,912 - src.unified_research_system - INFO - 🚀 开始初始化统一异步研究系统...
+2026-01-15 10:09:01,912 - src.unified_research_system - INFO - 🔧 初始化核心组件...
+2026-01-15 10:09:01 - src.agents.tools.tool_registry - INFO - ToolRegistry initialized
+2026-01-15 10:09:01,912 - src.agents.tools.tool_registry - INFO - ToolRegistry initialized
+2026-01-15 10:09:01,912 - src.unified_research_system - INFO - ✅ 工具注册表初始化成功
+2026-01-15 10:09:01,916 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:09:01,940 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:09:01,940 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:09:01,940 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:09:01 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:01,940 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:01,940 - src.unified_research_system - INFO - ✅ LLM客户端初始化成功（用于Agent循环）
+2026-01-15 10:09:01,940 - src.unified_research_system - INFO - 🔧 开始注册Agent Tools...
+2026-01-15 10:09:01 - src.agents.tools.tool_registry - INFO - Registered tool: knowledge_retrieval (retrieval)
+2026-01-15 10:09:01,941 - src.agents.tools.tool_registry - INFO - Registered tool: knowledge_retrieval (retrieval)
+2026-01-15 10:09:01 - src.agents.tools.tool_registry - INFO - Registered tool: reasoning (utility)
+2026-01-15 10:09:01,941 - src.agents.tools.tool_registry - INFO - Registered tool: reasoning (utility)
+2026-01-15 10:09:01 - src.agents.tools.tool_registry - INFO - Registered tool: answer_generation (utility)
+2026-01-15 10:09:01,941 - src.agents.tools.tool_registry - INFO - Registered tool: answer_generation (utility)
+2026-01-15 10:09:01 - src.agents.tools.tool_registry - INFO - Registered tool: citation (utility)
+2026-01-15 10:09:01,941 - src.agents.tools.tool_registry - INFO - Registered tool: citation (utility)
+2026-01-15 10:09:01,941 - src.agents.tools.multimodal_tool - INFO - ✅ 多模态处理工具初始化完成
+2026-01-15 10:09:01 - src.agents.tools.tool_registry - INFO - Registered tool: multimodal (utility)
+2026-01-15 10:09:01,941 - src.agents.tools.tool_registry - INFO - Registered tool: multimodal (utility)
+2026-01-15 10:09:01,941 - src.unified_research_system - INFO - ✅ Agent Tools注册成功
+2026-01-15 10:09:01 - src.agents.tools.tool_registry - INFO - Registered tool: search (retrieval)
+2026-01-15 10:09:01,941 - src.agents.tools.tool_registry - INFO - Registered tool: search (retrieval)
+2026-01-15 10:09:01 - src.agents.tools.tool_registry - INFO - Registered tool: calculator (utility)
+2026-01-15 10:09:01,942 - src.agents.tools.tool_registry - INFO - Registered tool: calculator (utility)
+2026-01-15 10:09:01,942 - src.unified_research_system - INFO - ✅ Utility Tools注册成功（RAG功能由RAGTool提供，内部使用RAGAgent）
+2026-01-15 10:09:01,942 - src.unified_research_system - INFO - ✅ 所有工具注册完成
+2026-01-15 10:09:01,942 - src.unified_research_system - INFO - ✅ 核心组件初始化完成
+2026-01-15 10:09:01,942 - src.unified_research_system - INFO - 🤖 初始化智能体...
+2026-01-15 10:09:01,942 - core.ai_algorithm_integrator - INFO - 责任链设置完成，链长度: 3
+2026-01-15 10:09:01,948 - src.config.unified_config_manager - INFO - 加载了 8 个配置节
+2026-01-15 10:09:01,948 - core.ai_algorithm_integrator - INFO - 增强AI功能初始化完成
+2026-01-15 10:09:01,948 - core.ai_algorithm_integrator - INFO - 机器学习管道初始化完成
+2026-01-15 10:09:01,948 - core.ai_algorithm_integrator - INFO - 模型管理系统初始化完成
+2026-01-15 10:09:01,948 - core.ai_algorithm_integrator - INFO - 智能决策系统初始化完成
+2026-01-15 10:09:01,948 - core.ai_algorithm_integrator - INFO - AI算法集成器初始化完成 - 已集成大脑决策机制
+2026-01-15 10:09:01,948 - src.unified_research_system - INFO - ✅ AI算法集成器初始化成功
+2026-01-15 10:09:01,948 - src.unified_research_system - INFO - 🔄 [初始化] 开始初始化Entry Router...
+2026-01-15 10:09:01,948 - src.unified_research_system - INFO - 🔍 [DEBUG] Entry Router初始化前: _use_langgraph=False
+2026-01-15 10:09:01,948 - src.core.entry_router - INFO - ✅ Entry Router: 统一复杂度判断服务已初始化（支持LLM判断）
+2026-01-15 10:09:01,948 - src.unified_research_system - INFO - ✅ Entry Router初始化成功（使用统一复杂度判断服务，支持LLM判断）
+2026-01-15 10:09:01,948 - src.unified_research_system - INFO - 🔍 [DEBUG] Entry Router初始化后: _entry_router=True
+2026-01-15 10:09:01,948 - src.unified_research_system - INFO - ✅ [初始化] Entry Router初始化完成
+2026-01-15 10:09:01,948 - src.unified_research_system - INFO - 🔄 [初始化] 开始初始化智能协调层...
+2026-01-15 10:09:02,349 - src.unified_research_system - WARNING - ⚠️ 智能协调层初始化失败: ReasoningExpert.__init__() takes 1 positional argument but 3 were given
+2026-01-15 10:09:02,349 - src.unified_research_system - INFO - ✅ [初始化] 智能协调层初始化完成
+2026-01-15 10:09:02,578 - src.core.langgraph_opentelemetry_integration - INFO - ✅ OpenTelemetry 初始化成功
+2026-01-15 10:09:02,579 - src.unified_research_system - INFO - 🔄 [初始化] 正在创建统一工作流...
+2026-01-15 10:09:02,580 - src.core.langgraph_unified_workflow - INFO - ✅ 状态版本管理器已初始化
+2026-01-15 10:09:02,580 - src.core.langgraph_unified_workflow - INFO - ✅ 动态工作流管理器已准备
+2026-01-15 10:09:02,580 - src.core.langgraph_unified_workflow - INFO - ✅ 错误恢复器已准备
+2026-01-15 10:09:02,581 - src.core.langgraph_unified_workflow - INFO - ✅ 性能优化器已初始化（缓存、LLM优化器、并行执行器）
+2026-01-15 10:09:02,581 - src.core.langgraph_opentelemetry_integration - INFO - ✅ OpenTelemetry 控制台导出器已配置
+2026-01-15 10:09:02,581 - src.core.langgraph_unified_workflow - INFO - ✅ OpenTelemetry 监控已启用
+2026-01-15 10:09:02,583 - src.core.reasoning.utils - INFO - ✅ 已加载ML训练配置: config/ml_training_config.json
+2026-01-15 10:09:02,583 - src.utils.semantic_understanding_pipeline - INFO - 语义理解管道初始化完成
+2026-01-15 10:09:02,583 - src.utils.unified_rule_manager - INFO - ✅ 统一规则管理中心已初始化
+2026-01-15 10:09:02,583 - src.core.reasoning.engine - INFO - ✅ 统一规则管理中心已初始化（推理引擎）
+2026-01-15 10:09:02 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-reasoner, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:02,584 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-reasoner, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:02,584 - src.core.reasoning.engine - INFO - ✅ 推理模型初始化完成: deepseek-reasoner
+2026-01-15 10:09:02 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:02,584 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:02,584 - src.core.reasoning.engine - INFO - ✅ 快速模型初始化成功: deepseek-chat
+2026-01-15 10:09:02,586 - src.utils.prompt_engine - INFO - 从文件加载了 35 个模板
+2026-01-15 10:09:02,586 - src.utils.prompt_engine - INFO - 提示词引擎初始化完成
+2026-01-15 10:09:02,586 - src.core.reasoning.engine - INFO - ✅ 所有推理模板已从配置文件加载: 7 个
+2026-01-15 10:09:02,586 - src.core.reasoning.engine - INFO - 提示词工程初始化成功
+2026-01-15 10:09:02,588 - src.utils.mcp_protocol - INFO - 高级MCP协议初始化完成
+2026-01-15 10:09:02,588 - src.utils.unified_context_engineering_center - INFO - ✅ MCP协议处理器已集成
+2026-01-15 10:09:02,588 - src.utils.unified_context_engineering_center - INFO - 统一上下文工程中心初始化完成（延迟加载模式）
+2026-01-15 10:09:02,588 - src.core.reasoning.engine - INFO - ✅ 统一上下文工程中心初始化成功
+2026-01-15 10:09:02,603 - src.utils.prompt_engine - INFO - 从文件加载了 35 个模板
+2026-01-15 10:09:02,603 - src.utils.prompt_engine - INFO - 提示词引擎初始化完成
+2026-01-15 10:09:02,603 - src.core.reasoning.engine - WARNING - 统一提示词管理器初始化失败: name 'PromptEngineeringAgentWrapper' is not defined，将使用fallback提示词
+2026-01-15 10:09:02 - src.agents.tools.tool_registry - WARNING - Overwriting existing tool: knowledge_retrieval
+2026-01-15 10:09:02,604 - src.agents.tools.tool_registry - WARNING - Overwriting existing tool: knowledge_retrieval
+2026-01-15 10:09:02 - src.agents.tools.tool_registry - INFO - Registered tool: knowledge_retrieval (retrieval)
+2026-01-15 10:09:02,604 - src.agents.tools.tool_registry - INFO - Registered tool: knowledge_retrieval (retrieval)
+2026-01-15 10:09:02 - src.agents.retrieval_agent - INFO - RetrievalAgent initialized: retrieval_agent
+2026-01-15 10:09:02,604 - src.agents.retrieval_agent - INFO - RetrievalAgent initialized: retrieval_agent
+2026-01-15 10:09:02,604 - src.core.reasoning.engine - INFO - ✅ 知识检索Agent初始化成功
+2026-01-15 10:09:02,606 - src.core.reasoning.learning_manager - INFO - ✅ 学习数据已从文件加载: data/learning/learning_data.json
+2026-01-15 10:09:02,606 - src.core.reasoning.learning_manager - INFO -    错误模式: 0条, 成功模式: 0条
+2026-01-15 10:09:02,608 - src.core.adaptive_optimizer - INFO - ✅ 加载历史性能数据: 360条记录
+2026-01-15 10:09:02,608 - src.core.reasoning.evidence_processor - INFO - ✅ 证据处理器：自适应优化器已初始化（ML/RL增强）
+2026-01-15 10:09:02,609 - src.core.reasoning.engine - INFO - ✅ 统一证据处理框架初始化成功
+2026-01-15 10:09:02,609 - src.core.reasoning.reasoning_orchestrator.quick_fix_enhancer - INFO - ✅ QuickFixPromptEnhancer 初始化完成
+2026-01-15 10:09:02,609 - src.core.reasoning.reasoning_orchestrator.reasoning_orchestrator - INFO - 🔧 初始化推理编排器组件...
+2026-01-15 10:09:02,609 - src.core.reasoning.reasoning_orchestrator.smart_query_analyzer - INFO - ✅ SmartQueryAnalyzer 初始化完成
+2026-01-15 10:09:02,609 - src.core.reasoning.reasoning_orchestrator.reasoning_orchestrator - INFO - ✅ SmartQueryAnalyzer 初始化成功
+2026-01-15 10:09:02,609 - src.core.reasoning.reasoning_orchestrator.reasoning_step_planner - INFO - ✅ ReasoningStepPlanner 初始化完成
+2026-01-15 10:09:02,609 - src.core.reasoning.reasoning_orchestrator.reasoning_orchestrator - INFO - ✅ ReasoningStepPlanner 初始化成功
+2026-01-15 10:09:02,610 - src.core.reasoning.reasoning_orchestrator.dynamic_knowledge_manager - INFO - ✅ DynamicKnowledgeManager 初始化完成
+2026-01-15 10:09:02,610 - src.core.reasoning.reasoning_orchestrator.reasoning_orchestrator - INFO - ✅ DynamicKnowledgeManager 初始化成功
+2026-01-15 10:09:02,610 - src.core.reasoning.reasoning_orchestrator.prompt_enhancer - INFO - ✅ PromptEnhancer 初始化完成
+2026-01-15 10:09:02,610 - src.core.reasoning.reasoning_orchestrator.reasoning_orchestrator - INFO - ✅ PromptEnhancer 初始化成功
+2026-01-15 10:09:02,610 - src.core.reasoning.reasoning_orchestrator.adaptive_quality_validator - INFO - ✅ AdaptiveQualityValidator 初始化完成
+2026-01-15 10:09:02,610 - src.core.reasoning.reasoning_orchestrator.reasoning_orchestrator - INFO - ✅ AdaptiveQualityValidator 初始化成功
+2026-01-15 10:09:02,610 - src.core.reasoning.reasoning_orchestrator.reasoning_orchestrator - INFO - ✅ AdaptiveQualityValidator 初始化成功
+2026-01-15 10:09:02,610 - src.core.reasoning.reasoning_orchestrator.reasoning_orchestrator - INFO - 🎉 推理编排器初始化完成
+2026-01-15 10:09:02,610 - src.core.reasoning.cache_manager - INFO - ✅ 加载缓存完成: 0 有效, 0 过期, 0 无效
+2026-01-15 10:09:02,610 - src.core.reasoning.cache_manager - INFO - ✅ 缓存管理器初始化完成，容量: 1000, TTL: 86400s
+2026-01-15 10:09:02,610 - src.core.reasoning.subquery_processor - INFO - ✅ 统一规则管理中心已初始化（子查询处理器）
+2026-01-15 10:09:02,610 - src.core.reasoning.engine - INFO - ✅ 使用统一证据处理框架的检索处理器（向后兼容）
+🚀 DEBUG: 加载修复后的 cognitive_answer_extractor.py - 版本: 2026-01-10-fixed (Rebuilt)
+2026-01-15 10:09:02,611 - src.core.reasoning.cognitive_answer_extractor - INFO - CognitiveAnswerExtractor initialized (Rebuilt Version)
+2026-01-15 10:09:02,611 - src.core.reasoning.answer_extraction.answer_extractor - INFO - 认知答案提取器已初始化
+2026-01-15 10:09:02,611 - src.utils.semantic_understanding_pipeline - INFO - 语义理解管道初始化完成
+2026-01-15 10:09:02,611 - src.core.reasoning.answer_extraction.answer_extractor - INFO - 统一规则管理中心已初始化
+2026-01-15 10:09:02,611 - src.core.reasoning.answer_extraction.extraction_strategies - INFO - DEBUG: LLMExtractionStrategy initialized
+2026-01-15 10:09:02,611 - src.core.reasoning.hierarchical_answer_validator - INFO - ✅ 统一规则管理中心已初始化（分层验证器）
+2026-01-15 10:09:02,612 - src.core.reasoning.answer_extraction.answer_extractor - INFO - 分层答案验证器已初始化
+2026-01-15 10:09:02,613 - src.core.reasoning.step_generator - INFO - ✅ 配置系统初始化成功
+2026-01-15 10:09:02,616 - src.core.reasoning.validators.step_validator - INFO - ✅ StepValidator 初始化完成，包含4个验证器
+2026-01-15 10:09:02,616 - src.core.reasoning.step_generator - INFO - ✅ 验证器系统初始化成功
+2026-01-15 10:09:02,617 - src.core.reasoning.managers.llm_manager - INFO - ✅ LLM管理器初始化完成
+2026-01-15 10:09:02,617 - src.core.reasoning.step_generator - INFO - ✅ LLM管理器初始化成功
+2026-01-15 10:09:02,619 - src.core.reasoning.managers.prompt_manager - INFO - ✅ 模板已注册: step_generation v1.0
+2026-01-15 10:09:02,619 - src.core.reasoning.managers.prompt_manager - INFO - ✅ 模板已注册: step_validation v1.0
+2026-01-15 10:09:02,619 - src.core.reasoning.managers.prompt_manager - INFO - ✅ 模板已注册: complexity_analysis v1.0
+2026-01-15 10:09:02,619 - src.core.reasoning.managers.prompt_manager - INFO - ✅ 提示词管理器初始化完成，支持3个模板
+2026-01-15 10:09:02,619 - src.core.reasoning.step_generator - INFO - ✅ 提示词管理器初始化成功
+2026-01-15 10:09:02,619 - src.core.reasoning.managers.cache_manager - INFO - ✅ LLM缓存管理器初始化完成，最大容量: 1000
+2026-01-15 10:09:02,619 - src.core.reasoning.managers.cache_manager - INFO - ✅ 内容验证器已添加，现在有1个验证器
+2026-01-15 10:09:02,619 - src.core.reasoning.managers.cache_manager - INFO - ✅ 内容验证器已添加，现在有2个验证器
+2026-01-15 10:09:02,619 - src.core.reasoning.managers.cache_manager - INFO - ✅ 默认内容验证器已添加
+2026-01-15 10:09:02,619 - src.core.reasoning.step_generator - INFO - ✅ 新缓存管理器初始化成功
+2026-01-15 10:09:02,619 - src.core.reasoning.step_generator - INFO - 🛑 [系统重构] 已禁用所有 ML 模型加载 (P0 修复)
+2026-01-15 10:09:02,619 - src.core.reasoning.engine - INFO - ✅ 数据收集管道已启用: data/ml_training
+2026-01-15 10:09:02,619 - src.core.reasoning.engine - INFO - ✅ 自适应重试智能体已启用
+2026-01-15 10:09:02,619 - src.core.reasoning.engine - INFO - ✅ 动态规划器已启用
+2026-01-15 10:09:02,619 - src.core.reasoning.engine - INFO - ✅ 跨任务知识迁移已启用
+2026-01-15 10:09:02,624 - DeepConfidenceEstimator - INFO - ✅ 成功加载模型: data/ml_models/deep_confidence_estimator.pkl (类型: lstm_attention)
+2026-01-15 10:09:02,624 - DeepConfidenceEstimator - INFO - ✅ 成功加载模型: data/ml_models/deep_confidence_estimator.pkl
+2026-01-15 10:09:02,624 - src.core.reasoning.ml_framework.model_auto_loader - INFO - ✅ [deep_confidence_estimator] 从默认路径加载模型: data/ml_models/deep_confidence_estimator.pkl
+2026-01-15 10:09:02,624 - src.core.reasoning.engine - INFO - ✅ 深度置信度评估模型已启用
+2026-01-15 10:09:02,624 - src.core.reasoning.engine - INFO - ✅ 持续学习系统已启用
+2026-01-15 10:09:02,624 - ContinuousLearningSystem - INFO - ✅ 模型已注册: deep_confidence_estimator
+2026-01-15 10:09:02,624 - ContinuousLearningSystem - INFO - ✅ 训练已调度: deep_confidence_estimator (weekly)
+2026-01-15 10:09:02,624 - ContinuousLearningSystem - INFO - ✅ 模型已注册: adaptive_retry_agent
+2026-01-15 10:09:02,624 - ContinuousLearningSystem - INFO - ✅ 训练已调度: adaptive_retry_agent (weekly)
+2026-01-15 10:09:02,624 - src.core.reasoning.engine - INFO - ✅ RealReasoningEngine 初始化完成（模块化版本）
+2026-01-15 10:09:02,624 - src.core.langgraph_reasoning_nodes - INFO - ✅ 推理引擎初始化成功
+2026-01-15 10:09:02,624 - src.core.langgraph_unified_workflow - INFO - ✅ 推理节点初始化成功
+🔧 初始化AgentNodes...
+❌ ChiefAgent初始化失败: No module named 'src.agents.chief_agent_wrapper'
+2026-01-15 10:09:02,624 - src.core.langgraph_agent_nodes - WARNING - ⚠️ 首席Agent初始化失败: No module named 'src.agents.chief_agent_wrapper'
+2026-01-15 10:09:02,625 - src.core.langgraph_agent_nodes - WARNING - ⚠️ ReAct Agent初始化失败: No module named 'src.agents.langgraph_react_agent'
+2026-01-15 10:09:02,625 - src.core.langgraph_agent_nodes - INFO - ✅ 专家智能体节点准备完成（延迟初始化）
+🔧 AgentNodes初始化完成: True
+2026-01-15 10:09:02,625 - src.core.langgraph_unified_workflow - INFO - ✅ Agent节点初始化成功
+2026-01-15 10:09:02,625 - src.core.langgraph_core_nodes - INFO - ✅ 将通过系统工具注册表进行知识检索
+2026-01-15 10:09:02,625 - src.core.langgraph_core_nodes - WARNING - ⚠️ 提示词工程智能体初始化失败: name 'PromptEngineeringAgentWrapper' is not defined
+2026-01-15 10:09:02,625 - src.core.langgraph_core_nodes - WARNING - ⚠️ 上下文工程智能体初始化失败: No module named 'src.agents.context_engineering_agent_wrapper'
+2026-01-15 10:09:02,625 - src.core.langgraph_unified_workflow - INFO - ✅ 核心功能节点（RAG、提示词工程、上下文工程）初始化成功
+2026-01-15 10:09:02,625 - src.core.langgraph_unified_workflow - INFO - ✅ 详细处理节点初始化成功
+2026-01-15 10:09:02,625 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 专家智能体节点函数检查:
+2026-01-15 10:09:02,625 - src.core.langgraph_unified_workflow - INFO -    - memory_agent_func: True
+2026-01-15 10:09:02,625 - src.core.langgraph_unified_workflow - INFO -    - knowledge_retrieval_agent_func: True
+2026-01-15 10:09:02,625 - src.core.langgraph_unified_workflow - INFO -    - reasoning_agent_func: True
+2026-01-15 10:09:02,625 - src.core.langgraph_unified_workflow - INFO -    - answer_generation_agent_func: True
+2026-01-15 10:09:02,626 - src.core.langgraph_unified_workflow - INFO -    - citation_agent_func: True
+2026-01-15 10:09:02,627 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 添加所有可能的节点（包括备选节点）以完整显示系统架构
+2026-01-15 10:09:02,627 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 核心大脑节点（ChiefAgent）已添加到工作流
+2026-01-15 10:09:02,627 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] RAG检索节点已添加到工作流
+2026-01-15 10:09:02,627 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 提示词工程节点已添加到工作流
+2026-01-15 10:09:02,627 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 上下文工程节点已添加到工作流
+2026-01-15 10:09:02,628 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 推理节点已添加到工作流
+2026-01-15 10:09:02,631 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 添加标准能力节点: capability_knowledge_retrieval
+2026-01-15 10:09:02,632 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 添加标准能力节点: capability_reasoning
+2026-01-15 10:09:02,632 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 添加标准能力节点: capability_answer_generation
+2026-01-15 10:09:02,632 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 添加标准能力节点: capability_citation
+2026-01-15 10:09:02,632 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 协作、配置、学习和能力节点已添加到工作流
+2026-01-15 10:09:02,633 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 专家智能体节点已添加到工作流: ['memory_agent', 'knowledge_retrieval_agent', 'reasoning_agent', 'answer_generation_agent', 'citation_agent']
+2026-01-15 10:09:02,633 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 查询分析和调度优化节点已添加到工作流
+2026-01-15 10:09:02,633 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 详细处理节点已从主流程中移除（避免显示为独立节点）
+2026-01-15 10:09:02,633 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 查询分析和调度优化已集成：route_query → query_analysis → scheduling_optimization
+2026-01-15 10:09:02,633 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 上下文工程节点已连接到主流程
+2026-01-15 10:09:02,633 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 提示词工程节点已连接到主流程
+2026-01-15 10:09:02,633 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] RAG检索节点已连接到主流程
+2026-01-15 10:09:02,633 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 核心功能节点已集成，路由节点: rag_retrieval
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] Simple路径: route_query → simple_query → chief_agent（可视化完整路径）
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] Complex路径: route_query → complex_query → chief_agent（可视化完整路径）
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 推理链能力集成到 reasoning_agent，所有路径通过多智能体协调路径
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 统一架构：所有路径都通过核心大脑（ChiefAgent）协调
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO -    → 路由映射:
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO -       - simple: route_query → simple_query → chief_agent
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO -       - complex: route_query → complex_query → chief_agent
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO -       - reasoning: route_query → chief_agent（推理链能力集成到 reasoning_agent）
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO -       - multi_agent: route_query → chief_agent
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO -    → 执行策略:
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO -       - simple: 快速路径（跳过部分智能体，优化性能）
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO -       - reasoning: 通过 reasoning_agent 使用推理链能力（needs_reasoning_chain=True）
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO -       - complex/multi_agent: 完整智能体序列（memory_agent → knowledge_retrieval_agent → reasoning_agent → answer_generation_agent → citation_agent）
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO -    → 推理链能力:
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO -       - 推理链是 reasoning_agent 的内部能力，不需要独立的推理链路径
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO -       - reasoning_agent 会根据 needs_reasoning_chain 标志自动选择推理模式
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO -       - 所有路径都可以通过 reasoning_agent 使用推理链能力
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO -    → 可视化增强: 所有节点都通过条件路由可达，LangGraph的draw_mermaid()能显示完整工作流图
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 添加边: simple_query → chief_agent（保持执行逻辑）
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 添加边: complex_query → chief_agent（保持执行逻辑）
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO - ⚠️ [工作流构建] 能力节点路由已弃用：能力节点现在作为主流程节点的内部能力
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 能力节点可用: knowledge_retrieval -> capability_knowledge_retrieval
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 能力节点可用: reasoning_path -> capability_reasoning
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 能力节点可用: answer_generation -> capability_answer_generation
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 能力节点可用: single_agent_flow -> capability_answer_generation
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] standardized_interface_adapter 直接连接到 format（能力节点作为主流程节点的内部能力）
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 协作、配置优化、反馈收集、学习和能力路由已添加
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] simple_query 和 complex_query 通过主流程路由到 chief_agent，不添加备选路径边
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO - ⚠️ [工作流构建] 独立的推理链路径节点已保留（向后兼容），但不会被路由到
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO -    → 推理链能力已集成到 reasoning_agent 中，所有路径都通过多智能体协调路径
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 核心大脑（ChiefAgent）已连接到专家智能体序列入口（memory_agent）
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 专家智能体节点序列已连接 (5 条边):
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO -    - memory_agent → node_learning_monitor → knowledge_retrieval_agent
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO -    - knowledge_retrieval_agent → node_learning_monitor → reasoning_agent
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO -    - reasoning_agent → node_learning_monitor → answer_generation_agent
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO -    - answer_generation_agent → node_learning_monitor → citation_agent
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO -    - citation_agent → node_learning_monitor → synthesize
+2026-01-15 10:09:02,634 - src.core.langgraph_unified_workflow - INFO - ✅ 动态工作流管理器已初始化
+2026-01-15 10:09:02,731 - src.core.langgraph_unified_workflow - INFO - ✅ 工作流编译成功
+2026-01-15 10:09:02,731 - src.core.langgraph_unified_workflow - INFO - ✅ 错误恢复器已初始化
+2026-01-15 10:09:02,787 - src.core.langgraph_unified_workflow - INFO - 📊 [工作流构建] 工作流包含 33 个节点: ['__start__', 'route_query', 'synthesize', 'format', 'simple_query', 'complex_query', 'chief_agent', 'rag_retrieval', 'prompt_engineering', 'context_engineering', 'generate_steps', 'execute_step', 'gather_evidence', 'extract_step_answer', 'synthesize_reasoning_answer', 'feedback_collection', 'node_learning_monitor', 'learning_aggregation', 'knowledge_distribution', 'continuous_learning_monitor', 'standardized_interface_adapter', 'capability_knowledge_retrieval', 'capability_reasoning', 'capability_answer_generation', 'capability_citation', 'memory_agent', 'knowledge_retrieval_agent', 'reasoning_agent', 'answer_generation_agent', 'citation_agent', 'query_analysis', 'scheduling_optimization', '__end__']
+2026-01-15 10:09:02,787 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] generate_steps 节点已添加到工作流
+2026-01-15 10:09:02,787 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] 专家智能体节点已添加到工作流 (5/5): ['memory_agent', 'knowledge_retrieval_agent', 'reasoning_agent', 'answer_generation_agent', 'citation_agent']
+2026-01-15 10:09:02,787 - src.core.langgraph_unified_workflow - INFO - 📊 [工作流构建] 工作流包含 30 条边
+2026-01-15 10:09:02,787 - src.core.langgraph_unified_workflow - WARNING - ⚠️ [工作流构建] 推理路径边未添加（如果使用了子图封装，这是正常行为）
+2026-01-15 10:09:02,788 - src.core.langgraph_unified_workflow - INFO - ✅ [工作流构建] Mermaid 图表包含 generate_steps 节点
+2026-01-15 10:09:02,788 - src.core.langgraph_unified_workflow - INFO - 📊 [工作流构建] 所有添加的节点（共 31 个）: ['route_query', 'synthesize', 'format', 'simple_query', 'complex_query', 'chief_agent', 'rag_retrieval', 'prompt_engineering', 'context_engineering', 'generate_steps', 'execute_step', 'gather_evidence', 'extract_step_answer', 'synthesize_reasoning_answer', 'feedback_collection', 'node_learning_monitor', 'learning_aggregation', 'knowledge_distribution', 'continuous_learning_monitor', 'standardized_interface_adapter', 'capability_knowledge_retrieval', 'capability_reasoning', 'capability_answer_generation', 'capability_citation', 'memory_agent', 'knowledge_retrieval_agent', 'reasoning_agent', 'answer_generation_agent', 'citation_agent', 'query_analysis', 'scheduling_optimization']
+2026-01-15 10:09:02,788 - src.core.langgraph_unified_workflow - INFO - ✅ 统一研究系统工作流（MVP）初始化完成
+2026-01-15 10:09:02,788 - src.unified_research_system - INFO - ✅ [初始化] 统一工作流（MVP）初始化完成
+2026-01-15 10:09:02,788 - src.unified_research_system - INFO - ✅ [初始化] 工作流对象: CompiledStateGraph
+2026-01-15 10:09:02,900 - src.config.unified_config_manager - INFO - 加载了 8 个配置节
+2026-01-15 10:09:02,900 - src.visualization.browser_server - INFO - ✅ 模块化服务器架构初始化成功
+2026-01-15 10:09:02,900 - src.unified_research_system - INFO - 🌐 [初始化] 浏览器可视化服务器已启动: http://localhost:8080
+2026-01-15 10:09:02,900 - src.unified_research_system - INFO - 🌐 [提示] 在浏览器中打开上述地址即可查看可视化界面
+2026-01-15 10:09:02,900 - src.unified_research_system - INFO - 🔄 [初始化] 开始初始化ChiefAgent...
+2026-01-15 10:09:02,900 - src.unified_research_system - INFO - 🤖 开始初始化首席Agent...
+2026-01-15 10:09:02,900 - src.unified_research_system - WARNING - ⚠️ 首席Agent初始化失败: No module named 'src.agents.chief_agent_wrapper'，将尝试使用标准Agent循环
+Traceback (most recent call last):
+  File "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/src/unified_research_system.py", line 925, in _initialize_chief_agent
+    from src.agents.chief_agent_wrapper import ChiefAgentWrapper as ChiefAgent
+ModuleNotFoundError: No module named 'src.agents.chief_agent_wrapper'
+2026-01-15 10:09:02,901 - src.unified_research_system - INFO - ✅ [初始化] ChiefAgent初始化完成
+2026-01-15 10:09:02,901 - src.unified_research_system - INFO - 🔄 [初始化] 开始初始化传统流程Agent...
+2026-01-15 10:09:02,908 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:09:02,917 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:09:02,917 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:09:02,917 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:09:02,918 - src.agents.base_agent.knowledge_retrieval_expert - INFO - 动态配置加载完成
+2026-01-15 10:09:02,918 - src.agents.base_agent.knowledge_retrieval_expert - INFO - 智能能力初始化完成
+2026-01-15 10:09:02,918 - src.agents.base_agent.knowledge_retrieval_expert - INFO - 智能体 knowledge_retrieval_expert 初始化完成
+2026-01-15 10:09:02,919 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:09:02,927 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:09:02,928 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:09:02,928 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:09:02,928 - src.agents.base_agent.knowledge_retrieval_expert - INFO - 动态配置加载完成
+2026-01-15 10:09:02,928 - src.agents.base_agent.knowledge_retrieval_expert - INFO - 智能能力初始化完成
+2026-01-15 10:09:02,928 - src.agents.base_agent.knowledge_retrieval_expert - INFO - 智能体 knowledge_retrieval_expert 初始化完成
+2026-01-15 10:09:02 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:02,928 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:02,928 - src.agents.expert_agent - INFO - ✅ LLM客户端初始化成功（用于思考阶段）
+2026-01-15 10:09:02,928 - src.agents.expert_agent - INFO - ✅ 专家Agent初始化完成: knowledge_retrieval_expert, 领域=知识检索和信息收集, 能力水平=0.9
+2026-01-15 10:09:02,928 - src.adapters.knowledge_retrieval_agent_adapter - INFO - 初始化适配器: KnowledgeRetrievalAgent → RAGExpert
+🔧 RAGExpert轻量级模式：跳过所有复杂初始化
+2026-01-15 10:09:02,928 - RAGExpert - INFO - ✅ RAGExpert轻量级模式初始化完成
+2026-01-15 10:09:02,928 - backup_legacy_agents.knowledge_retrieval_agent_wrapper - INFO - ✅ KnowledgeRetrievalAgent包装器初始化成功，逐步替换已启用 (初始替换比例: 1%)
+2026-01-15 10:09:02,928 - src.unified_research_system - INFO - ✅ 知识检索Agent初始化成功（传统流程）
+2026-01-15 10:09:02 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-reasoner, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:02,928 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-reasoner, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:02 - src.core.utils.smart_model_manager - INFO - 模型缓存未命中，开始加载: reranker
+2026-01-15 10:09:02,928 - src.core.utils.smart_model_manager - INFO - 模型缓存未命中，开始加载: reranker
+2026-01-15 10:09:02 - src.core.neural.factory - INFO - Initializing Reranker (Lazy Load)...
+2026-01-15 10:09:02,928 - src.core.neural.factory - INFO - Initializing Reranker (Lazy Load)...
+2026-01-15 10:09:02 - src.core.neural.models - INFO - CrossEncoderReranker configured with cross-encoder/ms-marco-MiniLM-L-6-v2
+2026-01-15 10:09:02,928 - src.core.neural.models - INFO - CrossEncoderReranker configured with cross-encoder/ms-marco-MiniLM-L-6-v2
+2026-01-15 10:09:02 - src.core.utils.smart_model_manager - INFO - 模型加载完成: reranker (耗时 0.00s)
+2026-01-15 10:09:02,928 - src.core.utils.smart_model_manager - INFO - 模型加载完成: reranker (耗时 0.00s)
+2026-01-15 10:09:02 - src.agents.reasoning_agent - INFO - ReasoningAgent initialized: reasoning_agent
+2026-01-15 10:09:02,932 - src.agents.reasoning_agent - INFO - ReasoningAgent initialized: reasoning_agent
+2026-01-15 10:09:02,932 - src.unified_research_system - INFO - ✅ 推理Agent初始化成功（传统流程）
+2026-01-15 10:09:02,934 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:09:02,943 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:09:02,943 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:09:02,943 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:09:02,943 - src.agents.base_agent.answer_generation_expert - INFO - 动态配置加载完成
+2026-01-15 10:09:02,943 - src.agents.base_agent.answer_generation_expert - INFO - 智能能力初始化完成
+2026-01-15 10:09:02,943 - src.agents.base_agent.answer_generation_expert - INFO - 智能体 answer_generation_expert 初始化完成
+2026-01-15 10:09:02,944 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:09:02,953 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:09:02,953 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:09:02,953 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:09:02,953 - src.agents.base_agent.answer_generation_expert - INFO - 动态配置加载完成
+2026-01-15 10:09:02,953 - src.agents.base_agent.answer_generation_expert - INFO - 智能能力初始化完成
+2026-01-15 10:09:02,953 - src.agents.base_agent.answer_generation_expert - INFO - 智能体 answer_generation_expert 初始化完成
+2026-01-15 10:09:02 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:02,953 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:02,953 - src.agents.expert_agent - INFO - ✅ LLM客户端初始化成功（用于思考阶段）
+2026-01-15 10:09:02,953 - src.agents.expert_agent - INFO - ✅ 专家Agent初始化完成: answer_generation_expert, 领域=答案生成和格式化, 能力水平=0.9
+2026-01-15 10:09:02,953 - src.adapters.answer_generation_agent_adapter - INFO - 初始化适配器: AnswerGenerationAgent → RAGExpert
+🔧 RAGExpert轻量级模式：跳过所有复杂初始化
+2026-01-15 10:09:02,953 - RAGExpert - INFO - ✅ RAGExpert轻量级模式初始化完成
+2026-01-15 10:09:02,953 - backup_legacy_agents.answer_generation_agent_wrapper - INFO - ✅ AnswerGenerationAgent包装器初始化成功，逐步替换已启用 (初始替换比例: 100%)
+2026-01-15 10:09:02,953 - src.unified_research_system - INFO - ✅ 答案生成Agent初始化成功（传统流程）
+2026-01-15 10:09:02,954 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:09:02,963 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:09:02,963 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:09:02,963 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:09:02,963 - src.agents.base_agent.citation_expert - INFO - 动态配置加载完成
+2026-01-15 10:09:02,963 - src.agents.base_agent.citation_expert - INFO - 智能能力初始化完成
+2026-01-15 10:09:02,963 - src.agents.base_agent.citation_expert - INFO - 智能体 citation_expert 初始化完成
+2026-01-15 10:09:02,965 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:09:02,974 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:09:02,974 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:09:02,974 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:09:02,974 - src.agents.base_agent.citation_expert - INFO - 动态配置加载完成
+2026-01-15 10:09:02,974 - src.agents.base_agent.citation_expert - INFO - 智能能力初始化完成
+2026-01-15 10:09:02,974 - src.agents.base_agent.citation_expert - INFO - 智能体 citation_expert 初始化完成
+2026-01-15 10:09:02 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:02,974 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:02,974 - src.agents.expert_agent - INFO - ✅ LLM客户端初始化成功（用于思考阶段）
+2026-01-15 10:09:02,974 - src.agents.expert_agent - INFO - ✅ 专家Agent初始化完成: citation_expert, 领域=引用和来源生成, 能力水平=0.85
+2026-01-15 10:09:02,974 - src.adapters.citation_agent_adapter - INFO - 初始化适配器: CitationAgent → QualityController
+2026-01-15 10:09:02,974 - backup_legacy_agents.citation_agent_wrapper - WARNING - ⚠️ 逐步替换策略初始化失败，将使用旧Agent: name 'get_unified_config_center' is not defined
+2026-01-15 10:09:02,974 - src.unified_research_system - INFO - ✅ 引用Agent初始化成功（传统流程）
+2026-01-15 10:09:02,974 - src.unified_research_system - INFO - ✅ 传统流程Agent异步初始化完成（ExpertAgent子类）
+2026-01-15 10:09:02,974 - src.unified_research_system - INFO - ✅ [初始化] 传统流程Agent初始化完成
+2026-01-15 10:09:02,974 - src.unified_research_system - INFO - 🔄 [初始化] 开始初始化ReAct Agent...
+2026-01-15 10:09:02,974 - src.unified_research_system - INFO - 🔍 [DEBUG] 调用前状态: _react_agent=None, _use_react_agent=False
+2026-01-15 10:09:02,974 - src.unified_research_system - INFO - 🔍 [诊断] 开始初始化ReAct Agent（ReasoningExpert）...
+2026-01-15 10:09:02,974 - src.unified_research_system - INFO - 🔍 [诊断] ReasoningExpert导入成功
+2026-01-15 10:09:02,975 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:09:02,984 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:09:02,984 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:09:02,984 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:09:02,984 - src.agents.base_agent.reasoning_expert - INFO - 动态配置加载完成
+2026-01-15 10:09:02,984 - src.agents.base_agent.reasoning_expert - INFO - 智能能力初始化完成
+2026-01-15 10:09:02,984 - src.agents.base_agent.reasoning_expert - INFO - 智能体 reasoning_expert 初始化完成
+2026-01-15 10:09:02 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:02,984 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:02,984 - src.agents.expert_agent - INFO - ✅ LLM客户端初始化成功（用于思考阶段）
+2026-01-15 10:09:02,984 - src.agents.expert_agent - INFO - ✅ 专家Agent初始化完成: reasoning_expert, 领域=逻辑推理与分析, 能力水平=0.95
+2026-01-15 10:09:02,984 - src.unified_research_system - INFO - 🔍 [诊断] ReasoningExpert实例创建成功: <class 'src.agents.reasoning_expert.ReasoningExpert'>
+2026-01-15 10:09:02,984 - src.unified_research_system - INFO - ✅ ReAct Agent初始化成功（使用ReasoningExpert）
+2026-01-15 10:09:02,984 - src.unified_research_system - INFO - ✅ [初始化] ReAct Agent初始化完成
+2026-01-15 10:09:02,984 - src.unified_research_system - INFO - 🔍 [DEBUG] 调用后状态: _react_agent=<src.agents.reasoning_expert.ReasoningExpert object at 0x173bd5010>, _use_react_agent=True
+2026-01-15 10:09:02,984 - src.unified_research_system - INFO - 🔄 [初始化] 开始初始化学习系统...
+2026-01-15 10:09:02,985 - src.unified_research_system - WARNING - ⚠️ 学习系统初始化失败: No module named 'src.agents.learning_system_wrapper'
+2026-01-15 10:09:02,985 - src.unified_research_system - INFO - ✅ [初始化] 学习系统初始化完成
+2026-01-15 10:09:02,985 - src.unified_research_system - INFO - 🔄 [初始化] 开始初始化ML/RL调度优化器...
+2026-01-15 10:09:02,985 - src.unified_research_system - INFO - 🚀 开始初始化ML/RL调度优化器...
+2026-01-15 10:09:02,987 - src.utils.ml_scheduling_optimizer - INFO - ✅ 加载ML调度优化历史数据: 性能记录=10, ML数据=3
+2026-01-15 10:09:02,987 - src.unified_research_system - INFO - ✅ ML调度优化器初始化成功
+2026-01-15 10:09:02,987 - src.utils.rl_scheduling_optimizer - INFO - ✅ 加载RL调度优化历史数据: Q表大小=6
+2026-01-15 10:09:02,987 - src.unified_research_system - INFO - ✅ RL调度优化器初始化成功
+2026-01-15 10:09:02,987 - src.unified_research_system - INFO - ✅ ML/RL调度优化器初始化完成
+2026-01-15 10:09:02,987 - src.unified_research_system - INFO - ✅ [初始化] ML/RL调度优化器初始化完成
+2026-01-15 10:09:02,987 - src.unified_research_system - INFO - ✅ 智能体初始化完成
+2026-01-15 10:09:02,987 - src.unified_research_system - INFO - ✅ 统一异步研究系统初始化完成
+🔍 [DEBUG] 初始化完成: _is_initialized=True, _entry_router=True
+2026-01-15 10:09:02,987 - src.unified_research_system - INFO - 🔍 开始执行研究任务: If my future wife has the same first name as the 1...
+🔍 [DEBUG] 开始执行研究任务: If my future wife has the same first name as the 1...
+🔍 [DEBUG] _is_initialized=True, _entry_router=True, _use_langgraph=False
+2026-01-15 10:09:02,988 - src.unified_research_system - INFO - 🔍 [DEBUG] Entry Router状态: True, LangGraph启用: False, LangGraph Agent: False
+🔍 [DEBUG] Entry Router状态: True, LangGraph启用: False, LangGraph Agent: False
+2026-01-15 10:09:02,988 - src.unified_research_system - INFO - 🚦 使用Entry Router进行路由决策
+2026-01-15 10:09:03,091 - src.core.entry_router - INFO - ============================================================
+2026-01-15 10:09:03,091 - src.core.entry_router - INFO - 🚦 [Entry Router] 开始路由决策
+2026-01-15 10:09:03,091 - src.core.entry_router - INFO - 📝 [Entry Router] 查询: If my future wife has the same first name as the 15th first lady of the United States' mother and he...
+🚦 [DEBUG] [Entry Router] 开始路由决策: If my future wife has the same first name as the 1...
+2026-01-15 10:09:03,091 - src.core.entry_router - INFO - 🔍 [Entry Router] 开始复杂度分析...
+🔍 [DEBUG] [Entry Router] 开始复杂度分析...
+2026-01-15 10:09:03,091 - src.visualization.browser_server - INFO - 🚀 启动统一服务器管理器 (端口: 8080)
+2026-01-15 10:09:03,091 - src.visualization.servers.base_server.unified_server_manager - INFO - 🔍 调试: FASTAPI_AVAILABLE = True
+2026-01-15 10:09:03,091 - src.visualization.servers.base_server.unified_server_manager - INFO - 🔍 调试: FastAPI = <class 'fastapi.applications.FastAPI'>
+2026-01-15 10:09:03,092 - src.visualization.servers.base_server.unified_server_manager - INFO - 🔍 调试: uvicorn = <module 'uvicorn' from '/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/.venv/lib/python3.13/site-packages/uvicorn/__init__.py'>
+2026-01-15 10:09:03,094 - src.visualization.servers.base_server.api_server - INFO - ✅ API服务器路由注册完成
+2026-01-15 10:09:03,094 - src.visualization.servers.base_server.api_server - INFO - ✅ api_server 服务器启动成功
+2026-01-15 10:09:03,094 - src.visualization.servers.base_server.unified_server_manager - INFO - ✅ 子服务启动成功: api
+2026-01-15 10:09:03,095 - src.visualization.servers.base_server.visualization_server - INFO - 开始注册可视化路由...
+2026-01-15 10:09:03,095 - src.visualization.servers.base_server.visualization_server - INFO - ✅ 可视化主页路由注册成功
+2026-01-15 10:09:03,095 - src.visualization.servers.base_server.visualization_server - INFO - ✅ 工作流图页面路由注册成功
+2026-01-15 10:09:03,096 - src.visualization.servers.base_server.visualization_server - INFO - ✅ 可视化服务器路由注册完成
+2026-01-15 10:09:03,096 - src.visualization.servers.base_server.visualization_server - INFO - ✅ visualization_server 服务器启动成功
+2026-01-15 10:09:03,096 - src.visualization.servers.base_server.unified_server_manager - INFO - ✅ 子服务启动成功: visualization
+2026-01-15 10:09:03,097 - src.visualization.servers.base_server.config_server - INFO - ✅ 配置服务器路由注册完成
+2026-01-15 10:09:03,097 - src.visualization.servers.base_server.config_server - INFO - ✅ config_server 服务器启动成功
+2026-01-15 10:09:03,097 - src.visualization.servers.base_server.unified_server_manager - INFO - ✅ 子服务启动成功: config
+2026-01-15 10:09:03,097 - src.visualization.servers.base_server.websocket_server - INFO - ✅ WebSocket服务器路由注册完成
+2026-01-15 10:09:03,098 - src.visualization.servers.base_server.websocket_server - INFO - ✅ websocket_server 服务器启动成功
+2026-01-15 10:09:03,098 - src.visualization.servers.base_server.unified_server_manager - INFO - ✅ 子服务启动成功: websocket
+2026-01-15 10:09:03,098 - src.visualization.servers.base_server.visualization_server - INFO - ✅ [WebSocket] WebSocket服务器已设置到VisualizationServer: WebSocketServer
+2026-01-15 10:09:03,098 - src.visualization.servers.base_server.unified_server_manager - INFO - ✅ WebSocket服务器引用已设置到VisualizationServer
+2026-01-15 10:09:03,098 - src.visualization.servers.base_server.api_server - INFO - ✅ VisualizationServer引用已设置到APIServer
+2026-01-15 10:09:03,098 - src.visualization.servers.base_server.unified_server_manager - INFO - ✅ VisualizationServer引用已设置到APIServer
+2026-01-15 10:09:03,098 - src.visualization.servers.base_server.unified_server_manager - INFO - ✅ 已挂载服务: api -> /api
+2026-01-15 10:09:03,098 - src.visualization.servers.base_server.unified_server_manager - INFO - ✅ 已挂载服务: visualization -> /visualization
+2026-01-15 10:09:03,098 - src.visualization.servers.base_server.unified_server_manager - INFO - ✅ 已挂载服务: config -> /config
+2026-01-15 10:09:03,098 - src.visualization.servers.base_server.unified_server_manager - INFO - ✅ 已挂载服务: websocket -> /websocket
+2026-01-15 10:09:03,099 - src.visualization.servers.base_server.unified_server_manager - INFO - ✅ 已在主应用上注册 WebSocket 路由: /ws/{execution_id}
+2026-01-15 10:09:03,100 - src.visualization.servers.base_server.unified_server_manager - INFO - ✅ 统一服务器启动完成
+2026-01-15 10:09:03,100 - src.visualization.servers.base_server.unified_server_manager - INFO - 📊 已启动 4 个子服务
+2026-01-15 10:09:03,100 - src.visualization.servers.base_server.unified_server_manager - INFO - ✅ unified_server_manager 服务器启动成功
+INFO:     Started server process [56048]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8080 (Press CTRL+C to quit)
+{
+    "name": "workflow.build",
+    "context": {
+        "trace_id": "0x196d4d43617b0ec27b062ef2e97efc18",
+        "span_id": "0x8b9dae2eea0c952d",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:09:02.581305Z",
+    "end_time": "2026-01-15T02:09:02.788772Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "workflow.type": "UnifiedResearchWorkflow",
+        "system.available": true,
+        "workflow.nodes_count": 31
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+2026-01-15 10:09:13,091 - src.core.entry_router - WARNING - ⚠️ [Entry Router] 复杂度判断超时（10秒），使用fallback
+⚠️ [DEBUG] [Entry Router] 复杂度判断超时（10秒），使用fallback
+2026-01-15 10:09:15,740 - src.utils.unified_complexity_model_service - INFO - ✅ LLM统一分析成功: complex (评分: 8.50)
+2026-01-15 10:09:24,547 - src.utils.unified_complexity_model_service - INFO - ✅ LLM统一分析成功: complex (评分: 8.50)
+2026-01-15 10:09:24,547 - src.core.entry_router - INFO - ✅ [Entry Router] 规则复杂度判断: complex (评分: 8.50, 耗时: 11.456秒)
+2026-01-15 10:09:24,650 - src.core.entry_router - INFO - 💻 [Entry Router] 系统状态: load=36.0%, mas_healthy=False
+2026-01-15 10:09:24,650 - src.core.entry_router - INFO - ✅ [Entry Router] 路由决策: ReAct Agent (深度推理)
+2026-01-15 10:09:24,650 - src.core.entry_router - INFO -    📌 决策理由: 需要推理链（needs_reasoning_chain=False）或复杂度=complex
+2026-01-15 10:09:24,651 - src.core.entry_router - INFO - ⏱️ [Entry Router] 路由决策完成，耗时: 21.560秒
+2026-01-15 10:09:24,651 - src.core.entry_router - INFO - ============================================================
+2026-01-15 10:09:24,651 - src.unified_research_system - INFO - ✅ [Entry Router] 路由决策: react_agent
+2026-01-15 10:09:24,651 - src.unified_research_system - INFO - 🔍 [DEBUG] LangGraph启用: False, LangGraph Agent可用: False
+2026-01-15 10:09:24,651 - src.unified_research_system - INFO - 🚀 使用统一工作流（MVP）执行查询
+2026-01-15 10:09:24,651 - src.unified_research_system - INFO - 🔄 [统一工作流] 开始执行查询...
+🔄 [DEBUG] [统一工作流] 开始执行查询: If my future wife has the same first name as the 1...
+2026-01-15 10:09:24,651 - src.core.langgraph_unified_workflow - INFO - 🔄 [统一工作流] 开始执行工作流...
+🔄 [DEBUG] [统一工作流] 开始执行工作流...
+2026-01-15 10:09:24,657 - src.core.langgraph_unified_workflow - INFO - 🚀 [Route Query] 开始处理查询: If my future wife has the same first name as the 1...
+2026-01-15 10:09:24,657 - src.core.langgraph_unified_workflow - INFO - 🔀 [Route Query] 分析查询复杂度...
+2026-01-15 10:09:24,657 - src.core.langgraph_unified_workflow - INFO - ✅ [Route Query] 路由到复杂查询路径 (复杂度: 3.00)
+2026-01-15 10:09:24,660 - src.core.langgraph_detailed_processing_nodes - INFO - 🔍 [Query Analysis] 开始查询分析（使用LLM判断复杂度）...
+2026-01-15 10:09:24,660 - src.core.langgraph_detailed_processing_nodes - INFO - ✅ [Query Analysis] LLM复杂度判断: complex (评分: 8.50)
+2026-01-15 10:09:24,660 - src.core.langgraph_detailed_processing_nodes - INFO - ✅ [Query Analysis] 分析完成: 类型=multi_hop, 复杂度=complex (LLM评分: 8.50), 长度=166
+2026-01-15 10:09:24,662 - src.core.langgraph_detailed_processing_nodes - INFO - ⚙️ [Scheduling Optimization] 开始调度优化...
+2026-01-15 10:09:24,662 - src.core.langgraph_detailed_processing_nodes - INFO - ✅ [Scheduling Optimization] ML策略: 知识超时=15.0s, 推理超时=250.0s, 并行=False
+2026-01-15 10:09:24,663 - src.core.langgraph_detailed_processing_nodes - INFO - ✅ [Scheduling Optimization] RL策略: 知识超时=12.0s, 推理超时=200.0s, 并行=False
+2026-01-15 10:09:24,663 - src.core.langgraph_detailed_processing_nodes - INFO - ✅ [Scheduling Optimization] 调度优化完成: 策略类型=ml
+2026-01-15 10:09:24,664 - src.core.langgraph_core_nodes - INFO - 🔗 [Context Engineering] 开始增强上下文...
+2026-01-15 10:09:24,665 - src.core.langgraph_core_nodes - WARNING - ⚠️ [Context Engineering] 上下文工程智能体不可用，使用原始上下文
+2026-01-15 10:09:24,666 - src.core.langgraph_core_nodes - INFO - 📝 [Prompt Engineering] 开始生成提示词...
+2026-01-15 10:09:24,666 - src.core.langgraph_core_nodes - WARNING - ⚠️ [Prompt Engineering] 提示词工程智能体不可用，使用简单提示词
+2026-01-15 10:09:24,668 - src.core.langgraph_core_nodes - INFO - 🔍 [RAG Retrieval] 开始知识检索...
+2026-01-15 10:09:24,808 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:09:24,817 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:09:24,817 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:09:24,817 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:09:24,818 - src.agents.base_agent.KnowledgeRetrievalService - INFO - 动态配置加载完成
+2026-01-15 10:09:24,818 - src.agents.base_agent.KnowledgeRetrievalService - INFO - 智能能力初始化完成
+2026-01-15 10:09:24,818 - src.agents.base_agent.KnowledgeRetrievalService - INFO - 智能体 KnowledgeRetrievalService 初始化完成
+2026-01-15 10:09:24,818 - src.services.knowledge_retrieval_service - INFO - 🛑 [系统重构] 已禁用 KnowledgeRetrievalService 的 AdaptiveOptimizer
+2026-01-15 10:09:24,818 - src.services.knowledge_retrieval_service - INFO - 知识检索服务初始化完成（延迟初始化模式，ML/RL增强）
+2026-01-15 10:09:24,818 - src.agents.tools.base_tool.knowledge_retrieval - INFO - ✅ 知识检索服务初始化成功
+2026-01-15 10:09:24,818 - src.utils.unified_intelligent_processor - INFO - 统一智能处理基础类初始化完成
+2026-01-15 10:09:24,818 - src.services.knowledge_retrieval_service - INFO - ✅ 智能处理器初始化成功
+2026-01-15 10:09:26,642 - knowledge_management_system - INFO - 已加载 42542 条知识元数据
+2026-01-15 10:09:26,643 - knowledge_management_system - INFO - 🔄 正在加载本地rerank模型: cross-encoder/ms-marco-MiniLM-L-6-v2...
+2026-01-15 10:09:26,752 - datasets - INFO - TensorFlow version 2.20.0 available.
+2026-01-15 10:09:27,305 - knowledge_management_system - INFO - ✅ 已从本地缓存加载rerank模型: cross-encoder/ms-marco-MiniLM-L-6-v2 (设备: mps)
+2026-01-15 10:09:27,305 - knowledge_management_system - INFO - 💡 提示: 本地rerank模型完全免费，优先使用本地模型
+2026-01-15 10:09:27,306 - knowledge_management_system - INFO - ✅ KMS Embedding缓存已从文件加载: data/learning/kms_embedding_cache.json
+2026-01-15 10:09:27,306 - knowledge_management_system - INFO -    总缓存条目: 0条
+2026-01-15 10:09:27,306 - knowledge_management_system - INFO -    有效缓存: 0条 (TTL: 24.0小时)
+2026-01-15 10:09:27,306 - knowledge_management_system - INFO -    过期缓存: 0条
+2026-01-15 10:09:27,306 - knowledge_management_system - WARNING - ⚠️ JINA_API_KEY未设置，Jina服务功能可能不可用
+2026-01-15 10:09:27,306 - knowledge_management_system - INFO - 🔄 正在加载本地embedding模型: all-mpnet-base-v2...
+{
+    "name": "node.route_query",
+    "context": {
+        "trace_id": "0x1bbac53e96472f8ba3a8cff200c3c9f7",
+        "span_id": "0xc6bdf26697625c54",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:09:24.657186Z",
+    "end_time": "2026-01-15T02:09:24.657697Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "route_query",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 0.0,
+        "route_path": "simple",
+        "retry_count": 0,
+        "duration_seconds": 0.0006368160247802734,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.query_analysis",
+    "context": {
+        "trace_id": "0x425ef4bcd26e1a91985f2dfaac65bdb5",
+        "span_id": "0x1c6b2d2f5f68952f",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:09:24.660004Z",
+    "end_time": "2026-01-15T02:09:24.660389Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "query_analysis",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 3.0,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0004019737243652344,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.scheduling_optimization",
+    "context": {
+        "trace_id": "0x15e799281ee519826052a2bf03853171",
+        "span_id": "0xb1ae8999eb1c9012",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:09:24.662095Z",
+    "end_time": "2026-01-15T02:09:24.663257Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "scheduling_optimization",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0011849403381347656,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.context_engineering",
+    "context": {
+        "trace_id": "0x9971f352864df6ffddc0e34df3f91a06",
+        "span_id": "0x45645fd25db243cf",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:09:24.664887Z",
+    "end_time": "2026-01-15T02:09:24.665094Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "context_engineering",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0002257823944091797,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.prompt_engineering",
+    "context": {
+        "trace_id": "0x9ef4ca075706145931d9af2e2d9e2e41",
+        "span_id": "0x6da46ef3f5b23c0e",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:09:24.666815Z",
+    "end_time": "2026-01-15T02:09:24.667086Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "prompt_engineering",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0002880096435546875,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+2026-01-15 10:09:28,317 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  3.91it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  3.91it/s]
+2026-01-15 10:09:29,186 - knowledge_management_system - INFO - ✅ 已从本地缓存加载模型到MPS: all-mpnet-base-v2 (维度: 768)
+2026-01-15 10:09:29,186 - knowledge_management_system - INFO - 💡 提示: 本地模型完全免费，优先使用本地模型
+2026-01-15 10:09:29,186 - knowledge_management_system - INFO - 图像处理器已初始化（框架模式，待实现）
+2026-01-15 10:09:29,186 - knowledge_management_system - INFO - 音频处理器已初始化（框架模式，待实现）
+2026-01-15 10:09:29,186 - knowledge_management_system - INFO - 视频处理器已初始化（框架模式，待实现）
+2026-01-15 10:09:29,188 - faiss.loader - INFO - Loading faiss.
+2026-01-15 10:09:29,223 - faiss.loader - INFO - Successfully loaded faiss.
+2026-01-15 10:09:29,226 - knowledge_management_system - INFO - 已加载 0 个实体
+2026-01-15 10:09:29,226 - knowledge_management_system - INFO - 已加载 0 条关系
+2026-01-15 10:09:29,227 - knowledge_management_system - INFO - 已加载 0 个实体
+2026-01-15 10:09:29,227 - knowledge_management_system - INFO - 已加载 0 条关系
+2026-01-15 10:09:29,227 - src.services.knowledge_retrieval_service - INFO - 初始化知识库管理系统...
+2026-01-15 10:09:29,405 - knowledge_management_system - INFO - 加载FAISS索引: 84831 条向量
+2026-01-15 10:09:29,405 - knowledge_management_system - INFO - 图谱查询引擎：图谱数据已就绪
+2026-01-15 10:09:29,405 - knowledge_management_system - INFO - ✅ 知识库管理系统服务已初始化
+2026-01-15 10:09:29,405 - knowledge_management_system - INFO - 🛑 [系统重构] 已禁用 KnowledgeManagementService 的 ML 优化器
+2026-01-15 10:09:29,405 - knowledge_management_system - INFO - ✅ 知识库管理服务初始化完成（包含知识图谱模块）
+2026-01-15 10:09:29,405 - src.services.knowledge_retrieval_service - INFO - ✅ 知识库管理系统初始化成功
+2026-01-15 10:09:29,405 - src.services.knowledge_retrieval_service - INFO - ✅ 知识库初始化成功（使用知识库管理系统）
+2026-01-15 10:09:29,405 - src.services.knowledge_retrieval_service - INFO - ✅ 嵌入模型初始化完成
+2026-01-15 10:09:29,405 - src.services.knowledge_retrieval_service - INFO - ✅ 检索引擎初始化成功
+2026-01-15 10:09:29,405 - src.services.knowledge_retrieval_service - INFO - ✅ 学习排序模型初始化完成
+2026-01-15 10:09:29,405 - src.services.knowledge_retrieval_service - INFO - ✅ 特征提取器初始化完成
+2026-01-15 10:09:29,405 - src.services.knowledge_retrieval_service - INFO - ✅ 排序系统初始化成功
+2026-01-15 10:09:29,406 - src.services.knowledge_retrieval_service - INFO - ✅ 知识检索服务延迟初始化完成
+2026-01-15 10:09:29,406 - src.services.knowledge_retrieval_service - INFO - 🔍 [查询传递] KnowledgeRetrievalService.execute: 提取到查询='If my future wife has the same first name as the 15th first lady of the United States' mother and he...' (长度=166)
+2026-01-15 10:09:29,406 - src.services.knowledge_retriever - INFO - 🔍 [KnowledgeRetriever] Searching for: If my future wife has the same first name as the 1...
+2026-01-15 10:09:29,465 - knowledge_management_system - INFO - 🔍 [检索策略] use_graph=False，仅使用向量知识库: 30 条结果
+2026-01-15 10:09:29,467 - src.services.knowledge_retrieval_service - INFO - ✅ 成功从FAISS检索获取知识: 10条
+{
+    "name": "node.rag_retrieval",
+    "context": {
+        "trace_id": "0xd1c4d4cc1dfe199083da64744725da66",
+        "span_id": "0x4a426ade8cbffec3",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:09:24.668488Z",
+    "end_time": "2026-01-15T02:09:29.467587Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "rag_retrieval",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 4.799031019210815,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+2026-01-15 10:09:40,901 - src.utils.unified_complexity_model_service - INFO - ✅ LLM统一分析成功: complex (评分: 8.50)
+2026-01-15 10:09:40,901 - src.core.langgraph_unified_workflow - INFO - ✅ [Route Decision] 统一服务判断：需要推理链能力
+2026-01-15 10:09:40,902 - src.core.langgraph_unified_workflow - INFO -    → 复杂度: complex (评分: 8.50)
+2026-01-15 10:09:40,902 - src.core.langgraph_unified_workflow - INFO -    → 判断因素: 估计推理步骤: 6, 涉及领域: US History, Genealogy, Onomastics, 查询类型: multi_hop_historical_reasoning
+2026-01-15 10:09:40,902 - src.core.langgraph_unified_workflow - INFO -    → 推理链能力将通过 reasoning_agent 使用（所有路径都通过多智能体协调路径）
+2026-01-15 10:09:40,906 - src.core.langgraph_agent_nodes - INFO - 🧠 [核心大脑] ChiefAgent 开始协调多智能体系统
+2026-01-15 10:09:40,906 - src.core.langgraph_agent_nodes - INFO - 🔍 [核心大脑] 路由路径: complex, 复杂度: 8.50, 需要推理链: False
+🔧 [核心大脑] 匹配策略3: route_path=complex, complexity_score=8.5
+2026-01-15 10:09:40,906 - src.core.langgraph_agent_nodes - INFO - 🔧 [核心大脑] 使用完整智能体序列策略（Complex/Multi-agent查询）
+🔧 [完整智能体序列] 检查chief_agent: False
+2026-01-15 10:09:40,906 - src.core.langgraph_agent_nodes - WARNING - ⚠️ [完整智能体序列] 首席Agent不可用，使用单个Agent执行
+2026-01-15 10:09:40,908 - src.core.langgraph_agent_nodes - INFO - 🧠 [Memory Agent] 开始记忆管理
+2026-01-15 10:09:40,914 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:09:40,934 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:09:40,934 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:09:40,934 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:09:40,934 - src.agents.base_agent.memory_expert - INFO - 动态配置加载完成
+2026-01-15 10:09:40,934 - src.agents.base_agent.memory_expert - INFO - 智能能力初始化完成
+2026-01-15 10:09:40,934 - src.agents.base_agent.memory_expert - INFO - 智能体 memory_expert 初始化完成
+2026-01-15 10:09:40,936 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:09:40,950 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:09:40,950 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:09:40,950 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:09:40,950 - src.agents.base_agent.memory_expert - INFO - 动态配置加载完成
+2026-01-15 10:09:40,950 - src.agents.base_agent.memory_expert - INFO - 智能能力初始化完成
+2026-01-15 10:09:40,950 - src.agents.base_agent.memory_expert - INFO - 智能体 memory_expert 初始化完成
+2026-01-15 10:09:40 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:40,950 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:40,951 - src.agents.expert_agent - INFO - ✅ LLM客户端初始化成功（用于思考阶段）
+2026-01-15 10:09:40,951 - src.agents.expert_agent - INFO - ✅ 专家Agent初始化完成: memory_expert, 领域=上下文工程和记忆管理, 能力水平=0.95
+2026-01-15 10:09:40,951 - src.adapters.memory_agent_adapter - INFO - 初始化适配器: MemoryAgent → MemoryManager
+2026-01-15 10:09:40,952 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:09:40,964 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:09:40,964 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:09:40,964 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:09:40,964 - src.agents.base_agent.memory_manager - INFO - 动态配置加载完成
+2026-01-15 10:09:40,964 - src.agents.base_agent.memory_manager - INFO - 智能能力初始化完成
+2026-01-15 10:09:40,964 - src.agents.base_agent.memory_manager - INFO - 智能体 memory_manager 初始化完成
+2026-01-15 10:09:40 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:40,964 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:40,964 - src.agents.expert_agent - INFO - ✅ LLM客户端初始化成功（用于思考阶段）
+2026-01-15 10:09:40,964 - src.agents.expert_agent - INFO - ✅ 专家Agent初始化完成: memory_manager, 领域=智能记忆管理和上下文压缩, 能力水平=0.8
+2026-01-15 10:09:40,965 - backup_legacy_agents.memory_agent_wrapper - INFO - ✅ MemoryAgent包装器初始化成功，逐步替换已启用 (初始替换比例: 1%)
+2026-01-15 10:09:40,965 - src.core.langgraph_agent_nodes - INFO - ✅ 专家智能体 memory 初始化成功
+2026-01-15 10:09:40,965 - src.core.langgraph_agent_nodes - INFO - ✅ [Memory Agent] 从系统实例获取编排追踪器: 4375061304
+2026-01-15 10:09:40,965 - src.core.langgraph_agent_nodes - INFO - ✅ [Memory Agent] 使用全局编排追踪器: 13296270512
+2026-01-15 10:09:40,965 - src.core.langgraph_agent_nodes - INFO - ✅ [Memory Agent] 编排追踪器已设置到智能体，追踪器事件数: 0
+2026-01-15 10:09:40,965 - src.utils.unified_context_engineering_center - INFO - ✅ MCP协议处理器已集成
+2026-01-15 10:09:40,965 - src.utils.unified_context_engineering_center - INFO - 统一上下文工程中心初始化完成（延迟加载模式）
+2026-01-15 10:09:40,966 - src.utils.unified_context_engineering_center - INFO - ✅ 加载长期上下文: 0 个会话
+2026-01-15 10:09:40,966 - src.core.langgraph_agent_nodes - INFO - ✅ [Memory Agent] 记忆管理完成
+2026-01-15 10:09:40,967 - src.core.langgraph_agent_nodes - INFO - 📝 [Answer Generation Agent] 开始答案生成
+2026-01-15 10:09:40,969 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:09:40,979 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:09:40,979 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:09:40,979 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:09:40,979 - src.agents.base_agent.answer_generation_expert - INFO - 动态配置加载完成
+2026-01-15 10:09:40,979 - src.agents.base_agent.answer_generation_expert - INFO - 智能能力初始化完成
+2026-01-15 10:09:40,979 - src.agents.base_agent.answer_generation_expert - INFO - 智能体 answer_generation_expert 初始化完成
+2026-01-15 10:09:40,981 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:09:40,990 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:09:40,990 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:09:40,990 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:09:40,991 - src.agents.base_agent.answer_generation_expert - INFO - 动态配置加载完成
+2026-01-15 10:09:40,991 - src.agents.base_agent.answer_generation_expert - INFO - 智能能力初始化完成
+2026-01-15 10:09:40,991 - src.agents.base_agent.answer_generation_expert - INFO - 智能体 answer_generation_expert 初始化完成
+2026-01-15 10:09:40 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:40,991 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:40,991 - src.agents.expert_agent - INFO - ✅ LLM客户端初始化成功（用于思考阶段）
+2026-01-15 10:09:40,991 - src.agents.expert_agent - INFO - ✅ 专家Agent初始化完成: answer_generation_expert, 领域=答案生成和格式化, 能力水平=0.9
+2026-01-15 10:09:40,991 - src.adapters.answer_generation_agent_adapter - INFO - 初始化适配器: AnswerGenerationAgent → RAGExpert
+🔧 RAGExpert轻量级模式：跳过所有复杂初始化
+2026-01-15 10:09:40,991 - RAGExpert - INFO - ✅ RAGExpert轻量级模式初始化完成
+2026-01-15 10:09:40,991 - backup_legacy_agents.answer_generation_agent_wrapper - INFO - ✅ AnswerGenerationAgent包装器初始化成功，逐步替换已启用 (初始替换比例: 100%)
+2026-01-15 10:09:40,991 - src.core.langgraph_agent_nodes - INFO - ✅ 专家智能体 answer_generation 初始化成功
+2026-01-15 10:09:40,991 - src.core.langgraph_agent_nodes - WARNING - ⚠️ [Answer Generation Agent] 未找到推理结果，dependencies为空
+🔧 轻量级模式：返回模拟结果 for query='If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?'
+2026-01-15 10:09:40,992 - src.core.langgraph_agent_nodes - INFO - ✅ [Answer Generation Agent] 答案生成完成
+2026-01-15 10:09:40,992 - src.core.langgraph_agent_nodes - INFO - 📚 [Citation Agent] 开始引用生成
+2026-01-15 10:09:40,992 - src.core.langgraph_agent_nodes - INFO - 🔍 [Knowledge Retrieval Agent] 开始知识检索
+DEBUG: Starting _decompose_query for: If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?
+DEBUG: system found: <class 'src.unified_research_system.UnifiedResearchSystem'>
+DEBUG: Got LLM from system.llm_client
+DEBUG: LLM instance found: <class 'src.core.llm_integration.LLMIntegration'>
+{
+    "name": "node.memory_agent",
+    "context": {
+        "trace_id": "0x434e710157009b00be82f8501dc1cab6",
+        "span_id": "0xc1005debc3bf61e0",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:09:40.908242Z",
+    "end_time": "2026-01-15T02:09:40.966346Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "memory_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.058260202407836914,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.answer_generation_agent",
+    "context": {
+        "trace_id": "0x73dca0abc55a2ba13bfddcf5c2f6b6cc",
+        "span_id": "0x38d2fce601732c19",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:09:40.967893Z",
+    "end_time": "2026-01-15T02:09:40.992353Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "answer_generation_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.02446722984313965,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.citation_agent",
+    "context": {
+        "trace_id": "0x137294bb867b10d69ae0bfadf76a0215",
+        "span_id": "0xc656148e104e320d",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:09:40.992382Z",
+    "end_time": "2026-01-15T02:09:40.992452Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "citation_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 7.891654968261719e-05,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+2026-01-15 10:09:44,104 - src.core.langgraph_agent_nodes - INFO - ✅ 查询分解成功: ['first lady of the United States James Buchanan', 'mother of Harriet Lane', 'th president of the United States name', 'James Buchanan wife name', 'Harriet Lane mother first name']
+
+==================== DEBUG: DECOMPOSED QUERIES ====================
+  1. If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?
+  2. first lady of the United States James Buchanan
+  3. mother of Harriet Lane
+  4. th president of the United States name
+  5. James Buchanan wife name
+  6. Harriet Lane mother first name
+============================================================
+
+2026-01-15 10:09:44,105 - src.core.langgraph_agent_nodes - INFO - 🔍 [Knowledge Retrieval Agent] 将执行 6 个查询: ["If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?", 'first lady of the United States James Buchanan', 'mother of Harriet Lane', 'th president of the United States name', 'James Buchanan wife name', 'Harriet Lane mother first name']
+2026-01-15 10:09:44,110 - src.core.capability_service - INFO - ✅ 能力注册成功: knowledge_retrieval v1.0.0
+2026-01-15 10:09:44,110 - src.core.capability_service - INFO - ✅ 能力注册成功: reasoning v1.0.0
+2026-01-15 10:09:44,110 - src.core.capability_service - INFO - ✅ 能力注册成功: answer_generation v1.0.0
+2026-01-15 10:09:44,110 - src.core.capability_service - INFO - ✅ 能力注册成功: citation v1.0.0
+2026-01-15 10:09:44,110 - src.core.capability_service - INFO - ✅ 能力注册成功: code_generation v1.0.0
+2026-01-15 10:09:44,110 - src.core.capability_service - INFO - ✅ 能力注册成功: data_analysis v1.0.0
+2026-01-15 10:09:44,111 - src.core.capability_service - INFO - ✅ 能力服务初始化完成，已注册 6 个能力
+DEBUG: Using capability_service for knowledge_retrieval with 6 queries
+2026-01-15 10:09:44,111 - src.core.langgraph_agent_nodes - INFO - 🧩 [Reasoning Agent] 开始推理分析
+2026-01-15 10:09:44 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-reasoner, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:44,111 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-reasoner, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:44 - src.agents.reasoning_agent - INFO - ReasoningAgent initialized: reasoning_agent
+2026-01-15 10:09:44,128 - src.agents.reasoning_agent - INFO - ReasoningAgent initialized: reasoning_agent
+2026-01-15 10:09:44,129 - src.core.langgraph_agent_nodes - INFO - ✅ 专家智能体 reasoning 初始化成功
+2026-01-15 10:09:44,129 - src.core.langgraph_unified_workflow - INFO - 🔗 [Synthesize] 综合证据和答案...
+2026-01-15 10:09:44,129 - src.core.langgraph_unified_workflow - WARNING - ⚠️ [Synthesize] 没有证据或答案
+2026-01-15 10:09:44,129 - src.core.langgraph_unified_workflow - INFO - ✅ [Synthesize] 综合完成，答案长度: 31
+
+--- DEBUG: Result for query 'If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?' ---
+2026-01-15 10:09:44,236 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:09:44,265 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:09:44,265 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:09:44,266 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:09:44,266 - src.agents.base_agent.knowledge_retrieval_expert - INFO - 动态配置加载完成
+2026-01-15 10:09:44,266 - src.agents.base_agent.knowledge_retrieval_expert - INFO - 智能能力初始化完成
+2026-01-15 10:09:44,266 - src.agents.base_agent.knowledge_retrieval_expert - INFO - 智能体 knowledge_retrieval_expert 初始化完成
+2026-01-15 10:09:44,268 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:09:44,282 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:09:44,282 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:09:44,282 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:09:44,283 - src.agents.base_agent.knowledge_retrieval_expert - INFO - 动态配置加载完成
+2026-01-15 10:09:44,283 - src.agents.base_agent.knowledge_retrieval_expert - INFO - 智能能力初始化完成
+2026-01-15 10:09:44,283 - src.agents.base_agent.knowledge_retrieval_expert - INFO - 智能体 knowledge_retrieval_expert 初始化完成
+2026-01-15 10:09:44 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:44,283 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:09:44,283 - src.agents.expert_agent - INFO - ✅ LLM客户端初始化成功（用于思考阶段）
+2026-01-15 10:09:44,283 - src.agents.expert_agent - INFO - ✅ 专家Agent初始化完成: knowledge_retrieval_expert, 领域=知识检索和信息收集, 能力水平=0.9
+2026-01-15 10:09:44,283 - src.adapters.knowledge_retrieval_agent_adapter - INFO - 初始化适配器: KnowledgeRetrievalAgent → RAGExpert
+🔧 RAGExpert轻量级模式：跳过所有复杂初始化
+2026-01-15 10:09:44,283 - RAGExpert - INFO - ✅ RAGExpert轻量级模式初始化完成
+2026-01-15 10:09:44,283 - backup_legacy_agents.knowledge_retrieval_agent_wrapper - INFO - ✅ KnowledgeRetrievalAgent包装器初始化成功，逐步替换已启用 (初始替换比例: 1%)
+2026-01-15 10:09:44,283 - src.core.langgraph_agent_nodes - INFO - ✅ 专家智能体 knowledge_retrieval 初始化成功
+2026-01-15 10:09:44,283 - src.core.langgraph_agent_nodes - INFO - ✅ [Knowledge Retrieval Agent] 使用专家智能体执行知识检索 (Fallback)
+2026-01-15 10:09:44,283 - src.agents.expert_agent - INFO - 🧠 专家Agent开始执行: knowledge_retrieval_expert, 查询='If my future wife has the same first name as the 15th first lady of the United States' mother and he...' (长度=166)
+2026-01-15 10:09:44,283 - src.core.langgraph_agent_nodes - INFO - ✅ [Reasoning Agent] 使用能力服务执行推理（推理链: False）
+2026-01-15 10:09:44,283 - src.core.langgraph_agent_nodes - INFO - 🧩 [Reasoning Agent] 推理链标志: False
+2026-01-15 10:09:44 - src.agents.reasoning_agent - INFO - Starting reasoning for: If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?
+2026-01-15 10:09:44,283 - src.agents.reasoning_agent - INFO - Starting reasoning for: If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?
+2026-01-15 10:09:44 - src.core.neural.models - INFO - Loading Cross-Encoder model...
+2026-01-15 10:09:44,284 - src.core.neural.models - INFO - Loading Cross-Encoder model...
+2026-01-15 10:09:47,169 - sentence_transformers.cross_encoder.CrossEncoder - INFO - Use pytorch device: mps
+{
+    "name": "node.synthesize",
+    "context": {
+        "trace_id": "0x1b3545bbc257436b2db2273494fbcb74",
+        "span_id": "0xc622082948c99f4c",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:09:44.129278Z",
+    "end_time": "2026-01-15T02:09:44.129456Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "synthesize",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0001971721649169922,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+2026-01-15 10:09:47 - src.core.neural.models - INFO - Cross-Encoder model loaded.
+2026-01-15 10:09:47,739 - src.core.neural.models - INFO - Cross-Encoder model loaded.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 12.71it/s]
+2026-01-15 10:10:04,787 - src.services.knowledge_retrieval_service - INFO - 🔍 [查询传递] KnowledgeRetrievalService.execute: 提取到查询='Harriet Lane mother name...' (长度=24)
+2026-01-15 10:10:12,777 - src.utils.unified_complexity_model_service - INFO - ✅ LLM统一分析成功: simple (评分: 1.50)
+2026-01-15 10:10:12,778 - src.services.knowledge_retriever - INFO - 🔍 [KnowledgeRetriever] Searching for: Harriet Lane mother name...
+2026-01-15 10:10:13,436 - knowledge_management_system - INFO - 🔍 [检索策略] use_graph=False，仅使用向量知识库: 31 条结果
+2026-01-15 10:10:13,437 - src.services.knowledge_retrieval_service - INFO - ✅ 成功从FAISS检索获取知识: 10条
+2026-01-15 10:10:13,438 - src.agents.expert_agent - INFO - 🚀 [ExpertAgent] knowledge_retrieval_expert 使用工具: knowledge_retrieval
+2026-01-15 10:10:13,438 - src.services.knowledge_retrieval_service - INFO - 🔍 [查询传递] KnowledgeRetrievalService.execute: 提取到查询='If my future wife has the same first name as the 15th first lady of the United States' mother and he...' (长度=166)
+2026-01-15 10:10:13,439 - src.services.knowledge_retriever - INFO - 🔍 [KnowledgeRetriever] Searching for: If my future wife has the same first name as the 1...
+2026-01-15 10:10:13,460 - knowledge_management_system - INFO - 🔍 [检索策略] use_graph=False，仅使用向量知识库: 30 条结果
+2026-01-15 10:10:13,461 - src.services.knowledge_retrieval_service - INFO - ✅ 成功从FAISS检索获取知识: 10条
+2026-01-15 10:10:13,461 - src.agents.expert_agent - WARNING - ⚠️ [ExpertAgent] knowledge_retrieval_expert 工具调用失败: 'ToolResult' object has no attribute 'data'，回退到Service
+Traceback (most recent call last):
+  File "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/src/agents/expert_agent.py", line 398, in _execute_action
+    "data": tool_result.data,
+            ^^^^^^^^^^^^^^^^
+  File "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/.venv/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'ToolResult' object has no attribute 'data'
+2026-01-15 10:10:13,466 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:10:13,475 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:10:13,475 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:10:13,475 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:10:13,475 - src.agents.base_agent.KnowledgeRetrievalService - INFO - 动态配置加载完成
+2026-01-15 10:10:13,475 - src.agents.base_agent.KnowledgeRetrievalService - INFO - 智能能力初始化完成
+2026-01-15 10:10:13,475 - src.agents.base_agent.KnowledgeRetrievalService - INFO - 智能体 KnowledgeRetrievalService 初始化完成
+2026-01-15 10:10:13,475 - src.services.knowledge_retrieval_service - INFO - 🛑 [系统重构] 已禁用 KnowledgeRetrievalService 的 AdaptiveOptimizer
+2026-01-15 10:10:13,475 - src.services.knowledge_retrieval_service - INFO - 知识检索服务初始化完成（延迟初始化模式，ML/RL增强）
+2026-01-15 10:10:13,476 - src.utils.unified_intelligent_processor - INFO - 统一智能处理基础类初始化完成
+2026-01-15 10:10:13,476 - src.services.knowledge_retrieval_service - INFO - ✅ 智能处理器初始化成功
+2026-01-15 10:10:13,476 - src.services.knowledge_retrieval_service - INFO - ✅ 知识库管理系统初始化成功
+2026-01-15 10:10:13,476 - src.services.knowledge_retrieval_service - INFO - ✅ 知识库初始化成功（使用知识库管理系统）
+2026-01-15 10:10:13,476 - src.services.knowledge_retrieval_service - INFO - ✅ 嵌入模型初始化完成
+2026-01-15 10:10:13,476 - src.services.knowledge_retrieval_service - INFO - ✅ 检索引擎初始化成功
+2026-01-15 10:10:13,476 - src.services.knowledge_retrieval_service - INFO - ✅ 学习排序模型初始化完成
+2026-01-15 10:10:13,476 - src.services.knowledge_retrieval_service - INFO - ✅ 特征提取器初始化完成
+2026-01-15 10:10:13,476 - src.services.knowledge_retrieval_service - INFO - ✅ 排序系统初始化成功
+2026-01-15 10:10:13,476 - src.services.knowledge_retrieval_service - INFO - ✅ 知识检索服务延迟初始化完成
+2026-01-15 10:10:13,476 - src.services.knowledge_retrieval_service - INFO - 🔍 [查询传递] KnowledgeRetrievalService.execute: 提取到查询='If my future wife has the same first name as the 15th first lady of the United States' mother and he...' (长度=166)
+2026-01-15 10:10:13,476 - src.services.knowledge_retriever - INFO - 🔍 [KnowledgeRetriever] Searching for: If my future wife has the same first name as the 1...
+2026-01-15 10:10:13,498 - knowledge_management_system - INFO - 🔍 [检索策略] use_graph=False，仅使用向量知识库: 30 条结果
+2026-01-15 10:10:13,499 - src.services.knowledge_retrieval_service - INFO - ✅ 成功从FAISS检索获取知识: 10条
+2026-01-15 10:10:13,500 - src.agents.expert_agent - INFO - ✅ 专家Agent执行完成: knowledge_retrieval_expert, 耗时=29.22秒
+2026-01-15 10:10:13,500 - src.core.langgraph_agent_nodes - INFO - ✅ [Knowledge Retrieval Agent] 知识检索完成，获取 10 条知识
+2026-01-15 10:10:13,500 - src.core.langgraph_agent_nodes - INFO - ✅ [Knowledge Retrieval Agent] 最终汇总: 10 条知识, 0 条证据
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 172.54it/s]
+{
+    "name": "node.knowledge_retrieval_agent",
+    "context": {
+        "trace_id": "0xda3341441573b0baa186369595b93c78",
+        "span_id": "0xce50e078263e0c9c",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:09:40.992470Z",
+    "end_time": "2026-01-15T02:10:13.500857Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "knowledge_retrieval_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 32.50836992263794,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+2026-01-15 10:10:42 - src.core.workflows.react_workflow - INFO - Dynamic Challenge Triggered (Complexity: medium, Iteration: 2)
+2026-01-15 10:10:42,782 - src.core.workflows.react_workflow - INFO - Dynamic Challenge Triggered (Complexity: medium, Iteration: 2)
+2026-01-15 10:10:42 - src.core.workflows.react_workflow - INFO - Triggering Dialectical Challenge (β≈2)...
+2026-01-15 10:10:42,785 - src.core.workflows.react_workflow - INFO - Triggering Dialectical Challenge (β≈2)...
+2026-01-15 10:12:06 - src.core.workflows.react_workflow - INFO - Challenge Verdict: VALID
+2026-01-15 10:12:06,614 - src.core.workflows.react_workflow - INFO - Challenge Verdict: VALID
+2026-01-15 10:12:06,617 - src.core.langgraph_agent_nodes - INFO - ✅ [Reasoning Agent] 推理分析完成，结果已保存到state
+2026-01-15 10:12:06,622 - src.core.langgraph_unified_workflow - INFO - 📝 [Format] 格式化最终结果...
+2026-01-15 10:12:06,622 - src.core.langgraph_config_nodes - INFO - ✅ 反馈收集节点执行完成
+2026-01-15 10:12:06,622 - src.core.langgraph_unified_workflow - INFO - 🔍 [Format] 状态检查:
+2026-01-15 10:12:06,622 - src.core.langgraph_unified_workflow - INFO -    - final_answer: No evidence or answer available
+2026-01-15 10:12:06,622 - src.core.langgraph_unified_workflow - INFO -    - answer: None
+2026-01-15 10:12:06,622 - src.core.langgraph_unified_workflow - INFO -    - reasoning_answer: Your future wife's name would be Jane Buchanan.
+2026-01-15 10:12:06,622 - src.core.langgraph_unified_workflow - INFO -    - step_answers: 0 个步骤答案
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO -    - evidence: 0 条证据
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO - ✅ [Format] 使用已有的 final_answer
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO - ✅ [Format] 格式化完成
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 查询: If my future wife has the same first name as the 1...
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 路径: complex
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 总执行时间: 161.97秒
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 置信度: 0.00
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 节点执行时间:
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO -    - route_query: 0.00秒
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO -    - query_analysis: 0.00秒
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO -    - scheduling_optimization: 0.00秒
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO -    - context_engineering: 0.00秒
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO -    - prompt_engineering: 0.00秒
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO -    - rag_retrieval: 4.80秒
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO -    - memory_agent: 0.06秒
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO -    - answer_generation_agent: 0.02秒
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO -    - citation_agent: 0.00秒
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO -    - synthesize: 0.00秒
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO -    - knowledge_retrieval_agent: 32.51秒
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO -    - reasoning_agent: 142.51秒
+2026-01-15 10:12:06,623 - src.core.langgraph_unified_workflow - INFO -    - format: 0.00秒
+2026-01-15 10:12:06,628 - src.core.langgraph_agent_nodes - INFO - 📝 [Answer Generation Agent] 开始答案生成
+2026-01-15 10:12:06,628 - src.core.langgraph_agent_nodes - INFO - 🔍 [Answer Generation Agent] 从state中提取推理结果，构建dependencies: keys=['reasoning']
+🔧 轻量级模式：返回模拟结果 for query='If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?'
+2026-01-15 10:12:06,629 - src.core.langgraph_agent_nodes - INFO - ✅ [Answer Generation Agent] 答案生成完成
+2026-01-15 10:12:06,630 - src.core.langgraph_agent_nodes - INFO - 📚 [Citation Agent] 开始引用生成
+2026-01-15 10:12:06,633 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:12:06,651 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:12:06,651 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:12:06,651 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:12:06,651 - src.agents.base_agent.citation_expert - INFO - 动态配置加载完成
+2026-01-15 10:12:06,651 - src.agents.base_agent.citation_expert - INFO - 智能能力初始化完成
+2026-01-15 10:12:06,651 - src.agents.base_agent.citation_expert - INFO - 智能体 citation_expert 初始化完成
+2026-01-15 10:12:06,653 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:12:06,667 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:12:06,667 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:12:06,667 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:12:06,667 - src.agents.base_agent.citation_expert - INFO - 动态配置加载完成
+2026-01-15 10:12:06,667 - src.agents.base_agent.citation_expert - INFO - 智能能力初始化完成
+2026-01-15 10:12:06,667 - src.agents.base_agent.citation_expert - INFO - 智能体 citation_expert 初始化完成
+2026-01-15 10:12:06 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:12:06,667 - src.core.llm_integration - INFO - LLM Integration initialized: provider=deepseek, model=deepseek-chat, base_url=https://api.deepseek.com/v1
+2026-01-15 10:12:06,667 - src.agents.expert_agent - INFO - ✅ LLM客户端初始化成功（用于思考阶段）
+2026-01-15 10:12:06,667 - src.agents.expert_agent - INFO - ✅ 专家Agent初始化完成: citation_expert, 领域=引用和来源生成, 能力水平=0.85
+2026-01-15 10:12:06,667 - src.adapters.citation_agent_adapter - INFO - 初始化适配器: CitationAgent → QualityController
+2026-01-15 10:12:06,667 - backup_legacy_agents.citation_agent_wrapper - WARNING - ⚠️ 逐步替换策略初始化失败，将使用旧Agent: name 'get_unified_config_center' is not defined
+2026-01-15 10:12:06,667 - src.core.langgraph_agent_nodes - INFO - ✅ 专家智能体 citation 初始化成功
+2026-01-15 10:12:06,667 - src.agents.expert_agent - INFO - 🧠 专家Agent开始执行: citation_expert, 查询='If my future wife has the same first name as the 15th first lady of the United States' mother and he...' (长度=166)
+2026-01-15 10:12:06,667 - src.core.langgraph_agent_nodes - INFO - 🔍 [Knowledge Retrieval Agent] 开始知识检索
+DEBUG: Starting _decompose_query for: If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?
+DEBUG: system found: <class 'src.unified_research_system.UnifiedResearchSystem'>
+DEBUG: Got LLM from system.llm_client
+DEBUG: LLM instance found: <class 'src.core.llm_integration.LLMIntegration'>
+{
+    "name": "node.reasoning_agent",
+    "context": {
+        "trace_id": "0xbd4b440d648b225cbab6ad4696d256f6",
+        "span_id": "0x63f30190310e79c5",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:09:44.111371Z",
+    "end_time": "2026-01-15T02:12:06.618392Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "reasoning_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 142.507061958313,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.format",
+    "context": {
+        "trace_id": "0x22546a69d4cd32601c777f9eb57be831",
+        "span_id": "0xca4212dd6df7c1cc",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:12:06.621993Z",
+    "end_time": "2026-01-15T02:12:06.624071Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "format",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.002117156982421875,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.answer_generation_agent",
+    "context": {
+        "trace_id": "0xd544d6573d98f8114f3adb84a4afd143",
+        "span_id": "0x2f2481fc8537c9c0",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:12:06.628086Z",
+    "end_time": "2026-01-15T02:12:06.630015Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "answer_generation_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.001940011978149414,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+2026-01-15 10:12:10,230 - src.core.langgraph_agent_nodes - INFO - ✅ 查询分解成功: ['th first lady of the United States name', "th first lady of the United States mother's first name", 'th president of the United States last name', "James Buchanan wife's mother's name"]
+
+==================== DEBUG: DECOMPOSED QUERIES ====================
+  1. If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?
+  2. th first lady of the United States name
+  3. th first lady of the United States mother's first name
+  4. th president of the United States last name
+  5. James Buchanan wife's mother's name
+============================================================
+
+2026-01-15 10:12:10,230 - src.core.langgraph_agent_nodes - INFO - 🔍 [Knowledge Retrieval Agent] 将执行 5 个查询: ["If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?", 'th first lady of the United States name', "th first lady of the United States mother's first name", 'th president of the United States last name', "James Buchanan wife's mother's name"]
+DEBUG: Using capability_service for knowledge_retrieval with 5 queries
+2026-01-15 10:12:10,231 - src.core.langgraph_agent_nodes - INFO - 🧩 [Reasoning Agent] 开始推理分析
+2026-01-15 10:12:10,232 - src.core.langgraph_learning_nodes - INFO - ✅ 学习聚合节点执行完成
+2026-01-15 10:12:10,232 - src.core.langgraph_agent_nodes - INFO - ✅ [Reasoning Agent] 使用能力服务执行推理（推理链: False）
+2026-01-15 10:12:10,232 - src.core.langgraph_learning_nodes - INFO -    → 新增模式: 0 个
+2026-01-15 10:12:10,232 - src.core.langgraph_agent_nodes - INFO - 🧩 [Reasoning Agent] 推理链标志: False
+2026-01-15 10:12:10 - src.agents.reasoning_agent - INFO - Starting reasoning for: If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?
+2026-01-15 10:12:10,232 - src.core.langgraph_learning_nodes - INFO -    → 新增策略: 0 个
+2026-01-15 10:12:10,232 - src.agents.reasoning_agent - INFO - Starting reasoning for: If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?
+2026-01-15 10:12:10,232 - src.core.langgraph_learning_nodes - INFO -    → 协作洞察: 0 个
+2026-01-15 10:12:10,235 - src.core.langgraph_unified_workflow - INFO - 🔗 [Synthesize] 综合证据和答案...
+2026-01-15 10:12:10,235 - src.core.langgraph_unified_workflow - INFO - ✅ [Synthesize] 使用推理答案，长度: 24
+2026-01-15 10:12:10,235 - src.core.langgraph_unified_workflow - INFO - ✅ [Synthesize] 综合完成，答案长度: 24
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 17.71it/s]
+{
+    "name": "node.synthesize",
+    "context": {
+        "trace_id": "0x2a965bbf29ea7efbcd997f745ac8ec9e",
+        "span_id": "0x4e039e352a775f67",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:12:10.235591Z",
+    "end_time": "2026-01-15T02:12:10.236053Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "synthesize",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.00047016143798828125,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+2026-01-15 10:13:26,826 - src.agents.expert_agent - INFO - 🚀 [ExpertAgent] citation_expert 使用工具: citation
+2026-01-15 10:13:26,834 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:13:26,857 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:13:26,857 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:13:26,857 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:13:26,857 - src.agents.base_agent.CitationService - INFO - 动态配置加载完成
+2026-01-15 10:13:26,857 - src.agents.base_agent.CitationService - INFO - 智能能力初始化完成
+2026-01-15 10:13:26,857 - src.agents.base_agent.CitationService - INFO - 智能体 CitationService 初始化完成
+2026-01-15 10:13:26,857 - src.services.citation_service - INFO - 增强引用智能体初始化完成，使用统一工具
+2026-01-15 10:13:26,857 - src.agents.tools.base_tool.citation - INFO - ✅ 引用服务初始化成功
+2026-01-15 10:13:26,859 - src.agents.expert_agent - WARNING - ⚠️ [ExpertAgent] citation_expert 工具调用失败: 'ToolResult' object has no attribute 'data'，回退到Service
+Traceback (most recent call last):
+  File "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/src/agents/expert_agent.py", line 398, in _execute_action
+    "data": tool_result.data,
+            ^^^^^^^^^^^^^^^^
+  File "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/.venv/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'ToolResult' object has no attribute 'data'
+2026-01-15 10:13:26,862 - src.utils.unified_centers - INFO - 环境变量配置加载完成
+2026-01-15 10:13:26,876 - src.utils.unified_centers - INFO - ✅ 已加载 rules.yaml: ['keywords', 'patterns', 'rules', 'confidence', 'timeouts', 'retry', 'thresholds']
+2026-01-15 10:13:26,876 - src.utils.unified_centers - INFO - ✅ 已加载 system_config.json: ['max_function_length', 'max_class_length', 'max_parameters', 'max_nesting_depth', 'max_cyclomatic_complexity', 'min_docstring_coverage', 'timeout', 'max_retries', 'max_concurrent', 'log_level', 'log_format', 'vector_db_path', 'faiss_index_path', 'sample_count', 'evaluation_timeout', 'ai_model_timeout', 'ai_max_tokens', 'filtering']
+2026-01-15 10:13:26,876 - src.utils.unified_centers - INFO - 统一配置中心初始化完成
+2026-01-15 10:13:26,876 - src.agents.base_agent.CitationService - INFO - 动态配置加载完成
+2026-01-15 10:13:26,876 - src.agents.base_agent.CitationService - INFO - 智能能力初始化完成
+2026-01-15 10:13:26,876 - src.agents.base_agent.CitationService - INFO - 智能体 CitationService 初始化完成
+2026-01-15 10:13:26,876 - src.services.citation_service - INFO - 增强引用智能体初始化完成，使用统一工具
+2026-01-15 10:13:26,876 - src.agents.expert_agent - WARNING - ⚠️ [查询传递] ExpertAgent._execute_action: query为空！action.params.query=None, dependencies.query=None
+
+--- DEBUG: Result for query 'If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?' ---
+2026-01-15 10:13:26,876 - src.core.langgraph_agent_nodes - INFO - ✅ [Knowledge Retrieval Agent] 使用专家智能体执行知识检索 (Fallback)
+2026-01-15 10:13:26,876 - src.agents.expert_agent - INFO - 🧠 专家Agent开始执行: knowledge_retrieval_expert, 查询='If my future wife has the same first name as the 15th first lady of the United States' mother and he...' (长度=166)
+2026-01-15 10:13:26,877 - src.agents.expert_agent - INFO - ✅ 专家Agent执行完成: citation_expert, 耗时=80.21秒
+2026-01-15 10:13:26,877 - src.core.langgraph_agent_nodes - INFO - ✅ [Citation Agent] 引用生成完成，生成 0 条引用
+2026-01-15 10:13:26,878 - src.core.langgraph_agent_nodes - WARNING - ⚠️ [Reasoning Agent] Empty LLM response
+{
+    "name": "node.citation_agent",
+    "context": {
+        "trace_id": "0xdfc1b7c783939145d8ee220608f72735",
+        "span_id": "0xa0deac529339a929",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:12:06.630076Z",
+    "end_time": "2026-01-15T02:13:26.877473Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "citation_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 80.24740505218506,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.reasoning_agent",
+    "context": {
+        "trace_id": "0xf52c6ce13fb2b787445839bb750bafb2",
+        "span_id": "0x035982e1667d0231",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:12:10.231843Z",
+    "end_time": "2026-01-15T02:13:26.878954Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "reasoning_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 76.64724493026733,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+2026-01-15 10:13:52,735 - src.agents.expert_agent - INFO - 🚀 [ExpertAgent] knowledge_retrieval_expert 使用工具: knowledge_retrieval
+2026-01-15 10:13:52,737 - src.services.knowledge_retrieval_service - INFO - 🔍 [查询传递] KnowledgeRetrievalService.execute: 提取到查询='If my future wife has the same first name as the 15th first lady of the United States' mother and he...' (长度=166)
+2026-01-15 10:13:52,737 - src.services.knowledge_retriever - INFO - 🔍 [KnowledgeRetriever] Searching for: If my future wife has the same first name as the 1...
+2026-01-15 10:13:52,820 - knowledge_management_system - INFO - 🔍 [检索策略] use_graph=False，仅使用向量知识库: 30 条结果
+2026-01-15 10:13:52,823 - src.services.knowledge_retrieval_service - INFO - ✅ 成功从FAISS检索获取知识: 10条
+2026-01-15 10:13:52,823 - src.agents.expert_agent - WARNING - ⚠️ [ExpertAgent] knowledge_retrieval_expert 工具调用失败: 'ToolResult' object has no attribute 'data'，回退到Service
+Traceback (most recent call last):
+  File "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/src/agents/expert_agent.py", line 398, in _execute_action
+    "data": tool_result.data,
+            ^^^^^^^^^^^^^^^^
+  File "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/.venv/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'ToolResult' object has no attribute 'data'
+2026-01-15 10:13:52,824 - src.services.knowledge_retrieval_service - INFO - 🔍 [查询传递] KnowledgeRetrievalService.execute: 提取到查询='If my future wife has the same first name as the 15th first lady of the United States' mother and he...' (长度=166)
+2026-01-15 10:13:52,824 - src.services.knowledge_retriever - INFO - 🔍 [KnowledgeRetriever] Searching for: If my future wife has the same first name as the 1...
+2026-01-15 10:13:52,855 - knowledge_management_system - INFO - 🔍 [检索策略] use_graph=False，仅使用向量知识库: 30 条结果
+2026-01-15 10:13:52,856 - src.services.knowledge_retrieval_service - INFO - ✅ 成功从FAISS检索获取知识: 10条
+2026-01-15 10:13:52,857 - src.agents.expert_agent - INFO - ✅ 专家Agent执行完成: knowledge_retrieval_expert, 耗时=25.98秒
+2026-01-15 10:13:52,857 - src.core.langgraph_agent_nodes - INFO - ✅ [Knowledge Retrieval Agent] 知识检索完成，获取 10 条知识
+2026-01-15 10:13:52,860 - src.core.langgraph_agent_nodes - INFO - ✅ [Knowledge Retrieval Agent] 最终汇总: 10 条知识, 0 条证据
+2026-01-15 10:13:52,861 - src.core.langgraph_unified_workflow - INFO - 📝 [Format] 格式化最终结果...
+2026-01-15 10:13:52,861 - src.core.langgraph_config_nodes - INFO - ✅ 反馈收集节点执行完成
+2026-01-15 10:13:52,861 - src.core.langgraph_unified_workflow - INFO - 🔍 [Format] 状态检查:
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO -    - final_answer: None
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO -    - answer: None
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO -    - reasoning_answer: Your future wife's name would be Jane Buchanan.
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO -    - step_answers: 0 个步骤答案
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO -    - evidence: 0 条证据
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO - ✅ [Format] 使用已有的 final_answer
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO - ✅ [Format] 格式化完成
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 查询: If my future wife has the same first name as the 1...
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 路径: complex
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 总执行时间: 268.20秒
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 置信度: 0.00
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 节点执行时间:
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO -    - route_query: 0.00秒
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO -    - query_analysis: 0.00秒
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO -    - scheduling_optimization: 0.00秒
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO -    - context_engineering: 0.00秒
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO -    - prompt_engineering: 0.00秒
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO -    - rag_retrieval: 4.80秒
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO -    - memory_agent: 0.06秒
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO -    - answer_generation_agent: 0.00秒
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO -    - citation_agent: 80.25秒
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO -    - synthesize: 0.00秒
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO -    - knowledge_retrieval_agent: 106.19秒
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO -    - reasoning_agent: 76.65秒
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO -    - format: 0.00秒
+2026-01-15 10:13:52,862 - src.core.langgraph_unified_workflow - INFO -    - learning_aggregation_node: 0.00秒
+2026-01-15 10:13:52,862 - src.core.langgraph_learning_nodes - WARNING - ⚠️ 没有学习上下文，跳过知识分布
+2026-01-15 10:13:52,867 - src.core.langgraph_agent_nodes - INFO - 📝 [Answer Generation Agent] 开始答案生成
+2026-01-15 10:13:52,867 - src.core.langgraph_agent_nodes - INFO - 🔍 [Answer Generation Agent] 从state中提取推理结果，构建dependencies: keys=['reasoning']
+🔧 轻量级模式：返回模拟结果 for query='If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?'
+2026-01-15 10:13:52,869 - src.core.langgraph_agent_nodes - INFO - ✅ [Answer Generation Agent] 答案生成完成
+2026-01-15 10:13:52,869 - src.core.langgraph_agent_nodes - INFO - 📚 [Citation Agent] 开始引用生成
+2026-01-15 10:13:52,869 - src.agents.expert_agent - INFO - 🧠 专家Agent开始执行: citation_expert, 查询='If my future wife has the same first name as the 15th first lady of the United States' mother and he...' (长度=166)
+2026-01-15 10:13:52,869 - src.core.langgraph_agent_nodes - INFO - 🔍 [Knowledge Retrieval Agent] 开始知识检索
+DEBUG: Starting _decompose_query for: If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?
+DEBUG: system found: <class 'src.unified_research_system.UnifiedResearchSystem'>
+DEBUG: Got LLM from system.llm_client
+DEBUG: LLM instance found: <class 'src.core.llm_integration.LLMIntegration'>
+2026-01-15 10:13:52,869 - src.core.langgraph_learning_nodes - INFO - ✅ 持续学习监控节点执行完成
+2026-01-15 10:13:52,869 - src.core.langgraph_learning_nodes - INFO -    → 监控周期: 1
+2026-01-15 10:13:52,869 - src.core.langgraph_learning_nodes - INFO -    → 学习触发: 2 次
+{
+    "name": "node.knowledge_retrieval_agent",
+    "context": {
+        "trace_id": "0xe16feb9ee7b1c7c97dd7a79a5b5998f5",
+        "span_id": "0xf766a9fd0e5ad292",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:12:06.667566Z",
+    "end_time": "2026-01-15T02:13:52.860176Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "knowledge_retrieval_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 106.19260096549988,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.format",
+    "context": {
+        "trace_id": "0xcc49ec974cd02c2727318881e2a05292",
+        "span_id": "0x5a46186c683cb89b",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:13:52.861803Z",
+    "end_time": "2026-01-15T02:13:52.862526Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "format",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0007302761077880859,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.answer_generation_agent",
+    "context": {
+        "trace_id": "0x62ff258bd1ee522f83b6bf791985ab51",
+        "span_id": "0x25f0c1857c3390f7",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:13:52.867573Z",
+    "end_time": "2026-01-15T02:13:52.869177Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "answer_generation_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0016131401062011719,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+2026-01-15 10:13:56,315 - src.core.langgraph_agent_nodes - INFO - ✅ 查询分解成功: ['th first lady of the United States name', "th first lady's mother's first name", 'th president of the United States name', "th president's last name", "First Lady Jane Pierce mother's name"]
+
+==================== DEBUG: DECOMPOSED QUERIES ====================
+  1. If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?
+  2. th first lady of the United States name
+  3. th first lady's mother's first name
+  4. th president of the United States name
+  5. th president's last name
+  6. First Lady Jane Pierce mother's name
+============================================================
+
+2026-01-15 10:13:56,315 - src.core.langgraph_agent_nodes - INFO - 🔍 [Knowledge Retrieval Agent] 将执行 6 个查询: ["If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?", 'th first lady of the United States name', "th first lady's mother's first name", 'th president of the United States name', "th president's last name", "First Lady Jane Pierce mother's name"]
+DEBUG: Using capability_service for knowledge_retrieval with 6 queries
+2026-01-15 10:13:56,315 - src.core.langgraph_agent_nodes - INFO - 🧩 [Reasoning Agent] 开始推理分析
+2026-01-15 10:13:56,315 - src.core.langgraph_learning_nodes - INFO - ✅ 学习聚合节点执行完成
+2026-01-15 10:13:56,315 - src.core.langgraph_agent_nodes - INFO - ✅ [Reasoning Agent] 使用能力服务执行推理（推理链: False）
+2026-01-15 10:13:56,316 - src.core.langgraph_learning_nodes - INFO -    → 新增模式: 0 个
+2026-01-15 10:13:56,316 - src.core.langgraph_agent_nodes - INFO - 🧩 [Reasoning Agent] 推理链标志: False
+2026-01-15 10:13:56 - src.agents.reasoning_agent - INFO - Starting reasoning for: If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?
+2026-01-15 10:13:56,316 - src.core.langgraph_learning_nodes - INFO -    → 新增策略: 0 个
+2026-01-15 10:13:56,316 - src.agents.reasoning_agent - INFO - Starting reasoning for: If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?
+2026-01-15 10:13:56,316 - src.core.langgraph_learning_nodes - INFO -    → 协作洞察: 0 个
+2026-01-15 10:13:56,328 - src.core.langgraph_unified_workflow - INFO - 🔗 [Synthesize] 综合证据和答案...
+2026-01-15 10:13:56,329 - src.core.langgraph_unified_workflow - INFO - ✅ [Synthesize] 使用推理答案，长度: 840
+2026-01-15 10:13:56,329 - src.core.langgraph_unified_workflow - INFO - ✅ [Synthesize] 综合完成，答案长度: 840
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 22.44it/s]
+{
+    "name": "node.synthesize",
+    "context": {
+        "trace_id": "0x9800484e490ed95d091ea0bbd84a0297",
+        "span_id": "0xc0c8de6003143101",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:13:56.328844Z",
+    "end_time": "2026-01-15T02:13:56.329098Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "synthesize",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0002598762512207031,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+2026-01-15 10:14:27 - src.core.llm_integration - WARNING - LLM call failed (Attempt 1/3): 413 Client Error: Request Entity Too Large for url: https://api.deepseek.com/v1/chat/completions. Retrying in 1.0s...
+2026-01-15 10:14:27,022 - src.core.llm_integration - WARNING - LLM call failed (Attempt 1/3): 413 Client Error: Request Entity Too Large for url: https://api.deepseek.com/v1/chat/completions. Retrying in 1.0s...
+2026-01-15 10:14:58 - src.core.llm_integration - WARNING - LLM call failed (Attempt 2/3): 413 Client Error: Request Entity Too Large for url: https://api.deepseek.com/v1/chat/completions. Retrying in 2.0s...
+2026-01-15 10:14:58,847 - src.core.llm_integration - WARNING - LLM call failed (Attempt 2/3): 413 Client Error: Request Entity Too Large for url: https://api.deepseek.com/v1/chat/completions. Retrying in 2.0s...
+2026-01-15 10:15:31 - src.core.llm_integration - ERROR - Network error: 413 Client Error: Request Entity Too Large for url: https://api.deepseek.com/v1/chat/completions (Max retries reached)
+2026-01-15 10:15:31,928 - src.core.llm_integration - ERROR - Network error: 413 Client Error: Request Entity Too Large for url: https://api.deepseek.com/v1/chat/completions (Max retries reached)
+2026-01-15 10:15:31,935 - src.agents.expert_agent - INFO - 🚀 [ExpertAgent] citation_expert 使用工具: citation
+2026-01-15 10:15:31,936 - src.agents.expert_agent - WARNING - ⚠️ [ExpertAgent] citation_expert 工具调用失败: 'ToolResult' object has no attribute 'data'，回退到Service
+Traceback (most recent call last):
+  File "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/src/agents/expert_agent.py", line 398, in _execute_action
+    "data": tool_result.data,
+            ^^^^^^^^^^^^^^^^
+  File "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/.venv/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'ToolResult' object has no attribute 'data'
+2026-01-15 10:15:31,937 - src.agents.expert_agent - WARNING - ⚠️ [查询传递] ExpertAgent._execute_action: query为空！action.params.query=None, dependencies.query=None
+
+--- DEBUG: Result for query 'If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?' ---
+2026-01-15 10:15:31,938 - src.core.langgraph_agent_nodes - INFO - ✅ [Knowledge Retrieval Agent] 使用专家智能体执行知识检索 (Fallback)
+2026-01-15 10:15:31,938 - src.agents.expert_agent - INFO - 🧠 专家Agent开始执行: knowledge_retrieval_expert, 查询='If my future wife has the same first name as the 15th first lady of the United States' mother and he...' (长度=166)
+2026-01-15 10:15:31,938 - src.agents.expert_agent - INFO - ✅ 专家Agent执行完成: citation_expert, 耗时=99.07秒
+2026-01-15 10:15:31,938 - src.core.langgraph_agent_nodes - INFO - ✅ [Citation Agent] 引用生成完成，生成 0 条引用
+2026-01-15 10:15:31,948 - src.core.langgraph_agent_nodes - WARNING - ⚠️ [Reasoning Agent] Empty LLM response
+{
+    "name": "node.citation_agent",
+    "context": {
+        "trace_id": "0x17dac6ecb3140d2ed9254ca8c0c45726",
+        "span_id": "0x15e5e2a8acd4019b",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:13:52.869200Z",
+    "end_time": "2026-01-15T02:15:31.939377Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "citation_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 99.07012176513672,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.reasoning_agent",
+    "context": {
+        "trace_id": "0x796a538ed79f2dc099de5e019ed0a4fd",
+        "span_id": "0xf100634566172616",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:13:56.315705Z",
+    "end_time": "2026-01-15T02:15:31.948942Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "reasoning_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 95.63325691223145,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+2026-01-15 10:15:53,500 - src.agents.expert_agent - INFO - 🚀 [ExpertAgent] knowledge_retrieval_expert 使用工具: knowledge_retrieval
+2026-01-15 10:15:53,501 - src.services.knowledge_retrieval_service - INFO - 🔍 [查询传递] KnowledgeRetrievalService.execute: 提取到查询='If my future wife has the same first name as the 15th first lady of the United States' mother and he...' (长度=166)
+2026-01-15 10:15:53,502 - src.services.knowledge_retriever - INFO - 🔍 [KnowledgeRetriever] Searching for: If my future wife has the same first name as the 1...
+2026-01-15 10:15:53,589 - knowledge_management_system - INFO - 🔍 [检索策略] use_graph=False，仅使用向量知识库: 30 条结果
+2026-01-15 10:15:53,591 - src.services.knowledge_retrieval_service - INFO - ✅ 成功从FAISS检索获取知识: 10条
+2026-01-15 10:15:53,591 - src.agents.expert_agent - WARNING - ⚠️ [ExpertAgent] knowledge_retrieval_expert 工具调用失败: 'ToolResult' object has no attribute 'data'，回退到Service
+Traceback (most recent call last):
+  File "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/src/agents/expert_agent.py", line 398, in _execute_action
+    "data": tool_result.data,
+            ^^^^^^^^^^^^^^^^
+  File "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/.venv/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'ToolResult' object has no attribute 'data'
+2026-01-15 10:15:53,592 - src.services.knowledge_retrieval_service - INFO - 🔍 [查询传递] KnowledgeRetrievalService.execute: 提取到查询='If my future wife has the same first name as the 15th first lady of the United States' mother and he...' (长度=166)
+2026-01-15 10:15:53,592 - src.services.knowledge_retriever - INFO - 🔍 [KnowledgeRetriever] Searching for: If my future wife has the same first name as the 1...
+2026-01-15 10:15:53,613 - knowledge_management_system - INFO - 🔍 [检索策略] use_graph=False，仅使用向量知识库: 30 条结果
+2026-01-15 10:15:53,614 - src.services.knowledge_retrieval_service - INFO - ✅ 成功从FAISS检索获取知识: 10条
+2026-01-15 10:15:53,615 - src.agents.expert_agent - INFO - ✅ 专家Agent执行完成: knowledge_retrieval_expert, 耗时=21.68秒
+2026-01-15 10:15:53,615 - src.core.langgraph_agent_nodes - INFO - ✅ [Knowledge Retrieval Agent] 知识检索完成，获取 10 条知识
+2026-01-15 10:15:53,669 - src.core.langgraph_agent_nodes - INFO - ✅ [Knowledge Retrieval Agent] 最终汇总: 10 条知识, 0 条证据
+2026-01-15 10:15:53,683 - src.core.langgraph_unified_workflow - INFO - 📝 [Format] 格式化最终结果...
+2026-01-15 10:15:53,684 - src.core.langgraph_config_nodes - INFO - ✅ 反馈收集节点执行完成
+2026-01-15 10:15:53,684 - src.core.langgraph_unified_workflow - INFO - 🔍 [Format] 状态检查:
+2026-01-15 10:15:53,684 - src.core.langgraph_unified_workflow - INFO -    - final_answer: None
+2026-01-15 10:15:53,684 - src.core.langgraph_unified_workflow - INFO -    - answer: None
+2026-01-15 10:15:53,684 - src.core.langgraph_unified_workflow - INFO -    - reasoning_answer: Your future wife's name would be Jane Buchanan.
+2026-01-15 10:15:53,684 - src.core.langgraph_unified_workflow - INFO -    - step_answers: 0 个步骤答案
+2026-01-15 10:15:53,684 - src.core.langgraph_unified_workflow - INFO -    - evidence: 0 条证据
+2026-01-15 10:15:53,684 - src.core.langgraph_unified_workflow - INFO - ✅ [Format] 使用已有的 final_answer
+2026-01-15 10:15:53,684 - src.core.langgraph_unified_workflow - INFO - ✅ [Format] 格式化完成
+2026-01-15 10:15:53,684 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 查询: If my future wife has the same first name as the 1...
+2026-01-15 10:15:53,684 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 路径: complex
+2026-01-15 10:15:53,684 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 总执行时间: 389.03秒
+2026-01-15 10:15:53,684 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 置信度: 0.00
+2026-01-15 10:15:53,684 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 节点执行时间:
+2026-01-15 10:15:53,684 - src.core.langgraph_unified_workflow - INFO -    - route_query: 0.00秒
+2026-01-15 10:15:53,684 - src.core.langgraph_unified_workflow - INFO -    - query_analysis: 0.00秒
+2026-01-15 10:15:53,684 - src.core.langgraph_unified_workflow - INFO -    - scheduling_optimization: 0.00秒
+2026-01-15 10:15:53,684 - src.core.langgraph_unified_workflow - INFO -    - context_engineering: 0.00秒
+2026-01-15 10:15:53,684 - src.core.langgraph_unified_workflow - INFO -    - prompt_engineering: 0.00秒
+2026-01-15 10:15:53,685 - src.core.langgraph_unified_workflow - INFO -    - rag_retrieval: 4.80秒
+2026-01-15 10:15:53,685 - src.core.langgraph_unified_workflow - INFO -    - memory_agent: 0.06秒
+2026-01-15 10:15:53,685 - src.core.langgraph_unified_workflow - INFO -    - answer_generation_agent: 0.00秒
+2026-01-15 10:15:53,685 - src.core.langgraph_unified_workflow - INFO -    - citation_agent: 99.07秒
+2026-01-15 10:15:53,685 - src.core.langgraph_unified_workflow - INFO -    - synthesize: 0.00秒
+2026-01-15 10:15:53,685 - src.core.langgraph_unified_workflow - INFO -    - knowledge_retrieval_agent: 120.80秒
+2026-01-15 10:15:53,685 - src.core.langgraph_unified_workflow - INFO -    - reasoning_agent: 95.63秒
+2026-01-15 10:15:53,685 - src.core.langgraph_unified_workflow - INFO -    - format: 0.00秒
+2026-01-15 10:15:53,685 - src.core.langgraph_unified_workflow - INFO -    - learning_aggregation_node: 0.00秒
+2026-01-15 10:15:53,685 - src.core.langgraph_learning_nodes - WARNING - ⚠️ 没有学习上下文，跳过知识分布
+2026-01-15 10:15:53,685 - src.core.langgraph_capability_nodes - INFO - ✅ 标准化接口适配完成
+2026-01-15 10:15:53,819 - src.core.langgraph_agent_nodes - INFO - 📝 [Answer Generation Agent] 开始答案生成
+2026-01-15 10:15:53,819 - src.core.langgraph_agent_nodes - INFO - 🔍 [Answer Generation Agent] 从state中提取推理结果，构建dependencies: keys=['reasoning']
+🔧 轻量级模式：返回模拟结果 for query='If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?'
+2026-01-15 10:15:53,820 - src.core.langgraph_agent_nodes - INFO - ✅ [Answer Generation Agent] 答案生成完成
+2026-01-15 10:15:53,820 - src.core.langgraph_agent_nodes - INFO - 📚 [Citation Agent] 开始引用生成
+2026-01-15 10:15:53,820 - src.agents.expert_agent - INFO - 🧠 专家Agent开始执行: citation_expert, 查询='If my future wife has the same first name as the 15th first lady of the United States' mother and he...' (长度=166)
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO - 📝 [Format] 格式化最终结果...
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO - 🔍 [Format] 状态检查:
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO -    - final_answer: None
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO -    - answer: None
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO -    - reasoning_answer: Your future wife's name would be Jane Buchanan.
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO -    - step_answers: 0 个步骤答案
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO -    - evidence: 0 条证据
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO - ✅ [Format] 使用已有的 final_answer
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO - ✅ [Format] 格式化完成
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 查询: If my future wife has the same first name as the 1...
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 路径: complex
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 总执行时间: 389.16秒
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 置信度: 0.00
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 节点执行时间:
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO -    - route_query: 0.00秒
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO -    - query_analysis: 0.00秒
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO -    - scheduling_optimization: 0.00秒
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO -    - context_engineering: 0.00秒
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO -    - prompt_engineering: 0.00秒
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO -    - rag_retrieval: 4.80秒
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO -    - memory_agent: 0.06秒
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO -    - answer_generation_agent: 0.00秒
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO -    - citation_agent: 99.07秒
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO -    - synthesize: 0.00秒
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO -    - knowledge_retrieval_agent: 120.80秒
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO -    - reasoning_agent: 95.63秒
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO -    - format: 0.00秒
+2026-01-15 10:15:53,820 - src.core.langgraph_unified_workflow - INFO -    - learning_aggregation_node: 0.00秒
+2026-01-15 10:15:53,820 - src.core.langgraph_agent_nodes - INFO - 🔍 [Knowledge Retrieval Agent] 开始知识检索
+DEBUG: Starting _decompose_query for: If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?
+DEBUG: system found: <class 'src.unified_research_system.UnifiedResearchSystem'>
+DEBUG: Got LLM from system.llm_client
+DEBUG: LLM instance found: <class 'src.core.llm_integration.LLMIntegration'>
+2026-01-15 10:15:53,821 - src.core.langgraph_learning_nodes - INFO - ✅ 持续学习监控节点执行完成
+2026-01-15 10:15:53,821 - src.core.langgraph_learning_nodes - INFO -    → 监控周期: 1
+2026-01-15 10:15:53,821 - src.core.langgraph_learning_nodes - INFO -    → 学习触发: 2 次
+2026-01-15 10:15:57,557 - src.core.langgraph_agent_nodes - INFO - ✅ 查询分解成功: ['th first lady of the United States name', "th first lady of the United States mother's first name", 'th president of the United States name', 'th president of the United States last name']
+
+==================== DEBUG: DECOMPOSED QUERIES ====================
+  1. If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?
+  2. th first lady of the United States name
+  3. th first lady of the United States mother's first name
+  4. th president of the United States name
+  5. th president of the United States last name
+============================================================
+
+2026-01-15 10:15:57,557 - src.core.langgraph_agent_nodes - INFO - 🔍 [Knowledge Retrieval Agent] 将执行 5 个查询: ["If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?", 'th first lady of the United States name', "th first lady of the United States mother's first name", 'th president of the United States name', 'th president of the United States last name']
+DEBUG: Using capability_service for knowledge_retrieval with 5 queries
+2026-01-15 10:15:57,558 - src.core.langgraph_agent_nodes - INFO - 🧩 [Reasoning Agent] 开始推理分析
+2026-01-15 10:15:57,558 - src.core.langgraph_learning_nodes - INFO - ✅ 学习聚合节点执行完成
+2026-01-15 10:15:57,558 - src.core.langgraph_agent_nodes - INFO - ✅ [Reasoning Agent] 使用能力服务执行推理（推理链: False）
+2026-01-15 10:15:57,558 - src.core.langgraph_learning_nodes - INFO -    → 新增模式: 0 个
+2026-01-15 10:15:57,558 - src.core.langgraph_agent_nodes - INFO - 🧩 [Reasoning Agent] 推理链标志: False
+2026-01-15 10:15:57 - src.agents.reasoning_agent - INFO - Starting reasoning for: If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?
+2026-01-15 10:15:57,558 - src.core.langgraph_learning_nodes - INFO -    → 新增策略: 0 个
+2026-01-15 10:15:57,558 - src.agents.reasoning_agent - INFO - Starting reasoning for: If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?
+2026-01-15 10:15:57,558 - src.core.langgraph_learning_nodes - INFO -    → 协作洞察: 0 个
+2026-01-15 10:15:57,770 - src.core.langgraph_unified_workflow - INFO - 🔗 [Synthesize] 综合证据和答案...
+2026-01-15 10:15:57,770 - src.core.langgraph_unified_workflow - INFO - ✅ [Synthesize] 使用推理答案，长度: 40320
+2026-01-15 10:15:57,770 - src.core.langgraph_unified_workflow - INFO - ✅ [Synthesize] 综合完成，答案长度: 40320
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]
+--- DEBUG: Result for query 'If my future wife has the same first name as the 15th first lady of the United States' mother and her last name is the same as the 15th president's, what is her name?' ---
+2026-01-15 10:15:57,771 - src.core.langgraph_agent_nodes - INFO - ✅ [Knowledge Retrieval Agent] 使用专家智能体执行知识检索 (Fallback)
+2026-01-15 10:15:57,771 - src.agents.expert_agent - INFO - 🧠 专家Agent开始执行: knowledge_retrieval_expert, 查询='If my future wife has the same first name as the 15th first lady of the United States' mother and he...' (长度=166)
+Batches: 100%|██████████| 1/1 [00:00<00:00,  2.82it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.82it/s]
+{
+    "name": "node.knowledge_retrieval_agent",
+    "context": {
+        "trace_id": "0x3846ac7e641173b2b893f6697e70045d",
+        "span_id": "0x27debe7d0364e36e",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:13:52.869325Z",
+    "end_time": "2026-01-15T02:15:53.670000Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "knowledge_retrieval_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 120.80064916610718,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.format",
+    "context": {
+        "trace_id": "0xec46d77e9ed1b933c2fee7aea5769a69",
+        "span_id": "0x6b4f2c719035abcf",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:15:53.683351Z",
+    "end_time": "2026-01-15T02:15:53.685175Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "format",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0018398761749267578,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.answer_generation_agent",
+    "context": {
+        "trace_id": "0xf3e447d5d4d6998670c528044656a9ac",
+        "span_id": "0xcb98dd31d09e4c89",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:15:53.819311Z",
+    "end_time": "2026-01-15T02:15:53.820276Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "answer_generation_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.0009810924530029297,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.format",
+    "context": {
+        "trace_id": "0xb2cb501cf9e0658c057ef5a29c0506d5",
+        "span_id": "0xc3ca4cc6c446bfe3",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:15:53.820426Z",
+    "end_time": "2026-01-15T02:15:53.820883Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "format",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.00045299530029296875,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.synthesize",
+    "context": {
+        "trace_id": "0x4cec5b1c0d07ef77da75ad8da62dbaa2",
+        "span_id": "0x404018fc94b8f180",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:15:57.770193Z",
+    "end_time": "2026-01-15T02:15:57.770532Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "synthesize",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.00035309791564941406,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+2026-01-15 10:16:36 - src.core.llm_integration - WARNING - LLM call failed (Attempt 1/3): 413 Client Error: Request Entity Too Large for url: https://api.deepseek.com/v1/chat/completions. Retrying in 1.0s...
+2026-01-15 10:16:36,438 - src.core.llm_integration - WARNING - LLM call failed (Attempt 1/3): 413 Client Error: Request Entity Too Large for url: https://api.deepseek.com/v1/chat/completions. Retrying in 1.0s...
+2026-01-15 10:17:10,066 - src.core.utils.circuit_breaker - WARNING - Circuit Breaker 'CB-deepseek': Failure threshold reached (5). State -> OPEN
+2026-01-15 10:17:10 - src.core.llm_integration - WARNING - LLM call failed (Attempt 2/3): 413 Client Error: Request Entity Too Large for url: https://api.deepseek.com/v1/chat/completions. Retrying in 2.0s...
+2026-01-15 10:17:10,067 - src.core.llm_integration - WARNING - LLM call failed (Attempt 2/3): 413 Client Error: Request Entity Too Large for url: https://api.deepseek.com/v1/chat/completions. Retrying in 2.0s...
+2026-01-15 10:17:12 - src.core.llm_integration - WARNING - Circuit Breaker is OPEN: Request rejected fast.
+2026-01-15 10:17:12,103 - src.core.llm_integration - WARNING - Circuit Breaker is OPEN: Request rejected fast.
+2026-01-15 10:17:12,156 - src.agents.expert_agent - INFO - 🚀 [ExpertAgent] citation_expert 使用工具: citation
+2026-01-15 10:17:12,157 - src.agents.expert_agent - WARNING - ⚠️ [ExpertAgent] citation_expert 工具调用失败: 'ToolResult' object has no attribute 'data'，回退到Service
+Traceback (most recent call last):
+  File "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/src/agents/expert_agent.py", line 398, in _execute_action
+    "data": tool_result.data,
+            ^^^^^^^^^^^^^^^^
+  File "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/.venv/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'ToolResult' object has no attribute 'data'
+2026-01-15 10:17:12,157 - src.agents.expert_agent - WARNING - ⚠️ [查询传递] ExpertAgent._execute_action: query为空！action.params.query=None, dependencies.query=None
+2026-01-15 10:17:12,158 - src.agents.expert_agent - INFO - 🚀 [ExpertAgent] knowledge_retrieval_expert 使用工具: knowledge_retrieval
+2026-01-15 10:17:12,158 - src.services.knowledge_retrieval_service - INFO - 🔍 [查询传递] KnowledgeRetrievalService.execute: 提取到查询='If my future wife has the same first name as the 15th first lady of the United States' mother and he...' (长度=166)
+2026-01-15 10:17:12,158 - src.services.knowledge_retriever - INFO - 🔍 [KnowledgeRetriever] Searching for: If my future wife has the same first name as the 1...
+2026-01-15 10:17:12,396 - knowledge_management_system - INFO - 🔍 [检索策略] use_graph=False，仅使用向量知识库: 30 条结果
+2026-01-15 10:17:12,398 - src.services.knowledge_retrieval_service - INFO - ✅ 成功从FAISS检索获取知识: 10条
+2026-01-15 10:17:12,398 - src.agents.expert_agent - WARNING - ⚠️ [ExpertAgent] knowledge_retrieval_expert 工具调用失败: 'ToolResult' object has no attribute 'data'，回退到Service
+Traceback (most recent call last):
+  File "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/src/agents/expert_agent.py", line 398, in _execute_action
+    "data": tool_result.data,
+            ^^^^^^^^^^^^^^^^
+  File "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/.venv/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'ToolResult' object has no attribute 'data'
+2026-01-15 10:17:12,399 - src.services.knowledge_retrieval_service - INFO - 🔍 [查询传递] KnowledgeRetrievalService.execute: 提取到查询='If my future wife has the same first name as the 15th first lady of the United States' mother and he...' (长度=166)
+2026-01-15 10:17:12,399 - src.services.knowledge_retriever - INFO - 🔍 [KnowledgeRetriever] Searching for: If my future wife has the same first name as the 1...
+2026-01-15 10:17:12,421 - knowledge_management_system - INFO - 🔍 [检索策略] use_graph=False，仅使用向量知识库: 30 条结果
+2026-01-15 10:17:12,422 - src.services.knowledge_retrieval_service - INFO - ✅ 成功从FAISS检索获取知识: 10条
+2026-01-15 10:17:12,423 - src.agents.expert_agent - INFO - ✅ 专家Agent执行完成: knowledge_retrieval_expert, 耗时=74.65秒
+2026-01-15 10:17:12,423 - src.core.langgraph_agent_nodes - INFO - ✅ [Knowledge Retrieval Agent] 知识检索完成，获取 10 条知识
+2026-01-15 10:17:14,573 - src.core.langgraph_agent_nodes - INFO - ✅ [Knowledge Retrieval Agent] 最终汇总: 10 条知识, 0 条证据
+2026-01-15 10:17:14,574 - src.agents.expert_agent - INFO - ✅ 专家Agent执行完成: citation_expert, 耗时=80.75秒
+2026-01-15 10:17:14,574 - src.core.langgraph_agent_nodes - INFO - ✅ [Citation Agent] 引用生成完成，生成 0 条引用
+2026-01-15 10:17:14,644 - src.core.langgraph_agent_nodes - WARNING - ⚠️ [Reasoning Agent] Empty LLM response
+2026-01-15 10:17:15,919 - src.core.langgraph_unified_workflow - INFO - 📝 [Format] 格式化最终结果...
+2026-01-15 10:17:15,994 - src.core.langgraph_config_nodes - INFO - ✅ 反馈收集节点执行完成
+2026-01-15 10:17:16,110 - src.core.langgraph_unified_workflow - INFO - 🔍 [Format] 状态检查:
+2026-01-15 10:17:16,139 - src.core.langgraph_unified_workflow - INFO -    - final_answer: None
+2026-01-15 10:17:16,139 - src.core.langgraph_unified_workflow - INFO -    - answer: None
+2026-01-15 10:17:16,139 - src.core.langgraph_unified_workflow - INFO -    - reasoning_answer: Your future wife's name would be Jane Buchanan.
+2026-01-15 10:17:16,139 - src.core.langgraph_unified_workflow - INFO -    - step_answers: 0 个步骤答案
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO -    - evidence: 0 条证据
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO - ✅ [Format] 使用已有的 final_answer
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO - ✅ [Format] 格式化完成
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 查询: If my future wife has the same first name as the 1...
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 路径: complex
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 总执行时间: 471.48秒
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 置信度: 0.00
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO - 📊 [Summary] 节点执行时间:
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO -    - route_query: 0.00秒
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO -    - query_analysis: 0.00秒
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO -    - scheduling_optimization: 0.00秒
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO -    - context_engineering: 0.00秒
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO -    - prompt_engineering: 0.00秒
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO -    - rag_retrieval: 4.80秒
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO -    - memory_agent: 0.06秒
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO -    - answer_generation_agent: 0.00秒
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO -    - citation_agent: 80.75秒
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO -    - synthesize: 0.00秒
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO -    - knowledge_retrieval_agent: 80.75秒
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO -    - reasoning_agent: 77.09秒
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO -    - format: 0.22秒
+2026-01-15 10:17:16,140 - src.core.langgraph_unified_workflow - INFO -    - learning_aggregation_node: 0.00秒
+2026-01-15 10:17:16,140 - src.core.langgraph_capability_nodes - INFO - ✅ 标准化接口适配完成
+2026-01-15 10:17:16,140 - src.core.langgraph_learning_nodes - WARNING - ⚠️ 没有学习上下文，跳过知识分布
+{
+    "name": "node.knowledge_retrieval_agent",
+    "context": {
+        "trace_id": "0xeb461410e43289bc0dfa8721105382dd",
+        "span_id": "0x4bcfc52ad55fc1ac",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:15:53.820904Z",
+    "end_time": "2026-01-15T02:17:14.574447Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "knowledge_retrieval_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 80.75331830978394,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.citation_agent",
+    "context": {
+        "trace_id": "0xd00ae73dda6900539fb493e67ebd17a9",
+        "span_id": "0x1064a0936c5ab196",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:15:53.820301Z",
+    "end_time": "2026-01-15T02:17:14.575047Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "citation_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 80.75474405288696,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.reasoning_agent",
+    "context": {
+        "trace_id": "0x60bd18c7dd10d6fde97c8a1c516b8e25",
+        "span_id": "0x4ae824ff0e3ad689",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:15:57.558000Z",
+    "end_time": "2026-01-15T02:17:14.644463Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "reasoning_agent",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 77.08654427528381,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "node.format",
+    "context": {
+        "trace_id": "0xaa4b09f4ba813a1d015ca60d156ac7a4",
+        "span_id": "0x3209207c20f8b3ad",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-15T02:17:15.919416Z",
+    "end_time": "2026-01-15T02:17:16.140515Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "node.name": "format",
+        "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and he",
+        "complexity_score": 8.5,
+        "route_path": "complex",
+        "retry_count": 0,
+        "duration_seconds": 0.22127270698547363,
+        "success": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.39.1",
+            "service.name": "langgraph-workflow"
+        },
+        "schema_url": ""
+    }
+}
+/opt/homebrew/Cellar/python@3.13/3.13.3_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/multiprocessing/resource_tracker.py:301: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/loky-56048-ik78bcsl'}
+  warnings.warn(

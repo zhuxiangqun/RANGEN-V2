@@ -1,0 +1,43 @@
+{
+  "query_results": {
+    "04ced4b6": {
+      "query": "Lauryn Hill has one older brother named Malaney. The year he was born, a famous baseball player who played his final season with the Philadelphia Athletics died in March. That player was elected to the Baseball Hall of Fame. 6 years later after his election, the only person to be inducted to the Baseball Hall of Fame had how many total career wins? ",
+      "expected_answer": "365",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Tabular reasoning",
+        "Multiple constraints",
+        "Post processing",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.03310585021972656,
+      "pipeline_execution_time": 0.03294205665588379,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:17:21.325529",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    }
+  },
+  "total_queries": 1,
+  "successful_queries": 1,
+  "overall_success_rate": 1.0,
+  "last_update": "2025-09-07T20:17:21.325683"
+}

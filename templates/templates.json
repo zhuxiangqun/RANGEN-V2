@@ -1,0 +1,389 @@
+{
+  "templates": [
+    {
+      "name": "general_query",
+      "content": "Please answer the following question: {query}",
+      "category": "general",
+      "quality_score": 0.8,
+      "usage_count": 0,
+      "created_at": 1761998299.113511,
+      "metadata": {
+        "description": "General query template"
+      }
+    },
+    {
+      "name": "technical_support",
+      "content": "As a technical support expert, please help solve the following technical problem: {problem}",
+      "category": "technical",
+      "quality_score": 0.9,
+      "usage_count": 0,
+      "created_at": 1761998299.113517,
+      "metadata": {
+        "description": "Technical support template"
+      }
+    },
+    {
+      "name": "creative_writing",
+      "content": "Please create a {style} story about {topic}:",
+      "category": "creative",
+      "quality_score": 0.7,
+      "usage_count": 0,
+      "created_at": 1761998299.113519,
+      "metadata": {
+        "description": "Creative writing template"
+      }
+    },
+    {
+      "name": "reasoning_with_evidence",
+      "content": "You are a professional reasoning assistant with expertise in analyzing knowledge base content and answering complex questions. Your role is to carefully analyze retrieved knowledge and provide accurate, well-reasoned answers.\n\n🎯 CRITICAL: ANSWER TYPE REQUIREMENT (READ THIS FIRST - MOST IMPORTANT):\n\n**QUERY TYPE: {query_type}**\n\nBased on the query type, you MUST return the answer in the correct format:\n\n- **If query_type is \"numerical\" or \"mathematical\"**:\n  ✅ CORRECT: Return ONLY a NUMBER (e.g., \"2\", \"506000\", \"55\")\n  ❌ WRONG: Do NOT return person names (e.g., \"Kirk Watson\", \"Samantha Dorman\", \"Julia Butters\")\n  ❌ WRONG: Do NOT return location names (e.g., \"Austin\", \"France\")\n  ❌ WRONG: Do NOT return years unless the question explicitly asks for a year\n  ⚠️ CRITICAL: Even if you find an intermediate entity (e.g., a person, a city), you MUST continue to find the final NUMERICAL answer. Do NOT stop at the intermediate entity.\n  ⚠️ CRITICAL: For multi-hop queries, complete ALL hops until you reach the numerical answer.\n\n- **If query_type is \"ranking\"**:\n  ✅ CORRECT: Return ONLY an ordinal number (e.g., \"37th\", \"1st\", \"2nd\")\n  ❌ WRONG: Do NOT return plain numbers (e.g., \"37\" instead of \"37th\")\n\n- **If query_type is \"name\" or \"person\"**:\n  ✅ CORRECT: Return ONLY the complete name (e.g., \"Jane Ballou\", \"Kirk Watson\")\n  ❌ WRONG: Do NOT return numbers or locations\n\n- **If query_type is \"location\" or \"country\"**:\n  ✅ CORRECT: Return ONLY the location name (e.g., \"France\", \"Austin\")\n  ❌ WRONG: Do NOT return numbers or person names\n\n🎯 KNOWLEDGE AND ANSWER FORMAT REQUIREMENTS (READ FIRST):\n\n1. **KNOWLEDGE CONTENT USAGE (CRITICAL)**:\n   - The Evidence section below contains ORIGINAL, COMPLETE, UNFILTERED KNOWLEDGE retrieved from the knowledge base. This is the raw content as stored in the knowledge base, not processed or filtered.\n   - You MUST actively USE this knowledge content to answer the question\n   - If evidence is relevant, extract key information from it\n   - If evidence is irrelevant, use your comprehensive knowledge base instead\n   - DO NOT ignore the evidence - analyze it first, then decide whether to use it\n\n2. **ANSWER FORMAT (MANDATORY)**:\n   - For numerical questions: Return ONLY the exact number (e.g., \"87\" not \"87 years\")\n   - For ranking questions: Return ONLY the ordinal rank (e.g., \"37th\" not \"37\")\n   - For name questions: Return the COMPLETE, CORRECT name (e.g., \"Jane Ballou\")\n   - For location/country questions: Return the EXACT location/country name (e.g., \"France\")\n   - Keep answers concise (max 20 words), directly answering the question\n   - In \"Final Answer:\" section, return ONLY the answer, no explanations\n\n📚 FEW-SHOT EXAMPLES (Learn from these examples):\n\n**Example 1: Numerical Question**\nQuestion: How many years earlier was the first flight than the first moon landing?\nEvidence: The first powered flight by the Wright brothers occurred in 1903. The first moon landing by Apollo 11 occurred in 1969. The time difference is 1969 - 1903 = 66 years.\n\nReasoning Process:\nStep 1: Evidence Quality Assessment and Review (MANDATORY)\n  - Evidence items: First flight (1903), First moon landing (1969), Calculation (66 years)\n  - Relevance check: HIGH - Evidence directly answers the question\n  - Topic match: yes - Evidence matches question topic (historical dates and calculation)\n  - Decision: WILL USE evidence\n  - Direct matches: yes - Evidence contains both dates and the calculation\n  - Missing information: none\n\nStep 2: Logical Inference\n  - Logic applied: Simple subtraction: 1969 - 1903 = 66\n  - Assumptions: none\n  - Alternative interpretations: none\n\nStep 3: Answer Synthesis\n  - Primary answer: 66\n  - Confidence: high\n  - Supporting evidence: Evidence clearly states the calculation result\n\n---\nFINAL ANSWER: 66\n---\n\n**Example 2: Ranking Question**\nQuestion: What rank is Sweden in the list of countries by population?\nEvidence: List of countries by population: 1st China, 2nd India, 3rd United States, ... 37th Sweden with a population of approximately 10.4 million.\n\nReasoning Process:\nStep 1: Evidence Quality Assessment and Review (MANDATORY)\n  - Evidence items: Population ranking list, Sweden at 37th position\n  - Relevance check: HIGH - Evidence directly answers the question\n  - Topic match: yes - Evidence matches question topic (country ranking)\n  - Decision: WILL USE evidence\n  - Direct matches: yes - Evidence explicitly states \"37th Sweden\"\n  - Missing information: none\n\nStep 2: Logical Inference\n  - Logic applied: Direct extraction from ranking list\n  - Assumptions: none\n  - Alternative interpretations: none\n\nStep 3: Answer Synthesis\n  - Primary answer: 37th\n  - Confidence: high\n  - Supporting evidence: Evidence clearly states Sweden is ranked 37th\n\n---\nFINAL ANSWER: 37th\n---\n\n**Example 3: Name Question**\nQuestion: Who was the mother of John Adams?\nEvidence: John Adams was born in 1735. His mother was Jane Ballou, who was born in 1709 and married John Adams Sr. in 1734.\n\nReasoning Process:\nStep 1: Evidence Quality Assessment and Review (MANDATORY)\n  - Evidence items: John Adams birth (1735), Mother's name (Jane Ballou), Mother's details\n  - Relevance check: HIGH - Evidence directly answers the question\n  - Topic match: yes - Evidence matches question topic (person's mother)\n  - Decision: WILL USE evidence\n  - Direct matches: yes - Evidence explicitly states \"His mother was Jane Ballou\"\n  - Missing information: none\n\nStep 2: Logical Inference\n  - Logic applied: Direct extraction of name from evidence\n  - Assumptions: none\n  - Alternative interpretations: none\n\nStep 3: Answer Synthesis\n  - Primary answer: Jane Ballou\n  - Confidence: high\n  - Supporting evidence: Evidence clearly states the mother's name\n\n---\nFINAL ANSWER: Jane Ballou\n---\n\n❌ COMMON MISTAKES TO AVOID:\n\n**Mistake 1: Wrong Format**\n❌ WRONG: The answer is 87 years earlier.\n✅ CORRECT: 87\n\n**Mistake 2: Including Reasoning in Final Answer**\n❌ WRONG: Based on the evidence, the answer is Jane Ballou.\n✅ CORRECT: Jane Ballou\n\n**Mistake 3: Wrong Answer Type**\n❌ WRONG: 37\n✅ CORRECT: 37th\n\n**Mistake 4: Returning \"Unable to Determine\" Too Easily**\n❌ WRONG: unable to determine\n✅ CORRECT: [best-effort answer with reasoning]\n\n**Mistake 5: Including Units or Explanations**\n❌ WRONG: 87 years\n✅ CORRECT: 87\n\n**Mistake 6: Incomplete Names**\n❌ WRONG: Ballou\n✅ CORRECT: Jane Ballou\n\n**Mistake 7: Extracting Year Instead of Number**\n❌ WRONG: Question: \"How many items were there?\" Evidence: \"In 2004, there were 2 items.\" Answer: \"2004\"\n✅ CORRECT: Question: \"How many items were there?\" Evidence: \"In 2004, there were 2 items.\" Answer: \"2\"\n\n**Mistake 8: Extracting Wrong Number from Evidence**\n❌ WRONG: Question: \"What is the difference?\" Evidence: \"The first event was in 1903, the second in 1969, difference is 66 years.\" Answer: \"1969\" (extracting the last number seen)\n✅ CORRECT: Question: \"What is the difference?\" Evidence: \"The first event was in 1903, the second in 1969, difference is 66 years.\" Answer: \"66\" (extracting the calculated difference)\n\n**Mistake 9: Returning Intermediate Entity Name Instead of Final Numerical Answer**\n❌ WRONG: Question: \"How many films did the actress who played X act in?\" Reasoning: \"Hop 1: The actress is Julia Butters. Hop 2: Julia Butters acted in 3 films.\" FINAL ANSWER: \"Julia Butters\"\n✅ CORRECT: Question: \"How many films did the actress who played X act in?\" Reasoning: \"Hop 1: The actress is Julia Butters. Hop 2: Julia Butters acted in 3 films.\" FINAL ANSWER: \"3\"\n\n**Mistake 10: Returning Person Name for Numerical Query**\n❌ WRONG: Question: \"What is the population of the birth city of X?\" FINAL ANSWER: \"Kirk Watson\" (returning the person name instead of the population number)\n✅ CORRECT: Question: \"What is the population of the birth city of X?\" FINAL ANSWER: \"506000\" (returning the population number, not the person name)\n\nQuestion: {query}\n\nEvidence (Original Retrieved Knowledge from Knowledge Base - Complete and Unfiltered):\n{evidence}\n\n{context_summary}\n\n{keywords}\n\nAVAILABLE REASONING CAPABILITIES:\n1. Evidence Analysis - Identify relevant evidence, evaluate quality, detect conflicts\n2. Logical Deduction - Perform step-by-step logical reasoning (DeepSeek-reasoner enhanced)\n3. Knowledge Integration - Access internal knowledge base when evidence insufficient\n4. Numerical Reasoning - Handle calculations and quantitative analysis\n5. Temporal Reasoning - Process time-based queries and relationships\n\nCAPABILITY SELECTION:\nBased on query type: {query_type}\n- factual → Evidence Analysis + Knowledge Integration\n- numerical → Numerical Reasoning + Evidence Analysis\n- temporal → Temporal Reasoning + Evidence Analysis\n- causal → Logical Deduction + Evidence Analysis\n- comparative → Evidence Analysis + Logical Deduction\n\nBEHAVIORAL GUIDELINES:\n\n1. Answer Provision (MANDATORY):\n   ✅ MUST provide an answer unless evidence is completely unrelated\n   ✅ If uncertain, provide best-effort answer with confidence: [high/medium/low]\n   ✅ MUST explicitly acknowledge uncertainty if evidence is insufficient\n   ❌ NEVER return \"unable to determine\" without explanation\n   ❌ NEVER fabricate information\n   ❌ NEVER include information in the answer that is NOT in the evidence without explicitly marking it as \"possibly uncertain\"\n\n2. Evidence Processing (CRITICAL - SMART USAGE):\n   ✅ **STEP 1: KNOWLEDGE CONTENT ANALYSIS** (MANDATORY FIRST STEP):\n      - The Evidence section contains RETRIEVED KNOWLEDGE from the knowledge base\n      - READ the evidence content CAREFULLY - it contains factual information\n      - Extract key entities, numbers, names, locations, dates from the evidence\n      - Identify what information is directly relevant to answering the question\n      - Determine relevance level: HIGH/MEDIUM/LOW/IRRELEVANT\n   \n   ✅ **STEP 2: INTELLIGENT KNOWLEDGE USAGE** (Based on Content Analysis):\n      - **If evidence contains RELEVANT KNOWLEDGE**: Extract and use the key information directly\n      - **If evidence is PARTIALLY RELEVANT**: Extract relevant parts and combine with your knowledge\n      - **If evidence is IRRELEVANT**: Use your comprehensive knowledge base instead\n      - **CRITICAL**: Always check if evidence contains the answer before using your own knowledge\n   \n   ✅ **STEP 3: SYSTEMATIC KNOWLEDGE EXTRACTION** (For Relevant Evidence):\n      - Read the evidence content word by word - look for exact answers\n      - Extract names, numbers, dates, locations mentioned in the evidence\n      - Identify relationships and facts stated in the evidence\n      - Use the extracted information to form your answer\n      - **CRITICAL FOR NUMERICAL QUESTIONS**: \n        * First, analyze the question to determine what TYPE of answer is needed (number, year, rank, name, location)\n        * If the question asks for a count, rank, difference, or quantity, extract THAT number, NOT a year\n        * Years (1900-2100) are usually context information, NOT the answer unless the question explicitly asks for a year\n        * Example: Question \"How many items?\" Evidence \"In 2004, there were 2 items\" → Answer: \"2\" (NOT \"2004\")\n        * Example: Question \"What year?\" Evidence \"In 2004, there were 2 items\" → Answer: \"2004\"\n        * If evidence contains a calculation (e.g., \"difference is 66 years\"), extract the calculated result (66), NOT the years used in calculation (1903, 1969)\n      - **CRITICAL FOR ANSWER TYPE IDENTIFICATION**:\n        * Analyze the question carefully to determine what TYPE of answer is needed\n        * If question asks \"how many\", \"how much\", \"count\", \"difference\", \"earlier\", \"later\" → answer is a NUMBER (not a year)\n        * If question asks \"when\", \"what year\", \"born in\", \"died in\" → answer is a YEAR\n        * If question asks \"who\", \"name\", \"person\" → answer is a NAME\n        * If question asks \"where\", \"which country\", \"which city\" → answer is a LOCATION\n        * If question asks \"rank\", \"position\", \"place\" → answer is an ORDINAL (e.g., \"37th\")\n   \n   ⚠️ **CRITICAL RULE**: The Evidence section contains RETRIEVED KNOWLEDGE - you MUST analyze it first before using your own knowledge. Only if the evidence is truly irrelevant should you rely solely on your knowledge base.\n\n3. Reasoning Transparency (DeepSeek-reasoner optimized):\n   ✅ Show step-by-step reasoning using DeepSeek's reasoning mode\n   ✅ Explain how evidence supports the answer\n   ✅ Indicate confidence level at each step\n   ✅ Consider alternative interpretations\n   ✅ **MANDATORY**: In Step 4 (Self-Verification), verify that each piece of information in the answer has evidence support\n   ✅ **MANDATORY**: If any information in the answer is NOT in the evidence, explicitly mark it as \"possibly uncertain\"\n   ✅ **IMPORTANT**: If the reasoning process is long, you can provide a preliminary answer in Step 3 (Answer Synthesis), then confirm it in Final Answer\n   ✅ **CRITICAL**: Ensure the answer is provided even if the reasoning process is truncated\n   ✅ **FOR MULTI-HOP REASONING (CRITICAL)**:\n     * **MUST decompose** complex questions into explicit sub-questions (Hop 1, Hop 2, Hop 3, etc.)\n     * **MUST verify each intermediate result** before proceeding to the next hop\n     * **MUST show the reasoning chain** explicitly with verification at each step\n     * **MUST validate the final answer** by tracing back through all hops\n     * **CRITICAL**: You MUST complete ALL hops. Do NOT stop after the first hop. The question requires you to go through ALL steps to reach the final answer.\n     * **CRITICAL FOR NUMERICAL QUERIES**: If the query type is \"numerical\" or \"mathematical\", the FINAL ANSWER MUST be a NUMBER, NOT a person name, location name, or any other entity name. Even if you find an intermediate entity (e.g., a mayor, an actor), you MUST continue to the final step to find the numerical answer (e.g., population, count, quantity).\n     * **CRITICAL**: Do NOT return intermediate entity names in FINAL ANSWER. You MUST complete ALL hops and return the final numerical result.\n     * **VERIFICATION CHECKLIST**: Before providing the FINAL ANSWER, verify:\n       1. Have you completed ALL hops? (Check: Did you stop after finding an intermediate entity, or did you continue to the final numerical answer?)\n       2. Is the FINAL ANSWER a number? (For numerical queries, the answer must be a number, not a name or location)\n       3. Does the FINAL ANSWER match what the question is asking for? (Re-read the question to ensure you're answering the right thing)\n     * **Example**: Question \"What is the population of the birth city of X?\" → Hop 1: Find X → Hop 2: Find X's birth city → Hop 3: Find the city's population → FINAL ANSWER: [number], NOT [city name] or [person name]\n     * If any hop fails or is uncertain, explicitly state which hop failed and why\n   ✅ **FOR CALCULATIONS (CRITICAL)**:\n    * Verify each calculation step: [List each step and verify its correctness]\n    * Re-calculate verification: [Re-calculate using a different method or verify manually]\n    * Check calculation consistency: [Verify that the final answer matches the calculation steps]\n    * **CRITICAL**: If calculation steps and final answer are inconsistent, this is an ERROR - must correct\n    * **CRITICAL FOR MULTI-DATA CALCULATIONS**: \n      - List ALL data points used in the calculation\n      - Verify you have data for ALL required items (not just some)\n      - If the question asks for a sum/total, verify you included ALL items\n      - Double-check: Did you miss any items? Are you sure you have the complete list?\n    * **CRITICAL FOR STEP-BY-STEP CALCULATIONS**:\n      - Show each intermediate calculation: [e.g., \"A - B = C\", \"C × D = E\"]\n      - Verify each intermediate result: [Check if each intermediate result is correct]\n      - Verify the final result: [Check if the final result matches all intermediate calculations]\n      - If any intermediate result is wrong, the final result will be wrong - must correct\n  - Confidence reassessment: Based on the above checks, reassess the answer confidence [high/medium/low]\n  - Uncertainty acknowledgment: If evidence is insufficient or answer contains uncertain information, explicitly state: \"Evidence insufficient\" or \"Partially uncertain: [explain]\"\n\n---\n🎯 FINAL ANSWER TYPE VERIFICATION (CRITICAL - READ BEFORE WRITING FINAL ANSWER):\n\n**QUERY TYPE: {query_type}**\n\n⚠️ BEFORE writing your FINAL ANSWER, verify:\n\n1. **If query_type is \"numerical\" or \"mathematical\"**:\n   ✅ Your FINAL ANSWER MUST be a NUMBER (e.g., \"2\", \"506000\", \"55\")\n   ❌ Your FINAL ANSWER MUST NOT be a person name (e.g., \"Kirk Watson\", \"Samantha Dorman\", \"Julia Butters\")\n   ❌ Your FINAL ANSWER MUST NOT be a location name (e.g., \"Austin\", \"France\")\n   ❌ Your FINAL ANSWER MUST NOT be a year unless the question explicitly asks for a year\n   ⚠️ CRITICAL: If you found an intermediate entity (e.g., a person, a city) in your reasoning, you MUST continue to find the final NUMERICAL answer. Do NOT stop at the intermediate entity.\n   ⚠️ CRITICAL: For multi-hop queries, you MUST complete ALL hops until you reach the numerical answer.\n   ⚠️ CRITICAL: If your reasoning shows \"Hop 1: The actress is Julia Butters. Hop 2: Julia Butters acted in 3 films.\", your FINAL ANSWER MUST be \"3\", NOT \"Julia Butters\".\n\n2. **If query_type is \"ranking\"**:\n   ✅ Your FINAL ANSWER MUST be an ordinal number (e.g., \"37th\", \"1st\", \"2nd\")\n   ❌ Your FINAL ANSWER MUST NOT be a plain number (e.g., \"37\" instead of \"37th\")\n\n3. **If query_type is \"name\" or \"person\"**:\n   ✅ Your FINAL ANSWER MUST be the complete name (e.g., \"Jane Ballou\", \"Kirk Watson\")\n   ❌ Your FINAL ANSWER MUST NOT be a number or location\n\n4. **If query_type is \"location\" or \"country\"**:\n   ✅ Your FINAL ANSWER MUST be the location name (e.g., \"France\", \"Austin\")\n   ❌ Your FINAL ANSWER MUST NOT be a number or person name\n\n⚠️ FINAL CHECK: Before writing your FINAL ANSWER, ask yourself:\n- Is my FINAL ANSWER the correct TYPE for this query_type?\n- If query_type is \"numerical\", is my FINAL ANSWER a NUMBER (not a name or location)?\n- If I found an intermediate entity in my reasoning, did I continue to the final answer?\n- Does my FINAL ANSWER match what the question is asking for?\n\nFINAL ANSWER: [your answer here, max 20 words, one line only, no explanations]\n---\n\n\n🎯 Special Requirements for Numerical Calculation Queries (if the query involves numerical calculations):\n1. Before the final answer, you MUST clearly state the data sources and numerical values used\n2. You MUST perform double verification: verify calculation results using different methods or units\n3. If the calculation result is a decimal, you MUST clearly state how to round it\n4. The final answer MUST be consistent with the calculation results in the reasoning steps\n5. If you find that the reasoning steps and the final answer are inconsistent, this is an ERROR and must be corrected\n\n⚠️ IMPORTANT: If the reasoning steps show one value but the final answer shows another value, this is an ERROR and must be corrected.\n\n**CRITICAL RULES**:\n1. The \"FINAL ANSWER:\" section MUST be on a separate line after \"---\"\n2. Use \"---\" as a clear separator before \"FINAL ANSWER:\"\n3. The answer MUST be on a single line after \"FINAL ANSWER:\"\n4. Do NOT include any reasoning or explanation in the FINAL ANSWER section\n5. If the reasoning process is long, provide the answer in Step 3 AND in FINAL ANSWER section\n6. Ensure the answer is provided even if the reasoning process is truncated\n\nCRITICAL ANSWER REQUIREMENTS:\n- For numerical questions: Return ONLY the exact number (e.g., \"87\" not \"14\" or \"around 80-90\")\n- For ranking questions: Return ONLY the ordinal rank (e.g., \"37th\" not \"37\" or \"around 15th-20th\")\n- For name questions: Return the COMPLETE, CORRECT name (verify spelling and full name)\n- For location/country questions: Return the EXACT, CORRECT location/country name\n- Double-check your answer against the evidence and your knowledge before finalizing\n- If evidence suggests one answer but your knowledge suggests another, verify which is correct\n",
+      "category": "reasoning",
+      "quality_score": 0.9,
+      "usage_count": 0,
+      "created_at": 1761998299.113736,
+      "metadata": {
+        "description": "Reasoning with evidence prompt template"
+      }
+    },
+    {
+      "name": "reasoning_without_evidence",
+      "content": "You are a professional reasoning assistant.\n\n**USER QUESTION TO SOLVE**:\n{query}\n\n{context_summary}\n\n**TASK**: Generate a step-by-step reasoning plan (JSON) to answer the above question.\n\n**RULES**:\n1. Decompose the question into simple search queries.\n2. Use placeholders like `[step 1 result]` for dependencies.\n3. DO NOT answer the question directly. Only provide the plan.\n\n**OUTPUT FORMAT**:\n{{\n  \"steps\": [\n    {{\n      \"type\": \"evidence_gathering\",\n      \"description\": \"Description of the step (e.g. Find X)\",\n      \"sub_query\": \"The actual search query (e.g. Who is X?)\"\n    }}\n  ]\n}}",
+      "category": "reasoning",
+      "quality_score": 0.9,
+      "usage_count": 0,
+      "created_at": 1761998299.114117,
+      "metadata": {
+        "description": "Reasoning without evidence prompt template"
+      }
+    },
+    {
+      "name": "query_type_classification",
+      "content": "Classify the following query into one of these types based on its semantic meaning and complexity.\n\nExamples:\nQuery: \"What is the capital of France?\"\nReasoning: Asking for a specific fact (capital city)\nType: factual\n\nQuery: \"How many people live in Tokyo?\"\nReasoning: Asking for a numerical value (population count)\nType: numerical\n\nQuery: \"Why did World War II start?\"\nReasoning: Asking about cause-effect relationship\nType: causal\n\nQuery: \"Compare the GDP of USA and China\"\nReasoning: Comparing two entities\nType: comparative\n\nQuery: \"When did the Renaissance begin?\"\nReasoning: Asking about time/date\nType: temporal\n\nQuery: \"What is photosynthesis?\"\nReasoning: Asking for definition/explanation\nType: definition\n\nQuery: \"Calculate 15% of 240\"\nReasoning: Requiring mathematical calculation\nType: mathematical\n\nAvailable types:\n1. factual - Simple factual questions asking for specific information (who, what, where, name, etc.)\n2. numerical - Questions asking for numbers, counts, quantities, or numerical values\n3. temporal - Questions about time, dates, duration, or chronological relationships\n4. causal - Questions asking why or about cause-and-effect relationships\n5. procedural - Questions asking how to do something or about processes\n6. mathematical - Questions requiring calculations or mathematical operations\n7. comparative - Questions comparing two or more things\n8. definition - Questions asking for definitions or explanations of concepts\n9. general - Complex queries that don't fit into the above categories or require multi-step reasoning\n\nInstructions:\n- Analyze the semantic meaning and intent of the query\n- Consider the complexity and reasoning requirements\n- Return ONLY the type name (one word) without any explanation\n- If uncertain, choose the type that best matches the primary intent\n\nQuery: {query}\nType:",
+      "category": "classification",
+      "quality_score": 0.9,
+      "usage_count": 0,
+      "created_at": 1761998299.114379,
+      "metadata": {
+        "description": "Query type classification prompt template"
+      }
+    },
+    {
+      "name": "reasoning_step_type_classification",
+      "content": "Analyze the following query and context, then return the most appropriate reasoning step type.\n\nExamples:\nQuery: \"What is the capital of France?\"\nContext: \"We need to find factual information\"\nReasoning: This requires analyzing the query to understand what information is needed\nType: query_analysis\n\nQuery: \"How many people live in Tokyo?\"\nContext: \"Population data available\"\nReasoning: Need to gather evidence about Tokyo's population\nType: evidence_gathering\n\nQuery: \"If all birds can fly, and penguins are birds, can penguins fly?\"\nContext: \"Logical contradiction\"\nReasoning: This requires logical deduction to resolve the contradiction\nType: logical_deduction\n\nQuery: \"Why did World War II start?\"\nContext: \"Historical events\"\nReasoning: This requires analyzing cause-effect relationships\nType: causal_reasoning\n\nQuery: \"Calculate the area of a circle with radius 5\"\nContext: \"Mathematical calculation needed\"\nReasoning: This requires mathematical reasoning and calculation\nType: mathematical_reasoning\n\nQuery: \"Compare democracy and autocracy\"\nContext: \"Conceptual comparison\"\nReasoning: This requires comparing concepts using analogies\nType: analogical_reasoning\n\nQuery: \"What patterns exist in these numbers: 2, 4, 8, 16?\"\nContext: \"Number sequence\"\nReasoning: This requires recognizing patterns in the sequence\nType: pattern_recognition\n\nQuery: \"Based on the evidence, what is the final answer?\"\nContext: \"All evidence gathered\"\nReasoning: This requires synthesizing all information into a final answer\nType: answer_synthesis\n\nAvailable types:\n- evidence_gathering - Gathering and collecting relevant evidence\n- query_analysis - Analyzing and understanding the query\n- logical_deduction - Performing logical deduction and inference\n- pattern_recognition - Recognizing patterns and similarities\n- causal_reasoning - Reasoning about cause-and-effect relationships\n- analogical_reasoning - Using analogies and comparisons\n- mathematical_reasoning - Performing mathematical calculations\n- answer_synthesis - Synthesizing the final answer\n\nInstructions:\n- Analyze the query and context to determine the primary reasoning step needed\n- Return ONLY the type name (e.g., \"logical_deduction\") without any explanation\n\nQuery: {query}\nContext: {context}\nType:",
+      "category": "classification",
+      "quality_score": 0.9,
+      "usage_count": 0,
+      "created_at": 1761998299.114741,
+      "metadata": {
+        "description": "Reasoning step type classification prompt template"
+      }
+    },
+    {
+      "name": "evidence_generation",
+      "content": "Generate relevant evidence for the following query. The evidence should be factual, accurate, and directly related to answering the query.\n\nQuery: {query}\n\nRequirements:\n1. Generate concise and relevant evidence\n2. Focus on factual information that helps answer the query\n3. Keep evidence clear and specific\n4. Return only the evidence content, without explanations\n\nEvidence:",
+      "category": "evidence",
+      "quality_score": 0.85,
+      "usage_count": 0,
+      "created_at": 1761998299.115,
+      "metadata": {
+        "description": "Evidence generation prompt template"
+      }
+    },
+    {
+      "name": "reasoning_steps_generation",
+      "content": "**🚨🚨🚨 CRITICAL TASK DEFINITION - READ THIS FIRST 🚨🚨🚨**\n\n**THIS IS A REASONING STEPS GENERATION TASK, NOT AN ANSWER GENERATION TASK!**\n\n**YOUR TASK**: Generate the REASONING STEPS (in JSON format) that the system will use to FIND the answer.\n**NOT YOUR TASK**: Provide the final answer directly.\n\n**🚨🚨🚨 ABSOLUTELY FORBIDDEN - DO NOT RETURN DIRECT ANSWERS 🚨🚨🚨**\n\n**CRITICAL UNDERSTANDING**:\n- Even if you KNOW the answer (e.g., \"Paris\" or \"Albert Einstein\"), you MUST NOT return it directly\n- You MUST return the REASONING STEPS that lead to finding that answer\n- The system will execute these steps to retrieve information from the knowledge base\n- Your job is to describe HOW to find the answer, NOT to provide the answer itself\n\n**🚨 CRITICAL RULE #1: You MUST return ONLY valid JSON format. Your response MUST start with {{ and end with }}.**\n**🚨 CRITICAL RULE #2: DO NOT return plain text answers.**\n**🚨 CRITICAL RULE #3: DO NOT return explanations outside JSON.**\n**🚨 CRITICAL RULE #4: DO NOT return just the answer - you MUST return the reasoning steps in JSON format.**\n**🚨 CRITICAL RULE #5: If you return non-JSON format, your response will be REJECTED and the system will fail.**\n\n**🚨 CRITICAL: Even if you know the answer, you MUST return JSON format reasoning steps, NOT the direct answer! 🚨**\n\n**❌ FORBIDDEN RESPONSES (DO NOT DO THIS):**\n- \"Paris\"\n- \"42\"\n- Any plain text answer without JSON structure\n- Any response that doesn't start with {{ and end with }}\n\n**✅ REQUIRED RESPONSE FORMAT (MUST DO THIS):**\n{{\n  \"steps\": [\n    {{\n      \"type\": \"evidence_gathering\",\n      \"description\": \"...\",\n      \"sub_query\": \"...\"\n    }}\n  ]\n}}\n\n**🚀🚀🚀 CRITICAL: NO DUPLICATE STEPS - READ CAREFULLY 🚀🚀🚀**\n\n**ABSOLUTELY FORBIDDEN:**\n- DO NOT create duplicate steps with the same sub_query\n- DO NOT repeat the same question in different steps\n- DO NOT create multiple steps asking the same thing\n- Each step MUST have a UNIQUE sub_query\n- If you need similar information, combine them into ONE step or make them DISTINCT\n\n**Example of WRONG (DO NOT DO THIS):**\nStep 1: {{\"sub_query\": \"What is the capital of X?\"}}\nStep 2: {{\"sub_query\": \"What is the capital of X?\"}}  ← DUPLICATE! FORBIDDEN!\n\n**Example of CORRECT:**\nStep 1: {{\"sub_query\": \"What is the capital of X?\"}}\nStep 2: {{\"sub_query\": \"What is the population of [result from step 1]?\"}}\n\n**Example of CORRECT format:**\n{{\"steps\": [{{\"type\": \"evidence_gathering\", \"sub_query\": \"What is X?\", \"description\": \"...\"}}]}}\n\n**Example of WRONG format (DO NOT DO THIS):**\nThe answer is Paris.\n\n---\n\nYou are a universal reasoning engine. Your task is to analyze ANY type of problem and generate a rigorous, verifiable reasoning chain adapted to the problem's nature.\n\nQuery: {query}\n\n**CRITICAL REQUIREMENTS - READ CAREFULLY**:\n\n## Phase 1: Problem Analysis and Strategy Selection\n\n### 1.1 Problem Understanding and Classification\n\nFirst, understand and classify the problem:\n- **Restate the problem** in one sentence: [Your understanding]\n- **Problem type** (select ALL that apply):\n  □ Factual verification (requires finding/confirming specific information)\n  □ Logical derivation (requires deduction/induction/abduction)\n  □ Mathematical calculation (requires formulas/computations)\n  □ Creative generation (requires brainstorming)\n  □ Comparative analysis (requires comparing multiple items)\n  □ Causal analysis (requires finding causes/effects)\n\n### 1.2 Key Elements Extraction\n\n- **Known conditions**: [List all explicitly given information]\n- **Implicit conditions**: [Derive necessary assumptions]\n- **Target to find**: [Clearly state what needs to be found]\n\n### 1.3 Strategy Selection\n\nSelect the dominant reasoning strategy based on problem type.\n\n### 1.4 Problem Decomposition - 🚀 CRITICAL: Universal Problem Deconstruction Framework\n\n**CORE PRINCIPLE: Problem Deconstruction and Dependency Graph Construction**\n\n**Step 1: Identify the Final Goal**\n- Clearly state what the problem ultimately requires as output.\n\n**Step 2: List All Sub-goals**\n- Identify ALL intermediate information pieces required to achieve the final goal.\n\n**Step 3: Analyze Dependencies Between Sub-goals**\n- **CRITICAL JUDGMENT CRITERION**: Does obtaining \"Sub-goal A\" require information from \"Sub-goal B\"?\n  - If NO → They are **INDEPENDENT** and can be processed in parallel.\n  - If YES → They have a **DEPENDENCY** and must be processed sequentially.\n\n**Step 4: Build Query Chains for Each Sub-goal**\n- For each independent sub-goal, work backwards to derive the series of atomic queries needed to obtain it.\n\n**Step 5: Define Steps and Dependencies**\n- Each atomic query becomes a step.\n- The  field MUST accurately reflect information dependencies.\n- **Independent query chains**: Their initial steps MUST have  (empty array).\n- Use  to mark steps belonging to the same independent query chain.\n\n**�� Example: Deconstructing a Composite Query**\n\n**User Query**: \"What is the currency of the country where the 2008 Summer Olympics were held?\"\n\n**Your Thinking Process**:\n1. **Final Goal**: A currency name.\n2. **Sub-goals**:\n   - Sub-goal 1: Identify the country where the 2008 Summer Olympics were held.\n   - Sub-goal 2: Identify the currency of that country.\n3. **Dependency Analysis**: Sub-goal 2 depends on Sub-goal 1.\n4. **Steps**:\n   - Step 1: \"Where were the 2008 Summer Olympics held?\"\n   - Step 2: \"What is the currency of [result from step 1]?\"\n\n**🚀 SPECIAL ATTENTION FOR MULTI-HOP QUERIES:**\n- **Multi-hop queries** require multiple sequential knowledge base lookups\n- Example: \"Who is the CEO of the company that created the iPhone?\" requires:\n  1. First: \"Which company created the iPhone?\"\n  2. Then: \"Who is the CEO of [result from step 1]?\"\n\n**🚨🚨🚨 CRITICAL: QUERY OBJECT ACCURACY 🚨🚨🚨**\n\n**THE MOST COMMON ERROR: Querying the wrong object in multi-hop queries**\n\n**Example of WRONG (DO NOT DO THIS):**\n- Query: \"Who is the CEO of the company that created the iPhone?\"\n- Step 1: \"Which company created the iPhone?\" → Answer: \"Apple\"\n- Step 2: \"Who is the CEO of the iPhone?\" ✗ **WRONG!** This queries the iPhone's CEO, not the company's!\n\n**Example of CORRECT:**\n- Step 1: \"Which company created the iPhone?\" → Answer: \"Apple\"\n- Step 2: \"Who is the CEO of [result from step 1]?\" → Answer: \"Tim Cook\" ✓ **CORRECT!** This queries the company's CEO!\n\n**CRITICAL RULE:**\n- In multi-hop queries like \"X's Y's Z\", you MUST query Z of the result from the previous step, NOT Z of X.\n- Always trace back: What does the previous step return? Query the property of THAT result, not the original entity.\n\n**MANDATORY REQUIREMENTS:**\n- You MUST explicitly perform **dependency analysis** when generating steps.\n- If sub-goals have no information dependency, their initial steps MUST have .\n- Use  to mark steps belonging to the same independent query chain.\n- **FORBIDDEN**: Do NOT incorrectly chain independent sub-goals into a single long chain.\n- **CRITICAL**: You MUST generate steps for ALL independent sub-goals, not just one.\n\n**🚨🚨🚨 CRITICAL: DO NOT USE YOUR TRAINING DATA KNOWLEDGE IN SUB_QUERIES 🚨🚨🚨**\n\n**WHY THIS IS CRITICAL:**\n- The system executes steps sequentially. Each step queries the knowledge base.\n- If you use specific names from your training data (like \"Apple\", \"Tesla\"), the system cannot execute the step properly if the previous step failed or returned something else.\n- The system needs to find the answer from the knowledge base, not from your training data.\n\n**ABSOLUTELY FORBIDDEN - DO NOT DO THIS:**\n- ❌ \"Who is the CEO of Apple?\" (Used specific name \"Apple\" instead of placeholder)\n\n**REQUIRED - YOU MUST DO THIS:**\n- ✅ \"Who is the CEO of [step 1 result]?\" (Used placeholder)\n\n**VALID PLACEHOLDER FORMATS:**\n- \"[step 1 result]\" or \"[步骤1的结果]\" - Reference to previous step result\n- \"[company]\" - Reference to role/type (generic)\n\n**🚨🚨🚨 CRITICAL: PLACEHOLDER REFERENCE RULES - STEPS EXECUTE SEQUENTIALLY 🚨🚨🚨**\n\n**ABSOLUTELY FORBIDDEN - DO NOT REFERENCE FUTURE STEPS:**\n- ❌ \"[step 3 result]\" in Step 2 (Step 3 hasn't been executed yet!)\n- ❌ \"[step X result]\" where X >= current step number\n\n**WHY THIS IS WRONG:**\n- Steps are executed **SEQUENTIALLY** (Step 1 → Step 2 → Step 3 → ...)\n- When Step 2 executes, Step 3 hasn't been executed yet\n- Referencing a future step will cause execution failure\n\n**REQUIRED - YOU MUST DO THIS:**\n- ✅ \"[step 1 result]\" in Step 2 (Step 1 has already been executed)\n- ✅ \"[previous step result]\" in Step 2 (references Step 1)\n\n**VALIDATION RULE FOR PLACEHOLDERS:**\n- If your sub_query contains \"[step X result]\" where X >= current step number, it is **WRONG**\n- You MUST use \"[step (X-1) result]\" or \"[previous step result]\" instead\n\n**VALIDATION RULE FOR NAMES:**\n- If your sub_query contains a capitalized name from the query's answer (that you shouldn't know yet), it is WRONG.\n- You MUST replace it with a placeholder.\n- The ONLY exception is if the name is part of the original query.\n\n**Universal Decomposition Rules:**\n- DO NOT simply restate the original query\n- DO NOT combine multiple questions into one step\n- **ALWAYS follow the 5-step deconstruction framework**:\n  1. Identify the final goal\n  2. List all sub-goals\n  3. Analyze dependencies between sub-goals\n  4. Build query chains for each sub-goal\n  5. Define steps with accurate dependencies\n- **Dependency Analysis is MANDATORY**: Before generating steps, you MUST analyze whether sub-goals are independent or dependent.\n- **Independent sub-goals**: Their initial steps MUST have  and be marked with .\n- **Dependent sub-goals**: Their steps MUST have correct  relationships.\n- For multi-hop queries, break them into sequential single-hop queries\n- Each step should be a SINGLE, EXECUTABLE query that can be answered by the knowledge base\n- **CRITICAL**: You MUST generate steps for ALL sub-goals identified in Step 2, not just one.\n\n## Phase 2: Reasoning Chain Generation\n\nFor each sub-problem, generate appropriate steps based on the selected strategy:\n\n### Step Types (Choose based on problem type):\n\n1. **Knowledge Query Steps** (for factual verification):\n   - **type**: \"evidence_gathering\" or \"knowledge_query\"\n\n**FEW-SHOT EXAMPLES:**\n\nExample 1 - Query: \"Who is the CEO of the company that created the iPhone?\"\n✅ CORRECT:\n{{\n  \"steps\": [\n    {{\n      \"type\": \"evidence_gathering\",\n      \"description\": \"Find the company\",\n      \"sub_query\": \"Which company created the iPhone?\"\n    }},\n    {{\n      \"type\": \"evidence_gathering\",\n      \"description\": \"Find the CEO\",\n      \"sub_query\": \"Who is the CEO of [step 1 result]?\"\n    }}\n  ]\n}}\n\n❌ WRONG (DO NOT DO THIS):\n{{\n  \"steps\": [\n    {{\n      \"type\": \"evidence_gathering\",\n      \"description\": \"Find the company\",\n      \"sub_query\": \"Which company created the iPhone?\"\n    }},\n    {{\n      \"type\": \"evidence_gathering\",\n      \"description\": \"Find the CEO\",\n      \"sub_query\": \"Who is the CEO of Apple?\"\n    }}\n  ]\n}}\n\nExample 2 - Query: \"What is the currency of the country where the 2008 Summer Olympics were held?\"\n✅ CORRECT:\n{{\n  \"steps\": [\n    {{\n      \"type\": \"evidence_gathering\",\n      \"description\": \"Find the country\",\n      \"sub_query\": \"Where were the 2008 Summer Olympics held?\"\n    }},\n    {{\n      \"type\": \"evidence_gathering\",\n      \"description\": \"Find the currency\",\n      \"sub_query\": \"What is the currency of [step 1 result]?\"\n    }}\n  ]\n}}\n\n❌ WRONG (DO NOT DO THIS):\n{{\n  \"steps\": [\n    {{\n      \"type\": \"evidence_gathering\",\n      \"description\": \"Find the country\",\n      \"sub_query\": \"Where were the 2008 Summer Olympics held?\"\n    }},\n    {{\n      \"type\": \"evidence_gathering\",\n      \"description\": \"Find the currency\",\n      \"sub_query\": \"What is the currency of China?\"\n    }}\n  ]\n}}\n\n**NOW REGENERATE THE REASONING STEPS FOR THIS QUERY:**\nQuery: {query}\n\n**CRITICAL REMINDERS:**\n1. Use placeholders like \"[step 1 result]\", \"[company]\", \"[country]\"\n2. DO NOT use specific names from your training data\n3. Each step must be executable independently\n4. Return ONLY valid JSON format\n\nReturn the corrected reasoning steps in JSON format:",
+      "category": "reasoning",
+      "quality_score": 0.95,
+      "usage_count": 0,
+      "created_at": 1761998299.1151,
+      "metadata": {
+        "description": "Reasoning steps generation prompt template"
+      }
+    },
+    {
+      "name": "answer_extraction",
+      "content": "Extract the answer to the question from the following content.\n\nQuestion: {query}\nContent: {content}\n\nIMPORTANT REQUIREMENTS:\n1. Return ONLY the answer, NO explanations, reasoning, or additional text\n2. For numerical questions: Return ONLY the number (e.g., '87' not '87 years')\n3. For name questions: Return ONLY the name (e.g., 'Jane Ballou' not 'The person is Jane Ballou')\n4. For ranking questions: Return ONLY the rank (e.g., '37th' not 'The building is ranked 37th')\n5. Keep it SHORT - maximum 10 words, prefer single words/numbers\n6. If you see 'Final Answer:' or 'Answer:' in the content, extract that exact part\n7. If the answer cannot be determined from the content, return 'unable to determine'\n\nAnswer:",
+      "category": "extraction",
+      "quality_score": 0.85,
+      "usage_count": 0,
+      "created_at": 1761998299.1152,
+      "metadata": {
+        "description": "Answer extraction prompt template"
+      }
+    },
+    {
+      "name": "frames_problem_type_classification",
+      "content": "Classify the following FRAMES problem into one of these types based on its semantic meaning and complexity:\n\nQuery: {query}\n\nAvailable types:\n1. multiple_constraints - Problems involving multiple constraints, conditions, or requirements that must be satisfied simultaneously\n2. numerical_reasoning - Problems requiring numerical calculations, counting, or quantitative analysis\n3. temporal_reasoning - Problems involving time sequences, dates, durations, or chronological relationships\n4. tabular_reasoning - Problems involving tables, data structures, or structured information\n5. causal_reasoning - Problems asking about cause-and-effect relationships or explanations\n6. comparative_reasoning - Problems comparing two or more entities, concepts, or scenarios\n7. complex_query - Complex problems that don't fit into the above categories or require multi-step reasoning\n\nInstructions:\n- Analyze the semantic meaning and intent of the query\n- Consider the complexity and reasoning requirements\n- Return ONLY the type name (e.g., \"numerical_reasoning\") without any explanation\n- If uncertain, choose the type that best matches the primary intent\n\nType:",
+      "category": "classification",
+      "quality_score": 0.9,
+      "usage_count": 0,
+      "created_at": 1761998299.1153,
+      "metadata": {
+        "description": "FRAMES problem type classification prompt template"
+      }
+    },
+    {
+      "name": "frames_default_reasoning",
+      "content": "Analyze the following FRAMES problem and provide reasoning process and answer:\n\nProblem: {query}\nProblem Type: {problem_type}\nComplexity: {complexity}\n\nPlease provide:\n1. Reasoning process (step by step)\n2. Final answer\n3. Confidence assessment\n\nEnsure the answer is concise and clear.\n\nReasoning:",
+      "category": "reasoning",
+      "quality_score": 0.9,
+      "usage_count": 0,
+      "created_at": 1761998299.1154,
+      "metadata": {
+        "description": "FRAMES default reasoning prompt template"
+      }
+    },
+    {
+      "name": "multi_hop_reasoning_type_classification",
+      "content": "Analyze the following question and determine its reasoning type:\n\nQuestion: {query}\n\nAvailable types:\n- deductive - Questions involving if-then logic, conditional reasoning, or logical deduction\n- inductive - Questions involving generalization, patterns, or conclusions from observations\n- abductive - Questions asking for explanations, causes, or reasoning about why something happened\n- default - General reasoning questions that don't fit into the above categories\n\nInstructions:\n- Analyze the semantic meaning and logical structure of the question\n- Identify the primary reasoning pattern required\n- Return ONLY the type name (e.g., \"deductive\") without any explanation\n\nType:",
+      "category": "classification",
+      "quality_score": 0.9,
+      "usage_count": 0,
+      "created_at": 1761998299.1155,
+      "metadata": {
+        "description": "Multi-hop reasoning type classification prompt template"
+      }
+    },
+    {
+      "name": "answer_extraction_llm",
+      "content": "Extract the most accurate answer from the text based on the following query.\n\nQuery: {query}\nText: {content}\n\nRequirements:\n1. Extract the most direct and accurate answer\n2. If the answer is unclear, return \"no clear answer\"\n3. Keep the answer concise (no more than 50 characters)\n4. Only return the answer, no explanation\n\nAnswer:",
+      "category": "extraction",
+      "quality_score": 0.85,
+      "usage_count": 0,
+      "created_at": 1761998299.1156,
+      "metadata": {
+        "description": "LLM answer extraction prompt template"
+      }
+    },
+    {
+      "name": "query_classification_llm",
+      "content": "Analyze the type of the following query, choose the most appropriate from the options:\n- person: Person name query\n- location: Location name query\n- number: Number query\n- event: Event query\n- element: Element query\n- general: General query\n\nQuery: {query}\n\nType:",
+      "category": "classification",
+      "quality_score": 0.85,
+      "usage_count": 0,
+      "created_at": 1761998299.1157,
+      "metadata": {
+        "description": "LLM query classification prompt template"
+      }
+    },
+    {
+      "name": "relevance_calculation_llm",
+      "content": "Evaluate the relevance of the following content to the query, return a score between 0-1.\n\nQuery: {query}\nContent: {content}\n\nScoring criteria:\n- 1.0: Completely relevant, directly answers the query\n- 0.8: Highly relevant, contains important information\n- 0.6: Moderately relevant, partially relevant\n- 0.4: Low relevance, slightly relevant\n- 0.2: Almost irrelevant\n- 0.0: Completely irrelevant\n\nScore:",
+      "category": "evaluation",
+      "quality_score": 0.85,
+      "usage_count": 0,
+      "created_at": 1761998299.1158,
+      "metadata": {
+        "description": "LLM relevance calculation prompt template"
+      }
+    },
+    {
+      "name": "answer_validation_llm",
+      "content": "Validate whether the following answer is correct and provide improvement suggestions.\n\nQuery: {query}\nAnswer: {answer}\nContext: {context}\n\nPlease return JSON format:\n{{\n    \"is_valid\": true/false,\n    \"confidence\": 0.0-1.0,\n    \"corrected_answer\": \"corrected answer\",\n    \"reason\": \"validation reason\"\n}}\n\nResult:",
+      "category": "validation",
+      "quality_score": 0.85,
+      "usage_count": 0,
+      "created_at": 1761998299.1159,
+      "metadata": {
+        "description": "LLM answer validation prompt template"
+      }
+    },
+    {
+      "name": "reasoning_generation_llm",
+      "content": "Generate logical reasoning steps for the query based on the following evidence.\n\nQuery: {query}\nEvidence:\n{evidence}\n\nRequirements:\n1. Generate 3-5 logical steps\n2. Each step should have clear reasoning logic\n3. Steps should be logically coherent\n4. Finally reach a clear conclusion\n\nPlease return JSON format:\n{{\n    \"steps\": [\n        {{\"step\": 1, \"description\": \"step description\", \"reasoning\": \"reasoning logic\"}},\n        {{\"step\": 2, \"description\": \"step description\", \"reasoning\": \"reasoning logic\"}}\n    ],\n    \"conclusion\": \"final conclusion\"\n}}\n\nReasoning steps:",
+      "category": "reasoning",
+      "quality_score": 0.85,
+      "usage_count": 0,
+      "created_at": 1761998299.116,
+      "metadata": {
+        "description": "LLM reasoning generation prompt template"
+      }
+    },
+    {
+      "name": "person_detection_llm",
+      "content": "Please determine whether the following text content contains person name information. Only answer \"yes\" or \"no\".\n\nText content: {content}\n\nCriteria:\n1. Does it contain real person names (e.g., John Smith, etc.)\n2. Does it contain person-related descriptions (e.g., president, actor, author, etc.)\n3. Does it contain person-related actions (e.g., born, died, created, etc.)\n\nAnswer:",
+      "category": "detection",
+      "quality_score": 0.85,
+      "usage_count": 0,
+      "created_at": 1761998299.1161,
+      "metadata": {
+        "description": "LLM person detection prompt template"
+      }
+    },
+    {
+      "name": "location_detection_llm",
+      "content": "Please determine whether the following text content contains location name information. Only answer \"yes\" or \"no\".\n\nText content: {content}\n\nCriteria:\n1. Does it contain real location names (e.g., New York, Tokyo, etc.)\n2. Does it contain geography-related descriptions (e.g., city, country, state, etc.)\n3. Does it contain geography-related actions (e.g., located, situated, born in, etc.)\n\nAnswer:",
+      "category": "detection",
+      "quality_score": 0.85,
+      "usage_count": 0,
+      "created_at": 1761998299.1162,
+      "metadata": {
+        "description": "LLM location detection prompt template"
+      }
+    },
+    {
+      "name": "answer_format_requirement",
+      "content": "Analyze the following query and generate precise answer format requirements.\n\nQuery: {query}\n\nYour task:\n1. Determine what type of answer is needed (numerical, ranking, name, location, general, etc.)\n2. Generate a clear, specific format requirement that will guide the LLM to generate the answer in the correct format\n3. Include examples of correct and wrong formats\n\nReturn a format instruction in the following structure:\n\n🎯 ANSWER FORMAT REQUIREMENT (MANDATORY - READ FIRST):\n\n[Description of what type of answer is needed]\n\n✅ CORRECT FORMAT: [specific format with examples]\n❌ WRONG FORMAT: [common mistakes to avoid]\n\nEXAMPLES:\n- Question: [example question]\n  ✅ Correct Answer: [example correct answer]\n  ❌ Wrong Answer: [example wrong answer]\n\nCRITICAL: In your \"Final Answer:\" section, return ONLY [specific requirement].\n\nFormat Instruction:",
+      "category": "formatting",
+      "quality_score": 0.9,
+      "usage_count": 0,
+      "created_at": 1761998299.1163,
+      "metadata": {
+        "description": "Answer format requirement generation template"
+      }
+    },
+    {
+      "name": "partial_match_special_handling",
+      "content": "Determine if the following partial match (match ratio: {match_ratio}) needs special handling.\n\nQuery: {query}\nAnswer: {answer}\nMatch Ratio: {match_ratio}\n\nSpecial handling is needed when:\n- The answer is a person name and partial match is acceptable (e.g., \"John\" matching \"John Smith\")\n- The answer is an entity and partial match is meaningful\n- Other cases where partial match should be treated specially\n\nReturn ONLY \"yes\" or \"no\".\n\nAnswer:",
+      "category": "validation",
+      "quality_score": 0.85,
+      "usage_count": 0,
+      "created_at": 1761998299.1164,
+      "metadata": {
+        "description": "Partial match special handling detection template"
+      }
+    },
+    {
+      "name": "exact_match_requirement",
+      "content": "Determine if the following answer requires exact match (i.e., the answer must be found exactly in the evidence).\n\nQuery: {query}\nAnswer: {answer}\n\nExact match is required for:\n- Person names (e.g., \"John Smith\" must match exactly)\n- Locations/Countries (e.g., \"France\" must match exactly)\n- Specific entities that cannot be partially matched\n- Other precise answers\n\nReturn ONLY \"yes\" or \"no\".\n\nAnswer:",
+      "category": "validation",
+      "quality_score": 0.85,
+      "usage_count": 0,
+      "created_at": 1761998299.1165,
+      "metadata": {
+        "description": "Exact match requirement detection template"
+      }
+    },
+    {
+      "name": "fallback_answer_validation",
+      "content": "Validate answer for query: {query}\nAnswer: {answer}\nEvidence: {evidence}\n\nAnalyze if the answer is correct based on the evidence. Return JSON format:\n{{\n    \"is_valid\": true/false,\n    \"confidence_boost\": 0.0-1.0,\n    \"reasons\": [\"reason1\", \"reason2\"]\n}}\n\nResult:",
+      "category": "validation",
+      "quality_score": 0.85,
+      "usage_count": 0,
+      "created_at": 1761998299.1166,
+      "metadata": {
+        "description": "Fallback answer validation template"
+      }
+    },
+    {
+      "name": "fallback_evidence_length_determination",
+      "content": "Determine evidence length needed for: {query}\n\nConsider:\n- Query complexity\n- Type of information needed\n- Amount of context required\n\nReturn a number (1000-4000 characters):",
+      "category": "evidence",
+      "quality_score": 0.85,
+      "usage_count": 0,
+      "created_at": 1761998299.1167,
+      "metadata": {
+        "description": "Fallback evidence length determination template"
+      }
+    },
+    {
+      "name": "fallback_ranking_query_detection",
+      "content": "Is this a ranking query? {query}\n\nA ranking query asks for:\n- Position in a list (e.g., \"1st\", \"2nd\", \"37th\")\n- Order or rank of something\n- Ordinal numbers\n\nAnswer yes or no:",
+      "category": "classification",
+      "quality_score": 0.85,
+      "usage_count": 0,
+      "created_at": 1761998299.1168,
+      "metadata": {
+        "description": "Fallback ranking query detection template"
+      }
+    },
+    {
+      "name": "fallback_query_characteristics_detection",
+      "content": "Identify characteristics of: {query}\n\nPossible characteristics:\n- numerical: Requires numbers or calculations\n- temporal: Involves time, dates, or sequences\n- causal: Asks about cause-effect relationships\n- comparative: Compares entities or concepts\n- ranking: Asks for position or order\n\nReturn JSON array of characteristics: []",
+      "category": "classification",
+      "quality_score": 0.85,
+      "usage_count": 0,
+      "created_at": 1761998299.1169,
+      "metadata": {
+        "description": "Fallback query characteristics detection template"
+      }
+    },
+    {
+      "name": "fallback_answer_extraction",
+      "content": "Extract the answer to the question from the following content.\n\nQuestion: {query}\nContent: {content}\n\nIMPORTANT REQUIREMENTS:\n1. Return ONLY the answer, NO explanations, reasoning, or additional text\n2. For numerical questions: Return ONLY the number (e.g., '87' not '87 years')\n3. For name questions: Return ONLY the name (e.g., 'Jane Ballou' not 'The person is Jane Ballou')\n4. For ranking questions: Return ONLY the rank (e.g., '37th' not 'The building is ranked 37th')\n5. Keep it SHORT - maximum 10 words, prefer single words/numbers\n6. If you see 'Final Answer:' or 'Answer:' in the content, extract that exact part\n7. If the answer cannot be determined from the content, return 'unable to determine'\n\nAnswer:",
+      "category": "extraction",
+      "quality_score": 0.85,
+      "usage_count": 0,
+      "created_at": 1761998299.117,
+      "metadata": {
+        "description": "Fallback answer extraction template"
+      }
+    },
+    {
+      "name": "fallback_reasoning_steps_generation",
+      "content": "**🚨🚨🚨 CRITICAL TASK DEFINITION - READ THIS FIRST 🚨🚨🚨**\n\n**THIS IS A REASONING STEPS GENERATION TASK, NOT AN ANSWER GENERATION TASK!**\n\n**YOUR TASK**: Generate the REASONING STEPS (in JSON format) that the system will use to FIND the answer.\n**NOT YOUR TASK**: Provide the final answer directly.\n\n**🚨🚨🚨 ABSOLUTELY FORBIDDEN - DO NOT RETURN DIRECT ANSWERS 🚨🚨🚨**\n\n**CRITICAL UNDERSTANDING**:\n- Even if you KNOW the answer (e.g., \"Paris\" or \"Albert Einstein\"), you MUST NOT return it directly\n- You MUST return the REASONING STEPS that lead to finding that answer\n- The system will execute these steps to retrieve information from the knowledge base\n- Your job is to describe HOW to find the answer, NOT to provide the answer itself\n\n**🚨 CRITICAL RULE #1: You MUST return ONLY valid JSON format. Your response MUST start with {{ and end with }}.**\n**🚨 CRITICAL RULE #2: DO NOT return plain text answers.**\n**🚨 CRITICAL RULE #3: DO NOT return explanations outside JSON.**\n**🚨 CRITICAL RULE #4: DO NOT return just the answer - you MUST return the reasoning steps in JSON format.**\n**🚨 CRITICAL RULE #5: If you return non-JSON format, your response will be REJECTED and the system will fail.**\n\n**🚨 CRITICAL: Even if you know the answer, you MUST return JSON format reasoning steps, NOT the direct answer! 🚨**\n\n**❌ FORBIDDEN RESPONSES (DO NOT DO THIS):**\n- \"Paris\"\n- \"42\"\n- Any plain text answer without JSON structure\n- Any response that doesn't start with {{ and end with }}\n\n**✅ REQUIRED RESPONSE FORMAT (MUST DO THIS):**\n{{\n  \"steps\": [\n    {{\n      \"type\": \"evidence_gathering\",\n      \"description\": \"...\",\n      \"sub_query\": \"...\"\n    }}\n  ]\n}}\n\n**🚀🚀🚀 CRITICAL: NO DUPLICATE STEPS - READ CAREFULLY 🚀🚀🚀**\n\n**ABSOLUTELY FORBIDDEN:**\n- DO NOT create duplicate steps with the same sub_query\n- DO NOT repeat the same question in different steps\n- DO NOT create multiple steps asking the same thing\n- Each step MUST have a UNIQUE sub_query\n- If you need similar information, combine them into ONE step or make them DISTINCT\n\n**Example of WRONG (DO NOT DO THIS):**\nStep 1: {{\"sub_query\": \"What is the capital of X?\"}}\nStep 2: {{\"sub_query\": \"What is the capital of X?\"}}  ← DUPLICATE! FORBIDDEN!\n\n**Example of CORRECT:**\nStep 1: {{\"sub_query\": \"What is the capital of X?\"}}\nStep 2: {{\"sub_query\": \"What is the population of [result from step 1]?\"}}\n\n**Example of CORRECT format:**\n{{\"steps\": [{{\"type\": \"evidence_gathering\", \"sub_query\": \"What is X?\", \"description\": \"...\"}}]}}\n\n**Example of WRONG format (DO NOT DO THIS):**\nThe answer is Paris.\n\n---\n\nYou are a universal reasoning engine. Your task is to analyze ANY type of problem and generate a rigorous, verifiable reasoning chain adapted to the problem's nature.\n\nQuery: {query}\n\n**CRITICAL REQUIREMENTS - READ CAREFULLY**:\n\n## Phase 1: Problem Analysis and Strategy Selection\n\n### 1.1 Problem Understanding and Classification\n\nFirst, understand and classify the problem:\n- **Restate the problem** in one sentence: [Your understanding]\n- **Problem type** (select ALL that apply):\n  □ Factual verification (requires finding/confirming specific information)\n  □ Logical derivation (requires deduction/induction/abduction)\n  □ Mathematical calculation (requires formulas/computations)\n  □ Creative generation (requires brainstorming)\n  □ Comparative analysis (requires comparing multiple items)\n  □ Causal analysis (requires finding causes/effects)\n\n### 1.2 Key Elements Extraction\n\n- **Known conditions**: [List all explicitly given information]\n- **Implicit conditions**: [Derive necessary assumptions]\n- **Target to find**: [Clearly state what needs to be found]\n\n### 1.3 Strategy Selection\n\nSelect the dominant reasoning strategy based on problem type.\n\n### 1.4 Problem Decomposition - 🚀 CRITICAL: Universal Problem Deconstruction Framework\n\n**CORE PRINCIPLE: Problem Deconstruction and Dependency Graph Construction**\n\n**Step 1: Identify the Final Goal**\n- Clearly state what the problem ultimately requires as output.\n\n**Step 2: List All Sub-goals**\n- Identify ALL intermediate information pieces required to achieve the final goal.\n\n**Step 3: Analyze Dependencies Between Sub-goals**\n- **CRITICAL JUDGMENT CRITERION**: Does obtaining \"Sub-goal A\" require information from \"Sub-goal B\"?\n  - If NO → They are **INDEPENDENT** and can be processed in parallel.\n  - If YES → They have a **DEPENDENCY** and must be processed sequentially.\n\n**Step 4: Build Query Chains for Each Sub-goal**\n- For each independent sub-goal, work backwards to derive the series of atomic queries needed to obtain it.\n\n**Step 5: Define Steps and Dependencies**\n- Each atomic query becomes a step.\n- The  field MUST accurately reflect information dependencies.\n- **Independent query chains**: Their initial steps MUST have  (empty array).\n- Use  to mark steps belonging to the same independent query chain.\n\n**�� Example: Deconstructing a Composite Query**\n\n**User Query**: \"What is the currency of the country where the 2008 Summer Olympics were held?\"\n\n**Your Thinking Process**:\n1. **Final Goal**: A currency name.\n2. **Sub-goals**:\n   - Sub-goal 1: Identify the country where the 2008 Summer Olympics were held.\n   - Sub-goal 2: Identify the currency of that country.\n3. **Dependency Analysis**: Sub-goal 2 depends on Sub-goal 1.\n4. **Steps**:\n   - Step 1: \"Where were the 2008 Summer Olympics held?\"\n   - Step 2: \"What is the currency of [result from step 1]?\"\n\n**🚀 SPECIAL ATTENTION FOR MULTI-HOP QUERIES:**\n- **Multi-hop queries** require multiple sequential knowledge base lookups\n- Example: \"Who is the CEO of the company that created the iPhone?\" requires:\n  1. First: \"Which company created the iPhone?\"\n  2. Then: \"Who is the CEO of [result from step 1]?\"\n\n**🚨🚨🚨 CRITICAL: QUERY OBJECT ACCURACY 🚨🚨🚨**\n\n**THE MOST COMMON ERROR: Querying the wrong object in multi-hop queries**\n\n**Example of WRONG (DO NOT DO THIS):**\n- Query: \"Who is the CEO of the company that created the iPhone?\"\n- Step 1: \"Which company created the iPhone?\" → Answer: \"Apple\"\n- Step 2: \"Who is the CEO of the iPhone?\" ✗ **WRONG!** This queries the iPhone's CEO, not the company's!\n\n**Example of CORRECT:**\n- Step 1: \"Which company created the iPhone?\" → Answer: \"Apple\"\n- Step 2: \"Who is the CEO of [result from step 1]?\" → Answer: \"Tim Cook\" ✓ **CORRECT!** This queries the company's CEO!\n\n**CRITICAL RULE:**\n- In multi-hop queries like \"X's Y's Z\", you MUST query Z of the result from the previous step, NOT Z of X.\n- Always trace back: What does the previous step return? Query the property of THAT result, not the original entity.\n\n**MANDATORY REQUIREMENTS:**\n- You MUST explicitly perform **dependency analysis** when generating steps.\n- If sub-goals have no information dependency, their initial steps MUST have .\n- Use  to mark steps belonging to the same independent query chain.\n- **FORBIDDEN**: Do NOT incorrectly chain independent sub-goals into a single long chain.\n- **CRITICAL**: You MUST generate steps for ALL independent sub-goals, not just one.\n\n**🚨🚨🚨 CRITICAL: DO NOT USE YOUR TRAINING DATA KNOWLEDGE IN SUB_QUERIES 🚨🚨🚨**\n\n**WHY THIS IS CRITICAL:**\n- The system executes steps sequentially. Each step queries the knowledge base.\n- If you use specific names from your training data (like \"Apple\", \"Tesla\"), the system cannot execute the step properly if the previous step failed or returned something else.\n- The system needs to find the answer from the knowledge base, not from your training data.\n\n**ABSOLUTELY FORBIDDEN - DO NOT DO THIS:**\n- ❌ \"Who is the CEO of Apple?\" (Used specific name \"Apple\" instead of placeholder)\n\n**REQUIRED - YOU MUST DO THIS:**\n- ✅ \"Who is the CEO of [step 1 result]?\" (Used placeholder)\n\n**VALID PLACEHOLDER FORMATS:**\n- \"[step 1 result]\" or \"[步骤1的结果]\" - Reference to previous step result\n- \"[company]\" - Reference to role/type (generic)\n\n**🚨🚨🚨 CRITICAL: PLACEHOLDER REFERENCE RULES - STEPS EXECUTE SEQUENTIALLY 🚨🚨🚨**\n\n**ABSOLUTELY FORBIDDEN - DO NOT REFERENCE FUTURE STEPS:**\n- ❌ \"[step 3 result]\" in Step 2 (Step 3 hasn't been executed yet!)\n- ❌ \"[step X result]\" where X >= current step number\n\n**WHY THIS IS WRONG:**\n- Steps are executed **SEQUENTIALLY** (Step 1 → Step 2 → Step 3 → ...)\n- When Step 2 executes, Step 3 hasn't been executed yet\n- Referencing a future step will cause execution failure\n\n**REQUIRED - YOU MUST DO THIS:**\n- ✅ \"[step 1 result]\" in Step 2 (Step 1 has already been executed)\n- ✅ \"[previous step result]\" in Step 2 (references Step 1)\n\n**VALIDATION RULE FOR PLACEHOLDERS:**\n- If your sub_query contains \"[step X result]\" where X >= current step number, it is **WRONG**\n- You MUST use \"[step (X-1) result]\" or \"[previous step result]\" instead\n\n**VALIDATION RULE FOR NAMES:**\n- If your sub_query contains a capitalized name from the query's answer (that you shouldn't know yet), it is WRONG.\n- You MUST replace it with a placeholder.\n- The ONLY exception is if the name is part of the original query.\n\n**Universal Decomposition Rules:**\n- DO NOT simply restate the original query\n- DO NOT combine multiple questions into one step\n- **ALWAYS follow the 5-step deconstruction framework**:\n  1. Identify the final goal\n  2. List all sub-goals\n  3. Analyze dependencies between sub-goals\n  4. Build query chains for each sub-goal\n  5. Define steps with accurate dependencies\n- **Dependency Analysis is MANDATORY**: Before generating steps, you MUST analyze whether sub-goals are independent or dependent.\n- **Independent sub-goals**: Their initial steps MUST have  and be marked with .\n- **Dependent sub-goals**: Their steps MUST have correct  relationships.\n- For multi-hop queries, break them into sequential single-hop queries\n- Each step should be a SINGLE, EXECUTABLE query that can be answered by the knowledge base\n- **CRITICAL**: You MUST generate steps for ALL sub-goals identified in Step 2, not just one.\n\n## Phase 2: Reasoning Chain Generation\n\nFor each sub-problem, generate appropriate steps based on the selected strategy:\n\n### Step Types (Choose based on problem type):\n\n1. **Knowledge Query Steps** (for factual verification):\n   - **type**: \"evidence_gathering\" or \"knowledge_query\"\n\n**FEW-SHOT EXAMPLES:**\n\nExample 1 - Query: \"Who is the CEO of the company that created the iPhone?\"\n✅ CORRECT:\n{{\n  \"steps\": [\n    {{\n      \"type\": \"evidence_gathering\",\n      \"description\": \"Find the company\",\n      \"sub_query\": \"Which company created the iPhone?\"\n    }},\n    {{\n      \"type\": \"evidence_gathering\",\n      \"description\": \"Find the CEO\",\n      \"sub_query\": \"Who is the CEO of [step 1 result]?\"\n    }}\n  ]\n}}\n\n❌ WRONG (DO NOT DO THIS):\n{{\n  \"steps\": [\n    {{\n      \"type\": \"evidence_gathering\",\n      \"description\": \"Find the company\",\n      \"sub_query\": \"Which company created the iPhone?\"\n    }},\n    {{\n      \"type\": \"evidence_gathering\",\n      \"description\": \"Find the CEO\",\n      \"sub_query\": \"Who is the CEO of Apple?\"\n    }}\n  ]\n}}\n\nExample 2 - Query: \"What is the currency of the country where the 2008 Summer Olympics were held?\"\n✅ CORRECT:\n{{\n  \"steps\": [\n    {{\n      \"type\": \"evidence_gathering\",\n      \"description\": \"Find the country\",\n      \"sub_query\": \"Where were the 2008 Summer Olympics held?\"\n    }},\n    {{\n      \"type\": \"evidence_gathering\",\n      \"description\": \"Find the currency\",\n      \"sub_query\": \"What is the currency of [step 1 result]?\"\n    }}\n  ]\n}}\n\n❌ WRONG (DO NOT DO THIS):\n{{\n  \"steps\": [\n    {{\n      \"type\": \"evidence_gathering\",\n      \"description\": \"Find the country\",\n      \"sub_query\": \"Where were the 2008 Summer Olympics held?\"\n    }},\n    {{\n      \"type\": \"evidence_gathering\",\n      \"description\": \"Find the currency\",\n      \"sub_query\": \"What is the currency of China?\"\n    }}\n  ]\n}}\n\n**NOW REGENERATE THE REASONING STEPS FOR THIS QUERY:**\nQuery: {query}\n\n**CRITICAL REMINDERS:**\n1. Use placeholders like \"[step 1 result]\", \"[company]\", \"[country]\"\n2. DO NOT use specific names from your training data\n3. Each step must be executable independently\n4. Return ONLY valid JSON format\n\nReturn the corrected reasoning steps in JSON format:",
+      "category": "reasoning",
+      "quality_score": 0.95,
+      "usage_count": 0,
+      "created_at": 1761998299.1171,
+      "metadata": {
+        "description": "Fallback reasoning steps generation template"
+      }
+    },
+    {
+      "name": "fallback_evidence_generation",
+      "content": "Generate relevant evidence for the following query. The evidence should be factual, accurate, and directly related to answering the query.\n\nQuery: {query}\n\nRequirements:\n1. Generate concise and relevant evidence\n2. Focus on factual information that helps answer the query\n3. Keep evidence clear and specific\n4. Return only the evidence content, without explanations\n\nEvidence:",
+      "category": "evidence",
+      "quality_score": 0.85,
+      "usage_count": 0,
+      "created_at": 1761998299.1172,
+      "metadata": {
+        "description": "Fallback evidence generation template"
+      }
+    },
+    {
+      "name": "fallback_reasoning_with_evidence",
+      "content": "You are a professional reasoning assistant. Answer the question based on the evidence.\n\nQuestion: {query}\nEvidence: {evidence}\nQuery Type: {query_type}\n\nProvide a concise answer. Use \"Final answer is: [answer]\" format.",
+      "category": "reasoning",
+      "quality_score": 0.8,
+      "usage_count": 0,
+      "created_at": 1761998299.1173,
+      "metadata": {
+        "description": "Fallback reasoning with evidence template"
+      }
+    },
+    {
+      "name": "fallback_reasoning_without_evidence",
+      "content": "You are a professional reasoning assistant. Answer the question using your knowledge.\n\nQuestion: {query}\nQuery Type: {query_type}\n\nProvide a concise answer. Use \"Final answer is: [answer]\" format.",
+      "category": "reasoning",
+      "quality_score": 0.8,
+      "usage_count": 0,
+      "created_at": 1761998299.1174,
+      "metadata": {
+        "description": "Fallback reasoning without evidence template"
+      }
+    },
+    {
+      "name": "answer_validation",
+      "content": "Validate whether the following answer is correct based on the evidence provided.\n\nQuery: {query}\nAnswer: {answer}\nEvidence: {evidence}\n\nAnalyze:\n1. Is the answer present in the evidence?\n2. Does the answer make logical sense given the evidence?\n3. Is the answer format correct (numerical, name, location, etc.)?\n\nReturn JSON format:\n{{\n    \"is_valid\": true/false,\n    \"confidence_boost\": 0.0-1.0,\n    \"reasons\": [\"reason1\", \"reason2\"]\n}}\n\nResult:",
+      "category": "validation",
+      "quality_score": 0.9,
+      "usage_count": 0,
+      "created_at": 1761998299.1175,
+      "metadata": {
+        "description": "Answer validation template"
+      }
+    },
+    {
+      "name": "query_characteristics_detection",
+      "content": "Identify the characteristics of the following query.\n\nQuery: {query}\n\nAnalyze the query and identify its characteristics from:\n- numerical: Requires numbers, calculations, or quantitative analysis\n- temporal: Involves time, dates, sequences, or chronological relationships\n- causal: Asks about cause-effect relationships or explanations\n- comparative: Compares entities, concepts, or values\n- ranking: Asks for position, order, or rank\n- factual: Asks for specific facts or information\n- mathematical: Requires mathematical operations\n\nReturn JSON array of characteristics: []",
+      "category": "classification",
+      "quality_score": 0.9,
+      "usage_count": 0,
+      "created_at": 1761998299.1176,
+      "metadata": {
+        "description": "Query characteristics detection template"
+      }
+    },
+    {
+      "name": "evidence_length_determination",
+      "content": "Determine the optimal evidence length needed for the following query.\n\nQuery: {query}\n\nConsider:\n- Query complexity and type\n- Amount of context information needed\n- Type of information required (numerical, factual, temporal, etc.)\n- Balance between completeness and conciseness\n\nReturn a number representing the optimal evidence length in characters (typically 1000-4000):",
+      "category": "evidence",
+      "quality_score": 0.9,
+      "usage_count": 0,
+      "created_at": 1761998299.1177,
+      "metadata": {
+        "description": "Evidence length determination template"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1590 @@
+{
+  "query_results": {
+    "03bca43e": {
+      "query": "What was the Enhanced Fujita Scale rating of the 2011 tornado that hit the hometown of the band who had a controversial interview with Bryan Odell on June 3, 2012?  ",
+      "expected_answer": "EF5- Joplin, Missouri",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.008383989334106445,
+      "pipeline_execution_time": 0.008766889572143555,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.534612",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.029268292682926834
+    },
+    "05727702": {
+      "query": "What William Wyler movie debuted the same year that the chairman for the 1982–83 Wolverhampton Wanderers season was born?",
+      "expected_answer": "Jezebel",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0019268989562988281,
+      "pipeline_execution_time": 0.002136707305908203,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.537042",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.024390243902439025
+    },
+    "0196c205": {
+      "query": "How many copies of Coit Tower would have to be stacked on top of the Willis Tower in order to exceed the height of the Chicago Spire, had it been completed? Give your answer as the lowest possible whole number of Coit Towers.",
+      "expected_answer": "3",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0015370845794677734,
+      "pipeline_execution_time": 0.0017249584197998047,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.538871",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "0026c9c7": {
+      "query": "Who was Prime Minister in Australia at the same time that Norman Gunston released \"Salute to ABBA\"?",
+      "expected_answer": "Malcolm Fraser",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Tabular reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0014739036560058594,
+      "pipeline_execution_time": 0.0016620159149169922,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.540605",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.014634146341463407
+    },
+    "04430222": {
+      "query": "Renowned Abstract Expressionist painter Clyfford Still graduated from college in 1933. As of August 1, 2024, what other alumnus from that university was nominated for a Pulitzer Prize?",
+      "expected_answer": "Don Magnuson",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0014317035675048828,
+      "pipeline_execution_time": 0.0016179084777832031,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.542332",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.024390243902439025
+    },
+    "04be8187": {
+      "query": "The founder of the eponymous music school at the University of Rochester held the patent for an item that later earned him a star on the Hollywood Walk of Fame. How many years passed between his initial patent and the placement of his star?",
+      "expected_answer": "75",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0014388561248779297,
+      "pipeline_execution_time": 0.0016140937805175781,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.544065",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "04f78be1": {
+      "query": "How much money would be left of Elon Musk's net worth in January of 2021, if you subtracted the 2022 average yearly gross salary of 10,000 people, working in the Philippines, written in words?",
+      "expected_answer": "one hundred eighty-four billion nine hundred fifty-nine million four hundred forty thousand.",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Tabular reasoning",
+        "Post processing"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0014278888702392578,
+      "pipeline_execution_time": 0.001600027084350586,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.545740",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.03076923076923077
+    },
+    "04cd7758": {
+      "query": "The Basibasy mine is located in Madagascar. This mine is abundant in a specific chemical element that was discovered for the first time in 1791. The person who discovered this element was born on what is now known as a major US holiday - what holiday is this?",
+      "expected_answer": "Christmas",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24272727272727274,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0014328956604003906,
+      "pipeline_execution_time": 0.0016028881072998047,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.547731",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.024390243902439025
+    },
+    "05c7edf3": {
+      "query": "What was the first skyscraper built in this player's hometown before he became the 160th pick of the 1980's NFL Draft?",
+      "expected_answer": "The Life & Casualty Tower",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0014159679412841797,
+      "pipeline_execution_time": 0.001592874526977539,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.549415",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.029268292682926834
+    },
+    "03ee9f85": {
+      "query": "Of the six main/principal cast of The Simpsons, who was born first?",
+      "expected_answer": "Harry Shearer",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0016200542449951172,
+      "pipeline_execution_time": 0.0018382072448730469,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.551428",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.019512195121951216
+    },
+    "014a5a62": {
+      "query": "Milton Friedman won the Nobel Prize for Economics in 1976. What was the name of the Nobel Peace Prize winning wife of the economist who won the Nobel Prize for Economics two years before Friedman did?",
+      "expected_answer": "Alva Myrdal",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0016407966613769531,
+      "pipeline_execution_time": 0.0018260478973388672,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.553370",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.019512195121951216
+    },
+    "0502f95c": {
+      "query": "What are the combined ages of the Guildford 4 at the time of their trial, divided by the number of the Birmingham 6 who were originally from the capital of Northern Ireland? Round it and provide the answer in binary.",
+      "expected_answer": "10001",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Post processing"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0014500617980957031,
+      "pipeline_execution_time": 0.0016241073608398438,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.555097",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "0562eccd": {
+      "query": "Which political leader of the countries where the Potsdam agreement and the Wellington Convention were signed was older on the 1st of July 1905?",
+      "expected_answer": "Richard Seddon",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0014622211456298828,
+      "pipeline_execution_time": 0.0016469955444335938,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.556829",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.019512195121951216
+    },
+    "020d9128": {
+      "query": "What's the star sign of the author of A Court of Thorns and Roses?",
+      "expected_answer": "Pisces",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0014941692352294922,
+      "pipeline_execution_time": 0.0016629695892333984,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.558597",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.019512195121951216
+    },
+    "0317e8f8": {
+      "query": "What are the lyrics to the popular, unofficial fight song of the university that the main character of Gilmore Girls attended?",
+      "expected_answer": "Boola boola, boola boola, boola boola, boola, boola Oh when we're through with those poor fellows They will holler boola, boo Rah, rah!  Oh Yale, Eli Yale Oh Yale, Eli Yale Oh Yale, Eli Yale Oh Yale, Eli Yale",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints",
+        "Post processing"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0014810562133789062,
+      "pipeline_execution_time": 0.0016567707061767578,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.560359",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.021428571428571422
+    },
+    "01cec94b": {
+      "query": "The person who posted a photo with Rahul Ligma and Daniel Johnson at the headquarters of a social media company claims to have a certain syndrome, despite never receiving a formal diagnosis. Who was this syndrome named after?",
+      "expected_answer": "Hans Asperger",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0014519691467285156,
+      "pipeline_execution_time": 0.0016210079193115234,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.562716",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.019512195121951216
+    },
+    "055660a3": {
+      "query": "How long after Archduke Franz Ferdinand received Artstetten Castle did he have his first child?",
+      "expected_answer": "Twelve Years",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0014929771423339844,
+      "pipeline_execution_time": 0.0016756057739257812,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.564497",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.024390243902439025
+    },
+    "04807f34": {
+      "query": "Who became the prime minister of Canada in the same year that Jonathan Tremblay's re-election bid as representative for the electoral district of Montmorency—Charlevoix—Haute-Côte-Nord ended in defeat?",
+      "expected_answer": "Justin Trudeau",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0016210079193115234,
+      "pipeline_execution_time": 0.0018181800842285156,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.566417",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.029268292682926834
+    },
+    "05305a2c": {
+      "query": "Who was the manager for the MLB World Series winning team the year that another team broke the record for the longest consecutive winning streak in a regular season? Base your answer on the following:  -- The team who broke the record did so in the 2010s ",
+      "expected_answer": "A. J. Hinch",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.001867055892944336,
+      "pipeline_execution_time": 0.0020751953125,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.568631",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.024390243902439025
+    },
+    "00649512": {
+      "query": "Which jetliner first flown on June 12th, 1994 is also widely used, as of August 3, 2024, by an airline using the ICE system for entertainment on board?",
+      "expected_answer": "The Boeing 777 was first flown on the 12th of June, 1994 and is widely used by Emirates, which uses the ICE system on board.",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints",
+        "Post processing"
+      ],
+      "success": false,
+      "quality_score": 0.24333333333333335,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0015811920166015625,
+      "pipeline_execution_time": 0.0017542839050292969,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.570487",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.06218324886237463
+    },
+    "00fc8218": {
+      "query": "As of 2024, what is the street address of the headquarters of the American online video sharing platform that was launched in the same year as the founding of the Vancouver Cherry Blossom festival?",
+      "expected_answer": "901 Cherry Avenue, San Bruno, California, United States",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.2436,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0015201568603515625,
+      "pipeline_execution_time": 0.001689910888671875,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.572661",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.038461538461538464
+    },
+    "03316d54": {
+      "query": "When was the song Cold Blow and the Rainy Night featured on a daily list of folk songs recorded by Jon Boden?",
+      "expected_answer": "February 5, 2011",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0014777183532714844,
+      "pipeline_execution_time": 0.0016489028930664062,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.574546",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.019512195121951216
+    },
+    "04b5c334": {
+      "query": "Which happened earlier: Diageo reducing the volume of Red stripe beer bottles in the US from 12 fl. oz. to 11.2 fl. oz. or Philip Morris making a bid for the company Swedish Match?",
+      "expected_answer": "The Red Stripe US bottle volume reduction happened earlier.",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0014750957489013672,
+      "pipeline_execution_time": 0.0016758441925048828,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.576338",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.041379310344827586
+    },
+    "0464649c": {
+      "query": "The name of which supernova remnant nebula spelled backwards (not including the word \"nubula\") is a homonym for a large sailing ship?",
+      "expected_answer": "Crab Nebula (\"barc\" is a homonym for \"barque\")",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Post processing"
+      ],
+      "success": false,
+      "quality_score": 0.24450000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0015151500701904297,
+      "pipeline_execution_time": 0.0016951560974121094,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.578294",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.09564648594907185
+    },
+    "000705f5": {
+      "query": "What was the release date of the movie directed by Gordon Douglas which featured American decathlete who was a 1984 olympic torch runner and first African American to light the Olympic Cauldron?",
+      "expected_answer": "April 2, 1961",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0015490055084228516,
+      "pipeline_execution_time": 0.001728057861328125,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.580215",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.019512195121951216
+    },
+    "05de301b": {
+      "query": "How many years earlier did Wimbledon start compared to the birthdate of the winner of the 2019 tournament.",
+      "expected_answer": "110 years",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0016698837280273438,
+      "pipeline_execution_time": 0.0018429756164550781,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.582174",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.019512195121951216
+    },
+    "0388c00d": {
+      "query": "What is population in 1968 of the city that hosted the olympic games in which Lucy Steele competed?",
+      "expected_answer": "15,739",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24562500000000004,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0016169548034667969,
+      "pipeline_execution_time": 0.0018038749694824219,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.584074",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.004878048780487809
+    },
+    "02f9d6c5": {
+      "query": "How many countries were part of the commonwealth on the date Prince Charles ascended?",
+      "expected_answer": "On 8 September 2022, there were 56 countries as part of the Commonwealth.",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0017578601837158203,
+      "pipeline_execution_time": 0.0019297599792480469,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.586094",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.042253521126760576
+    },
+    "004e315e": {
+      "query": "How many years was the first vessel Stephen Etnier commanded constructed after the novel that first inspired him to pursue painting was published?",
+      "expected_answer": "7",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0016889572143554688,
+      "pipeline_execution_time": 0.0018699169158935547,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.588312",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "03d30837": {
+      "query": "Of the top two most watched television season finales (as of June 2024), which finale ran the longest in length and by how much? ",
+      "expected_answer": "The MASH finale ran for 52 minutes longer than the Cheers finale.",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Tabular reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0015101432800292969,
+      "pipeline_execution_time": 0.0016870498657226562,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.590073",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.040625
+    },
+    "0008af2c": {
+      "query": "Put in chronological order the Major League Baseball seasons in which Barry Bonds, Tony Gwynn, and Benny Kauff hit for a .370 batting average.",
+      "expected_answer": "1914, 1987, 2002 ",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.001508951187133789,
+      "pipeline_execution_time": 0.0016927719116210938,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.592041",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.009756097560975618
+    },
+    "02787749": {
+      "query": "This athlete was the first man to run the 100 metres in under 10 seconds at an Olympic Games. Which NFL team was he drafted by?",
+      "expected_answer": "Miami Dolphins (Jim Hines)",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Post processing"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0014929771423339844,
+      "pipeline_execution_time": 0.0016617774963378906,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.593811",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.029268292682926834
+    },
+    "005513fa": {
+      "query": "What song did Christina Aguilera release after Britney Spears released \"...Baby One More Time.\"?",
+      "expected_answer": "Genie in a Bottle ",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0015118122100830078,
+      "pipeline_execution_time": 0.001680135726928711,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.595631",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.04390243902439024
+    },
+    "03e8b0a5": {
+      "query": "What is greater: the combined 2011 populations of Rennington (Northumberland), Lydbrook (Gloucestershire), Stow-on-the-Wold (Gloucestershire) and Witney (Oxfordshire), or the 2022 population of London?",
+      "expected_answer": "The 2022 population of London",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.2442857142857143,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0014998912811279297,
+      "pipeline_execution_time": 0.0017211437225341797,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.597472",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.03902439024390243
+    },
+    "051234dd": {
+      "query": "Which German Fairytale did one of the directors of Trolls voice act as a character in a franchise Movie?",
+      "expected_answer": "Walt Dohrn voice acted Rumpelstiltskin",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Tabular reasoning",
+        "Multiple constraints",
+        "Post processing",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0015091896057128906,
+      "pipeline_execution_time": 0.00168609619140625,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.599332",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.029268292682926834
+    },
+    "03392386": {
+      "query": "As of 2024, what percentage of Afroasiatic language speakers speak Central Atlas Tamazight?",
+      "expected_answer": "0.49%",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0016429424285888672,
+      "pipeline_execution_time": 0.0018351078033447266,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.601350",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.004878048780487809
+    },
+    "03a2751f": {
+      "query": "There's a comedy club on Sunset in West Hollywood that opened in 1972. One of its founders opened for one of Elvis' comeback performances. Where was this founder's first wife born?",
+      "expected_answer": "Marinette, Wisconsin",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.001711130142211914,
+      "pipeline_execution_time": 0.001898050308227539,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.603343",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.03902439024390243
+    },
+    "05173f09": {
+      "query": "What is the country of origin of the football coach with the first initial \"P\" for the Thailand national men's football team who coached 54 years after the country's name officially changed?",
+      "expected_answer": "German.",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Tabular reasoning",
+        "Post processing",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24346153846153848,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0015332698822021484,
+      "pipeline_execution_time": 0.0017039775848388672,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.605183",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.009756097560975618
+    },
+    "02a2ba80": {
+      "query": "Of the non-Americans who have won the Phoenix Open as of 2024, who was the youngest at the time of his win?",
+      "expected_answer": "Hideki Matsuyama",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.001542806625366211,
+      "pipeline_execution_time": 0.0017161369323730469,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.606983",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.029268292682926834
+    },
+    "036a729b": {
+      "query": "At the time of the END of the 2016 French Open, what was the head-to-head between the Men's World No. 1 at that time, and the runner-up of that year's Australian Open in the Men's Singles category?",
+      "expected_answer": "Novak Djokovic 24-10 Andy Murray",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0015292167663574219,
+      "pipeline_execution_time": 0.0016980171203613281,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.608794",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.029268292682926834
+    },
+    "01bad9a6": {
+      "query": "What is the average height of Mount Everest, Mount Thor, Mount Denali and The Matterhorn?",
+      "expected_answer": "17382 ft.",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24750000000000003,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.001558065414428711,
+      "pipeline_execution_time": 0.0017230510711669922,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.610682",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.009756097560975618
+    },
+    "01f62281": {
+      "query": " \"The Terminator\" was released on October 26th exactly how many years after the famous gunfight at the O.K. Corral occurred?",
+      "expected_answer": "103",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0015511512756347656,
+      "pipeline_execution_time": 0.0017271041870117188,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.612497",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "00fd60b4": {
+      "query": "The Pope born Pietro Barbo ended a long-running war two years after his papacy began, which famous conflict, immortalized in tapestry took place 400 years earlier?",
+      "expected_answer": "The Battle of Hastings.",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0015180110931396484,
+      "pipeline_execution_time": 0.0016810894012451172,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.614273",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.04390243902439024
+    },
+    "0425b0f9": {
+      "query": "What happened at the Dyatlov Pass Incident and how did it inspire the plot of 2013 horror film Devil Pass?",
+      "expected_answer": "The Dyatlov Pass Incident was an event in 1959 where nine Soviet Hiker's died in the Northern Ural Mountains after cutting open their tents and running into the snow for a reason without explanation. Devil Pass is a found footage film that takes place in the decades following the Dyatlov Pass Incident about a group of American students who travel to Russia to investigate the event.",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0015468597412109375,
+      "pipeline_execution_time": 0.001729726791381836,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.616135",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.030965996366095833
+    },
+    "02feccc6": {
+      "query": "As of 1 August 2024, How many more seasons did Outrageous Fortune have compared to bro'Town?",
+      "expected_answer": "1",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Post processing"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0018482208251953125,
+      "pipeline_execution_time": 0.002025127410888672,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.619718",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "05ea3418": {
+      "query": "As of the financial year ending July 31st 2023, what was the size of the endowment at the university attended by rugby player Fred McLeod?",
+      "expected_answer": "£559.8 million",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Tabular reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0015637874603271484,
+      "pipeline_execution_time": 0.0017380714416503906,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.621526",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.024390243902439025
+    },
+    "037cff36": {
+      "query": "The US Naval ship that sunk in Havana Harbor on February 15, 1898, is named for a state that was admitted to the Union while what woman was serving as First Lady?",
+      "expected_answer": "Elizabeth Monroe",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24310344827586208,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0015518665313720703,
+      "pipeline_execution_time": 0.001725912094116211,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.623361",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.034146341463414644
+    },
+    "053cd89a": {
+      "query": "What season of The Challenge was airing when Bridgeton premiered?",
+      "expected_answer": "Season 36, Double Agents",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0015361309051513672,
+      "pipeline_execution_time": 0.0017211437225341797,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.625197",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.034146341463414644
+    },
+    "05a07099": {
+      "query": "In 2003, Audible entered an agreement of exclusivity with a major brand. Who founded that brand?",
+      "expected_answer": "Steve Jobs, Steve Wozniak and Ronald Wayne",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0015492439270019531,
+      "pipeline_execution_time": 0.001725912094116211,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.627064",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.034146341463414644
+    },
+    "04efe0f9": {
+      "query": "How old was the famous composer who taught at the Ospedale della Pietà and was known as \"The Red Priest\" when his first opera premiered? ",
+      "expected_answer": "Antonio Vivaldi was 35 when his first opera, Ottone in villa, premiered. ",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0016241073608398438,
+      "pipeline_execution_time": 0.0018000602722167969,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:30:26.629070",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.03768115942028985
+    }
+  },
+  "total_queries": 50,
+  "successful_queries": 0,
+  "overall_success_rate": 0.0,
+  "last_update": "2025-09-07T19:30:26.629362"
+}

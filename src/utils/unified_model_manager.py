@@ -199,7 +199,7 @@ class ModelConfigManager:
             'model_types': {
                 'llm': {
                     'base_config': {'temperature': 0.7, 'max_tokens': 4000},
-                    'supported_models': ['gpt-3.5-turbo', 'gpt-4', 'claude-3']
+                    'supported_models': ['deepseek-chat', 'deepseek-reasoner', 'step-3.5-flash', 'local-llama', 'local-qwen', 'custom-trained']
                 },
                 'embedding': {
                     'base_config': {'model': 'text-embedding-ada-002'},

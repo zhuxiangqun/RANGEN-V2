@@ -1,0 +1,282 @@
+{
+  "success": true,
+  "dataset": "FRAMES",
+  "start_time": "2025-10-05T19:03:55.261759",
+  "end_time": "2025-10-05T19:03:55.269676",
+  "total_queries": 50,
+  "successful_count": 0,
+  "failed_count": 50,
+  "overall_success_rate": 0.0,
+  "average_execution_time": 0,
+  "frames_accuracy": 1.0,
+  "average_quality_score": 1.0,
+  "average_innovation_score": 1.0,
+  "results": [
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    },
+    {
+      "query": "",
+      "success": false,
+      "error": "'NoneType' object has no attribute 'mark_query_failed'"
+    }
+  ],
+  "frames_accuracy_analysis": {
+    "average_frames_accuracy": 1.0,
+    "high_accuracy_count": 0,
+    "medium_accuracy_count": 0,
+    "low_accuracy_count": 0
+  },
+  "reasoning_innovation_analysis": {
+    "average_innovation_score": 1.0,
+    "innovation_metrics": {}
+  },
+  "module_performance_analysis": {
+    "timing_analysis": {},
+    "performance_bottlenecks": []
+  },
+  "evaluation_type": "frames_benchmark_async",
+  "timestamp": "2025-10-05T19:03:55.269686"
+}

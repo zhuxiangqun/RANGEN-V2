@@ -1,0 +1,47 @@
+# 专家原型技能模板
+# 适用于具备深厚领域知识和决策树的技能
+
+author: your_name
+config:
+  domain: your_domain
+  mode: expert
+  type: decision
+dependencies: []
+description: "请填写技能描述：这是一个专家技能，基于领域知识进行复杂决策"
+name: skill-name
+prototype_type: expert
+prompt_template: |
+  ## 专家技能
+  
+  ### 领域知识
+  - 核心概念: [概念1, 概念2]
+  - 专业知识: [知识领域]
+  - 最佳实践: [实践指南]
+  
+  ### 决策树
+  1. 问题分类: [分类逻辑]
+  2. 分析维度: [分析角度]
+  3. 判断标准: [判断依据]
+  4. 结论生成: [结论生成方式]
+  
+  ### 专业知识库
+  - 事实库: [关键事实]
+  - 规则库: [决策规则]
+  - 案例库: [参考案例]
+related_skills: []
+scope: custom
+tags:
+  - expert
+  - knowledge
+  - decision
+tools:
+  - description: "应用领域知识"
+    name: apply_knowledge
+  - description: "执行决策树"
+    name: make_decision
+triggers:
+  - expert
+  - 专家
+  - 知识
+  - 决策
+version: 1.0.0

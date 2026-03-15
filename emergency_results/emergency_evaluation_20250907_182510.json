@@ -1,0 +1,1597 @@
+{
+  "query_results": {
+    "003e5ade": {
+      "query": "The name of which supernova remnant nebula spelled backwards (not including the word \"nubula\") is a homonym for a large sailing ship?",
+      "expected_answer": "Crab Nebula (\"barc\" is a homonym for \"barque\")",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Post processing"
+      ],
+      "success": false,
+      "quality_score": 0.24450000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.007009029388427734,
+      "pipeline_execution_time": 0.007209300994873047,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:05.526205",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.09564648594907185
+    },
+    "05c9dba9": {
+      "query": "I am the narrator character in the final novel written by the recipient of the 1963 Hugo Award for Best Novel. Who am I?",
+      "expected_answer": "Angel Archer.",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0024199485778808594,
+      "pipeline_execution_time": 0.0025920867919921875,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:06.285102",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.019512195121951216
+    },
+    "049e35a4": {
+      "query": "The shonen manga that won the 35th Kodansha Manga Award has how many chapters in its final volume?",
+      "expected_answer": "5",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Tabular reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.002541065216064453,
+      "pipeline_execution_time": 0.002691984176635742,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:06.368905",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "03362064": {
+      "query": "Shakshouka and menemen are considered similar dishes. What two main ingredients do they have in common?",
+      "expected_answer": "Egg and tomato.",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0024361610412597656,
+      "pipeline_execution_time": 0.0025861263275146484,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:06.452099",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.029268292682926834
+    },
+    "056db7d7": {
+      "query": "Who was team captain of the team that won the Stanley Cup the year Connor McDavid was born?",
+      "expected_answer": "Steve Yzerman",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.002544879913330078,
+      "pipeline_execution_time": 0.0026841163635253906,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:06.533798",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.024390243902439025
+    },
+    "022cd0dc": {
+      "query": "What is the etymology of the name of the province to the east of the province in which Hazrati Sultan District is located?",
+      "expected_answer": "The Dari name 'Baghlan' comes from the Bactrian 'Bagolango', meaning 'image-temple'",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24600000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.002937793731689453,
+      "pipeline_execution_time": 0.00308990478515625,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:06.616214",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.042105263157894736
+    },
+    "05a46a39": {
+      "query": "Out of every team that has won at least one official global Valorant tournament, which team has also won at least one League of Legends World Championship and at least one CS:GO Major Championship as of 2024? ",
+      "expected_answer": "Fnatic",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.002727031707763672,
+      "pipeline_execution_time": 0.002892017364501953,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:06.699821",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.019512195121951216
+    },
+    "03dac1cf": {
+      "query": "I lost a final against Greg Rusedski on grass, who won his 4th career singles title on grass against a player that once defeated me in the opening round of the US Open. I achieved my highest ranking in singles on what date?",
+      "expected_answer": "10 July 2000",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0037598609924316406,
+      "pipeline_execution_time": 0.003924131393432617,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:06.781292",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.014634146341463407
+    },
+    "0554e641": {
+      "query": "I am thinking of a province that has the smallest land area in it's particular country, but also has the the 10th largest population.  This country has 10 provinces.  This province joined the country in 1873.  What is the scientific name of the provincial flower?",
+      "expected_answer": "Cypripedium Acaule",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Tabular reasoning",
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24272727272727274,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.004194974899291992,
+      "pipeline_execution_time": 0.004421234130859375,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:06.863656",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.04390243902439024
+    },
+    "04b522ba": {
+      "query": "After Edward II, who was the next English monarch to have been born outside of England?",
+      "expected_answer": "Richard II",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.002652883529663086,
+      "pipeline_execution_time": 0.0028197765350341797,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:06.949291",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.009756097560975618
+    },
+    "02ccb282": {
+      "query": "A general motors vehicle is named after the largest ward in the country of Monaco.  How many people had walked on the moon as of the first model year of the vehicle? Note: the model year is not the same as the year the model was first produced.",
+      "expected_answer": "4",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24580645161290324,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.003354787826538086,
+      "pipeline_execution_time": 0.003511667251586914,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:07.031848",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "03033afb": {
+      "query": "How old were the founders of the firm that designed the Empire State Building when construction on the building began?",
+      "expected_answer": "Richmond Shreve was 52 years old and William Lamb was 46 years old.",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.003704071044921875,
+      "pipeline_execution_time": 0.003874063491821289,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:07.114629",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.033333333333333326
+    },
+    "04c7fc15": {
+      "query": "Who won the French Open Men’s Singles tournament the year that New York City FC won their first MLS Cup title?",
+      "expected_answer": "Novak Djokovic",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Tabular reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0037560462951660156,
+      "pipeline_execution_time": 0.003912925720214844,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:07.197826",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.029268292682926834
+    },
+    "01e7bb20": {
+      "query": "As of 1st August 2024 Queens of the Stone Age, Them Crooked Vultures, Screaming Trees and Kyuss have one band member in common. What does his last name mean in English?",
+      "expected_answer": "Man",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints",
+        "Post processing"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0037839412689208984,
+      "pipeline_execution_time": 0.003940105438232422,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:07.281082",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.004878048780487809
+    },
+    "02229619": {
+      "query": "As of August 3, 2024, what is the sum of the birth years of every tennis player to both represent the country that tennis was first played and complete a Grand Slam.",
+      "expected_answer": "5980",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Multiple constraints",
+        "Post processing"
+      ],
+      "success": false,
+      "quality_score": 0.24333333333333335,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.00406193733215332,
+      "pipeline_execution_time": 0.0042209625244140625,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:07.363661",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "02c8bb43": {
+      "query": "Which movie musical produced a song that was inspired by poetry from an American poet, who was born a week after Queen Victoria?",
+      "expected_answer": "Fame",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.004065990447998047,
+      "pipeline_execution_time": 0.004226207733154297,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:07.448227",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.009756097560975618
+    },
+    "00987092": {
+      "query": "As of August 1, 2024, who is the president of the team that inspired the original name of the Washington Commanders?",
+      "expected_answer": "Derek Schiller",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24562500000000004,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.004285097122192383,
+      "pipeline_execution_time": 0.0044400691986083984,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:07.530873",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.034146341463414644
+    },
+    "0115fa28": {
+      "query": "Of the top 3 women's WTA singles ranking as of 29th July 2024, which has a father who was an ice hockey player?",
+      "expected_answer": "Aryna Sablenka",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.004152059555053711,
+      "pipeline_execution_time": 0.004325151443481445,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:07.613891",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.024390243902439025
+    },
+    "00ff415a": {
+      "query": "In physics, when speaking of classical mechanics, there is an infamous problem that involves taking the initial positions and velocities of three point masses that orbit each other and attempting to calculate their trajectories. There is no general closed-form solution for this infamous problem. French mathematicians in the 18th century focused on solving this problem in regards to astronomical motion, specifically how the Moon rotates on its apsides. Their work led to a solution using Newton's laws of physics and the Discrete Fourier Transformation (DFT), which ultimately changed how sailors were able to determine longitude at sea. The inventor of the device that would revolutionize naval navigation using these new principles and proofs spent how many years testing and perfecting his work?",
+      "expected_answer": "31 years (1730-1761)",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Multiple constraints",
+        "Post processing",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24097826086956523,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0041353702545166016,
+      "pipeline_execution_time": 0.004347801208496094,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:07.697300",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.024390243902439025
+    },
+    "02d3d215": {
+      "query": "This singer represented Sweden in Eurovision four years before the Sweden Democrats entered Parliament for the first time. What astrological sign was the real person behind the character she played in her first musical?",
+      "expected_answer": "Aquarius",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0042421817779541016,
+      "pipeline_execution_time": 0.004433870315551758,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:07.779711",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.004878048780487809
+    },
+    "0059b9fc": {
+      "query": "What attraction in Walt Disney World opened exactly 50 years after the theme park originally opened?",
+      "expected_answer": "Remy's Ratatouille Adventure",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.004794120788574219,
+      "pipeline_execution_time": 0.004987955093383789,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:07.862954",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.029268292682926834
+    },
+    "01c4ad00": {
+      "query": "As of July 2024, which protagonist of a 'shonen jump' series shares a name with a station on a West Japan Railway Company regional line?",
+      "expected_answer": "Light Yagami",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0029659271240234375,
+      "pipeline_execution_time": 0.003133058547973633,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:07.948384",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.024390243902439025
+    },
+    "03419af1": {
+      "query": "Who was the Argentinian president who resigned from the position the same year the José Martín Olaeta Stadium was inaugurated?",
+      "expected_answer": "Pedro Ramírez",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.003679037094116211,
+      "pipeline_execution_time": 0.0038352012634277344,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:08.031730",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.024390243902439025
+    },
+    "054679a2": {
+      "query": "What military awards were received by the General originally scheduled to lead Operation Torch before Lieutenant General Dwight D. Eisenhower was given command of the operation?",
+      "expected_answer": "Joseph Stilwell was originally scheduled to lead Operation Torch before Lieutenant General Dwight D. Eisenhower was given command of the operation. Stillwell received a Distinguished Service Cross, two Army Distinguished Service Medals, a Legion of Merit award, and a Bronze Star during his military career.",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.004040241241455078,
+      "pipeline_execution_time": 0.0042340755462646484,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:08.113811",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.01926910299003322
+    },
+    "03db8885": {
+      "query": "What was the military rank of the employer of the astronomer who discovered the globular cluster of stars called NGC 6441?",
+      "expected_answer": "Major General was the rank of Thomas Brisbane.",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.003818035125732422,
+      "pipeline_execution_time": 0.003979921340942383,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:08.197924",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.02666666666666666
+    },
+    "0077c4dd": {
+      "query": "How many films with titles including the letter \"g\" did the director of \"Sword of the Valiant\" direct after the release of said film, but before the year 2000?",
+      "expected_answer": "1",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.004252195358276367,
+      "pipeline_execution_time": 0.004440784454345703,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:08.280479",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "04a57a4f": {
+      "query": "Of all states within New England in the United States, which had a population between 400,000 and 800,000 in 1920?",
+      "expected_answer": "Of the 6 states within New England, Maine, New Hampshire, and Rhode Island had populations between 400,000 and 800,000 in 1920.",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Tabular reasoning",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.005391120910644531,
+      "pipeline_execution_time": 0.005568027496337891,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:08.364171",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.027642276422764223
+    },
+    "031bb024": {
+      "query": "The US Naval ship that sunk in Havana Harbor on February 15, 1898, is named for a state that was admitted to the Union while what woman was serving as First Lady?",
+      "expected_answer": "Elizabeth Monroe",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24310344827586208,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0036270618438720703,
+      "pipeline_execution_time": 0.0037910938262939453,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:08.448754",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.034146341463414644
+    },
+    "0110acfd": {
+      "query": "There is a speech-sound disorder, not caused by a structural abnormality, for which one symptom is rearranging sounds of a word. The term for the disorder was first defined in 1908 by a German neuroscientist with the first name Hugo. Why was the Nobel Peace Prize given to an American the same year Hugo died?",
+      "expected_answer": "For his crucial role in bringing about the Dawes Plan.",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24418604651162792,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.004148960113525391,
+      "pipeline_execution_time": 0.004339933395385742,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:08.531273",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.03396226415094339
+    },
+    "02c63aef": {
+      "query": "How many fewer races did Sebastian Vettel complete before he retired compared to his hero, Michael Schumacher? ",
+      "expected_answer": "Seven",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0047109127044677734,
+      "pipeline_execution_time": 0.004892110824584961,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:08.614363",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.014634146341463407
+    },
+    "04f074f0": {
+      "query": "What two buildings can be said to have introduced the onset of the architectural style of Big Ben in London?",
+      "expected_answer": "Dromore Cathedral and The Great Hall of Lambeth Palace",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.00427699089050293,
+      "pipeline_execution_time": 0.004438161849975586,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:08.696545",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.03703703703703705
+    },
+    "02464133": {
+      "query": "What war memorial was constructed and completed at the same time as the beginning of WWII, located on an island in the Potomac River in the US capital, and honors four of the eight federal uniformed services of the US that lost their lives at sea during the war and other previous conflicts?",
+      "expected_answer": "Navy-Merchant Marine Memorial",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.004317045211791992,
+      "pipeline_execution_time": 0.0044939517974853516,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:08.779951",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.034146341463414644
+    },
+    "00b099e7": {
+      "query": "In 2010, the WWE Hall of Fame took place in the same stadium as a famous comedy movie done a few years before. Who are the four comedians that starred in this comedy movie?",
+      "expected_answer": "jeff Foxworthy, Bill Engvall, Ron White and Larry the Cable Guy.",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.003965854644775391,
+      "pipeline_execution_time": 0.004143953323364258,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:08.862154",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.03934426229508197
+    },
+    "047c90d6": {
+      "query": "In Slovakia there is a well known Film Festival called the Bratistlava International Film Festival. What city/ town was the film editor for the Grand Prix winner of 2003 born in?",
+      "expected_answer": "Roudnice nad Labem",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24333333333333335,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.004244089126586914,
+      "pipeline_execution_time": 0.004412174224853516,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:08.947470",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.03902439024390243
+    },
+    "00450b97": {
+      "query": "What lasted longer: the reign of Queen Elizabeth II or the life of Julius Caesar?",
+      "expected_answer": "The reign of Queen Elizabeth II",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.004332065582275391,
+      "pipeline_execution_time": 0.004484891891479492,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:09.030227",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.029268292682926834
+    },
+    "059d652c": {
+      "query": "I can't recall who I'm trying to think of. This person was the partner of someone in the 1984 Olympic keelboat competition. Their partner's sister was the only American who placed in the 2003 Pan American Games for sailing in the men's or women's competition (not including the open events).",
+      "expected_answer": "Richard Coxon.",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.003198862075805664,
+      "pipeline_execution_time": 0.003359079360961914,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:09.111137",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.019512195121951216
+    },
+    "0451c888": {
+      "query": "How many years was the first vessel Stephen Etnier commanded constructed after the novel that first inspired him to pursue painting was published?",
+      "expected_answer": "7",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0031180381774902344,
+      "pipeline_execution_time": 0.0032782554626464844,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:09.193295",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "053a59db": {
+      "query": "Which album by the band Paramore came out after the death of Michael Jackson and before the death of Amy Winehouse?",
+      "expected_answer": "Brand New Eyes",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.002482891082763672,
+      "pipeline_execution_time": 0.002618074417114258,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:09.274818",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.029268292682926834
+    },
+    "0293f049": {
+      "query": "What year was the first Uber employee born?",
+      "expected_answer": "1983",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.36,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0024046897888183594,
+      "pipeline_execution_time": 0.0025479793548583984,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:09.358622",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "052da301": {
+      "query": "How much older was the songwriter of 'The Twist' when he wrote it than Chubby Checker was when he recorded the song?",
+      "expected_answer": "12 years",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0028917789459228516,
+      "pipeline_execution_time": 0.003058910369873047,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:09.443148",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.019512195121951216
+    },
+    "02c8dbae": {
+      "query": "During the year that Serbia became an independent republic after separation from Montenegro, who won the Nobel Prize for Literature?",
+      "expected_answer": "Orhan Pamuk",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.002474069595336914,
+      "pipeline_execution_time": 0.0026268959045410156,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:09.526104",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.019512195121951216
+    },
+    "04a68266": {
+      "query": "What football team did Travis Kelce play for the year Taylor Swift's VMA acceptance speech was interrupted by Kanye West?",
+      "expected_answer": "The University of Cincinnati Bearcats",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0025529861450195312,
+      "pipeline_execution_time": 0.002695798873901367,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:09.608275",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.03902439024390243
+    },
+    "03bc156c": {
+      "query": "Which Greek pole vaulter who participated in the 2020 Summer Olympics in Tokyo also won gold at the 2015 IAAF Diamond League?",
+      "expected_answer": "Nikoleta Kyriakopoulou",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.002939939498901367,
+      "pipeline_execution_time": 0.0030748844146728516,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:09.691138",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.034146341463414644
+    },
+    "00e46af7": {
+      "query": "What is the difference in elevation between the respective peaks of Eggstock (Uri Alps) and Eggstock (Schwyzer Alps) in Switzerland? Convert the final figure to centimetres and round up to the nearest 1000.",
+      "expected_answer": "110,000cm.",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Multiple constraints",
+        "Post processing"
+      ],
+      "success": false,
+      "quality_score": 0.2436,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.002847909927368164,
+      "pipeline_execution_time": 0.002992868423461914,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:09.774156",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.009756097560975618
+    },
+    "048bb9a7": {
+      "query": "Who is the Formula One driver who won their first Driver's Championship in the 46th season, what team did they race for that year, and how many years after that team's first race was it?",
+      "expected_answer": "Nigel Mansell, Williams Grand Prix Engineering, 15 years",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24300000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0029931068420410156,
+      "pipeline_execution_time": 0.0031392574310302734,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:09.856847",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.022222222222222233
+    },
+    "01cacf57": {
+      "query": "What was the word that featured the least in the longest recorded quotation by the chimpanzee named after the recipient of the 2011 Sydney Peace Prize?   ",
+      "expected_answer": "You",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0027420520782470703,
+      "pipeline_execution_time": 0.002936124801635742,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:09.941391",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.009756097560975618
+    },
+    "02866632": {
+      "query": "An Australian artist, born the same year as artist Janet Cumbrae Stewart and fellow member of the Melbourne Society of Women Painters and Sculptors, had her painting featured on the cover of Women's World Magazine in 1923. What is the name of the painting?",
+      "expected_answer": "Reve d'Or",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24250000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.002924203872680664,
+      "pipeline_execution_time": 0.0030889511108398438,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:10.024316",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.024390243902439025
+    },
+    "053f5f0b": {
+      "query": "How many years apart were the Canadian Museum of History and the National Gallery of Canada established?",
+      "expected_answer": "24 years",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0030112266540527344,
+      "pipeline_execution_time": 0.0031440258026123047,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:10.106909",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.019512195121951216
+    },
+    "04a5507b": {
+      "query": "Please consider the following clues and answer the question that follows:  1. This mosque is located in the city dubbed the \"Jerusalem of the Balkans.\" 2, The mosque was commissioned by an authoritarian dictator born in a small village 10 km west of Yogyakarta.  Question: What is the height difference between the twin towers of the mosque and its dome? ",
+      "expected_answer": "21 meters",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24200000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0028629302978515625,
+      "pipeline_execution_time": 0.0030100345611572266,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:10.189735",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.024390243902439025
+    },
+    "01da1f97": {
+      "query": "Which happened earlier: Diageo reducing the volume of Red stripe beer bottles in the US from 12 fl. oz. to 11.2 fl. oz. or Philip Morris making a bid for the company Swedish Match?",
+      "expected_answer": "The Red Stripe US bottle volume reduction happened earlier.",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0027430057525634766,
+      "pipeline_execution_time": 0.002888917922973633,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T18:25:10.272087",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.041379310344827586
+    }
+  },
+  "total_queries": 50,
+  "successful_queries": 0,
+  "overall_success_rate": 0.0,
+  "last_update": "2025-09-07T18:25:10.351412"
+}

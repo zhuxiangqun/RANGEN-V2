@@ -1,0 +1,236 @@
+{
+  "evaluation_time": "2025-08-16T15:27:06.541675",
+  "dataset_info": {
+    "name": "FRAMES Benchmark",
+    "url": "https://huggingface.co/datasets/google/frames-benchmark",
+    "total_samples": 824,
+    "evaluated_samples": 5,
+    "sample_count": 5
+  },
+  "system_init_time": 0.0018701553344726562,
+  "total_queries": 5,
+  "successful_queries": 5,
+  "accuracy_scores": [
+    0.5,
+    0.3333333333333333,
+    0.3333333333333333,
+    0.0,
+    0.0
+  ],
+  "reasoning_efficiency": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "innovation_scores": [
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5
+  ],
+  "reasoning_type_performance": {
+    "Multiple constraints": {
+      "avg_accuracy": 0.20833333333333331,
+      "sample_count": 4
+    },
+    "Tabular reasoning": {
+      "avg_accuracy": 0.16666666666666666,
+      "sample_count": 2
+    },
+    "Temporal reasoning": {
+      "avg_accuracy": 0.0,
+      "sample_count": 1
+    }
+  },
+  "detailed_results": [
+    {
+      "query": "The inventor of the first true pinhole camera was also the first to correctly explain what theory?",
+      "expected_answer": "The Theory of Vision",
+      "actual_answer": "基于查询'The inventor of the first true pinhole camera was also the first to correctly explain what theo...",
+      "accuracy": 0.5,
+      "efficiency": 0.0,
+      "innovation": 0.5,
+      "execution_time": 4.792654,
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": true,
+      "reasoning_steps": 0,
+      "tools_used": [],
+      "wikipedia_links": [
+        "https://en.wikipedia.org/wiki/Photography",
+        "https://en.wikipedia.org/wiki/Ibn_al-Haytham"
+      ]
+    },
+    {
+      "query": "In the Eurovision Song Contest 2024, one country scored a combined total (jury and televoting results) of 268 - as did another country in the contest the year before. Which countries are they?",
+      "expected_answer": "Italy and Norway",
+      "actual_answer": "基于查询'In the Eurovision Song Contest 2024, one country scored a combined total (jury and televoting r...",
+      "accuracy": 0.3333333333333333,
+      "efficiency": 0.0,
+      "innovation": 0.5,
+      "execution_time": 0.680832,
+      "reasoning_types": [
+        "Tabular reasoning"
+      ],
+      "success": true,
+      "reasoning_steps": 0,
+      "tools_used": [],
+      "wikipedia_links": [
+        "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_2024",
+        "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_2023"
+      ]
+    },
+    {
+      "query": "In which of the three Intertidal zones would you most likely find the Septifer bilocularis?",
+      "expected_answer": "Low Intertidal Zone",
+      "actual_answer": "基于查询'In which of the three Intertidal zones would you most likely find the Septifer bilocularis?'的回答...",
+      "accuracy": 0.3333333333333333,
+      "efficiency": 0.0,
+      "innovation": 0.5,
+      "execution_time": 0.813566,
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": true,
+      "reasoning_steps": 0,
+      "tools_used": [],
+      "wikipedia_links": [
+        "https://en.wikipedia.org/wiki/Septifer_bilocularis",
+        "https://en.wikipedia.org/wiki/Mytilidae",
+        "https://en.wikipedia.org/wiki/Intertidal_zone"
+      ]
+    },
+    {
+      "query": "As of August 1, 2024, which country were holders of the FIFA World Cup the last time the UEFA Champions League was won by a club from London?",
+      "expected_answer": "France",
+      "actual_answer": "基于查询'As of August 1, 2024, which country were holders of the FIFA World Cup the last time the UEFA C...",
+      "accuracy": 0.0,
+      "efficiency": 0.0,
+      "innovation": 0.5,
+      "execution_time": 1.892776,
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "reasoning_steps": 0,
+      "tools_used": [],
+      "wikipedia_links": [
+        "https://en.wikipedia.org/wiki/FIFA_World_Cup",
+        "https://en.wikipedia.org/wiki/London",
+        "https://en.wikipedia.org/wiki/UEFA_Champions_League"
+      ]
+    },
+    {
+      "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and her surname is the same as the second assassinated president's mother's maiden name, what is my future wife's name?",
+      "expected_answer": "Jane Ballou",
+      "actual_answer": "基于查询'If my future wife has the same first name as the 15th first lady of the United States' mother a...",
+      "accuracy": 0.0,
+      "efficiency": 0.0,
+      "innovation": 0.5,
+      "execution_time": 2.965928,
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": true,
+      "reasoning_steps": 0,
+      "tools_used": [],
+      "wikipedia_links": [
+        "https://en.wikipedia.org/wiki/President_of_the_United_States",
+        "https://en.wikipedia.org/wiki/James_Buchanan",
+        "https://en.wikipedia.org/wiki/Harriet_Lane",
+        "https://en.wikipedia.org/wiki/List_of_presidents_of_the_United_States_who_died_in_office",
+        "https://en.wikipedia.org/wiki/James_A._Garfield"
+      ]
+    }
+  ],
+  "avg_accuracy": 0.2333333333333333,
+  "avg_efficiency": 0.0,
+  "avg_innovation": 0.5,
+  "performance_monitoring": {
+    "evaluation_id": "frames_eval_1755329226",
+    "total_duration": 11.46643,
+    "quality_score": 88.93206566010794,
+    "execution_paths": {
+      "main": 6
+    },
+    "bottlenecks": [
+      "query_1: 4.79秒",
+      "query_5: 2.97秒"
+    ],
+    "recommendations": [
+      "query_1的子模块context_execution是主要性能瓶颈",
+      "query_2的子模块context_execution是主要性能瓶颈",
+      "query_3的子模块context_execution是主要性能瓶颈",
+      "query_4的子模块context_execution是主要性能瓶颈",
+      "query_5的子模块context_execution是主要性能瓶颈"
+    ],
+    "modules_performance": {
+      "system_initialization": {
+        "execution_time": 8e-06,
+        "execution_path": "main",
+        "success": true,
+        "sub_modules": {
+          "context_execution": 9.5367431640625e-07
+        },
+        "exception_type": null,
+        "fallback_reason": null
+      },
+      "query_1": {
+        "execution_time": 4.792654,
+        "execution_path": "main",
+        "success": true,
+        "sub_modules": {
+          "context_execution": 4.792643070220947
+        },
+        "exception_type": null,
+        "fallback_reason": null
+      },
+      "query_2": {
+        "execution_time": 0.680832,
+        "execution_path": "main",
+        "success": true,
+        "sub_modules": {
+          "context_execution": 0.6808209419250488
+        },
+        "exception_type": null,
+        "fallback_reason": null
+      },
+      "query_3": {
+        "execution_time": 0.813566,
+        "execution_path": "main",
+        "success": true,
+        "sub_modules": {
+          "context_execution": 0.8135530948638916
+        },
+        "exception_type": null,
+        "fallback_reason": null
+      },
+      "query_4": {
+        "execution_time": 1.892776,
+        "execution_path": "main",
+        "success": true,
+        "sub_modules": {
+          "context_execution": 1.8927638530731201
+        },
+        "exception_type": null,
+        "fallback_reason": null
+      },
+      "query_5": {
+        "execution_time": 2.965928,
+        "execution_path": "main",
+        "success": true,
+        "sub_modules": {
+          "context_execution": 2.9659152030944824
+        },
+        "exception_type": null,
+        "fallback_reason": null
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "zero_hardcode": {
+    "description": "零硬编码系统配置",
+    "values": {
+      "enable_zero_hardcode": true,
+      "dynamic_param_generation": true,
+      "math_rules_enabled": true,
+      "statistical_features_enabled": true,
+      "fallback_mechanism": true,
+      "performance_monitoring": true,
+      "param_name_pattern": "weight_{complexity}_{frequency}",
+      "enable_category_generation": true,
+      "config_path_generation": true,
+      "intelligent_weight_calculation": true,
+      "math_constants": {
+        "description": "数学常量 - 现由动态数学常量管理系统提供",
+        "dynamic_provider": "src.utils.dynamic_math_constants",
+        "fallback_values": {
+          "golden_ratio": 1.618,
+          "pi_factor": 0.314,
+          "e_factor": 0.271
+        }
+      },
+      "statistical_weights": {
+        "description": "统计权重 - 现由动态数学常量管理系统提供",
+        "dynamic_provider": "src.utils.dynamic_math_constants",
+        "fallback_values": {
+          "char_frequency_weight": 0.3,
+          "complexity_weight": 0.3,
+          "vocabulary_diversity_weight": 0.2,
+          "position_weight": 0.2
+        }
+      },
+      "category_generation": {
+        "enable_enhanced_diversity": true,
+        "complexity_thresholds": [0.2, 0.4, 0.6, 0.8],
+        "length_thresholds": [10, 30, 60, 100],
+        "diversity_factors": {
+          "vocabulary_weight": 0.4,
+          "complexity_weight": 0.3,
+          "length_weight": 0.2,
+          "frequency_weight": 0.1
+        }
+      },
+      "performance_thresholds": {
+        "execution_time_warning": 0.1,
+        "execution_time_critical": 0.5,
+        "success_rate_warning": 0.95,
+        "fallback_rate_warning": 0.1
+      },
+      "fallback_strategies": {
+        "math_based_fallback": true,
+        "statistical_fallback": true,
+        "default_value_fallback": true
+      }
+    },
+    "last_modified": 0
+  }
+}

@@ -1,4 +1,45 @@
+#!/usr/bin/env python3
 """
+能力节点模块 - LangGraph集成
+
+将能力插件框架适配到LangGraph节点接口：
+- 能力节点工厂：从插件创建LangGraph节点
+- 组合能力子图：将组合能力转换为子图架构
+- 标准化接口适配：对接状态协议
+
+使用场景:
+- 插件化功能扩展
+- 动态能力组合
+- 标准化接口对接
+
+重要: 本模块被3个文件引用
+
+与 ExecutionCoordinator 的关系:
+- ExecutionCoordinator: 不使用本模块 (轻量模式)
+- UnifiedResearchSystem: 使用本模块进行能力扩展
+"""
+
+import logging
+"""
+能力节点模块 - LangGraph集成
+
+⚠️ DEPRECATED: 此模块已不再维护。
+生产环境使用 src.core.execution_coordinator.ExecutionCoordinator。
+
+将能力插件框架适配到LangGraph节点接口：
+- 能力节点工厂：从插件创建LangGraph节点
+- 组合能力子图：将组合能力转换为子图架构
+- 标准化接口适配：对接状态协议
+"""
+
+import warnings
+warnings.warn(
+    "langgraph_capability_nodes is deprecated. Use ExecutionCoordinator instead.",
+    DeprecationWarning,
+    stacklevel=2
+)
+
+import logging
 能力节点模块 - LangGraph集成
 
 将能力插件框架适配到LangGraph节点接口：

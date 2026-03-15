@@ -1,0 +1,30 @@
+{
+  "skill_dir": "skill_factory",
+  "overall_status": "failed",
+  "summary": "质量检查未通过",
+  "checks": [
+    {
+      "name": "关键检查",
+      "status": "failed",
+      "message": "\u001b[0m SKILL.md 文件不存在: skill_factory/SKILL.md",
+      "details": {}
+    },
+    {
+      "name": "关键检查",
+      "status": "failed",
+      "message": "\u001b[0m skill.yaml 文件不存在: skill_factory/skill.yaml",
+      "details": {}
+    },
+    {
+      "name": "关键检查",
+      "status": "failed",
+      "message": "\u001b[0m ❌ 质量检查未通过，请修复上述问题。",
+      "details": {}
+    }
+  ],
+  "recommendations": [
+    "修复所有[ERROR]级别的问题",
+    "重新运行检查脚本确认修复"
+  ],
+  "timestamp": 1772974011.114309
+}

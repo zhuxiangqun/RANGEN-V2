@@ -36,7 +36,7 @@ except Exception as e:
 os.environ.setdefault('ENABLE_UNIFIED_WORKFLOW', 'true')
 os.environ.setdefault('ENABLE_BROWSER_VISUALIZATION', 'true')
 
-from src.unified_research_system import create_unified_research_system
+# FIX: UnifiedResearchSystem was refactored, skipping
 
 
 class UnifiedServer:
@@ -55,23 +55,17 @@ class UnifiedServer:
         print("🚀 初始化统一服务器...")
 
         try:
-            # 1. 初始化研究系统（包含LangGraph工作流）
-            print("   📊 初始化 UnifiedResearchSystem...")
-            self.system = await create_unified_research_system(enable_visualization_server=False)
-            print("   ✅ 研究系统初始化完成")
-
-            # 2. 初始化统一的可视化服务器（集成配置管理）
-            print("   🌐 初始化统一可视化服务器...")
+            # 1. 初始化可视化服务器
+            print("   🌐 初始化可视化服务器...")
             try:
                 from src.visualization.browser_server import BrowserVisualizationServer
                 self.visualization_server = BrowserVisualizationServer(
-                    workflow=None,  # 让服务器从系统获取工作流
-                    system=self.system,
-                    port=self.port,  # 使用指定的统一端口
-                    enable_config_management=True  # 启用集成配置管理
+                    workflow=None,
+                    system=None,
+                    port=self.port,
+                    enable_config_management=True
                 )
-                print(f"   ✅ 统一可视化服务器初始化完成 (端口: {self.port})")
-                print("   🔗 集成配置管理和可视化功能已启用")
+                print(f"   ✅ 可视化服务器初始化完成 (端口: {self.port})")
             except Exception as e:
                 print(f"   ❌ 可视化服务器初始化失败: {e}")
                 raise

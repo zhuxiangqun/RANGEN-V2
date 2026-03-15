@@ -1,4 +1,41 @@
+#!/usr/bin/env python3
 """
+协作节点模块 - LangGraph集成
+
+将通信中间件、冲突检测和任务分配功能集成到LangGraph工作流中：
+- 协作通信节点：使用LangGraph状态传递替代独立消息队列
+- 任务分配路由节点：使用条件路由替代独立分配器
+- 冲突检测验证节点：作为工作流验证步骤
+
+⚠️ 状态: 0个引用，可能未被使用
+  如果需要多Agent协作功能，可以考虑使用 AgentCoordinator
+
+与 ExecutionCoordinator 的关系:
+- ExecutionCoordinator: 不使用本模块
+- AgentCoordinator: 提供多Agent协作功能
+"""
+
+import logging
+"""
+协作节点模块 - LangGraph集成
+
+⚠️ DEPRECATED: 此模块已不再维护。
+生产环境使用 src.core.execution_coordinator.ExecutionCoordinator。
+
+将通信中间件、冲突检测和任务分配功能集成到LangGraph工作流中：
+- 协作通信节点：使用LangGraph状态传递替代独立消息队列
+- 任务分配路由节点：使用条件路由替代独立分配器
+- 冲突检测验证节点：作为工作流验证步骤
+"""
+
+import warnings
+warnings.warn(
+    "langgraph_collaboration_nodes is deprecated. Use ExecutionCoordinator instead.",
+    DeprecationWarning,
+    stacklevel=2
+)
+
+import logging
 协作节点模块 - LangGraph集成
 
 将通信中间件、冲突检测和任务分配功能集成到LangGraph工作流中：

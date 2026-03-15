@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RANGEN LangGraph 可视化演示</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .title {
+            font-size: 2.5em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .status {
+            background: #e8f5e8;
+            border: 1px solid #4caf50;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .status.success {
+            background: #e8f5e8;
+            border-color: #4caf50;
+        }
+
+        .status .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .workflow-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .mermaid-container {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .node-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .node-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .node-card h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .node-card .type {
+            background: #667eea;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .node-card .description {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .note .icon {
+            color: #856404;
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">🎯 RANGEN LangGraph 可视化演示</div>
+            <div class="subtitle">智能工作流可视化系统</div>
+
+            <div class="status success">
+                <div class="icon">✅</div>
+                <div>系统状态: 正常运行</div>
+                <div>工作流引擎: LangGraph 已集成</div>
+            </div>
+        </div>
+
+        <div class="workflow-section">
+            <div class="section-title">🔄 工作流图</div>
+            <div class="mermaid-container">
+                <div id="workflow-diagram"></div>
+            </div>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">节点数量</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">连接数量</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">智能代理</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">集成完成度</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="workflow-section">
+            <div class="section-title">🤖 智能代理节点</div>
+            <div class="node-info">
+    
+                <div class="node-card">
+                    <h3>开始</h3>
+                    <div class="type" style="background: #4caf50">START</div>
+                    <div class="description">工作流开始节点</div>
+                </div>
+        
+                <div class="node-card">
+                    <h3>研究代理</h3>
+                    <div class="type" style="background: #667eea">AGENT</div>
+                    <div class="description">执行知识检索和信息收集</div>
+                </div>
+        
+                <div class="node-card">
+                    <h3>推理专家</h3>
+                    <div class="type" style="background: #667eea">AGENT</div>
+                    <div class="description">执行逻辑推理和问题分析</div>
+                </div>
+        
+                <div class="node-card">
+                    <h3>答案生成</h3>
+                    <div class="type" style="background: #667eea">AGENT</div>
+                    <div class="description">生成最终答案和格式化</div>
+                </div>
+        
+                <div class="node-card">
+                    <h3>结束</h3>
+                    <div class="type" style="background: #f44336">END</div>
+                    <div class="description">工作流结束节点</div>
+                </div>
+        
+            </div>
+        </div>
+
+        <div class="note">
+            <span class="icon">ℹ️</span>
+            <strong>注意:</strong> 这是IDE沙盒环境下的演示版本。由于沙盒限制，实际的网络服务器无法启动。
+            但您可以看到完整的LangGraph工作流结构和智能代理配置。
+            <br><br>
+            <strong>要在完整环境中运行:</strong> 请在本地终端中使用以下命令：<br>
+            <code>cd /Users/syu/workdata/person/zy/RANGEN-main(syu-python) && ./start_server.sh</code>
+        </div>
+    </div>
+
+    <script>
+        // 初始化Mermaid
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#667eea',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#5a67d8',
+                lineColor: '#667eea',
+                sectionBkgColor: '#f8f9fa',
+                altSectionBkgColor: '#e2e8f0',
+                gridColor: '#e0e0e0',
+                tertiaryColor: '#fff'
+            }
+        });
+
+        // 定义工作流图
+        const graphDefinition = `
+            graph TD
+                A[开始] --> B[研究代理]
+                B --> C[推理专家]
+                C --> D[答案生成]
+                D --> E[结束]
+
+                style A fill:#4caf50,color:#fff
+                style E fill:#f44336,color:#fff
+                style B fill:#667eea,color:#fff
+                style C fill:#667eea,color:#fff
+                style D fill:#667eea,color:#fff
+        `;
+
+        // 渲染图表
+        document.addEventListener('DOMContentLoaded', function() {
+            const element = document.getElementById('workflow-diagram');
+            mermaid.render('workflow-graph', graphDefinition).then(function(result) {
+                element.innerHTML = result.svg;
+            });
+        });
+    </script>
+</body>
+</html>

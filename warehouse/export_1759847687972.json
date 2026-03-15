@@ -1,0 +1,13 @@
+{
+  "schema_id": "user_behavior",
+  "export_type": "full",
+  "created_at": 1759847687.9721558,
+  "data": [
+    {
+      "user_id": "test",
+      "action": "test",
+      "timestamp": "2024-01-01"
+    }
+  ],
+  "metadata": {}
+}

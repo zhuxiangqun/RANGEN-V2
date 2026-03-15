@@ -594,12 +594,14 @@ def init_default_api_keys():
         # 检查是否已存在
         key_info = auth_service.verify_api_key(default_key)
         if not key_info:
-            # 创建默认API密钥
-            auth_service.create_api_key(
+            # 使用register_api_key注册环境变量中的密钥 (import here to avoid circular import)
+            from src.api.auth import register_api_key
+            register_api_key(
+                default_key,
                 name="default",
                 permissions=["read", "write", "admin"]
             )
-            logger.info("默认API密钥已初始化")
+            logger.info(f"默认API密钥已初始化: {default_key[:20]}...")
 
 
 # 启动时初始化

@@ -1,0 +1,317 @@
+[
+  {
+    "query": "I am thinking of a Ancient Roman City.  The city was destroyed by volcanic eruption.  The eruption occurred in the year 79 AD.  The volcano was a stratovolcano.    Where was the session held where it was decided that the city would be named a UNESCO world heritage site?",
+    "expected_answer": "Naples",
+    "actual_answer": "Naples",
+    "reasoning_types": [
+      "Tabular reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.7000000000000001,
+    "confidence": 0.8,
+    "execution_time": 0.14384889602661133,
+    "pipeline_execution_time": 10.302829027175903,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:47:35.805271",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "What Formula One car was driven in 1994 by the nephew of a racing driver from Italy who drove a Ferrari 312T and shares a last name with a common cocktail drink?",
+    "expected_answer": "Minardi M194",
+    "actual_answer": "Minardi M194",
+    "reasoning_types": [
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.44999999999999996,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.06283020973205566,
+    "pipeline_execution_time": 0.0630340576171875,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:47:36.871024",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "As of August 1, 2024, who is the president of the team that inspired the original name of the Washington Commanders?",
+    "expected_answer": "Derek Schiller",
+    "actual_answer": "George Washington was the first president of the United States.",
+    "reasoning_types": [
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.38250000000000006,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.058357954025268555,
+    "pipeline_execution_time": 0.05846810340881348,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:47:37.931521",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 0.0
+  },
+  {
+    "query": "As of 2023, how many more employees does the company alphabetically first by ticker symbol in the S&P500 have than the company alphabetically 2nd to last by ticker symbol in the S&P500?",
+    "expected_answer": "8,350",
+    "actual_answer": "8350",
+    "reasoning_types": [
+      "Numerical reasoning",
+      "Tabular reasoning",
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.16,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.08873605728149414,
+    "pipeline_execution_time": 0.08887290954589844,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:47:39.022813",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 0.0
+  },
+  {
+    "query": "I am moving to the G40 postcode area - what train stations are nearby, as of 2024?",
+    "expected_answer": "Bridgeton Railway Station and Dalmarnock Railway Station.",
+    "actual_answer": "Bridgeton Railway Station and Dalmarnock Railway Station.",
+    "reasoning_types": [
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.57,
+    "innovation_score": 0.30000000000000004,
+    "confidence": 0.8,
+    "execution_time": 0.05840492248535156,
+    "pipeline_execution_time": 0.058535099029541016,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:47:40.084384",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "How old was Stephen Baldwin when Hailey and Justin got married?",
+    "expected_answer": "52",
+    "actual_answer": "52",
+    "reasoning_types": [
+      "Numerical reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.062113046646118164,
+    "pipeline_execution_time": 0.062223196029663086,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:47:41.149134",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "As of August 1, 2024, what is the largest city of the 9th largest country by land area in Europe?",
+    "expected_answer": "The largest city of the 9th largest country in Europe is Warsaw.",
+    "actual_answer": "The population of China is approximately 1.4 billion people.",
+    "reasoning_types": [
+      "Tabular reasoning",
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.3758823529411765,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.07858824729919434,
+    "pipeline_execution_time": 0.0791769027709961,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:47:42.418619",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 0.0
+  },
+  {
+    "query": "What was the running time of the first cartoon in the series that inspired the name of the Looney Tunes franchise?",
+    "expected_answer": "5 minutes and 31 seconds",
+    "actual_answer": "Jane Ballou is the mother of the 15th First Lady of the United States.",
+    "reasoning_types": [
+      "Tabular reasoning",
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.376875,
+    "innovation_score": 0.30000000000000004,
+    "confidence": 0.8,
+    "execution_time": 0.06150388717651367,
+    "pipeline_execution_time": 0.061612844467163086,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:47:43.482834",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 0.0
+  },
+  {
+    "query": "The state, whose motto was adopted March 26, 1928, has 0.94% of the population in 2024 speaking a language that is native to which country?",
+    "expected_answer": "Philippines",
+    "actual_answer": "Philippines",
+    "reasoning_types": [
+      "Tabular reasoning",
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.44999999999999996,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.052886009216308594,
+    "pipeline_execution_time": 0.053012847900390625,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:47:44.537520",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "As of 2024, at the time of his birth, what was the middle name of the U.S. president who won Alaska, graduated from Yale University, and had a son named Michael?",
+    "expected_answer": "Lynch",
+    "actual_answer": "Lynch",
+    "reasoning_types": [
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.7000000000000001,
+    "confidence": 0.8,
+    "execution_time": 0.05408120155334473,
+    "pipeline_execution_time": 0.054224252700805664,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:47:45.594099",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  }
+]

@@ -1,162 +1,104 @@
-# RANGEN 项目文档
+# 📚 RANGEN 文档中心
 
-## 📚 文档导航
+欢迎访问RANGEN系统的文档中心。本文档库按照用户角色和使用场景进行了系统分类，帮助您快速找到所需信息。
 
-RANGEN 是一个高度智能化的多智能体研究系统，本文档库提供了完整的使用指南、架构说明和技术参考。
+## 🏆 文档分类
 
-### 🚀 快速开始
+### 1. 📚 [入门指南](getting-started/README.md)
+针对新用户的快速入门文档，帮助您在最短时间内了解和使用系统。
+- **快速启动**：5分钟上手指南
+- **安装部署**：多种安装方式详解
+- **初次使用**：核心功能快速掌握
+- **使用手册**：[完整使用指南](getting-started/使用手册.md) - 系统全面使用手册（推荐新用户阅读）
+- **图形界面手册**：[图形界面使用指南](getting-started/图形界面使用手册.md) - 聊天界面、管理平台和仪表盘的图形操作指南
+- **示例教程**：实战案例分步指导
 
-| 文档 | 描述 | 适用人群 |
-|------|------|----------|
-| [快速开始指南](usage/quick_start.md) | 5分钟内启动系统 | 新用户 |
-| [安装指南](installation/) | 详细安装步骤 | 开发者 |
-| [系统使用指南](usage/system_usage_guide.md) | 核心功能使用 | 普通用户 |
+### 2. 🏗️ [架构设计](architecture/README.md)
+系统架构、设计理念和组件说明，面向架构师和高级开发者。
+- **系统概览**：核心概念和设计理念
+- **组件设计**：智能体、服务、核心引擎详解
+- **设计模式**：反思型架构、路由模式、训练模式
 
-### 🏗️ 架构与设计
+### 3. 🔧 [开发指南](development/README.md)
+面向开发者的技术文档，包括API参考、开发规范和扩展开发。
+- **API参考**：REST API、客户端SDK、Webhooks
+- **系统扩展**：自定义智能体、工具、插件开发
+- **测试指南**：单元测试、集成测试、性能测试
 
-#### 系统架构
-- [系统架构总览](SYSTEM_AGENTS_OVERVIEW.md) - 完整的系统架构说明
-- [架构分析](architecture/) - 详细的架构设计文档
-- [分层架构](architecture/layered_architecture_design.md) - 系统分层设计
+### 4. 🚀 [运维部署](operations/README.md)
+系统部署、监控、维护和故障排除，面向运维人员和系统管理员。
+- **部署指南**：生产部署、扩缩容、备份恢复
+- **监控配置**：监控面板、日志配置、告警设置
+- **故障排除**：常见问题、性能问题、应急流程
+- **操作手册**：[系统操作手册](operations/操作手册.md) - 命令行、API、系统管理、故障排除的完整操作指南
 
-#### Agent 架构
-- [Agent 架构概览](architecture/agent_architecture/) - 多智能体系统设计
-- [推理专家](architecture/reasoning_expert_design.md) - 推理引擎设计
-- [质量控制器](architecture/quality_controller_design.md) - 质量评估系统
+### 5. 📖 [技术参考](reference/README.md)
+详细的技术规格、配置参数和实现细节，供需要深入了解系统的用户参考。
+- **配置参考**：环境变量、配置文件、安全配置
+- **模型参考**：LLM提供商、模型能力、训练框架
+- **技术规格**：性能指标、安全规格、兼容性
 
-### 🔧 开发指南
+### 6. 💡 [最佳实践](best-practices/README.md)
+使用经验、优化建议和实战技巧，帮助您更高效地使用系统。
+- **使用模式**：高效路由、成本优化、性能调优
+- **安全实践**：访问控制、数据保护、合规性
+- **高级技巧**：反思优化、自定义训练、集成模式
 
-#### 开发环境
-- [开发环境搭建](development/) - 开发环境配置
-- [代码规范](development/coding_standards.md) - 编码规范和最佳实践
-- [测试指南](testing/) - 测试策略和方法
+### 7. 📝 [变更日志](changelog/README.md)
+版本更新、迁移指南和未来路线图，帮助您了解系统演进。
+- **版本发布**：历史版本和新版本说明
+- **迁移指南**：版本迁移、重大变更、兼容性指南
+- **路线图**：短期计划和长期规划
 
-#### API 文档
-- [API 参考](api/) - 系统API文档
-- [动态配置API](api/dynamic_config_api.md) - 配置管理系统API
+## 🔍 如何查找文档
 
-### 📊 运维与监控
+### 按用户角色
+- **新用户**：从[入门指南](getting-started/README.md)开始，或直接阅读[使用手册](getting-started/使用手册.md)和[图形界面使用手册](getting-started/图形界面使用手册.md)
+- **开发者**：查看[开发指南](development/README.md)和[API参考](development/api-reference/)
+- **架构师**：深入研究[架构设计](architecture/README.md)
+- **运维人员**：参考[运维部署](operations/README.md)、[故障排除](operations/troubleshooting/)和[操作手册](operations/操作手册.md)
 
-#### 监控系统
-- [监控面板使用指南](usage/browser_monitoring_guide.md) - 系统监控方法
-- [性能分析工具](tools/performance_analyzer_usage.md) - 性能分析指南
-- [OpenTelemetry 监控](installation/opentelemetry_monitoring_setup.md) - 可观测性配置
+### 按使用场景
+- **安装部署**：[入门指南 → 安装部署](getting-started/installation/)
+- **系统扩展**：[开发指南 → 系统扩展](development/extending-system/)
+- **性能优化**：[最佳实践 → 性能调优](best-practices/usage-patterns/performance-tuning.md)
+- **故障处理**：[运维部署 → 故障排除](operations/troubleshooting/)
 
-#### 故障排除
-- [故障排除指南](guide/troubleshooting.md) - 常见问题解决方案
-- [诊断指南](analysis/) - 系统诊断和分析
-- [端口冲突解决](port_conflict_solution.md) - 网络配置问题
+## 📈 文档状态
 
-### 🔄 迁移与升级
+### ✅ 已完成
+- 文档分类架构设计
+- 主要分类目录创建
+- 现有文档初步迁移
 
-#### 系统迁移
-- [迁移指南](migration_guide.md) - 系统迁移说明
-- [逐步替换指南](gradual_replacement_guide.md) - 平滑升级策略
-- [迁移实施日志](migration_implementation_log.md) - 迁移过程记录
+### 🔄 进行中
+- 文档内容优化和完善
+- 交叉链接更新
+- 示例代码补充
 
-#### 兼容性
-- [向后兼容性](architecture/backward_compatibility_design.md) - API兼容性保证
-- [版本升级](architecture/version_upgrade_strategy.md) - 升级策略
+### 📋 计划中
+- 视频教程和交互式演示
+- 多语言文档翻译
+- 社区贡献指南
 
-### 🧪 测试与质量
+## 🤝 贡献文档
 
-#### 测试框架
-- [测试策略](testing/) - 测试方法和框架
-- [质量保证](architecture/quality_assurance_system.md) - 质量管理系统
-- [性能基准](testing/performance_benchmarking.md) - 性能测试标准
+我们欢迎社区贡献！如果您发现文档问题或有改进建议：
 
-#### 覆盖率分析
-- [测试覆盖率报告](reports/coverage_analysis_report.json) - 当前覆盖率状态
-- [测试运行器](tests/test_runner.py) - 统一测试执行工具
+1. **报告问题**：在GitHub Issues中创建文档问题
+2. **提交改进**：Fork项目并提交Pull Request
+3. **内容建议**：通过讨论区分享您的想法
 
-### 📈 分析与优化
+## 📞 获取帮助
 
-#### 系统分析
-- [性能优化](architecture/performance_optimization/) - 性能调优指南
-- [架构重构](refactoring/) - 系统重构计划
-- [改进记录](improvements/) - 持续改进记录
-
-#### 智能分析
-- [检索质量评估](retrieval_quality_assessment.md) - 知识检索质量分析
-- [答案准确性分析](analysis/answer_accuracy_issue.md) - 答案质量分析
-- [推理路径诊断](analysis/how_to_diagnose_reasoning_path_issues.md) - 推理过程诊断
-
-### 🔗 外部集成
-
-#### 工具集成
-- [工具集成指南](architecture/tool_integration/) - 外部工具集成
-- [可视化集成](visualization/) - 可视化系统集成
-- [监控集成](architecture/monitoring_integration.md) - 监控系统集成
-
-### 📋 最佳实践
-
-#### 使用最佳实践
-- [最佳实践指南](guide/best_practices.md) - 使用建议
-- [用户指南](guide/user_guide.md) - 详细使用说明
-- [自动通知指南](automatic_notification_guide.md) - 通知系统使用
-
-#### 开发最佳实践
-- [代码审查清单](development/code_review_checklist.md) - 代码质量检查
-- [性能优化建议](architecture/performance_optimization/best_practices.md) - 性能调优建议
-- [安全编码指南](architecture/security_design.md) - 安全编码实践
-
-## 📊 项目状态
-
-### 当前版本
-- **版本**: v1.0.0
-- **状态**: 生产就绪
-- **测试覆盖率**: 分析中 (运行 `python tests/coverage_analyzer.py`)
-
-### 系统指标
-- **核心Agent**: 8个 (ReasoningExpert, QualityController, RAGExpert等)
-- **工具支持**: 15+ 种工具
-- **测试文件**: 100+ 个
-- **文档页数**: 200+ 页
-
-### 最新更新
-- ✅ RAG系统优化完成
-- ✅ Agent性能优化完成
-- ✅ 测试框架完善
-- 🔄 文档系统持续改进
-
-## 🆘 获取帮助
-
-### 问题反馈
-1. 查看[故障排除指南](guide/troubleshooting.md)
-2. 检查[常见问题解答](faq.md)
-3. 查看[系统诊断指南](analysis/)
-
-### 技术支持
-- **问题报告**: 在项目中创建Issue
-- **功能请求**: 使用Feature Request模板
-- **代码贡献**: 遵循[贡献指南](CONTRIBUTING.md)
-
-### 社区资源
-- **项目主页**: [GitHub Repository]
-- **文档站点**: [在线文档]
-- **讨论区**: [GitHub Discussions]
-
-## 📝 文档维护
-
-### 更新频率
-- **主要版本**: 全面更新文档
-- **次要版本**: 更新相关章节
-- **补丁版本**: 更新修复说明
-
-### 贡献文档
-1. Fork 项目
-2. 创建特性分支
-3. 提交文档更新
-4. 创建 Pull Request
-
-### 文档规范
-- 使用 Markdown 格式
-- 遵循现有的文档结构
-- 包含必要的代码示例
-- 更新相关的交叉引用
+- **文档问题**：查看[文档维护指南](DOCUMENTATION_STRUCTURE.md)
+- **系统问题**：参考[故障排除指南](operations/troubleshooting/)
+- **功能咨询**：查看[开发指南](development/README.md)
 
 ---
 
-**最后更新**: 2026-01-02
-**维护者**: RANGEN 开发团队
-**许可证**: MIT License
+**最后更新**：2026-03-07  
+**文档版本**：2.0.0 (新分类架构)  
+**维护团队**：RANGEN文档工作组  
+
+> 💡 **提示**：本文档库采用新的分类架构，如果您发现链接问题或内容缺失，请通过Issues报告。

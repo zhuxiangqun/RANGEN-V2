@@ -1,4 +1,17 @@
-#!/usr/bin/env python3
+#QB|#!/usr/bin/env python3
+#YW|"""
+#VQ|工具基类
+#MP|定义所有工具的统一接口
+#MJ|
+#MJ|⚠️ DEPRECATED ⚠️
+#MJ|此模块已废弃，请使用新系统:
+#MJ|  - src.agents.skills (Skill-based)
+#MJ|  - src.agents.unified_executor (统一执行器)
+#MJ|
+#MJ|迁移指南:
+#MJ|  旧: from src.agents.tools import CalculatorTool
+#MJ|  新: from src.agents.unified_executor import UnifiedExecutor
+#MJ|"""
 """
 工具基类
 定义所有工具的统一接口

@@ -1,0 +1,71 @@
+{
+  "query_results": {
+    "019a624f": {
+      "query": "What award was won in 2003 by the Swiss architecture firm that designed Roche Tower?",
+      "expected_answer": "The Stirling Prize.",
+      "actual_answer": "研究过程中发生错误: 'FallbackReasoningAgent' object has no attribute 'process_query'",
+      "reasoning_types": [
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.36,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.021937131881713867,
+      "pipeline_execution_time": 0.02152705192565918,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'FallbackReasoningAgent' object has no attribute 'process_query'",
+      "evaluation_time": "2025-09-07T20:05:37.496558",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.02857142857142858
+    },
+    "059b1451": {
+      "query": "What Volkswagen former car model has nearly the same name as a Bangkok rooftop restaurant? The car has one additional letter.",
+      "expected_answer": "Scirocco (The Bangkok restaurant is called Sirocco)",
+      "actual_answer": "研究过程中发生错误: 'FallbackReasoningAgent' object has no attribute 'process_query'",
+      "reasoning_types": [
+        "Multiple constraints",
+        "Post processing"
+      ],
+      "success": false,
+      "quality_score": 0.365,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.002177715301513672,
+      "pipeline_execution_time": 0.001811981201171875,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'FallbackReasoningAgent' object has no attribute 'process_query'",
+      "evaluation_time": "2025-09-07T20:05:37.498801",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.039999999999999994
+    }
+  },
+  "total_queries": 2,
+  "successful_queries": 0,
+  "overall_success_rate": 0.0,
+  "last_update": "2025-09-07T20:05:37.499159"
+}

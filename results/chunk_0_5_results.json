@@ -1,0 +1,163 @@
+[
+  {
+    "query": "If my future wife has the same first name as the 15th first lady of the United States' mother and her surname is the same as the second assassinated president's mother's maiden name, what is my future wife's name? ",
+    "expected_answer": "Jane Ballou",
+    "actual_answer": "Jane Ballou",
+    "reasoning_types": [
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.44999999999999996,
+    "innovation_score": 0.9,
+    "confidence": 0.8,
+    "execution_time": 0.1531209945678711,
+    "pipeline_execution_time": 10.061086177825928,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:54:21.890664",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "Imagine there is a building called Bronte tower whose height in feet is the same number as the dewey decimal classification for the Charlotte Bronte book that was published in 1847. Where would this building rank among tallest buildings in New York City, as of August 2024?",
+    "expected_answer": "37th",
+    "actual_answer": "37th",
+    "reasoning_types": [
+      "Numerical reasoning",
+      "Tabular reasoning",
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.7000000000000001,
+    "confidence": 0.8,
+    "execution_time": 0.05259394645690918,
+    "pipeline_execution_time": 0.05276894569396973,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:54:22.944635",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "How many years earlier would Punxsutawney Phil have to be canonically alive to have made a Groundhog Day prediction in the same state as the US capitol?",
+    "expected_answer": "87",
+    "actual_answer": "87",
+    "reasoning_types": [
+      "Numerical reasoning",
+      "Multiple constraints",
+      "Temporal reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.10967397689819336,
+    "pipeline_execution_time": 0.10985016822814941,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:54:24.055717",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "As of August 1, 2024, which country were holders of the FIFA World Cup the last time the UEFA Champions League was won by a club from London?",
+    "expected_answer": "France",
+    "actual_answer": "France",
+    "reasoning_types": [
+      "Tabular reasoning",
+      "Multiple constraints",
+      "Temporal reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.7000000000000001,
+    "confidence": 0.8,
+    "execution_time": 0.059609174728393555,
+    "pipeline_execution_time": 0.05980396270751953,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:54:25.116826",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "What is the name of the vocalist from the first band to make it in the top 200 under the record label that produced the third studio album for Dismal Euphony?",
+    "expected_answer": "Jens Kidman",
+    "actual_answer": "Jens Kidman",
+    "reasoning_types": [
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.44999999999999996,
+    "innovation_score": 0.7000000000000001,
+    "confidence": 0.8,
+    "execution_time": 0.06678509712219238,
+    "pipeline_execution_time": 0.06695199012756348,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:54:26.185142",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  }
+]

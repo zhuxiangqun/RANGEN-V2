@@ -1,0 +1,323 @@
+[
+  {
+    "query": "As of August 1, 2024, what is the population of the writer of the \"Culdcept Saga\"'s birthplace? Write the answer to the nearest million, in characters.",
+    "expected_answer": "Two million.",
+    "actual_answer": "Two million.",
+    "reasoning_types": [
+      "Numerical reasoning",
+      "Multiple constraints",
+      "Post processing"
+    ],
+    "success": true,
+    "quality_score": 0.44999999999999996,
+    "innovation_score": 0.30000000000000004,
+    "confidence": 0.8,
+    "execution_time": 0.14296913146972656,
+    "pipeline_execution_time": 11.275887966156006,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:46:45.019980",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "What is the middle name of the U.S. president who died on the same day of the year as Virginia Woolf?",
+    "expected_answer": "David",
+    "actual_answer": "David",
+    "reasoning_types": [
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.07725334167480469,
+    "pipeline_execution_time": 0.07738399505615234,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:46:46.099581",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "As of 2010, if you added the number of times Brazil had won the World Cup to the amount of times the Chicago Bulls had won the NBA Championship and multiplied this number by the amount of times the Dallas Cowboys had won the Super Bowl, what number are you left with?",
+    "expected_answer": "55",
+    "actual_answer": "France",
+    "reasoning_types": [
+      "Numerical reasoning",
+      "Tabular reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.16,
+    "innovation_score": 0.7000000000000001,
+    "confidence": 0.8,
+    "execution_time": 0.06491279602050781,
+    "pipeline_execution_time": 0.06507086753845215,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:46:47.167232",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 0.0
+  },
+  {
+    "query": "How old would the founder of the publishing company of the magazine that serialized the manga series Raw Hero have been the year the magazine ended publication?",
+    "expected_answer": "145",
+    "actual_answer": "145",
+    "reasoning_types": [
+      "Numerical reasoning",
+      "Multiple constraints",
+      "Temporal reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.30000000000000004,
+    "confidence": 0.8,
+    "execution_time": 0.060156822204589844,
+    "pipeline_execution_time": 0.060289859771728516,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:46:48.230019",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "The oldest extant football team in Italy plays in a stadium.   The stadium is named after a person.   Who was the emperor of China when that person was 5 years old?",
+    "expected_answer": "Guangxu",
+    "actual_answer": "Guangxu",
+    "reasoning_types": [
+      "Numerical reasoning",
+      "Tabular reasoning",
+      "Temporal reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.7000000000000001,
+    "confidence": 0.8,
+    "execution_time": 0.05853891372680664,
+    "pipeline_execution_time": 0.05867505073547363,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:46:49.290990",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "Of the four main characters on Seinfeld, which actor is the oldest?",
+    "expected_answer": "Michael Richards",
+    "actual_answer": "Groundhog Day is a traditional holiday celebrated on February 2nd in the United States and Canada.",
+    "reasoning_types": [
+      "Numerical reasoning",
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.5045454545454545,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.05192112922668457,
+    "pipeline_execution_time": 0.052095890045166016,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:46:50.428509",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 0.0
+  },
+  {
+    "query": "How old was Harvard University, when the person whom the longest river in British Columbia is named after, was born?  The river in question only flows within the confines of British Columbia and does not enter any other province or territory.  ",
+    "expected_answer": "140 years old.",
+    "actual_answer": "140 years old.",
+    "reasoning_types": [
+      "Numerical reasoning",
+      "Tabular reasoning",
+      "Multiple constraints",
+      "Temporal reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.44999999999999996,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.060898780822753906,
+    "pipeline_execution_time": 0.06103110313415527,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:46:51.492100",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "On the same day that the The Mercedes-Benz W222 arrived at dealerships, a star of the sit-com Modern Family was wed. Who did the star marry?",
+    "expected_answer": "Justin Mikita",
+    "actual_answer": "Justin Mikita",
+    "reasoning_types": [
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.44999999999999996,
+    "innovation_score": 0.7000000000000001,
+    "confidence": 0.8,
+    "execution_time": 0.05486893653869629,
+    "pipeline_execution_time": 0.05499410629272461,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:46:52.549568",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "Which species from the genus mulona are both found in the same country?",
+    "expected_answer": "Mulona barnesi and mulona schausi",
+    "actual_answer": "Mulona barnesi and mulona schausi",
+    "reasoning_types": [
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.45749999999999996,
+    "innovation_score": 0.30000000000000004,
+    "confidence": 0.8,
+    "execution_time": 0.020190954208374023,
+    "pipeline_execution_time": 0.020300865173339844,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:46:53.572184",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "As of July 1, 2024, if I wanted to give my daughter the middle name of the American woman who is the most decorated female in the history of American gymnastics as her first name and the full first name of the American woman who holds the world record in the 800-meter freestyle as her middle name, what would I name my daughter? ",
+    "expected_answer": "Arianne Kathleen",
+    "actual_answer": "Arianne Kathleen",
+    "reasoning_types": [
+      "Post processing"
+    ],
+    "success": true,
+    "quality_score": 0.44999999999999996,
+    "innovation_score": 0.9,
+    "confidence": 0.8,
+    "execution_time": 0.06377100944519043,
+    "pipeline_execution_time": 0.0639200210571289,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:46:54.638790",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  }
+]

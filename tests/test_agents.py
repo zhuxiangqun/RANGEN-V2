@@ -207,7 +207,7 @@ class TestAgentConfiguration(AsyncTestCase):
             "timeout": 30,
             "max_retries": 3,
             "debug": True,
-            "model": "gpt-4"
+            "model": "deepseek-reasoner"
         }
         
         self.agent_class = Mock()
@@ -220,7 +220,7 @@ class TestAgentConfiguration(AsyncTestCase):
         self.assertEqual(agent.config["timeout"], 30)
         self.assertEqual(agent.config["max_retries"], 3)
         self.assertTrue(agent.config["debug"])
-        self.assertEqual(agent.config["model"], "gpt-4")
+        self.assertEqual(agent.config["model"], "deepseek-reasoner")
     
     async def test_agent_configuration_validation(self):
         """测试智能体配置验证"""

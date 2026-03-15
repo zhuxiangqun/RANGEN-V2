@@ -37,15 +37,28 @@ class SandboxConfig:
     allow_network: bool = False
     allow_file_read: bool = True
     allow_file_write: bool = True
-    allowed_dirs: List[str] = field(default_factory=lambda: ["data/workspace"])
-    blocked_dirs: List[str] = field(default_factory=lambda: ["/", "~", "/etc", "/usr"])
+    blocked_dirs: List[str] = field(default_factory=lambda: [
+        "/", "~", "/etc", "/usr", "/var", "/root", 
+        "/home", "/opt", "/boot", "/dev", "/sys", "/proc"
+    ])
+    # 只读目录
+    read_only_dirs: List[str] = field(default_factory=lambda: ["data/workspace"])
+    # 临时目录
+    temp_dirs: List[str] = field(default_factory=lambda: ["/tmp/sandbox"])
     
     # 环境
     env_vars: Dict[str, str] = field(default_factory=dict)
     
-    # Docker
-    use_docker: bool = False
-    docker_image: str = "python:3.11-sandbox"
+    # Docker - 启用沙箱隔离
+    use_docker: bool = True  # 默认启用Docker沙箱
+    docker_image: str = "python:3.11-slim"  # 使用slim镜像减少攻击面
+    docker_network: str = "none"  # 完全禁用网络
+    read_only_rootfs: bool = True  # 根文件系统只读
+    auto_remove: bool = True  # 执行后自动清理容器
+    
+    # 资源配额
+    max_cpu_percent: int = 50  # CPU限制
+    max_disk_write_mb: int = 100  # 磁盘写入限制
 
 
 @dataclass

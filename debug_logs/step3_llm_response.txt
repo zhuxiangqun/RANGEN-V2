@@ -1,0 +1,20 @@
+步骤编号: 3
+查询: What was the first name of the mother of Martha Washington of the United States?
+
+响应长度: 1300字符
+
+======================================================================
+完整响应:
+======================================================================
+
+1. **Limitations of the retrieved evidence:**  
+   The provided evidence report indicates a critical issue: the retrieved content does not match the question. Specifically, no clear relationship description (i.e., the identity of Martha Washington’s mother) is found in the evidence. Therefore, the evidence alone cannot answer the query.
+
+2. **Answer based on historical knowledge:**  
+   Based on widely accepted historical records, Martha Washington’s mother was **Frances Jones**. Martha Washington (née Martha Dandridge) was the daughter of John Dandridge and Frances Jones.
+
+3. **Why this question may have different answers:**  
+   Discrepancies could arise from variations in historical documentation, naming conventions (e.g., use of nicknames or middle names), or confusion with other family members. However, mainstream American historical sources consistently cite Frances Jones as Martha Washington’s mother.
+
+4. **Suggestions for obtaining more accurate information:**  
+   To verify this information, consult authoritative biographies, historical archives (such as the George Washington Presidential Library at Mount Vernon), or reputable academic sources on early American history. Primary documents like family records, wills, or letters would provide the most reliable confirmation.

@@ -1,4 +1,45 @@
+#!/usr/bin/env python3
 """
+学习节点模块 - LangGraph集成
+
+将学习聚合器、知识分布和持续学习功能集成到LangGraph工作流中：
+- 学习聚合节点：从执行结果中学习模式和优化策略
+- 知识分布节点：将学习到的知识分发给相关组件
+- 持续学习节点：作为监控节点持续优化系统
+
+使用场景:
+- 持续学习和系统优化
+- 从历史执行中学习模式
+- 自适应工作流调整
+
+重要: 本模块被 langgraph_unified_workflow.py 等12个文件引用!
+
+与 ExecutionCoordinator 的关系:
+- ExecutionCoordinator: 不使用本模块 (轻量模式)
+- UnifiedResearchSystem: 使用本模块实现自学习功能 (12个引用!)
+"""
+
+import logging
+"""
+学习节点模块 - LangGraph集成
+
+⚠️ DEPRECATED: 此模块已不再维护。
+生产环境使用 src.core.execution_coordinator.ExecutionCoordinator。
+
+将学习聚合器、知识分布和持续学习功能集成到LangGraph工作流中：
+- 学习聚合节点：从执行结果中学习模式和优化策略
+- 知识分布节点：将学习到的知识分发给相关组件
+- 持续学习节点：作为监控节点持续优化系统
+"""
+
+import warnings
+warnings.warn(
+    "langgraph_learning_nodes is deprecated. Use ExecutionCoordinator instead.",
+    DeprecationWarning,
+    stacklevel=2
+)
+
+import logging
 学习节点模块 - LangGraph集成
 
 将学习聚合器、知识分布和持续学习功能集成到LangGraph工作流中：

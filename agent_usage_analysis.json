@@ -1,0 +1,368 @@
+{
+  "timestamp": "2026-01-01T10:47:27.099410",
+  "codebase_path": "src",
+  "total_files": 433,
+  "imports": {
+    "ChiefAgent": 2,
+    "ReActAgent": 5,
+    "LangGraphReActAgent": 2,
+    "KnowledgeRetrievalAgent": 5,
+    "ReasoningAgent": 4,
+    "AnswerGenerationAgent": 5,
+    "CitationAgent": 4,
+    "IntelligentStrategyAgent": 2,
+    "EnhancedAnalysisAgent": 1,
+    "StrategicChiefAgent": 3,
+    "PromptEngineeringAgent": 5,
+    "ContextEngineeringAgent": 4,
+    "EnhancedKnowledgeRetrievalAgent": 1,
+    "RAGAgent": 3,
+    "BaseAgent": 16,
+    "MemoryAgent": 3,
+    "ExpertAgent": 14,
+    "EnhancedRLAgent": 1,
+    "MultimodalAgent": 1,
+    "AdaptiveRetryAgent": 2,
+    "OptimizedKnowledgeRetrievalAgent": 1
+  },
+  "instantiations": {
+    "ChiefAgent": 2,
+    "ReActAgent": 4,
+    "LangGraphReActAgent": 2,
+    "KnowledgeRetrievalAgent": 2,
+    "ReasoningAgent": 1,
+    "AnswerGenerationAgent": 2,
+    "CitationAgent": 1,
+    "IntelligentStrategyAgent": 3,
+    "EnhancedAnalysisAgent": 1,
+    "StrategicChiefAgent": 3,
+    "PromptEngineeringAgent": 2,
+    "ContextEngineeringAgent": 1,
+    "EnhancedKnowledgeRetrievalAgent": 1,
+    "RAGAgent": 2,
+    "OptimizedKnowledgeRetrievalAgent": 2,
+    "FactVerificationAgent": 1,
+    "SimpleAgent": 3,
+    "EnhancedRLAgent": 2,
+    "PromptAgent": 1,
+    "ContextAgent": 1,
+    "IntelligentCoordinatorAgent": 1,
+    "BaseAgent": 1,
+    "AdaptiveRetryAgent": 1
+  },
+  "method_calls": {},
+  "agent_locations": {
+    "ChiefAgent": [
+      "src/unified_research_system.py",
+      "src/core/langgraph_agent_nodes.py"
+    ],
+    "ReActAgent": [
+      "src/unified_research_system.py",
+      "src/core/langgraph_agent_nodes.py",
+      "src/core/intelligent_orchestrator.py"
+    ],
+    "LangGraphReActAgent": [
+      "src/unified_research_system.py",
+      "src/core/langgraph_agent_nodes.py"
+    ],
+    "KnowledgeRetrievalAgent": [
+      "src/unified_research_system.py",
+      "src/core/langgraph_agent_nodes.py",
+      "src/agents/chief_agent.py",
+      "src/core/reasoning/engine.py"
+    ],
+    "ReasoningAgent": [
+      "src/unified_research_system.py",
+      "src/core/langgraph_agent_nodes.py",
+      "src/agents/chief_agent.py"
+    ],
+    "AnswerGenerationAgent": [
+      "src/unified_research_system.py",
+      "src/core/langgraph_agent_nodes.py",
+      "src/agents/chief_agent.py",
+      "src/agents/rag_agent.py"
+    ],
+    "CitationAgent": [
+      "src/unified_research_system.py",
+      "src/core/langgraph_agent_nodes.py",
+      "src/agents/chief_agent.py"
+    ],
+    "IntelligentStrategyAgent": [
+      "src/async_research_integrator.py",
+      "src/agents/intelligent_strategy_agent.py",
+      "src/agents/agent_builder.py"
+    ],
+    "EnhancedAnalysisAgent": [
+      "src/async_research_integrator.py"
+    ],
+    "StrategicChiefAgent": [
+      "src/core/langgraph_layered_workflow.py",
+      "src/core/langgraph_layered_workflow_fixed.py",
+      "src/core/simplified_layered_workflow.py"
+    ],
+    "PromptEngineeringAgent": [
+      "src/core/langgraph_core_nodes.py",
+      "src/agents/chief_agent.py",
+      "src/agents/expert_agents.py",
+      "src/utils/unified_prompt_manager.py"
+    ],
+    "ContextEngineeringAgent": [
+      "src/core/langgraph_core_nodes.py",
+      "src/agents/chief_agent.py",
+      "src/agents/expert_agents.py"
+    ],
+    "EnhancedKnowledgeRetrievalAgent": [
+      "src/core/langgraph_core_nodes.py"
+    ],
+    "RAGAgent": [
+      "src/core/langgraph_core_nodes.py",
+      "src/agents/expert_agents.py",
+      "src/agents/tools/rag_tool.py"
+    ],
+    "BaseAgent": [
+      "src/core/langgraph_agent_nodes.py",
+      "src/agents/react_agent.py",
+      "src/agents/expert_agent.py",
+      "src/agents/chief_agent.py",
+      "src/agents/langgraph_react_agent.py",
+      "src/agents/intelligent_strategy_agent.py",
+      "src/agents/intelligent_coordinator_agent.py",
+      "src/agents/learning_system.py",
+      "src/agents/agent_builder.py",
+      "src/agents/enhanced_analysis_agent.py",
+      "src/utils/enhanced_system_integration.py",
+      "src/services/citation_service.py",
+      "src/services/multimodal_service.py",
+      "src/services/answer_generation_service.py",
+      "src/services/knowledge_retrieval_service.py",
+      "src/services/reasoning_service.py"
+    ],
+    "MemoryAgent": [
+      "src/core/langgraph_agent_nodes.py",
+      "src/agents/chief_agent.py"
+    ],
+    "OptimizedKnowledgeRetrievalAgent": [
+      "src/agents/optimized_knowledge_retrieval_agent.py",
+      "src/core/reasoning/engine.py"
+    ],
+    "FactVerificationAgent": [
+      "src/agents/fact_verification_agent.py"
+    ],
+    "ExpertAgent": [
+      "src/agents/memory_manager.py",
+      "src/agents/learning_optimizer.py",
+      "src/agents/prompt_engineering_agent.py",
+      "src/agents/security_guardian.py",
+      "src/agents/chief_agent.py",
+      "src/agents/context_engineering_agent.py",
+      "src/agents/expert_agents.py",
+      "src/agents/multi_agent_coordinator.py",
+      "src/agents/autonomous_runner.py",
+      "src/agents/rag_agent.py",
+      "src/agents/quality_controller.py",
+      "src/agents/reasoning_expert.py",
+      "src/agents/agent_coordinator.py",
+      "src/agents/tool_orchestrator.py"
+    ],
+    "SimpleAgent": [
+      "src/agents/base_agent.py",
+      "src/utils/enhanced_system_integration.py"
+    ],
+    "EnhancedRLAgent": [
+      "src/agents/prompt_engineering_agent.py",
+      "src/rl/enhanced_rl_agent.py"
+    ],
+    "MultimodalAgent": [
+      "src/agents/chief_agent.py"
+    ],
+    "PromptAgent": [
+      "src/agents/expert_agents.py"
+    ],
+    "ContextAgent": [
+      "src/agents/expert_agents.py"
+    ],
+    "IntelligentCoordinatorAgent": [
+      "src/agents/intelligent_coordinator_agent.py"
+    ],
+    "AdaptiveRetryAgent": [
+      "src/core/reasoning/engine.py",
+      "src/core/reasoning/ml_framework/__init__.py"
+    ]
+  },
+  "file_agent_map": {
+    "src/unified_research_system.py": [
+      "AnswerGenerationAgent",
+      "ChiefAgent",
+      "LangGraphReActAgent",
+      "ReasoningAgent",
+      "KnowledgeRetrievalAgent",
+      "CitationAgent",
+      "ReActAgent"
+    ],
+    "src/async_research_integrator.py": [
+      "EnhancedAnalysisAgent",
+      "IntelligentStrategyAgent"
+    ],
+    "src/core/langgraph_layered_workflow.py": [
+      "StrategicChiefAgent"
+    ],
+    "src/core/langgraph_layered_workflow_fixed.py": [
+      "StrategicChiefAgent"
+    ],
+    "src/core/simplified_layered_workflow.py": [
+      "StrategicChiefAgent"
+    ],
+    "src/core/langgraph_core_nodes.py": [
+      "ContextEngineeringAgent",
+      "EnhancedKnowledgeRetrievalAgent",
+      "RAGAgent",
+      "PromptEngineeringAgent"
+    ],
+    "src/core/langgraph_agent_nodes.py": [
+      "AnswerGenerationAgent",
+      "ChiefAgent",
+      "LangGraphReActAgent",
+      "ReasoningAgent",
+      "BaseAgent",
+      "KnowledgeRetrievalAgent",
+      "CitationAgent",
+      "MemoryAgent",
+      "ReActAgent"
+    ],
+    "src/core/intelligent_orchestrator.py": [
+      "ReActAgent"
+    ],
+    "src/agents/react_agent.py": [
+      "BaseAgent"
+    ],
+    "src/agents/optimized_knowledge_retrieval_agent.py": [
+      "OptimizedKnowledgeRetrievalAgent"
+    ],
+    "src/agents/fact_verification_agent.py": [
+      "FactVerificationAgent"
+    ],
+    "src/agents/memory_manager.py": [
+      "ExpertAgent"
+    ],
+    "src/agents/expert_agent.py": [
+      "BaseAgent"
+    ],
+    "src/agents/base_agent.py": [
+      "SimpleAgent"
+    ],
+    "src/agents/learning_optimizer.py": [
+      "ExpertAgent"
+    ],
+    "src/agents/prompt_engineering_agent.py": [
+      "EnhancedRLAgent",
+      "ExpertAgent"
+    ],
+    "src/agents/security_guardian.py": [
+      "ExpertAgent"
+    ],
+    "src/agents/chief_agent.py": [
+      "AnswerGenerationAgent",
+      "ReasoningAgent",
+      "ExpertAgent",
+      "BaseAgent",
+      "MultimodalAgent",
+      "ContextEngineeringAgent",
+      "KnowledgeRetrievalAgent",
+      "CitationAgent",
+      "MemoryAgent",
+      "PromptEngineeringAgent"
+    ],
+    "src/agents/context_engineering_agent.py": [
+      "ExpertAgent"
+    ],
+    "src/agents/expert_agents.py": [
+      "ContextAgent",
+      "ExpertAgent",
+      "PromptAgent",
+      "ContextEngineeringAgent",
+      "RAGAgent",
+      "PromptEngineeringAgent"
+    ],
+    "src/agents/multi_agent_coordinator.py": [
+      "ExpertAgent"
+    ],
+    "src/agents/langgraph_react_agent.py": [
+      "BaseAgent"
+    ],
+    "src/agents/autonomous_runner.py": [
+      "ExpertAgent"
+    ],
+    "src/agents/rag_agent.py": [
+      "AnswerGenerationAgent",
+      "ExpertAgent"
+    ],
+    "src/agents/intelligent_strategy_agent.py": [
+      "IntelligentStrategyAgent",
+      "BaseAgent"
+    ],
+    "src/agents/quality_controller.py": [
+      "ExpertAgent"
+    ],
+    "src/agents/intelligent_coordinator_agent.py": [
+      "IntelligentCoordinatorAgent",
+      "BaseAgent"
+    ],
+    "src/agents/reasoning_expert.py": [
+      "ExpertAgent"
+    ],
+    "src/agents/learning_system.py": [
+      "BaseAgent"
+    ],
+    "src/agents/agent_builder.py": [
+      "IntelligentStrategyAgent",
+      "BaseAgent"
+    ],
+    "src/agents/enhanced_analysis_agent.py": [
+      "BaseAgent"
+    ],
+    "src/agents/agent_coordinator.py": [
+      "ExpertAgent"
+    ],
+    "src/agents/tool_orchestrator.py": [
+      "ExpertAgent"
+    ],
+    "src/utils/enhanced_system_integration.py": [
+      "SimpleAgent",
+      "BaseAgent"
+    ],
+    "src/utils/unified_prompt_manager.py": [
+      "PromptEngineeringAgent"
+    ],
+    "src/rl/enhanced_rl_agent.py": [
+      "EnhancedRLAgent"
+    ],
+    "src/services/citation_service.py": [
+      "BaseAgent"
+    ],
+    "src/services/multimodal_service.py": [
+      "BaseAgent"
+    ],
+    "src/services/answer_generation_service.py": [
+      "BaseAgent"
+    ],
+    "src/services/knowledge_retrieval_service.py": [
+      "BaseAgent"
+    ],
+    "src/services/reasoning_service.py": [
+      "BaseAgent"
+    ],
+    "src/agents/tools/rag_tool.py": [
+      "RAGAgent"
+    ],
+    "src/core/reasoning/engine.py": [
+      "AdaptiveRetryAgent",
+      "KnowledgeRetrievalAgent",
+      "OptimizedKnowledgeRetrievalAgent"
+    ],
+    "src/core/reasoning/ml_framework/__init__.py": [
+      "AdaptiveRetryAgent"
+    ]
+  },
+  "total_agent_references": 84,
+  "unique_agents": 21
+}

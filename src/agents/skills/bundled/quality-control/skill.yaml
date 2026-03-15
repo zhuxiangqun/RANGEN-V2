@@ -1,90 +1,137 @@
-name: quality-control
-version: 1.0.0
-description: "质量控制技能。验证答案质量，检查准确性，识别潜在问题，确保输出可靠。"
 author: rangen
-tags:
-  - quality
-  - validation
-  - accuracy
-  - control
-dependencies: ["answer-generation"]
-scope: bundled
-
 config:
-  type: validation
-  mode: evaluative
   domain: quality
+  mode: evaluative
+  type: validation
+dependencies:
+- answer-generation
+description: 质量控制技能。验证答案质量，检查准确性，识别潜在问题，确保输出可靠。
+name: quality-control
+prompt_template: '## 质量控制技能
 
-prompt_template: |
-  ## 质量控制技能
-  
+
   验证答案质量，确保输出可靠准确。
-  
+
+
   ### 质量维度
-  
+
+
   **1. 准确性**
+
   - 信息与来源一致
+
   - 无事实错误
+
   - 逻辑正确
-  
+
+
   **2. 完整性**
+
   - 覆盖问题所有方面
+
   - 无关键信息遗漏
+
   - 结论有支撑
-  
+
+
   **3. 清晰度**
+
   - 语言简洁明了
+
   - 结构合理
+
   - 易于理解
-  
+
+
   **4. 可信度**
+
   - 有引用支撑
+
   - 来源可靠
+
   - 标注来源
-  
+
+
   ### 验证流程
-  
+
+
   **1. 事实核查**
+
   - 核对关键事实
+
   - 验证数值准确性
+
   - 检查时间信息
-  
+
+
   **2. 逻辑检查**
+
   - 推理是否有效
+
   - 结论是否合理
+
   - 无逻辑矛盾
-  
+
+
   **3. 引用检查**
+
   - 引用是否相关
+
   - 链接是否有效
+
   - 格式是否规范
-  
+
+
   ### 质量问题处理
-  
+
+
   | 问题类型 | 处理方式 |
+
   |---------|---------|
+
   | 事实错误 | 修正并标注 |
+
   | 引用错误 | 删除或修正 |
+
   | 逻辑问题 | 重构论证 |
+
   | 遗漏信息 | 补充说明 |
-  
+
+
   ### 质量检查清单
-  
+
+
   - [ ] 所有事实有来源
+
   - [ ] 推理过程有效
+
   - [ ] 语言表达清晰
+
   - [ ] 结构组织合理
+
   - [ ] 无过度泛化
 
-tools:
-  - name: check_accuracy
-    description: "检查准确性"
-  - name: check_completeness
-    description: "检查完整性"
-  - name: validate_citations
-    description: "验证引用"
-
+  '
 related_skills:
-  - answer-generation
-  - citation-generation
-  - fact-check
+- answer-generation
+- citation-generation
+- fact-check
+scope: bundled
+tags:
+- quality
+- validation
+- accuracy
+- control
+tools:
+- description: 检查准确性
+  name: check_accuracy
+- description: 检查完整性
+  name: check_completeness
+- description: 验证引用
+  name: validate_citations
+triggers:
+- quality
+- 质量
+- 控制
+- 检查
+version: 1.0.0

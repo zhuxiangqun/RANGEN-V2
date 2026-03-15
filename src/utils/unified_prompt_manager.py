@@ -21,7 +21,7 @@ class UnifiedPromptManager:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
         self.prompt_engine = get_prompt_engine()
-        self.prompt_agent = PromptEngineeringAgentWrapper(enable_gradual_replacement=True)
+        self.prompt_agent = PromptEngineeringAgent(enable_gradual_replacement=True)
         # 🚀 新增：Prompt 动态编排器
         self.orchestrator = get_prompt_orchestrator()
         self._initialized = True

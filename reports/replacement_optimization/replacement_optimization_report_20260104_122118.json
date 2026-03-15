@@ -1,0 +1,118 @@
+{
+  "timestamp": "20260104_122118",
+  "strategy": "balanced",
+  "optimization_results": {
+    "ChiefAgentWrapper": {
+      "current_rate": 0.01,
+      "recommended_rate": 0.035,
+      "adjustment_direction": "increase",
+      "confidence_score": 0.8,
+      "reasoning": [
+        "性能呈改善趋势，可以适度增加替换率"
+      ],
+      "expected_impact": {
+        "response_time_change_seconds": 0.0125,
+        "success_rate_change_percent": 0.05,
+        "risk_level": "low",
+        "expected_benefit": "potential_performance_improvement",
+        "rollback_time_estimate": "5-15分钟"
+      }
+    },
+    "AnswerGenerationAgentWrapper": {
+      "current_rate": 0.01,
+      "recommended_rate": 0.035,
+      "adjustment_direction": "increase",
+      "confidence_score": 0.8,
+      "reasoning": [
+        "性能呈改善趋势，可以适度增加替换率"
+      ],
+      "expected_impact": {
+        "response_time_change_seconds": 0.0125,
+        "success_rate_change_percent": 0.05,
+        "risk_level": "low",
+        "expected_benefit": "potential_performance_improvement",
+        "rollback_time_estimate": "5-15分钟"
+      }
+    },
+    "LearningSystemWrapper": {
+      "current_rate": 0.01,
+      "recommended_rate": 0.035,
+      "adjustment_direction": "increase",
+      "confidence_score": 0.8,
+      "reasoning": [
+        "性能呈改善趋势，可以适度增加替换率"
+      ],
+      "expected_impact": {
+        "response_time_change_seconds": 0.0125,
+        "success_rate_change_percent": 0.05,
+        "risk_level": "low",
+        "expected_benefit": "potential_performance_improvement",
+        "rollback_time_estimate": "5-15分钟"
+      }
+    },
+    "StrategicChiefAgentWrapper": {
+      "current_rate": 0.01,
+      "recommended_rate": 0.035,
+      "adjustment_direction": "increase",
+      "confidence_score": 0.8,
+      "reasoning": [
+        "性能呈改善趋势，可以适度增加替换率"
+      ],
+      "expected_impact": {
+        "response_time_change_seconds": 0.0125,
+        "success_rate_change_percent": 0.05,
+        "risk_level": "low",
+        "expected_benefit": "potential_performance_improvement",
+        "rollback_time_estimate": "5-15分钟"
+      }
+    },
+    "PromptEngineeringAgentWrapper": {
+      "current_rate": 0.01,
+      "recommended_rate": 0.035,
+      "adjustment_direction": "increase",
+      "confidence_score": 0.8,
+      "reasoning": [
+        "性能呈改善趋势，可以适度增加替换率"
+      ],
+      "expected_impact": {
+        "response_time_change_seconds": 0.0125,
+        "success_rate_change_percent": 0.05,
+        "risk_level": "low",
+        "expected_benefit": "potential_performance_improvement",
+        "rollback_time_estimate": "5-15分钟"
+      }
+    },
+    "ContextEngineeringAgentWrapper": {
+      "current_rate": 0.01,
+      "recommended_rate": 0.035,
+      "adjustment_direction": "increase",
+      "confidence_score": 0.8,
+      "reasoning": [
+        "性能呈改善趋势，可以适度增加替换率"
+      ],
+      "expected_impact": {
+        "response_time_change_seconds": 0.0125,
+        "success_rate_change_percent": 0.05,
+        "risk_level": "low",
+        "expected_benefit": "potential_performance_improvement",
+        "rollback_time_estimate": "5-15分钟"
+      }
+    },
+    "OptimizedKnowledgeRetrievalAgentWrapper": {
+      "current_rate": 0.01,
+      "recommended_rate": 0.035,
+      "adjustment_direction": "increase",
+      "confidence_score": 0.8,
+      "reasoning": [
+        "性能呈改善趋势，可以适度增加替换率"
+      ],
+      "expected_impact": {
+        "response_time_change_seconds": 0.0125,
+        "success_rate_change_percent": 0.05,
+        "risk_level": "low",
+        "expected_benefit": "potential_performance_improvement",
+        "rollback_time_estimate": "5-15分钟"
+      }
+    }
+  }
+}

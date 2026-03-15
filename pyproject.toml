@@ -1,0 +1,279 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rangen-v2"
+version = "2.0.0"
+description = "RANGEN V2 - Multi-Agent Research System"
+authors = [
+    {name = "Research Agent Team", email = "team@rangen.ai"},
+]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    # 🚀 核心框架
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "python-dotenv>=1.0.0",
+    "pydantic>=2.0.0",
+    "pyyaml>=6.0",
+    
+    # 🔐 认证与安全
+    "python-jose[cryptography]>=3.3.0",
+    "passlib[bcrypt]>=1.7.4",
+    "python-multipart>=0.0.6",
+    
+    # 🔄 工作流与智能体
+    "langgraph>=0.2.0",
+    "langchain-core>=0.1.0",
+    
+    # 🌐 网络与客户端
+    "httpx>=0.25.0",
+    "requests>=2.31.0",
+    "nest-asyncio>=1.5.0",
+    
+    # 🖥️ UI
+    "streamlit>=1.30.0",
+    
+    # 🛠️ 工具库
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    "psutil>=5.9.0",
+]
+
+[project.optional-dependencies]
+# 📚 知识管理系统 (KMS)
+kms = [
+    "faiss-cpu>=1.7.4",
+    "jina>=3.15.0",
+    "sentence-transformers>=2.2.0",
+    "sqlalchemy>=2.0.0",
+    "python-dateutil>=2.8.0",
+    "beautifulsoup4>=4.12.0",
+    "pillow>=10.0.0",
+    # 可选多模态处理
+    "librosa>=0.10.0",
+    "opencv-python>=4.8.0",
+    # 本地LLM支持
+    "llama-cpp-python>=0.2.0",
+    "huggingface-hub>=0.19.0",
+]
+
+# 🤖 RPA 系统
+rpa = [
+    "flask>=2.0.0",
+    "flask-cors>=3.0.0",
+    "selenium>=4.0.0",
+]
+
+# 🧪 增强功能 (可选依赖)
+enhanced = [
+    # LangGraph 增强
+    "websockets>=12.0",
+    "langextract>=0.1.0",
+    # OpenTelemetry 监控
+    "opentelemetry-api>=1.20.0",
+    "opentelemetry-sdk>=1.20.0",
+    # 多因子认证
+    "pyotp>=2.8.0",
+    "qrcode[pil]>=7.4.2",
+    # 科学计算
+    "scipy>=1.7.0",
+    # 机器学习
+    "scikit-learn>=1.0.0",
+    "tensorflow>=2.8.0",
+    "torch>=2.0.0",
+    # 自然语言处理
+    "nltk>=3.7",
+    "spacy>=3.4.0",
+]
+
+# 🧪 开发与测试
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=4.1.0",
+    "pytest-timeout>=2.1.0",
+    "pytest-xdist>=3.5.0",
+    # 代码质量
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+    "pylint>=3.0.0",
+    # 类型检查
+    "pyright>=1.1.0",
+    # 文档生成
+    "mkdocs>=1.5.0",
+    "mkdocs-material>=9.0.0",
+]
+
+# 🔄 LangExtract 安装指南 (解决依赖冲突)
+# 如果遇到 "google-auth-oauthlib requires google-auth<2.42.0" 错误：
+# 方案1（推荐）：降级 google-auth
+#   pip install "google-auth>=2.15.0,<2.42.0"
+#   pip install langextract
+# 方案2：升级 google-auth-oauthlib
+#   pip install --upgrade google-auth-oauthlib
+#   pip install langextract
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.json", "*.yaml", "*.yml", "*.txt"]
+
+[tool.black]
+line-length = 120
+target-version = ["py39", "py310", "py311"]
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | frontend_monitor
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 120
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[tool.pyright]
+pythonVersion = "3.9"
+typeCheckingMode = "strict"
+reportUnknownMemberType = "warning"
+reportUnknownArgumentType = "warning"
+reportUnknownVariableType = "warning"
+reportUnknownLambdaType = "warning"
+reportMissingTypeArgument = "warning"
+reportUntypedFunctionDecorator = "warning"
+reportUntypedClassDecorator = "warning"
+reportOptionalMemberAccess = "warning"
+reportOptionalSubscript = "warning"
+reportOptionalCall = "warning"
+reportOptionalIterable = "warning"
+reportOptionalContextManager = "warning"
+reportOptionalOperand = "warning"
+reportPrivateUsage = "warning"
+reportUnnecessaryCast = "warning"
+reportUnnecessaryIsInstance = "warning"
+reportUnnecessaryComparison = "warning"
+reportImplicitStringConcatenation = "warning"
+reportUnsupportedDunderAll = "warning"
+reportMissingParameterType = "error"
+reportMissingTypeStubs = "warning"
+reportIncompatibleMethodOverride = "error"
+reportIncompatibleVariableOverride = "error"
+reportOverlappingOverload = "error"
+reportSelfClsParameterName = "warning"
+reportImplicitOverride = "warning"
+reportDuplicateImport = "warning"
+exclude = [
+    "**/__pycache__",
+    ".venv",
+    "venv",
+    "env",
+    ".env",
+    "build",
+    "dist",
+    "frontend_monitor",
+    "knowledge_management_system/tests",
+    "rpa_system/tests",
+]
+ignore = [
+    "src/config/unified_config_system.py",  # 复杂的动态配置系统
+    "src/agents/base_agent.py",  # 复杂的基类
+    "src/core/langgraph_*.py",  # LangGraph工作流文件
+]
+stubPath = "typings"
+pythonPlatform = "Linux"
+extraPaths = [
+    "src",
+    "knowledge_management_system",
+    "rpa_system",
+]
+defineConstant = { DEBUG = "false" }
+analyzeUnannotatedFunctions = true
+include = ["src"]
+exclude = ["tests", "docs", "scripts", "frontend_monitor"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"
+addopts = [
+    "-v",
+    "--tb=short",
+    "--strict-markers",
+    "-W", "ignore::DeprecationWarning:importlib._bootstrap",
+    "-W", "ignore::DeprecationWarning:importlib",
+]
+markers = [
+    "asyncio: 异步测试标记",
+    "slow: 慢速测试（可能需要较长时间）",
+    "integration: 集成测试",
+    "unit: 单元测试",
+]
+
+# 项目特定的配置
+[tool.rangen]
+version = "2.0.0"
+description = "RANGEN V2 Multi-Agent Research System"
+config-paths = [
+    "config/",
+    ".env",
+    ".env.example",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-repo/RANGEN"
+Documentation = "https://rangen.readthedocs.io/"
+Repository = "https://github.com/your-repo/RANGEN.git"
+BugTracker = "https://github.com/your-repo/RANGEN/issues"

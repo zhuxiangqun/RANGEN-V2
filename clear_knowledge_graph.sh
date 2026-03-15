@@ -1,0 +1,1 @@
+knowledge_management_system/scripts/clear_knowledge_graph.sh

@@ -1,0 +1,1600 @@
+{
+  "query_results": {
+    "01bf22f5": {
+      "query": "What is the English meaning of the name of the smaller of the two constellations which resides in the middle of the Summer Triangle?",
+      "expected_answer": "Arrow.",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Tabular reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0279238224029541,
+      "pipeline_execution_time": 0.02777409553527832,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.229580",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "0240fa64": {
+      "query": "During the same year the Orlando Magic lost to the Los Angeles Lakers in their second NBA Finals appearance, what strain of flu spread into pandemic status throughout the world?",
+      "expected_answer": "The Swine Flu.",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0011699199676513672,
+      "pipeline_execution_time": 0.0010938644409179688,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.230827",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.011764705882352944
+    },
+    "00d5826f": {
+      "query": "This deceased American singer and songwriter who's song about censorship was nominated for a Grammy Award (for Best Hard Rock Performance) in the same year that was designated as International Space Year by the United Nations. How many letters are in his name?",
+      "expected_answer": "11 (Layne Staley)",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Tabular reasoning",
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0008108615875244141,
+      "pipeline_execution_time": 0.0007517337799072266,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.231658",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.011764705882352944
+    },
+    "042afafc": {
+      "query": "If we added the sum of all ages as of 2010 (assuming they were still alive) of the inventors of the cotton gin, vacuum pump, and commercial toilet paper (ignoring the month) and then subtracted the ages of the inventors of the safety pin and the sewing machine what number would we have?",
+      "expected_answer": "622",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0009007453918457031,
+      "pipeline_execution_time": 0.000843048095703125,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.232561",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "01d8215f": {
+      "query": "Which movie musical produced a song that was inspired by poetry from an American poet, who was born a week after Queen Victoria?",
+      "expected_answer": "Fame",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0011830329895019531,
+      "pipeline_execution_time": 0.0011248588562011719,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.233747",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "048410ec": {
+      "query": "In the first movie that Emma Stone won an Academy Award for Best Actress in, did her costar win an Academy Award for Best Actor?",
+      "expected_answer": "Ryan Gosling was nominated for an Academy Award for Best Actor in La La Land, but didn't win.",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Multiple constraints",
+        "Post processing",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0012717247009277344,
+      "pipeline_execution_time": 0.0010828971862792969,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.234891",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.00219780219780219
+    },
+    "03b8a8f3": {
+      "query": "How many copies of Coit Tower would have to be stacked on top of the Willis Tower in order to exceed the height of the Chicago Spire, had it been completed? Give your answer as the lowest possible whole number of Coit Towers.",
+      "expected_answer": "3",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0009829998016357422,
+      "pipeline_execution_time": 0.0009469985961914062,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.236029",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "0248ffcb": {
+      "query": "Andre the Giant's favorite acting role was for a 1987 film. Who was the director of that film?",
+      "expected_answer": "Rob Reiner",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0008580684661865234,
+      "pipeline_execution_time": 0.0008089542388916016,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.236875",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.011764705882352944
+    },
+    "00f446ac": {
+      "query": "I'm thinking of a dam. Here are some clues:  -It had two official names in its history. -Construction was ordered to begin by the husband of the President of The Girl Scouts of the USA in 1936. ",
+      "expected_answer": "Hoover Dam (briefly known as Boulder Dam)",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0008420944213867188,
+      "pipeline_execution_time": 0.0007469654083251953,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.237673",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0051282051282051325
+    },
+    "04f812bc": {
+      "query": "As of July 2024, which protagonist of a 'shonen jump' series shares a name with a station on a West Japan Railway Company regional line?",
+      "expected_answer": "Light Yagami",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0007941722869873047,
+      "pipeline_execution_time": 0.00074005126953125,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.238511",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.011764705882352944
+    },
+    "011dff55": {
+      "query": "Who was Prime Minister in Australia at the same time that Norman Gunston released \"Salute to ABBA\"?",
+      "expected_answer": "Malcolm Fraser",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Tabular reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0007848739624023438,
+      "pipeline_execution_time": 0.0007288455963134766,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.239295",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.011764705882352944
+    },
+    "034c7887": {
+      "query": "Who was the president of the USA when the wife of the former HEB Grocery Company CEO Howard Edward Butt Sr. died?",
+      "expected_answer": "Bill Clinton was president beginning in 1993, the same year that Mary Elizabeth Butt passed away. ",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.00080108642578125,
+      "pipeline_execution_time": 0.0006148815155029297,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.239969",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0021052631578947433
+    },
+    "01d08af1": {
+      "query": "How many years before Starbucks introduced juice-blended Frappuccinos, was the company that is accredited for inventing the Frappuccino, founded?",
+      "expected_answer": "31 years",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006420612335205078,
+      "pipeline_execution_time": 0.0006041526794433594,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.240760",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.011764705882352944
+    },
+    "009c056e": {
+      "query": "There's a comedy club on Sunset in West Hollywood that opened in 1972. One of its founders opened for one of Elvis' comeback performances. Where was this founder's first wife born?",
+      "expected_answer": "Marinette, Wisconsin",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.000659942626953125,
+      "pipeline_execution_time": 0.0006048679351806641,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.241405",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "02ee9d4e": {
+      "query": "How many films with titles including the letter \"g\" did the director of \"Sword of the Valiant\" direct after the release of said film, but before the year 2000?",
+      "expected_answer": "1",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006241798400878906,
+      "pipeline_execution_time": 0.0005979537963867188,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.242059",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "05636ad0": {
+      "query": "How many more letters are in the first name of the eighth Director of Special Forces (United Kingdom) than the runner who won Silver in the 1985 UK Athletics Championship 10,000 meters event? Give the answer in morse code.",
+      "expected_answer": "....-",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Tabular reasoning",
+        "Multiple constraints",
+        "Post processing"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006272792816162109,
+      "pipeline_execution_time": 0.0006031990051269531,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.242691",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.2
+    },
+    "0500fa10": {
+      "query": "What is the atomic number in roman numerals for the element that has the same symbol as the first two letters of the 23rd most populous city (as of 2024) of the country represented between Italy and China at the World Showcase in Epcot?",
+      "expected_answer": "LXXIX",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Multiple constraints",
+        "Post processing"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006232261657714844,
+      "pipeline_execution_time": 0.0005922317504882812,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.243309",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "05bdec36": {
+      "query": "I grew up in a village on Long Island in the Town of Oyster Bay. The name of this town is made up of two words, the first starts with the letter \"S\" and the second with the letter \"C.\"  I went to a public elementary school in this village in the year 1999. What was the name of my school? ",
+      "expected_answer": "Sea Cliff Elementary School",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006668567657470703,
+      "pipeline_execution_time": 0.0005970001220703125,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.243939",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.007407407407407418
+    },
+    "01538ae3": {
+      "query": "What Formula One car was driven in 1994 by the nephew of a racing driver from Italy who drove a Ferrari 312T and shares a last name with a common cocktail drink?",
+      "expected_answer": "Minardi M194",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006580352783203125,
+      "pipeline_execution_time": 0.0006110668182373047,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.244622",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.011764705882352944
+    },
+    "03bc7692": {
+      "query": "Who was the British Prime Minister in the year that the Glastonbury Festival was launched?",
+      "expected_answer": "Edward Heath, September 1970",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006840229034423828,
+      "pipeline_execution_time": 0.0006160736083984375,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.245287",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.007407407407407418
+    },
+    "03fb6a6b": {
+      "query": "A general motors vehicle is named after the largest ward in the country of Monaco.  How many people had walked on the moon as of the first model year of the vehicle? Note: the model year is not the same as the year the model was first produced.",
+      "expected_answer": "4",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006451606750488281,
+      "pipeline_execution_time": 0.0006201267242431641,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.245976",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "05427239": {
+      "query": "The actress who played Aunt Rose in A Brooklyn State of Mind (1997) also starred in a mafia movie where she sang a popular Sicilian song. How many years later did her version of the song occur after the earliest recording?",
+      "expected_answer": "45 years",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Multiple constraints",
+        "Post processing",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006260871887207031,
+      "pipeline_execution_time": 0.0005891323089599609,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.246592",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.011764705882352944
+    },
+    "01c35842": {
+      "query": "This blood pressure drug commonly used to treat gestational hypertension was patented the same year the first black student at the University of Mississippi was shot.",
+      "expected_answer": "Labetalol",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006346702575683594,
+      "pipeline_execution_time": 0.0005931854248046875,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.247224",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "04c8122a": {
+      "query": "How many years separate the birth of Alexander Graham Bell and the birth of Charles Dickens?",
+      "expected_answer": "35",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006170272827148438,
+      "pipeline_execution_time": 0.0005860328674316406,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.247853",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "03fc02c5": {
+      "query": "What language is the main character's name in in the Disney film that came out in 1994?",
+      "expected_answer": "Swahili",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006289482116699219,
+      "pipeline_execution_time": 0.0005929470062255859,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.248479",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "024e7f1a": {
+      "query": "Put these historical events in chronological order, starting with the earliest: The Beatles play Ed Sullivan, the fall of the Berlin Wall, The Great Depression, Atlanta Summer Games, World War I. ",
+      "expected_answer": "World War I, The Great Depression, The Beatles play Ed Sullivan, the fall of the Berlin Wall, Atlanta Summer Games. ",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0008630752563476562,
+      "pipeline_execution_time": 0.0006518363952636719,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.249169",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0018181818181818078
+    },
+    "0163278c": {
+      "query": "In what city were the Summer Olympic Games held in the year the RMS _Titanic_ sank?",
+      "expected_answer": "Stockholm (Sweden)",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0008280277252197266,
+      "pipeline_execution_time": 0.0007660388946533203,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.250149",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.011764705882352944
+    },
+    "03a0d4e7": {
+      "query": "How many days did it take for World War 2 to end after the death of Alois Burgstaller?",
+      "expected_answer": "136 days",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Post processing",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0008089542388916016,
+      "pipeline_execution_time": 0.0007638931274414062,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.250976",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.011764705882352944
+    },
+    "045d59fc": {
+      "query": "As of 2020, what was the population of the city where Dippin' Dots were founded?",
+      "expected_answer": "27,137",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0007688999176025391,
+      "pipeline_execution_time": 0.0007238388061523438,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.251747",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.011764705882352944
+    },
+    "007dc3a4": {
+      "query": "As of 2024, how many total Academy award nominations has the the man who won the Academy award for best actor one year before 1999 received?",
+      "expected_answer": "12",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Post processing",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.000759124755859375,
+      "pipeline_execution_time": 0.0007212162017822266,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.252515",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "05adb4de": {
+      "query": "How many published literary works had 1998's Nobel Prize in Literatures' recipient have at the time they received the award? Only count publications in the author's native language.",
+      "expected_answer": "21",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Tabular reasoning",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0007660388946533203,
+      "pipeline_execution_time": 0.0007302761077880859,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.253285",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "058932bc": {
+      "query": "What is the burial place of the most successful racehorse in the Grand National's history, as of 2024?  ",
+      "expected_answer": "The winning post at Aintree Racecourse",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0008308887481689453,
+      "pipeline_execution_time": 0.0007340908050537109,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.254057",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.005263157894736837
+    },
+    "0535bd9f": {
+      "query": "Which Northern Irish footballer who started in the 90s played for 9 English clubs, 8 of which were FA Cup winners?",
+      "expected_answer": "Keith Gillespie",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0007522106170654297,
+      "pipeline_execution_time": 0.0006961822509765625,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.254851",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "02e3fda0": {
+      "query": "What is the total number of pages in the first two first-edition books in the Emperyan Series by Rebecca Yarros?",
+      "expected_answer": "1135",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0007653236389160156,
+      "pipeline_execution_time": 0.0007140636444091797,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.255623",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "01525e4a": {
+      "query": "How long did Steve Jobs live, percentage wise, compared to the average lifespan of a person in the United States in 1984? Round each number to the nearest whole integer before calculating your answer. Then round your answer the nearest hundredth. ",
+      "expected_answer": "75.68%",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Tabular reasoning",
+        "Multiple constraints",
+        "Post processing",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0007128715515136719,
+      "pipeline_execution_time": 0.0006761550903320312,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.256354",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.011764705882352944
+    },
+    "05896ece": {
+      "query": "Archibald Sinclair had an American mom who was a half-sister. The half-sister had a life partner who had a painting of her by Walter Sickert. How many words is the title of that painting?",
+      "expected_answer": "5 ( Miss Hudson at Rowlandson House)",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Post processing"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006971359252929688,
+      "pipeline_execution_time": 0.0006167888641357422,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.257010",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.006060606060606055
+    },
+    "018750e2": {
+      "query": "As of August 3rd 2024, how many countries are full members of the council that oversees the sport that Henry Simonds plays?",
+      "expected_answer": "12",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Tabular reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006318092346191406,
+      "pipeline_execution_time": 0.0006008148193359375,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.257693",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "034d1c0b": {
+      "query": "How many years after Prohibition ended was Gone With The Wind released?",
+      "expected_answer": "6 years.",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006299018859863281,
+      "pipeline_execution_time": 0.0005910396575927734,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.258317",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.011764705882352944
+    },
+    "05f1bedf": {
+      "query": "In the Eurovision Song Contest 2024, one country scored a combined total (jury and televoting results) of 268 - as did another country in the contest the year before. Which countries are they?",
+      "expected_answer": "Italy and Norway",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Tabular reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006468296051025391,
+      "pipeline_execution_time": 0.0005970001220703125,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.258955",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.011764705882352944
+    },
+    "04aa028a": {
+      "query": "Who was the head coach of the team that won the Superbowl the year that the show Law & Order: SVU was released?",
+      "expected_answer": "Mike Shanahan",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006399154663085938,
+      "pipeline_execution_time": 0.0005910396575927734,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.259597",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "039a6272": {
+      "query": "The name of which supernova remnant nebula spelled backwards (not including the word \"nubula\") is a homonym for a large sailing ship?",
+      "expected_answer": "Crab Nebula (\"barc\" is a homonym for \"barque\")",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Post processing"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006799697875976562,
+      "pipeline_execution_time": 0.0005888938903808594,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.260238",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0050000000000000044
+    },
+    "01a0fb2b": {
+      "query": "Which president of the United States is represented by the sum of the ordinal numbers of the presidencies of the four men depicted on Mount Rushmore?",
+      "expected_answer": "Joe Biden",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Post processing"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006351470947265625,
+      "pipeline_execution_time": 0.0005939006805419922,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.260925",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.011764705882352944
+    },
+    "01261854": {
+      "query": "From the date the Soviet Union first used their veto power in the UN security council, how many more years would the then-Soviet leader live?",
+      "expected_answer": "Seven",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006680488586425781,
+      "pipeline_execution_time": 0.0006308555603027344,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.261599",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "05b77c2e": {
+      "query": "What is the birth town of the absent athlete from the Victory Salute statue in San Jose, California?",
+      "expected_answer": "Peter Norman was born in Coburg, Victoria, Australia.",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.00072479248046875,
+      "pipeline_execution_time": 0.0006086826324462891,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.262247",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0040000000000000036
+    },
+    "02eb53d9": {
+      "query": "Where was the rapper behind the song \"Hind's Hall\" born? ",
+      "expected_answer": "Seattle, Washington",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006389617919921875,
+      "pipeline_execution_time": 0.0005831718444824219,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.262948",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "00c78a85": {
+      "query": "How old were the winners of the Men's Pairs division at the 1988 World Indoor Bowls Championship?",
+      "expected_answer": "35 and 53 years old.",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0006561279296875,
+      "pipeline_execution_time": 0.0005941390991210938,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.263600",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "0492c4f7": {
+      "query": "In the region known as Sulawesi Selatan, which includes the Selayar Islands, what Austronesian language is predominantly spoken by the local population and how does the name \"Sulawesi Selatan\" relate to the location of the region?",
+      "expected_answer": "The predominant Austronesian language spoken in Sulawesi Selatan, including the Selayar Islands, is Makassarese. The name \"Sulawesi Selatan\" refers to the southern part of Sulawesi.",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0008950233459472656,
+      "pipeline_execution_time": 0.0005998611450195312,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.264263",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0011428571428571345
+    },
+    "045b817e": {
+      "query": "As of August 1, 2024, which NFL players were both league MVP and Super Bowl MVP in the same season?",
+      "expected_answer": "Bart Starr (66), Terry Bradshaw (78), Joe Montana (89), Emmit Smith (93), Steve Young (94), Kurt Warner (99), and Patrick Mahomes (22).",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Tabular reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0008089542388916016,
+      "pipeline_execution_time": 0.0005888938903808594,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.265148",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0017543859649122862
+    },
+    "009ecc6e": {
+      "query": "What is the scientific name of an amphibian that is listed as endangered by the Canadian government (as of 2024), and its only population in Canada occurs on an island which is the southernmost inhabited part of Canada?",
+      "expected_answer": "Ambystoma texanum",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Tabular reasoning",
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0007538795471191406,
+      "pipeline_execution_time": 0.0006759166717529297,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.266047",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    },
+    "00ddbcb1": {
+      "query": "What was the difference in original sale price between Tom Thomson’s “Northern River” and “Northern Lake”",
+      "expected_answer": "The difference in price was $250.",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0008327960968017578,
+      "pipeline_execution_time": 0.0007379055023193359,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:10:39.266866",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.006451612903225801
+    }
+  },
+  "total_queries": 50,
+  "successful_queries": 50,
+  "overall_success_rate": 1.0,
+  "last_update": "2025-09-07T20:10:39.266957"
+}

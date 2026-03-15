@@ -1,0 +1,39 @@
+{
+  "query_results": {
+    "01cfc897": {
+      "query": "Did the entomologist who first described lesticus purpurascens come from the same country as the entomologist who first described the subfamily of that species?",
+      "expected_answer": "Yes, Stefano Ludovico Straneo and Franco Andrea Bonelli are both Italian",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Tabular reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.018510818481445312,
+      "pipeline_execution_time": 0.018083810806274414,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T20:06:03.068567",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.039436619718309855
+    }
+  },
+  "total_queries": 1,
+  "successful_queries": 0,
+  "overall_success_rate": 0.0,
+  "last_update": "2025-09-07T20:06:03.068986"
+}

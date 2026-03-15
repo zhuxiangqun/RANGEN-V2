@@ -1,0 +1,104 @@
+# 可清理文件列表
+# 生成时间: 2026-01-07
+# 说明: 以下文件被识别为冗余或临时文件，可以安全删除以释放磁盘空间。
+
+## 1. 旧备份文件 (data/knowledge_management/backups/)
+# 理由: 这些是2025年及更早的旧备份，已被最新的备份取代，不再需要保留。
+
+- data/knowledge_management/backups/vector_backup_20251218_123754/ (128B)
+  理由: 2025年的旧向量索引备份。
+
+- data/knowledge_management/backups/vector_backup_20251221_114728/ (160B)
+  理由: 2025年的旧向量索引备份。
+
+- data/knowledge_management/backups/metadata_backup_20251219_100930.json (21MB)
+  理由: 2025年的旧元数据备份，占用空间较大。
+
+- data/knowledge_management/backups/metadata_backup_20251219_094745.json (13MB)
+  理由: 2025年的旧元数据备份。
+
+- data/knowledge_management/backups/metadata_backup_20251219_095425.json (6.6MB)
+  理由: 2025年的旧元数据备份。
+
+- data/knowledge_management/backups/backup_20260104_143530/ (160B)
+  理由: 1月4日的旧备份，已有更新的备份。
+
+- data/knowledge_management/backups/corrupted_backup_20251218_183524/ (96B)
+  理由: 已标记为损坏的备份文件，无恢复价值。
+
+## 2. 临时文件
+# 理由: 运行时产生的临时数据，任务结束后不再需要。
+
+- data/faiss_memory_backup_1767606251 (8.3MB)
+  理由: FAISS 向量库的内存转储文件，通常用于调试或临时恢复，非核心数据。
+
+## 3. 开发缓存
+# 理由: 编译或类型检查过程中生成的缓存，删除后下次运行时会自动重建。
+
+- .mypy_cache/ (246MB)
+  理由: Python 类型检查器 (mypy) 的缓存目录，占用大量空间且可随时再生。
+
+## 4. 根目录临时测试脚本
+# 理由: 开发过程中用于调试、验证或临时运行的脚本，不属于项目核心代码库。
+# 注意: 已排除 test_kb_query.py (用户验证工具) 和 setup_api_config.py (配置工具)。
+
+- test_*.py (位于根目录的大量文件，如 test_rag_expert_success_rate.py 等)
+  理由: 临时测试脚本，应迁移到 tests/ 目录或删除。
+  ⚠️ 排除: test_kb_query.py
+
+- run_*.py (如 run_test_now.py, run_test_directly.py)
+  理由: 临时运行脚本。
+
+- quick_*.py (如 quick_diagnose.py, quick_verify.py)
+  理由: 快速诊断脚本。
+
+- verify_*.py (如 verify_full_rag_mode.py)
+  理由: 验证脚本。
+
+- check_*.py (如 check_15th_first_lady.py)
+  理由: 检查脚本。
+
+- debug_*.py (如 debug_rag_execution.py)
+  理由: 调试脚本。
+
+## 5. 临时分析文档与报告
+# 理由: 问题排查过程中生成的中间分析文档，问题解决后通常不再需要。
+
+- *_analysis.md (如 ROOT_CAUSE_ANALYSIS.md, rag_answer_instability_analysis.md)
+  理由: 问题排查分析文档。
+
+- *_report.md (如 test_analysis_report.md)
+  理由: 测试报告。
+
+- *_summary.md (如 p0_fixes_implementation_summary.md)
+  理由: 修复总结文档。
+
+- verification_output.txt (1.3MB)
+  理由: 验证过程的大型日志输出文件。
+
+## 6. 临时数据文件
+# 理由: 测试运行生成的临时 JSON 输出。
+
+- production_test_results_*.json
+  理由: 生产环境测试结果文件。
+
+- rag_comprehensive_test_*.json
+  理由: RAG 测试结果文件。
+
+- rag_simple_test_*.json
+  理由: 简单 RAG 测试结果文件。
+
+- system_performance_report_*.json
+  理由: 系统性能报告文件。
+
+## 7. 临时 Shell 脚本
+# 理由: 用于临时监控或批处理的脚本。
+
+- monitor_*.sh (如 monitor_root_cause_fix.sh)
+  理由: 临时监控脚本。
+
+- run_*.sh (如 run_lightweight_eval.sh)
+  理由: 临时运行脚本。
+
+---
+总计可释放空间: 约 300 MB + (根目录临时文件约 5-10MB)

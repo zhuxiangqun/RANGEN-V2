@@ -1,0 +1,132 @@
+[MASTER]
+# 启用文档字符串检查，禁用过于严格的设计警告
+disable=W0613,R0902,R0903
+
+# 最大行长度
+max-line-length=120
+
+# 输出格式
+output-format=text
+
+[MESSAGES CONTROL]
+# 启用文档字符串检查，禁用过于严格的设计警告
+disable=W0613,R0902,R0903
+
+[FORMAT]
+# 最大行长度
+max-line-length=120
+
+[BASIC]
+# 好的变量名正则表达式
+good-names=i,j,k,ex,Run,_,id
+
+[SIMILARITIES]
+# 最小相似行数
+min-similarity-lines=4
+
+[TYPECHECK]
+# 忽略的模块
+ignored-modules=numpy,matplotlib,tensorflow,torch
+
+[MISCELLANEOUS]
+# 注释正则表达式
+notes=
+
+# 新增：代码质量规则配置
+[DESIGN]
+# 最大类复杂度
+max-attributes=20
+max-public-methods=20
+max-locals=25
+
+# 新增：文档字符串配置
+[DOCSTRING]
+# 文档字符串检查选项
+docstring-min-length=10
+
+# 新增：重构建议
+[REFACTOR]
+# 重构建议阈值
+max-nested-blocks=5
+max-returns=6
+max-branches=12
+max-statements=50
+
+# 新增：导入检查
+[IMPORTS]
+# 导入顺序：标准库 -> 第三方库 -> 本地库
+known-standard-library=os,sys,re,json,datetime,typing,pathlib,math,collections,itertools,functools,contextlib,asyncio,logging,subprocess,shutil,hashlib,random,string,decimal, fractions, numbers, copy, pprint, textwrap, inspect, itertools, functools, operator, collections, enum, statistics, decimal, fractions, numbers, itertools, collections.abc
+known-third-party=fastapi,uvicorn,pydantic,langgraph,numpy,pandas,requests,httpx,streamlit,psutil,pytest,asyncio,nest-asyncio,python-dotenv,pyyaml,python-jose,passlib,python-multipart,langchain-core
+preferred-module=typing
+deprecated-modules=optparse
+wildcard-imports=deny
+allow-wildcard-with-all=yes
+
+# 新增：命名约定
+[NAMING]
+# 命名风格
+method-naming-style=snake_case
+function-naming-style=snake_case
+variable-naming-style=snake_case
+class-naming-style=PascalCase
+const-naming-style=UPPER_SNAKE_CASE
+inlinevar-naming-style=snake_case
+class-attribute-naming-style=snake_case
+instance-attribute-naming-style=snake_case
+argument-naming-style=snake_case
+
+# 新增：错误处理
+[EXCEPTIONS]
+# 异常处理建议
+overgeneral-exceptions=BaseException,Exception
+broad-except=no
+
+# 新增：类型检查增强
+[TYPECHECK]
+# 类型检查增强配置
+ignored-classes=optparse.Values,threading.local
+ignored-modules=numpy,matplotlib,tensorflow,torch,scipy,pandas
+# 建议使用 typing 模块
+suggestion-mode=yes
+# 检查 missing imports
+check-untyped-defs=yes
+# 检查条件导入
+check-imports=yes
+
+# 新增：重复代码检测
+[SIMILARITIES]
+# 重复代码检测设置
+ignore-comments=yes
+ignore-docstrings=yes
+ignore-imports=yes
+min-similarity-lines=10
+threshold=0.9
+
+# 新增：格式检查增强
+[FORMAT]
+# 空格和缩进
+indent-after-paren=4
+indent-string='    '
+# 最大行长度
+max-line-length=120
+# 续行缩进
+indent-after-paren=4
+# 模块级别的空格
+no-space-check=trailing-comma,dict-separator
+# 二元运算符前的空格
+single-line-if-stmt=no
+
+# 新增：杂项配置
+[MISCELLANEOUS]
+# 杂项配置
+notes=FIXME,XXX,TODO
+# 重复键检查
+check-duplicate-keys=yes
+# 字典字面量检查
+check-dict-literals=yes
+
+# 新增：评分配置
+[MASTER]
+# 评分配置
+evaluation=10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)
+statement=100

@@ -1,83 +1,124 @@
-name: tool-execution
-version: 1.0.0
-description: "工具执行技能。执行外部工具调用，处理工具返回结果，错误处理和重试策略。"
 author: rangen
-tags:
-  - tool
-  - execution
-  - function-call
-  - api
-dependencies: []
-scope: bundled
-
 config:
-  type: execution
-  mode: assistive
   domain: agent
+  mode: assistive
+  type: execution
+dependencies: []
+description: 工具执行技能。执行外部工具调用，处理工具返回结果，错误处理和重试策略。
+name: tool-execution
+prompt_template: '## 工具执行技能
 
-prompt_template: |
-  ## 工具执行技能
-  
+
   执行外部工具调用，处理结果和错误。
-  
+
+
   ### 工具调用流程
-  
+
+
   **1. 工具选择**
+
   - 理解任务需求
+
   - 选择合适的工具
+
   - 准备输入参数
-  
+
+
   **2. 执行调用**
+
   - 按规范调用
+
   - 设置超时
+
   - 记录日志
-  
+
+
   **3. 结果处理**
+
   - 解析返回结果
+
   - 验证结果有效性
+
   - 错误处理
-  
+
+
   ### 工具类型处理
-  
+
+
   | 工具类型 | 处理要点 |
+
   |---------|---------|
+
   | 检索工具 | 解析结果，提取关键信息 |
+
   | API调用 | 处理JSON，处理错误码 |
+
   | 计算工具 | 验证输入，校验输出 |
+
   | 文件操作 | 检查路径，处理权限 |
-  
+
+
   ### 错误处理策略
-  
+
+
   **1. 重试机制**
+
   - 网络超时: 重试3次，指数退避
+
   - 临时错误: 重试1-2次
+
   - 永久错误: 记录并报告
-  
+
+
   **2. 降级处理**
+
   - 主要工具失败: 尝试备用工具
+
   - 无法获取结果: 使用已有信息
-  
+
+
   **3. 错误报告**
+
   - 记录错误详情
+
   - 提供错误上下文
+
   - 建议解决方案
-  
+
+
   ### 工具执行最佳实践
-  
+
+
   1. 明确输入输出格式
+
   2. 设置合理超时
+
   3. 记录完整日志
+
   4. 处理边界情况
+
   5. 验证返回结果
 
-tools:
-  - name: execute_tool
-    description: "执行工具调用"
-  - name: handle_error
-    description: "处理工具错误"
-  - name: validate_result
-    description: "验证工具结果"
-
+  '
 related_skills:
-  - reasoning-chain
-  - answer-generation
+- reasoning-chain
+- answer-generation
+scope: bundled
+tags:
+- tool
+- execution
+- function-call
+- api
+tools:
+- description: 执行工具调用
+  name: execute_tool
+- description: 处理工具错误
+  name: handle_error
+- description: 验证工具结果
+  name: validate_result
+triggers:
+- tool
+- 工具
+- 执行
+- 调用
+version: 1.0.0

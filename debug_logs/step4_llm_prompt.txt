@@ -1,0 +1,66 @@
+步骤编号: 4
+查询: What is the last name of the 15th president of the United States?
+
+提示词长度: 1882字符
+
+======================================================================
+完整提示词:
+======================================================================
+
+You are a professional AI assistant specialized in analyzing and answering questions.
+
+**Query:**
+What is the last name of the 15th president of the United States?
+
+**Evidence Quality Report:**
+======================================================================
+⚠️ Critical Issue: Retrieved content does not match the question
+======================================================================
+
+Issues Found:
+1. No clear correspondence found for the 15th position in the evidence
+
+Suggested Action: Need more specific query or different knowledge source
+======================================================================
+
+**Evidence Summary:**
+The evidence mainly contains:
+======================================================================
+
+⚠️ Note: Retrieved content may not fully match the question
+
+======================================================================
+
+
+
+Issues Found:
+
+- No clear correspondence found for the 15th position in the evidence
+
+
+
+======================================================================
+
+
+
+======================================================================
+
+⚠️ Evidence Quality Assessment
+
+===========================
+
+**Evidence Usage Guidelines:**
+- The provided evidence cannot directly answer the ordinal question
+- You may combine with your historical knowledge
+- Clearly state the limitations of the evidence
+
+**Answer Format Requirements:**
+Please answer in the following structure:
+1. First explain the limitations of the retrieved evidence
+2. Provide an answer based on historical knowledge (if known)
+3. Explain why this question may have different answers
+4. Suggest how to obtain more accurate information
+
+**CRITICAL LANGUAGE REQUIREMENT**: All answers must be in ENGLISH, even if the query is in another language. Use English for dates, names, locations, and all other answer components.
+
+**Answer:**

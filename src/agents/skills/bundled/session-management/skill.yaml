@@ -1,90 +1,136 @@
-name: session-management
-version: 1.0.0
-description: "会话管理技能。会话创建、维护、过期处理、多会话支持。"
 author: rangen
-tags:
-  - session
-  - lifecycle
-  - management
-  - state
-dependencies: ["context-management"]
-scope: bundled
-
 config:
-  type: management
-  mode: assistive
   domain: system
+  mode: assistive
+  type: management
+dependencies:
+- context-management
+description: 会话管理技能。会话创建、维护、过期处理、多会话支持。
+name: session-management
+prompt_template: '## 会话管理技能
 
-prompt_template: |
-  ## 会话管理技能
-  
+
   管理用户会话的生命周期和状态。
-  
+
+
   ### 会话生命周期
-  
+
+
   **1. 会话创建**
+
   - 生成唯一会话ID
+
   - 初始化会话状态
+
   - 设置会话元数据
+
   - 返回会话凭证
-  
+
+
   **2. 会话维护**
+
   - 加载会话上下文
+
   - 更新会话状态
+
   - 定期保存
+
   - 保持活跃
-  
+
+
   **3. 会话结束**
+
   - 保存最终状态
+
   - 清理资源
+
   - 记录会话历史
+
   - 触发回调
-  
+
+
   ### 会话存储
-  
+
+
   | 存储方式 | 适用场景 | 优点 | 缺点 |
+
   |---------|---------|------|------|
+
   | 内存 | 短期、小数据 | 快速 | 丢失风险 |
+
   | Redis | 分布式 | 持久化 | 需额外服务 |
+
   | 数据库 | 长期、分析 | 可靠 | 较慢 |
+
   | 文件 | 本地开发 | 简单 | 不适合生产 |
-  
+
+
   ### 会话过期策略
-  
+
+
   **超时过期**
+
   - 活动时间超过阈值
+
   - 默认: 30分钟
+
   - 可配置
-  
+
+
   **绝对过期**
+
   - 创建后固定时间
+
   - 安全性要求高时使用
-  
+
+
   **滑动窗口**
+
   - 每次访问延长过期时间
+
   - 保持活跃用户会话
-  
+
+
   ### 会话隔离
-  
+
+
   - 用户级隔离
+
   - 租户级隔离
+
   - 任务级隔离（Workspace）
-  
+
+
   ### 最佳实践
-  
+
+
   1. 会话ID足够随机
+
   2. 敏感数据加密存储
+
   3. 定期清理过期会话
+
   4. 监控会话异常
 
-tools:
-  - name: create_session
-    description: "创建新会话"
-  - name: restore_session
-    description: "恢复会话状态"
-  - name: cleanup_session
-    description: "清理会话"
-
+  '
 related_skills:
-  - context-management
-  - security-validation
+- context-management
+- security-validation
+scope: bundled
+tags:
+- session
+- lifecycle
+- management
+- state
+tools:
+- description: 创建新会话
+  name: create_session
+- description: 恢复会话状态
+  name: restore_session
+- description: 清理会话
+  name: cleanup_session
+triggers:
+- session
+- 会话
+- 会话管理
+version: 1.0.0

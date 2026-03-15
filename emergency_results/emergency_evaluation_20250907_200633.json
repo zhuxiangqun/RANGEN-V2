@@ -1,0 +1,39 @@
+{
+  "query_results": {
+    "03120de0": {
+      "query": "The manager Pep Guardiola won the Premier League four years in a row with a football club whose owners are from a country whose main export in 2009 was which raw material?",
+      "expected_answer": "Oil.  ('Oil' is fine here but related words from the Wikipedia article (link 6) are also acceptable, such as 'petroleum')",
+      "actual_answer": "研究过程中发生错误: OptimizedResearchSystem._create_fallback_citation_agent.<locals>.FallbackCitationAgent.generate_citations() missing 1 required positional argument: 'knowledge_results'",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.48,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0274198055267334,
+      "pipeline_execution_time": 0.02566981315612793,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "OptimizedResearchSystem._create_fallback_citation_agent.<locals>.FallbackCitationAgent.generate_citations() missing 1 required positional argument: 'knowledge_results'",
+      "evaluation_time": "2025-09-07T20:06:33.451150",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.036274509803921565
+    }
+  },
+  "total_queries": 1,
+  "successful_queries": 0,
+  "overall_success_rate": 0.0,
+  "last_update": "2025-09-07T20:06:33.452886"
+}

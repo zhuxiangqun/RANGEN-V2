@@ -1,0 +1,89 @@
+{
+  "generated_at": "2026-01-27T01:26:30.488521",
+  "statistics": {
+    "total_errors": 5,
+    "error_rate": 96370.06103437199,
+    "errors_by_category": {
+      "VALIDATION": 2,
+      "NETWORK": 2,
+      "BUSINESS": 1
+    },
+    "errors_by_level": {
+      "LOW": 1,
+      "HIGH": 1,
+      "MEDIUM": 3
+    },
+    "recent_errors_count": 5,
+    "last_reset_time": "2026-01-27T01:26:23.454966"
+  },
+  "recent_errors": [
+    {
+      "error_id": "d041fec7",
+      "category": "validation",
+      "level": "LOW",
+      "message": "Test validation error",
+      "timestamp": "2026-01-27T01:26:23.457049",
+      "module": "",
+      "function": "",
+      "context": {
+        "test_id": 1
+      },
+      "resolved": false,
+      "recovery_attempts": 0
+    },
+    {
+      "error_id": "8c67fda0",
+      "category": "network",
+      "level": "HIGH",
+      "message": "Network connection failed",
+      "timestamp": "2026-01-27T01:26:23.457179",
+      "module": "",
+      "function": "",
+      "context": {
+        "url": "https://api.example.com"
+      },
+      "resolved": false,
+      "recovery_attempts": 0
+    },
+    {
+      "error_id": "8c116f7b",
+      "category": "validation",
+      "level": "MEDIUM",
+      "message": "Invalid parameter value",
+      "timestamp": "2026-01-27T01:26:23.457232",
+      "module": "",
+      "function": "test_function",
+      "context": {},
+      "resolved": false,
+      "recovery_attempts": 0
+    },
+    {
+      "error_id": "aa28e35b",
+      "category": "business",
+      "level": "MEDIUM",
+      "message": "Intentional error for testing",
+      "timestamp": "2026-01-27T01:26:23.457997",
+      "module": "__main__",
+      "function": "failing_function",
+      "context": {
+        "decorator_test": true
+      },
+      "resolved": false,
+      "recovery_attempts": 0
+    },
+    {
+      "error_id": "db03aa87",
+      "category": "network",
+      "level": "MEDIUM",
+      "message": "Temporary network failure",
+      "timestamp": "2026-01-27T01:26:23.458076",
+      "module": "",
+      "function": "",
+      "context": {
+        "operation": "flaky_operation"
+      },
+      "resolved": true,
+      "recovery_attempts": 0
+    }
+  ]
+}

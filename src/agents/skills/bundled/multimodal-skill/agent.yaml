@@ -1,0 +1,5 @@
+# Agent配置文件 - 定义哪个Agent可以使用这个Skill
+agents:
+  - name: multimodal-agent
+    priority: 1
+    description: 多模态处理助手，擅长图像识别、视频分析、OCR

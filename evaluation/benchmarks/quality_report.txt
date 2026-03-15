@@ -1,0 +1,892 @@
+INFO:__main__:成功扫描到 203 个Python文件
+INFO:__main__:评估系统初始化成功
+INFO:__main__:开始生成详细质量分析报告...
+INFO:__main__:开始生成全面分析报告...
+WARNING:BasicQualityAnalyzer:检测到语法错误: 0个, 代码问题: 26个
+INFO:smart_false_positive_filter:过滤前: 238 个问题, 过滤后: 124 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 5 个问题
+INFO:smart_false_positive_filter:过滤前: 116 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 0 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 20 个问题, 过滤后: 14 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 3 个问题
+INFO:smart_false_positive_filter:过滤前: 10 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 3 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 6 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 9 个问题, 过滤后: 3 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 23 个问题, 过滤后: 10 个问题
+INFO:smart_false_positive_filter:过滤前: 12 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 14 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 33 个问题, 过滤后: 10 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 49 个问题, 过滤后: 31 个问题
+INFO:smart_false_positive_filter:过滤前: 19 个问题, 过滤后: 9 个问题
+INFO:smart_false_positive_filter:过滤前: 76 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 11 个问题, 过滤后: 8 个问题
+INFO:smart_false_positive_filter:过滤前: 22 个问题, 过滤后: 10 个问题
+INFO:smart_false_positive_filter:过滤前: 16 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 32 个问题, 过滤后: 9 个问题
+INFO:smart_false_positive_filter:过滤前: 5 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 10 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 10 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 56 个问题, 过滤后: 33 个问题
+INFO:smart_false_positive_filter:过滤前: 20 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 192 个问题, 过滤后: 72 个问题
+INFO:smart_false_positive_filter:过滤前: 18 个问题, 过滤后: 12 个问题
+INFO:smart_false_positive_filter:过滤前: 3 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 14 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 14 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 151 个问题, 过滤后: 22 个问题
+INFO:smart_false_positive_filter:过滤前: 29 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 29 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 38 个问题, 过滤后: 31 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 18 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 22 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 27 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 47 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 4 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 20 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 20 个问题, 过滤后: 14 个问题
+INFO:smart_false_positive_filter:过滤前: 60 个问题, 过滤后: 17 个问题
+INFO:smart_false_positive_filter:过滤前: 15 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 16 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 9 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 7 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 12 个问题, 过滤后: 10 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 6 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 7 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 5 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 15 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 11 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 6 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 46 个问题, 过滤后: 42 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 9 个问题, 过滤后: 8 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 5 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 3 个问题
+INFO:smart_false_positive_filter:过滤前: 12 个问题, 过滤后: 5 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 3 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 15 个问题, 过滤后: 12 个问题
+INFO:smart_false_positive_filter:过滤前: 4 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 17 个问题, 过滤后: 15 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 13 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 16 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 4 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 26 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 12 个问题, 过滤后: 8 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 29 个问题, 过滤后: 14 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 10 个问题, 过滤后: 5 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 9 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 4 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 18 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 4 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 9 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 15 个问题, 过滤后: 8 个问题
+INFO:smart_false_positive_filter:过滤前: 13 个问题, 过滤后: 8 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 24 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 9 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 34 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 40 个问题, 过滤后: 31 个问题
+INFO:smart_false_positive_filter:过滤前: 70 个问题, 过滤后: 50 个问题
+INFO:smart_false_positive_filter:过滤前: 33 个问题, 过滤后: 22 个问题
+INFO:smart_false_positive_filter:过滤前: 16 个问题, 过滤后: 14 个问题
+INFO:smart_false_positive_filter:过滤前: 40 个问题, 过滤后: 32 个问题
+INFO:smart_false_positive_filter:过滤前: 44 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 58 个问题, 过滤后: 28 个问题
+INFO:smart_false_positive_filter:过滤前: 24 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 104 个问题, 过滤后: 28 个问题
+INFO:smart_false_positive_filter:过滤前: 52 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 32 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 16 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 38 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 24 个问题, 过滤后: 19 个问题
+INFO:smart_false_positive_filter:过滤前: 1 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 30 个问题, 过滤后: 16 个问题
+INFO:smart_false_positive_filter:过滤前: 37 个问题, 过滤后: 18 个问题
+INFO:smart_false_positive_filter:过滤前: 13 个问题, 过滤后: 10 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 1 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 0 个问题
+INFO:UnimplementedMethodAnalyzer:已保存1163个未实现方法详情到文件: unimplemented_methods_details.json
+INFO:__main__:成功扫描到 203 个Python文件
+INFO:__main__:开始高级问题分析...
+WARNING:__main__:发现 1 个高级问题
+INFO:__main__:高级问题报告已保存到: comprehensive_eval_results/advanced_issues_report.md
+WARNING:BasicQualityAnalyzer:检测到语法错误: 0个, 代码问题: 26个
+INFO:smart_false_positive_filter:过滤前: 238 个问题, 过滤后: 124 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 5 个问题
+INFO:smart_false_positive_filter:过滤前: 116 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 0 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 20 个问题, 过滤后: 14 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 3 个问题
+INFO:smart_false_positive_filter:过滤前: 10 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 3 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 6 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 9 个问题, 过滤后: 3 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 23 个问题, 过滤后: 10 个问题
+INFO:smart_false_positive_filter:过滤前: 12 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 14 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 33 个问题, 过滤后: 10 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 49 个问题, 过滤后: 31 个问题
+INFO:smart_false_positive_filter:过滤前: 19 个问题, 过滤后: 9 个问题
+INFO:smart_false_positive_filter:过滤前: 76 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 11 个问题, 过滤后: 8 个问题
+INFO:smart_false_positive_filter:过滤前: 22 个问题, 过滤后: 10 个问题
+INFO:smart_false_positive_filter:过滤前: 16 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 32 个问题, 过滤后: 9 个问题
+INFO:smart_false_positive_filter:过滤前: 5 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 10 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 10 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 56 个问题, 过滤后: 33 个问题
+INFO:smart_false_positive_filter:过滤前: 20 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 192 个问题, 过滤后: 72 个问题
+INFO:smart_false_positive_filter:过滤前: 18 个问题, 过滤后: 12 个问题
+INFO:smart_false_positive_filter:过滤前: 3 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 14 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 14 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 151 个问题, 过滤后: 22 个问题
+INFO:smart_false_positive_filter:过滤前: 29 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 29 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 38 个问题, 过滤后: 31 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 18 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 22 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 27 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 47 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 4 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 20 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 20 个问题, 过滤后: 14 个问题
+INFO:smart_false_positive_filter:过滤前: 60 个问题, 过滤后: 17 个问题
+INFO:smart_false_positive_filter:过滤前: 15 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 16 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 9 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 7 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 12 个问题, 过滤后: 10 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 6 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 7 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 5 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 15 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 11 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 6 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 46 个问题, 过滤后: 42 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 9 个问题, 过滤后: 8 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 5 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 3 个问题
+INFO:smart_false_positive_filter:过滤前: 12 个问题, 过滤后: 5 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 3 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 15 个问题, 过滤后: 12 个问题
+INFO:smart_false_positive_filter:过滤前: 4 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 17 个问题, 过滤后: 15 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 13 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 16 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 4 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 26 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 12 个问题, 过滤后: 8 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 29 个问题, 过滤后: 14 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 10 个问题, 过滤后: 5 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 9 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 4 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 18 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 4 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 9 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 15 个问题, 过滤后: 8 个问题
+INFO:smart_false_positive_filter:过滤前: 13 个问题, 过滤后: 8 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 24 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 9 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 34 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 40 个问题, 过滤后: 31 个问题
+INFO:smart_false_positive_filter:过滤前: 70 个问题, 过滤后: 50 个问题
+INFO:smart_false_positive_filter:过滤前: 33 个问题, 过滤后: 22 个问题
+INFO:smart_false_positive_filter:过滤前: 16 个问题, 过滤后: 14 个问题
+INFO:smart_false_positive_filter:过滤前: 40 个问题, 过滤后: 32 个问题
+INFO:smart_false_positive_filter:过滤前: 44 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 58 个问题, 过滤后: 28 个问题
+INFO:smart_false_positive_filter:过滤前: 24 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 104 个问题, 过滤后: 28 个问题
+INFO:smart_false_positive_filter:过滤前: 52 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 32 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 16 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 38 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 24 个问题, 过滤后: 19 个问题
+INFO:smart_false_positive_filter:过滤前: 1 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 30 个问题, 过滤后: 16 个问题
+INFO:smart_false_positive_filter:过滤前: 37 个问题, 过滤后: 18 个问题
+INFO:smart_false_positive_filter:过滤前: 13 个问题, 过滤后: 10 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 1 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 0 个问题
+INFO:UnimplementedMethodAnalyzer:已保存1163个未实现方法详情到文件: unimplemented_methods_details.json
+ERROR:__main__:生成详细Markdown报告失败: 'machine_learning'
+WARNING:BasicQualityAnalyzer:检测到语法错误: 0个, 代码问题: 26个
+INFO:__main__:详细质量分析报告已保存: comprehensive_eval_results/intelligent_quality_analysis_report.md
+WARNING:BasicQualityAnalyzer:检测到语法错误: 0个, 代码问题: 26个
+INFO:smart_false_positive_filter:过滤前: 238 个问题, 过滤后: 124 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 5 个问题
+INFO:smart_false_positive_filter:过滤前: 116 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 0 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 20 个问题, 过滤后: 14 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 3 个问题
+INFO:smart_false_positive_filter:过滤前: 10 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 3 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 6 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 9 个问题, 过滤后: 3 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 23 个问题, 过滤后: 10 个问题
+INFO:smart_false_positive_filter:过滤前: 12 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 14 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 33 个问题, 过滤后: 10 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 49 个问题, 过滤后: 31 个问题
+INFO:smart_false_positive_filter:过滤前: 19 个问题, 过滤后: 9 个问题
+INFO:smart_false_positive_filter:过滤前: 76 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 11 个问题, 过滤后: 8 个问题
+INFO:smart_false_positive_filter:过滤前: 22 个问题, 过滤后: 10 个问题
+INFO:smart_false_positive_filter:过滤前: 16 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 32 个问题, 过滤后: 9 个问题
+INFO:smart_false_positive_filter:过滤前: 5 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 10 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 10 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 56 个问题, 过滤后: 33 个问题
+INFO:smart_false_positive_filter:过滤前: 20 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 192 个问题, 过滤后: 72 个问题
+INFO:smart_false_positive_filter:过滤前: 18 个问题, 过滤后: 12 个问题
+INFO:smart_false_positive_filter:过滤前: 3 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 14 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 14 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 151 个问题, 过滤后: 22 个问题
+INFO:smart_false_positive_filter:过滤前: 29 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 29 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 38 个问题, 过滤后: 31 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 18 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 22 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 27 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 47 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 4 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 20 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 20 个问题, 过滤后: 14 个问题
+INFO:smart_false_positive_filter:过滤前: 60 个问题, 过滤后: 17 个问题
+INFO:smart_false_positive_filter:过滤前: 15 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 16 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 9 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 7 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 12 个问题, 过滤后: 10 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 6 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 7 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 5 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 15 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 11 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 6 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 46 个问题, 过滤后: 42 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 9 个问题, 过滤后: 8 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 5 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 3 个问题
+INFO:smart_false_positive_filter:过滤前: 12 个问题, 过滤后: 5 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 3 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 15 个问题, 过滤后: 12 个问题
+INFO:smart_false_positive_filter:过滤前: 4 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 17 个问题, 过滤后: 15 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 13 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 16 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 4 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 26 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 12 个问题, 过滤后: 8 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 29 个问题, 过滤后: 14 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 10 个问题, 过滤后: 5 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 9 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 4 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 18 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 4 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 9 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 15 个问题, 过滤后: 8 个问题
+INFO:smart_false_positive_filter:过滤前: 13 个问题, 过滤后: 8 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 24 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 9 个问题, 过滤后: 6 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 34 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 40 个问题, 过滤后: 31 个问题
+INFO:smart_false_positive_filter:过滤前: 70 个问题, 过滤后: 50 个问题
+INFO:smart_false_positive_filter:过滤前: 33 个问题, 过滤后: 22 个问题
+INFO:smart_false_positive_filter:过滤前: 16 个问题, 过滤后: 14 个问题
+INFO:smart_false_positive_filter:过滤前: 40 个问题, 过滤后: 32 个问题
+INFO:smart_false_positive_filter:过滤前: 44 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 58 个问题, 过滤后: 28 个问题
+INFO:smart_false_positive_filter:过滤前: 24 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 104 个问题, 过滤后: 28 个问题
+INFO:smart_false_positive_filter:过滤前: 52 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 32 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 16 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 38 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 24 个问题, 过滤后: 19 个问题
+INFO:smart_false_positive_filter:过滤前: 1 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 30 个问题, 过滤后: 16 个问题
+INFO:smart_false_positive_filter:过滤前: 37 个问题, 过滤后: 18 个问题
+INFO:smart_false_positive_filter:过滤前: 13 个问题, 过滤后: 10 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 2 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 4 个问题
+INFO:smart_false_positive_filter:过滤前: 1 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 8 个问题, 过滤后: 0 个问题
+INFO:smart_false_positive_filter:过滤前: 2 个问题, 过滤后: 0 个问题
+INFO:UnimplementedMethodAnalyzer:已保存1163个未实现方法详情到文件: unimplemented_methods_details.json
+ERROR:__main__:生成详细Markdown报告失败: 'machine_learning'
+WARNING:BasicQualityAnalyzer:检测到语法错误: 0个, 代码问题: 26个
+开始生成详细质量分析报告...
+分析模式: 快速
+
+====================================================================================================
+RANGEN核心系统全面智能质量分析报告
+====================================================================================================
+
+📊 基础质量分析:
+--------------------------------------------------
+智能质量分数: 0.587
+架构质量分数: 0.237
+安全质量分数: 0.525
+性能质量分数: 1.535
+代码质量分数: 0.693
+
+🤖 ML和RL协同作用分析:
+--------------------------------------------------
+ML - RL协同作用分数: 0.203
+机器学习算法: ✅ (分数: 1.000)
+强化学习算法: ✅ (分数: 1.000)
+协同模式: ❌ (分数: 0.203)
+自适应学习: ❌ (分数: 0.065)
+数据驱动: ❌ (分数: 0.009)
+无监督发现: ❌ (分数: 0.001)
+
+💬 提示词和上下文协同作用分析:
+--------------------------------------------------
+提示词 - 上下文协同分数: 1.000
+提示词上下文集成: ✅ (分数: 1.000)
+上下文增强提示词: ✅ (分数: 1.000)
+提示词上下文流程: ✅ (分数: 1.000)
+上下文指导: ✅ (分数: 1.000)
+提示词优化: ✅ (分数: 1.000)
+
+🧮 复杂逻辑推理能力分析:
+--------------------------------------------------
+复杂推理能力分数: 0.338
+逻辑推理: ✅ (分数: 0.965)
+多步推理: ❌ (分数: 0.464)
+因果推理: ✅ (分数: 0.655)
+溯因推理: ❌ (分数: 0.365)
+类比推理: ❌ (分数: 0.045)
+空间推理: ❌ (分数: 0.072)
+时间推理: ❌ (分数: 0.061)
+不确定性推理: ❌ (分数: 0.079)
+
+🔄 RANGEN系统查询处理完整流程分析:
+--------------------------------------------------
+查询处理流程分数: 1.000
+查询分析: ✅
+查询路由: ✅
+知识检索: ✅
+推理处理: ✅
+答案生成: ✅
+质量评估: ✅
+反馈学习: ✅
+结果交付: ✅
+
+🎯 智能程度维度分析:
+--------------------------------------------------
+智能维度综合分数: 0.436
+数据驱动学习: ❌ (分数: 0.451)
+自适应学习: ✅ (分数: 0.963)
+无监督发现: ❌ (分数: 0.135)
+强化学习: ❌ (分数: 0.296)
+ML驱动方法: ❌ (分数: 0.299)
+真正的AI算法: ❌ (分数: 0.474)
+
+🧠 上下文管理能力分析:
+--------------------------------------------------
+上下文管理分数: 1.000
+动态上下文支持: ✅
+信息熵控制: ✅
+上下文协议: ✅
+可追溯性: ✅
+模块化设计: ✅
+可解释性: ✅
+引导型上下文: ✅
+知识型上下文: ✅
+操作型上下文: ✅
+提示词工程: ✅
+RAG技术: ✅
+动态压缩: ✅
+混合压缩: ✅
+长期记忆管理: ✅
+
+📊 系统监控能力分析:
+--------------------------------------------------
+系统监控分数: 1.000
+性能趋势分析: ✅
+智能告警系统: ✅
+异常检测: ✅
+监控仪表板: ✅
+指标收集: ✅
+告警管理: ✅
+性能分析: ✅
+系统健康监控: ✅
+
+⚙️ 配置管理能力分析:
+--------------------------------------------------
+配置管理分数: 0.833
+配置存储和检索: ❌
+配置验证和类型检查: ✅
+配置变更通知: ✅
+动态配置生成: ✅
+配置缓存管理: ✅
+配置一致性检查: ✅
+
+📈 评分评估能力分析:
+--------------------------------------------------
+评分评估分数: 0.800
+置信度评分: ❌
+质量评估: ✅
+性能评分: ✅
+评分结果分析: ✅
+评分历史管理: ✅
+
+🔒 安全防护能力分析:
+--------------------------------------------------
+安全防护分数: 1.000
+身份认证: ✅
+权限控制: ✅
+安全策略: ✅
+威胁检测: ✅
+合规管理: ✅
+安全审计: ✅
+
+🔗 系统集成能力分析:
+--------------------------------------------------
+系统集成分数: 1.000
+智能体注册和管理: ✅
+依赖注入: ✅
+协作任务管理: ✅
+接口适配: ✅
+集成监控: ✅
+
+💾 数据管理能力分析:
+--------------------------------------------------
+数据管理分数: 1.000
+数据存储管理: ✅
+数据一致性: ✅
+数据备份恢复: ✅
+数据安全保护: ✅
+
+🚨 硬编码和模拟数据检测分析:
+--------------------------------------------------
+硬编码数据检测分数: 0.125
+硬编码字符串: ✅ (113个)
+模拟数据: ❌ (62个)
+生产环境测试数据: ✅ (0个)
+魔法数字: ❌ (0个)
+硬编码路径: ❌ (0个)
+硬编码URL: ❌ (0个)
+硬编码凭据: ✅ (0个)
+数据质量问题: ❌ (0个)
+硬编码数据检测分数: 0.125
+硬编码字符串: ✅ (113个)
+模拟数据: ❌ (62个)
+生产环境测试数据: ✅ (0个)
+魔法数字: ❌ (0个)
+
+🔍 未实现方法和简化功能分析:
+--------------------------------------------------
+未实现方法检测分数: 0.003
+总问题数量: 1163个
+分析文件数量: 203个
+
+🧠 学习能力分析:
+--------------------------------------------------
+学习能力综合分数: 0.890
+分析文件数量: 203个
+学习组件数量: 4个
+自适应功能数量: 51个
+知识管理功能数量: 109个
+
+学习能力指标:
+  adaptive_learning: ✅ (1.000)
+  knowledge_accumulation: ✅ (1.000)
+  pattern_recognition: ✅ (1.000)
+  feedback_learning: ✅ (0.700)
+  continuous_improvement: ✅ (0.800)
+  experience_integration: ⚠️ (0.400)
+  learning_algorithms: ✅ (1.000)
+  knowledge_base: ✅ (1.000)
+  learning_metrics: ✅ (1.000)
+  adaptive_strategies: ✅ (1.000)
+
+学习能力改进建议:
+  1. 学习能力表现优秀，继续保持
+
+🚀 学习能力增强器状态:
+------------------------------
+学习能力增强器状态: disabled
+消息: 学习能力增强器未启用
+
+⚠️ 发现严重问题: 模拟数据
+
+💼 业务逻辑分析:
+--------------------------------------------------
+业务价值分数: 0.649
+功能完整性分数: 0.201
+实际应用性分数: 0.725
+集成准备度分数: 0.276
+生产准备度分数: 0.450
+业务逻辑质量分数: 0.036
+
+业务逻辑综合分数: 0.390
+
+💡 业务逻辑改进建议:
+  2. 完善函数的功能实现，避免pass语句
+  4. 增加错误处理和日志记录
+  5. 移除硬编码值和模拟数据
+  6. 提高业务逻辑的质量和清晰度
+
+🏗️ 过度设计检测分析:
+--------------------------------------------------
+过度设计检测分数: 0.800 (质量分数: 0.200)
+抽象层过多: ❌ (25层)
+设计模式过度使用: ✅ (5种模式)
+代码复杂度过高: ❌ (复杂度: 1.000)
+过度工程化: ❌ (分数: 1.000)
+
+⚡ 性能问题检测分析:
+--------------------------------------------------
+性能问题检测分数: 0.000 (性能质量分数: 1.000)
+并发模型冲突: ✅ (混合并发: 否)
+资源管理问题: ✅ (0个问题)
+性能瓶颈: ✅ (2个瓶颈)
+
+🏛️ 架构层次问题检测分析:
+--------------------------------------------------
+架构问题检测分数: 0.000 (架构质量分数: 1.000)
+层次过多: ✅ (6层)
+职责不清: ✅ (2个违反)
+依赖复杂: ✅ (2个问题)
+
+🏆 综合评估 (100个维度):
+--------------------------------------------------
+基础质量综合分数: 0.715
+高级能力综合分数: 0.663
+系统运维综合分数: 0.823
+架构问题检测分数: 0.267
+总体综合分数 (100维度): 0.617
+
+📊 维度支持统计:
+支持维度数: 75.15163437460345/100
+支持率: 75.2%
+⚠️ 系统智能质量良好，有改进空间
+
+====================================================================================================
+全面分析完成！
+
+🔍 高级问题检测结果:
+总问题数: 1
+问题类型统计:
+  - syntax_error: 1个
+
+问题最多的文件 (前10个):
+  - ../../src/core/frames_processor.py: 1个问题
+    * 第318行: 发现"value"模式错误
+
+📊 详细质量分析报告已保存到: comprehensive_eval_results/intelligent_quality_analysis_report.md
+
+📊 详细质量分析报告已保存到: comprehensive_eval_results/intelligent_quality_analysis_report.md

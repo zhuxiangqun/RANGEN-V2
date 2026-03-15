@@ -1,7 +1,9 @@
 """
-迁移适配器模块
+适配器模块
 
-提供Agent迁移的适配器实现，支持平滑迁移。
+包含两种类型的适配器：
+1. Agent迁移适配器 - 用于Agent迁移
+2. LLM模型适配器 - 用于多模型架构统一接口
 """
 
 from .base_adapter import MigrationAdapter
@@ -22,7 +24,29 @@ from .fact_verification_agent_adapter import FactVerificationAgentAdapter
 from .intelligent_coordinator_agent_adapter import IntelligentCoordinatorAgentAdapter
 from .strategic_chief_agent_adapter import StrategicChiefAgentAdapter
 
+# LLM模型适配器
+from .llm_adapter_base import (
+    LLMProvider,
+    AdapterCapability,
+    LLMResponse,
+    LLMRequest,
+    AdapterConfig,
+    BaseLLMAdapter,
+)
+
+# 具体LLM适配器实现
+try:
+    from .local_llm_adapter import LocalLLMAdapter
+except ImportError:
+    LocalLLMAdapter = None  # 如果依赖不满足，设置为None
+
+# LLM适配器工厂
+from .llm_adapter_factory import (
+    LLMAdapterFactory,
+)
+
 __all__ = [
+    # Agent迁移适配器
     "MigrationAdapter",
     "CitationAgentAdapter",
     "ReActAgentAdapter",
@@ -40,5 +64,17 @@ __all__ = [
     "FactVerificationAgentAdapter",
     "IntelligentCoordinatorAgentAdapter",
     "StrategicChiefAgentAdapter",
+    
+    # LLM模型适配器
+    "LLMProvider",
+    "AdapterCapability",
+    "LLMResponse",
+    "LLMRequest",
+    "AdapterConfig",
+    "BaseLLMAdapter",
+    "LocalLLMAdapter",
+    
+    # LLM适配器工厂
+    "LLMAdapterFactory",
 ]
 

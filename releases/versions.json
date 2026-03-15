@@ -1,0 +1,19 @@
+{
+  "1.0.0": {
+    "version": "1.0.0",
+    "description": "初始版本发布",
+    "status": "production",
+    "created_at": 1758463006.868842,
+    "deployed_at": 0,
+    "traffic_weight": 0,
+    "health_checks": [
+      "/health",
+      "/ready"
+    ],
+    "rollback_version": "",
+    "metadata": {
+      "author": "system",
+      "priority": "high"
+    }
+  }
+}

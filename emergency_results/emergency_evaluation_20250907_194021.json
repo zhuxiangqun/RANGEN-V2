@@ -1,0 +1,102 @@
+{
+  "query_results": {
+    "05c8ce34": {
+      "query": "Meghan Markle's veil, worn at her 2018 wedding to Prince Harry, featured a flower for each Common Wealth country. What colour is the flower that was used to represent New Zealand?",
+      "expected_answer": "Yellow",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24310344827586208,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.014704227447509766,
+      "pipeline_execution_time": 0.01517796516418457,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:40:21.041719",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.019512195121951216
+    },
+    "013edb96": {
+      "query": "Who is married to the actor who plays Imdad Khan in the film version of The Wonderful Story of Henry Sugar, as of August 1, 2024 ?",
+      "expected_answer": "Daniela Lavender",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.2440909090909091,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0035080909729003906,
+      "pipeline_execution_time": 0.0039708614349365234,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:40:21.045949",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.024390243902439025
+    },
+    "0086b044": {
+      "query": "What was the earliest known media use of the theme song used by the show The Last Leg?",
+      "expected_answer": "2007",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints",
+        "Temporal reasoning"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0037271976470947266,
+      "pipeline_execution_time": 0.004302024841308594,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:40:21.050435",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    }
+  },
+  "total_queries": 3,
+  "successful_queries": 0,
+  "overall_success_rate": 0.0,
+  "last_update": "2025-09-07T19:40:21.050551"
+}

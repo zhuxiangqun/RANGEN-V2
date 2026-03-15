@@ -1,0 +1,5 @@
+# Agent配置文件
+agents:
+  - name: analysis-agent
+    priority: 1
+    description: 分析助手，擅长机器学习预测

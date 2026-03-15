@@ -9,7 +9,7 @@ import logging
 import time
 import json
 import threading
-from typing import Dict, List, Any, Optional, Callable, Union
+from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path

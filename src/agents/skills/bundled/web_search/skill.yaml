@@ -1,0 +1,54 @@
+# Skill 配置文件 (YAML 格式)
+# 与 SKILL.md 配合使用
+
+name: web_search
+version: "1.0.0"
+description: Web search capability using multiple search engines
+
+# 元数据
+author: RANGEN Team
+tags:
+  - search
+  - web
+  - retrieval
+  - network
+
+# 触发关键词 (Claude Code 风格)
+triggers:
+  - search
+  - web_search
+  - 搜索
+  - 联网搜索
+  - find
+  - lookup
+
+# 依赖的其他 Skills
+dependencies:
+  - query-analysis
+
+# 可用工具
+tools:
+  - name: real_search
+    description: Tavily API search
+    class: RealSearchTool
+  - name: web_search
+    description: DuckDuckGo browser search
+    class: WebSearchTool
+  - name: bing_search
+    description: Bing API search
+    class: BingSearchTool
+
+# 默认配置
+config:
+  preferred_engine: real_search
+  max_results: 5
+  timeout: 30
+  fallback_engines:
+    - web_search
+    - search
+
+# Prompt 模板
+prompt_template: |
+  你具备网络搜索能力，可以查找最新信息。
+  可用搜索引擎: {engines}
+  当前配置: {config}

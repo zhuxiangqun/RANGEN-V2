@@ -11,10 +11,15 @@ Agent能力模块 (Agent Capabilities)
 """
 
 import logging
+import time
 from typing import Dict, List, Any, Optional, Callable
 from dataclasses import dataclass, field
 from enum import Enum
 from datetime import datetime
+
+from src.agents.priority_routing_engine import get_priority_routing_engine
+from src.agents.skills.enhanced_registry import get_enhanced_skill_registry
+from src.agents.tools.tool_registry import get_tool_registry
 
 logger = logging.getLogger(__name__)
 
@@ -413,6 +418,26 @@ class EnhancedToolSelector:
         self.llm_service = llm_service
         self.tools: Dict[str, ToolDescription] = {}
         self.tool_stats: Dict[str, Dict] = {}
+        
+        # 初始化优先级路由引擎
+        self._routing_engine_initialized = False
+        self._routing_engine = None
+        self._init_routing_engine()
+    
+    def _init_routing_engine(self):
+        """初始化优先级路由引擎"""
+        try:
+            # 获取技能和工具注册表
+            skill_registry = get_enhanced_skill_registry()
+            tool_registry = get_tool_registry()
+            
+            # 初始化路由引擎
+            self._routing_engine = get_priority_routing_engine(skill_registry, tool_registry)
+            self._routing_engine_initialized = True
+            self.logger.info("优先级路由引擎初始化成功")
+        except Exception as e:
+            self.logger.warning(f"初始化优先级路由引擎失败: {e}")
+            self._routing_engine_initialized = False
     
     def register_tool(self, tool: ToolDescription):
         self.tools[tool.name] = tool
@@ -420,7 +445,42 @@ class EnhancedToolSelector:
             self.tool_stats[tool.name] = {"success_count": 0, "total_calls": 0}
     
     def select_tools(self, query: str, context: Optional[Dict] = None, top_k: int = 3) -> List[ToolSelectionScore]:
-        """选择最合适的工具"""
+        """选择最合适的工具 - 使用优先级路由引擎"""
+        # 优先使用路由引擎
+        if self._routing_engine_initialized and self._routing_engine:
+            try:
+                start_time = time.time()
+                
+                # 使用路由引擎选择工具
+                prioritized_tools = self._routing_engine.select_tools_with_priority(query, top_k=top_k)
+                
+                # 转换为ToolSelectionScore格式
+                scores = []
+                for prioritized_tool in prioritized_tools:
+                    # 从本地工具注册中获取工具描述
+                    tool_desc = self.tools.get(prioritized_tool.tool_id)
+                    description = tool_desc.description if tool_desc else prioritized_tool.description
+                    
+                    scores.append(ToolSelectionScore(
+                        tool_name=prioritized_tool.tool_id,
+                        semantic_score=prioritized_tool.semantic_score,
+                        utility_score=prioritized_tool.reliability_score,
+                        total_score=prioritized_tool.total_score
+                    ))
+                
+                elapsed_time = time.time() - start_time
+                self.logger.debug(f"优先级路由引擎选择工具完成，耗时: {elapsed_time:.3f}s，找到{len(scores)}个工具")
+                
+                # 记录路由决策
+                self._log_routing_decision(query, scores, "priority_routing")
+                
+                return scores[:top_k]
+                
+            except Exception as e:
+                self.logger.warning(f"优先级路由引擎选择工具失败，回退到关键词匹配: {e}")
+                # 继续执行旧的关键词匹配逻辑
+        
+        # 回退：旧的关键词匹配逻辑
         if not self.tools:
             return []
         
@@ -443,14 +503,72 @@ class EnhancedToolSelector:
             ))
         
         scores.sort(key=lambda x: x.total_score, reverse=True)
+        
+        # 记录路由决策
+        self._log_routing_decision(query, scores, "keyword_fallback")
+        
         return scores[:top_k]
     
-    def record_result(self, tool_name: str, success: bool):
+    def _log_routing_decision(self, query: str, scores: List[ToolSelectionScore], routing_method: str):
+        """记录路由决策日志"""
+        if not scores:
+            self.logger.info(f"路由决策: 查询='{query}'，方法={routing_method}，结果=无匹配工具")
+            return
+        
+        # 记录前3个推荐工具
+        top_tools = []
+        for i, score in enumerate(scores[:3]):
+            source = "未知"
+            priority = 0.0
+            
+            # 尝试从路由引擎获取更多信息
+            if self._routing_engine_initialized and self._routing_engine:
+                try:
+                    # 这里可以添加更多信息提取逻辑
+                    pass
+                except:
+                    pass
+            
+            tool_info = {
+                "name": score.tool_name,
+                "semantic_score": f"{score.semantic_score:.2f}",
+                "total_score": f"{score.total_score:.2f}",
+                "source": source,
+                "priority": priority
+            }
+            top_tools.append(tool_info)
+        
+        self.logger.info(
+            f"路由决策: 查询='{query}'，方法={routing_method}，"
+            f"推荐工具数={len(scores)}，前3个: {top_tools}"
+        )
+    
+    def record_result(self, tool_name: str, success: bool, latency: Optional[float] = None):
+        """记录工具使用结果
+        
+        Args:
+            tool_name: 工具名称
+            success: 是否成功
+            latency: 延迟时间（秒），可选
+        """
+        # 更新本地统计
         if tool_name in self.tool_stats:
             stats = self.tool_stats[tool_name]
             stats["total_calls"] += 1
             if success:
                 stats["success_count"] += 1
+        
+        # 更新路由引擎性能追踪
+        if self._routing_engine_initialized and self._routing_engine:
+            try:
+                # 如果没有提供延迟，使用默认值
+                if latency is None:
+                    latency = 1.0  # 默认1秒
+                
+                self._routing_engine.record_tool_performance(tool_name, success, latency)
+                self.logger.debug(f"更新路由引擎性能追踪: {tool_name}, 成功={success}, 延迟={latency:.3f}s")
+            except Exception as e:
+                self.logger.warning(f"更新路由引擎性能追踪失败: {e}")
 
 
 # ==================== 单例访问 ====================

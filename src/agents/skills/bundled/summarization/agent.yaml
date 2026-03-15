@@ -1,0 +1,5 @@
+# Agent配置文件
+agents:
+  - name: creative-agent
+    priority: 1
+    description: 创意写作助手

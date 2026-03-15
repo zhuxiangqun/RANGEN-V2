@@ -1,0 +1,39 @@
+{
+  "query_results": {
+    "0161fb8d": {
+      "query": "What sea borders the Irish County where the author of the short story Foster was born?",
+      "expected_answer": "The Irish Sea",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.03452610969543457,
+      "pipeline_execution_time": 0.03432488441467285,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:18:32.960275",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.011764705882352944
+    }
+  },
+  "total_queries": 1,
+  "successful_queries": 1,
+  "overall_success_rate": 1.0,
+  "last_update": "2025-09-07T20:18:32.960468"
+}

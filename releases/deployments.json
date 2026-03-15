@@ -1,0 +1,23 @@
+{
+  "deploy_1758469381": {
+    "id": "deploy_1758469381",
+    "version": "2.0.0",
+    "strategy": "blue_green",
+    "target_environment": "production",
+    "traffic_weights": {},
+    "health_check_endpoints": [
+      "/health",
+      "/ready"
+    ],
+    "rollback_plan": {
+      "rollback_to": "1.0.0",
+      "traffic_switch": true,
+      "health_check": true,
+      "data_backup": true
+    },
+    "created_at": 1758469381.797587,
+    "started_at": 0,
+    "completed_at": 0,
+    "status": "pending"
+  }
+}

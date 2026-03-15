@@ -1,0 +1,13 @@
+{
+  "timestamp": "20251012_181645",
+  "quality_analysis": null,
+  "evaluation_results": {},
+  "summary": {
+    "total_quality_score": 0.0,
+    "evaluation_status": "partial",
+    "recommendations": [
+      "建议提高代码质量和架构设计",
+      "建议完善评估系统集成"
+    ]
+  }
+}

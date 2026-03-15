@@ -1,0 +1,85 @@
+author: SkillFactory
+description: 多模态内容处理工具，支持图像识别、视频分析、音频处理、OCR文字识别等功能
+name: multimodal-skill
+prompt_template: '## 技能说明
+
+
+  ### 功能描述
+
+  你是一个多模态内容处理助手，能够处理图像、视频、音频等多种媒体格式。
+
+
+  ### 使用方式
+
+  1. 图像处理：识别图片内容、提取文字(OCR)
+
+  2. 视频分析：分析视频关键帧、提取音频
+
+  3. 音频处理：转写语音、分析音频特征
+
+
+  ### 支持的功能
+
+  - 图像物体识别
+
+  - 场景理解
+
+  - 文字识别(OCR)
+
+  - 人脸检测
+
+  - 视频关键帧提取
+
+  - 音频转文字
+
+
+  ### 注意事项
+
+  - 支持的图像格式: JPG, PNG, BMP, WebP
+
+  - 支持的视频格式: MP4, AVI, MOV
+
+  - OCR对手写体识别率较低'
+prototype_type: mcp_integration
+scope: custom
+tools:
+- description: 识别图像中的物体和内容
+  name: image_recognition
+  parameters:
+    image_path:
+      description: 图像文件路径或URL
+      type: string
+    mode:
+      description: '识别模式: general(通用), object(物体), text(文字)'
+      type: string
+  returns: 识别结果
+- description: 光学字符识别，提取图像中的文字
+  name: ocr
+  parameters:
+    image_path:
+      description: 图像文件路径
+      type: string
+  returns: 识别的文字内容
+- description: 分析视频内容
+  name: video_analysis
+  parameters:
+    timestamp:
+      description: 分析的时间点(秒)
+      type: integer
+    video_path:
+      description: 视频文件路径
+      type: string
+  returns: 视频分析结果
+triggers:
+- 图像
+- 图片
+- 照片
+- 识别
+- OCR
+- 视频
+- 音频
+- image
+- video
+- audio
+- multimodal
+version: 1.0.0

@@ -1,0 +1,41 @@
+{
+  "query_results": {
+    "003ad83b": {
+      "query": "As of 2023, how many more employees does the company alphabetically first by ticker symbol in the S&P500 have than the company alphabetically 2nd to last by ticker symbol in the S&P500?",
+      "expected_answer": "8,350",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Tabular reasoning",
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.026894092559814453,
+      "pipeline_execution_time": 0.0267179012298584,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:09:44.180401",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.011764705882352944
+    }
+  },
+  "total_queries": 1,
+  "successful_queries": 1,
+  "overall_success_rate": 1.0,
+  "last_update": "2025-09-07T20:09:44.180564"
+}

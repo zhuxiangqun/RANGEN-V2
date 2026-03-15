@@ -1,0 +1,23 @@
+步骤编号: 2
+查询: Who was the mother of Martha Washington of the United States?
+
+响应长度: 1668字符
+
+======================================================================
+完整响应:
+======================================================================
+
+1. **Limitations of the retrieved evidence:**  
+   The provided evidence does not contain any information relevant to the question. It offers no details about Martha Washington's family or lineage, making it impossible to answer the query based on the given material.
+
+2. **Answer based on historical knowledge:**  
+   Martha Washington's mother was **Frances Jones**. Martha Washington (née Martha Dandridge) was born on June 2, 1731, in Chestnut Grove, Virginia. Her father was John Dandridge, a planter and county clerk, and her mother was Frances Jones Dandridge.
+
+3. **Explanation of potential variations in answers:**  
+   This question may have different answers only if there is confusion with another historical figure named Martha Washington, which is highly unlikely. The primary source of variation could stem from historical records that sometimes contain spelling variations (e.g., "Frances" vs. "Francis") or from less common references that might incorrectly list a different mother due to genealogical errors. However, among reputable historical and biographical sources, Frances Jones is consistently identified as her mother.
+
+4. **Suggestions for obtaining more accurate information:**  
+   To verify this information, you could consult:  
+   - Authoritative biographies of Martha Washington (e.g., "Martha Washington: An American Life" by Patricia Brady).  
+   - Reputable historical databases and encyclopedias such as the *American National Biography Online* or the *Mount Vernon* official website (maintained by the Mount Vernon Ladies' Association).  
+   - Scholarly articles or verified genealogical records from the colonial Virginia period.

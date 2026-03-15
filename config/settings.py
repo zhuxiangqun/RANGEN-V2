@@ -15,10 +15,10 @@ class Settings:
     VERSION = "1.0.0"
     DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
-    # LLM配置
-    OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
-    ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
-    DEFAULT_MODEL = os.getenv("DEFAULT_MODEL", "gpt-4")
+    # LLM配置 - 只使用DeepSeek作为外部LLM
+    # OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")  # 已废弃：外部LLM只使用DeepSeek
+    # ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")  # 已废弃：外部LLM只使用DeepSeek
+    DEFAULT_MODEL = os.getenv("DEFAULT_MODEL", "deepseek-reasoner")
 
     # 向量数据库配置
     PINECONE_API_KEY = os.getenv("PINECONE_API_KEY", "")
@@ -79,8 +79,8 @@ class Settings:
 
     # 安全配置
     ALLOWED_DOMAINS = [
-        "openai.com",
-        "anthropic.com",
+        # "openai.com",  # 已废弃：外部LLM只使用DeepSeek
+        # "anthropic.com",  # 已废弃：外部LLM只使用DeepSeek
         "google.com",
         "microsoft.com",
         "github.com",
@@ -104,8 +104,7 @@ class Settings:
     def validate_config(cls) -> bool:
         """验证配置"""
         required_keys = [
-            "OPENAI_API_KEY",
-            "ANTHROPIC_API_KEY"
+            # 不再强制要求外部LLM API密钥，允许使用本地模型
         ]
 
         missing_keys = []

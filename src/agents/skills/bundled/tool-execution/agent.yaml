@@ -1,0 +1,5 @@
+# Agent配置文件
+agents:
+  - name: developer-agent
+    priority: 1
+    description: 开发助手

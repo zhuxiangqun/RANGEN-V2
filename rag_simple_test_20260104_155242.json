@@ -1,0 +1,32 @@
+{
+  "test_summary": {
+    "total_queries": 3,
+    "successful_queries": 3,
+    "success_rate": 100.0,
+    "total_time": 2.9802322387695312e-05,
+    "avg_response_time": 4.0531158447265625e-06
+  },
+  "results": [
+    {
+      "query": "What was the age difference between Mike Tyson and Tyson Fury?",
+      "success": true,
+      "confidence": 0.5,
+      "response_time": 6.9141387939453125e-06,
+      "answer": "这是对查询 'What was the age difference between Mike Tyson and Tyson Fury?' 的模拟回答（轻量级模式）"
+    },
+    {
+      "query": "Who was the United States President when Chile won their first Copa America?",
+      "success": true,
+      "confidence": 0.5,
+      "response_time": 4.0531158447265625e-06,
+      "answer": "这是对查询 'Who was the United States President when Chile won their first Copa America?' 的模拟回答（轻量级模式）"
+    },
+    {
+      "query": "What painting was stolen from The Louvre exactly 56 years before Joan Baez's birth?",
+      "success": true,
+      "confidence": 0.5,
+      "response_time": 1.1920928955078125e-06,
+      "answer": "这是对查询 'What painting was stolen from The Louvre exactly 56 years before Joan Baez's birth?' 的模拟回答（轻量级模式）"
+    }
+  ]
+}

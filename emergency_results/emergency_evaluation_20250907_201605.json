@@ -1,0 +1,71 @@
+{
+  "query_results": {
+    "0275333c": {
+      "query": "In 2003, Audible entered an agreement of exclusivity with a major brand. Who founded that brand?",
+      "expected_answer": "Steve Jobs, Steve Wozniak and Ronald Wayne",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.03215503692626953,
+      "pipeline_execution_time": 0.03187990188598633,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:16:05.215417",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.004878048780487809
+    },
+    "04b0251a": {
+      "query": "As of 2024, how many times could the country where shogi was invented fit inside the country where xiangqi was invented? Round to the nearest whole number.",
+      "expected_answer": "25",
+      "actual_answer": "答案生成智能体不可用，使用备用模式",
+      "reasoning_types": [
+        "Numerical reasoning",
+        "Post processing"
+      ],
+      "success": true,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.0017740726470947266,
+      "pipeline_execution_time": 0.0017070770263671875,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": null,
+      "evaluation_time": "2025-09-07T20:16:05.217401",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    }
+  },
+  "total_queries": 2,
+  "successful_queries": 2,
+  "overall_success_rate": 1.0,
+  "last_update": "2025-09-07T20:16:05.217462"
+}

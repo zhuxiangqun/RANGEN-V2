@@ -1,0 +1,12 @@
+# Agent配置文件 - 定义哪个Agent可以使用这个Skill
+# 与AgentSelector中的定义保持一致
+agents:
+  - name: assistant-agent
+    priority: 1  # 默认Agent，优先级最高
+    description: 通用助手，处理日常问答、计算、文件读取等基本任务
+  - name: analysis-agent
+    priority: 2
+    description: 分析助手，擅长数据分析、机器学习预测
+  - name: developer-agent
+    priority: 3
+    description: 开发助手，擅长代码生成、调试、技术问题解答

@@ -22,11 +22,11 @@ llm:
     citation_model: "${CITATION_MODEL:deepseek-chat}"
     fallback_model: "${DEEPSEEK_FALLBACK_MODEL:deepseek-chat}"
   
-  # OpenAI Configuration (alternative)
-  openai:
-    api_key: "${OPENAI_API_KEY}"
-    base_url: "${OPENAI_BASE_URL:https://api.openai.com/v1}"
-    model: "${OPENAI_MODEL:gpt-3.5-turbo}"
+  # OpenAI Configuration (alternative) - 已废弃：外部LLM只使用DeepSeek
+  # openai:
+  #   api_key: "${OPENAI_API_KEY}"
+  #   base_url: "${OPENAI_BASE_URL:https://api.openai.com/v1}"
+  #   model: "${OPENAI_MODEL:gpt-3.5-turbo}"
 
 # Knowledge Base Configuration
 knowledge_base:

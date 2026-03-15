@@ -1,0 +1,53 @@
+# LangGraph 相关依赖
+# 安装命令: pip install -r requirements_langgraph.txt
+
+# LangGraph 核心库
+langgraph>=0.2.0
+
+# 检查点存储（可选，根据需要选择）
+# 内存存储（开发环境）
+# 已包含在 langgraph 中
+
+# SQLite 存储（生产环境）
+# langgraph[checkpoint-sqlite]
+
+# PostgreSQL 存储（生产环境，需要额外配置）
+# langgraph[checkpoint-postgres]
+
+# 可视化工具（可选）
+# langgraph-studio  # 需要单独安装，用于可视化工作流
+
+# 浏览器可视化服务器依赖
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+websockets>=12.0
+
+# LangExtract 相关依赖
+# 注意：安装前需要解决 google-auth 版本冲突
+# 
+# 如果遇到 "google-auth-oauthlib requires google-auth<2.42.0" 错误：
+# 
+# 方案1（推荐）：降级 google-auth
+#   pip install "google-auth>=2.15.0,<2.42.0"
+#   pip install langextract
+#
+# 方案2：升级 google-auth-oauthlib
+#   pip install --upgrade google-auth-oauthlib
+#   pip install langextract
+#
+# 或使用安装脚本：
+#   bash scripts/install_langextract.sh
+#
+# 详细说明请查看：docs/installation/langextract_installation_guide.md
+
+langextract>=0.1.0  # 生产环境使用（需要 Google API Key）
+
+# 本地模型依赖（开发环境，可选）
+# 如果只想使用本地模型，可以不安装 langextract
+transformers>=4.30.0  # 用于加载本地模型（如 DistilBERT）
+torch>=2.0.0  # PyTorch（transformers 的依赖）
+
+# OpenTelemetry 监控支持（推荐安装，用于分布式追踪和性能监控）
+opentelemetry-api>=1.20.0
+opentelemetry-sdk>=1.20.0
+

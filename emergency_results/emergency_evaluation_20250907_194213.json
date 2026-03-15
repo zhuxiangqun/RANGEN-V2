@@ -1,0 +1,70 @@
+{
+  "query_results": {
+    "05ea5bea": {
+      "query": "Which ancient archaeoastronomical site in the U.K. is also associated with the summer solstice during which time light illuminates a quartz-rich stone in the chamber.",
+      "expected_answer": "Bryn Celli Ddu",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.2442857142857143,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.014265060424804688,
+      "pipeline_execution_time": 0.015111923217773438,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:42:13.378874",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.024390243902439025
+    },
+    "03fbacc0": {
+      "query": "As of August 3rd 2024, how many Emmy Award nominations does the main cast member that was introduced in Season 2 of It's Always Sunny in Philadelphia have?",
+      "expected_answer": "5",
+      "actual_answer": "研究过程中发生错误: 'NoneType' object is not callable",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.24000000000000002,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.004225969314575195,
+      "pipeline_execution_time": 0.004662036895751953,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'NoneType' object is not callable",
+      "evaluation_time": "2025-09-07T19:42:13.383883",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.0
+    }
+  },
+  "total_queries": 2,
+  "successful_queries": 0,
+  "overall_success_rate": 0.0,
+  "last_update": "2025-09-07T19:42:13.383987"
+}

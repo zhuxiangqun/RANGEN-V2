@@ -1,0 +1,22 @@
+{
+  "agent_name": "test_agent",
+  "learning_data": {
+    "learning_rate": 0.01,
+    "batch_size": 32,
+    "epochs_completed": 50,
+    "loss_history": [
+      0.5,
+      0.4,
+      0.3,
+      0.2
+    ],
+    "accuracy_history": [
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ]
+  },
+  "saved_at": "2025-10-20T10:38:43.632866",
+  "version": "1.0.0"
+}

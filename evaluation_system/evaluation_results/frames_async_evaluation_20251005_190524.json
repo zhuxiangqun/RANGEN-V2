@@ -1,0 +1,1482 @@
+{
+  "success": true,
+  "dataset": "FRAMES",
+  "start_time": "2025-10-05T19:05:24.590812",
+  "end_time": "2025-10-05T19:05:24.601092",
+  "total_queries": 50,
+  "successful_count": 0,
+  "failed_count": 50,
+  "overall_success_rate": 0.0,
+  "average_execution_time": 0,
+  "frames_accuracy": 1.0,
+  "average_quality_score": 1.0,
+  "average_innovation_score": 1.0,
+  "results": [
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.000514984130859375,
+      "pipeline_execution_time": 0.00049591064453125,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.591552",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00023674964904785156,
+      "pipeline_execution_time": 0.00020694732666015625,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.591812",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.0001537799835205078,
+      "pipeline_execution_time": 0.0001499652862548828,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.592026",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00012183189392089844,
+      "pipeline_execution_time": 0.00011873245239257812,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.592168",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00011897087097167969,
+      "pipeline_execution_time": 0.00011682510375976562,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.592308",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.0001380443572998047,
+      "pipeline_execution_time": 0.00013518333435058594,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.592461",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00014066696166992188,
+      "pipeline_execution_time": 0.00013780593872070312,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.592623",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00018596649169921875,
+      "pipeline_execution_time": 0.00018095970153808594,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.592825",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.0001442432403564453,
+      "pipeline_execution_time": 0.0001399517059326172,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.592994",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00011396408081054688,
+      "pipeline_execution_time": 0.00011181831359863281,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.593130",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00011205673217773438,
+      "pipeline_execution_time": 0.00010800361633300781,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.593258",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.0001342296600341797,
+      "pipeline_execution_time": 0.0001308917999267578,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.593411",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00014400482177734375,
+      "pipeline_execution_time": 0.0001399517059326172,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.593574",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00011372566223144531,
+      "pipeline_execution_time": 0.00011181831359863281,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.593704",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.0001010894775390625,
+      "pipeline_execution_time": 9.799003601074219e-05,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.593844",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00014209747314453125,
+      "pipeline_execution_time": 0.0001399517059326172,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.594004",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00010991096496582031,
+      "pipeline_execution_time": 0.00010776519775390625,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.594130",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.0001049041748046875,
+      "pipeline_execution_time": 0.000102996826171875,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.594249",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 9.679794311523438e-05,
+      "pipeline_execution_time": 9.417533874511719e-05,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.594362",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00010800361633300781,
+      "pipeline_execution_time": 0.00010585784912109375,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.594483",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 9.989738464355469e-05,
+      "pipeline_execution_time": 9.799003601074219e-05,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.594599",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.0001399517059326172,
+      "pipeline_execution_time": 0.00013780593872070312,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.594755",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.0006279945373535156,
+      "pipeline_execution_time": 0.0006232261657714844,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.595405",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.000621795654296875,
+      "pipeline_execution_time": 0.0006172657012939453,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.596079",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.0002980232238769531,
+      "pipeline_execution_time": 0.0002789497375488281,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.596504",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00019288063049316406,
+      "pipeline_execution_time": 0.00018978118896484375,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.596779",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.0001201629638671875,
+      "pipeline_execution_time": 0.00011610984802246094,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.596919",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00015211105346679688,
+      "pipeline_execution_time": 0.00014901161193847656,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.597121",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00015592575073242188,
+      "pipeline_execution_time": 0.00015211105346679688,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.597295",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00011014938354492188,
+      "pipeline_execution_time": 0.00010824203491210938,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.597421",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00011301040649414062,
+      "pipeline_execution_time": 0.00010585784912109375,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.597550",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00012087821960449219,
+      "pipeline_execution_time": 0.00011801719665527344,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.597690",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00012183189392089844,
+      "pipeline_execution_time": 0.00011968612670898438,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.597831",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00010919570922851562,
+      "pipeline_execution_time": 0.00010704994201660156,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.597982",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00011801719665527344,
+      "pipeline_execution_time": 0.00011587142944335938,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.598115",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00010800361633300781,
+      "pipeline_execution_time": 0.00010514259338378906,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.598241",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 9.131431579589844e-05,
+      "pipeline_execution_time": 8.916854858398438e-05,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.598367",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.000125885009765625,
+      "pipeline_execution_time": 0.0001232624053955078,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.598575",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00010085105895996094,
+      "pipeline_execution_time": 9.775161743164062e-05,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.598695",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 9.918212890625e-05,
+      "pipeline_execution_time": 9.703636169433594e-05,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.598851",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00031304359436035156,
+      "pipeline_execution_time": 0.0003108978271484375,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.599187",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00017380714416503906,
+      "pipeline_execution_time": 0.0001709461212158203,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.599428",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.0001468658447265625,
+      "pipeline_execution_time": 0.00014400482177734375,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.599591",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.0004258155822753906,
+      "pipeline_execution_time": 0.0004208087921142578,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.600030",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.0002498626708984375,
+      "pipeline_execution_time": 0.0002467632293701172,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.600305",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00013589859008789062,
+      "pipeline_execution_time": 0.00013399124145507812,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.600456",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00011587142944335938,
+      "pipeline_execution_time": 0.00011277198791503906,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.600587",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00013208389282226562,
+      "pipeline_execution_time": 0.00011014938354492188,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.600748",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.00011992454528808594,
+      "pipeline_execution_time": 0.00011587142944335938,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.600916",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    },
+    {
+      "query": "",
+      "expected_answer": "Unknown",
+      "actual_answer": null,
+      "reasoning_types": [],
+      "success": false,
+      "quality_score": null,
+      "innovation_score": null,
+      "confidence": null,
+      "execution_time": 0.000141143798828125,
+      "pipeline_execution_time": 0.00013709068298339844,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'>' not supported between instances of 'NoneType' and 'int'",
+      "evaluation_time": "2025-10-05T19:05:24.601073",
+      "module_timings": {
+        "knowledge_retrieval": null,
+        "reasoning": null,
+        "answer_generation": null,
+        "citation": null
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": null
+    }
+  ],
+  "frames_accuracy_analysis": {
+    "average_frames_accuracy": 1.0,
+    "high_accuracy_count": 0,
+    "medium_accuracy_count": 0,
+    "low_accuracy_count": 0
+  },
+  "reasoning_innovation_analysis": {
+    "average_innovation_score": 1.0,
+    "innovation_metrics": {}
+  },
+  "module_performance_analysis": {
+    "timing_analysis": {},
+    "performance_bottlenecks": []
+  },
+  "evaluation_type": "frames_benchmark_async",
+  "timestamp": "2025-10-05T19:05:24.601104"
+}

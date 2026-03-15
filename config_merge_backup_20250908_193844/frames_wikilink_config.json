@@ -1,0 +1,47 @@
+{
+  "knowledge_source": {
+    "primary": "frames_dataset_wikilinks",
+    "description": "系统仅使用FRAMES数据集中的wikilink内容作为知识库，不使用维基百科API",
+    "enabled_sources": [
+      "frames_dataset_wikilinks"
+    ],
+    "disabled_sources": [
+      "wikipedia_api",
+      "wiki_vector_storage",
+      "external_wiki_downloads"
+    ]
+  },
+  "frames_dataset": {
+    "source_file": "data/frames-benchmark/documents.json",
+    "wikilink_extraction": {
+      "enabled": true,
+      "method": "extract_from_frames_data",
+      "content_type": "wikilink_content_only"
+    },
+    "knowledge_processing": {
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "vector_dimension": 384,
+      "similarity_threshold": 0.7
+    }
+  },
+  "faiss_memory": {
+    "storage_path": "data/faiss_memory",
+    "index_type": "flat",
+    "knowledge_metadata": {
+      "source": "frames_dataset_wikilinks",
+      "content_type": "wikilink_extracted",
+      "dataset_version": "frames_benchmark"
+    }
+  },
+  "system_behavior": {
+    "no_external_wiki": true,
+    "no_wikipedia_api": true,
+    "no_wiki_downloads": true,
+    "knowledge_retrieval": "frames_wikilinks_only"
+  },
+  "metadata": {
+    "last_optimized": "2025-09-08T19:19:31.899445",
+    "optimizer_version": "1.0.0",
+    "optimization_count": 0
+  }
+}

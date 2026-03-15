@@ -190,6 +190,35 @@ class MetricsCollector:
                 type=MetricType.HISTOGRAM,
                 labels=["queue_name"]
             ),
+            # LLM调用指标
+            "llm_calls_total": MetricDefinition(
+                name="llm_calls_total",
+                description="LLM调用总数",
+                unit=MetricUnit.REQUESTS,
+                type=MetricType.COUNTER,
+                labels=["provider", "model", "endpoint"]
+            ),
+            "llm_call_duration_seconds": MetricDefinition(
+                name="llm_call_duration_seconds",
+                description="LLM调用持续时间（秒）",
+                unit=MetricUnit.SECONDS,
+                type=MetricType.HISTOGRAM,
+                labels=["provider", "model", "endpoint"]
+            ),
+            "llm_call_errors_total": MetricDefinition(
+                name="llm_call_errors_total",
+                description="LLM调用错误总数",
+                unit=MetricUnit.ERRORS,
+                type=MetricType.COUNTER,
+                labels=["provider", "model", "endpoint", "error_type"]
+            ),
+            "llm_tokens_total": MetricDefinition(
+                name="llm_tokens_total",
+                description="LLM消耗的token总数",
+                unit=MetricUnit.NONE,
+                type=MetricType.COUNTER,
+                labels=["provider", "model", "token_type"]
+            ),
         }
     
     def _setup_periodic_collection(self):
@@ -621,6 +650,40 @@ def record_cache_operation(cache_name: str, operation: str, hit: bool = True):
     else:
         miss_labels = {"cache_name": cache_name}
         metrics_collector.record_counter("cache_misses_total", 1, miss_labels)
+
+def record_llm_call(provider: str, model: str, endpoint: str, duration: float, success: bool = True, error_type: str = None):
+    """记录LLM调用指标"""
+    metrics_collector = get_metrics_collector()
+    
+    # 记录调用总数
+    call_labels = {"provider": provider, "model": model, "endpoint": endpoint}
+    metrics_collector.record_counter("llm_calls_total", 1, call_labels)
+    
+    # 记录调用持续时间
+    metrics_collector.record_histogram("llm_call_duration_seconds", duration, call_labels)
+    
+    # 记录错误（如果失败）
+    if not success:
+        error_labels = {"provider": provider, "model": model, "endpoint": endpoint, "error_type": error_type or "unknown"}
+        metrics_collector.record_counter("llm_call_errors_total", 1, error_labels)
+    
+    # 如果OpenTelemetry启用，也记录到那里
+    otel_metrics = get_opentelemetry_metrics()
+    if otel_metrics and otel_metrics.enabled:
+        # 暂时使用record_api_call作为替代，或者未来扩展OpenTelemetryMetrics类
+        pass
+
+def record_llm_tokens(provider: str, model: str, token_type: str, token_count: int):
+    """记录LLM token消耗指标"""
+    metrics_collector = get_metrics_collector()
+    labels = {"provider": provider, "model": model, "token_type": token_type}
+    metrics_collector.record_counter("llm_tokens_total", token_count, labels)
+    
+    # 如果OpenTelemetry启用，也记录到那里
+    otel_metrics = get_opentelemetry_metrics()
+    if otel_metrics and otel_metrics.enabled:
+        # 暂时使用record_api_call作为替代，或者未来扩展OpenTelemetryMetrics类
+        pass
 
 # 初始化指标系统
 logger.info("性能监控和指标收集系统已初始化")

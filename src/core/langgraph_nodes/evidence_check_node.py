@@ -4,7 +4,17 @@
 根据RAG_OPTIMIZATION_PLAN.md P0阶段实现，在检索后评估证据质量
 """
 
+from __future__ import annotations
 import asyncio
+import logging
+import time
+from typing import Dict, Any, List, Optional, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from src.core.langgraph_unified_workflow import ResearchSystemState
+
+from src.core.reasoning.evidence_processor import EvidenceProcessor
+from src.core.reasoning.models import Evidence
 import logging
 import time
 from typing import Dict, Any, List, Optional
@@ -46,7 +56,7 @@ class EvidenceCheckNode:
         self.logger = logging.getLogger(f"{__name__}.EvidenceCheckNode")
         self.logger.info("EvidenceCheckNode初始化完成")
     
-    async def execute(self, state: ResearchSystemState) -> ResearchSystemState:
+    async def execute(self, state: "ResearchSystemState") -> "ResearchSystemState":
         """
         执行证据检查节点
         

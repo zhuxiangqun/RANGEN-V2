@@ -1,0 +1,323 @@
+[
+  {
+    "query": "As of August 1 2024, what is the most recently described genus of Colosteidae?",
+    "expected_answer": "Deltaherpeton, first described in 2010",
+    "actual_answer": "Paris is the capital of France.",
+    "reasoning_types": [
+      "Tabular reasoning",
+      "Temporal reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.2607692307692308,
+    "innovation_score": 0.30000000000000004,
+    "confidence": 0.8,
+    "execution_time": 0.1723928451538086,
+    "pipeline_execution_time": 10.154941082000732,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:45:53.208530",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 0.0
+  },
+  {
+    "query": "Małgorzata Rożniecka is a model who won the title of Miss International. What is the difference in title years from when she won and the pageant winner who was murdered by her stalker?",
+    "expected_answer": "10 years",
+    "actual_answer": "10 years",
+    "reasoning_types": [
+      "Numerical reasoning",
+      "Tabular reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.3733333333333333,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.06230974197387695,
+    "pipeline_execution_time": 0.0624852180480957,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:45:54.272418",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "According to the 1990 United States census, what was the total population of the cities in Oklahoma that had at least 100,000 residents according to the 2020 United States census?",
+    "expected_answer": "950135",
+    "actual_answer": "950135",
+    "reasoning_types": [
+      "Numerical reasoning",
+      "Tabular reasoning",
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.05950593948364258,
+    "pipeline_execution_time": 0.05962491035461426,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:45:55.333247",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "What was the political party of the person who advocated for the type of government used in Chikhali, Latur district to become the foundation of India's political system?",
+    "expected_answer": "Indian National Congress",
+    "actual_answer": "Indian National Congress",
+    "reasoning_types": [
+      "Tabular reasoning",
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.44999999999999996,
+    "innovation_score": 0.30000000000000004,
+    "confidence": 0.8,
+    "execution_time": 0.06955409049987793,
+    "pipeline_execution_time": 0.06974101066589355,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:45:56.404168",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "Giorgio Rognoni was an Italian professional footballer who played as a midfielder. 10 years after his death who was the midfielder who played in Milan that was born in Besana in Brianza,?",
+    "expected_answer": "Demetrio Albertini",
+    "actual_answer": "Demetrio Albertini",
+    "reasoning_types": [
+      "Numerical reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.44999999999999996,
+    "innovation_score": 0.7000000000000001,
+    "confidence": 0.8,
+    "execution_time": 0.06020784378051758,
+    "pipeline_execution_time": 0.060328006744384766,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:45:57.465539",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "What was the age difference between Mike Tyson and Tyson Fury on the respective days on which they lost their first ever fights? Represent the figure in years only.",
+    "expected_answer": "12 years.",
+    "actual_answer": "12 years.",
+    "reasoning_types": [
+      "Numerical reasoning",
+      "Post processing"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.7000000000000001,
+    "confidence": 0.8,
+    "execution_time": 0.061141014099121094,
+    "pipeline_execution_time": 0.06126904487609863,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:45:58.527980",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "Using the Pruett rule, out of all of the blue moons that occurred between the beginning of World War I and the end of World War II, how many of them occurred on the 31st of the month?",
+    "expected_answer": "9",
+    "actual_answer": "9",
+    "reasoning_types": [
+      "Numerical reasoning",
+      "Tabular reasoning",
+      "Multiple constraints",
+      "Temporal reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.7000000000000001,
+    "confidence": 0.8,
+    "execution_time": 0.05454707145690918,
+    "pipeline_execution_time": 0.05470705032348633,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:45:59.680569",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "What number would Tommy Lawton have worn playing for Chelsea FC?",
+    "expected_answer": "9",
+    "actual_answer": "9",
+    "reasoning_types": [
+      "Temporal reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.30000000000000004,
+    "confidence": 0.8,
+    "execution_time": 0.06115889549255371,
+    "pipeline_execution_time": 0.06126093864440918,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:46:00.746431",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "If you subtract the year that William McCrary \"Billy\" Ray II was born from the year Obama was first sworn in as President to the United States and multiply it by the number of administrative regions in France as of January 1, 2024, what number would you get?",
+    "expected_answer": "828",
+    "actual_answer": "828",
+    "reasoning_types": [
+      "Numerical reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.9,
+    "confidence": 0.8,
+    "execution_time": 0.061418771743774414,
+    "pipeline_execution_time": 0.06155967712402344,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:46:01.810174",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "If Princess Diana had been born three years earlier, who would have been Prime Minister when she was ten? ",
+    "expected_answer": "Harold Wilson",
+    "actual_answer": "Harold Wilson",
+    "reasoning_types": [
+      "Numerical reasoning",
+      "Multiple constraints",
+      "Temporal reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.44999999999999996,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.06072592735290527,
+    "pipeline_execution_time": 0.06085824966430664,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:46:02.873712",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  }
+]

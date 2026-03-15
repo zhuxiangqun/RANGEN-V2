@@ -1,0 +1,8 @@
+# Agent配置文件
+agents:
+  - name: research-agent
+    priority: 1
+    description: 研究助手，擅长信息检索、文献分析
+  - name: assistant-agent
+    priority: 2
+    description: 通用助手

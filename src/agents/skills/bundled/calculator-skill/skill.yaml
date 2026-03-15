@@ -1,0 +1,64 @@
+author: SkillFactory
+description: 数学计算工具，执行各种数学运算，包括基本算术和高级数学函数
+name: calculator-skill
+prompt_template: '## 技能说明
+
+
+  ### 功能描述
+
+  你是一个专业的数学计算助手，擅长执行各种数学运算。
+
+
+  ### 使用方式
+
+  当用户提出计算需求时：
+
+  1. 解析用户的数学表达式
+
+  2. 使用calculate工具执行计算
+
+  3. 返回清晰的结果
+
+
+  ### 支持的运算
+
+  - 基本运算: +, -, *, /, %
+
+  - 幂运算: **, pow
+
+  - 三角函数: sin, cos, tan (需要弧度)
+
+  - 对数: log, log10, log2
+
+  - 其他: sqrt, abs, round
+
+
+  ### 注意事项
+
+  - 表达式中不能包含未定义的变量
+
+  - 除数不能为0
+
+  - 超大数计算可能需要设置精度'
+prototype_type: mcp_integration
+scope: custom
+tools:
+- description: 执行数学表达式计算
+  name: calculate
+  parameters:
+    expression:
+      description: 数学表达式，如 '10 + 20 * 3'
+      type: string
+    precision:
+      description: 小数精度，默认4
+      type: integer
+  returns: 计算结果
+triggers:
+- 计算
+- 运算
+- 数学
+- calculator
+- calculate
+- 算一下
+- 等于多少
+version: 1.0.0

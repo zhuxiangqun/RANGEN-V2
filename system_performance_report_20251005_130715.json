@@ -1,0 +1,20 @@
+{
+  "export_time": "2025-10-05T13:07:15.935398",
+  "system_status": {
+    "monitoring_active": true,
+    "uptime_seconds": 0.00118,
+    "current_metrics": {
+      "cpu_usage": 0.0,
+      "memory_usage": 0.0,
+      "query_count": 0,
+      "success_rate": 0.0,
+      "avg_response_time": 0.0,
+      "error_count": 0
+    },
+    "statistics": {
+      "total_queries": 0,
+      "successful_queries": 0,
+      "failed_queries": 0,
+      "total_response_time": 0.0,
+      "optimization_actions_taken": 0,
+      "start_time": 

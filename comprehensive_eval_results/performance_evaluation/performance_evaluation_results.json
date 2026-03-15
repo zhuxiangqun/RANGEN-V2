@@ -1,0 +1,27 @@
+{
+  "evaluation_time": "2025-08-17T08:14:08.182049",
+  "frames_wikilink": {
+    "init_time": 5.9604644775390625e-06,
+    "status": "available",
+    "source": "frames_dataset_wikilinks",
+    "config": "frames_wikilink_config.json",
+    "error": "FAISS内存系统未初始化"
+  },
+  "memory_system": {
+    "data/faiss_memory/faiss_index.bin": {
+      "size_bytes": 4050477,
+      "size_mb": 3.8628358840942383
+    },
+    "data/faiss_memory/knowledge_entries.json": {
+      "size_bytes": 2407227,
+      "size_mb": 2.295710563659668
+    },
+    "total_size_mb": 6.158546447753906
+  },
+  "reasoning_efficiency": {
+    "avg_reasoning_time": 8.082389831542969e-05,
+    "reasoning_steps_avg": 2,
+    "tool_usage_efficiency": 0.4,
+    "memory_access_speed": 0.3
+  }
+}

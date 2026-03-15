@@ -1,0 +1,11 @@
+{
+  "evaluation_mode": "fast",
+  "sample_count": 2,
+  "timeout_seconds": 30,
+  "max_reasoning_steps": 3,
+  "metadata": {
+    "last_optimized": "2025-09-08T19:19:31.898933",
+    "optimizer_version": "1.0.0",
+    "optimization_count": 0
+  }
+}

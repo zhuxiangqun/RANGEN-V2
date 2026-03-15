@@ -1,0 +1,64 @@
+{
+  "timestamp": "2025-10-05T17:45:24.844788",
+  "reorganization_summary": {
+    "total_modules_moved": 17,
+    "new_directory_structure": {
+      "src/detection/quality/": 5,
+      "src/detection/monitoring/": 9,
+      "src/detection/evaluation/": 1,
+      "src/detection/analysis/": 2
+    }
+  },
+  "moved_modules": {
+    "quality": [
+      "unified_intelligent_quality_center.py",
+      "code_quality_checker.py",
+      "automated_quality_monitor.py",
+      "unified_quality_center.py",
+      "data_quality_analyzer.py"
+    ],
+    "monitoring": [
+      "system_health_checker.py",
+      "system_monitor.py",
+      "performance_monitor.py",
+      "resource_monitor.py",
+      "system_monitor_optimizer.py",
+      "system_health_monitor.py",
+      "continuous_monitoring.py",
+      "mock_detection_monitor.py",
+      "config_usage_monitor.py"
+    ],
+    "evaluation": [
+      "async_evaluation_system.py"
+    ],
+    "analysis": [
+      "intelligent_feature_analyzer.py",
+      "semantic_embedding_analyzer.py"
+    ]
+  },
+  "benefits": [
+    "✅ 分离了核心系统功能和检测功能",
+    "✅ 提高了代码组织的清晰度",
+    "✅ 便于维护和管理检测模块",
+    "✅ 减少了核心系统的复杂度",
+    "✅ 支持独立开发和测试检测功能"
+  ],
+  "new_structure": {
+    "core_system": "src/agents, src/utils (核心功能)",
+    "detection_modules": "src/detection/ (检测功能)",
+    "separation_principle": "核心功能与检测功能分离"
+  },
+  "usage_examples": {
+    "quality_detection": "from src.detection.quality import UnifiedIntelligentQualityCenter",
+    "system_monitoring": "from src.detection.monitoring import SystemHealthChecker",
+    "evaluation": "from src.detection.evaluation import AsyncEvaluationSystem",
+    "analysis": "from src.detection.analysis import IntelligentFeatureAnalyzer"
+  },
+  "maintenance_notes": [
+    "检测模块现在位于 src/detection/ 目录下",
+    "每个子目录都有独立的 __init__.py 文件",
+    "提供了统一的导入接口",
+    "支持模块化开发和测试",
+    "可以独立于核心系统运行"
+  ]
+}

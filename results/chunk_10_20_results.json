@@ -1,0 +1,324 @@
+[
+  {
+    "query": "An Australian artist, born the same year as artist Janet Cumbrae Stewart and fellow member of the Melbourne Society of Women Painters and Sculptors, had her painting featured on the cover of Women's World Magazine in 1923. What is the name of the painting?",
+    "expected_answer": "Reve d'Or",
+    "actual_answer": "Reve d'Or",
+    "reasoning_types": [
+      "Multiple constraints",
+      "Temporal reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.7000000000000001,
+    "confidence": 0.8,
+    "execution_time": 0.15528011322021484,
+    "pipeline_execution_time": 10.452481031417847,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:50:32.617467",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "As of July 1, 2024, what is the parent company of the current record label of the singer of Edge of Seventeen?",
+    "expected_answer": "Warner Music Group",
+    "actual_answer": "Warner Music Group",
+    "reasoning_types": [
+      "Tabular reasoning",
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.44999999999999996,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.06217789649963379,
+    "pipeline_execution_time": 0.062304019927978516,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:50:33.681001",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "The Basibasy mine is located in Madagascar. This mine is abundant in a specific chemical element that was discovered for the first time in 1791. The person who discovered this element was born on what is now known as a major US holiday - what holiday is this?",
+    "expected_answer": "Christmas",
+    "actual_answer": "Christmas",
+    "reasoning_types": [
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.9,
+    "confidence": 0.8,
+    "execution_time": 0.06016111373901367,
+    "pipeline_execution_time": 0.06031489372253418,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:50:34.742550",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "One of Barbara Kingsolver's best known novels is about an American missionary family which moves to Africa. At the time, the country they move to was a Belgian colony. Which year did it become independent?",
+    "expected_answer": "1960",
+    "actual_answer": "1960",
+    "reasoning_types": [
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.30000000000000004,
+    "confidence": 0.8,
+    "execution_time": 0.05867886543273926,
+    "pipeline_execution_time": 0.05883383750915527,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:50:35.802506",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "Which football player got 15 or more assists in La Liga during the 2010-2011 season and also played for Arsenal at one point in his career?",
+    "expected_answer": "This was Mesut Ozil.",
+    "actual_answer": "This was Mesut Ozil.",
+    "reasoning_types": [
+      "Numerical reasoning",
+      "Tabular reasoning",
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.44999999999999996,
+    "innovation_score": 0.7000000000000001,
+    "confidence": 0.8,
+    "execution_time": 0.06801009178161621,
+    "pipeline_execution_time": 0.0681447982788086,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:50:36.871875",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "In Slovakia there is a well known Film Festival called the Bratistlava International Film Festival. What city/ town was the film editor for the Grand Prix winner of 2003 born in?",
+    "expected_answer": "Roudnice nad Labem",
+    "actual_answer": "Roudnice nad Labem",
+    "reasoning_types": [
+      "Tabular reasoning",
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.44999999999999996,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.06090092658996582,
+    "pipeline_execution_time": 0.06105494499206543,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:50:37.934199",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "On March 7th, 2012, the director James Cameron explored a very deep underseas trench.  As of August 3, 2024, how many times would the tallest building in San Francisco fit end to end from the bottom of the New Britain Trench to the surface of the ocean? The answer should be a rounded-off whole number.   ",
+    "expected_answer": "28",
+    "actual_answer": "28",
+    "reasoning_types": [
+      "Numerical reasoning",
+      "Tabular reasoning",
+      "Post processing",
+      "Temporal reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.9,
+    "confidence": 0.8,
+    "execution_time": 0.05539703369140625,
+    "pipeline_execution_time": 0.05555605888366699,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:50:39.086406",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "In August of 2024, what is the first name of the mayor of the U.S. state capital city who attended the same university as at least one U.S. president and whose city is home to an outgoing or former full member of the Big 12 Conference",
+    "expected_answer": "Leirion",
+    "actual_answer": "Leirion",
+    "reasoning_types": [
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.060762882232666016,
+    "pipeline_execution_time": 0.060899972915649414,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:50:40.148533",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "How many years after the founding of the 50th most populous US city, based on 2023 estimate population data, did Frank Fox receive UK Patent (1344259)?",
+    "expected_answer": "98 Years (Arlington, TX & Rubik's Cube)",
+    "actual_answer": "98 Years (Arlington, TX & Rubik's Cube)",
+    "reasoning_types": [
+      "Numerical reasoning",
+      "Tabular reasoning",
+      "Multiple constraints",
+      "Temporal reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.4536,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.061933040618896484,
+    "pipeline_execution_time": 0.06207728385925293,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:50:41.211791",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "As of August 4, 2024, in what state was the first secretary of the latest United States federal executive department born?",
+    "expected_answer": "Pennsylvania",
+    "actual_answer": "George Washington was the first president of the United States.",
+    "reasoning_types": [
+      "Tabular reasoning",
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.38368421052631585,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.06380295753479004,
+    "pipeline_execution_time": 0.0639491081237793,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:50:42.276161",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 0.0
+  }
+]

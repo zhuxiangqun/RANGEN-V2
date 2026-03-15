@@ -1,0 +1,31 @@
+# 通用技能模板
+author: your_name
+config:
+  domain: your_domain
+  mode: generic
+  type: custom
+dependencies: []
+description: "请填写技能描述"
+name: skill-name
+prototype_type: mcp_integration
+prompt_template: |
+  ## 技能说明
+  
+  ### 功能描述
+  [描述技能的主要功能]
+  
+  ### 使用方式
+  [描述技能的使用方法]
+  
+  ### 注意事项
+  [使用技能的注意事项]
+related_skills: []
+scope: custom
+tags:
+  - mcp_integration
+  - custom
+tools: []
+triggers:
+  - trigger1
+  - trigger2
+version: 1.0.0

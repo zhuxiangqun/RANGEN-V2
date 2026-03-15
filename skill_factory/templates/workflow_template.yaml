@@ -1,0 +1,48 @@
+# 工作流原型技能模板
+# 适用于有序的流程化操作，包含明确的阶段和门槛
+
+author: your_name
+config:
+  domain: your_domain
+  mode: sequential
+  type: workflow
+dependencies: []
+description: "请填写技能描述：这是一个工作流技能，包含明确的阶段和门槛检查"
+name: skill-name
+prototype_type: workflow
+prompt_template: |
+  ## 工作流技能
+  
+  ### 阶段1: [阶段名称]
+  - 输入: [输入说明]
+  - 处理: [处理逻辑]
+  - 输出: [输出说明]
+  - 门槛: [通过标准]
+  
+  ### 阶段2: [阶段名称]
+  - 输入: [输入说明]
+  - 处理: [处理逻辑]
+  - 输出: [输出说明]
+  - 门槛: [通过标准]
+  
+  ### 阶段管理
+  - 状态追踪: [状态管理方式]
+  - 错误恢复: [错误处理策略]
+  - 进度报告: [进度报告方式]
+related_skills: []
+scope: custom
+tags:
+  - workflow
+  - pipeline
+  - sequential
+tools:
+  - description: "执行工作流阶段"
+    name: execute_stage
+  - description: "检查阶段门槛"
+    name: check_gate
+triggers:
+  - workflow
+  - 流程
+  - 阶段
+  - pipeline
+version: 1.0.0

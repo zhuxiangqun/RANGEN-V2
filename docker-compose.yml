@@ -1,0 +1,360 @@
+version: '3.8'
+
+# RANGEN V2 完整 Docker 编排配置
+# 支持开发、测试和生产环境
+
+x-common-env: &common-env
+  ENVIRONMENT: ${ENVIRONMENT:-development}
+  LOG_LEVEL: ${LOG_LEVEL:-INFO}
+  PYTHONPATH: /app
+  PYTHONUNBUFFERED: 1
+  TZ: Asia/Shanghai
+
+x-common-volumes: &common-volumes
+  - ./config:/app/config
+  - ./logs:/app/logs
+  - ./data:/app/data
+  - ./models:/app/models
+  - ./knowledge_management_system:/app/knowledge_management_system
+
+x-common-build: &common-build
+  context: .
+  dockerfile: Dockerfile
+  target: ${DOCKER_BUILD_TARGET:-production}
+
+services:
+  # 📦 API 服务 - FastAPI REST API
+  rangen-api:
+    container_name: rangen-api
+    build: *common-build
+    image: rangen/rangen-v2:${TAG:-latest}
+    restart: unless-stopped
+    ports:
+      - "${API_PORT:-8080}:8080"
+    environment:
+      <<: *common-env
+      DATABASE_URL: postgresql://${POSTGRES_USER:-rangen}:${POSTGRES_PASSWORD:-rangen123}@postgres:5432/${POSTGRES_DB:-rangen_dev}
+      REDIS_URL: redis://redis:6379/0
+      RABBITMQ_URL: amqp://${RABBITMQ_USER:-guest}:${RABBITMQ_PASSWORD:-guest}@rabbitmq:5672/
+    volumes: *common-volumes
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - rangen-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    command: >
+      sh -c "python src/api/server.py"
+    profiles:
+      - all
+      - api
+      - production
+      - development
+
+  # 🖥️ Streamlit UI 服务 - 聊天界面
+  rangen-ui:
+    container_name: rangen-ui
+    build: *common-build
+    image: rangen/rangen-v2:${TAG:-latest}
+    restart: unless-stopped
+    ports:
+      - "${UI_PORT:-8501}:8501"
+    environment:
+      <<: *common-env
+      API_URL: http://rangen-api:8080
+      STREAMLIT_SERVER_PORT: 8501
+      STREAMLIT_SERVER_ADDRESS: 0.0.0.0
+    volumes: *common-volumes
+    depends_on:
+      - rangen-api
+    networks:
+      - rangen-network
+    command: >
+      sh -c "streamlit run src/ui/app.py --server.port 8501 --server.address 0.0.0.0"
+    profiles:
+      - all
+      - ui
+      - production
+      - development
+
+  # 📊 Vue.js 监控面板
+  rangen-monitor:
+    container_name: rangen-monitor
+    build:
+      context: ./frontend_monitor
+      dockerfile: Dockerfile.monitor
+    image: rangen/rangen-monitor:${TAG:-latest}
+    restart: unless-stopped
+    ports:
+      - "${MONITOR_PORT:-3000}:3000"
+    environment:
+      VITE_API_URL: http://localhost:8080
+      NODE_ENV: ${ENVIRONMENT:-development}
+    volumes:
+      - ./frontend_monitor:/app
+      - /app/node_modules
+    depends_on:
+      - rangen-api
+    networks:
+      - rangen-network
+    profiles:
+      - all
+      - monitor
+      - production
+
+  # 🧠 知识管理系统 (KMS) 服务
+  rangen-kms:
+    container_name: rangen-kms
+    build:
+      context: ./knowledge_management_system
+      dockerfile: Dockerfile.kms
+    image: rangen/rangen-kms:${TAG:-latest}
+    restart: unless-stopped
+    ports:
+      - "${KMS_PORT:-8001}:8001"
+    environment:
+      <<: *common-env
+      KMS_DATABASE_URL: postgresql://${POSTGRES_USER:-rangen}:${POSTGRES_PASSWORD:-rangen123}@postgres:5432/${KMS_DATABASE:-rangen_kms}
+      FAISS_INDEX_PATH: /app/data/faiss_index
+    volumes:
+      - ./knowledge_management_system:/app
+      - ./data:/app/data
+      - ./models:/app/models
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - rangen-network
+    command: >
+      sh -c "python -m knowledge_management_system.server"
+    profiles:
+      - all
+      - kms
+      - production
+
+  # 🤖 RPA 系统服务
+  rangen-rpa:
+    container_name: rangen-rpa
+    build:
+      context: ./rpa_system
+      dockerfile: Dockerfile.rpa
+    image: rangen/rangen-rpa:${TAG:-latest}
+    restart: unless-stopped
+    ports:
+      - "${RPA_PORT:-8002}:8002"
+    environment:
+      <<: *common-env
+      RPA_DATABASE_URL: postgresql://${POSTGRES_USER:-rangen}:${POSTGRES_PASSWORD:-rangen123}@postgres:5432/${RPA_DATABASE:-rangen_rpa}
+    volumes:
+      - ./rpa_system:/app
+      - /dev/shm:/dev/shm  # 共享内存给 Selenium
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - rangen-network
+    profiles:
+      - all
+      - rpa
+      - production
+
+  # 🐘 PostgreSQL 数据库
+  postgres:
+    container_name: rangen-postgres
+    image: postgres:15-alpine
+    restart: unless-stopped
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-rangen}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-rangen123}
+      POSTGRES_DB: ${POSTGRES_DB:-rangen_dev}
+      POSTGRES_MULTIPLE_DATABASES: "rangen_dev,rangen_kms,rangen_rpa"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-databases.sh:/docker-entrypoint-initdb.d/init-databases.sh
+    networks:
+      - rangen-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-rangen}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    profiles:
+      - all
+      - database
+      - production
+      - development
+
+  # 🗄️ Redis 缓存
+  redis:
+    container_name: rangen-redis
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    networks:
+      - rangen-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    profiles:
+      - all
+      - cache
+      - production
+      - development
+
+  # 🐇 RabbitMQ 消息队列
+  rabbitmq:
+    container_name: rangen-rabbitmq
+    image: rabbitmq:3.12-management-alpine
+    restart: unless-stopped
+    ports:
+      - "${RABBITMQ_PORT:-5672}:5672"
+      - "${RABBITMQ_MANAGEMENT_PORT:-15672}:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-guest}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:-guest}
+      RABBITMQ_DEFAULT_VHOST: /
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - rangen-network
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    profiles:
+      - all
+      - queue
+      - production
+
+  # 📈 Prometheus 监控
+  prometheus:
+    container_name: rangen-prometheus
+    image: prom/prometheus:latest
+    restart: unless-stopped
+    ports:
+      - "${PROMETHEUS_PORT:-9090}:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    networks:
+      - rangen-network
+    profiles:
+      - all
+      - monitoring
+      - production
+
+  # 📊 Grafana 仪表板
+  grafana:
+    container_name: rangen-grafana
+    image: grafana/grafana:latest
+    restart: unless-stopped
+    ports:
+      - "${GRAFANA_PORT:-3001}:3000"
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:-admin}
+      GF_INSTALL_PLUGINS: "grafana-piechart-panel,grafana-clock-panel"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning
+      - ./monitoring/grafana/dashboards:/etc/grafana/dashboards
+    depends_on:
+      - prometheus
+    networks:
+      - rangen-network
+    profiles:
+      - all
+      - monitoring
+      - production
+
+  # 📝 Traefik 反向代理 (生产环境)
+  traefik:
+    container_name: rangen-traefik
+    image: traefik:v3.0
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "${TRAEFIK_DASHBOARD_PORT:-8081}:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik.yml:/etc/traefik/traefik.yml
+      - ./traefik/acme.json:/acme.json
+    networks:
+      - rangen-network
+    profiles:
+      - production
+      - proxy
+
+  # 🧪 测试运行器
+  test-runner:
+    container_name: rangen-test-runner
+    build: *common-build
+    image: rangen/rangen-v2:${TAG:-latest}
+    environment:
+      <<: *common-env
+      DATABASE_URL: postgresql://${POSTGRES_USER:-rangen}:${POSTGRES_PASSWORD:-rangen123}@postgres:5432/${POSTGRES_TEST_DB:-rangen_test}
+      PYTEST_ARGS: ${PYTEST_ARGS:--v --cov=src --cov-report=xml}
+    volumes: *common-volumes
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - rangen-network
+    command: >
+      sh -c "pytest tests/ $PYTEST_ARGS"
+    profiles:
+      - test
+
+volumes:
+  postgres_data:
+  redis_data:
+  rabbitmq_data:
+  prometheus_data:
+  grafana_data:
+
+networks:
+  rangen-network:
+    driver: bridge
+    name: rangen-network
+
+# 配置文件示例
+#
+# 1. 开发环境启动:
+#    docker-compose up api ui postgres redis
+#
+# 2. 生产环境启动:
+#    docker-compose --profile production up -d
+#
+# 3. 仅启动监控栈:
+#    docker-compose --profile monitoring up -d
+#
+# 4. 运行测试:
+#    docker-compose --profile test up test-runner
+#
+# 5. 完整启动所有服务:
+#    docker-compose --profile all up -d

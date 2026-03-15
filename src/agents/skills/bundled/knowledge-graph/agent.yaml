@@ -1,0 +1,5 @@
+# Agent配置文件
+agents:
+  - name: research-agent
+    priority: 1
+    description: 研究助手，知识图谱

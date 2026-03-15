@@ -1,10 +1,13 @@
 import streamlit as st
 import requests
-import json
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Configuration
 API_URL = os.getenv("API_URL", "http://localhost:8000")
+RANGEN_API_KEY = os.getenv("RANGEN_API_KEY", "")
 
 st.set_page_config(page_title="RANGEN Chat", page_icon="🤖", layout="wide")
 
@@ -54,7 +57,13 @@ if prompt := st.chat_input("Ask me anything..."):
                 "session_id": st.session_state.session_id
             }
             
-            response = requests.post(f"{API_URL}/chat", json=payload, timeout=60)
+            # Prepare headers - auto-use API key from environment
+            headers = {}
+            api_key = st.session_state.get("api_key") or RANGEN_API_KEY
+            if api_key:
+                headers["Authorization"] = f"Bearer {api_key}"
+            
+            response = requests.post(f"{API_URL}/chat", json=payload, headers=headers, timeout=60)
             
             if response.status_code == 200:
                 data = response.json()

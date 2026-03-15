@@ -1,0 +1,316 @@
+[
+  {
+    "query": "The first white man to visit the indigenous people who were forced on a reserve during the Klondike Gold Rush, worked for a company who officially stopped selling what in 2023?",
+    "expected_answer": "Animal Fur Products",
+    "actual_answer": "Animal Fur Products",
+    "reasoning_types": [
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.44999999999999996,
+    "innovation_score": 0.7000000000000001,
+    "confidence": 0.8,
+    "execution_time": 0.14154577255249023,
+    "pipeline_execution_time": 9.833831310272217,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:48:26.269414",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "What state is the home of the losing team of the World Series three years before \"Old Shufflefoot\" managed his team to victory? ",
+    "expected_answer": "Illinois",
+    "actual_answer": "Illinois",
+    "reasoning_types": [
+      "Multiple constraints",
+      "Temporal reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.06272101402282715,
+    "pipeline_execution_time": 0.06288790702819824,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:48:27.335018",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "Was the person who served as president of the Scottish National Party from 1987 to 2005 alive when the party was founded?",
+    "expected_answer": "Yes",
+    "actual_answer": "George Washington was the first president of the United States.",
+    "reasoning_types": [
+      "Temporal reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.38,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.060716867446899414,
+    "pipeline_execution_time": 0.060820817947387695,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:48:28.398470",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 0.0
+  },
+  {
+    "query": "In series six of Downton Abbey, Lord Merton is diagnosed with a terminal condition. A deficiency in which vitamin causes this condition?",
+    "expected_answer": "Vitamin B12",
+    "actual_answer": "Vitamin B12",
+    "reasoning_types": [
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.4545,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.0569911003112793,
+    "pipeline_execution_time": 0.05711984634399414,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:48:29.458189",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "How many letters long is the title of the first movie composed by the composer of the first American Godzilla movie?",
+    "expected_answer": "17",
+    "actual_answer": "17",
+    "reasoning_types": [
+      "Tabular reasoning",
+      "Multiple constraints",
+      "Post processing"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.1,
+    "confidence": 0.8,
+    "execution_time": 0.056205034255981445,
+    "pipeline_execution_time": 0.05634784698486328,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:48:30.518154",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "The author of the book \"A Good Woman\"'s author was married to a man in 2008, who resigned from the board of HP due to the actions taken by the board's chair. What types of cancer did the chair survive?",
+    "expected_answer": "Breast and skin",
+    "actual_answer": "Breast and skin",
+    "reasoning_types": [
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.44999999999999996,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.06045699119567871,
+    "pipeline_execution_time": 0.0605621337890625,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:48:31.581575",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "Benjamin Waterhouse Hawkins was commissioned to sculpt a series of life-size dinosaurs between 1852-54.  In this location, one species only had its head and back built with the rest of its body submerged underwater because they didn't know what it looked like then.  Where is this display located in 2024, which dinosaur species was this, and what did the rest of its body look like after all? ",
+    "expected_answer": "Crystal Palace Park.  The dinosaur is Mosasaurus, it had a streamlined body, an elongated tail ending with a downturn supporting a two-lobed fin, and two pairs of flippers. ",
+    "actual_answer": "Crystal Palace Park. The dinosaur is Mosasaurus, it had a streamlined body, an elongated tail ending with a downturn supporting a two-lobed fin, and two pairs of flippers.",
+    "reasoning_types": [
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.5852830188679246,
+    "innovation_score": 0.9,
+    "confidence": 0.8,
+    "execution_time": 0.19254326820373535,
+    "pipeline_execution_time": 0.19272089004516602,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:48:32.777172",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 0.4
+  },
+  {
+    "query": "The Assistant to the Regional Manager on The Office TV show (US version) has a farm. You can obtain what food colorant from the crop he grows?",
+    "expected_answer": "Betanin",
+    "actual_answer": "Betanin",
+    "reasoning_types": [
+      "Multiple constraints"
+    ],
+    "success": true,
+    "quality_score": 0.37,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.05720376968383789,
+    "pipeline_execution_time": 0.05731797218322754,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:48:33.837560",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  },
+  {
+    "query": "How many Pokemon World Championships occurred in the contiguous United States during the presidency of Barack Obama?",
+    "expected_answer": "- Five Pokemon World Championships took place in the contiguous United States during Barack Obama's presidency - The championships tournaments were  2009 (San Diego, California), 2011 (San Diego, California),  2014 (Washington, D.C.), 2015 (Boston, Massachusetts) and 2016 (San Francisco, California)",
+    "actual_answer": "Jane Ballou is the mother of the 15th First Lady of the United States.",
+    "reasoning_types": [
+      "Multiple constraints",
+      "Temporal reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.376875,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.05972695350646973,
+    "pipeline_execution_time": 0.0598597526550293,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:48:34.900307",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 0.0
+  },
+  {
+    "query": "Put these historical events in chronological order, starting with the earliest: The Beatles play Ed Sullivan, the fall of the Berlin Wall, The Great Depression, Atlanta Summer Games, World War I. ",
+    "expected_answer": "World War I, The Great Depression, The Beatles play Ed Sullivan, the fall of the Berlin Wall, Atlanta Summer Games. ",
+    "actual_answer": "World War I, The Great Depression, The Beatles play Ed Sullivan, the fall of the Berlin Wall, Atlanta Summer Games.",
+    "reasoning_types": [
+      "Temporal reasoning"
+    ],
+    "success": true,
+    "quality_score": 0.62,
+    "innovation_score": 0.5,
+    "confidence": 0.8,
+    "execution_time": 0.0626668930053711,
+    "pipeline_execution_time": 0.0627748966217041,
+    "knowledge_count": 5,
+    "citation_count": 0,
+    "error": null,
+    "evaluation_time": "2025-09-03T10:48:35.965919",
+    "module_timings": {
+      "knowledge_retrieval": 0.0,
+      "reasoning": 0.0,
+      "answer_generation": 0.0,
+      "citation": 0.0
+    },
+    "module_execution_types": {
+      "knowledge_retrieval": "main_flow",
+      "reasoning": "main_flow",
+      "answer_generation": "main_flow",
+      "citation": "main_flow"
+    },
+    "frames_accuracy": 1.0
+  }
+]

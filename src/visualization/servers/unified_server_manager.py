@@ -209,7 +209,9 @@ class UnifiedServerManager(BaseServer):
 
     def _add_base_routes(self) -> None:
         """添加基础路由"""
+        self.logger.info("🔍 调试: _add_base_routes 方法被调用")
         if not self.main_app:
+            self.logger.warning("🔍 调试: main_app 未初始化，跳过路由添加")
             return
 
         # 注意：FastAPI的mount机制会自动处理路径
@@ -384,9 +386,194 @@ class UnifiedServerManager(BaseServer):
             """健康检查"""
             return await self.health_check()
         
+        @self.main_app.get("/ws")
+        async def websocket_info():
+            """WebSocket端点信息页面"""
+            html_content = """
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>RANGEN WebSocket 服务</title>
+                <style>
+                    body {
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        margin: 0;
+                        padding: 20px;
+                        background: #f5f5f5;
+                    }
+                    .container {
+                        max-width: 800px;
+                        margin: 0 auto;
+                        background: white;
+                        border-radius: 10px;
+                        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                        overflow: hidden;
+                    }
+                    .header {
+                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                        color: white;
+                        padding: 30px;
+                        text-align: center;
+                        position: relative;
+                    }
+                    .nav-button {
+                        position: absolute;
+                        top: 20px;
+                        left: 20px;
+                        background: rgba(255, 255, 255, 0.2);
+                        color: white;
+                        border: 1px solid rgba(255, 255, 255, 0.3);
+                        padding: 8px 16px;
+                        border-radius: 6px;
+                        text-decoration: none;
+                        font-size: 14px;
+                        transition: all 0.3s ease;
+                    }
+                    .nav-button:hover {
+                        background: rgba(255, 255, 255, 0.3);
+                        border-color: rgba(255, 255, 255, 0.5);
+                    }
+                    .content {
+                        padding: 30px;
+                    }
+                    .ws-info {
+                        text-align: center;
+                        margin-bottom: 40px;
+                    }
+                    .ws-name {
+                        font-size: 2.5em;
+                        font-weight: bold;
+                        margin-bottom: 10px;
+                        background: linear-gradient(45deg, #667eea, #764ba2);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+                    .ws-description {
+                        color: #888;
+                        font-size: 1.1em;
+                        margin-bottom: 30px;
+                    }
+                    .status-card {
+                        background: #f8f9fa;
+                        border-radius: 8px;
+                        padding: 20px;
+                        margin-bottom: 20px;
+                        border-left: 4px solid #667eea;
+                    }
+                    .status-title {
+                        font-weight: bold;
+                        color: #333;
+                        margin-bottom: 10px;
+                    }
+                    .status-value {
+                        color: #666;
+                        font-family: monospace;
+                    }
+                    .endpoint-card {
+                        background: #f8f9fa;
+                        border-radius: 8px;
+                        padding: 20px;
+                        border-left: 4px solid #28a745;
+                        margin-bottom: 20px;
+                    }
+                    .endpoint-url {
+                        font-family: monospace;
+                        font-weight: bold;
+                        color: #333;
+                        margin-bottom: 8px;
+                        background: #e9ecef;
+                        padding: 8px;
+                        border-radius: 4px;
+                    }
+                    .endpoint-desc {
+                        color: #666;
+                        font-size: 14px;
+                    }
+                    .code-example {
+                        background: #f8f9fa;
+                        border: 1px solid #e9ecef;
+                        border-radius: 4px;
+                        padding: 15px;
+                        margin: 15px 0;
+                        font-family: 'Courier New', monospace;
+                        font-size: 14px;
+                        white-space: pre-wrap;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <div class="header">
+                        <a href="/" class="nav-button">← 返回首页</a>
+                        <div class="ws-info">
+                            <div class="ws-name">🔄 WebSocket 服务</div>
+                            <div class="ws-description">实时通信和工作流状态推送</div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="status-card">
+                            <div class="status-title">📊 服务状态</div>
+                            <div class="status-value">
+                                WebSocket服务已启用<br>
+                                端点路径: /ws/&#123;execution_id&#125;
+                            </div>
+                        </div>
+
+                        <div class="endpoint-card">
+                            <div class="endpoint-url">ws://localhost:8080/ws/&#123;execution_id&#125;</div>
+                            <div class="endpoint-desc">连接到特定执行ID的WebSocket端点</div>
+                        </div>
+
+                        <div class="status-card">
+                            <div class="status-title">💡 使用说明</div>
+                            <div class="endpoint-desc">
+                                WebSocket服务提供实时通信功能，支持工作流执行状态的实时推送。<br>
+                                通过连接到相应的执行ID端点，可以实时接收工作流状态更新。<br>
+                                <strong>注意</strong>: 必须提供有效的execution_id参数，不能直接连接到/ws路径。
+                            </div>
+                        </div>
+
+                        <div class="status-card">
+                            <div class="status-title">🔧 连接示例</div>
+                            <div class="code-example">// JavaScript 连接示例
+// 注意：必须提供执行ID
+const executionId = 'your-execution-id-here';
+const ws = new WebSocket('ws://localhost:8080/ws/' + executionId);
+
+ws.onopen = function(event) {
+    console.log('WebSocket 连接已建立');
+};
+
+ws.onmessage = function(event) {
+    const data = JSON.parse(event.data);
+    console.log('收到消息:', data);
+};
+
+ws.onclose = function(event) {
+    console.log('WebSocket 连接已关闭');
+};</div>
+                        </div>
+
+                        <div class="status-card">
+                            <div class="status-title">⚠️ 常见错误</div>
+                            <div class="endpoint-desc">
+                                <strong>404 错误</strong>: 如果直接连接到 /ws（没有execution_id），会出现404错误。<br>
+                                <strong>解决方案</strong>: 确保提供有效的execution_id参数。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </body>
+            </html>
+            """
+            return HTMLResponse(content=html_content)
+        
         # 🚀 新增：在主应用上直接注册 WebSocket 路由，方便前端连接
+        self.logger.info(f"🔍 调试: 检查WebSocket服务，self.services.keys() = {list(self.services.keys())}")
+        self.logger.info(f"🔍 调试: 'websocket' in self.services = {'websocket' in self.services}")
         if "websocket" in self.services:
             websocket_server = self.services["websocket"]
+            self.logger.info(f"🔍 调试: WebSocket服务找到: {websocket_server}")
             
             # 直接在主应用上注册 WebSocket 路由
             from fastapi import WebSocket, WebSocketDisconnect

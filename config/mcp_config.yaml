@@ -1,0 +1,201 @@
+# MCP (Model Context Protocol) Configuration
+# ===========================================
+# Configuration for MCP servers and clients
+
+# Global MCP settings
+mcp:
+  enabled: true
+  log_level: "INFO"
+  
+  # Server configuration
+  server:
+    # Main RANGEN MCP server
+    main:
+      enabled: true
+      name: "rangen-tools"
+      description: "RANGEN Internal Tools MCP Server"
+      transport: "stdio"  # stdio or http
+      
+      # stdio configuration
+      stdio:
+        command: "python -m src.agents.tools.mcp_server"
+        args: []
+        
+      # http configuration  
+      http:
+        enabled: true
+        host: "0.0.0.0"
+        port: 8080
+        endpoint: "http://localhost:8080"
+        
+      # Tools to expose
+      tools:
+        include_all: true  # Include all registered tools
+        exclude: []  # Tools to exclude
+        include_only: []  # If non-empty, only include these tools
+        
+      # Resources to expose
+      resources:
+        enabled: false  # Not implemented yet
+        paths: []
+        
+      # Prompts to expose  
+      prompts:
+        enabled: false  # Not implemented yet
+        
+    # Local demo MCP server
+    local_demo:
+      enabled: true
+      name: "local-tools"
+      description: "Local Demo Tools MCP Server"
+      transport: "stdio"
+      
+      stdio:
+        command: "python -m src.agents.tools.mcp_local_server"
+        args: []
+        
+    # Standalone MCP server
+    standalone:
+      enabled: false
+      name: "standalone-tools"
+      description: "Standalone Tools MCP Server"
+      transport: "stdio"
+      
+      stdio:
+        command: "python -m src.agents.tools.standalone_mcp_server"
+        args: []
+        
+  # Client configuration
+  client:
+    # Default connection settings
+    default_transport: "stdio"
+    timeout: 30  # seconds
+    retry_attempts: 3
+    retry_delay: 1  # seconds
+    
+    # HTTP client settings
+    http:
+      max_connections: 10
+      connect_timeout: 5
+      read_timeout: 30
+      
+    # Pre-configured MCP servers to connect to
+    servers:
+      - name: "rangen-tools"
+        description: "RANGEN Internal Tools"
+        transport: "stdio"
+        server_url: "python -m src.agents.tools.mcp_server"
+        auto_connect: true
+        
+      - name: "local-demo"
+        description: "Local Demo Tools"
+        transport: "stdio"
+        server_url: "python -m src.agents.tools.mcp_local_server"
+        auto_connect: false
+        
+  # Integration settings
+  integration:
+    # Auto-start MCP servers on system startup
+    auto_start_servers: true
+    
+    # Auto-register MCP tools with tool registry
+    auto_register_tools: true
+    
+    # Enable MCP protocol for context engineering
+    enable_context_protocol: true
+    
+    # PageIndex MCP integration
+    pageindex:
+      enabled: true
+      server_name: "pageindex"
+      transport: "stdio"
+      
+  # Security settings
+  security:
+    # Enable authentication for HTTP transport
+    authentication_enabled: false
+    
+    # API key for HTTP servers (if enabled)
+    api_key: ""
+    
+    # Allowed origins for HTTP servers
+    allowed_origins:
+      - "http://localhost:*"
+      - "http://127.0.0.1:*"
+      
+  # Monitoring and logging
+  monitoring:
+    enabled: true
+    log_requests: true
+    log_responses: false  # May contain sensitive data
+    metrics_collection: true
+    health_check_interval: 30  # seconds
+    
+  # Performance settings
+  performance:
+    max_concurrent_requests: 10
+    request_timeout: 30  # seconds
+    cache_enabled: true
+    cache_ttl: 300  # seconds
+
+# External MCP Servers
+# Add popular MCP servers that can be connected
+# Reference: https://github.com/modelcontextprotocol/servers
+external_servers:
+  # GitHub MCP Server
+  github:
+    enabled: false
+    name: "github"
+    description: "GitHub Tools - Issues, PRs, Repos"
+    transport: "stdio"
+    # Install: npx @modelcontextprotocol/server-github
+    server_url: "npx -y @modelcontextprotocol/server-github"
+    # Or use direct path if installed locally
+    env:
+      GITHUB_PERSONAL_ACCESS_TOKEN: ""
+    auto_connect: false
+
+  # Slack MCP Server
+  slack:
+    enabled: false
+    name: "slack"
+    description: "Slack Tools - Messages, Channels"
+    transport: "stdio"
+    # Install: npx @modelcontextprotocol/server-slack
+    server_url: "npx -y @modelcontextprotocol/server-slack"
+    env:
+      SLACK_BOT_TOKEN: ""
+      SLACK_TEAM_ID: ""
+    auto_connect: false
+
+  # Puppeteer MCP Server (Browser Automation)
+  puppeteer:
+    enabled: false
+    name: "puppeteer"
+    description: "Browser Automation Tools"
+    transport: "stdio"
+    # Install: npx @modelcontextprotocol/server-puppeteer
+    server_url: "npx -y @modelcontextprotocol/server-puppeteer"
+    auto_connect: false
+
+  # Filesystem MCP Server
+  filesystem:
+    enabled: false
+    name: "filesystem"
+    description: "File Operations - Read, Write, List"
+    transport: "stdio"
+    # Install: npx @modelcontextprotocol/server-filesystem
+    server_url: "npx -y @modelcontextprotocol/server-filesystem /tmp"
+    auto_connect: false
+
+  # Brave Search MCP Server
+  brave-search:
+    enabled: false
+    name: "brave-search"
+    description: "Web Search via Brave API"
+    transport: "stdio"
+    # Install: npx @modelcontextprotocol/server-brave-search
+    server_url: "npx -y @modelcontextprotocol/server-brave-search"
+    env:
+      BRAVE_API_KEY: ""
+    auto_connect: false

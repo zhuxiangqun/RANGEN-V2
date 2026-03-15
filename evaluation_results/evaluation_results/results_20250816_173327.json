@@ -1,0 +1,62 @@
+[
+  {
+    "success": true,
+    "query": "What is artificial intelligence?",
+    "result": {
+      "knowledge": "模拟知识: What is artificial intelligence?",
+      "reasoning": "模拟推理: What is artificial intelligence?",
+      "answer": "模拟答案: What is artificial intelligence?",
+      "confidence": 0.9
+    },
+    "execution_time": 1.5037109851837158,
+    "timestamp": 1755336799.747993
+  },
+  {
+    "success": true,
+    "query": "How does machine learning work?",
+    "result": {
+      "knowledge": "模拟知识: How does machine learning work?",
+      "reasoning": "模拟推理: How does machine learning work?",
+      "answer": "模拟答案: How does machine learning work?",
+      "confidence": 0.9
+    },
+    "execution_time": 1.5036931037902832,
+    "timestamp": 1755336801.252075
+  },
+  {
+    "success": true,
+    "query": "What are neural networks?",
+    "result": {
+      "knowledge": "模拟知识: What are neural networks?",
+      "reasoning": "模拟推理: What are neural networks?",
+      "answer": "模拟答案: What are neural networks?",
+      "confidence": 0.9
+    },
+    "execution_time": 1.502319097518921,
+    "timestamp": 1755336802.7561128
+  },
+  {
+    "success": true,
+    "query": "Explain deep learning",
+    "result": {
+      "knowledge": "模拟知识: Explain deep learning",
+      "reasoning": "模拟推理: Explain deep learning",
+      "answer": "模拟答案: Explain deep learning",
+      "confidence": 0.9
+    },
+    "execution_time": 1.5034129619598389,
+    "timestamp": 1755336804.258662
+  },
+  {
+    "success": true,
+    "query": "What is natural language processing?",
+    "result": {
+      "knowledge": "模拟知识: What is natural language processing?",
+      "reasoning": "模拟推理: What is natural language processing?",
+      "answer": "模拟答案: What is natural language processing?",
+      "confidence": 0.9
+    },
+    "execution_time": 1.503467082977295,
+    "timestamp": 1755336805.762319
+  }
+]

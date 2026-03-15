@@ -1,0 +1,91 @@
+{
+  "timestamp": 1767060111.2798212,
+  "duration": 39.93696999549866,
+  "overall_status": "healthy",
+  "components": {
+    "workflow": {
+      "status": "healthy",
+      "details": {
+        "total_queries": 3,
+        "successful_queries": 3,
+        "success_rate": 1.0,
+        "avg_execution_time": 4.056998650232951,
+        "max_execution_time": 4.9803690910339355,
+        "results": [
+          {
+            "query": "验证查询1",
+            "status": "success",
+            "execution_time": 3.081727981567383,
+            "success": true
+          },
+          {
+            "query": "验证查询2",
+            "status": "success",
+            "execution_time": 4.108898878097534,
+            "success": true
+          },
+          {
+            "query": "验证查询3",
+            "status": "success",
+            "execution_time": 4.9803690910339355,
+            "success": true
+          }
+        ]
+      }
+    },
+    "monitoring": {
+      "status": "healthy",
+      "details": {
+        "metrics_available": true,
+        "total_alerts": 0,
+        "critical_alerts": 0,
+        "health_status": "healthy",
+        "fused_metrics_count": 10
+      }
+    },
+    "test_system": {
+      "status": "healthy",
+      "details": {
+        "total_tests": 2,
+        "successful_tests": 2,
+        "success_rate": 1.0,
+        "quality_gates_passed": 2,
+        "total_quality_gates": 2,
+        "execution_time": 0.0002598762512207031
+      }
+    },
+    "integration": {
+      "status": "warning",
+      "details": {
+        "workflow_success": true,
+        "monitoring_updated": false,
+        "execution_time": 4.832240104675293,
+        "quality_score": 0.868
+      }
+    },
+    "performance": {
+      "status": "healthy",
+      "details": {
+        "avg_response_time": 7.608539183934529,
+        "max_response_time": 9.892334938049316,
+        "min_response_time": 3.981923818588257,
+        "within_threshold": true,
+        "threshold": 10.0,
+        "queries_tested": 3
+      }
+    }
+  },
+  "summary": {
+    "total_components": 5,
+    "status_distribution": {
+      "healthy": 4,
+      "warning": 1
+    },
+    "healthy_components": 4,
+    "warning_components": 1,
+    "error_components": 0
+  },
+  "recommendations": [
+    "✅ 系统运行正常，继续保持监控"
+  ]
+}

@@ -1,6 +1,39 @@
 #!/usr/bin/env python3
 """
 Level 3 Autonomous Agent - 自主执行Agent
+
+整合任务分解、执行追踪、验证循环的完整自动化Agent。
+
+使用场景:
+- 复杂多步骤任务自动化
+- 需要任务验证的研究流程
+- 自主决策循环
+
+与 ExecutionCoordinator 的区别:
+- ExecutionCoordinator: 轻量级路由 + 单次推理
+- Level3Agent: 完整任务分解 + 执行追踪 + 多轮验证
+"""
+
+from typing import Dict, Any, Optional, List
+"""
+Level 3 Autonomous Agent - 自主执行Agent
+
+⚠️ DEPRECATED: 此模块已不再维护。
+请使用 core/ExecutionCoordinator 代替。
+
+整合任务分解、执行追踪、验证循环的完整自动化Agent
+"""
+
+import warnings
+warnings.warn(
+    "Level3Agent is deprecated. Use src.core.ExecutionCoordinator instead.",
+    DeprecationWarning,
+    stacklevel=2
+)
+
+from typing import Dict, Any, Optional, List
+"""
+Level 3 Autonomous Agent - 自主执行Agent
 整合任务分解、执行追踪、验证循环的完整自动化Agent
 """
 

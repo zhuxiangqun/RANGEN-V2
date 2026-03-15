@@ -1,0 +1,32 @@
+{
+  "information_retrieval": {
+    "description": "检索和验证特定的事实信息",
+    "purpose": "收集证据和数据",
+    "schema_required": true,
+    "sub_query_required": true
+  },
+  "data_processing": {
+    "description": "处理和转换数据",
+    "purpose": "数据清理、转换、计算",
+    "schema_required": true,
+    "sub_query_required": true
+  },
+  "logical_reasoning": {
+    "description": "进行逻辑推理和分析",
+    "purpose": "分析关系、得出结论",
+    "schema_required": true,
+    "sub_query_required": true
+  },
+  "answer_synthesis": {
+    "description": "综合信息生成最终答案",
+    "purpose": "整合所有信息提供答案",
+    "schema_required": true,
+    "sub_query_required": false
+  },
+  "evidence_gathering": {
+    "description": "收集证据和支持信息",
+    "purpose": "为推理提供依据",
+    "schema_required": true,
+    "sub_query_required": true
+  }
+}

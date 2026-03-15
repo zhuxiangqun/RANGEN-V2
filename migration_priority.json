@@ -1,0 +1,322 @@
+{
+  "timestamp": "2026-01-01T10:47:28.478672",
+  "total_agents": 16,
+  "priorities": [
+    {
+      "agent": "ReActAgent",
+      "target_agent": "ReasoningExpert",
+      "total_score": 49.29,
+      "frequency_score": 4.29,
+      "business_score": 30,
+      "difficulty_score": 15,
+      "migration_priority": "P1-本周迁移",
+      "usage_count": {
+        "imports": 5,
+        "instantiations": 4,
+        "method_calls": 0,
+        "total": 9
+      },
+      "locations": [
+        "src/unified_research_system.py",
+        "src/core/langgraph_agent_nodes.py",
+        "src/core/intelligent_orchestrator.py"
+      ]
+    },
+    {
+      "agent": "KnowledgeRetrievalAgent",
+      "target_agent": "RAGExpert",
+      "total_score": 48.33,
+      "frequency_score": 3.33,
+      "business_score": 30,
+      "difficulty_score": 15,
+      "migration_priority": "P1-本周迁移",
+      "usage_count": {
+        "imports": 5,
+        "instantiations": 2,
+        "method_calls": 0,
+        "total": 7
+      },
+      "locations": [
+        "src/unified_research_system.py",
+        "src/core/langgraph_agent_nodes.py",
+        "src/agents/chief_agent.py",
+        "src/core/reasoning/engine.py"
+      ]
+    },
+    {
+      "agent": "RAGAgent",
+      "target_agent": "RAGExpert",
+      "total_score": 42.38,
+      "frequency_score": 2.38,
+      "business_score": 30,
+      "difficulty_score": 10,
+      "migration_priority": "P1-本周迁移",
+      "usage_count": {
+        "imports": 3,
+        "instantiations": 2,
+        "method_calls": 0,
+        "total": 5
+      },
+      "locations": [
+        "src/core/langgraph_core_nodes.py",
+        "src/agents/expert_agents.py",
+        "src/agents/tools/rag_tool.py"
+      ]
+    },
+    {
+      "agent": "ChiefAgent",
+      "target_agent": "AgentCoordinator",
+      "total_score": 36.9,
+      "frequency_score": 1.9,
+      "business_score": 30,
+      "difficulty_score": 5,
+      "migration_priority": "P2-本月迁移",
+      "usage_count": {
+        "imports": 2,
+        "instantiations": 2,
+        "method_calls": 0,
+        "total": 4
+      },
+      "locations": [
+        "src/unified_research_system.py",
+        "src/core/langgraph_agent_nodes.py"
+      ]
+    },
+    {
+      "agent": "CitationAgent",
+      "target_agent": "QualityController",
+      "total_score": 34.38,
+      "frequency_score": 2.38,
+      "business_score": 10,
+      "difficulty_score": 22,
+      "migration_priority": "P2-本月迁移",
+      "usage_count": {
+        "imports": 4,
+        "instantiations": 1,
+        "method_calls": 0,
+        "total": 5
+      },
+      "locations": [
+        "src/unified_research_system.py",
+        "src/core/langgraph_agent_nodes.py",
+        "src/agents/chief_agent.py"
+      ]
+    },
+    {
+      "agent": "AnswerGenerationAgent",
+      "target_agent": "RAGExpert",
+      "total_score": 33.33,
+      "frequency_score": 3.33,
+      "business_score": 10,
+      "difficulty_score": 20,
+      "migration_priority": "P2-本月迁移",
+      "usage_count": {
+        "imports": 5,
+        "instantiations": 2,
+        "method_calls": 0,
+        "total": 7
+      },
+      "locations": [
+        "src/unified_research_system.py",
+        "src/core/langgraph_agent_nodes.py",
+        "src/agents/chief_agent.py",
+        "src/agents/rag_agent.py"
+      ]
+    },
+    {
+      "agent": "PromptEngineeringAgent",
+      "target_agent": "ToolOrchestrator",
+      "total_score": 33.33,
+      "frequency_score": 3.33,
+      "business_score": 10,
+      "difficulty_score": 20,
+      "migration_priority": "P2-本月迁移",
+      "usage_count": {
+        "imports": 5,
+        "instantiations": 2,
+        "method_calls": 0,
+        "total": 7
+      },
+      "locations": [
+        "src/core/langgraph_core_nodes.py",
+        "src/agents/chief_agent.py",
+        "src/agents/expert_agents.py",
+        "src/utils/unified_prompt_manager.py"
+      ]
+    },
+    {
+      "agent": "ContextEngineeringAgent",
+      "target_agent": "MemoryManager",
+      "total_score": 32.38,
+      "frequency_score": 2.38,
+      "business_score": 10,
+      "difficulty_score": 20,
+      "migration_priority": "P2-本月迁移",
+      "usage_count": {
+        "imports": 4,
+        "instantiations": 1,
+        "method_calls": 0,
+        "total": 5
+      },
+      "locations": [
+        "src/core/langgraph_core_nodes.py",
+        "src/agents/chief_agent.py",
+        "src/agents/expert_agents.py"
+      ]
+    },
+    {
+      "agent": "MemoryAgent",
+      "target_agent": "MemoryManager",
+      "total_score": 31.43,
+      "frequency_score": 1.43,
+      "business_score": 10,
+      "difficulty_score": 20,
+      "migration_priority": "P2-本月迁移",
+      "usage_count": {
+        "imports": 3,
+        "instantiations": 0,
+        "method_calls": 0,
+        "total": 3
+      },
+      "locations": [
+        "src/core/langgraph_agent_nodes.py",
+        "src/agents/chief_agent.py"
+      ]
+    },
+    {
+      "agent": "OptimizedKnowledgeRetrievalAgent",
+      "target_agent": "RAGExpert",
+      "total_score": 29.43,
+      "frequency_score": 1.43,
+      "business_score": 10,
+      "difficulty_score": 18,
+      "migration_priority": "P2-本月迁移",
+      "usage_count": {
+        "imports": 1,
+        "instantiations": 2,
+        "method_calls": 0,
+        "total": 3
+      },
+      "locations": [
+        "src/agents/optimized_knowledge_retrieval_agent.py",
+        "src/core/reasoning/engine.py"
+      ]
+    },
+    {
+      "agent": "EnhancedAnalysisAgent",
+      "target_agent": "ReasoningExpert",
+      "total_score": 28.95,
+      "frequency_score": 0.95,
+      "business_score": 10,
+      "difficulty_score": 18,
+      "migration_priority": "P2-本月迁移",
+      "usage_count": {
+        "imports": 1,
+        "instantiations": 1,
+        "method_calls": 0,
+        "total": 2
+      },
+      "locations": [
+        "src/async_research_integrator.py"
+      ]
+    },
+    {
+      "agent": "LearningSystem",
+      "target_agent": "LearningOptimizer",
+      "total_score": 28.0,
+      "frequency_score": 0.0,
+      "business_score": 10,
+      "difficulty_score": 18,
+      "migration_priority": "P2-本月迁移",
+      "usage_count": {
+        "imports": 0,
+        "instantiations": 0,
+        "method_calls": 0,
+        "total": 0
+      },
+      "locations": []
+    },
+    {
+      "agent": "IntelligentStrategyAgent",
+      "target_agent": "AgentCoordinator",
+      "total_score": 27.38,
+      "frequency_score": 2.38,
+      "business_score": 10,
+      "difficulty_score": 15,
+      "migration_priority": "P2-本月迁移",
+      "usage_count": {
+        "imports": 2,
+        "instantiations": 3,
+        "method_calls": 0,
+        "total": 5
+      },
+      "locations": [
+        "src/async_research_integrator.py",
+        "src/agents/intelligent_strategy_agent.py",
+        "src/agents/agent_builder.py"
+      ]
+    },
+    {
+      "agent": "FactVerificationAgent",
+      "target_agent": "QualityController",
+      "total_score": 25.48,
+      "frequency_score": 0.48,
+      "business_score": 10,
+      "difficulty_score": 15,
+      "migration_priority": "P2-本月迁移",
+      "usage_count": {
+        "imports": 0,
+        "instantiations": 1,
+        "method_calls": 0,
+        "total": 1
+      },
+      "locations": [
+        "src/agents/fact_verification_agent.py"
+      ]
+    },
+    {
+      "agent": "IntelligentCoordinatorAgent",
+      "target_agent": "AgentCoordinator",
+      "total_score": 25.48,
+      "frequency_score": 0.48,
+      "business_score": 10,
+      "difficulty_score": 15,
+      "migration_priority": "P2-本月迁移",
+      "usage_count": {
+        "imports": 0,
+        "instantiations": 1,
+        "method_calls": 0,
+        "total": 1
+      },
+      "locations": [
+        "src/agents/intelligent_coordinator_agent.py"
+      ]
+    },
+    {
+      "agent": "StrategicChiefAgent",
+      "target_agent": "AgentCoordinator",
+      "total_score": 22.86,
+      "frequency_score": 2.86,
+      "business_score": 10,
+      "difficulty_score": 10,
+      "migration_priority": "P2-本月迁移",
+      "usage_count": {
+        "imports": 3,
+        "instantiations": 3,
+        "method_calls": 0,
+        "total": 6
+      },
+      "locations": [
+        "src/core/langgraph_layered_workflow.py",
+        "src/core/langgraph_layered_workflow_fixed.py",
+        "src/core/simplified_layered_workflow.py"
+      ]
+    }
+  ],
+  "summary": {
+    "P0": 0,
+    "P1": 3,
+    "P2": 13,
+    "P3": 0
+  }
+}

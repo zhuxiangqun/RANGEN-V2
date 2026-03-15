@@ -1,0 +1,35 @@
+{
+  "test_summary": {
+    "total_queries": 3,
+    "successful_queries": 0,
+    "success_rate": 0.0,
+    "total_time": 2.6226043701171875e-05,
+    "avg_response_time": 0.0
+  },
+  "results": [
+    {
+      "query": "What was the age difference between Mike Tyson and Tyson Fury?",
+      "success": false,
+      "confidence": 0.0,
+      "response_time": 0.0,
+      "answer": "",
+      "error": "'AgentResult' object has no attribute 'get'"
+    },
+    {
+      "query": "Who was the United States President when Chile won their first Copa America?",
+      "success": false,
+      "confidence": 0.0,
+      "response_time": 0.0,
+      "answer": "",
+      "error": "'AgentResult' object has no attribute 'get'"
+    },
+    {
+      "query": "What painting was stolen from The Louvre exactly 56 years before Joan Baez's birth?",
+      "success": false,
+      "confidence": 0.0,
+      "response_time": 0.0,
+      "answer": "",
+      "error": "'AgentResult' object has no attribute 'get'"
+    }
+  ]
+}

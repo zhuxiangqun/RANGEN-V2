@@ -1,0 +1,39 @@
+{
+  "query_results": {
+    "052fb38e": {
+      "query": "What Formula One car was driven in 1994 by the nephew of a racing driver from Italy who drove a Ferrari 312T and shares a last name with a common cocktail drink?",
+      "expected_answer": "Minardi M194",
+      "actual_answer": "研究过程中发生错误: 'FallbackAnswerResult' object has no attribute 'get'",
+      "reasoning_types": [
+        "Multiple constraints"
+      ],
+      "success": false,
+      "quality_score": 0.36,
+      "innovation_score": 0.0,
+      "confidence": 0.0,
+      "execution_time": 0.027600765228271484,
+      "pipeline_execution_time": 0.027287960052490234,
+      "knowledge_count": 0,
+      "citation_count": 0,
+      "error": "'FallbackAnswerResult' object has no attribute 'get'",
+      "evaluation_time": "2025-09-07T20:07:05.892621",
+      "module_timings": {
+        "knowledge_retrieval": 0.0,
+        "reasoning": 0.0,
+        "answer_generation": 0.0,
+        "citation": 0.0
+      },
+      "module_execution_types": {
+        "knowledge_retrieval": "main_flow",
+        "reasoning": "main_flow",
+        "answer_generation": "main_flow",
+        "citation": "main_flow"
+      },
+      "frames_accuracy": 0.010344827586206896
+    }
+  },
+  "total_queries": 1,
+  "successful_queries": 0,
+  "overall_success_rate": 0.0,
+  "last_update": "2025-09-07T20:07:05.892924"
+}

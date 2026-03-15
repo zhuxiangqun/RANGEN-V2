@@ -1,0 +1,82 @@
+{
+  "pipeline_1758469381": {
+    "id": "pipeline_1758469381",
+    "name": "测试流水线",
+    "description": "端到端ML流水线测试",
+    "status": "pending",
+    "created_at": 1758469381.803031,
+    "started_at": 0,
+    "completed_at": 0,
+    "tasks": [
+      {
+        "id": "task_1758469381_0",
+        "name": "数据准备",
+        "task_type": "data_preparation",
+        "status": "pending",
+        "created_at": 1758469381.80302,
+        "started_at": 0,
+        "completed_at": 0,
+        "dependencies": [],
+        "parameters": {
+          "data_source": "test"
+        },
+        "output_path": "",
+        "error_message": "",
+        "metrics": null
+      },
+      {
+        "id": "task_1758469381_1",
+        "name": "模型训练",
+        "task_type": "model_training",
+        "status": "pending",
+        "created_at": 1758469381.803026,
+        "started_at": 0,
+        "completed_at": 0,
+        "dependencies": [
+          "数据准备"
+        ],
+        "parameters": {
+          "epochs": 100
+        },
+        "output_path": "",
+        "error_message": "",
+        "metrics": null
+      },
+      {
+        "id": "task_1758469381_2",
+        "name": "模型验证",
+        "task_type": "model_validation",
+        "status": "pending",
+        "created_at": 1758469381.8030279,
+        "started_at": 0,
+        "completed_at": 0,
+        "dependencies": [
+          "模型训练"
+        ],
+        "parameters": {},
+        "output_path": "",
+        "error_message": "",
+        "metrics": null
+      },
+      {
+        "id": "task_1758469381_3",
+        "name": "模型部署",
+        "task_type": "model_deployment",
+        "status": "pending",
+        "created_at": 1758469381.80303,
+        "started_at": 0,
+        "completed_at": 0,
+        "dependencies": [
+          "模型验证"
+        ],
+        "parameters": {},
+        "output_path": "",
+        "error_message": "",
+        "metrics": null
+      }
+    ],
+    "parameters": {},
+    "output_dir": "./mlops/pipelines/pipeline_1758469381",
+    "error_message": ""
+  }
+}

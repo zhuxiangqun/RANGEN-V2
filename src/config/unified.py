@@ -22,6 +22,7 @@ class LLMProvider(Enum):
     OPENAI = "openai"
     MOCK = "mock"
     ANTHROPIC = "anthropic"
+    STEPFLASH = "stepflash"  # Step-3.5-Flash
 
 
 @dataclass
@@ -44,7 +45,10 @@ class LLMConfig:
     fallback_model: str = "deepseek-chat"
     openai_api_key: str = ""
     openai_base_url: str = "https://api.openai.com/v1"
-    openai_model: str = "gpt-3.5-turbo"
+    openai_model: str = "deepseek-chat"  # 默认使用 DeepSeek，兼容遗留配置
+    stepflash_api_key: str = ""
+    stepflash_base_url: str = ""
+    stepflash_model: str = "step-3.5-flash"
 
 
 @dataclass
@@ -243,6 +247,7 @@ class UnifiedConfig:
             "LLM_PROVIDER": ("llm", "provider"),
             "DEEPSEEK_API_KEY": ("llm", "deepseek_api_key"),
             "OPENAI_API_KEY": ("llm", "openai_api_key"),
+            "STEPSFLASH_API_KEY": ("llm", "stepflash_api_key"),
             "VECTOR_STORE_PATH": ("knowledge_base", "vector_store_path"),
             "EMBEDDING_MODEL": ("knowledge_base", "embedding_model"),
             "KMS_ENABLED": ("kms", "enabled", lambda v: v.lower() == "true"),
@@ -277,7 +282,7 @@ class UnifiedConfig:
             llm_data = raw["llm"]
             if "provider" in llm_data:
                 setattr(self.llm, "provider", llm_data["provider"])
-            for provider in ["deepseek", "openai"]:
+            for provider in ["deepseek", "openai", "stepflash"]:
                 if provider in llm_data:
                     for k, v in llm_data[provider].items():
                         attr_name = f"{provider}_{k}"

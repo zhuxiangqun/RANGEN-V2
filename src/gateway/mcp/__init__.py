@@ -86,6 +86,7 @@ class MCPConnection:
     """MCP连接"""
     id: str = field(default_factory=lambda: str(uuid.uuid4()))
     name: str = ""
+    description: str = ""
     server_url: str = ""
     transport: str = "stdio"  # stdio, http, websocket
     
@@ -115,8 +116,8 @@ class MCPClient:
         self._process: Optional[asyncio.subprocess.Process] = None
         self._stdin: Optional[asyncio.StreamWriter] = None
         self._stdout: Optional[asyncio.StreamReader] = None
+        self._http_session: Optional[Any] = None
         self._request_id = 0
-        self._pending_requests: Dict[str, asyncio.Future] = {}
     
     async def connect(self) -> bool:
         """连接到MCP服务器"""
@@ -225,20 +226,18 @@ class MCPClient:
             logger.error(f"Failed to connect via HTTP: {e}")
             self.connection.last_error = str(e)
             return False
-        """通过HTTP连接"""
-        # TODO: 实现HTTP transport
-        logger.error("HTTP transport not implemented yet")
-        return False
     
     async def initialize(self) -> bool:
         """初始化MCP连接"""
-        if not self._stdin or not self._stdout:
-            return False
+        if self.connection.transport == "stdio":
+            if not self._stdin or not self._stdout:
+                return False
         
         # 发送initialize请求
+        request_id = self._next_id()
         request = {
             "jsonrpc": "2.0",
-            "id": self._next_id(),
+            "id": request_id,
             "method": "initialize",
             "params": {
                 "protocolVersion": "2024-11-05",
@@ -254,27 +253,50 @@ class MCPClient:
             }
         }
         
-        # 发送请求
-        await self._send(request)
+        if self.connection.transport == "stdio":
+            # 发送请求
+            await self._send(request)
+            
+            # 等待响应
+            try:
+                response = await self._receive()
+                
+                if "result" in response:
+                    self.connection.initialized = True
+                    
+                    # 获取能力
+                    capabilities = response.get("result", {}).get("capabilities", {})
+                    
+                    # 获取工具列表
+                    if capabilities.get("tools"):
+                        await self.list_tools()
+                    
+                    return True
+                
+            except Exception as e:
+                logger.error(f"Initialize failed: {e}")
         
-        # 等待响应
-        try:
-            response = await self._receive()
+        elif self.connection.transport == "http":
+            try:
+                response = await self._send(request)
+                
+                if not response:
+                    return False
+                
+                if "result" in response:
+                    self.connection.initialized = True
+                    
+                    # 获取能力
+                    capabilities = response.get("result", {}).get("capabilities", {})
+                    
+                    # 获取工具列表
+                    if capabilities.get("tools"):
+                        await self.list_tools()
+                    
+                    return True
             
-            if "result" in response:
-                self.connection.initialized = True
-                
-                # 获取能力
-                capabilities = response.get("result", {}).get("capabilities", {})
-                
-                # 获取工具列表
-                if capabilities.get("tools"):
-                    await self.list_tools()
-                
-                return True
-            
-        except Exception as e:
-            logger.error(f"Initialize failed: {e}")
+            except Exception as e:
+                logger.error(f"Initialize failed: {e}")
         
         return False
     
@@ -283,31 +305,57 @@ class MCPClient:
         if not self.connection.connected:
             return []
         
+        request_id = self._next_id()
         request = {
             "jsonrpc": "2.0",
-            "id": self._next_id(),
+            "id": request_id,
             "method": "tools/list"
         }
         
-        await self._send(request)
+        if self.connection.transport == "stdio":
+            await self._send(request)
+            
+            try:
+                response = await self._receive()
+                tools_data = response.get("result", {}).get("tools", [])
+                
+                self.connection.tools = [
+                    MCPTool(
+                        name=t.get("name", ""),
+                        description=t.get("description", ""),
+                        input_schema=t.get("inputSchema", {})
+                    )
+                    for t in tools_data
+                ]
+                
+                logger.info(f"Loaded {len(self.connection.tools)} tools from MCP server")
+                
+            except Exception as e:
+                logger.error(f"Failed to list tools: {e}")
         
-        try:
-            response = await self._receive()
-            tools_data = response.get("result", {}).get("tools", [])
-            
-            self.connection.tools = [
-                MCPTool(
-                    name=t.get("name", ""),
-                    description=t.get("description", ""),
-                    input_schema=t.get("inputSchema", {})
-                )
-                for t in tools_data
-            ]
-            
-            logger.info(f"Loaded {len(self.connection.tools)} tools from MCP server")
-            
-        except Exception as e:
-            logger.error(f"Failed to list tools: {e}")
+        elif self.connection.transport == "http":
+            try:
+                response = await self._send(request)
+                
+                if not response:
+                    logger.error(f"Failed to send request to MCP server")
+                    return self.connection.tools
+                
+                tools_data = response.get("result", {}).get("tools", [])
+                
+                self.connection.tools = [
+                    MCPTool(
+                        name=t.get("name", ""),
+                        description=t.get("description", ""),
+                        input_schema=t.get("inputSchema", {})
+                    )
+                    for t in tools_data
+                ]
+                
+                logger.info(f"Loaded {len(self.connection.tools)} tools from MCP server via HTTP")
+                
+            except Exception as e:
+                logger.error(f"Failed to list tools: {e}")
         
         return self.connection.tools
     
@@ -316,9 +364,10 @@ class MCPClient:
         if not self.connection.connected:
             raise RuntimeError("Not connected to MCP server")
         
+        request_id = self._next_id()
         request = {
             "jsonrpc": "2.0",
-            "id": self._next_id(),
+            "id": request_id,
             "method": "tools/call",
             "params": {
                 "name": name,
@@ -326,58 +375,106 @@ class MCPClient:
             }
         }
         
-        await self._send(request)
+        if self.connection.transport == "stdio":
+            await self._send(request)
+            
+            try:
+                response = await self._receive()
+                result = response.get("result", {})
+                
+                # 处理工具响应
+                if "content" in result:
+                    return result["content"]
+                
+                return result
+                
+            except Exception as e:
+                logger.error(f"Tool call failed: {e}")
+                raise
         
-        try:
-            response = await self._receive()
-            result = response.get("result", {})
-            
-            # 处理工具响应
-            if "content" in result:
-                return result["content"]
-            
-            return result
-            
-        except Exception as e:
-            logger.error(f"Tool call failed: {e}")
-            raise
+        elif self.connection.transport == "http":
+            try:
+                response = await self._send(request)
+                
+                if not response:
+                    raise RuntimeError(f"Failed to send request to MCP server")
+                
+                result = response.get("result", {})
+                
+                # 处理工具响应
+                if "content" in result:
+                    return result["content"]
+                
+                return result
+                
+            except Exception as e:
+                logger.error(f"Tool call failed: {e}")
+                raise
     
     async def read_resource(self, uri: str) -> str:
         """读取资源"""
         if not self.connection.connected:
             raise RuntimeError("Not connected to MCP server")
         
+        request_id = self._next_id()
         request = {
             "jsonrpc": "2.0",
-            "id": self._next_id(),
+            "id": request_id,
             "method": "resources/read",
             "params": {
                 "uri": uri
             }
         }
         
-        await self._send(request)
+        if self.connection.transport == "stdio":
+            await self._send(request)
+            
+            try:
+                response = await self._receive()
+                result = response.get("result", {})
+                
+                if "contents" in result:
+                    contents = result["contents"]
+                    if contents and "text" in contents[0]:
+                        return contents[0]["text"]
+                
+                return ""
+                
+            except Exception as e:
+                logger.error(f"Resource read failed: {e}")
+                raise
         
-        try:
-            response = await self._receive()
-            result = response.get("result", {})
-            
-            if "contents" in result:
-                contents = result["contents"]
-                if contents and "text" in contents[0]:
-                    return contents[0]["text"]
-            
-            return ""
-            
-        except Exception as e:
-            logger.error(f"Resource read failed: {e}")
-            raise
+        elif self.connection.transport == "http":
+            try:
+                response = await self._send(request)
+                
+                if not response:
+                    raise RuntimeError(f"Failed to send request to MCP server")
+                
+                result = response.get("result", {})
+                
+                if "contents" in result:
+                    contents = result["contents"]
+                    if contents and "text" in contents[0]:
+                        return contents[0]["text"]
+                
+                return ""
+                
+            except Exception as e:
+                logger.error(f"Resource read failed: {e}")
+                raise
     
     async def disconnect(self):
         """断开连接"""
-        if self._process:
-            self._process.terminate()
-            await self._process.wait()
+        if self.connection.transport == "stdio":
+            if self._process:
+                self._process.terminate()
+                await self._process.wait()
+        
+        elif self.connection.transport == "http":
+            if self._http_session:
+                await self._http_session.close()
+                self._http_session = None
         
         self.connection.connected = False
         self.connection.initialized = False
@@ -388,26 +485,59 @@ class MCPClient:
         self._request_id += 1
         return str(self._request_id)
     
-    async def _send(self, request: Dict):
-        """发送请求"""
-        if not self._stdin:
-            return
+    async def _send(self, request: Dict) -> Optional[Dict]:
+        """发送请求并返回响应（仅HTTP传输）"""
+        if self.connection.transport == "stdio":
+            if not self._stdin:
+                return None
+            
+            message = json.dumps(request) + "\n"
+            self._stdin.write(message.encode())
+            await self._stdin.drain()
+            return None
         
-        message = json.dumps(request) + "\n"
-        self._stdin.write(message.encode())
-        await self._stdin.drain()
+        elif self.connection.transport == "http":
+            if not self._http_session:
+                return None
+            
+            # 对于HTTP传输，直接发送请求并等待响应
+            # 注意：MCP over HTTP通常使用SSE或轮询，这里简化实现为同步请求-响应
+            try:
+                import aiohttp
+                
+                async with self._http_session.post(
+                    self.connection.server_url,
+                    json=request,
+                    headers={"Content-Type": "application/json"}
+                ) as response:
+                    if response.status == 200:
+                        return await response.json()
+                    else:
+                        logger.error(f"HTTP request failed with status: {response.status}")
+                        return None
+            except Exception as e:
+                logger.error(f"HTTP send failed: {e}")
+                return None
+        
+        return None
     
     async def _receive(self) -> Dict:
         """接收响应"""
-        if not self._stdout:
+        if self.connection.transport == "stdio":
+            if not self._stdout:
+                return {}
+            
+            line = await self._stdout.readline()
+            
+            if not line:
+                return {}
+            
+            return json.loads(line.decode())
+        
+        elif self.connection.transport == "http":
+            # 对于HTTP传输，接收是通过send方法完成的
+            # 这里返回空字典，实际响应通过pending_requests获取
             return {}
-        
-        line = await self._stdout.readline()
-        
-        if not line:
-            return {}
-        
-        return json.loads(line.decode())
 
 
 class MCPRegistry:

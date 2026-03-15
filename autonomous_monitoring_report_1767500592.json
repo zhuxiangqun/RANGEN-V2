@@ -1,0 +1,64 @@
+{
+  "monitoring_period": {
+    "start": "2026-01-04T12:22:59.541293",
+    "end": "2026-01-04T12:23:12.550013",
+    "duration_hours": 0.0036138483333333334
+  },
+  "statistics": {
+    "total_checks": 1,
+    "total_alerts": 0,
+    "total_optimizations": 0,
+    "average_performance": {
+      "response_time": 0.8,
+      "success_rate": 0.92,
+      "error_rate": 0.08
+    },
+    "alert_summary": {}
+  },
+  "final_status": {
+    "start_time": "2026-01-04 12:22:59.541293",
+    "last_check": "2026-01-04 12:22:59.541668",
+    "last_optimization": null,
+    "performance_history": [
+      {
+        "timestamp": "2026-01-04T12:22:59.541668",
+        "performance": {
+          "response_time": 0.8,
+          "success_rate": 0.92,
+          "error_rate": 0.08,
+          "throughput": 45,
+          "agent_status": {
+            "RAGExpert": {
+              "active": true,
+              "replacement_rate": 0.25
+            },
+            "ReasoningExpert": {
+              "active": true,
+              "replacement_rate": 0.25
+            },
+            "AgentCoordinator": {
+              "active": true,
+              "replacement_rate": 1.0
+            }
+          }
+        },
+        "analysis": {
+          "overall_health": "good",
+          "trends": {},
+          "recommendations": [
+            "系统运行状态良好，可以考虑小幅优化"
+          ]
+        },
+        "alerts": []
+      }
+    ],
+    "alerts": [],
+    "adjustments": []
+  },
+  "recommendations": [
+    "根据监控数据调整系统配置",
+    "定期审查告警阈值设置",
+    "优化自动调整参数",
+    "扩展监控指标覆盖范围"
+  ]
+}

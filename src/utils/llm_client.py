@@ -7,8 +7,10 @@ LLM客户端 - 重构版本
 
 import logging
 import os
-from typing import Dict, List, Any, Optional
+from abc import ABC, abstractmethod
+from typing import List, Dict, Any, Optional
 # LLM功能已合并到utils模块中
+from src.services.stepflash_adapter import StepFlashAdapter
 
 
 class LLMClient:
@@ -287,8 +289,19 @@ class LLMAdapterFactory:
             return DeepSeekAdapter(kwargs.get("api_key", ""))
         elif adapter_type == "local":
             return LocalAdapter()
+        elif adapter_type == "stepflash":
+            return StepFlashAdapter(
+                deployment_type=kwargs.get("deployment_type", "openrouter"),
+                api_key=kwargs.get("api_key"),
+                base_url=kwargs.get("base_url")
+            )
         else:
             raise ValueError(f"不支持的适配器类型: {adapter_type}")
+    
+    @staticmethod
+    def get_available_adapters() -> List[str]:
+        """获取可用适配器列表"""
+        return ["deepseek", "local", "stepflash"]
 
 
 class LLMImplementation(ABC):

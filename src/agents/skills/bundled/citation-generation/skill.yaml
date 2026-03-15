@@ -1,84 +1,40 @@
-name: citation-generation
-version: 1.0.0
-description: "引文生成技能。为答案添加来源引用，标注参考位置，保持学术规范。"
 author: rangen
-tags:
-  - citation
-  - reference
-  - source
-  - attribution
-dependencies: ["answer-generation"]
-scope: bundled
-
 config:
-  type: generation
-  mode: generative
   domain: academic
-
-prompt_template: |
-  ## 引文生成技能
-  
-  为生成的回答添加准确的来源引用和参考标注。
-  
-  ### 引文格式
-  
-  **行内引用**
-  - 使用编号 [1], [2], ...
-  - 引用位置：句末或观点后
-  
-  **脚注格式**
-  - 底部列出完整来源
-  - 包含：标题、作者、日期、URL
-  
-  ### 引用原则
-  
-  1. **准确性**
-     - 引用与内容一致
-     - 正确标注页码（如有）
-  
-  2. **必要性**
-     - 仅引用关键信息
-     - 避免过度引用
-  
-  3. **时效性**
-     - 优先引用最新来源
-     - 标注发布日期
-  
-  4. **权威性**
-     - 优先引用权威来源
-     - 注明来源可信度
-  
-  ### 引用格式示例
-  
-  ```
-  根据研究显示[1]，...
-  
-  [1] Smith, J. (2024). "Title of Article". 
-      Journal Name. https://example.com
-  ```
-  
-  ### 场景处理
-  
-  | 场景 | 处理方式 |
-  |------|---------|
-  | 多个来源支持 | 合并引用 [1,2] |
-  | 间接引用 | 标注"根据..." |
-  | 无来源 | 标注"信息未找到" |
-  | 冲突信息 | 列出不同来源 |
-  
-  ### 引文质量检查
-  
-  - [ ] 所有事实都有引用
-  - [ ] 引用格式一致
-  - [ ] 链接可访问
-  - [ ] 日期标注清晰
-
-tools:
-  - name: format_citation
-    description: "格式化引文"
-  - name: validate_citations
-    description: "验证引文有效性"
-
+  mode: generative
+  type: generation
+dependencies:
+- answer-generation
+description: 引文生成技能。为答案添加来源引用，标注参考位置，保持学术规范。
+name: citation-generation
+prompt_template: "## 引文生成技能\n\n为生成的回答添加准确的来源引用和参考标注。\n\n### 引文格式\n\n**行内引用**\n- 使用编号\
+  \ [1], [2], ...\n- 引用位置：句末或观点后\n\n**脚注格式**\n- 底部列出完整来源\n- 包含：标题、作者、日期、URL\n\n###\
+  \ 引用原则\n\n1. **准确性**\n   - 引用与内容一致\n   - 正确标注页码（如有）\n\n2. **必要性**\n   - 仅引用关键信息\n\
+  \   - 避免过度引用\n\n3. **时效性**\n   - 优先引用最新来源\n   - 标注发布日期\n\n4. **权威性**\n   - 优先引用权威来源\n\
+  \   - 注明来源可信度\n\n### 引用格式示例\n\n```\n根据研究显示[1]，...\n\n[1] Smith, J. (2024). \"Title\
+  \ of Article\". \n    Journal Name. https://example.com\n```\n\n### 场景处理\n\n| 场景\
+  \ | 处理方式 |\n|------|---------|\n| 多个来源支持 | 合并引用 [1,2] |\n| 间接引用 | 标注\"根据...\" |\n\
+  | 无来源 | 标注\"信息未找到\" |\n| 冲突信息 | 列出不同来源 |\n\n### 引文质量检查\n\n- [ ] 所有事实都有引用\n- [ ]\
+  \ 引用格式一致\n- [ ] 链接可访问\n- [ ] 日期标注清晰\n"
 related_skills:
-  - answer-generation
-  - fact-check
+- answer-generation
+- fact-check
+scope: bundled
+tags:
+- citation
+- reference
+- source
+- attribution
+tools:
+- description: 格式化引文
+  name: format_citation
+- description: 验证引文有效性
+  name: validate_citations
+triggers:
+- citation
+- 引用
+- 来源
+- 参考
+- reference
+- cite
+version: 1.0.0

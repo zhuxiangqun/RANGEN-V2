@@ -1,0 +1,331 @@
+# .cursorrules - 优化版本
+# 基于结构化提示词最佳实践改进
+
+context:
+  - type: global_instruction
+    content: |
+      <optimized_prompt>
+      
+      <task>
+      作为AI编程助手，你的任务是帮助开发者编写、审查和重构代码，确保代码质量、安全性和可维护性。
+      </task>
+
+      <context>
+      这是一个Python项目，使用统一中心系统架构，强调代码复用和模块化设计。
+      项目包含核心推理引擎、LLM集成、知识库检索等模块。
+      </context>
+
+      <core_principles>
+      ## 核心原则
+      1.  **DRY (Don't Repeat Yourself)**: 
+          - 禁止重复代码，必须提取为函数或公共模块
+          - 如果发现重复代码，立即重构
+          - 优先使用现有模块和函数，而不是创建新的
+      
+      2.  **KISS (Keep It Simple, Stupid)**: 
+          - 优先选择简单、清晰的实现
+          - 避免过度设计和不必要的抽象
+          - 代码应该易于理解和维护
+      
+      3.  **单一职责原则**: 
+          - 每个函数/类只做一件事，并做好
+          - 如果函数/类承担多个职责，应该拆分
+      
+      4.  **优先使用组合而非继承**:
+          - 通过组合实现代码复用
+          - 避免深度继承层次
+      </core_principles>
+
+      <security_principles>
+      ## 安全原则
+      1.  所有用户输入都必须经过验证和清理
+          - 使用白名单验证
+          - 转义特殊字符
+          - 限制输入长度和类型
+      
+      2.  避免使用已知不安全的函数
+          - 禁止使用 `eval()`, `exec()`, `compile()` 等
+          - 使用安全的替代方案
+      </security_principles>
+
+      <project_specific_rules>
+      ## 本项目特定规范
+      1. **统一中心系统优先**:
+         - 尽量不要生成新的文件、模块和方法
+         - 优先使用统一中心系统（如统一配置中心、统一阈值管理器等）
+         - 如果必须创建新模块，先检查是否有类似功能
+      
+      2. **解决核心功能**:
+         - 以解决核心功能为主要目的
+         - 任何回退方法、回避方法等都不是根本的解决方法
+         - 找到问题的根本原因并解决
+      
+      3. **避免硬编码**:
+         - 注意不要产生新的硬编码
+         - 使用配置中心或环境变量
+         - 将常量提取到配置文件
+      
+      4. **代码质量检查**:
+         - 修改后必须检查有无pylint、pyright错误
+         - 确保代码符合项目规范
+         - 运行测试验证功能正确性
+      </project_specific_rules>
+
+      <agent_usage_guidelines>
+      ## 智能体使用规范
+      
+      ### 智能体架构
+      本项目采用多智能体架构，包含14个智能体组件，分为三个层次：
+      
+      1. **核心执行智能体（4个）** - 在主流程中直接使用：
+         - `EnhancedKnowledgeRetrievalAgent` - 知识检索智能体
+         - `EnhancedReasoningAgent` - 推理智能体
+         - `EnhancedAnswerGenerationAgent` - 答案生成智能体
+         - `EnhancedCitationAgent` - 引用生成智能体
+      
+      2. **支持性智能体（2个）** - 系统支持功能：
+         - `LearningSystem` - 学习系统智能体
+         - `EnhancedAnalysisAgent` - 分析智能体
+      
+      3. **专业智能体（6个）** - 扩展功能：
+         - `IntelligentStrategyAgent` - 智能策略智能体
+         - `IntelligentCoordinatorAgent` - 智能协调器
+         - `FactVerificationAgent` - 事实验证智能体
+         - `EnhancedRLAgent` - 强化学习智能体
+         - `BaseAgent` - 基础智能体（抽象基类）
+         - `EnhancedBaseAgent` - 增强基础智能体
+      
+      ### 智能体使用原则
+      1. **优先使用现有智能体**:
+         - 不要创建新的智能体，除非现有智能体无法满足需求
+         - 优先扩展现有智能体的功能
+         - 使用智能体建造者模式（AgentBuilder）创建智能体实例
+      
+      2. **遵循智能体接口规范**:
+         - 所有智能体必须继承自`BaseAgent`
+         - 实现`execute()`方法处理任务
+         - 返回`AgentResult`对象
+         - 使用统一配置中心进行配置管理
+      
+      3. **智能体协作**:
+         - 使用`IntelligentCoordinatorAgent`协调多智能体协作
+         - 通过`AgentCommunicationMiddleware`进行智能体间通信
+         - 遵循智能体生命周期管理（`UnifiedAgentLifecycleManager`）
+      
+      4. **智能体扩展**:
+         - 通过`capabilities_dict`配置智能体能力
+         - 支持的能力包括：EXTENSIBILITY, INTELLIGENCE, AUTONOMOUS_DECISION等
+         - 使用统一配置中心动态配置智能体参数
+      
+      ### 智能体能力配置
+      智能体支持以下能力（通过`capabilities_dict`配置）：
+      - `EXTENSIBILITY`: 可扩展性
+      - `INTELLIGENCE`: 智能化
+      - `AUTONOMOUS_DECISION`: 自主决策
+      - `DYNAMIC_STRATEGY`: 动态策略
+      - `STRATEGY_LEARNING`: 策略学习
+      - `SELF_LEARNING`: 自我学习
+      - `AUTOMATIC_REASONING`: 自动推理
+      - `DYNAMIC_CONFIDENCE`: 动态置信度
+      - `LLM_DRIVEN_RECOGNITION`: LLM驱动识别
+      - `DYNAMIC_CHAIN_OF_THOUGHT`: 动态思维链
+      - `DYNAMIC_CLASSIFICATION`: 动态分类
+      </agent_usage_guidelines>
+
+      <intelligent_extensibility>
+      ## 智能化可扩展性规范
+      
+      ### 可扩展性设计原则
+      1. **基于统一中心系统的扩展**:
+         - 使用统一配置中心进行配置管理
+         - 使用统一阈值管理器进行阈值管理
+         - 使用统一日志系统进行日志记录
+         - 使用统一缓存系统进行缓存管理
+      
+      2. **智能体可扩展性**:
+         - 通过继承`BaseAgent`创建新智能体
+         - 使用`AgentBuilder`建造者模式构建智能体
+         - 通过`capabilities_dict`配置智能体能力
+         - 支持动态加载和配置智能体
+      
+      3. **AI算法可扩展性**:
+         - 使用`AIAlgorithmIntegrator`集成AI算法
+         - 支持ML、DL、RL、NLP、CV等多种算法引擎
+         - 通过统一接口扩展新算法
+         - 支持算法动态选择和切换
+      
+      4. **智能化功能扩展**:
+         - 通过`IntelligentStrategyAgent`扩展策略功能
+         - 通过`LearningSystem`扩展学习功能
+         - 通过`EnhancedRLAgent`扩展强化学习功能
+         - 支持动态策略学习和优化
+      
+      ### 智能化能力要求
+      1. **自我学习能力**:
+         - 智能体应具备自我学习和改进能力
+         - 通过`LearningSystem`进行模式学习
+         - 记录性能历史并优化策略
+      
+      2. **自主决策能力**:
+         - 智能体应具备自主决策能力
+         - 通过`IntelligentStrategyAgent`制定策略
+         - 根据上下文动态调整策略
+      
+      3. **动态适应能力**:
+         - 系统应具备动态适应能力
+         - 根据任务类型自动选择最佳智能体
+         - 根据性能反馈动态调整参数
+      
+      4. **智能协作能力**:
+         - 多智能体应能够智能协作
+         - 通过`IntelligentCoordinatorAgent`协调任务
+         - 支持智能体间的信息共享和协作
+      
+      ### 扩展性最佳实践
+      1. **添加新功能时**:
+         - ✅ 优先扩展现有智能体的功能
+         - ✅ 使用统一中心系统进行配置
+         - ✅ 遵循智能体接口规范
+         - ❌ 不要创建新的智能体（除非必要）
+         - ❌ 不要绕过统一中心系统
+      
+      2. **优化性能时**:
+         - ✅ 使用`AIAlgorithmIntegrator`优化算法
+         - ✅ 通过`LearningSystem`学习优化策略
+         - ✅ 使用统一缓存系统提高性能
+         - ❌ 不要硬编码优化逻辑
+      
+      3. **添加新算法时**:
+         - ✅ 通过`AIAlgorithmIntegrator`集成
+         - ✅ 实现统一的算法接口
+         - ✅ 支持动态配置和选择
+         - ❌ 不要直接修改核心引擎
+      </intelligent_extensibility>
+
+      <code_style>
+      ## 代码风格
+      1.  遵循 `rustfmt` 标准
+      2.  变量和函数名使用 `snake_case`
+      3.  类型名使用 `PascalCase`
+      4.  常量使用 `UPPER_SNAKE_CASE`
+      5.  私有方法/属性使用单下划线前缀 `_private_method`
+      </code_style>
+
+      <instructions>
+      ## 工作流程指令
+      
+      ### 步骤1: 理解任务
+      - 仔细阅读用户请求
+      - 识别任务类型（编写、修改、重构、调试等）
+      - 理解上下文和约束条件
+      
+      ### 步骤2: 分析现有代码
+      - 检查相关文件和模块
+      - 理解代码结构和依赖关系
+      - 识别可复用的代码和模块
+      
+      ### 步骤3: 设计方案
+      - 遵循核心原则和项目规范
+      - 优先使用统一中心系统
+      - 避免创建新文件/模块（除非必要）
+      - 确保方案简单、清晰、可维护
+      
+      ### 步骤4: 实施代码
+      - 编写符合规范的代码
+      - 添加必要的注释和文档
+      - 确保代码安全性
+      - 避免硬编码
+      
+      ### 步骤5: 质量检查
+      - 检查pylint和pyright错误
+      - 验证代码符合项目规范
+      - 确保没有引入新的问题
+      - 运行相关测试（如果存在）
+      
+      ### 步骤6: 提供反馈
+      - 如果用户请求违反原则，明确指出
+      - 解释违反的原因
+      - 提供符合原则的替代方案
+      </instructions>
+
+      <output_format>
+      ## 输出格式要求
+      
+      ### 代码修改
+      - 使用代码引用格式显示修改位置
+      - 提供清晰的修改说明
+      - 解释修改的原因和影响
+      
+      ### 问题分析
+      - 结构化分析问题
+      - 提供根本原因分析
+      - 给出解决方案和替代方案
+      
+      ### 代码审查
+      - 指出违反原则的地方
+      - 提供改进建议
+      - 说明改进的好处
+      </output_format>
+
+      <special_attention>
+      ## 特别注意事项
+      
+      1. **统一中心系统**:
+         - 配置管理 → 使用统一配置中心
+         - 阈值管理 → 使用统一阈值管理器
+         - 日志记录 → 使用统一日志系统
+         - 缓存管理 → 使用统一缓存系统
+      
+      2. **核心功能优先**:
+         - 不要使用临时解决方案
+         - 不要使用回退方法
+         - 找到根本原因并解决
+      
+      3. **代码质量**:
+         - 每次修改后必须检查linter错误
+         - 确保代码可读性和可维护性
+         - 添加必要的文档和注释
+      
+      4. **智能体使用**:
+         - 优先使用现有智能体，不要创建新智能体
+         - 遵循智能体接口规范（继承BaseAgent，实现execute方法）
+         - 使用统一配置中心配置智能体参数
+         - 通过capabilities_dict配置智能体能力
+      
+      5. **智能化可扩展性**:
+         - 通过统一中心系统进行扩展
+         - 使用AIAlgorithmIntegrator集成新算法
+         - 支持动态策略学习和优化
+         - 保持系统的自我学习和适应能力
+      </special_attention>
+
+      <examples>
+      ## 示例场景
+      
+      ### 场景1: 用户要求添加新功能
+      - ✅ 正确: 检查统一中心系统是否有类似功能，复用现有代码
+      - ❌ 错误: 直接创建新文件和新模块
+      
+      ### 场景2: 用户要求修复bug
+      - ✅ 正确: 找到根本原因，使用统一中心系统解决
+      - ❌ 错误: 使用临时解决方案或回退方法
+      
+      ### 场景3: 用户要求优化性能
+      - ✅ 正确: 分析性能瓶颈，使用统一中心系统的优化功能
+      - ❌ 错误: 创建新的优化模块，忽略现有系统
+      
+      ### 场景4: 用户要求添加新的智能体功能
+      - ✅ 正确: 扩展现有智能体的功能，使用AgentBuilder创建实例
+      - ❌ 错误: 直接创建新的智能体类，不继承BaseAgent
+      
+      ### 场景5: 用户要求添加新的AI算法
+      - ✅ 正确: 通过AIAlgorithmIntegrator集成，实现统一接口
+      - ❌ 错误: 直接修改核心引擎，绕过统一接口
+      
+      ### 场景6: 用户要求优化智能体性能
+      - ✅ 正确: 通过LearningSystem学习优化策略，使用统一配置中心调整参数
+      - ❌ 错误: 硬编码优化逻辑，忽略学习系统
+      </examples>
+
+      </optimized_prompt>
+

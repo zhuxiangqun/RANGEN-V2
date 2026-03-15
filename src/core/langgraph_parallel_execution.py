@@ -1,4 +1,37 @@
+#!/usr/bin/env python3
 """
+LangGraph 并行执行优化模块
+
+实现节点并行执行，提升工作流性能。
+
+使用场景:
+- 需要并行执行多个节点的场景
+- 提升工作流整体吞吐量
+- 复杂查询的并行处理
+
+与 ExecutionCoordinator 的关系:
+- ExecutionCoordinator: 默认轻量模式，不使用本模块
+- UnifiedResearchSystem (RANGEN_USE_UNIFIED_RESEARCH=1): 使用本模块
+"""
+
+import logging
+"""
+LangGraph 并行执行优化模块
+
+⚠️ DEPRECATED: 此模块已不再维护。
+生产环境使用 src.core.execution_coordinator.ExecutionCoordinator。
+
+实现节点并行执行，提升工作流性能
+"""
+
+import warnings
+warnings.warn(
+    "langgraph_parallel_execution is deprecated. Use ExecutionCoordinator instead.",
+    DeprecationWarning,
+    stacklevel=2
+)
+
+import logging
 LangGraph 并行执行优化模块
 
 实现节点并行执行，提升工作流性能

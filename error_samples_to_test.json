@@ -1,0 +1,62 @@
+[
+  {
+    "index": 6,
+    "expected": "506000",
+    "actual": "0.0",
+    "difference": 506000.0
+  },
+  {
+    "index": 8,
+    "expected": "2",
+    "actual": "2004.0",
+    "difference": 2002.0
+  },
+  {
+    "index": 23,
+    "expected": "950135",
+    "actual": "2020.0",
+    "difference": 948115.0
+  },
+  {
+    "index": 27,
+    "expected": "9",
+    "actual": "31.0",
+    "difference": 22.0
+  },
+  {
+    "index": 29,
+    "expected": "828",
+    "actual": "1951.0",
+    "difference": 1123.0
+  },
+  {
+    "index": 33,
+    "expected": "55",
+    "actual": "11.0",
+    "difference": 44.0
+  },
+  {
+    "index": 66,
+    "expected": "3",
+    "actual": "2019.0",
+    "difference": 2016.0
+  },
+  {
+    "index": 76,
+    "expected": "90",
+    "actual": "2004.0",
+    "difference": 1914.0
+  },
+  {
+    "index": 86,
+    "expected": "1",
+    "actual": "2000.0",
+    "difference": 1999.0
+  },
+  {
+    "index": 94,
+    "expected": "1",
+    "actual": "1980.0",
+    "difference": 1979.0
+  }
+]

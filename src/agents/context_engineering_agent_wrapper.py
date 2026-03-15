@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""Context Engineering Agent Wrapper
+
+⚠️ DEPRECATED: 此模块已不再维护。
+请使用 src.services.context_optimization_service 代替。
+"""
+
+import warnings
+warnings.warn(
+    "ContextEngineeringAgentWrapper is deprecated. Use src.services.context_optimization_service instead.",
+    DeprecationWarning,
+    stacklevel=2
+)
+
+import time
+# -*- coding: utf-8 -*-
 
 import time
 import logging

@@ -1,0 +1,46 @@
+{
+  "batch_processing_optimization": {
+    "description": "批处理优化配置，减少评测过程中的不必要批处理",
+    "enabled": true,
+    "optimization_strategy": "minimize_batch_processing_for_evaluation",
+    "thresholds": {
+      "normal_mode": {
+        "batch_processing_threshold": 100,
+        "mode_description": "正常模式下，只有超过100条数据才考虑批处理"
+      },
+      "fast_evaluation_mode": {
+        "batch_processing_threshold": 150,
+        "mode_description": "快速评测模式下，只有超过150条数据才考虑批处理"
+      },
+      "evaluation_scenario": {
+        "batch_processing_threshold": 200,
+        "mode_description": "评测场景下，大幅提高批处理门槛，减少批处理开销"
+      }
+    },
+    "behavior_control": {
+      "prefer_direct_retrieval": true,
+      "control_description": "优先使用直接检索，避免不必要的批处理",
+      "batch_processing_multiplier": 2.0,
+      "multiplier_description": "批处理门槛倍数，只有超过 threshold * multiplier 才使用批处理",
+      "evaluation_mode_optimization": true,
+      "optimization_description": "评测模式下启用特殊优化，减少批处理"
+    },
+    "performance_targets": {
+      "max_batch_processing_frequency": 0.1,
+      "frequency_description": "最大批处理频率，评测过程中批处理不应超过10%",
+      "target_response_time": 2.0,
+      "response_time_description": "目标响应时间，批处理不应显著增加响应时间"
+    },
+    "logging": {
+      "log_batch_processing_decisions": true,
+      "decisions_description": "记录批处理决策过程",
+      "log_performance_impact": true,
+      "impact_description": "记录批处理对性能的影响"
+    }
+  },
+  "metadata": {
+    "last_optimized": "2025-09-08T19:19:31.899262",
+    "optimizer_version": "1.0.0",
+    "optimization_count": 0
+  }
+}

@@ -126,8 +126,8 @@ if SQLALCHEMY_AVAILABLE:
         updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
         last_login_at = Column(DateTime, nullable=True)
         
-        # Metadata
-        metadata = Column(JSON, default=dict, nullable=False)
+        # Extra data
+        extra_data = Column(JSON, default=dict, nullable=False)
         
         # Relationships
         api_keys = relationship("ApiKey", back_populates="user", cascade="all, delete-orphan")
@@ -176,8 +176,8 @@ if SQLALCHEMY_AVAILABLE:
         created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
         last_used_at = Column(DateTime, nullable=True)
         
-        # Metadata
-        metadata = Column(JSON, default=dict, nullable=False)
+        # Extra data
+        extra_data = Column(JSON, default=dict, nullable=False)
         
         # Relationships
         user = relationship("User", back_populates="api_keys")
@@ -343,7 +343,7 @@ class AuthDatabase:
                 full_name=kwargs.get('full_name'),
                 is_active=kwargs.get('is_active', True),
                 is_admin=kwargs.get('is_admin', False),
-                metadata=kwargs.get('metadata', {})
+                extra_data=kwargs.get('extra_data', {})
             )
             
             db.add(user)
@@ -421,7 +421,7 @@ class AuthDatabase:
                 permissions=permissions or ["read", "write"],
                 is_active=kwargs.get('is_active', True),
                 expires_at=expires_at,
-                metadata=kwargs.get('metadata', {})
+                extra_data=kwargs.get('extra_data', {})
             )
             
             db.add(api_key_obj)
@@ -481,7 +481,40 @@ class AuthDatabase:
             return result
         except Exception as e:
             raise Exception(f"Failed to create API key: {e}")
-    
+
+    def _get_api_key_file(self, api_key: str) -> Optional[Dict[str, Any]]:
+        """Get API key from file storage"""
+        import json
+
+        try:
+            if not os.path.exists(self.api_keys_file):
+                return None
+
+            with open(self.api_keys_file, 'r', encoding='utf-8') as f:
+                api_keys = json.load(f)
+
+            # Check if the API key exists (direct lookup)
+            if api_key in api_keys:
+                return api_keys[api_key]
+
+            return None
+        except Exception as e:
+            return None
+
+    def _get_api_key_sqlalchemy(self, api_key: str) -> Optional[Dict[str, Any]]:
+        """Get API key using SQLAlchemy"""
+        db = self.SessionLocal()
+        try:
+            api_key_obj = db.query(ApiKey).filter(ApiKey.api_key == api_key).first()
+            if not api_key_obj:
+                return None
+            return api_key_obj.to_dict()
+        except SQLAlchemyError as e:
+            return None
+        finally:
+            db.close()
+
+#KB|    # Session management methods
     # Session management methods
     def create_session(self, user_id: str, token: str, **kwargs) -> Dict[str, Any]:
         """Create a new session"""

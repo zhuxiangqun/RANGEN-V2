@@ -1,0 +1,111 @@
+{
+  "pilot_agent": "CitationAgent",
+  "target_agent": "QualityController",
+  "validation_date": "2026-01-01T12:12:40.963273",
+  "overall_success": true,
+  "blocking_issues": [],
+  "test_results": {
+    "integration": {
+      "test_name": "integration",
+      "success": true,
+      "details": {
+        "old_agent_available": true,
+        "new_agent_available": true,
+        "old_result_success": true,
+        "new_result_success": true,
+        "core_functionality": true,
+        "langgraph_available": false,
+        "langgraph_integration": "skipped",
+        "can_replace": true
+      },
+      "blocking": false,
+      "duration": 5.765998125076294,
+      "error": null
+    },
+    "parameter_compatibility": {
+      "test_name": "parameter_compatibility",
+      "success": true,
+      "details": {
+        "old_params_format": {
+          "query": "测试查询",
+          "answer": "测试答案内容",
+          "knowledge": [
+            {
+              "content": "知识1",
+              "source": "source1"
+            },
+            {
+              "content": "知识2",
+              "source": "source2"
+            }
+          ],
+          "evidence": []
+        },
+        "adapted_params_format": {
+          "action": "validate_content",
+          "content": "测试答案内容",
+          "content_type": "answer",
+          "sources": [
+            "source1",
+            "source2"
+          ]
+        },
+        "param_mapping_correct": true,
+        "old_result_success": true,
+        "new_result_success": true
+      },
+      "blocking": false,
+      "duration": 1.6623179912567139,
+      "error": null
+    },
+    "performance": {
+      "test_name": "performance",
+      "success": true,
+      "details": {
+        "avg_old_time": 1.75495445728302,
+        "avg_new_time": 0.0011786222457885742,
+        "degradation_percent": -99.93284029446478,
+        "performance_acceptable": true,
+        "threshold": 20
+      },
+      "blocking": false,
+      "duration": 3.51810622215271,
+      "error": null
+    },
+    "functionality": {
+      "test_name": "functionality",
+      "success": true,
+      "details": {
+        "functionality_match": true,
+        "missing_features": [],
+        "test_cases_count": 2
+      },
+      "blocking": false,
+      "duration": 2.792708158493042,
+      "error": null
+    },
+    "user_acceptance": {
+      "test_name": "user_acceptance",
+      "success": true,
+      "details": {
+        "old_output_valid": true,
+        "new_output_valid": true,
+        "user_acceptable": true
+      },
+      "blocking": false,
+      "duration": 2.009277105331421,
+      "error": null
+    }
+  },
+  "recommendation": {
+    "decision": "PROCEED",
+    "message": "试点成功，可以开始全面验证（阶段0）",
+    "confidence": "高"
+  },
+  "next_steps": [
+    "1. 开始阶段0：8个核心Agent集成验证",
+    "2. 创建集成测试框架",
+    "3. 建立参数兼容性验证体系",
+    "4. 准备性能基准测试"
+  ]
+}

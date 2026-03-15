@@ -1,0 +1,7 @@
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Requirement already satisfied: opentelemetry-api in ./.venv/lib/python3.13/site-packages (1.39.1)
+Requirement already satisfied: opentelemetry-sdk in ./.venv/lib/python3.13/site-packages (1.39.1)
+Requirement already satisfied: importlib-metadata<8.8.0,>=6.0 in ./.venv/lib/python3.13/site-packages (from opentelemetry-api) (8.7.1)
+Requirement already satisfied: typing-extensions>=4.5.0 in ./.venv/lib/python3.13/site-packages (from opentelemetry-api) (4.15.0)
+Requirement already satisfied: zipp>=3.20 in ./.venv/lib/python3.13/site-packages (from importlib-metadata<8.8.0,>=6.0->opentelemetry-api) (3.23.0)
+Requirement already satisfied: opentelemetry-semantic-conventions==0.60b1 in ./.venv/lib/python3.13/site-packages (from opentelemetry-sdk) (0.60b1)

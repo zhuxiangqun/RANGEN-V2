@@ -1,0 +1,5 @@
+# Agent配置文件 - 定义哪个Agent可以使用这个Skill
+agents:
+  - name: assistant-agent
+    priority: 1
+    description: 通用助手，处理日常问答、计算、文件读取等基本任务

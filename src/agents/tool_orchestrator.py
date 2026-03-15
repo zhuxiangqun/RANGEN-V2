@@ -1,4 +1,20 @@
-#!/usr/bin/env python3
+#QB|#!/usr/bin/env python3
+#YW|"""
+#WK|ToolOrchestrator - 工具编排器 (L3基础认知)
+#XM|智能工具选择、执行流程编排、提示词优化管理
+#HJ|
+#MJ|⚠️ DEPRECATED ⚠️
+#MJ|此模块已废弃，请使用新系统:
+#MJ|  - src.agents.skills (Skill-based)
+#MJ|  - src.agents.unified_executor (统一执行器)
+#MJ|
+#MJ|迁移指南:
+#MJ|  旧: tool_orchestrator.execute()
+#MJ|  新: UnifiedExecutor().execute()
+#MJ|"""
+#HQ|
+#NQ|# from ..utils.unified_centers import get_unified_config_center
+#VQ|# from ..utils.unified_threshold_manager import get_unified_threshold_manager
 """
 ToolOrchestrator - 工具编排器 (L3基础认知)
 智能工具选择、执行流程编排、提示词优化管理

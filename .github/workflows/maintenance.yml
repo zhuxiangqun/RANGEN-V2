@@ -1,0 +1,152 @@
+name: 维护任务
+
+on:
+  schedule:
+    # 每周一凌晨3点运行
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+
+jobs:
+  dependency-update:
+    name: 依赖更新检查
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+      
+    - name: 设置 Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+        
+    - name: 检查过时的依赖
+      run: |
+        python -m pip install --upgrade pip
+        pip install pip-review
+        echo "=== 检查过时的依赖 ==="
+        pip-review --local --auto || true
+        
+    - name: 使用 Dependabot 格式创建 Issue
+      if: success()
+      uses: peter-evans/create-issue-from-file@v5
+      with:
+        title: "📦 依赖更新检查报告"
+        content-filepath: ./.github/ISSUE_TEMPLATE/dependency-update.md
+        labels: dependencies, automated
+        
+  security-scan:
+    name: 安全扫描
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+      
+    - name: 设置 Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+        
+    - name: 运行安全扫描
+      run: |
+        python -m pip install --upgrade pip
+        pip install bandit safety
+        
+        echo "=== 运行 Bandit 安全检查 ==="
+        bandit -r src/ -f json -o bandit-report.json || true
+        
+        echo "=== 运行 Safety 依赖安全检查 ==="
+        safety check --json > safety-report.json || true
+        
+    - name: 上传安全报告
+      uses: actions/upload-artifact@v4
+      with:
+        name: security-reports
+        path: |
+          bandit-report.json
+          safety-report.json
+        retention-days: 30
+        
+  code-quality:
+    name: 代码质量分析
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+      
+    - name: 设置 Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+        
+    - name: 运行代码质量分析
+      run: |
+        python -m pip install --upgrade pip
+        pip install .[dev]
+        
+        echo "=== 运行 Radon 复杂度分析 ==="
+        radon cc src/ -j -O radon-cc.json
+        radon mi src/ -j -O radon-mi.json
+        
+        echo "=== 运行 McCabe 复杂度分析 ==="
+        python -m mccabe src/**/*.py --min 10 > mccabe-report.txt || true
+        
+    - name: 上传代码质量报告
+      uses: actions/upload-artifact@v4
+      with:
+        name: code-quality-reports
+        path: |
+          radon-cc.json
+          radon-mi.json
+          mccabe-report.txt
+        retention-days: 30
+        
+  documentation:
+    name: 文档检查
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+      
+    - name: 设置 Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+        
+    - name: 检查文档完整性
+      run: |
+        python -m pip install --upgrade pip
+        pip install .[dev]
+        
+        echo "=== 检查文档字符串 ==="
+        python -m pydocstyle src/ --convention=google || true
+        
+        echo "=== 生成 API 文档 ==="
+        python -m pydoc -w src/ || true
+        
+    - name: 验证 Markdown 文件
+      uses: gaurav-nelson/github-action-markdown-link-check@v1
+      with:
+        use-quiet-mode: 'yes'
+        use-verbose-mode: 'yes'
+        config-file: '.github/markdown-link-check.json'
+        
+  cleanup:
+    name: 清理任务
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 清理 Docker 缓存
+      run: |
+        echo "清理 Docker 缓存..."
+        
+    - name: 清理过期的 Artifacts
+      uses: cschleiden/actions-cleanup@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        days: 30
+        artifact-retention-days: 7
+        skip-tags: true

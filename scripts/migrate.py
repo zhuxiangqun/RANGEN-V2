@@ -46,7 +46,7 @@ def transform_config(old_config: Dict[str, Any]) -> Dict[str, Any]:
         },
         "agents": {
             "reasoning_agent": {
-                "model": old_config.get("model_name", "gpt-4"),
+                "model": old_config.get("model_name", "deepseek-reasoner"),  # 外部LLM只使用DeepSeek
                 "temperature": old_config.get("temperature", 0.7),
                 "max_tokens": old_config.get("max_tokens", 2000),
                 "max_iterations": 5

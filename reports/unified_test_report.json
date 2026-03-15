@@ -1,0 +1,1845 @@
+{
+  "timestamp": "2026-01-12T10:43:12.200423",
+  "execution_time": 0,
+  "test_results": {
+    "unit_tests": {
+      "total_files": 124,
+      "passed": 0,
+      "failed": 124,
+      "errors": 0,
+      "skipped": 0,
+      "execution_time": 43.057133197784424,
+      "file_results": [
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_migration_verification.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.4499800205230713,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_unified_ports.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.37084317207336426,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_intelligent_orchestrator.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.36164283752441406,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_langgraph_optimization_comprehensive.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34323596954345703,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_reasoning_expert_only.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34446001052856445,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_evaluation_integration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.340238094329834,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_unified_server_syntax.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.33893918991088867,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_kb_query.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34470605850219727,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_simplified_layered_workflow.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3392491340637207,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_agents.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3391227722167969,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_tool_orchestrator_optimization.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.40375185012817383,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_rag_expert_success_rate.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3398158550262451,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_framework.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3380880355834961,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_langgraph_opentelemetry_integration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34577417373657227,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_import_fix.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3405120372772217,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_rag_expert_optimization.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.339169979095459,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_ml_dl_persistence.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3425631523132324,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_intelligent_orchestrator_performance.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3406639099121094,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_prompt_engineering_agent_migration_status.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.33888888359069824,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_workflow_sync.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34383392333984375,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_react_agent_init.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3414781093597412,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_unified_intelligent_quality_center.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3390538692474365,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_simple_fix.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34263086318969727,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_deepseek_only.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.33915209770202637,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_fix_verification.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3374660015106201,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_langgraph_configurable_router.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34317898750305176,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_retrieval_quality.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34032225608825684,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_lightweight_rag.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3388829231262207,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_reasoning_expert_simple.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3438751697540283,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_error_samples.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3402550220489502,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_langgraph_performance_optimizer.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3395400047302246,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_evaluation_system.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3396627902984619,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_unified_react_init.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3416128158569336,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_diagnostic_tool.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3377220630645752,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_syntax_fix.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.4759669303894043,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_layered_architecture.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3458099365234375,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_frames_build_solution.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3424720764160156,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_orchestration_tracking.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34479212760925293,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_performance_benchmark.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.35427403450012207,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_agent_performance.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3500511646270752,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_answer_generation_agent_migration_status.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34767889976501465,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_chief_agent_migration_status.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.33881592750549316,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_fix.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34121179580688477,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_dynamic_router.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34533095359802246,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_corrected_intelligent_quality_system.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.33863019943237305,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_learning_rate_persistence.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3401780128479004,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_react_agent_step_by_step.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3439018726348877,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_fixed_rag.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34046411514282227,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_knowledge_retrieval_migration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34047722816467285,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_tools_import.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34378910064697266,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_regression.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3407590389251709,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_enhanced_features_simple.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34137606620788574,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_react_migration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34463930130004883,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_kg_optimizations.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34005308151245117,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_false_positive_filter.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3401777744293213,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_monitoring_system.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3440990447998047,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_workflow_execution.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3839728832244873,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_langgraph_workflow_performance.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.35488104820251465,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_langgraph_error_handler.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3518388271331787,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_disable_graph.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3522307872772217,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_full_rag_functionality.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34992098808288574,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_langgraph_performance_benchmark.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34427809715270996,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_langgraph_integration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34285902976989746,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_unified_server.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34371113777160645,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_initialize_debug.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3511989116668701,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_langgraph_performance_monitor.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3446838855743408,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_simple_rag_init.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.351513147354126,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_langgraph_workflow_integration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.35100412368774414,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_llm_direct_mode.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.35121798515319824,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_api_html.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34409308433532715,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_smart_domains.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3448829650878906,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_system_integration_multi_agent.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.35010194778442383,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_rag_agent_migration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34296393394470215,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_max_tokens.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34972190856933594,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_react_agent_direct.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34607696533203125,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_async_architecture.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34754300117492676,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_system_integration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34453415870666504,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_integration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34055209159851074,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_regex_fix.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3409421443939209,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_groundhog_query.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34508395195007324,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_quality_controller_optimization.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34077000617980957,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_intelligent_orchestrator_integration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34415626525878906,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_simple_query_fix.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34558677673339844,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_chief_agent_migration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34137701988220215,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_api_connection.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34208106994628906,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_async_integration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3470189571380615,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_runner.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3423500061035156,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_web_interface.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34093523025512695,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_chief_agent_unified_architecture.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3448619842529297,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_dynamic_config_system.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34227919578552246,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_migration_persistence.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3407890796661377,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_langgraph_workflow_nodes.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3451697826385498,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_utils.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34305596351623535,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_config_consistency.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34253406524658203,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_rag_tool_quick_init.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.35355114936828613,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_s1_advanced_agents.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3438751697540283,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_callable_import.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34455204010009766,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_enhanced_context_engineering.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.35926103591918945,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_full_rag_verification.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3434419631958008,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_security_guardian_optimization.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3409888744354248,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_install.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3868217468261719,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_api_root.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3424091339111328,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_knowledge_query.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34229016304016113,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_strategic_chief_agent_migration_status.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3459460735321045,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_memory_manager_optimization.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3405427932739258,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_os_import_fix.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3442506790161133,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_reasoning_expert_optimization.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3447239398956299,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_langgraph_state_optimizer.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34393882751464844,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_core_solutions.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3425610065460205,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_all_agents_independence.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3465759754180908,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_rag_vs_llm_direct.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34374189376831055,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_langgraph_workflow_error_recovery.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34264707565307617,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_context_engineering_agent_migration_status.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34608912467956543,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_modular_intelligent_quality_system.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3439450263977051,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_web_interface.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3433389663696289,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_enhanced_system_improvement.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3456592559814453,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_rag_tool_optimization.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3424491882324219,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_async_benchmark.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3431217670440674,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_query_analysis.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3494908809661865,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_agent_coordinator_optimization.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34352779388427734,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_learning_system_migration_status.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34336113929748535,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_optimized_knowledge_retrieval_agent_migration_status.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.35033202171325684,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_learning_optimizer_optimization.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34256720542907715,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/test_react_agent_migration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34309816360473633,
+          "status": "completed"
+        }
+      ]
+    },
+    "integration_tests": {
+      "total_files": 64,
+      "passed": 0,
+      "failed": 64,
+      "errors": 0,
+      "skipped": 0,
+      "execution_time": 22.37726593017578,
+      "file_results": [
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_entity_properties_extraction.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.36539411544799805,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_knowledge_retrieval.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.35919785499572754,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_ddl_p1.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.36630797386169434,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_routes.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.35649800300598145,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_langgraph_workflow_integration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34584593772888184,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_knowledge_retrieval_diagnosis.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34856295585632324,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_route_registration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3512380123138428,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_adaptive_beta.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34940528869628906,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_intelligent_router.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3566761016845703,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_browser_server.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3465549945831299,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_knowledge_base_quality.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3427608013153076,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_entity_normalization.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34887194633483887,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_config_core.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34737491607666016,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_p1_adapters.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3449411392211914,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_layered_state_management.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34668898582458496,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_config_fix.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34656524658203125,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_evaluation_integration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3433361053466797,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_step2_llm_debug.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3453028202056885,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_doc_filtering.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3461489677429199,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_langgraph_deep_integration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3448460102081299,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_config_server.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3442690372467041,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_evidence_conversion.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3442649841308594,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_retrieval_expansion.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3427700996398926,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_chief_agent_unified_architecture.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3445169925689697,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_performance_benchmark_simple.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3453519344329834,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_system_integration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34714436531066895,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_integration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34578371047973633,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_small_to_big.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34807896614074707,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_workflow_initialization.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34423208236694336,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_simplified_workflow.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3458590507507324,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_optimized_routing.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3665192127227783,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_performance_benchmark.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3892948627471924,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_langgraph_opentelemetry_integration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34534311294555664,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_layered_adapter.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34784364700317383,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_knowledge_graph_optimizations.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3428521156311035,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_vector_build_small.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3716399669647217,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_config_tabs.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34696221351623535,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_intelligent_orchestrator_integration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34244704246520996,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_server_quick.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3430137634277344,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_capability_orchestration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.35659003257751465,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_retrieval_diagnostics.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34431886672973633,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_async_integration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34389281272888184,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_wikipedia_content_cleaning.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34888505935668945,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_integration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3570239543914795,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_complex_query_full_sequence.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3539011478424072,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_routes_simple.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.36472034454345703,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_simple_query_quick.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34952402114868164,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_architecture_refactor_p0.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34714508056640625,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_end_to_end_integration_simple.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3493208885192871,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_knowledge_base_direct.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3521311283111572,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_server_routes.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3449430465698242,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_end_to_end_integration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34871506690979004,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_chief_agent_all_tests.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3455660343170166,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_citation_adapter.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34388303756713867,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_quality_assessor.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3566861152648926,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_vector_import_5_samples.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34432101249694824,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_p2_adapters.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3452749252319336,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_api_server.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34736204147338867,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_simple_server.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34354114532470703,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_retrieval_comprehensive.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3582799434661865,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_end_to_end.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3475363254547119,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_react_adapter.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3433992862701416,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_langgraph_integration.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3424370288848877,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/scripts/test_data_collection.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34716224670410156,
+          "status": "completed"
+        }
+      ]
+    },
+    "performance_tests": {
+      "total_files": 5,
+      "passed": 0,
+      "failed": 5,
+      "errors": 0,
+      "skipped": 0,
+      "execution_time": 1.9093573093414307,
+      "file_results": [
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_intelligent_orchestrator_performance.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3547708988189697,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_langgraph_performance_monitor.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3508307933807373,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_langgraph_performance_optimizer.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.4983658790588379,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_langgraph_workflow_performance.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3566138744354248,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_langgraph_performance_benchmark.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.34877586364746094,
+          "status": "completed"
+        }
+      ]
+    },
+    "agent_tests": {
+      "total_files": 2,
+      "passed": 0,
+      "failed": 2,
+      "errors": 0,
+      "skipped": 0,
+      "execution_time": 0.7060918807983398,
+      "file_results": [
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_agents.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.3539090156555176,
+          "status": "completed"
+        },
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_chief_agent_unified_architecture.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.35218286514282227,
+          "status": "completed"
+        }
+      ]
+    },
+    "tool_tests": {
+      "total_files": 1,
+      "passed": 0,
+      "failed": 1,
+      "errors": 0,
+      "skipped": 0,
+      "execution_time": 0.35785794258117676,
+      "file_results": [
+        {
+          "file": "/Users/syu/workdata/person/zy/RANGEN-main(syu-python)/tests/test_diagnostic_tool.py",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "execution_time": 0.35785794258117676,
+          "status": "completed"
+        }
+      ]
+    },
+    "service_tests": {
+      "total_files": 0,
+      "passed": 0,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "execution_time": 0,
+      "file_results": []
+    }
+  },
+  "analysis_results": {
+    "total_files": 196,
+    "total_tests": 196,
+    "passed": 0,
+    "failed": 196,
+    "errors": 0,
+    "skipped": 0,
+    "success_rate": 0.0,
+    "total_execution_time": 68.40770626068115,
+    "average_test_time": 0.3490189094932712
+  },
+  "coverage_data": {},
+  "recommendations": [
+    "测试成功率较低，建议修复失败的测试用例",
+    "失败测试数量较多，建议优先修复核心功能测试"
+  ]
+}

@@ -1,0 +1,80 @@
+author: SkillFactory
+description: 文件读取工具，支持读取各种格式的文本文件，包括TXT、JSON、YAML、CSV等
+name: file-read-skill
+prompt_template: '## 技能说明
+
+
+  ### 功能描述
+
+  你是一个文件读取助手，能够读取各种格式的文件内容。
+
+
+  ### 使用方式
+
+  1. 文本文件：直接读取内容
+
+  2. JSON：解析为对象/数组
+
+  3. CSV：解析为表格数据
+
+  4. YAML：解析为配置对象
+
+
+  ### 支持的格式
+
+  - 文本: TXT, MD, HTML
+
+  - 数据: JSON, YAML, CSV, XML
+
+  - 配置: INI, TOML, ENV
+
+
+  ### 注意事项
+
+  - 文件路径需要是绝对路径或相对于当前目录
+
+  - 大文件可能需要分批读取
+
+  - 二进制文件不支持直接读取'
+prototype_type: mcp_integration
+scope: custom
+tools:
+- description: 读取文件内容
+  name: read_file
+  parameters:
+    encoding:
+      description: 文件编码，默认utf-8
+      type: string
+    file_path:
+      description: 文件路径
+      type: string
+    max_lines:
+      description: 最大读取行数(可选)
+      type: integer
+  returns: 文件内容
+- description: 读取并解析JSON文件
+  name: read_json
+  parameters:
+    file_path:
+      description: JSON文件路径
+      type: string
+  returns: 解析后的JSON对象
+- description: 读取CSV文件
+  name: read_csv
+  parameters:
+    file_path:
+      description: CSV文件路径
+      type: string
+    has_header:
+      description: 是否有表头，默认True
+      type: boolean
+  returns: CSV数据列表
+triggers:
+- 读取
+- 打开
+- 文件
+- 内容
+- file
+- read
+- 加载
+version: 1.0.0

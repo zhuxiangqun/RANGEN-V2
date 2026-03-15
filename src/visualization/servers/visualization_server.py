@@ -2072,6 +2072,7 @@ class VisualizationServer(BaseServer):
                         <button class="main-tab active" onclick="switchMainTab('workflow-graph')">工作流结构图</button>
                         <button class="main-tab" onclick="switchMainTab('node-status')">节点执行状况</button>
                         <button class="main-tab" onclick="switchMainTab('system-health')">系统健康状况</button>
+                        <button class="main-tab" onclick="switchMainTab('agent-creation')">🤖 Agent Creation</button>
                     </div>
 
                     <!-- Tab内容：工作流结构图 -->
@@ -2193,6 +2194,54 @@ class VisualizationServer(BaseServer):
                                 <div id="graph-system-health-content" style="flex: 1; min-height: 0; overflow-y: auto; overflow-x: visible; background: #fff; border-radius: 8px; padding: 15px;">
                                     <p style="color: #999; font-style: italic; text-align: center; padding: 40px; font-size: 12px;">正在加载系统健康状态...</p>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab内容：Agent Creation -->
+                    <div id="main-tab-agent-creation" class="main-tab-content">
+                        <div class="main-panel" style="display: flex; flex-direction: column; gap: 20px;">
+                            <!-- 简化版Agent创建界面 -->
+                            <div style="flex: 1; padding: 20px;">
+                                <h2 style="margin-top: 0; color: #333;">🤖 自然语言Agent创建</h2>
+                                <p style="color: #666; font-size: 14px; margin-bottom: 20px;">
+                                    用自然语言描述您需要的Agent，系统将自动匹配Tools和Skills并创建配置。
+                                </p>
+                                
+                                <!-- 需求输入 -->
+                                <div style="margin-bottom: 20px;">
+                                    <h3 style="margin-bottom: 10px;">描述您的需求</h3>
+                                    <textarea id="agent-creation-description" placeholder="例如：创建一个能分析CSV文件并生成图表的Agent..." 
+                                              style="width: 100%; height: 120px; padding: 12px; font-size: 14px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 15px; resize: vertical;"></textarea>
+                                    
+                                    <div style="display: flex; gap: 10px;">
+                                        <button onclick="parseAgentRequirements()" style="padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; flex: 1;">
+                                            🚀 智能解析
+                                        </button>
+                                        <button onclick="clearAgentForm()" style="padding: 10px 20px; background: #f5f5f5; color: #333; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; font-size: 14px; flex: 1;">
+                                            🗑️ 清空
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- 解析结果预览 -->
+                                <div id="agent-creation-result" style="display: none; padding: 15px; background: #f8f9fa; border-radius: 5px; border: 1px solid #e9ecef; margin-bottom: 20px;">
+                                    <h4 style="margin-top: 0;">解析结果</h4>
+                                    <div id="agent-parse-details"></div>
+                                </div>
+                                
+                                <!-- 创建按钮 -->
+                                <div style="display: flex; gap: 10px;">
+                                    <button onclick="createAgentFromParse()" id="create-agent-button" style="padding: 12px 24px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; flex: 2; display: none;">
+                                        ✅ 确认创建Agent
+                                    </button>
+                                    <button onclick="resetAgentCreation()" style="padding: 12px 24px; background: #f5f5f5; color: #333; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; font-size: 14px; flex: 1; display: none;">
+                                        🔄 重新开始
+                                    </button>
+                                </div>
+                                
+                                <!-- 状态信息 -->
+                                <div id="agent-creation-status" style="margin-top: 20px; padding: 10px; border-radius: 5px; display: none;"></div>
                             </div>
                         </div>
                     </div>
@@ -4135,6 +4184,201 @@ class VisualizationServer(BaseServer):
                         }}
                     }}
                 }}
+                
+                // ================================================
+                // 🤖 Agent Creation 功能
+                // ================================================
+                
+                // 显示/隐藏Agent创建进度
+                function showAgentCreationProgress(show, progress = 0, message = '', type = 'info') {{
+                    const progressDiv = document.getElementById('agent-creation-status');
+                    if (!progressDiv) return;
+                    
+                    if (show) {{
+                        progressDiv.style.display = 'block';
+                        let bgColor = '#f5f5f5';
+                        let borderColor = '#ddd';
+                        
+                        if (type === 'success') {{
+                            bgColor = '#d4edda';
+                            borderColor = '#c3e6cb';
+                        }} else if (type === 'error') {{
+                            bgColor = '#f8d7da';
+                            borderColor = '#f5c6cb';
+                        }} else if (type === 'warning') {{
+                            bgColor = '#fff3cd';
+                            borderColor = '#ffeaa7';
+                        }} else if (type === 'info') {{
+                            bgColor = '#d1ecf1';
+                            borderColor = '#bee5eb';
+                        }}
+                        
+                        progressDiv.style.background = bgColor;
+                        progressDiv.style.border = `1px solid ${{borderColor}}`;
+                        progressDiv.style.color = type === 'error' ? '#721c24' : '#0c5460';
+                        progressDiv.innerHTML = `
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div style="flex: 1;">
+                                    <strong>${{message}}</strong>
+                                    ${{progress > 0 ? `<div style="margin-top: 5px; width: 100%; height: 6px; background: #e0e0e0; border-radius: 3px;">
+                                        <div style="width: ${{{{progress}}}}%; height: 100%; background: #4caf50; border-radius: 3px; transition: width 0.3s;"></div>
+                                    </div>` : ''}}
+                                </div>
+                                ${{progress >= 100 ? '<span style="color: #4caf50; font-weight: bold;">✓ 完成</span>' : ''}}
+                            </div>
+                        `;
+                    }} else {{
+                        progressDiv.style.display = 'none';
+                    }}
+                }}
+                
+                // 清空表单
+                function clearAgentForm() {{
+                    document.getElementById('agent-creation-description').value = '';
+                    document.getElementById('agent-creation-result').style.display = 'none';
+                    document.getElementById('create-agent-button').style.display = 'none';
+                    document.getElementById('agent-creation-status').style.display = 'none';
+                }}
+                
+                // 解析Agent需求
+                async function parseAgentRequirements() {{
+                    const description = document.getElementById('agent-creation-description').value.trim();
+                    
+                    if (!description) {{
+                        showAgentCreationProgress(true, 0, '请输入Agent需求描述', 'error');
+                        return;
+                    }}
+                    
+                    if (description.length < 5) {{
+                        showAgentCreationProgress(true, 0, '描述太短，请提供更详细的需求', 'error');
+                        return;
+                    }}
+                    
+                    showAgentCreationProgress(true, 30, '正在解析需求...', 'info');
+                    
+                    try {{
+                        console.log('🔄 [Agent创建] 解析需求:', description);
+                        
+                        const response = await fetch('/api/v1/agents/parse-requirements', {{
+                            method: 'POST',
+                            headers: {{
+                                'Content-Type': 'application/json'
+                            }},
+                            body: JSON.stringify({{ description }})
+                        }});
+                        
+                        if (!response.ok) {{
+                            throw new Error(`HTTP错误: ${{response.status}}`);
+                        }}
+                        
+                        const result = await response.json();
+                        
+                        // 显示解析结果
+                        const resultDiv = document.getElementById('agent-creation-result');
+                        const detailsDiv = document.getElementById('agent-parse-details');
+                        
+                        if (result.success) {{
+                            showAgentCreationProgress(true, 70, '需求解析成功！正在生成配置...', 'success');
+                            
+                            // 显示解析详情
+                            let detailsHtml = `
+                                <p><strong>提取的关键词:</strong> ${{result.data.keywords?.join(', ') || '无'}}</p>
+                                <p><strong>匹配的Tools:</strong> ${{result.data.matched_tools?.join(', ') || '无'}}</p>
+                                <p><strong>匹配的Skills:</strong> ${{result.data.matched_skills?.join(', ') || '无'}}</p>
+                                <p><strong>建议的Agent类型:</strong> ${{result.data.suggested_agent_type || '标准Agent'}}</p>
+                            `;
+                            
+                            if (result.data.config_preview) {{
+                                detailsHtml += `<div style="margin-top: 10px; padding: 10px; background: white; border: 1px solid #ddd; border-radius: 3px; font-size: 12px;">
+                                    <strong>配置预览:</strong><br>
+                                    <pre style="margin: 5px 0; white-space: pre-wrap; word-break: break-all;">${{JSON.stringify(result.data.config_preview, null, 2)}}</pre>
+                                </div>`;
+                            }}
+                            
+                            detailsDiv.innerHTML = detailsHtml;
+                            resultDiv.style.display = 'block';
+                            document.getElementById('create-agent-button').style.display = 'block';
+                            
+                            // 保存解析结果供创建使用
+                            window.lastParseResult = result.data;
+                            
+                        }} else {{
+                            showAgentCreationProgress(true, 0, '解析失败: ' + (result.error || '未知错误'), 'error');
+                            detailsDiv.innerHTML = '<p style="color: #f44336;">' + (result.error || '解析失败') + '</p>';
+                            resultDiv.style.display = 'block';
+                        }}
+                        
+                    }} catch (error) {{
+                        console.error('❌ [Agent创建] 解析失败:', error);
+                        showAgentCreationProgress(true, 0, '解析失败: ' + error.message, 'error');
+                    }}
+                }}
+                
+                // 从解析结果创建Agent
+                async function createAgentFromParse() {{
+                    if (!window.lastParseResult) {{
+                        showAgentCreationProgress(true, 0, '没有可用的解析结果，请先解析需求', 'error');
+                        return;
+                    }}
+                    
+                    showAgentCreationProgress(true, 80, '正在创建Agent...', 'info');
+                    
+                    try {{
+                        const response = await fetch('/api/v1/agents/from-natural-language', {{
+                            method: 'POST',
+                            headers: {{
+                                'Content-Type': 'application/json'
+                            }},
+                            body: JSON.stringify({{
+                                description: document.getElementById('agent-creation-description').value.trim(),
+                                config: window.lastParseResult.config_preview || {{}}
+                            }})
+                        }});
+                        
+                        if (!response.ok) {{
+                            throw new Error(`HTTP错误: ${{response.status}}`);
+                        }}
+                        
+                        const result = await response.json();
+                        
+                        if (result.success) {{
+                            showAgentCreationProgress(true, 100, 'Agent创建成功！ID: ' + (result.data.agent_id || '未知'), 'success');
+                            
+                            // 显示创建结果
+                            const resultDiv = document.getElementById('agent-creation-result');
+                            const detailsDiv = document.getElementById('agent-parse-details');
+                            
+                            detailsDiv.innerHTML += `
+                                <div style="margin-top: 15px; padding: 10px; background: #d4edda; border: 1px solid #c3e6cb; border-radius: 3px;">
+                                    <strong>✅ Agent创建成功！</strong>
+                                    <p>Agent ID: ${{result.data.agent_id || '未知'}}</p>
+                                    <p>配置: ${{JSON.stringify(result.data.config || {{}}, null, 2)}}</p>
+                                    <button onclick="resetAgentCreation()" style="margin-top: 10px; padding: 8px 16px; background: #28a745; color: white; border: none; border-radius: 3px; cursor: pointer;">
+                                        创建新Agent
+                                    </button>
+                                </div>
+                            `;
+                            
+                            document.getElementById('create-agent-button').style.display = 'none';
+                            
+                        }} else {{
+                            showAgentCreationProgress(true, 0, '创建失败: ' + (result.error || '未知错误'), 'error');
+                        }}
+                        
+                    }} catch (error) {{
+                        console.error('❌ [Agent创建] 创建失败:', error);
+                        showAgentCreationProgress(true, 0, '创建失败: ' + error.message, 'error');
+                    }}
+                }}
+                
+                // 重置Agent创建
+                function resetAgentCreation() {{
+                    clearAgentForm();
+                    delete window.lastParseResult;
+                    showAgentCreationProgress(false);
+                }}
+                
+                // ================================================
                 
                 // 页面加载时初始化
                 window.addEventListener('load', () => {{

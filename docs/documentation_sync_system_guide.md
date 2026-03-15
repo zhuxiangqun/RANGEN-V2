@@ -157,7 +157,7 @@ monitoring:
   selective_docs:
     - "docs/architecture/accurate_system_analysis.md"
     - "docs/implementation/chief_agent_unified_architecture_implementation_summary.md"
-    - "docs/usage/system_usage_guide.md"
+    - "docs/getting-started/first-steps/quick-start-guide.md"
 ```
 **适用场景**: 大项目，只关心核心文档
 

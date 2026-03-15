@@ -1,0 +1,32 @@
+{
+  "agent": {
+    "capabilities": [
+      "extensibility",
+      "intelligence", 
+      "autonomous_decision",
+      "dynamic_strategy",
+      "strategy_learning",
+      "self_learning",
+      "automatic_reasoning",
+      "dynamic_confidence",
+      "llm_driven_recognition",
+      "dynamic_chain_of_thought",
+      "dynamic_classification"
+    ],
+    "default_timeout": 30.0,
+    "default_retry": 3
+  },
+  "skill": {
+    "scopes": ["bundled", "managed", "workspace"],
+    "categories": [
+      "code", "document", "analysis", "writing",
+      "reasoning", "retrieval", "tool", "workflow", "general"
+    ]
+  },
+  "tool": {
+    "categories": ["retrieval", "compute", "utility", "api"]
+  },
+  "workflow": {
+    "nodes": ["router", "direct_executor", "reasoning_engine", "quality_evaluator", "error_handler"]
+  }
+}

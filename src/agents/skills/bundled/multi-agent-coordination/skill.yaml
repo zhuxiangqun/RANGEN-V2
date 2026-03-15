@@ -1,90 +1,137 @@
-name: multi-agent-coordination
-version: 1.0.0
-description: "多智能体协调技能。协调多个Agent工作，任务分配，结果汇总，冲突解决。"
 author: rangen
-tags:
-  - multi-agent
-  - coordination
-  - collaboration
-  - orchestration
-dependencies: ["tool-execution"]
-scope: bundled
-
 config:
-  type: orchestration
-  mode: assistive
   domain: agent
+  mode: assistive
+  type: orchestration
+dependencies:
+- tool-execution
+description: 多智能体协调技能。协调多个Agent工作，任务分配，结果汇总，冲突解决。
+name: multi-agent-coordination
+prompt_template: '## 多智能体协调技能
 
-prompt_template: |
-  ## 多智能体协调技能
-  
+
   协调多个Agent协同工作，有效分配任务，汇总结果。
-  
+
+
   ### 协调模式
-  
+
+
   **1. 串行协调**
+
   - Agent顺序执行
+
   - 输出作为下个输入
+
   - 适用于依赖链
-  
+
+
   **2. 并行协调**
+
   - Agent同时执行
+
   - 独立任务
+
   - 结果汇总
-  
+
+
   **3. 分层协调**
+
   - 主管Agent协调
+
   - 工作Agent执行
+
   - 层层传递
-  
+
+
   ### 任务分配策略
-  
+
+
   **基于能力分配**
+
   - 匹配任务类型到Agent能力
+
   - 选择最合适的Agent
+
   - 考虑Agent负载
-  
+
+
   **基于复杂度分配**
+
   - 简单任务: 单Agent
+
   - 复杂任务: 分解给多Agent
+
   - 组合任务: 串行+并行
-  
+
+
   ### 结果汇总
-  
+
+
   **1. 合并策略**
+
   - 去重
+
   - 优先级排序
+
   - 冲突检测
-  
+
+
   **2. 冲突解决**
+
   - 多数投票
+
   - 优先级判断
+
   - 人工确认
-  
+
+
   ### 通信协议
-  
+
+
   | 消息类型 | 用途 |
+
   |---------|------|
+
   | TASK | 分发任务 |
+
   | RESULT | 返回结果 |
+
   | ERROR | 错误报告 |
+
   | SYNC | 同步状态 |
-  
+
+
   ### 协调最佳实践
-  
+
+
   1. 明确任务边界
+
   2. 定义接口格式
+
   3. 设置超时机制
+
   4. 处理失败情况
 
-tools:
-  - name: assign_task
-    description: "分配任务给Agent"
-  - name: aggregate_results
-    description: "汇总多Agent结果"
-  - name: resolve_conflicts
-    description: "解决结果冲突"
-
+  '
 related_skills:
-  - tool-execution
-  - context-management
+- tool-execution
+- context-management
+scope: bundled
+tags:
+- multi-agent
+- coordination
+- collaboration
+- orchestration
+tools:
+- description: 分配任务给Agent
+  name: assign_task
+- description: 汇总多Agent结果
+  name: aggregate_results
+- description: 解决结果冲突
+  name: resolve_conflicts
+triggers:
+- multi-agent
+- 多智能体
+- 协调
+- 协作
+version: 1.0.0

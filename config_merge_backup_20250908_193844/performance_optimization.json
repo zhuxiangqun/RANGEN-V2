@@ -1,0 +1,16 @@
+{
+  "fast_evaluation_mode": true,
+  "batch_processing_threshold": 50,
+  "multi_stage_threshold": 100,
+  "embedding_batch_size": 128,
+  "skip_complex_reasoning": true,
+  "use_cached_embeddings": true,
+  "max_timeout": 15.0,
+  "min_similarity_threshold": 0.3,
+  "description": "快速评测模式配置 - 大幅提高批处理阈值，减少多阶段检索，缩短超时时间",
+  "metadata": {
+    "last_optimized": "2025-09-08T19:19:31.899199",
+    "optimizer_version": "1.0.0",
+    "optimization_count": 0
+  }
+}

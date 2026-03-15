@@ -1,0 +1,42 @@
+{
+  "evaluation_timestamp": "2025-10-03T19:57:25.808024",
+  "system_version": "RANGEN-v2.0",
+  "evaluation_type": "comprehensive_system_evaluation",
+  "results": {
+    "health_check_20251003_195723.log": {
+      "size": 414,
+      "has_errors": true,
+      "has_warnings": true
+    },
+    "dataset_evaluation_20251003_195725.log": {
+      "size": 748,
+      "has_errors": true,
+      "has_warnings": false
+    },
+    "component_integration_test_20251003_195723.log": {
+      "size": 706,
+      "has_errors": true,
+      "has_warnings": false
+    },
+    "ai_capabilities_verification_20251003_195724.log": {
+      "size": 1027,
+      "has_errors": true,
+      "has_warnings": false
+    },
+    "frames_evaluation_20251003_195725.log": {
+      "size": 332,
+      "has_errors": true,
+      "has_warnings": false
+    },
+    "performance_benchmark_20251003_195725.log": {
+      "size": 318,
+      "has_errors": true,
+      "has_warnings": false
+    },
+    "report_generation_20251003_195725.log": {
+      "size": 0,
+      "has_errors": false,
+      "has_warnings": false
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "api_keys": {
+    "DEEPSEEK_API_KEY": {
+      "configured": true,
+      "length": 35,
+      "masked": "sk-0694f..."
+    },
+    "OPENAI_API_KEY": {
+      "configured": false,
+      "required": false,
+      "status": "正常"
+    }
+  },
+  "agents": {
+    "RAGExpert": {
+      "success": true,
+      "lightweight_mode": false,
+      "config_center": true,
+      "threshold_manager": true
+    },
+    "ReasoningExpert": {
+      "success": true,
+      "config_center": true,
+      "threshold_manager": true,
+      "parallel_executor": true
+    },
+    "AgentCoordinator": {
+      "success": true,
+      "config_center": true,
+      "threshold_manager": true
+    }
+  },
+  "centers": {
+    "config_center": {
+      "success": true,
+      "type": "UnifiedConfigCenter"
+    },
+    "threshold_manager": {
+      "success": true,
+      "type": "UnifiedThresholdManager"
+    }
+  },
+  "executions": {
+    "RAGExpert": {
+      "success": true,
+      "execution_time": 24.149919986724854,
+      "error": null,
+      "has_data": true,
+      "data_type": "dict"
+    },
+    "ReasoningExpert": {
+      "success": false,
+      "execution_time": 208.2959861755371,
+      "error": "'AgentResult' object has no attribute 'get'",
+      "has_data": false,
+      "data_type": null
+    },
+    "AgentCoordinator": {
+      "success": true,
+      "execution_time": 6.67572021484375e-06,
+      "error": null,
+      "has_data": true,
+      "data_type": "dict"
+    }
+  }
+}

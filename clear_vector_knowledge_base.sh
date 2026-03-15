@@ -1,0 +1,1 @@
+knowledge_management_system/scripts/clear_vector_knowledge_base.sh

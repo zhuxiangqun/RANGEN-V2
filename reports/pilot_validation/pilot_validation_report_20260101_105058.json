@@ -1,0 +1,107 @@
+{
+  "pilot_agent": "CitationAgent",
+  "target_agent": "QualityController",
+  "validation_date": "2026-01-01T10:50:26.922766",
+  "overall_success": false,
+  "blocking_issues": [
+    "integration"
+  ],
+  "test_results": {
+    "integration": {
+      "test_name": "integration",
+      "success": false,
+      "details": {},
+      "blocking": true,
+      "duration": 0.9401421546936035,
+      "error": "集成测试失败: name 'StateGraph' is not defined"
+    },
+    "parameter_compatibility": {
+      "test_name": "parameter_compatibility",
+      "success": true,
+      "details": {
+        "old_params_format": {
+          "query": "测试查询",
+          "answer": "测试答案内容",
+          "knowledge": [
+            {
+              "content": "知识1",
+              "source": "source1"
+            },
+            {
+              "content": "知识2",
+              "source": "source2"
+            }
+          ],
+          "evidence": []
+        },
+        "adapted_params_format": {
+          "action": "validate_content",
+          "content": "测试答案内容",
+          "content_type": "answer",
+          "sources": [
+            "source1",
+            "source2"
+          ]
+        },
+        "param_mapping_correct": true,
+        "old_result_success": true,
+        "new_result_success": true
+      },
+      "blocking": false,
+      "duration": 4.98650598526001,
+      "error": null
+    },
+    "performance": {
+      "test_name": "performance",
+      "success": true,
+      "details": {
+        "avg_old_time": 5.235840082168579,
+        "avg_new_time": 0.00203096866607666,
+        "degradation_percent": -99.96121026169243,
+        "performance_acceptable": true,
+        "threshold": 20
+      },
+      "blocking": false,
+      "duration": 10.637680768966675,
+      "error": null
+    },
+    "functionality": {
+      "test_name": "functionality",
+      "success": true,
+      "details": {
+        "functionality_match": true,
+        "missing_features": [],
+        "test_cases_count": 2
+      },
+      "blocking": false,
+      "duration": 9.752259016036987,
+      "error": null
+    },
+    "user_acceptance": {
+      "test_name": "user_acceptance",
+      "success": true,
+      "details": {
+        "old_output_valid": true,
+        "new_output_valid": true,
+        "user_acceptable": true
+      },
+      "blocking": false,
+      "duration": 5.696243047714233,
+      "error": null
+    }
+  },
+  "recommendation": {
+    "decision": "STOP",
+    "message": "试点发现阻塞问题，需要先解决",
+    "blocking_issues": [
+      "integration"
+    ],
+    "confidence": "高"
+  },
+  "next_steps": [
+    "1. 分析阻塞问题的根本原因",
+    "   - 修复集成问题：检查Agent接口兼容性",
+    "2. 制定问题修复计划",
+    "3. 修复问题后重新运行试点验证"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "general_query": {
+    "total_usage": 0,
+    "success_rate": 1.0,
+    "avg_response_time": 0.0,
+    "quality_score": 0.8
+  },
+  "technical_support": {
+    "total_usage": 0,
+    "success_rate": 1.0,
+    "avg_response_time": 0.0,
+    "quality_score": 0.9
+  },
+  "creative_writing": {
+    "total_usage": 0,
+    "success_rate": 1.0,
+    "avg_response_time": 0.0,
+    "quality_score": 0.7
+  },
+  "reasoning_with_evidence": {
+    "total_usage": 0,
+    "success_rate": 1.0,
+    "avg_response_time": 0.0,
+    "quality_score": 0.9
+  },
+  "reasoning_without_evidence": {
+    "total_usage": 0,
+    "success_rate": 1.0,
+    "avg_response_time": 0.0,
+    "quality_score": 0.9
+  },
+  "query_type_classification": {
+    "total_usage": 0,
+    "success_rate": 1.0,
+    "avg_response_time": 0.0,
+    "quality_score": 0.9
+  },
+  "reasoning_step_type_classification": {
+    "total_usage": 0,
+    "success_rate": 1.0,
+    "avg_response_time": 0.0,
+    "quality_score": 0.9
+  }
+}

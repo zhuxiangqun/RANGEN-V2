@@ -1,10 +1,13 @@
 """
 RANGEN API Server
 
-Chat 后端可选:
-- 默认: ExecutionCoordinator (轻量，仅 RetrievalTool + ReasoningAgent)
-- 启用统一研究系统: 设置 RANGEN_USE_UNIFIED_RESEARCH=1 使用 UnifiedResearchSystem（多智能体+完整工具链）
+Chat 后端选项 (按优先级):
+1. ProductionWorkflow (默认): 基于 langgraph_unified_workflow 简化版，含 RAG/CE/PE
+2. UnifiedResearchSystem: 完整多智能体系统
+3. ExecutionCoordinator: 轻量版
 """
+
+import re
 import time
 import os
 import uvicorn
@@ -14,13 +17,18 @@ from typing import Optional, Any
 
 from src.core.context_manager import ContextManager
 from src.core.configurable_router import ConfigurableRouter
-from src.core.execution_coordinator import ExecutionCoordinator
+
+# 默认使用 ProductionWorkflow (基于 langgraph_unified_workflow 简化)
+from src.core.production_workflow import ProductionWorkflow, get_production_workflow
 
 from src.agents.tools.tool_registry import ToolRegistry
 from src.agents.tools.retrieval_tool import RetrievalTool
 from src.services.logging_service import get_logger
 from src.api.models import ChatRequest, ChatResponse
 from src.api.sop_routes import router as sop_router
+from src.api.unified_create_routes import router as unified_create_router
+from src.api.workflows import router as workflows_router
+from src.api.auto_create_routes import router as auto_create_router
 from src.api.auth import verify_api_key_auth, require_read, require_write, require_admin, register_api_key, AuthService
 from src.middleware.validation import create_validation_middleware, create_security_headers_middleware, create_rate_limit_middleware
 from src.utils.input_validator import ValidationLevel
@@ -28,19 +36,24 @@ from src.utils.input_validator import ValidationLevel
 logger = get_logger("api_server")
 
 # Global instances
-coordinator: ExecutionCoordinator = None  # type: ignore
-research_system: Any = None  # UnifiedResearchSystem when RANGEN_USE_UNIFIED_RESEARCH=1
+production_workflow: ProductionWorkflow = None  # type: ignore
+coordinator: Any = None  # ExecutionCoordinator (备用)
+research_system: Any = None  # UnifiedResearchSystem
+
+
+def _use_production_workflow() -> bool:
+    """是否使用生产工作流 (默认)"""
+    return os.getenv("RANGEN_USE_PRODUCTION_WORKFLOW", "true").strip().lower() in ("1", "true", "yes")
 
 
 def _use_unified_research() -> bool:
-    """是否使用统一研究系统作为 /chat 后端"""
+    """是否使用统一研究系统"""
     return os.getenv("RANGEN_USE_UNIFIED_RESEARCH", "").strip().lower() in ("1", "true", "yes")
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup logic
-    global coordinator, research_system
+    global production_workflow, coordinator, research_system
     logger.info("Initializing RANGEN System...")
 
     # 0. Initialize Authentication
@@ -56,33 +69,41 @@ async def lifespan(app: FastAPI):
 
     # 2. Tool Registry
     registry = ToolRegistry()
-
-    # Register Retrieval Tool (try to connect to KMS, else fallback or error)
     try:
         retrieval_tool = RetrievalTool()
         registry.register_tool(retrieval_tool)
     except Exception as e:
         logger.error(f"Failed to initialize RetrievalTool: {e}")
 
-    # 3. Coordinator (always created for fallback and diag)
-    coordinator = ExecutionCoordinator()
+    # 3. Production Workflow (默认)
+    if _use_production_workflow():
+        try:
+            production_workflow = get_production_workflow()
+            logger.info("ProductionWorkflow initialized (RAG/CE/PE enabled)!")
+        except Exception as e:
+            logger.warning(f"ProductionWorkflow init failed: {e}")
+            production_workflow = None
 
-    # 4. Optional: Unified Research System as primary chat backend
+    # 4. Unified Research System (可选)
     if _use_unified_research():
         try:
             from src.unified_research_system import UnifiedResearchSystem, ResearchRequest
             research_system = UnifiedResearchSystem(max_concurrent_queries=2, enable_visualization_server=False)
-            logger.info("UnifiedResearchSystem created (lazy init on first /chat). Set RANGEN_USE_UNIFIED_RESEARCH=1 to use.")
+            logger.info("UnifiedResearchSystem created (optional).")
         except Exception as e:
-            logger.warning(f"UnifiedResearchSystem not available, /chat will use ExecutionCoordinator: {e}")
+            logger.warning(f"UnifiedResearchSystem not available: {e}")
             research_system = None
-    else:
-        research_system = None
-        logger.info("Chat backend: ExecutionCoordinator. Set RANGEN_USE_UNIFIED_RESEARCH=1 for full multi-agent pipeline.")
+    
+    # 5. ExecutionCoordinator (备用)
+    try:
+        from src.core.execution_coordinator import ExecutionCoordinator
+        coordinator = ExecutionCoordinator()
+    except Exception as e:
+        logger.warning(f"ExecutionCoordinator not available: {e}")
+        coordinator = None
 
     logger.info("RANGEN System Initialized.")
     yield
-    # Shutdown logic
     logger.info("Shutting down...")
 
 
@@ -106,6 +127,23 @@ app.add_middleware(create_rate_limit_middleware, max_requests=200, window_second
 
 # 添加SOP管理路由
 app.include_router(sop_router)
+
+# 添加统一创建路由
+app.include_router(unified_create_router)
+
+# 添加Workflow路由
+app.include_router(workflows_router)
+
+# 添加自动创建工作流路由
+app.include_router(auto_create_router)
+
+# 添加 Team 执行路由
+try:
+    from src.api.team_routes import router as team_router
+    app.include_router(team_router)
+except Exception:
+    pass
+
 app.add_middleware(create_rate_limit_middleware, max_requests=200, window_seconds=60)
 
 
@@ -130,7 +168,51 @@ async def chat_endpoint(
 
     logger.info(f"Received query from {auth_data.get('name', 'unknown')}: {query}")
 
+    # Check if this is an entity creation request
+    creation_patterns = [
+        r"创建.*", r"做一个", r"帮我建", r"新建.*",
+        r"create.*", r"make.*", r"build.*",
+        r"添加.*skill", r"添加.*agent", r"添加.*tool",
+        r"创建一个.*team", r"创建一个.*agent", r"创建一个.*skill"
+    ]
+    
+    is_creation_request = any(re.match(pattern, query.lower()) for pattern in creation_patterns)
+    
+    if is_creation_request:
+        try:
+            from src.api.unified_create_routes import EntityCreateRequest
+            from src.services.unified_creator import get_unified_creator
+            
+            creator = get_unified_creator()
+            result = await creator.create_from_natural_language(query)
+            
+            if result.success:
+                return ChatResponse(
+                    answer=result.message,
+                    steps=[{"step": f"Entity creation", "detail": f"Created {result.entity_type}: {result.entity_name}"}],
+                    status="completed"
+                )
+            else:
+                # Fall through to normal chat if creation failed
+                logger.info(f"Entity creation failed, falling back to normal chat: {result.error}")
+        except Exception as e:
+            logger.warning(f"Entity creation detection failed: {e}")
+    
     try:
+        # 优先使用 ProductionWorkflow (基于 langgraph_unified_workflow 简化)
+        if production_workflow is not None:
+            result = await production_workflow.execute(
+                query=query,
+                context=context
+            )
+            return ChatResponse(
+                answer=result.get("final_answer", ""),
+                steps=result.get("steps", []),
+                status="completed" if not result.get("error") else "failed",
+                error=result.get("error")
+            )
+        
+        # 其次使用统一研究系统
         if research_system is not None:
             from src.unified_research_system import ResearchRequest
             req = ResearchRequest(query=query, context=context or {})
@@ -175,7 +257,7 @@ async def health_check_auth(auth_data: dict = Depends(require_read)):
         "timestamp": time.time(),
         "authenticated_as": auth_data.get("name", "unknown"),
         "coordinator_initialized": coordinator is not None,
-        "chat_backend": "unified_research" if research_system is not None else "coordinator"
+        "chat_backend": "production_workflow" if production_workflow else "unified_research" if research_system else "coordinator"
     }
 
 

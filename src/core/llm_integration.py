@@ -10,6 +10,7 @@ import time
 from src.services.logging_service import get_logger
 from src.core.utils.circuit_breaker import CircuitBreaker, CircuitBreakerOpenError
 from abc import ABC, abstractmethod
+from src.services.stepflash_adapter import StepFlashAdapter
 
 # Use standard logger
 logger = get_logger(__name__)
@@ -50,22 +51,37 @@ class LLMIntegration(UnifiedLLMInterface):
     def __init__(self, config: Dict[str, Any]):
         self.config = config
         self.llm_provider = config.get('llm_provider', 'deepseek')
-        self.api_key = config.get('api_key', os.getenv('DEEPSEEK_API_KEY', ''))
         
-        # 🚀 强制限制：仅允许 DeepSeek 模型
+        # 🚀 强制限制：仅允许 DeepSeek 作为外部LLM，允许本地模型
+        # 将除本地模型和mock外的所有外部提供商重定向到 DeepSeek
+        allowed_external_providers = {'deepseek', 'mock'}
+        is_local_model = 'local' in self.llm_provider.lower()
+        
+        if self.llm_provider not in allowed_external_providers and not is_local_model:
+            logger.info(f"⚠️ 重定向外部提供商 '{self.llm_provider}' 到 'deepseek'（外部LLM只使用DeepSeek）")
+            self.llm_provider = 'deepseek'
+        
+        # 根据提供商选择API密钥
+        if self.llm_provider == 'deepseek':
+            self.api_key = config.get('api_key', os.getenv('DEEPSEEK_API_KEY', ''))
+        elif self.llm_provider == 'mock':
+            self.api_key = 'mock'  # 模拟模式
+        else:
+            # 本地模型或其他提供商，尝试从配置或环境变量获取API密钥
+            # 本地模型可能不需要API密钥
+            self.api_key = config.get('api_key', '')
+        
         # 我们不再使用 config 中的 'model' 作为绝对真理，而是根据 provider 强制选择
         # 如果用户试图使用 gpt-4，我们会自动重定向到 deepseek-chat 或 deepseek-reasoner
         self.model = config.get('model', 'deepseek-reasoner')
-        if self.llm_provider != 'deepseek':
-             logger.info(f"⚠️ Redirecting provider '{self.llm_provider}' to 'deepseek' per policy.")
-             self.llm_provider = 'deepseek'
-             
-        # 验证并规范化模型名称
-        # 允许的模型列表：deepseek-reasoner (R1), deepseek-chat (V3)
-        valid_models = ['deepseek-reasoner', 'deepseek-chat']
-        if self.model not in valid_models:
-             logger.warning(f"⚠️ Model '{self.model}' not in valid list {valid_models}. Defaulting to 'deepseek-reasoner'.")
-             self.model = 'deepseek-reasoner'
+        
+        # 验证并规范化模型名称（仅针对DeepSeek外部LLM）
+        # 允许的DeepSeek模型列表：deepseek-reasoner (R1), deepseek-chat (V3)
+        if self.llm_provider == 'deepseek':
+            valid_models = ['deepseek-reasoner', 'deepseek-chat']
+            if self.model not in valid_models:
+                logger.warning(f"⚠️ 模型 '{self.model}' 不在允许列表 {valid_models} 中。默认使用 'deepseek-reasoner'")
+                self.model = 'deepseek-reasoner'
         
         # Last reasoning content trace
         self._last_reasoning_content = None
@@ -77,24 +93,21 @@ class LLMIntegration(UnifiedLLMInterface):
             name=f"CB-{self.llm_provider}"
         )
         
-        # Base URL Handling
-        # 强制使用 DeepSeek 官方 API 或兼容的 Base URL
-        base_url_raw = config.get('base_url', os.getenv('DEEPSEEK_BASE_URL', 'https://api.deepseek.com/v1'))
-        # ... (后续 URL 处理逻辑保持不变)
+        # Base URL Handling - 根据提供商选择
+        if self.llm_provider == 'deepseek':
+            base_url_raw = config.get('base_url', os.getenv('DEEPSEEK_BASE_URL', 'https://api.deepseek.com/v1'))
+        elif self.llm_provider == 'mock':
+            base_url_raw = 'http://mock-api/v1'  # 模拟API地址，实际不会调用
+        else:
+            # 本地模型：使用配置中的base_url，或默认本地Ollama地址
+            base_url_raw = config.get('base_url', 'http://localhost:11434/v1')
+        
+        # 规范化URL（确保以/v1结尾）
         base_url_raw = base_url_raw.rstrip('/')
         if not base_url_raw.endswith('/v1'):
-            # Auto-append /v1 if missing for standard OpenAI-compatible APIs
-            if 'deepseek' in base_url_raw and not base_url_raw.endswith('/v1'):
+            # 自动追加/v1（如果缺失）
+            if not base_url_raw.endswith('/beta'):
                 base_url_raw += '/v1'
-            elif 'api.openai.com' in base_url_raw:
-                pass # OpenAI usually is v1, but let's trust user if they customized it
-            elif 'api.siliconflow.cn' in base_url_raw and not base_url_raw.endswith('/v1'):
-                # SiliconFlow compatibility
-                base_url_raw += '/v1'
-            else:
-                # Heuristic: append /v1 if it looks like a base root and doesn't have version
-                if not base_url_raw.endswith('/v1') and not base_url_raw.endswith('/beta'):
-                    base_url_raw += '/v1'
         self.base_url = base_url_raw
         
         logger.info(f"LLM Integration initialized: provider={self.llm_provider}, model={self.model}, base_url={self.base_url}")
@@ -116,18 +129,25 @@ class LLMIntegration(UnifiedLLMInterface):
     def _call_llm(self, prompt: str, system_prompt: Optional[str] = None, **kwargs) -> Optional[str]:
         """
         Generic LLM call method.
-        Supports: DeepSeek, OpenAI-compatible APIs.
+        Supports: DeepSeek, OpenAI-compatible APIs, Step-3.5-Flash.
         Wrapped with Circuit Breaker for resilience.
         """
         # Mock Mode Check
         if self.llm_provider == "mock" or self.api_key == "mock":
             logger.info("[MockLLM] Returning mock response")
             return f"Mock response for: {prompt[:50]}..."
+        
+        # Step-3.5-Flash 适配器调用（已被重定向到DeepSeek）
+        if self.llm_provider == "stepflash":
+            # 由于策略要求外部LLM只使用DeepSeek，stepflash已被重定向
+            logger.warning(f"⚠️ Step-3.5-Flash已被重定向到DeepSeek（外部LLM只使用DeepSeek）")
+            # 继续执行后续的DeepSeek处理逻辑
 
         headers = {
-            "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json"
         }
+        if self.api_key and self.api_key.strip():
+            headers["Authorization"] = f"Bearer {self.api_key.strip()}"
         
         messages = []
         if system_prompt:
