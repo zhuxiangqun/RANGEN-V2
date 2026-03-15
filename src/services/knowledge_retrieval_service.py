@@ -102,9 +102,13 @@ class KnowledgeRetrievalService(BaseAgent):
         self._load_configurable_params()
         
         # 🚀 ML/RL增强：初始化自适应优化器（用于优化相似度阈值和证据选择）
-        # 🛑 [系统重构] 禁用所有 ML 模型加载 (P0 修复)
-        self.adaptive_optimizer = None
-        logger.info("🛑 [系统重构] 已禁用 KnowledgeRetrievalService 的 AdaptiveOptimizer")
+        try:
+            from src.core.adaptive_optimizer import AdaptiveOptimizer
+            self.adaptive_optimizer = AdaptiveOptimizer()
+            logger.info("✅ KnowledgeRetrievalService 的 AdaptiveOptimizer 已启用")
+        except Exception as e:
+            self.adaptive_optimizer = None
+            logger.warning(f"⚠️ AdaptiveOptimizer 初始化失败: {e}")
         
         # 🚀 修复：延迟初始化服务，避免在异步上下文中阻塞
         # 注意：_initialize_services()会调用get_knowledge_service()，首次调用时会创建KnowledgeManagementService
