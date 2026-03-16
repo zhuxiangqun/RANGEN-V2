@@ -199,6 +199,25 @@ async def chat_endpoint(
             logger.warning(f"Entity creation detection failed: {e}")
     
     try:
+        # ===== Intelligent Tool Selection =====
+        # 在 workflow 执行之前先尝试智能工具选择
+        try:
+            from src.core.unified_tool_executor import get_unified_tool_executor
+            unified_executor = get_unified_tool_executor()
+            if unified_executor:
+                tool_result = await unified_executor.execute_with_intelligent_selection(query)
+                if tool_result and tool_result.get("success"):
+                    logger.info(f"Intelligent tool execution successful: {tool_result.get('tool_name')}")
+                    return ChatResponse(
+                        answer=tool_result.get("answer", "操作完成"),
+                        steps=["intelligent_tool_selection"],
+                        status="completed",
+                        error=None
+                    )
+        except Exception as e:
+            logger.warning(f"Intelligent tool selection failed: {e}")
+        # ===== End Intelligent Tool Selection =====
+    
         # 优先使用 ProductionWorkflow (基于 langgraph_unified_workflow 简化)
         if production_workflow is not None:
             result = await production_workflow.execute(

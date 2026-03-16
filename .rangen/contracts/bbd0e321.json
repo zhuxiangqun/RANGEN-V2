@@ -1,0 +1,34 @@
+{
+  "task_id": "bbd0e321",
+  "description": "\u641c\u7d22 Python \u6559\u7a0b",
+  "created_at": "2026-03-16T18:31:20.214354",
+  "status": "completed",
+  "score": 1.0,
+  "is_completed": true,
+  "verifications": [
+    {
+      "id": "bbd0e321_has_answer",
+      "type": "assertion",
+      "description": "\u751f\u6210\u6709\u6548\u56de\u7b54",
+      "criteria": "final_answer \u4e0d\u4e3a\u7a7a\u4e14\u4e0d\u5305\u542b\u9519\u8bef\u4fe1\u606f",
+      "weight": 1.0,
+      "required": true,
+      "passed": true,
+      "evidence": "Python\u6559\u7a0b\u6709\u5f88\u591a\u4f18\u8d28\u8d44\u6e90\uff0c\u4ee5\u4e0b\u662f\u4e00\u4e9b\u5e38\u89c1\u63a8\u8350\uff1a\n1. **\u5b98\u65b9\u6587\u6863**\uff1aPython\u5b98\u7f51\uff08python.org\uff09\u63d0\u4f9b\u5b8c\u6574\u7684\u5b98\u65b9\u6559\u7a0b\u548c\u6587\u6863\uff0c\u9002\u5408\u521d\u5b66\u8005\u548c\u8fdb\u9636\u8005\u3002\n2. **\u5728\u7ebf\u5e73\u53f0**\uff1a\n   - \u83dc\u9e1f\u6559\u7a0b\uff08runoob.com\uff09\uff1a\u4e2d\u6587\u6559\u7a0b\uff0c\u9002\u5408\u5165\u95e8\u3002\n   - \u5ed6\u96ea\u5cf0\u7684Python\u6559\u7a0b\uff08liaoxuefeng.com\uff09\uff1a\u4e2d\u6587\u8bb2\u89e3\uff0c\u6db5\u76d6\u57fa\u7840\u5230\u5b9e\u6218\u3002\n   - Coursera/edX\uff1a\u6709\u7cfb\u7edf\u8bfe"
+    },
+    {
+      "id": "bbd0e321_no_errors",
+      "type": "assertion",
+      "description": "\u65e0\u6267\u884c\u9519\u8bef",
+      "criteria": "error \u5b57\u6bb5\u4e3a\u7a7a\u6216\u4e0d\u5b58\u5728",
+      "weight": 1.0,
+      "required": true,
+      "passed": true,
+      "evidence": ""
+    }
+  ],
+  "context": {
+    "original_task": "\u641c\u7d22 Python \u6559\u7a0b"
+  },
+  "metadata": {}
+}

@@ -74,16 +74,18 @@ class InputValidator:
             r'(?i)(expression\(|url\(|@import)',
         ]
         
-        # 命令注入模式
+        # 命令注入模式 - 排除 URL 中的常见字符
         self.command_patterns = [
-            r'(?i)(;|\||&|`|\$\(|\$\{)',
-            r'(?i)(cat|ls|dir|type|more|less|head|tail)',
-            r'(?i)(rm|del|mv|cp|copy|move)',
-            r'(?i)(wget|curl|nc|netcat|telnet)',
-            r'(?i)(chmod|chown|sudo|su|passwd)',
-            r'(?i)(ps|kill|top|htop|whoami|id)',
-            r'(?i)(/bin/|/usr/bin/|/usr/local/bin/)',
-            r'(?i)(powershell|cmd\.exe|bash|sh|zsh)',
+            # 只检查真正的命令注入模式，排除 URL
+            r'(?i)(;\s*(rm|del|mkdir|chmod|chown|kill|ps|netstat))',
+            r'(?i)(\|\s*(cat|ls|dir|type|more|less))',
+            r'(?i)(`[^`]*`)',  # 反引号命令替换
+            r'(?i)(\$\([^)]*\))',  # $() 命令替换
+            r'(?i)(&&\s*(rm|del|mkdir|chmod|chown))',
+            r'(?i)(\|\|\s*(rm|del|mkdir|chmod|chown))',
+            r'(?i)(wget\s|curl\s)',  # wget/curl 命令
+            r'(?i)(chmod\s+7|chmod\s+7|chmod\s+0)',
+            r'(?i)(sudo\s|su\s)',
         ]
         
         # 路径遍历模式

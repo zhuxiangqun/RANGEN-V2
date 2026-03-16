@@ -2940,6 +2940,25 @@ def discover_tools_from_registry() -> List[Dict[str, Any]]:
     except Exception as e:
         print(f"ToolRegistry获取失败: {e}")
     
+    # ===== 添加 CLI 工具 =====
+    try:
+        from src.core.cli_executor import CLIExecutor
+        cli_executor = CLIExecutor()
+        cli_tools = cli_executor.list_tools()
+        
+        for cli_tool in cli_tools:
+            tools.append({
+                'id': cli_tool.name,
+                'name': cli_tool.name,
+                'type': 'cli',
+                'description': cli_tool.description or f"CLI工具: {cli_tool.command}",
+                'status': 'active',
+                'source': 'CLI-Anything',
+                'path': cli_tool.path
+            })
+    except Exception as e:
+        print(f"CLI工具获取失败: {e}")
+    
     # 备用：扫描代码
     if not tools:
         tools_dir = project_root / 'src' / 'agents' / 'tools'

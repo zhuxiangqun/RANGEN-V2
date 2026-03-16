@@ -29,10 +29,11 @@ class SkillSource(str, Enum):
 
 class ToolSource(str, Enum):
     """工具来源"""
-    LOCAL = "local"            # 本地内置工具（最高优先级）
-    LOCAL_MCP = "local_mcp"   # 本地MCP服务器工具
-    EXTERNAL_MCP = "external_mcp"  # 外部MCP服务器工具（最低优先级）
+    LOCAL = "local"           # 本地内置工具
+    CLI_TOOL = "cli_tool"   # CLI-Anything 生成的工具 (最高优先级)
+    LOCAL_MCP = "local_mcp"  # 本地MCP服务器工具
     CUSTOM_API = "custom_api"  # 自定义API工具
+    EXTERNAL_MCP = "external_mcp"  # 外部MCP服务器工具（最低优先级）
     UNKNOWN = "unknown"
     
     @property
@@ -40,6 +41,7 @@ class ToolSource(str, Enum):
         """获取来源优先级分数"""
         return {
             ToolSource.LOCAL: 100,
+            ToolSource.CLI_TOOL: 110,  # CLI 工具最高优先级
             ToolSource.LOCAL_MCP: 80,
             ToolSource.CUSTOM_API: 70,
             ToolSource.EXTERNAL_MCP: 50,
@@ -143,11 +145,19 @@ class PriorityRoutingEngine:
         # 默认延迟和可靠性分数（基于来源）
         self.default_latency_scores = {
             ToolSource.LOCAL: 1.0,
+            ToolSource.CLI_TOOL: 1.0,  # CLI 工具延迟最低
             ToolSource.LOCAL_MCP: 0.9,
             ToolSource.CUSTOM_API: 0.8,
             ToolSource.EXTERNAL_MCP: 0.7,
             ToolSource.UNKNOWN: 0.5
         }
+        
+        # CLI 工具执行器
+        try:
+            from src.core.cli_executor import get_cli_executor
+            self.cli_executor = get_cli_executor()
+        except Exception:
+            self.cli_executor = None
         
         self.default_reliability_scores = {
             ToolSource.LOCAL: 1.0,
@@ -290,11 +300,56 @@ class PriorityRoutingEngine:
             
             prioritized_tools.append(prioritized_tool)
         
+        # ===== 添加 CLI 工具支持 =====
+        if self.cli_executor:
+            cli_tools = self.cli_executor.list_tools()
+            for cli_tool in cli_tools:
+                # 计算 CLI 工具的语义匹配分数
+                cli_semantic_score = self._calculate_cli_tool_semantic_score(query, cli_tool)
+                
+                prioritized_cli_tool = PrioritizedTool(
+                    tool_id=cli_tool.name,
+                    name=cli_tool.name,
+                    description=cli_tool.description or f"CLI tool: {cli_tool.command}",
+                    source=ToolSource.CLI_TOOL,
+                    priority=110,  # CLI 工具最高优先级
+                    semantic_score=cli_semantic_score,
+                    latency_score=1.0,  # 本地 CLI 延迟低
+                    reliability_score=1.0,  # 本地 CLI 可靠性高
+                    total_score=0.0
+                )
+                
+                # CLI 工具优先级最高 (110)
+                prioritized_cli_tool.total_score = prioritized_cli_tool.final_priority
+                prioritized_tools.append(prioritized_cli_tool)
+        
         # 按优先级排序
         prioritized_tools.sort(key=lambda x: x.total_score, reverse=True)
         
         # 返回前top_k个
         return prioritized_tools[:top_k]
+    
+    def _calculate_cli_tool_semantic_score(self, query: str, cli_tool) -> float:
+        """计算 CLI 工具的语义匹配分数"""
+        query_lower = query.lower()
+        tool_name_lower = cli_tool.name.lower()
+        tool_command_lower = cli_tool.command.lower()
+        
+        # 提取工具名中的关键词
+        score = 0.0
+        
+        # 精确匹配
+        if cli_tool.name.replace("_cli.py", "").replace("_", "") in query_lower.replace(" ", ""):
+            score = 1.0
+        elif cli_tool.name.replace("_cli.py", "") in query_lower:
+            score = 0.9
+        # 部分匹配
+        elif any(kw in tool_name_lower for kw in query_lower.split() if len(kw) > 2):
+            score = 0.7
+        elif any(kw in tool_command_lower for kw in query_lower.split() if len(kw) > 2):
+            score = 0.6
+        
+        return score
     
     def route_request(self, query: str) -> Dict[str, Any]:
         """智能路由请求
@@ -452,6 +507,10 @@ class PriorityRoutingEngine:
         # 根据tool_id推断
         tool_id = tool.get("id", "").lower()
         tool_type = tool.get("type", "").lower()
+        
+        # CLI-Anything 生成的工具
+        if tool_id.startswith("cli_") or "cli-anything" in tool_id:
+            return ToolSource.CLI_TOOL
         
         if tool_id.startswith("mcp_"):
             # 检查server_type或source字段

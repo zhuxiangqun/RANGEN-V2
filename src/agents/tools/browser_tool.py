@@ -20,21 +20,56 @@ class BrowserTool(BaseTool):
         """初始化浏览器工具"""
         super().__init__(
             tool_name="browser",
-            description="浏览器自动化工具：打开网页、点击元素、填写表单、截图、获取页面内容"
+            description="""浏览器自动化工具：打开网页、点击元素、填写表单、截图、获取页面内容
+
+支持两种模式：
+- headless=False (默认): 可视模式，弹出浏览器窗口，用户可以看到操作过程
+- headless=True: 无头模式，后台运行，适合批量处理
+
+常见操作：
+- navigate: 打开网页 (url参数)
+- click: 点击元素 (selector参数)  
+- fill: 填写表单 (selector, value参数)
+- screenshot: 截图 (path参数可选)
+- get_content: 获取页面内容
+- scroll: 滚动页面 (direction参数: up/down)
+"""
         )
         self._browser = None
+        self._config = None
     
     async def call(self, action: str, url: str = "", selector: str = "", 
-                   value: str = "", text: str = "", **kwargs) -> ToolResult:
-        """调用浏览器工具"""
+                   value: str = "", text: str = "", headless: bool = False,
+                   **kwargs) -> ToolResult:
+        """调用浏览器工具
+        
+        Args:
+            headless: 是否使用无头模式。
+                     False=可视模式(默认)，弹出浏览器窗口，用户可见
+                     True=无头模式，后台运行
+        """
         start_time = time.time()
         
         try:
             from src.gateway.tools.browser import BrowserTool as GatewayBrowserTool
+            from src.gateway.tools.browser import BrowserConfig, BrowserMode
             
-            if self._browser is None:
-                self._browser = GatewayBrowserTool()
+            # 根据 headless 参数决定模式
+            mode = BrowserMode.HEADLESS if headless else BrowserMode.VISIBLE
+            
+            # 只有模式变化时才重新创建浏览器
+            if self._browser is None or (self._config and self._config.mode != mode):
+                if self._browser:
+                    await self._browser.close()
+                
+                self._config = BrowserConfig(
+                    mode=mode,
+                    viewport_width=1280,
+                    viewport_height=800
+                )
+                self._browser = GatewayBrowserTool(self._config)
                 await self._browser.initialize()
+                logger.info(f"Browser initialized in {'headless' if headless else 'visible'} mode")
             
             result_data = {}
             

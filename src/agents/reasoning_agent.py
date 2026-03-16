@@ -9,6 +9,8 @@ from src.core.workflows.react_workflow import create_react_workflow
 from src.services.logging_service import get_logger
 from src.core.llm_integration import LLMIntegration
 from src.agents.tools.tool_registry import ToolRegistry
+from src.agents.intelligent_tool_selector import get_intelligent_tool_selector
+from src.core.cli_executor import CLIExecutor
 
 logger = get_logger(__name__)
 
@@ -43,6 +45,10 @@ class ReasoningAgent(IAgent):
         tools = self.tool_registry.get_all_tools()
         self.workflow = create_react_workflow(self.llm, tools)
         
+        # Initialize Intelligent Tool Selector
+        self.cli_executor = CLIExecutor()
+        self.tool_selector = get_intelligent_tool_selector(self.tool_registry, self.cli_executor)
+        
         logger.info(f"ReasoningAgent initialized: {self.config.name}")
 
     def validate_inputs(self, inputs: Dict[str, Any]) -> bool:
@@ -68,10 +74,46 @@ class ReasoningAgent(IAgent):
                     execution_time=0.0,
                     error="Invalid input: 'query' is required"
                 )
-
-            # 2. Prepare State
+            
+            query = inputs["query"]
+            
+            # 2. Intelligent Tool Selection - 在 ReAct 之前先检查是否需要特殊工具
+            logger.info(f"Intelligent tool selection for: {query}")
+            
+            tools = self.tool_registry.get_all_tools()
+            needs_new_tool, tool_name, tool_instance, adaptation = await self.tool_selector.analyze_and_select(query, tools)
+            
+            if tool_instance and adaptation:
+                # 找到合适的工具，直接调用
+                logger.info(f"Using intelligent tool selection: {tool_name}, params: {adaptation.parameters}")
+                
+                try:
+                    # 调用工具
+                    base_tool = getattr(tool_instance, "base_tool", None) or tool_instance
+                    if hasattr(base_tool, "call"):
+                        result = await base_tool.call(**adaptation.parameters)
+                        
+                        if result.success:
+                            # 工具执行成功，返回结果
+                            execution_time = time.time() - start_time
+                            return AgentResult(
+                                agent_name=self.config.name,
+                                status=ExecutionStatus.COMPLETED,
+                                output={
+                                    "answer": result.data.get("title", str(result.data)) if result.data else "操作完成",
+                                    "steps": 1,
+                                    "trace": f"通过智能工具选择器调用 {tool_name}",
+                                    "tool_result": result.data
+                                },
+                                execution_time=execution_time,
+                                metadata={"workflow": "intelligent_tool_selection", "tool": tool_name}
+                            )
+                except Exception as e:
+                    logger.warning(f"Intelligent tool selection failed: {e}, falling back to ReAct")
+            
+            # 3. Fallback to ReAct Workflow
             initial_state = {
-                "query": inputs["query"],
+                "query": query,
                 "context": context or {},
                 "messages": [],
                 "agent_scratchpad": "",
@@ -81,8 +123,8 @@ class ReasoningAgent(IAgent):
                 "error": ""
             }
             
-            # 3. Run Workflow
-            logger.info(f"Starting reasoning for: {inputs['query']}")
+            # 4. Run Workflow
+            logger.info(f"Starting reasoning for: {query}")
             result_state = await self.workflow.ainvoke(initial_state)
             
             execution_time = time.time() - start_time
