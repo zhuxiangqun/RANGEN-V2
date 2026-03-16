@@ -139,7 +139,6 @@ with st.sidebar:
     </div>
     """, unsafe_allow_html=True)
     
-    st.markdown("### 📊 System Status")
     status_class = "status-online" if api_online else "status-offline"
     status_text = "Online" if api_online else "Offline"
     st.markdown(f"""
@@ -148,45 +147,14 @@ with st.sidebar:
     </div>
     """, unsafe_allow_html=True)
     
-    with st.expander("🔧 API Configuration", expanded=True):
-        api_url_input = st.text_input("API URL", value=RANGEN_API_BASE, key="api_url")
-        api_key_input = st.text_input("API Key", value=st.session_state.api_key, type="password", key="api_key_input")
-        if api_key_input:
-            st.session_state.api_key = api_key_input
-        if st.button("🔄 Test Connection"):
-            if check_api_status():
-                st.success("✅ Connected successfully!")
-            else:
-                st.error("❌ Connection failed")
-    
-    st.markdown("### ⚡ Quick Actions")
-    quick_actions = [
-        ("打开网站", "打开 https://www.toutiao.com"),
-        ("搜索新闻", "搜索今天的热点新闻"),
-        ("写代码", "帮我写一个Python排序算法"),
-        ("分析代码", "分析这段代码的问题")
-    ]
-    for label, action in quick_actions:
-        if st.button(f"⚡ {label}", key=f"quick_{label}"):
-            st.session_state.pending_input = action
-    
-    st.markdown("### 💬 Session")
-    st.text(f"ID: {st.session_state.session_id[:8]}...")
     if st.button("🗑️ Clear History"):
         st.session_state.messages = []
         st.rerun()
     
-    st.markdown("---")
-    st.markdown("### ℹ️ Capabilities")
-    capabilities = [
-        ("🌐", "Web Browsing", "Open websites"),
-        ("🔍", "Web Search", "Search the web"),
-        ("📚", "Knowledge RAG", "Query knowledge base"),
-        ("💻", "Code Execution", "Run code"),
-    ]
-    for icon, name, desc in capabilities:
-        st.markdown(f"**{icon} {name}**")
-        st.caption(desc)
+    with st.expander("⚙️ Settings"):
+        api_key_input = st.text_input("API Key", value=st.session_state.api_key, type="password", key="api_key_input")
+        if api_key_input:
+            st.session_state.api_key = api_key_input
 
 st.markdown("""
 <div class="main-header">
@@ -248,11 +216,11 @@ if prompt := st.chat_input("💬 Describe what you need me to do..."):
                     result = create_workflow(prompt, headers)
                     answer = result.get("message", "")
                 except Exception as e:
-                    answer = f"Workflow creation not available: str(e)}"
+                    answer = f"Workflow creation not available: {str(e)}"
             else:
                 payload = {"query": prompt, "session_id": st.session_state.session_id}
                 response = requests.post(
-                    f"{api_url_input}/chat", 
+                    f"{RANGEN_API_BASE}/chat", 
                     json=payload, 
                     headers=headers, 
                     timeout=120
