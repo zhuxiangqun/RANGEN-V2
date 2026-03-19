@@ -1274,8 +1274,68 @@ result = await chain.execute(data, request_id="req_001")
 | `MessageQueueChecker` | 消息队列检查 (Open SWE) |
 | `PRCheckerMiddleware` | PR 状态检查 (Open SWE) |
 
+### 14.7 Requirement Discovery Agent (借鉴 Superpowers)
+
+**文件**: `src/agents/requirement_discovery.py`
+
+需求发现 Brainstorming Skill：
+
+```python
+from src.agents.requirement_discovery import RequirementDiscoveryAgent
+
+agent = RequirementDiscoveryAgent()
+result = agent.discover_requirements("我需要一个用户管理系统")
+spec = agent.generate_spec(result)
+```
+
+**核心特性**:
+- Problem → Clarification → Requirements → Spec 工作流
+- 5W1H 追问消除歧义
+- 自动生成 Markdown 规范文档
+- 风险评估
+
+### 14.8 Linear Integration (借鉴 Open SWE)
+
+**文件**: `src/integrations/linear_integration.py`
+
+Linear/Jira 集成：
+
+```python
+from src.integrations.linear_integration import LinearIntegration
+
+integration = LinearIntegration()
+result = integration.create_pr_from_issue("PROJ-123")
+# → 获取 Issue → 创建分支 → 创建 PR → 关联 Issue
+```
+
+**核心特性**:
+- Linear Issue 获取和创建
+- GitHub Branch/PR 创建
+- Issue → Branch → PR 工作流
+- Jira 适配器（可选）
+
+### 14.9 Agent HUD Streamlit 集成 (借鉴 Claude HUD)
+
+**文件**: `src/ui/agent_hud.py`
+
+Streamlit 实时面板：
+
+```python
+from src.ui.agent_hud import AgentHUD, render_hud_streamlit
+
+hud = AgentHUD()
+# 在 Streamlit 应用中渲染
+render_hud_streamlit(hud)
+```
+
+**核心特性**:
+- 上下文健康度可视化 (绿→黄→红)
+- 实时工具活动 feed
+- Agent 状态卡片
+- st.metric 和 st.progress 组件
+
 ---
 
-> **文档版本**: 基于源码分析 v1.2  
+> **文档版本**: 基于源码分析 v1.3  
 > **更新时间**: 2026-03-20  
 > **分析深度**: 源码级 (非文档推断)
