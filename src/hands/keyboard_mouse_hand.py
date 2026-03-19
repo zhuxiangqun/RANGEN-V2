@@ -28,7 +28,7 @@ class KeyboardMouseResult:
     action: str
     output: Any = None
     error: Optional[str] = None
-    metadata: Dict[str, Any] = None
+    metadata: Dict[str, Any] = None  # type: ignore
     
     def __post_init__(self):
         if self.metadata is None:
@@ -77,7 +77,7 @@ class KeyboardSimulator:
                     elif mod == "shift":
                         mods.append("shift")
                 
-                with pyautogui.hold(mods[0] if mods else None):
+                with pyautogui.hold(mods[0] if mods else ""):
                     pyautogui.press(key)
             else:
                 pyautogui.press(key)

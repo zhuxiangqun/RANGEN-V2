@@ -5,7 +5,7 @@ MCP Management API Routes
 Provides API endpoints for managing MCP servers
 """
 
-import datetime
+from datetime import datetime
 from fastapi import APIRouter, HTTPException, Depends
 from typing import Dict, List, Any, Optional
 from pydantic import BaseModel
@@ -382,5 +382,28 @@ async def mcp_health_check() -> Dict[str, Any]:
         return {
             "status": "unhealthy",
             "error": str(e),
+            "timestamp": datetime.now().isoformat()
+        }
+
+
+@router.post("/restart")
+async def mcp_restart():
+    """Restart MCP server manager"""
+    try:
+        manager = get_mcp_server_manager()
+        
+        await manager.stop_all_servers()
+        await manager.start_all_servers()
+        
+        return {
+            "status": "success",
+            "message": "MCP services restarted successfully",
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"MCP restart failed: {e}")
+        return {
+            "status": "error",
+            "message": f"MCP restart failed: {str(e)}",
             "timestamp": datetime.now().isoformat()
         }

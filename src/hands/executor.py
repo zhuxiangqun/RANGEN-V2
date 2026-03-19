@@ -157,11 +157,13 @@ class HandExecutor:
             self.logger.info(f"执行序列步骤 {i+1}/{len(sequence)}: {hand_name}")
             
             # 执行Hand
-            result = await self.execute_hand(hand_name, **parameters)
-            results.append(result)
+            result: Optional[HandExecutionResult] = None
+            if hand_name:
+                result = await self.execute_hand(hand_name, **parameters)
+                results.append(result)
             
             # 检查是否需要中断序列
-            if not result.success and hand_config.get("break_on_failure", True):
+            if result and not result.success and hand_config.get("break_on_failure", True):
                 self.logger.warning(f"序列在第 {i+1} 步中断: {hand_name} 执行失败")
                 break
         
@@ -270,12 +272,14 @@ class HandExecutor:
         for config in hand_configs:
             hand_name = config.get("hand")
             parameters = config.get("parameters", {})
+            result: Optional[HandExecutionResult] = None
             
-            result = await self.execute_hand(hand_name, **parameters)
-            results.append(result)
+            if hand_name:
+                result = await self.execute_hand(hand_name, **parameters)
+                results.append(result)
             
             # 可选的停止条件
-            if config.get("stop_on_failure", False) and not result.success:
+            if result and config.get("stop_on_failure", False) and not result.success:
                 break
         
         return results
@@ -288,8 +292,10 @@ class HandExecutor:
             hand_name = config.get("hand")
             parameters = config.get("parameters", {})
             
-            task = asyncio.create_task(self.execute_hand(hand_name, **parameters))
-            tasks.append(task)
+            task: Optional[asyncio.Task] = None
+            if hand_name:
+                task = asyncio.create_task(self.execute_hand(hand_name, **parameters))
+                tasks.append(task)
         
         # 等待所有任务完成
         results = await asyncio.gather(*tasks, return_exceptions=True)

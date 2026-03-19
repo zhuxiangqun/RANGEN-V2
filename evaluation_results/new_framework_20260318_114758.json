@@ -1,0 +1,210 @@
+{
+  "overall_score": 0.4944713121960974,
+  "dimensions": {
+    "functionality": {
+      "dimension": "functionality",
+      "score": 0.125,
+      "status": "completed",
+      "metrics": {
+        "reasoning": {
+          "score": 0.0,
+          "correct": 0,
+          "total": 3,
+          "method": "实际问答测试"
+        },
+        "tool_usage": {
+          "score": 0.0,
+          "success": 0,
+          "total": 1,
+          "method": "工具调用测试"
+        },
+        "context_awareness": {
+          "score": 0.5,
+          "method": "多轮对话测试"
+        },
+        "multi_step": {
+          "score": 0.0,
+          "success": 0,
+          "total": 1,
+          "method": "多步骤推理测试"
+        }
+      },
+      "details": "测试了 4 个功能维度",
+      "timestamp": "2026-03-18T11:47:49.181893",
+      "execution_time_ms": 18.472909927368164,
+      "error": null
+    },
+    "agent_capability": {
+      "dimension": "agent_capability",
+      "score": 1.0,
+      "status": "completed",
+      "metrics": {
+        "agent_count": {
+          "count": 67
+        },
+        "skill_count": {
+          "count": 45
+        },
+        "tool_count": {
+          "count": 42
+        }
+      },
+      "details": "系统包含 67 个Agent, 45 个Skill, 42 个Tool",
+      "timestamp": "2026-03-18T11:47:49.189116",
+      "execution_time_ms": 7.184028625488281,
+      "error": null
+    },
+    "performance": {
+      "dimension": "performance",
+      "score": 0.26,
+      "status": "completed",
+      "metrics": {
+        "latency": {
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "throughput": {
+          "qps": 0.0,
+          "total_requests": 0,
+          "duration_sec": 5.000051021575928
+        },
+        "availability": {
+          "score": 0.0,
+          "available": false
+        }
+      },
+      "details": "延迟: N/A, 吞吐量: 0.0 QPS",
+      "timestamp": "2026-03-18T11:47:54.208677",
+      "execution_time_ms": 5019.535303115845,
+      "error": null
+    },
+    "resource_usage": {
+      "dimension": "resource_usage",
+      "score": 0.5,
+      "status": "skipped",
+      "metrics": {},
+      "details": "无法获取资源数据",
+      "timestamp": "2026-03-18T11:47:54.209631",
+      "execution_time_ms": 0.9138584136962891,
+      "error": null
+    },
+    "reliability": {
+      "dimension": "reliability",
+      "score": 0.5,
+      "status": "completed",
+      "metrics": {
+        "error_handling": {
+          "score": 0.0,
+          "handled": 0,
+          "total": 2
+        },
+        "graceful_degradation": {
+          "score": 0.5,
+          "degradation": "未知"
+        },
+        "timeout_handling": {
+          "score": 1.0,
+          "timeout_handled": true
+        }
+      },
+      "details": "测试了 3 个可靠性维度",
+      "timestamp": "2026-03-18T11:47:54.212822",
+      "execution_time_ms": 3.1452178955078125,
+      "error": null
+    },
+    "error_handling": {
+      "dimension": "error_handling",
+      "score": 1.0,
+      "status": "completed",
+      "metrics": {
+        "invalid_input": {
+          "score": 1.0,
+          "proper_errors": 3
+        },
+        "malformed_request": {
+          "score": 1.0
+        }
+      },
+      "details": "错误处理得分: 100%",
+      "timestamp": "2026-03-18T11:47:54.215885",
+      "execution_time_ms": 3.032684326171875,
+      "error": null
+    },
+    "integration": {
+      "dimension": "integration",
+      "score": 0.5,
+      "status": "completed",
+      "metrics": {
+        "api_coverage": {
+          "score": 1.0,
+          "coverage": 100.0,
+          "available": 5,
+          "total": 5
+        },
+        "documentation": {
+          "score": 0.0,
+          "docs_available": false
+        },
+        "authentication": {
+          "score": 0.5,
+          "auth_unknown": true
+        }
+      },
+      "details": "API覆盖率: 100%",
+      "timestamp": "2026-03-18T11:47:54.222343",
+      "execution_time_ms": 6.431818008422852,
+      "error": null
+    },
+    "security": {
+      "dimension": "security",
+      "score": 0.5,
+      "status": "completed",
+      "metrics": {
+        "api_security": {
+          "score": 0.0,
+          "protected": 0
+        },
+        "input_validation": {
+          "score": 1.0,
+          "xss_test": "已防护"
+        }
+      },
+      "details": "安全评估得分: 50%",
+      "timestamp": "2026-03-18T11:47:54.225171",
+      "execution_time_ms": 2.803802490234375,
+      "error": null
+    },
+    "code_quality": {
+      "dimension": "code_quality",
+      "score": 0.5655942683008114,
+      "status": "completed",
+      "metrics": {
+        "test_coverage": {
+          "score": 0.8105147864184009,
+          "coverage": 81.05147864184009,
+          "test_files": 74,
+          "src_files": 913
+        },
+        "complexity": {
+          "score": 0,
+          "avg_complexity": 34.36607142857143,
+          "max_complexity": 769,
+          "files_analyzed": 896
+        },
+        "documentation": {
+          "score": 0.8862680184840334,
+          "documented": 12850,
+          "total": 14499
+        }
+      },
+      "details": "测试覆盖: 81%, 复杂度: 34.36607142857143",
+      "timestamp": "2026-03-18T11:47:58.267471",
+      "execution_time_ms": 4042.2797203063965,
+      "error": null
+    }
+  },
+  "timestamp": "2026-03-18T11:47:58.267486",
+  "evaluator_count": 9,
+  "completed_count": 8
+}

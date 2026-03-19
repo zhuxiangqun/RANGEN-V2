@@ -117,6 +117,12 @@ class ProductionState(TypedDict):
     # 协作通信
     agent_states: Annotated[Dict[str, Dict[str, Any]], lambda x, y: {**x, **y}]
     agent_messages: Annotated[List[Dict[str, Any]], safe_add]
+    
+    # SOP 相关
+    sop_recall_results: Annotated[List[Dict[str, Any]], safe_add]
+    sop_execution_results: Annotated[List[Dict[str, Any]], safe_add]
+    sop_execution_success: Annotated[bool, lambda x, y: x or y]
+    executed_sop_id: Annotated[Optional[str], lambda x, y: y]
 
 
 class ProductionWorkflow:
@@ -179,6 +185,15 @@ class ProductionWorkflow:
             self.prompt_engine = PromptEngine(llm_service=self.llm_service)
         except Exception:
             pass
+        
+        # SOP 节点
+        self.sop_nodes = None
+        try:
+            from src.core.langgraph_sop_nodes import SOPNodes
+            self.sop_nodes = SOPNodes()
+            logger.info("✅ SOP Nodes initialized")
+        except Exception as e:
+            logger.warning(f"SOP Nodes init failed: {e}")
     
     def _build_workflow(self) -> StateGraph:
         """构建工作流"""
@@ -186,10 +201,13 @@ class ProductionWorkflow:
         
         # 添加核心节点
         workflow.add_node("route_query", self._route_query_node)
+        workflow.add_node("sop_recall", self._sop_recall_node)
         workflow.add_node("simple_query", self._simple_query_node)
         workflow.add_node("complex_query", self._complex_query_node)
         workflow.add_node("reasoning", self._reasoning_node)
+        workflow.add_node("sop_execution", self._sop_execution_node)
         workflow.add_node("synthesize", self._synthesize_node)
+        workflow.add_node("sop_learning", self._sop_learning_node)
         workflow.add_node("format", self._format_node)
         
         # 设置流程
@@ -205,11 +223,20 @@ class ProductionWorkflow:
             }
         )
         
-        workflow.add_edge("simple_query", "synthesize")
-        workflow.add_edge("complex_query", "synthesize")
-        workflow.add_edge("reasoning", "synthesize")
+        # SOP 召回在路由后
+        workflow.add_edge("route_query", "sop_recall")
+        workflow.add_edge("sop_recall", "simple_query")
+        workflow.add_edge("sop_recall", "complex_query")
+        workflow.add_edge("sop_recall", "reasoning")
         
-        workflow.add_edge("synthesize", "format")
+        # SOP 执行在查询处理后
+        workflow.add_edge("simple_query", "sop_execution")
+        workflow.add_edge("complex_query", "sop_execution")
+        workflow.add_edge("reasoning", "sop_execution")
+        
+        workflow.add_edge("sop_execution", "synthesize")
+        workflow.add_edge("synthesize", "sop_learning")
+        workflow.add_edge("sop_learning", "format")
         workflow.add_edge("format", END)
         
         return workflow.compile()
@@ -363,6 +390,51 @@ class ProductionWorkflow:
         
         return state
     
+    async def _sop_recall_node(self, state: ProductionState) -> ProductionState:
+        """SOP 召回节点"""
+        if not self.sop_nodes:
+            state["sop_recall_results"] = []
+            return state
+        
+        try:
+            state = await self.sop_nodes.sop_recall_node(state)
+            logger.info(f"SOP Recall: Found {len(state.get('sop_recall_results', []))} SOPs")
+        except Exception as e:
+            logger.warning(f"SOP Recall failed: {e}")
+            state["sop_recall_results"] = []
+        
+        return state
+    
+    async def _sop_execution_node(self, state: ProductionState) -> ProductionState:
+        """SOP 执行节点"""
+        if not self.sop_nodes:
+            state["sop_execution_results"] = []
+            state["sop_execution_success"] = False
+            return state
+        
+        try:
+            state = await self.sop_nodes.sop_execution_node(state)
+            logger.info(f"SOP Execution: {'Success' if state.get('sop_execution_success') else 'Failed'}")
+        except Exception as e:
+            logger.warning(f"SOP Execution failed: {e}")
+            state["sop_execution_results"] = []
+            state["sop_execution_success"] = False
+        
+        return state
+    
+    async def _sop_learning_node(self, state: ProductionState) -> ProductionState:
+        """SOP 学习节点"""
+        if not self.sop_nodes:
+            return state
+        
+        try:
+            state = await self.sop_nodes.sop_learning_hook(state)
+            logger.info(f"SOP Learning: Completed")
+        except Exception as e:
+            logger.warning(f"SOP Learning failed: {e}")
+        
+        return state
+    
     async def execute(self, query: str, context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """执行工作流"""
         initial_state: ProductionState = {
@@ -391,7 +463,11 @@ class ProductionWorkflow:
             "reasoning_steps": None,
             "current_step_index": 0,
             "agent_states": {},
-            "agent_messages": []
+            "agent_messages": [],
+            "sop_recall_results": [],
+            "sop_execution_results": [],
+            "sop_execution_success": False,
+            "executed_sop_id": None
         }
         
         try:

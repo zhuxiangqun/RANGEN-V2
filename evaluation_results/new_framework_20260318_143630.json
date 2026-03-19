@@ -1,0 +1,56 @@
+{
+  "overall_score": 0.4406050779139565,
+  "dimensions": {
+    "functionality": {
+      "dimension": "functionality",
+      "score": 0.125,
+      "status": "completed",
+      "metrics": {
+        "reasoning": {
+          "score": 0.0,
+          "correct": 0,
+          "total": 3,
+          "method": "实际问答测试"
+        },
+        "tool_usage": {
+          "score": 0.0,
+          "success": 0,
+          "total": 1,
+          "method": "工具调用测试"
+        },
+        "context_awareness": {
+          "score": 0.5,
+          "method": "多轮对话测试"
+        },
+        "multi_step": {
+          "score": 0.0,
+          "success": 0,
+          "total": 1,
+          "method": "多步骤推理测试"
+        }
+      },
+      "details": "测试了 4 个功能维度",
+      "execution_time_ms": 19.062042236328125
+    },
+    "agent_capability": {
+      "dimension": "agent_capability",
+      "score": 1,
+      "status": "completed",
+      "metrics": {
+        "agent_count": {
+          "count": 67
+        },
+        "skill_count": {
+          "count": 45
+        },
+        "tool_count": {
+          "count": 42
+        }
+      },
+      "details": "系统包含 67 个Agent, 45 个Skill, 42 个Tool",
+      "execution_time_ms": 6.890058517456055
+    },
+    "performance": {
+      "dimension": "performance",
+      "score": 0.26,
+      "status": 

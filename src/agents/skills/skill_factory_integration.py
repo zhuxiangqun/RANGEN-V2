@@ -425,6 +425,141 @@ class SkillFactoryIntegration:
                 "error": f"Error getting statistics: {str(e)}",
                 "statistics": None
             }
+    
+    async def test_and_fix_skill(
+        self,
+        skill_code: str,
+        skill_name: str,
+        test_input: Optional[Dict[str, Any]] = None,
+        description: str = "",
+        auto_fix: bool = True
+    ) -> Dict[str, Any]:
+        """
+        使用沙盒测试并自动修复技能
+        
+        Args:
+            skill_code: 技能代码
+            skill_name: 技能名称
+            test_input: 测试输入
+            description: 技能描述（用于 LLM 修复）
+            auto_fix: 是否启用自动修复
+            
+        Returns:
+            {
+                "success": bool,
+                "final_code": str,
+                "test_result": dict,
+                "attempts": int,
+                "fix_history": list
+            }
+        """
+        try:
+            from src.core.sandbox import SkillTester, SkillTestConfig, get_sandbox_executor
+            
+            # 创建测试器配置
+            config = SkillTestConfig(
+                max_retries=3,
+                auto_fix=auto_fix,
+                fix_llm_callable=self._get_llm_fix_callable()
+            )
+            
+            tester = SkillTester(config)
+            
+            # 执行测试和修复
+            result = await tester.test_and_fix(
+                skill_code=skill_code,
+                skill_name=skill_name,
+                test_input=test_input,
+                description=description
+            )
+            
+            return {
+                "success": result["success"],
+                "final_code": result["final_code"],
+                "test_result": result["test_result"].to_dict() if result["test_result"] else None,
+                "attempts": result["attempts"],
+                "fix_history": result["fix_history"]
+            }
+            
+        except ImportError as e:
+            return {
+                "success": False,
+                "error": f"Sandbox module not available: {e}",
+                "final_code": skill_code,
+                "test_result": None,
+                "attempts": 0,
+                "fix_history": []
+            }
+        except Exception as e:
+            return {
+                "success": False,
+                "error": f"Error testing skill: {str(e)}",
+                "final_code": skill_code,
+                "test_result": None,
+                "attempts": 0,
+                "fix_history": []
+            }
+    
+    def test_skill_simple(
+        self,
+        skill_code: str,
+        skill_name: str,
+        test_input: Optional[Dict[str, Any]] = None
+    ) -> Dict[str, Any]:
+        """
+        简单测试技能（无自动修复）
+        
+        Args:
+            skill_code: 技能代码
+            skill_name: 技能名称
+            test_input: 测试输入
+            
+        Returns:
+            TestResult as dict
+        """
+        try:
+            from src.core.sandbox import get_sandbox_executor
+            
+            sandbox = get_sandbox_executor()
+            result = sandbox.execute_skill(
+                skill_code=skill_code,
+                skill_name=skill_name,
+                test_input=test_input
+            )
+            
+            return result.to_dict()
+            
+        except ImportError as e:
+            return {
+                "success": False,
+                "error": f"Sandbox module not available: {e}"
+            }
+        except Exception as e:
+            return {
+                "success": False,
+                "error": f"Error testing skill: {str(e)}"
+            }
+    
+    def _get_llm_fix_callable(self) -> Optional[callable]:
+        """
+        获取 LLM 修复调用器
+        
+        Returns:
+            LLM 调用函数或 None
+        """
+        try:
+            from src.core.llm_integration import LLMIntegration
+            
+            def llm_fix(prompt: str, error: str) -> str:
+                llm = LLMIntegration(config={})
+                response = llm.generate(
+                    prompt=prompt,
+                    system="You are a Python code repair expert. Return only the fixed code."
+                )
+                return response
+            return llm_fix
+        except ImportError:
+            return None
 
 
 # 全局单例

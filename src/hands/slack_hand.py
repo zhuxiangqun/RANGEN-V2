@@ -10,7 +10,7 @@ import logging
 from typing import Dict, List, Any, Optional
 from datetime import datetime
 
-from .base import BaseHand, HandCategory, HandSafetyLevel, HandCapability
+from .base import BaseHand, HandCategory, HandSafetyLevel, HandCapability, HandExecutionResult
 
 
 class SlackHand(BaseHand):
@@ -22,7 +22,6 @@ class SlackHand(BaseHand):
             description="Slack API集成：发送消息、管理频道、处理交互",
             category=HandCategory.API_INTEGRATION,
             safety_level=HandSafetyLevel.MODERATE,
-            version="1.0.0"
         )
         self.logger = logging.getLogger(__name__)
         self.session: Optional[aiohttp.ClientSession] = None
@@ -33,6 +32,14 @@ class SlackHand(BaseHand):
         self.channel_cache: Dict[str, Dict[str, Any]] = {}
         self.user_cache: Dict[str, Dict[str, Any]] = {}
         self.cache_expiry = {}  # 缓存过期时间
+    
+    def validate_parameters(self, **kwargs) -> bool:
+        """验证参数"""
+        operation = kwargs.get("operation")
+        required_operations = ["send_message", "list_channels", "get_user_info", "post_to_thread", "upload_file", "set_token"]
+        if operation and operation not in required_operations:
+            return False
+        return True
     
     def get_capability(self) -> HandCapability:
         """获取能力定义"""
@@ -145,16 +152,29 @@ class SlackHand(BaseHand):
             ]
         )
     
-    async def execute(self, operation: str, **kwargs) -> Dict[str, Any]:
+    async def execute(self, **kwargs) -> HandExecutionResult:
         """执行Slack操作"""
         start_time = datetime.now()
         
         try:
-            # 获取token（优先使用参数中的token，其次使用默认token）
+            operation = kwargs.get("operation")
+            if not operation:
+                return HandExecutionResult(
+                    hand_name=self.name,
+                    success=False,
+                    output={},
+                    error="缺少 operation 参数"
+                )
+            
             token = kwargs.get("token") or self.default_token
             
             if not token and operation != "set_token":
-                raise ValueError("Slack token未提供。请提供token参数或使用set_token操作设置默认token。")
+                return HandExecutionResult(
+                    hand_name=self.name,
+                    success=False,
+                    output={},
+                    error="Slack token未提供。请提供token参数或使用set_token操作设置默认token。"
+                )
             
             if operation == "send_message":
                 result = await self._send_message(token, **kwargs)
@@ -169,11 +189,15 @@ class SlackHand(BaseHand):
             elif operation == "set_token":
                 result = await self._set_token(**kwargs)
             else:
-                raise ValueError(f"不支持的操作: {operation}")
+                return HandExecutionResult(
+                    hand_name=self.name,
+                    success=False,
+                    output={},
+                    error=f"不支持的操作: {operation}"
+                )
             
             execution_time = (datetime.now() - start_time).total_seconds()
             
-            # 记录Hook事件
             await self._record_hook_event(
                 operation=operation,
                 success=True,
@@ -181,34 +205,36 @@ class SlackHand(BaseHand):
                 result_summary=f"Slack操作成功: {operation}"
             )
             
-            return {
-                "success": True,
-                "result": result,
-                "execution_time": execution_time
-            }
+            return HandExecutionResult(
+                hand_name=self.name,
+                success=True,
+                output=result,
+                execution_time=execution_time
+            )
             
         except Exception as e:
             execution_time = (datetime.now() - start_time).total_seconds()
             error_msg = str(e)
             self.logger.error(f"Slack操作失败: {error_msg}")
             
-            # 记录错误事件
             await self._record_hook_event(
-                operation=operation,
+                operation=kwargs.get("operation"),
                 success=False,
                 execution_time=execution_time,
                 error=error_msg
             )
             
-            return {
-                "success": False,
-                "error": error_msg,
-                "execution_time": execution_time
-            }
+            return HandExecutionResult(
+                hand_name=self.name,
+                success=False,
+                output={},
+                error=error_msg,
+                execution_time=execution_time
+            )
     
-    async def _set_token(self, token: str, **kwargs) -> Dict[str, Any]:
+    async def _set_token(self, token: Optional[str], **kwargs) -> Dict[str, Any]:
         """设置默认Slack token"""
-        if not token.startswith(("xoxb-", "xoxp-", "xoxa-")):
+        if token and not token.startswith(("xoxb-", "xoxp-", "xoxa-")):
             self.logger.warning(f"Token格式可能不正确: {token[:10]}...")
         
         self.default_token = token
@@ -216,14 +242,24 @@ class SlackHand(BaseHand):
         # 验证token
         validation_result = await self._validate_token(token)
         
+        if token:
+            if token.startswith("xoxb-"):
+                token_type = "bot"
+            elif token.startswith("xoxp-"):
+                token_type = "user"
+            else:
+                token_type = "app"
+        else:
+            token_type = "unknown"
+        
         return {
             "token_set": True,
-            "token_preview": f"{token[:10]}...",
-            "token_type": "bot" if token.startswith("xoxb-") else "user" if token.startswith("xoxp-") else "app",
+            "token_preview": f"{token[:10]}..." if token else "None",
+            "token_type": token_type,
             "validation_result": validation_result
         }
     
-    async def _validate_token(self, token: str) -> Dict[str, Any]:
+    async def _validate_token(self, token: Optional[str]) -> Dict[str, Any]:
         """验证Slack token"""
         try:
             async with aiohttp.ClientSession() as session:
@@ -253,7 +289,7 @@ class SlackHand(BaseHand):
                 "error": str(e)
             }
     
-    async def _send_message(self, token: str, channel: str, text: str, **kwargs) -> Dict[str, Any]:
+    async def _send_message(self, token: Optional[str], channel: str, text: str, **kwargs) -> Dict[str, Any]:
         """发送消息到Slack频道"""
         # 如果channel是频道名，尝试转换为ID
         channel_id = await self._resolve_channel_id(token, channel)
@@ -304,7 +340,7 @@ class SlackHand(BaseHand):
                     error = result.get("error", "未知错误")
                     raise ValueError(f"发送消息失败: {error}")
     
-    async def _list_channels(self, token: str, **kwargs) -> Dict[str, Any]:
+    async def _list_channels(self, token: Optional[str], **kwargs) -> Dict[str, Any]:
         """列出Slack频道"""
         params = {
             "exclude_archived": kwargs.get("exclude_archived", True),
@@ -357,7 +393,7 @@ class SlackHand(BaseHand):
                     error = result.get("error", "未知错误")
                     raise ValueError(f"获取频道列表失败: {error}")
     
-    async def _get_user_info(self, token: str, user: str, **kwargs) -> Dict[str, Any]:
+    async def _get_user_info(self, token: Optional[str], user: str, **kwargs) -> Dict[str, Any]:
         """获取用户信息"""
         # 检查缓存
         cache_key = f"user_{user}"
@@ -401,7 +437,7 @@ class SlackHand(BaseHand):
                     error = result.get("error", "未知错误")
                     raise ValueError(f"获取用户信息失败: {error}")
     
-    async def _post_to_thread(self, token: str, channel: str, thread_ts: str, text: str, **kwargs) -> Dict[str, Any]:
+    async def _post_to_thread(self, token: Optional[str], channel: str, thread_ts: str, text: str, **kwargs) -> Dict[str, Any]:
         """回复到线程"""
         # 直接使用send_message，但指定thread_ts
         return await self._send_message(
@@ -412,7 +448,7 @@ class SlackHand(BaseHand):
             **kwargs
         )
     
-    async def _upload_file(self, token: str, **kwargs) -> Dict[str, Any]:
+    async def _upload_file(self, token: Optional[str], **kwargs) -> Dict[str, Any]:
         """上传文件到Slack"""
         file_path = kwargs.get("file_path")
         if not file_path:
@@ -466,7 +502,7 @@ class SlackHand(BaseHand):
                     error = result.get("error", "未知错误")
                     raise ValueError(f"上传文件失败: {error}")
     
-    async def _resolve_channel_id(self, token: str, channel: str) -> str:
+    async def _resolve_channel_id(self, token: Optional[str], channel: str) -> str:
         """解析频道ID（如果提供的是频道名）"""
         # 如果已经是ID格式（以C、G、D开头）
         if channel.startswith(("C", "G", "D")):

@@ -62,9 +62,8 @@ class BasicQualityAnalyzer(BaseAnalyzer):
                     total_score += 0.2
                     file_count += 1
             
-            # 基于真实分析结果，设置合理的最低分数
             base_score = total_score / max(file_count, 1)
-            return max(base_score, 0.3)  # 提高最低分数为0.3
+            return min(max(base_score, 0.3), 1.0)
             
         except Exception as e:
             self.logger.error(f"分析智能质量失败: {e}")
@@ -1047,9 +1046,9 @@ class BasicQualityAnalyzer(BaseAnalyzer):
                 total_score += file_score
                 file_count += 1
             
-            # 设置合理的最低分数
             base_score = total_score / max(file_count, 1)
-            return max(base_score, 0.2)
+            return min(max(base_score, 0.2), 1.0)
+            
             
         except Exception as e:
             self.logger.error(f"分析安全质量失败: {e}")
@@ -1095,9 +1094,9 @@ class BasicQualityAnalyzer(BaseAnalyzer):
                 total_score += file_score
                 file_count += 1
             
-            # 设置合理的最低分数
+            # 设置合理的最低分数，并确保不超过1.0
             base_score = total_score / max(file_count, 1)
-            return max(base_score, 0.2)
+            return min(max(base_score, 0.2), 1.0)  # 限制在0.2-1.0范围内
             
         except Exception as e:
             self.logger.error(f"分析性能质量失败: {e}")

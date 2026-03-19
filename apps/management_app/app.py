@@ -19,10 +19,39 @@ from typing import Dict, Any, List, Optional
 RANGEN_API_BASE = "http://localhost:8000"
 
 st.set_page_config(
-    page_title="RANGEN 管理控制台",
-    page_icon="🎛️",
-    layout="wide"
+    page_title="RANGEN Management",
+    page_icon="🔧",
+    layout="wide",
+    initial_sidebar_state="collapsed"
 )
+
+COLORS = {
+    "primary": "#0D47A1",
+    "secondary": "#1565C0",
+}
+
+st.markdown(f"""
+<style>
+    .main-header {{
+        background: linear-gradient(135deg, {COLORS['primary']} 0%, {COLORS['secondary']} 100%);
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+    }}
+    .main-header h1 {{
+        color: white;
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }}
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<div class="main-header">
+    <h1>🔧 RANGEN Management</h1>
+</div>
+""", unsafe_allow_html=True)
 
 
 def api_request(method: str, endpoint: str, data: Dict = None, params: Dict = None) -> Dict[str, Any]:

@@ -5,6 +5,7 @@ API集成Hands
 
 import aiohttp
 import json
+import asyncio
 import logging
 from typing import Dict, List, Any, Optional
 
@@ -597,6 +598,7 @@ class DataProcessingHand(BaseHand):
 # 测试函数
 async def test_api_hands():
     """测试API Hands"""
+    import asyncio
     import logging
     logging.basicConfig(level=logging.INFO)
     

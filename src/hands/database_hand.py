@@ -11,7 +11,7 @@ from typing import Dict, List, Any, Optional, Union, Tuple
 from datetime import datetime
 import json
 
-from .base import BaseHand, HandCategory, HandSafetyLevel, HandCapability
+from .base import BaseHand, HandCategory, HandSafetyLevel, HandCapability, HandExecutionResult
 
 
 class DatabaseHand(BaseHand):
@@ -21,13 +21,20 @@ class DatabaseHand(BaseHand):
         super().__init__(
             name="database",
             description="数据库操作能力：连接、查询、插入、更新、删除",
-            category=HandCategory.DATA_MANAGEMENT,
+            category=HandCategory.DATA_PROCESSING,
             safety_level=HandSafetyLevel.MODERATE,
-            version="1.0.0"
         )
         self.logger = logging.getLogger(__name__)
         self.connections: Dict[str, Any] = {}  # 连接池
         self.default_db_path = "rangen_system.db"
+    
+    def validate_parameters(self, **kwargs) -> bool:
+        """验证参数"""
+        operation = kwargs.get("operation")
+        required_operations = ["connect", "query", "execute", "insert", "update", "delete", "create_table"]
+        if operation and operation not in required_operations:
+            return False
+        return True
     
     def get_capability(self) -> HandCapability:
         """获取能力定义"""
@@ -134,11 +141,20 @@ class DatabaseHand(BaseHand):
             ]
         )
     
-    async def execute(self, operation: str, **kwargs) -> Dict[str, Any]:
+    async def execute(self, **kwargs) -> HandExecutionResult:
         """执行数据库操作"""
         start_time = datetime.now()
         
         try:
+            operation = kwargs.get("operation")
+            if not operation:
+                return HandExecutionResult(
+                    hand_name=self.name,
+                    success=False,
+                    output={},
+                    error="缺少 operation 参数"
+                )
+            
             if operation == "connect":
                 result = await self._connect(**kwargs)
             elif operation == "query":
@@ -154,11 +170,15 @@ class DatabaseHand(BaseHand):
             elif operation == "create_table":
                 result = await self._create_table(**kwargs)
             else:
-                raise ValueError(f"不支持的操作: {operation}")
+                return HandExecutionResult(
+                    hand_name=self.name,
+                    success=False,
+                    output={},
+                    error=f"不支持的操作: {operation}"
+                )
             
             execution_time = (datetime.now() - start_time).total_seconds()
             
-            # 记录Hook事件
             await self._record_hook_event(
                 operation=operation,
                 success=True,
@@ -166,30 +186,32 @@ class DatabaseHand(BaseHand):
                 result_summary=f"数据库操作成功: {operation}"
             )
             
-            return {
-                "success": True,
-                "result": result,
-                "execution_time": execution_time
-            }
+            return HandExecutionResult(
+                hand_name=self.name,
+                success=True,
+                output=result,
+                execution_time=execution_time
+            )
             
         except Exception as e:
             execution_time = (datetime.now() - start_time).total_seconds()
             error_msg = str(e)
             self.logger.error(f"数据库操作失败: {error_msg}")
             
-            # 记录错误事件
             await self._record_hook_event(
-                operation=operation,
+                operation=kwargs.get("operation"),
                 success=False,
                 execution_time=execution_time,
                 error=error_msg
             )
             
-            return {
-                "success": False,
-                "error": error_msg,
-                "execution_time": execution_time
-            }
+            return HandExecutionResult(
+                hand_name=self.name,
+                success=False,
+                output={},
+                error=error_msg,
+                execution_time=execution_time
+            )
     
     async def _connect(self, db_type: str = "sqlite", **kwargs) -> Dict[str, Any]:
         """连接到数据库"""

@@ -37,14 +37,14 @@ class HandSafetyLevel(Enum):
 @dataclass
 class HandCapability:
     """Hand能力定义"""
-    name: str  # 能力名称
-    description: str  # 能力描述
-    category: HandCategory  # 能力类别
-    safety_level: HandSafetyLevel  # 安全级别
-    version: str = "1.0.0"  # 版本
-    parameters: Dict[str, Any] = field(default_factory=dict)  # 参数定义
-    dependencies: List[str] = field(default_factory=list)  # 依赖
-    examples: List[Dict[str, Any]] = field(default_factory=list)  # 使用示例
+    name: str
+    description: str
+    category: HandCategory
+    safety_level: HandSafetyLevel
+    version: str = "1.0.0"
+    parameters: List[Dict[str, Any]] = field(default_factory=list)
+    dependencies: List[str] = field(default_factory=list)
+    examples: List[Dict[str, Any]] = field(default_factory=list)
 
 
 @dataclass

@@ -11,6 +11,16 @@ import re
 import time
 import os
 import uvicorn
+from pathlib import Path
+
+# 加载环境变量
+try:
+    from dotenv import load_dotenv
+    env_path = Path(__file__).parent.parent.parent / ".env"
+    load_dotenv(env_path, override=False)
+except ImportError:
+    pass
+
 from fastapi import FastAPI, HTTPException, Depends, Request
 from contextlib import asynccontextmanager
 from typing import Optional, Any
@@ -29,6 +39,28 @@ from src.api.sop_routes import router as sop_router
 from src.api.unified_create_routes import router as unified_create_router
 from src.api.workflows import router as workflows_router
 from src.api.auto_create_routes import router as auto_create_router
+from src.api.team_routes import router as team_router
+from src.api.agents import router as agents_router
+from src.api.skills import router as skills_router
+from src.api.tools import router as tools_router
+from src.api.teams import router as teams_router
+
+# 新增路由
+from src.api.cost_control import router as cost_router
+from src.api.security_control import router as security_router
+from src.api.sandbox import router as sandbox_router
+from src.api.mcp_routes import router as mcp_router
+from src.api.external_integration import router as external_router
+from src.api.model_routes import router as model_router
+from src.api.test_execution import router as test_router
+from src.api.routing_monitor_routes import router as routing_monitor_router
+from src.api.cost_alert import router as cost_alert_router
+from src.api.execution_control import router as execution_control_router
+from src.api.ops_diagnosis_routes import router as ops_diagnosis_router
+from src.api.smart_handler_routes import router as smart_handler_router
+from src.api.conversation_routes import router as conversation_router
+from src.api.hub_routes import router as hub_router
+
 from src.api.auth import verify_api_key_auth, require_read, require_write, require_admin, register_api_key, AuthService
 from src.middleware.validation import create_validation_middleware, create_security_headers_middleware, create_rate_limit_middleware
 from src.utils.input_validator import ValidationLevel
@@ -144,7 +176,117 @@ try:
 except Exception:
     pass
 
+# 添加 Agent 路由
+try:
+    app.include_router(agents_router)
+except Exception:
+    pass
+
+# 添加 Skill 路由
+try:
+    app.include_router(skills_router)
+except Exception:
+    pass
+
+# 添加 Tool 路由
+try:
+    app.include_router(tools_router)
+except Exception:
+    pass
+
+# 添加 Teams 路由
+try:
+    app.include_router(teams_router)
+except Exception:
+    pass
+
+# 新增路由 - 质量控制 (路由器已有前缀，不要重复添加)
+try:
+    app.include_router(cost_router, tags=["cost"])
+except Exception as e:
+    logger.warning(f"Cost router not loaded: {e}")
+
+try:
+    app.include_router(security_router, tags=["security"])
+except Exception as e:
+    logger.warning(f"Security router not loaded: {e}")
+
+try:
+    app.include_router(sandbox_router, tags=["sandbox"])
+except Exception as e:
+    logger.warning(f"Sandbox router not loaded: {e}")
+
+try:
+    app.include_router(cost_alert_router, tags=["cost-alert"])
+except Exception as e:
+    logger.warning(f"Cost alert router not loaded: {e}")
+
+try:
+    app.include_router(execution_control_router, tags=["execution"])
+except Exception as e:
+    logger.warning(f"Execution control router not loaded: {e}")
+
+try:
+    app.include_router(ops_diagnosis_router, tags=["ops-diagnosis"])
+except Exception as e:
+    logger.warning(f"Ops diagnosis router not loaded: {e}")
+
+try:
+    app.include_router(smart_handler_router, tags=["smart-handler"])
+except Exception as e:
+    logger.warning(f"Smart handler router not loaded: {e}")
+
+try:
+    app.include_router(conversation_router, tags=["conversation"])
+except Exception as e:
+    logger.warning(f"Conversation router not loaded: {e}")
+
+# 新增路由 - 集成
+try:
+    app.include_router(mcp_router, tags=["mcp"])
+except Exception as e:
+    logger.warning(f"MCP router not loaded: {e}")
+
+try:
+    app.include_router(external_router, tags=["external"])
+except Exception as e:
+    logger.warning(f"External router not loaded: {e}")
+
+try:
+    app.include_router(model_router, tags=["model"])
+except Exception as e:
+    logger.warning(f"Model router not loaded: {e}")
+
+# 新增路由 - 测试与监控
+try:
+    app.include_router(test_router, tags=["test"])
+except Exception as e:
+    logger.warning(f"Test router not loaded: {e}")
+
+try:
+    app.include_router(routing_monitor_router, tags=["routing"])
+except Exception as e:
+    logger.warning(f"Routing monitor router not loaded: {e}")
+
+# Central Hub 路由 - Hands 智能助手基盘
+try:
+    app.include_router(hub_router, tags=["hub"])
+    logger.info("Central Hub router loaded - Hands intelligent assistant platform ready!")
+except Exception as e:
+    logger.warning(f"Hub router not loaded: {e}")
+
 app.add_middleware(create_rate_limit_middleware, max_requests=200, window_seconds=60)
+
+
+@app.get("/", response_model=dict)
+async def root():
+    return {
+        "message": "RANGEN API Server",
+        "version": "2.0",
+        "docs": "/docs",
+        "health": "/health",
+        "status": "/status"
+    }
 
 
 @app.post("/chat", response_model=ChatResponse)
@@ -265,6 +407,22 @@ async def chat_endpoint(
 async def health_check():
     """Public health check - no authentication required"""
     return {"status": "ok", "version": "2.0.0", "timestamp": time.time()}
+
+
+@app.get("/health/resource")
+async def resource_health_check():
+    """Resource health check - CPU, Memory, Disk usage"""
+    try:
+        from src.utils.resource_monitor import ResourceMonitor
+        monitor = ResourceMonitor()
+        status = monitor.get_resource_status()
+        return {
+            "status": "ok",
+            "timestamp": time.time(),
+            "resources": status
+        }
+    except Exception as e:
+        return {"status": "error", "error": str(e)}
 
 
 @app.get("/health/auth")

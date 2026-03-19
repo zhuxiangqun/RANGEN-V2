@@ -7,6 +7,8 @@ import logging
 from typing import Dict, List, Any, Optional, Type, Set
 from pathlib import Path
 import importlib
+import importlib.util
+import importlib.machinery
 import inspect
 
 from .base import BaseHand, HandCategory, HandSafetyLevel, HandCapability
@@ -158,40 +160,30 @@ class HandRegistry:
             self.logger.error(f"目录不存在: {directory_path}")
             return 0
         
-        # 查找Python模块
+        BaseHand_module = BaseHand.__module__
+        
         for py_file in directory.glob("*.py"):
             if py_file.name.startswith("_") or py_file.name == "registry.py":
                 continue
             
             module_name = py_file.stem
             try:
-                # 动态导入模块 - 兼容Python 3.14+
-                spec = importlib.util.spec_from_file_location(
-                    f"hands.{module_name}", py_file
+                loader = importlib.machinery.SourceFileLoader(
+                    f"src.hands.{module_name}", str(py_file)
                 )
-                if spec is None or spec.loader is None:
-                    # 回退到SourceFileLoader方法
-                    from importlib.machinery import SourceFileLoader
-                    loader = SourceFileLoader(f"hands.{module_name}", str(py_file))
-                    module = loader.load_module()
-                else:
-                    module = importlib.util.module_from_spec(spec)
-                    spec.loader.exec_module(module)
+                module = loader.load_module()
                 
-                # 查找BaseHand的子类
-                for name, obj in inspect.getmembers(module):
-                    if (inspect.isclass(obj) and 
-                        issubclass(obj, BaseHand) and 
-                        obj != BaseHand):
-                        
-                        try:
-                            # 创建实例并注册
-                            hand_instance = obj()
-                            if self.register(hand_instance):
-                                loaded_count += 1
-                                self.logger.info(f"从 {py_file.name} 加载Hand: {hand_instance.name}")
-                        except Exception as e:
-                            self.logger.error(f"创建Hand实例失败 {name}: {e}")
+                for name, obj in inspect.getmembers(module, inspect.isclass):
+                    if hasattr(obj, '__mro__') and obj is not BaseHand:
+                        mro_modules = [base.__module__ for base in obj.__mro__]
+                        if BaseHand_module in mro_modules:
+                            try:
+                                hand_instance = obj()
+                                if self.register(hand_instance):
+                                    loaded_count += 1
+                                    self.logger.info(f"从 {py_file.name} 加载Hand: {hand_instance.name}")
+                            except Exception as e:
+                                self.logger.error(f"创建Hand实例失败 {name}: {e}")
                             
             except Exception as e:
                 self.logger.error(f"加载模块失败 {py_file}: {e}")

@@ -7,6 +7,14 @@ from typing import Optional, Dict, Any, Protocol
 import requests
 import json
 import time
+from pathlib import Path
+
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 from src.services.logging_service import get_logger
 from src.core.utils.circuit_breaker import CircuitBreaker, CircuitBreakerOpenError
 from abc import ABC, abstractmethod

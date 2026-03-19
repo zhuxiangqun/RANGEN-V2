@@ -36,6 +36,21 @@ from src.core.agent_linter import get_agent_linter
 from src.core.agent_reviewer import get_review_system, CodeChange
 from src.core.agent_observability_client import get_observability_client
 
+# Three Optimizations
+try:
+    from src.core.progress_tracker import ProgressTracker
+except ImportError:
+    ProgressTracker = None
+try:
+    from src.core.dependency_guard import get_dependency_guard
+except ImportError:
+    get_dependency_guard = None
+try:
+    from src.core.verdict import create_minimal_verdict, VerdictValidator
+except ImportError:
+    create_minimal_verdict = None
+    VerdictValidator = None
+
 # 核心 Agent 模块
 try:
     from src.agents.security_guardian import SecurityGuardian
@@ -241,6 +256,31 @@ class ExecutionCoordinator(ICoordinator):
         health = check_harness_health()
         if health["health_score"] < 70:
             logger.warning(f"Harness health low: {health['health_score']}, issues: {health['issues_found']}")
+        
+        # Three Optimizations Initialization
+        try:
+            self.progress_tracker = ProgressTracker() if ProgressTracker else None
+            if self.progress_tracker:
+                logger.info("ProgressTracker initialized")
+        except Exception as e:
+            logger.warning(f"ProgressTracker initialization failed: {e}")
+            self.progress_tracker = None
+        
+        try:
+            self.dependency_guard = get_dependency_guard() if get_dependency_guard else None
+            if self.dependency_guard:
+                logger.info("DependencyGuard initialized")
+        except Exception as e:
+            logger.warning(f"DependencyGuard initialization failed: {e}")
+            self.dependency_guard = None
+        
+        try:
+            self.verdict_validator = VerdictValidator() if VerdictValidator else None
+            if self.verdict_validator:
+                logger.info("VerdictValidator initialized")
+        except Exception as e:
+            logger.warning(f"VerdictValidator initialization failed: {e}")
+            self.verdict_validator = None
         
         self.graph = self._build_graph()
         logger.info("ExecutionCoordinator initialized with LangGraph and Harness Engineering")
@@ -663,6 +703,20 @@ class ExecutionCoordinator(ICoordinator):
         # 生成任务ID用于追踪
         task_id = str(uuid.uuid4())[:8]
         
+        # Optimization 1: Progress Tracker - Create task manifest
+        progress_task_id = None
+        if self.progress_tracker:
+            try:
+                manifest = self.progress_tracker.create_task(
+                    task_id=task_id,
+                    task_title=task[:50],
+                    overall_goal="Complete task with quality verification"
+                )
+                progress_task_id = manifest.task_id
+                logger.info(f"Progress tracking initialized for task {progress_task_id}")
+            except Exception as e:
+                logger.warning(f"ProgressTracker initialization failed: {e}")
+        
         # 创建任务契约
         contract = self._create_task_contract(task_id, task)
         
@@ -731,6 +785,45 @@ class ExecutionCoordinator(ICoordinator):
                 "lint_issues_count": len(result.get("lint_issues", [])),
                 "review_passed": result.get("review_passed", True)
             }
+            
+            # Optimization 1: Complete progress tracking
+            if progress_task_id and self.progress_tracker:
+                try:
+                    self.progress_tracker.complete_node(
+                        progress_task_id, 
+                        evidence=[f"Task completed: {result.get('final_answer', '')[:50]}"]
+                    )
+                    self.progress_tracker.finalize_task()
+                    logger.info(f"Progress tracking completed for task {progress_task_id}")
+                except Exception as e:
+                    logger.warning(f"ProgressTracker completion failed: {e}")
+            
+            # Optimization 2: Architecture dependency check (passive check - log only)
+            if self.dependency_guard:
+                try:
+                    check_result = self.dependency_guard.check_all()
+                    if check_result.violations:
+                        logger.warning(f"Architecture violations detected: {len(check_result.violations)}")
+                        result["harness_metrics"]["dependency_violations"] = len(check_result.violations)
+                except Exception as e:
+                    logger.warning(f"DependencyGuard check failed: {e}")
+            
+            # Optimization 3: Create Verdict for SOP learning (if validator available)
+            verdict_id = None
+            if self.verdict_validator and create_minimal_verdict:
+                try:
+                    verdict = create_minimal_verdict(
+                        execution_id=task_id,
+                        task_description=task,
+                        reasoning=f"Task completed successfully: {result.get('final_answer', '')[:100]}",
+                        passed=True
+                    )
+                    verdict_id = verdict.verdict_id
+                    result["verdict_id"] = verdict_id
+                    result["harness_metrics"]["verdict_created"] = True
+                    logger.info(f"Verdict created for SOP learning: {verdict_id}")
+                except Exception as e:
+                    logger.warning(f"Verdict creation failed: {e}")
             
             return result
         except Exception as e:

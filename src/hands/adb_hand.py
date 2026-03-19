@@ -23,7 +23,7 @@ class ADBResult:
     output: Any = None
     error: Optional[str] = None
     device_id: Optional[str] = None
-    metadata: Dict[str, Any] = None
+    metadata: Dict[str, Any] = None  # type: ignore
     
     def __post_init__(self):
         if self.metadata is None:
@@ -243,12 +243,6 @@ class ADBController:
             output=f"Screenshot saved to {save_path}",
             device_id=self.device_id,
             metadata={"path": save_path}
-        )
-            success=True,
-            action="screenshot",
-            output=f"Screenshot saved to {save_path}",
-           _id,
-            metadata device_id=self.device={"path": save_path}
         )
     
     def start_app(self, package_name: str) -> ADBResult:

@@ -128,9 +128,16 @@ def main():
     info_parser = skills_subparsers.add_parser('info', help='Show skill details')
     info_parser.add_argument('skill_name', type=str, help='Skill name')
     
+    # Lite commands
+    lite_parser = subparsers.add_parser('lite', help='RANGEN Lite mode')
+    lite_parser.add_argument('--interactive', action='store_true', help='Interactive configuration')
+    lite_parser.add_argument('--port', type=str, default='8501', help='UI port')
+    lite_parser.set_defaults(func=cmd_lite)
+    
     # skills trigger
     trigger_parser = skills_subparsers.add_parser('trigger', help='Find skills by trigger')
     trigger_parser.add_argument('keyword', type=str, help='Trigger keyword')
+    trigger_parser.set_defaults(func=cmd_skills_trigger)
     
     args = parser.parse_args()
     
@@ -145,8 +152,28 @@ def main():
             cmd_skills_trigger(args)
         else:
             skills_parser.print_help()
+    elif args.command == 'lite':
+        cmd_lite(args)
     else:
         parser.print_help()
+
+
+def cmd_lite(args):
+    """启动 RANGEN Lite 模式"""
+    from src.core.lite_configurator import LiteConfigurator, quick_start, interactive_configure
+    
+    if args.interactive:
+        interactive_configure()
+    else:
+        quick_start()
+
+
+def cmd_lite_start(args):
+    """直接启动 UI"""
+    import subprocess
+    print("🚀 启动 RANGEN Lite UI...")
+    print("   访问 http://localhost:8501")
+    subprocess.run(["streamlit", "run", "src/ui/app.py", "--server.port", args.port])
 
 
 if __name__ == '__main__':

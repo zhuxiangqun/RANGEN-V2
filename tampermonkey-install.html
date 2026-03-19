@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RANGEN Browser Control - 安装</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        .icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .install-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        .install-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        .features {
+            text-align: left;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+        .features h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .features ul {
+            list-style: none;
+        }
+        .features li {
+            padding: 8px 0;
+            color: #555;
+            font-size: 14px;
+        }
+        .features li::before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        .warning {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3cd;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #856404;
+        }
+        .warning strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .steps {
+            text-align: left;
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f4f8;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+        .steps ol {
+            margin-left: 20px;
+        }
+        .steps li {
+            margin: 5px 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">🌐</div>
+        <h1>RANGEN Browser Control</h1>
+        <p class="subtitle">让 AI 助手控制你的浏览器</p>
+        
+        <button class="install-btn" onclick="installScript()">
+            安装 RANGEN 浏览器控制
+        </button>
+        
+        <div class="features">
+            <h3>功能特性</h3>
+            <ul>
+                <li>自动点击网页按钮</li>
+                <li>填写表单内容</li>
+                <li>自动导航到指定页面</li>
+                <li>获取网页内容</li>
+                <li>保持你的登录状态</li>
+            </ul>
+        </div>
+        
+        <div class="warning">
+            <strong>⚠️ 隐私说明</strong>
+            此脚本仅在你的浏览器本地运行，不会收集你的个人信息。所有操作都在你的控制之下。
+        </div>
+        
+        <div class="steps">
+            <strong>安装步骤：</strong>
+            <ol>
+                <li>点击上方「安装」按钮</li>
+                <li>浏览器会弹出 Tampermonkey 确认窗口</li>
+                <li>点击「安装」确认</li>
+                <li>安装完成后即可使用</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script>
+    // 完整的用户脚本内容
+    const scriptContent = `// ==UserScript==
+// @name         RANGEN Browser Control
+// @namespace    https://github.com/rangen/rangen
+// @version      1.0
+// @description  RANGEN 浏览器控制扩展 - 支持 Agent 自动化操作
+// @author       RANGEN
+// @match        *://*/*
+// @grant        GM_xmlhttpRequest
+// @grant        GM_setValue
+// @grant        GM_getValue
+// @grant        GM_addStyle
+// @grant        GM_setClipboard
+// @connect      localhost
+// @connect      127.0.0.1
+// @run-at       document-idle
+// @noframes
+// ==/UserScript==
+
+(function() {
+    'use strict';
+    
+    const CONFIG = {
+        API_ENDPOINT: 'http://localhost:8080/browser',
+        HEARTBEAT_INTERVAL: 5000,
+        DEBUG: false
+    };
+    
+    function log(...args) {
+        if (CONFIG.DEBUG) console.log('[RANGEN]', ...args);
+    }
+    
+    let isConnected = false;
+    let sessionId = null;
+    
+    function sendToRangen(action, data = {}) {
+        return new Promise((resolve, reject) => {
+            GM_xmlhttpRequest({
+                method: 'POST',
+                url: CONFIG.API_ENDPOINT + '/action',
+                data: JSON.stringify({
+                    session_id: sessionId,
+                    action: action,
+                    data: data,
+                    url: window.location.href,
+                    title: document.title
+                }),
+                headers: { 'Content-Type': 'application/json' },
+                onload: (resp) => {
+                    try {
+                        resolve(JSON.parse(resp.responseText));
+                    } catch { resolve(resp.responseText); }
+                },
+                onerror: reject
+            });
+        });
+    }
+    
+    function executeActions(actions) {
+        actions.forEach(action => {
+            try {
+                switch (action.type) {
+                    case 'click':
+                        if (action.selector) {
+                            const el = document.querySelector(action.selector);
+                            if (el) el.click();
+                        }
+                        break;
+                    case 'input':
+                        if (action.selector && action.value !== undefined) {
+                            const el = document.querySelector(action.selector);
+                            if (el) {
+                                el.value = action.value;
+                                el.dispatchEvent(new Event('input', { bubbles: true }));
+                                el.dispatchEvent(new Event('change', { bubbles: true }));
+                            }
+                        }
+                        break;
+                    case 'navigate':
+                        window.location.href = action.url;
+                        break;
+                    case 'wait':
+                        setTimeout(() => {}, action.duration || 1000);
+                        break;
+                }
+            } catch (e) {
+                log('Action error:', e);
+            }
+        });
+    }
+    
+    function startHeartbeat() {
+        setInterval(async () => {
+            if (isConnected) {
+                try {
+                    const resp = await sendToRangen('heartbeat', {
+                        url: window.location.href
+                    });
+                    if (resp && resp.actions) {
+                        executeActions(resp.actions);
+                    }
+                } catch (e) {
+                    log('Heartbeat error:', e);
+                }
+            }
+        }, CONFIG.HEARTBEAT_INTERVAL);
+    }
+    
+    function init() {
+        log('RANGEN Browser Control initialized');
+        isConnected = true;
+        startHeartbeat();
+        GM_addStyle(\`
+            #rangen-control-panel {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: white;
+                border-radius: 10px;
+                padding: 15px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+                z-index: 999999;
+                font-family: sans-serif;
+                font-size: 12px;
+                min-width: 200px;
+            }
+            #rangen-status {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            #rangen-dot {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: #ccc;
+            }
+            #rangen-dot.active { background: #4CAF50; }
+        \`);
+        
+        const panel = document.createElement('div');
+        panel.id = 'rangen-control-panel';
+        panel.innerHTML = '<div id="rangen-status"><div id="rangen-dot" class="active"></div><span>RANGEN 已连接</span></div>';
+        document.body.appendChild(panel);
+    }
+    
+    if (document.readyState === 'complete') init();
+    else window.addEventListener('load', init);
+})();
+`;
+    
+    function installScript() {
+        // 创建一个 Blob URL 来触发下载
+        const blob = new Blob([scriptContent], { type: 'text/javascript' });
+        const url = URL.createObjectURL(blob);
+        
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'rangen_browser_control.user.js';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        
+        alert('脚本已下载！\n\n下一步：\n1. 打开 Tampermonkey 扩展\n2. 点击「添加新脚本」\n3. 删除现有内容\n4. 粘贴下载的文件内容\n5. 保存即可');
+    }
+    </script>
+</body>
+</html>

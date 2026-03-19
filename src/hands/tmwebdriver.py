@@ -40,7 +40,7 @@ class BrowserResult:
     output: Any = None
     error: Optional[str] = None
     screenshot: Optional[str] = None  # Base64 encoded
-    metadata: Dict[str, Any] = None
+    metadata: Dict[str, Any] = None  # type: ignore
     
     def __post_init__(self):
         if self.metadata is None:

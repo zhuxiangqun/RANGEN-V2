@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 import base64
 
-from .base import BaseHand, HandCategory, HandSafetyLevel, HandCapability
+from .base import BaseHand, HandCategory, HandSafetyLevel, HandCapability, HandExecutionResult
 
 
 class GitHubHand(BaseHand):
@@ -24,7 +24,6 @@ class GitHubHand(BaseHand):
             description="GitHub API集成：管理仓库、Issues、Pull Requests、Webhooks等",
             category=HandCategory.API_INTEGRATION,
             safety_level=HandSafetyLevel.MODERATE,
-            version="1.0.0"
         )
         self.logger = logging.getLogger(__name__)
         self.session: Optional[aiohttp.ClientSession] = None
@@ -35,6 +34,17 @@ class GitHubHand(BaseHand):
         self.repo_cache: Dict[str, Dict[str, Any]] = {}
         self.user_cache: Dict[str, Dict[str, Any]] = {}
         self.cache_expiry = {}  # 缓存过期时间
+    
+    def validate_parameters(self, **kwargs) -> bool:
+        """验证参数"""
+        operation = kwargs.get("operation")
+        required_operations = ["list_repos", "get_repo", "create_repo", "create_issue", "list_issues", 
+                              "get_issue", "create_pr", "list_prs", "get_pr", "create_webhook", 
+                              "list_webhooks", "set_token", "search_repos", "get_user", "update_file", 
+                              "get_file", "list_branches", "list_commits"]
+        if operation and operation not in required_operations:
+            return False
+        return True
     
     def get_capability(self) -> HandCapability:
         """获取能力定义"""
@@ -260,18 +270,30 @@ class GitHubHand(BaseHand):
             ]
         )
     
-    async def execute(self, operation: str, **kwargs) -> Dict[str, Any]:
+    async def execute(self, **kwargs) -> HandExecutionResult:
         """执行GitHub操作"""
         start_time = datetime.now()
         
         try:
-            # 获取token（优先使用参数中的token，其次使用默认token）
+            operation = kwargs.get("operation")
+            if not operation:
+                return HandExecutionResult(
+                    hand_name=self.name,
+                    success=False,
+                    output={},
+                    error="缺少 operation 参数"
+                )
+            
             token = kwargs.get("token") or self.default_token
             
             if not token and operation != "set_token":
-                raise ValueError("GitHub token未提供。请提供token参数或使用set_token操作设置默认token。")
+                return HandExecutionResult(
+                    hand_name=self.name,
+                    success=False,
+                    output={},
+                    error="GitHub token未提供。请提供token参数或使用set_token操作设置默认token。"
+                )
             
-            # 根据操作类型调用相应的方法
             if operation == "list_repos":
                 result = await self._list_repositories(token, **kwargs)
             elif operation == "get_repo":
@@ -309,11 +331,15 @@ class GitHubHand(BaseHand):
             elif operation == "list_commits":
                 result = await self._list_commits(token, **kwargs)
             else:
-                raise ValueError(f"不支持的操作: {operation}")
+                return HandExecutionResult(
+                    hand_name=self.name,
+                    success=False,
+                    output={},
+                    error=f"不支持的操作: {operation}"
+                )
             
             execution_time = (datetime.now() - start_time).total_seconds()
             
-            # 记录Hook事件
             await self._record_hook_event(
                 operation=operation,
                 success=True,
@@ -321,34 +347,36 @@ class GitHubHand(BaseHand):
                 result_summary=f"GitHub操作成功: {operation}"
             )
             
-            return {
-                "success": True,
-                "result": result,
-                "execution_time": execution_time
-            }
+            return HandExecutionResult(
+                hand_name=self.name,
+                success=True,
+                output=result,
+                execution_time=execution_time
+            )
             
         except Exception as e:
             execution_time = (datetime.now() - start_time).total_seconds()
             error_msg = str(e)
             self.logger.error(f"GitHub操作失败: {error_msg}")
             
-            # 记录错误事件
             await self._record_hook_event(
-                operation=operation,
+                operation=kwargs.get("operation"),
                 success=False,
                 execution_time=execution_time,
                 error=error_msg
             )
             
-            return {
-                "success": False,
-                "error": error_msg,
-                "execution_time": execution_time
-            }
+            return HandExecutionResult(
+                hand_name=self.name,
+                success=False,
+                output={},
+                error=error_msg,
+                execution_time=execution_time
+            )
     
-    async def _set_token(self, token: str, **kwargs) -> Dict[str, Any]:
+    async def _set_token(self, token: Optional[str], **kwargs) -> Dict[str, Any]:
         """设置默认GitHub token"""
-        if not token.startswith(("ghp_", "github_pat_")):
+        if token and not token.startswith(("ghp_", "github_pat_")):
             self.logger.warning(f"Token格式可能不正确: {token[:10]}...")
         
         self.default_token = token
@@ -356,14 +384,16 @@ class GitHubHand(BaseHand):
         # 验证token
         validation_result = await self._validate_token(token)
         
+        token_type = "classic" if token and token.startswith("ghp_") else "fine-grained" if token else "unknown"
+        
         return {
             "token_set": True,
-            "token_preview": f"{token[:10]}...",
-            "token_type": "classic" if token.startswith("ghp_") else "fine-grained",
+            "token_preview": f"{token[:10]}..." if token else "None",
+            "token_type": token_type,
             "validation_result": validation_result
         }
     
-    async def _validate_token(self, token: str) -> Dict[str, Any]:
+    async def _validate_token(self, token: Optional[str]) -> Dict[str, Any]:
         """验证GitHub token"""
         try:
             headers = {
@@ -403,7 +433,7 @@ class GitHubHand(BaseHand):
                 "error": str(e)
             }
     
-    def _get_headers(self, token: str) -> Dict[str, str]:
+    def _get_headers(self, token: Optional[str]) -> Dict[str, str]:
         """获取请求头"""
         return {
             "Authorization": f"Bearer {token}",
@@ -411,7 +441,7 @@ class GitHubHand(BaseHand):
             "X-GitHub-Api-Version": "2022-11-28"
         }
     
-    async def _list_repositories(self, token: str, **kwargs) -> Dict[str, Any]:
+    async def _list_repositories(self, token: Optional[str], **kwargs) -> Dict[str, Any]:
         """列出仓库"""
         username = kwargs.get("username")  # 如果未指定，则列出当前用户的仓库
         visibility = kwargs.get("visibility", "all")  # all, public, private
@@ -480,7 +510,7 @@ class GitHubHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"获取仓库列表失败: {error_data.get('message', '未知错误')}")
     
-    async def _get_repository(self, token: str, owner: str, repo: str, **kwargs) -> Dict[str, Any]:
+    async def _get_repository(self, token: Optional[str], owner: str, repo: str, **kwargs) -> Dict[str, Any]:
         """获取仓库详细信息"""
         cache_key = f"repo_{owner}/{repo}"
         if cache_key in self.repo_cache and self.cache_expiry.get(cache_key, 0) > datetime.now().timestamp():
@@ -505,7 +535,7 @@ class GitHubHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"获取仓库信息失败: {error_data.get('message', '未知错误')}")
     
-    async def _create_repository(self, token: str, **kwargs) -> Dict[str, Any]:
+    async def _create_repository(self, token: Optional[str], **kwargs) -> Dict[str, Any]:
         """创建仓库"""
         name = kwargs.get("name")
         if not name:
@@ -552,7 +582,7 @@ class GitHubHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"创建仓库失败: {error_data.get('message', '未知错误')}")
     
-    async def _create_issue(self, token: str, owner: str, repo: str, title: str, **kwargs) -> Dict[str, Any]:
+    async def _create_issue(self, token: Optional[str], owner: str, repo: str, title: str, **kwargs) -> Dict[str, Any]:
         """创建Issue"""
         if not title:
             raise ValueError("创建Issue需要title参数")
@@ -588,7 +618,7 @@ class GitHubHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"创建Issue失败: {error_data.get('message', '未知错误')}")
     
-    async def _list_issues(self, token: str, owner: str, repo: str, **kwargs) -> Dict[str, Any]:
+    async def _list_issues(self, token: Optional[str], owner: str, repo: str, **kwargs) -> Dict[str, Any]:
         """列出仓库的Issues"""
         state = kwargs.get("state", "open")
         page = kwargs.get("page", 1)
@@ -639,7 +669,7 @@ class GitHubHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"获取Issues列表失败: {error_data.get('message', '未知错误')}")
     
-    async def _get_issue(self, token: str, owner: str, repo: str, issue_number: int, **kwargs) -> Dict[str, Any]:
+    async def _get_issue(self, token: Optional[str], owner: str, repo: str, issue_number: int, **kwargs) -> Dict[str, Any]:
         """获取Issue详细信息"""
         url = f"{self.base_url}/repos/{owner}/{repo}/issues/{issue_number}"
         
@@ -669,7 +699,7 @@ class GitHubHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"获取Issue信息失败: {error_data.get('message', '未知错误')}")
     
-    async def _create_pull_request(self, token: str, owner: str, repo: str, title: str, head: str, base: str, **kwargs) -> Dict[str, Any]:
+    async def _create_pull_request(self, token: Optional[str], owner: str, repo: str, title: str, head: str, base: str, **kwargs) -> Dict[str, Any]:
         """创建Pull Request"""
         if not title or not head or not base:
             raise ValueError("创建Pull Request需要title, head, base参数")
@@ -709,7 +739,7 @@ class GitHubHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"创建Pull Request失败: {error_data.get('message', '未知错误')}")
     
-    async def _list_pull_requests(self, token: str, owner: str, repo: str, **kwargs) -> Dict[str, Any]:
+    async def _list_pull_requests(self, token: Optional[str], owner: str, repo: str, **kwargs) -> Dict[str, Any]:
         """列出仓库的Pull Requests"""
         state = kwargs.get("state", "open")
         page = kwargs.get("page", 1)
@@ -763,7 +793,7 @@ class GitHubHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"获取Pull Requests列表失败: {error_data.get('message', '未知错误')}")
     
-    async def _get_pull_request(self, token: str, owner: str, repo: str, pr_number: int, **kwargs) -> Dict[str, Any]:
+    async def _get_pull_request(self, token: Optional[str], owner: str, repo: str, pr_number: int, **kwargs) -> Dict[str, Any]:
         """获取Pull Request详细信息"""
         url = f"{self.base_url}/repos/{owner}/{repo}/pulls/{pr_number}"
         
@@ -796,7 +826,7 @@ class GitHubHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"获取Pull Request信息失败: {error_data.get('message', '未知错误')}")
     
-    async def _create_webhook(self, token: str, owner: str, repo: str, webhook_url: str, **kwargs) -> Dict[str, Any]:
+    async def _create_webhook(self, token: Optional[str], owner: str, repo: str, webhook_url: str, **kwargs) -> Dict[str, Any]:
         """创建Webhook"""
         if not webhook_url:
             raise ValueError("创建Webhook需要webhook_url参数")
@@ -836,7 +866,7 @@ class GitHubHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"创建Webhook失败: {error_data.get('message', '未知错误')}")
     
-    async def _list_webhooks(self, token: str, owner: str, repo: str, **kwargs) -> Dict[str, Any]:
+    async def _list_webhooks(self, token: Optional[str], owner: str, repo: str, **kwargs) -> Dict[str, Any]:
         """列出仓库的Webhooks"""
         page = kwargs.get("page", 1)
         per_page = kwargs.get("per_page", 30)
@@ -881,7 +911,7 @@ class GitHubHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"获取Webhooks列表失败: {error_data.get('message', '未知错误')}")
     
-    async def _search_repositories(self, token: str, search_query: str, **kwargs) -> Dict[str, Any]:
+    async def _search_repositories(self, token: Optional[str], search_query: str, **kwargs) -> Dict[str, Any]:
         """搜索仓库"""
         if not search_query:
             raise ValueError("搜索仓库需要search_query参数")
@@ -920,7 +950,7 @@ class GitHubHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"搜索仓库失败: {error_data.get('message', '未知错误')}")
     
-    async def _get_user(self, token: str, **kwargs) -> Dict[str, Any]:
+    async def _get_user(self, token: Optional[str], **kwargs) -> Dict[str, Any]:
         """获取用户信息"""
         username = kwargs.get("username")  # 如果未指定，则获取当前用户
         
@@ -965,7 +995,7 @@ class GitHubHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"获取用户信息失败: {error_data.get('message', '未知错误')}")
     
-    async def _update_file(self, token: str, owner: str, repo: str, path: str, content: str, message: str, **kwargs) -> Dict[str, Any]:
+    async def _update_file(self, token: Optional[str], owner: str, repo: str, path: str, content: str, message: str, **kwargs) -> Dict[str, Any]:
         """创建或更新文件"""
         if not path or not content or not message:
             raise ValueError("更新文件需要path, content, message参数")
@@ -1014,7 +1044,7 @@ class GitHubHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"更新文件失败: {error_data.get('message', '未知错误')}")
     
-    async def _get_file(self, token: str, owner: str, repo: str, path: str, **kwargs) -> Dict[str, Any]:
+    async def _get_file(self, token: Optional[str], owner: str, repo: str, path: str, **kwargs) -> Dict[str, Any]:
         """获取文件内容"""
         url = f"{self.base_url}/repos/{owner}/{repo}/contents/{path}"
         
@@ -1056,7 +1086,7 @@ class GitHubHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"获取文件失败: {error_data.get('message', '未知错误')}")
     
-    async def _list_branches(self, token: str, owner: str, repo: str, **kwargs) -> Dict[str, Any]:
+    async def _list_branches(self, token: Optional[str], owner: str, repo: str, **kwargs) -> Dict[str, Any]:
         """列出仓库的分支"""
         page = kwargs.get("page", 1)
         per_page = kwargs.get("per_page", 30)
@@ -1100,7 +1130,7 @@ class GitHubHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"获取分支列表失败: {error_data.get('message', '未知错误')}")
     
-    async def _list_commits(self, token: str, owner: str, repo: str, **kwargs) -> Dict[str, Any]:
+    async def _list_commits(self, token: Optional[str], owner: str, repo: str, **kwargs) -> Dict[str, Any]:
         """列出仓库的提交"""
         page = kwargs.get("page", 1)
         per_page = kwargs.get("per_page", 30)

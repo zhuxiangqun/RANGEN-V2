@@ -1,0 +1,167 @@
+{
+  "overall_score": 0.2777777777777778,
+  "dimensions": {
+    "functionality": {
+      "dimension": "functionality",
+      "score": 0.0,
+      "status": "failed",
+      "error": "'EvaluationResult' object does not support item assignment"
+    },
+    "agent_capability": {
+      "dimension": "agent_capability",
+      "score": 0.0,
+      "status": "failed",
+      "error": "'EvaluationResult' object does not support item assignment"
+    },
+    "performance": {
+      "dimension": "performance",
+      "score": 0.0,
+      "status": "failed",
+      "error": "'EvaluationResult' object does not support item assignment"
+    },
+    "resource_usage": {
+      "dimension": "resource_usage",
+      "score": 0.0,
+      "status": "failed",
+      "error": "'EvaluationResult' object does not support item assignment"
+    },
+    "reliability": {
+      "dimension": "reliability",
+      "score": 0.0,
+      "status": "failed",
+      "error": "'EvaluationResult' object does not support item assignment"
+    },
+    "error_handling": {
+      "dimension": "error_handling",
+      "score": 0.0,
+      "status": "failed",
+      "error": "'EvaluationResult' object does not support item assignment"
+    },
+    "integration": {
+      "dimension": "integration",
+      "score": 0.0,
+      "status": "failed",
+      "error": "'EvaluationResult' object does not support item assignment"
+    },
+    "security": {
+      "dimension": "security",
+      "score": 0.0,
+      "status": "failed",
+      "error": "'EvaluationResult' object does not support item assignment"
+    },
+    "code_quality": {
+      "dimension": "code_quality",
+      "score": 0.0,
+      "status": "failed",
+      "error": "'EvaluationResult' object does not support item assignment"
+    },
+    "workflow_engine": {
+      "dimension": "workflow_engine",
+      "score": 0.75,
+      "status": "completed",
+      "metrics": {
+        "workflow_api": {
+          "score": 1.0,
+          "available": 2,
+          "total": 2
+        },
+        "execution": {
+          "score": 0.5,
+          "executed": false
+        }
+      },
+      "details": "工作流引擎评估: 75%",
+      "execution_time_ms": 4.394054412841797
+    },
+    "gateway": {
+      "dimension": "gateway",
+      "score": 0,
+      "status": "completed",
+      "metrics": {
+        "gateway_health": {
+          "score": 0.0,
+          "available": false
+        },
+        "channels": {
+          "score": 0.0,
+          "active": 0,
+          "total": 4
+        }
+      },
+      "details": "Gateway评估: 0%",
+      "execution_time_ms": 5.482912063598633
+    },
+    "cache_system": {
+      "dimension": "cache_system",
+      "score": 0,
+      "status": "completed",
+      "metrics": {
+        "cache_api": {
+          "score": 0.0,
+          "available": false
+        },
+        "cache_hit": {
+          "score": 0.0,
+          "tested": false
+        }
+      },
+      "details": "缓存系统评估: 0%",
+      "execution_time_ms": 2.938985824584961
+    },
+    "rag_knowledge": {
+      "dimension": "rag_knowledge",
+      "score": 0.5,
+      "status": "completed",
+      "metrics": {
+        "rag_api": {
+          "score": 1.0,
+          "available": 2,
+          "total": 2
+        },
+        "retrieval": {
+          "score": 0.0,
+          "results": 0
+        }
+      },
+      "details": "RAG/知识库评估: 50%",
+      "execution_time_ms": 2.9582977294921875
+    },
+    "mcp_protocol": {
+      "dimension": "mcp_protocol",
+      "score": 0,
+      "status": "completed",
+      "metrics": {
+        "mcp_server": {
+          "score": 0.0,
+          "available": false
+        },
+        "mcp_tools": {
+          "score": 0.0,
+          "count": 0
+        }
+      },
+      "details": "MCP协议评估: 0%",
+      "execution_time_ms": 1.8711090087890625
+    },
+    "monitoring": {
+      "dimension": "monitoring",
+      "score": 0,
+      "status": "completed",
+      "metrics": {
+        "metrics": {
+          "score": 0.0,
+          "available": false
+        },
+        "tracing": {
+          "score": 0.0,
+          "available": false
+        }
+      },
+      "details": "监控系统评估: 0%",
+      "execution_time_ms": 1.8718242645263672
+    }
+  },
+  "timestamp": "2026-03-18T11:58:02.906875",
+  "evaluator_count": 15,
+  "completed_count": 6
+}

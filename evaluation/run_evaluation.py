@@ -166,8 +166,8 @@ async def run_intelligent_quality_evaluation(args):
     # 智能质量分析系统完全独立，不需要研究系统适配器
     logger.info("智能质量分析系统独立运行，无需外部依赖")
     
-    # 初始化智能质量评测器
-    evaluator = IntelligentQualityAnalyzer(use_progressive=False)
+    # 初始化智能质量评测器 - 限制文件数量避免超时
+    evaluator = IntelligentQualityAnalyzer(use_progressive=False, max_files=args.max_files)
     
     # 生成并显示详细的质量分析报告
     evaluator.generate_and_display_report()
@@ -199,6 +199,7 @@ async def main():
     parser.add_argument('--sample-count', type=int, default=50, help='评测样本数量')
     parser.add_argument('--timeout', type=float, default=30.0, help='单个查询超时时间')
     parser.add_argument('--max-concurrent', type=int, default=3, help='最大并发数')
+    parser.add_argument('--max-files', type=int, default=50, help='最大分析文件数')
     parser.add_argument('--data-path', type=str, help='数据集路径')
     parser.add_argument('--output-dir', type=str, default='evaluation_results', help='输出目录')
     

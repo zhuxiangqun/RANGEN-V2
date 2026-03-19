@@ -1,0 +1,28 @@
+{
+  "task_id": "test",
+  "task_title": "Test",
+  "overall_goal": "Test",
+  "entry_point": "",
+  "created_at": 1773935093.624306,
+  "updated_at": 1773935093.624577,
+  "nodes": [
+    {
+      "node_id": "n1",
+      "title": "Node 1",
+      "description": "",
+      "status": "completed",
+      "created_at": 1773935093.6244721,
+      "completed_at": 1773935093.624577,
+      "evidence": [],
+      "blockers": []
+    }
+  ],
+  "decisions": [],
+  "status": "in_progress",
+  "current_node_id": null,
+  "completed_count": 1,
+  "total_count": 1,
+  "agent_id": null,
+  "session_id": null,
+  "checkpoints": []
+}

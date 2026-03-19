@@ -4,6 +4,7 @@
 """
 
 import ast
+import asyncio
 import re
 import json
 from pathlib import Path
@@ -100,14 +101,14 @@ class CodeAnalysisHand(BaseHand):
                         "name": node.name,
                         "args": len(node.args.args),
                         "has_docstring": ast.get_docstring(node) is not None,
-                        "decorators": [d.id for d in node.decorator_list if hasattr(d, 'id')]
+                        "decorators": [getattr(d, 'id', None) for d in node.decorator_list if hasattr(d, 'id')]
                     })
                 elif isinstance(node, ast.ClassDef):
                     classes.append({
                         "name": node.name,
                         "methods": len([n for n in node.body if isinstance(n, ast.FunctionDef)]),
                         "has_docstring": ast.get_docstring(node) is not None,
-                        "bases": [base.id for base in node.bases if hasattr(base, 'id')]
+                        "bases": [getattr(base, 'id', None) for base in node.bases if hasattr(base, 'id')]
                     })
                 elif isinstance(node, ast.Import):
                     for alias in node.names:
@@ -787,6 +788,7 @@ class Test{class_name}:
 # 测试函数
 async def test_code_hands():
     """测试代码Hands"""
+    import asyncio
     import logging
     logging.basicConfig(level=logging.INFO)
     

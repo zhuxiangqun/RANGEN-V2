@@ -5,7 +5,7 @@
 - 模型注册和训练调度
 - 增量训练
 - 版本管理
-- A/B测试
+- A/B测试 (集成 ABTestingFramework)
 - 逐步部署
 """
 import logging
@@ -13,6 +13,21 @@ import json
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 from pathlib import Path
+
+# 导入 A/B 测试框架
+try:
+    from src.core.ab_testing.ab_framework import (
+        get_ab_testing_framework,
+        ABTestingFramework,
+        VariantType,
+        ExperimentStatus
+    )
+except ImportError:
+    # 如果 A/B 测试框架不存在，使用 None
+    get_ab_testing_framework = None
+    ABTestingFramework = None
+    VariantType = None
+    ExperimentStatus = None
 
 logger = logging.getLogger(__name__)
 
@@ -46,8 +61,8 @@ class ContinuousLearningSystem:
         # 模型版本
         self.model_versions = {}
         
-        # A/B测试配置
-        self.ab_tests = {}
+        # A/B测试框架
+        self._ab_framework = get_ab_testing_framework() if get_ab_testing_framework else None
         
         # 存储路径
         self.storage_path = Path(self.config.get("storage_path", "data/ml_models"))
@@ -198,40 +213,22 @@ class ContinuousLearningSystem:
         variant_a: str,
         variant_b: str,
         traffic_split: float = 0.5
-    ) -> bool:
-        """创建A/B测试
+    ) -> str:
+        """创建A/B测试"""
+        if not self._ab_framework:
+            raise RuntimeError("A/B Testing Framework not available")
         
-        Args:
-            model_name: 模型名称
-            variant_a: 变体A版本
-            variant_b: 变体B版本
-            traffic_split: 流量分割比例（0-1，0.5表示50/50）
-            
-        Returns:
-            是否创建成功
-        """
-        try:
-            test_id = f"{model_name}_ab_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
-            
-            self.ab_tests[test_id] = {
-                "model_name": model_name,
-                "variant_a": variant_a,
-                "variant_b": variant_b,
-                "traffic_split": traffic_split,
-                "created_at": datetime.now().isoformat(),
-                "status": "active",
-                "metrics": {
-                    "variant_a": {"requests": 0, "success": 0, "avg_confidence": 0.0},
-                    "variant_b": {"requests": 0, "success": 0, "avg_confidence": 0.0},
-                }
-            }
-            
-            self.logger.info(f"✅ A/B测试已创建: {test_id}")
-            return True
-            
-        except Exception as e:
-            self.logger.error(f"A/B测试创建失败: {e}")
-            return False
+        experiment = self._ab_framework.create_experiment(
+            name=model_name,
+            description=f"对比 {variant_a} vs {variant_b}",
+            control_name=variant_a,
+            treatment_name=variant_b,
+            traffic_split=traffic_split * 100
+        )
+        
+        self._ab_framework.start_experiment(experiment.experiment_id)
+        self.logger.info(f"✅ A/B测试已创建: {experiment.experiment_id}")
+        return experiment.experiment_id
     
     def get_model_version(self, model_name: str, version: Optional[str] = None) -> Optional[Dict[str, Any]]:
         """获取模型版本
@@ -336,79 +333,41 @@ class ContinuousLearningSystem:
             return False
     
     def get_ab_test_results(self, test_id: str) -> Optional[Dict[str, Any]]:
-        """获取A/B测试结果
+        """获取A/B测试结果"""
+        if not self._ab_framework:
+            raise RuntimeError("A/B Testing Framework not available")
         
-        Args:
-            test_id: 测试ID
-            
-        Returns:
-            测试结果字典
-        """
-        return self.ab_tests.get(test_id)
+        result = self._ab_framework.analyze_experiment(test_id)
+        if not result:
+            return None
+        
+        return {
+            "experiment_id": result.experiment_id,
+            "winner": result.winner,
+            "confidence_level": result.confidence_level,
+            "metrics": [
+                {"name": m.metric_name, "value": m.value, "sample_size": m.sample_size, "is_significant": m.is_significant}
+                for m in result.metrics
+            ],
+            "recommendation": result.recommendation,
+        }
     
     def update_ab_test_metrics(self, test_id: str, variant: str, success: bool, confidence: float = 0.0):
-        """更新A/B测试指标
+        """更新A/B测试指标"""
+        if not self._ab_framework:
+            raise RuntimeError("A/B Testing Framework not available")
         
-        Args:
-            test_id: 测试ID
-            variant: 变体（"variant_a"或"variant_b"）
-            success: 是否成功
-            confidence: 置信度
-        """
-        if test_id not in self.ab_tests:
-            self.logger.warning(f"A/B测试不存在: {test_id}")
-            return
-        
-        test = self.ab_tests[test_id]
-        if variant not in test["metrics"]:
-            self.logger.warning(f"变体不存在: {variant}")
-            return
-        
-        metrics = test["metrics"][variant]
-        metrics["requests"] = metrics.get("requests", 0) + 1
-        if success:
-            metrics["success"] = metrics.get("success", 0) + 1
-        
-        # 更新平均置信度
-        current_avg = metrics.get("avg_confidence", 0.0)
-        request_count = metrics.get("requests", 1)
-        metrics["avg_confidence"] = (current_avg * (request_count - 1) + confidence) / request_count
+        user_id = f"user_{variant}_{datetime.now().timestamp()}"
+        self._ab_framework.record_metric(test_id, user_id, "success", 1.0 if success else 0.0)
+        self._ab_framework.record_metric(test_id, user_id, "confidence", confidence)
     
     def get_ab_test_winner(self, test_id: str) -> Optional[str]:
-        """获取A/B测试获胜者
+        """获取A/B测试获胜者"""
+        if not self._ab_framework:
+            raise RuntimeError("A/B Testing Framework not available")
         
-        Args:
-            test_id: 测试ID
-            
-        Returns:
-            获胜变体（"variant_a"或"variant_b"），如果数据不足返回None
-        """
-        if test_id not in self.ab_tests:
-            return None
-        
-        test = self.ab_tests[test_id]
-        metrics_a = test["metrics"]["variant_a"]
-        metrics_b = test["metrics"]["variant_b"]
-        
-        # 检查是否有足够的数据
-        min_requests = 100  # 最小请求数
-        if metrics_a["requests"] < min_requests or metrics_b["requests"] < min_requests:
-            return None
-        
-        # 计算成功率
-        success_rate_a = metrics_a["success"] / metrics_a["requests"] if metrics_a["requests"] > 0 else 0
-        success_rate_b = metrics_b["success"] / metrics_b["requests"] if metrics_b["requests"] > 0 else 0
-        
-        # 考虑置信度
-        score_a = success_rate_a * 0.7 + metrics_a["avg_confidence"] * 0.3
-        score_b = success_rate_b * 0.7 + metrics_b["avg_confidence"] * 0.3
-        
-        if score_a > score_b:
-            return "variant_a"
-        elif score_b > score_a:
-            return "variant_b"
-        else:
-            return None  # 平局
+        result = self._ab_framework.analyze_experiment(test_id)
+        return result.winner if result else None
     
     def _increment_version(self, current_version: str) -> str:
         """递增版本号"""

@@ -204,7 +204,7 @@ async def demonstrate_data_processing(executor: HandExecutor):
         operation="aggregate",
         data=sales_data,
         aggregate_by="category",
-        operation="sum"
+        aggregation="sum"
     )
     
     if result.success:
@@ -327,9 +327,9 @@ async def demonstrate_integration_with_evolution():
     
     try:
         # 导入进化系统组件
-        from src.evolution.engine import SelfEvolutionEngine
-        from src.evolution.constitution import ConstitutionChecker
-        from src.hands.base import HandRegistry, HandExecutor
+        from src.evolution.engine import SelfEvolutionEngine  # type: ignore[attr-defined]
+        from src.evolution.constitution import ConstitutionChecker  # type: ignore[attr-defined]
+        from src.hands.base import HandRegistry, HandExecutor  # type: ignore[attr-defined, misc]
         
         print("初始化自进化系统...")
         

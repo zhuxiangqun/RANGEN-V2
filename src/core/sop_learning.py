@@ -18,6 +18,7 @@ import pickle
 from collections import defaultdict
 
 from src.agents.agent_history_manager import HistoryType
+from src.core.verdict import Verdict, VerdictValidator, get_verdict_validator, VerdictLevel
 
 
 class SOPLevel(str, Enum):
@@ -391,14 +392,19 @@ class SOPLearningSystem:
             self._save_sops()
     
     def learn_from_execution(self, task_name: str, execution_steps: List[Dict[str, Any]], 
-                           success: bool, execution_id: str, importance: float = 1.0) -> Optional[str]:
+                           verdict: Optional[Verdict] = None, execution_id: str = "", 
+                           importance: float = 1.0) -> Optional[str]:
         """
-        从执行历史学习SOP
+        从执行历史学习SOP - 需要 Verdict 证据包
+        
+        优化3: SOP学习与Verdict绑定
+        - 只有包含完整证据的 Verdict 才能触发学习
+        - 防止坏模式被固化
         
         Args:
             task_name: 任务名称
             execution_steps: 执行步骤列表，每个步骤包含hand_name和parameters
-            success: 执行是否成功
+            verdict: Verdict 证据包（必须包含完整证据才能学习）
             execution_id: 执行记录ID
             importance: 重要性评分
             
@@ -408,19 +414,39 @@ class SOPLearningSystem:
         if not self.learning_enabled:
             return None
         
-        if not success or not execution_steps:
-            self.logger.debug("执行失败或无步骤，跳过学习")
+        if not execution_steps:
+            self.logger.debug("无执行步骤，跳过学习")
             return None
+        
+        # Verdict 验证
+        if verdict is None:
+            self.logger.debug("缺少 Verdict 证据包，跳过学习（需要完整的证据才能学习）")
+            return None
+        
+        # 验证 Verdict 完整性
+        validator = get_verdict_validator()
+        is_valid, errors = validator.validate(verdict)
+        
+        if not is_valid:
+            self.logger.warning(f"Verdict 验证失败: {errors}，跳过学习")
+            return None
+        
+        # 检查质量等级
+        if verdict.quality_level not in [VerdictLevel.COMPLETE, VerdictLevel.HIGH_QUALITY]:
+            self.logger.debug(f"Verdict 质量等级不足 ({verdict.quality_level.value})，跳过学习")
+            return None
+        
+        success = verdict.confidence_score >= 0.7
         
         # 1. 查找相似SOP
         similar_sop_id = self._find_similar_sop(execution_steps)
         
         if similar_sop_id:
             # 2. 更新现有SOP
-            return self._update_existing_sop(similar_sop_id, execution_steps, execution_id, success)
+            return self._update_existing_sop(similar_sop_id, execution_steps, execution_id, success, verdict)
         else:
             # 3. 创建新SOP
-            return self._create_new_sop(task_name, execution_steps, execution_id)
+            return self._create_new_sop(task_name, execution_steps, execution_id, verdict)
     
     def _find_similar_sop(self, execution_steps: List[Dict[str, Any]]) -> Optional[str]:
         """查找相似的SOP"""
@@ -456,7 +482,8 @@ class SOPLearningSystem:
         return best_match_id
     
     def _update_existing_sop(self, sop_id: str, execution_steps: List[Dict[str, Any]], 
-                           execution_id: str, success: bool) -> str:
+                           execution_id: str, success: bool, 
+                           verdict: Optional[Verdict] = None) -> str:
         """更新现有SOP"""
         sop = self.sops[sop_id]
         
@@ -473,6 +500,15 @@ class SOPLearningSystem:
         if execution_id not in sop.source_execution_ids:
             sop.source_execution_ids.append(execution_id)
         
+        # 更新元数据（包含 Verdict 信息）
+        if verdict:
+            if "verdict_ids" not in sop.metadata:
+                sop.metadata["verdict_ids"] = []
+            if verdict.verdict_id not in sop.metadata["verdict_ids"]:
+                sop.metadata["verdict_ids"].append(verdict.verdict_id)
+            sop.metadata["last_verdict_level"] = verdict.quality_level.value
+            sop.metadata["last_verdict_confidence"] = verdict.confidence_score
+        
         # 更新时间戳
         sop.updated_at = time.time()
         
@@ -484,7 +520,7 @@ class SOPLearningSystem:
         return sop_id
     
     def _create_new_sop(self, task_name: str, execution_steps: List[Dict[str, Any]], 
-                       execution_id: str) -> str:
+                       execution_id: str, verdict: Optional[Verdict] = None) -> str:
         """创建新SOP"""
         # 生成SOP名称
         sop_name = f"{task_name}_sop_{int(time.time())}"
@@ -504,6 +540,17 @@ class SOPLearningSystem:
         # 确定类别
         category = self._infer_category(execution_steps)
         
+        # 构建元数据
+        metadata = {"learning_source": "execution_history", "auto_generated": True}
+        
+        # 添加 Verdict 信息
+        if verdict:
+            metadata["verdict_ids"] = [verdict.verdict_id]
+            metadata["verdict_level"] = verdict.quality_level.value
+            metadata["verdict_confidence"] = verdict.confidence_score
+            metadata["reasoning_steps_count"] = len(verdict.reasoning_steps)
+            metadata["validation_results_count"] = len(verdict.validation_results)
+        
         # 创建SOP
         sop = StandardOperatingProcedure(
             sop_id="",
@@ -513,12 +560,12 @@ class SOPLearningSystem:
             level=SOPLevel.L3_TASK,
             version="1.0.0",
             steps=steps,
-            source_execution_ids=[execution_id],
+            source_execution_ids=[execution_id] if execution_id else [],
             learning_count=1,
             execution_count=1,
             success_rate=1.0,
-            tags=["learned", category.value],
-            metadata={"learning_source": "execution_history", "auto_generated": True}
+            tags=["learned", category.value, "verdict_validated"],
+            metadata=metadata
         )
         
         # 验证SOP
@@ -533,6 +580,9 @@ class SOPLearningSystem:
         self._index_sop(sop)
         
         self.logger.info(f"创建新SOP: {sop.name} (ID: {sop.sop_id}), 步骤数: {len(steps)}")
+        
+        # 创建 A/B 实验验证学习效果
+        self._create_ab_experiment_for_sop(sop)
         
         # 自动保存
         self.auto_save_check()
@@ -897,6 +947,81 @@ class SOPLearningSystem:
             "last_save_time": datetime.fromtimestamp(self.last_save_time).isoformat(),
             "auto_save_interval_seconds": self.auto_save_interval
         }
+    
+    def _create_ab_experiment_for_sop(self, sop: StandardOperatingProcedure) -> Optional[str]:
+        """为新学习的 SOP 创建 A/B 实验
+        
+        Args:
+            sop: 新创建的 SOP
+            
+        Returns:
+            实验 ID，如果创建失败返回 None
+        """
+        try:
+            from src.core.ab_testing.ab_framework import get_ab_testing_framework
+            
+            framework = get_ab_testing_framework()
+            if not framework:
+                self.logger.warning("A/B Testing Framework 不可用，跳过实验创建")
+                return None
+            
+            # 创建实验：对比使用 SOP vs 不使用 SOP
+            experiment = framework.create_experiment(
+                name=f"sop_validation_{sop.sop_id}",
+                description=f"验证 SOP {sop.name} 的效果",
+                control_name="without_sop",
+                treatment_name="with_sop",
+                traffic_split=50.0
+            )
+            
+            # 启动实验
+            framework.start_experiment(experiment.experiment_id)
+            
+            # 在 SOP 元数据中记录实验 ID
+            if "ab_experiments" not in sop.metadata:
+                sop.metadata["ab_experiments"] = []
+            sop.metadata["ab_experiments"].append(experiment.experiment_id)
+            
+            self.logger.info(f"✅ 为 SOP {sop.sop_id} 创建 A/B 实验: {experiment.experiment_id}")
+            return experiment.experiment_id
+            
+        except Exception as e:
+            self.logger.warning(f"创建 A/B 实验失败: {e}")
+            return None
+    
+    def record_sop_usage(self, sop_id: str, success: bool, confidence: float = 0.0) -> None:
+        """记录 SOP 使用结果（用于 A/B 测试数据收集）
+        
+        Args:
+            sop_id: SOP ID
+            success: 是否成功
+            confidence: 置信度
+        """
+        sop = self.sops.get(sop_id)
+        if not sop:
+            return
+        
+        # 检查是否有活跃的 A/B 实验
+        ab_experiments = sop.metadata.get("ab_experiments", [])
+        if not ab_experiments:
+            return
+        
+        try:
+            from src.core.ab_testing.ab_framework import get_ab_testing_framework
+            
+            framework = get_ab_testing_framework()
+            if not framework:
+                return
+            
+            # 记录到最新的实验
+            for exp_id in ab_experiments:
+                # 假设 SOP 被使用，所以记录到 treatment 组
+                user_id = f"sop_user_{sop_id}_{time.time()}"
+                framework.record_metric(exp_id, user_id, "success", 1.0 if success else 0.0)
+                framework.record_metric(exp_id, user_id, "confidence", confidence)
+                
+        except Exception as e:
+            self.logger.debug(f"记录 SOP 使用失败: {e}")
 
 
 # 全局SOP学习系统实例

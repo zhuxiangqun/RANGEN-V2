@@ -11,7 +11,7 @@ from typing import Dict, List, Any, Optional, Union
 from datetime import datetime
 from urllib.parse import urlencode
 
-from .base import BaseHand, HandCategory, HandSafetyLevel, HandCapability
+from .base import BaseHand, HandCategory, HandSafetyLevel, HandCapability, HandExecutionResult
 
 
 class NotionHand(BaseHand):
@@ -23,7 +23,6 @@ class NotionHand(BaseHand):
             description="Notion API集成：管理页面、数据库、块等",
             category=HandCategory.API_INTEGRATION,
             safety_level=HandSafetyLevel.MODERATE,
-            version="1.0.0"
         )
         self.logger = logging.getLogger(__name__)
         self.session: Optional[aiohttp.ClientSession] = None
@@ -34,6 +33,17 @@ class NotionHand(BaseHand):
         self.page_cache: Dict[str, Dict[str, Any]] = {}
         self.database_cache: Dict[str, Dict[str, Any]] = {}
         self.cache_expiry = {}  # 缓存过期时间
+    
+    def validate_parameters(self, **kwargs) -> bool:
+        """验证参数"""
+        operation = kwargs.get("operation")
+        required_operations = ["list_databases", "get_database", "query_database", "create_database", 
+                              "update_database", "list_pages", "get_page", "create_page", "update_page", 
+                              "search", "get_block", "get_block_children", "append_block_children", 
+                              "set_token", "get_user", "list_users"]
+        if operation and operation not in required_operations:
+            return False
+        return True
     
     def get_capability(self) -> HandCapability:
         """获取能力定义"""
@@ -196,18 +206,30 @@ class NotionHand(BaseHand):
             ]
         )
     
-    async def execute(self, operation: str, **kwargs) -> Dict[str, Any]:
+    async def execute(self, **kwargs) -> HandExecutionResult:
         """执行Notion操作"""
         start_time = datetime.now()
         
         try:
-            # 获取token（优先使用参数中的token，其次使用默认token）
+            operation = kwargs.get("operation")
+            if not operation:
+                return HandExecutionResult(
+                    hand_name=self.name,
+                    success=False,
+                    output={},
+                    error="缺少 operation 参数"
+                )
+            
             token = kwargs.get("token") or self.default_token
             
             if not token and operation != "set_token":
-                raise ValueError("Notion token未提供。请提供token参数或使用set_token操作设置默认token。")
+                return HandExecutionResult(
+                    hand_name=self.name,
+                    success=False,
+                    output={},
+                    error="Notion token未提供。请提供token参数或使用set_token操作设置默认token。"
+                )
             
-            # 根据操作类型调用相应的方法
             if operation == "list_databases":
                 result = await self._list_databases(token, **kwargs)
             elif operation == "get_database":
@@ -241,11 +263,15 @@ class NotionHand(BaseHand):
             elif operation == "list_users":
                 result = await self._list_users(token, **kwargs)
             else:
-                raise ValueError(f"不支持的操作: {operation}")
+                return HandExecutionResult(
+                    hand_name=self.name,
+                    success=False,
+                    output={},
+                    error=f"不支持的操作: {operation}"
+                )
             
             execution_time = (datetime.now() - start_time).total_seconds()
             
-            # 记录Hook事件
             await self._record_hook_event(
                 operation=operation,
                 success=True,
@@ -253,34 +279,36 @@ class NotionHand(BaseHand):
                 result_summary=f"Notion操作成功: {operation}"
             )
             
-            return {
-                "success": True,
-                "result": result,
-                "execution_time": execution_time
-            }
+            return HandExecutionResult(
+                hand_name=self.name,
+                success=True,
+                output=result,
+                execution_time=execution_time
+            )
             
         except Exception as e:
             execution_time = (datetime.now() - start_time).total_seconds()
             error_msg = str(e)
             self.logger.error(f"Notion操作失败: {error_msg}")
             
-            # 记录错误事件
             await self._record_hook_event(
-                operation=operation,
+                operation=kwargs.get("operation"),
                 success=False,
                 execution_time=execution_time,
                 error=error_msg
             )
             
-            return {
-                "success": False,
-                "error": error_msg,
-                "execution_time": execution_time
-            }
+            return HandExecutionResult(
+                hand_name=self.name,
+                success=False,
+                output={},
+                error=error_msg,
+                execution_time=execution_time
+            )
     
-    async def _set_token(self, token: str, **kwargs) -> Dict[str, Any]:
+    async def _set_token(self, token: Optional[str], **kwargs) -> Dict[str, Any]:
         """设置默认Notion token"""
-        if not token.startswith("secret_"):
+        if token and not token.startswith("secret_"):
             self.logger.warning(f"Token格式可能不正确: {token[:10]}...")
         
         self.default_token = token
@@ -290,11 +318,11 @@ class NotionHand(BaseHand):
         
         return {
             "token_set": True,
-            "token_preview": f"{token[:10]}...",
+            "token_preview": f"{token[:10]}..." if token else "None",
             "validation_result": validation_result
         }
     
-    async def _validate_token(self, token: str) -> Dict[str, Any]:
+    async def _validate_token(self, token: Optional[str]) -> Dict[str, Any]:
         """验证Notion token"""
         try:
             headers = self._get_headers(token)
@@ -326,7 +354,7 @@ class NotionHand(BaseHand):
                 "error": str(e)
             }
     
-    def _get_headers(self, token: str) -> Dict[str, str]:
+    def _get_headers(self, token: Optional[str]) -> Dict[str, str]:
         """获取请求头"""
         headers = {
             "Authorization": f"Bearer {token}",
@@ -335,12 +363,13 @@ class NotionHand(BaseHand):
         }
         
         # 添加可选的Notion-Version参数
-        if hasattr(self, 'notion_version'):
-            headers["Notion-Version"] = self.notion_version
+        notion_ver = getattr(self, 'notion_version', None)
+        if notion_ver is not None:
+            headers["Notion-Version"] = notion_ver
         
         return headers
     
-    async def _list_databases(self, token: str, **kwargs) -> Dict[str, Any]:
+    async def _list_databases(self, token: Optional[str], **kwargs) -> Dict[str, Any]:
         """列出数据库（通过搜索）"""
         # Notion没有直接的列出数据库API，我们通过搜索来获取数据库
         page_size = kwargs.get("page_size", 100)
@@ -403,7 +432,7 @@ class NotionHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"获取数据库列表失败: {error_data.get('message', '未知错误')}")
     
-    async def _get_database(self, token: str, database_id: str, **kwargs) -> Dict[str, Any]:
+    async def _get_database(self, token: Optional[str], database_id: str, **kwargs) -> Dict[str, Any]:
         """获取数据库详细信息"""
         cache_key = f"db_{database_id}"
         if cache_key in self.database_cache and self.cache_expiry.get(cache_key, 0) > datetime.now().timestamp():
@@ -426,7 +455,7 @@ class NotionHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"获取数据库信息失败: {error_data.get('message', '未知错误')}")
     
-    async def _query_database(self, token: str, database_id: str, **kwargs) -> Dict[str, Any]:
+    async def _query_database(self, token: Optional[str], database_id: str, **kwargs) -> Dict[str, Any]:
         """查询数据库"""
         page_size = kwargs.get("page_size", 100)
         start_cursor = kwargs.get("start_cursor")
@@ -495,7 +524,7 @@ class NotionHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"查询数据库失败: {error_data.get('message', '未知错误')}")
     
-    async def _create_database(self, token: str, **kwargs) -> Dict[str, Any]:
+    async def _create_database(self, token: Optional[str], **kwargs) -> Dict[str, Any]:
         """创建数据库"""
         parent = kwargs.get("parent")
         if not parent:
@@ -537,7 +566,7 @@ class NotionHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"创建数据库失败: {error_data.get('message', '未知错误')}")
     
-    async def _update_database(self, token: str, database_id: str, **kwargs) -> Dict[str, Any]:
+    async def _update_database(self, token: Optional[str], database_id: str, **kwargs) -> Dict[str, Any]:
         """更新数据库"""
         data = {}
         
@@ -580,7 +609,7 @@ class NotionHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"更新数据库失败: {error_data.get('message', '未知错误')}")
     
-    async def _list_pages(self, token: str, **kwargs) -> Dict[str, Any]:
+    async def _list_pages(self, token: Optional[str], **kwargs) -> Dict[str, Any]:
         """列出页面（通过搜索）"""
         page_size = kwargs.get("page_size", 100)
         start_cursor = kwargs.get("start_cursor")
@@ -655,7 +684,7 @@ class NotionHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"获取页面列表失败: {error_data.get('message', '未知错误')}")
     
-    async def _get_page(self, token: str, page_id: str, **kwargs) -> Dict[str, Any]:
+    async def _get_page(self, token: Optional[str], page_id: str, **kwargs) -> Dict[str, Any]:
         """获取页面详细信息"""
         cache_key = f"page_{page_id}"
         if cache_key in self.page_cache and self.cache_expiry.get(cache_key, 0) > datetime.now().timestamp():
@@ -678,7 +707,7 @@ class NotionHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"获取页面信息失败: {error_data.get('message', '未知错误')}")
     
-    async def _create_page(self, token: str, **kwargs) -> Dict[str, Any]:
+    async def _create_page(self, token: Optional[str], **kwargs) -> Dict[str, Any]:
         """创建页面"""
         parent = kwargs.get("parent")
         if not parent:
@@ -722,7 +751,7 @@ class NotionHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"创建页面失败: {error_data.get('message', '未知错误')}")
     
-    async def _update_page(self, token: str, page_id: str, **kwargs) -> Dict[str, Any]:
+    async def _update_page(self, token: Optional[str], page_id: str, **kwargs) -> Dict[str, Any]:
         """更新页面"""
         data = {}
         
@@ -762,7 +791,7 @@ class NotionHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"更新页面失败: {error_data.get('message', '未知错误')}")
     
-    async def _search(self, token: str, **kwargs) -> Dict[str, Any]:
+    async def _search(self, token: Optional[str], **kwargs) -> Dict[str, Any]:
         """搜索内容"""
         page_size = kwargs.get("page_size", 100)
         start_cursor = kwargs.get("start_cursor")
@@ -778,7 +807,7 @@ class NotionHand(BaseHand):
             data["filter"] = kwargs["filter"]
         else:
             # 默认搜索所有类型
-            data["filter"] = {
+            data["filter"] = {  # type: ignore[assignment]
                 "value": "page",
                 "property": "object"
             }
@@ -838,7 +867,7 @@ class NotionHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"搜索失败: {error_data.get('message', '未知错误')}")
     
-    async def _get_block(self, token: str, block_id: str, **kwargs) -> Dict[str, Any]:
+    async def _get_block(self, token: Optional[str], block_id: str, **kwargs) -> Dict[str, Any]:
         """获取块信息"""
         async with aiohttp.ClientSession() as session:
             async with session.get(
@@ -853,7 +882,7 @@ class NotionHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"获取块信息失败: {error_data.get('message', '未知错误')}")
     
-    async def _get_block_children(self, token: str, block_id: str, **kwargs) -> Dict[str, Any]:
+    async def _get_block_children(self, token: Optional[str], block_id: str, **kwargs) -> Dict[str, Any]:
         """获取块的子块"""
         page_size = kwargs.get("page_size", 100)
         start_cursor = kwargs.get("start_cursor")
@@ -888,7 +917,7 @@ class NotionHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"获取块子元素失败: {error_data.get('message', '未知错误')}")
     
-    async def _append_block_children(self, token: str, block_id: str, children: List[Dict[str, Any]], **kwargs) -> Dict[str, Any]:
+    async def _append_block_children(self, token: Optional[str], block_id: str, children: List[Dict[str, Any]], **kwargs) -> Dict[str, Any]:
         """追加块的子块"""
         if not children:
             raise ValueError("追加子块需要children参数")
@@ -917,7 +946,7 @@ class NotionHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"追加块子元素失败: {error_data.get('message', '未知错误')}")
     
-    async def _get_user(self, token: str, **kwargs) -> Dict[str, Any]:
+    async def _get_user(self, token: Optional[str], **kwargs) -> Dict[str, Any]:
         """获取用户信息"""
         user_id = kwargs.get("user_id")
         
@@ -949,7 +978,7 @@ class NotionHand(BaseHand):
                     error_data = await response.json()
                     raise ValueError(f"获取用户信息失败: {error_data.get('message', '未知错误')}")
     
-    async def _list_users(self, token: str, **kwargs) -> Dict[str, Any]:
+    async def _list_users(self, token: Optional[str], **kwargs) -> Dict[str, Any]:
         """列出用户"""
         page_size = kwargs.get("page_size", 100)
         start_cursor = kwargs.get("start_cursor")

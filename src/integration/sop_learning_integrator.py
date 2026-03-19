@@ -19,6 +19,7 @@ from src.core.sop_learning import (
     SOPLearningSystem, get_sop_learning_system,
     StandardOperatingProcedure, SOPStep, SOPLevel, SOPCategory
 )
+from src.core.verdict import Verdict
 
 
 @dataclass
@@ -85,7 +86,8 @@ class SOPLearningIntegrator:
     
     async def record_execution(self, task_name: str, hand_results: List[HandExecutionResult],
                              context: Optional[Dict[str, Any]] = None, 
-                             tags: Optional[List[str]] = None) -> str:
+                             tags: Optional[List[str]] = None,
+                             verdict: Optional[Verdict] = None) -> str:
         """
         记录执行结果
         
@@ -94,6 +96,7 @@ class SOPLearningIntegrator:
             hand_results: Hand执行结果列表
             context: 执行上下文
             tags: 标签
+            verdict: Verdict 证据包（优化3: SOP学习与Verdict绑定）
             
         Returns:
             执行记录ID
@@ -136,9 +139,9 @@ class SOPLearningIntegrator:
         
         self.logger.info(f"记录执行: {task_name} (ID: {record_id}), 成功: {success}, 步骤数: {len(hand_results)}")
         
-        # 自动学习
+        # 自动学习（需要 Verdict）
         if self.auto_learn and success and len(hand_results) >= self.min_steps_for_learning:
-            await self.learn_from_execution(record)
+            await self.learn_from_execution(record, verdict)
         
         # 触发回调
         for callback in self.on_learn_callbacks:
@@ -196,12 +199,14 @@ class SOPLearningIntegrator:
         except:
             return "[无法摘要的输出]"
     
-    async def learn_from_execution(self, record: ExecutionRecord) -> Optional[str]:
+    async def learn_from_execution(self, record: ExecutionRecord, 
+                                  verdict: Optional[Verdict] = None) -> Optional[str]:
         """
-        从执行记录学习SOP
+        从执行记录学习SOP - 需要 Verdict 证据包
         
         Args:
             record: 执行记录
+            verdict: Verdict 证据包（优化3: SOP学习与Verdict绑定）
             
         Returns:
             创建的SOP ID，如果未创建则返回None
@@ -224,14 +229,14 @@ class SOPLearningIntegrator:
             }
             execution_steps.append(step)
         
-        # 调用SOP学习系统
+        # 调用SOP学习系统（传递 Verdict）
         try:
             sop_id = self.sop_system.learn_from_execution(
                 task_name=record.task_name,
                 execution_steps=execution_steps,
-                success=record.success,
+                verdict=verdict,
                 execution_id=record.record_id,
-                importance=1.0  # 默认重要性
+                importance=1.0
             )
             
             if sop_id:

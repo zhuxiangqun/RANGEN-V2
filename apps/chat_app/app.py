@@ -1,266 +1,212 @@
 """
-RANGEN 聊天应用
+RANGEN 智能对话助手
+================
 
-独立 Streamlit 应用，通过 API 调用 RANGEN AI 基座。
-
-使用方式:
+运行方式:
     streamlit run apps/chat_app/app.py
-
-前提:
-    RANGEN API 服务必须运行在 http://localhost:8000
 """
 import streamlit as st
 import requests
-import uuid
 import os
-from datetime import datetime
-from dotenv import load_dotenv
+import uuid
+from pathlib import Path
 
-load_dotenv()
+# 加载 .env 文件
+env_path = Path("/Users/apple/workdata/person/zy/RANGEN-main(syu-python)/.env")
+if env_path.exists():
+    with open(env_path) as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                key, value = line.split("=", 1)
+                os.environ.setdefault(key.strip(), value.strip())
 
-RANGEN_API_BASE = os.getenv("API_URL", "http://localhost:8000")
+RANGEN_API_BASE = "http://localhost:8000"
 RANGEN_API_KEY = os.getenv("RANGEN_API_KEY", "")
 
 st.set_page_config(
-    page_title="RANGEN AI Agent Platform",
-    page_icon="🧠",
+    page_title="RANGEN 智能助手",
+    page_icon="🤖",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="collapsed"
 )
 
-COLORS = {
-    "primary": "#0D47A1",
-    "secondary": "#1565C0",
-    "accent": "#00ACC1",
-    "success": "#2E7D32",
-    "warning": "#F57C00",
-    "error": "#C62828",
-}
 
-st.markdown(f"""
+def post_with_auth(url, data=None):
+    headers = {"Content-Type": "application/json"}
+    if RANGEN_API_KEY:
+        headers["Authorization"] = f"Bearer {RANGEN_API_KEY}"
+    try:
+        return requests.post(url, headers=headers, json=data, timeout=60)
+    except:
+        return None
+
+
+# 页面样式
+st.markdown("""
 <style>
-    .main-header {{
-        background: linear-gradient(135deg, {COLORS['primary']} 0%, {COLORS['secondary']} 100%);
-        padding: 1.5rem;
-        border-radius: 10px;
-        margin-bottom: 1rem;
-    }}
-    .main-header h1 {{
-        color: white;
-        margin: 0;
-        font-size: 1.8rem;
-        font-weight: 600;
-    }}
-    .main-header p {{
-        color: rgba(255,255,255,0.8);
-        margin: 0.5rem 0 0 0;
-        font-size: 0.9rem;
-    }}
-    .status-indicator {{
-        display: inline-flex;
-        align-items: center;
-        padding: 0.25rem 0.75rem;
-        border-radius: 20px;
-        font-size: 0.75rem;
-        font-weight: 500;
-    }}
-    .status-online {{
-        background: rgba(46, 125, 50, 0.1);
-        color: {COLORS['success']};
-    }}
-    .status-offline {{
-        background: rgba(198, 40, 40, 0.1);
-        color: {COLORS['error']};
-    }}
-    .timestamp {{
-        font-size: 0.7rem;
-        color: #757575;
-        margin-top: 0.25rem;
-    }}
-    .feature-card {{
-        background: white;
-        border: 1px solid #E0E0E0;
-        border-radius: 8px;
-        padding: 1rem;
-        margin: 0.5rem 0;
-    }}
-    .sidebar-section {{
-        background: #F5F5F5;
-        padding: 1rem;
-        border-radius: 8px;
-        margin-bottom: 1rem;
-    }}
-    .sidebar-section h3 {{
-        margin: 0 0 0.5rem 0;
-        font-size: 0.9rem;
-        color: #757575;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }}
+    /* 隐藏默认的 Streamlit 元素 */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    
+    /* 聊天消息样式 */
+    .chat-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    /* 加载动画 */
+    .typing-indicator {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #667eea;
+        animation: typing 1.4s infinite;
+    }
+    @keyframes typing {
+        0%, 20% {transform: translateY(0);}
+        60%, 100% {transform: translateY(-10px);}
+    }
 </style>
 """, unsafe_allow_html=True)
 
-if "messages" not in st.session_state:
-    st.session_state.messages = []
 
+# 初始化会话状态
 if "session_id" not in st.session_state:
     st.session_state.session_id = str(uuid.uuid4())
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+if "waiting_for_response" not in st.session_state:
+    st.session_state.waiting_for_response = False
 
-if "api_key" not in st.session_state:
-    st.session_state.api_key = RANGEN_API_KEY
 
-WORKFLOW_CREATE_KEYWORDS = [
-    "创建流程", "创建研发", "做一个流程", "研发流程",
-    "产品经理", "开发者", "测试工程师", "架构师",
-    "需求到上线", "需求到发布", "开发流程"
-]
+# 主界面
+st.title("🤖 RANGEN 智能助手")
 
-def detect_intent(prompt: str) -> str:
-    prompt_lower = prompt.lower()
-    for keyword in WORKFLOW_CREATE_KEYWORDS:
-        if keyword in prompt_lower:
-            return "create_workflow"
-    return "chat"
 
-def check_api_status():
-    try:
-        response = requests.get(f"{RANGEN_API_BASE}/health", timeout=5)
-        return response.status_code == 200
-    except:
-        return False
+# 消息显示区域
+chat_container = st.container()
 
-api_online = check_api_status()
-
-with st.sidebar:
-    st.markdown(f"""
-    <div class="main-header" style="padding: 1rem; margin-bottom: 1rem;">
-        <h1 style="font-size: 1.4rem;">🧠 RANGEN</h1>
-        <p>AI Agent Platform</p>
-    </div>
-    """, unsafe_allow_html=True)
+with chat_container:
+    # 显示欢迎消息
+    if not st.session_state.messages:
+        st.markdown("""
+        <div style="text-align: center; padding: 40px 20px; color: #666;">
+            <h3>👋 您好！我是 RANGEN 智能助手</h3>
+            <p style="margin-top: 20px; font-size: 16px;">
+                我可以帮您：<br><br>
+                🔍 诊断和修复系统问题<br>
+                🔧 创建新的 Agent、Skill、Tool<br>
+                💬 回答各种问题<br><br>
+                <em>请在下方输入您的问题</em>
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
     
-    status_class = "status-online" if api_online else "status-offline"
-    status_text = "Online" if api_online else "Offline"
-    st.markdown(f"""
-    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
-        <span class="status-indicator {status_class}">● {status_text}</span>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    if st.button("🗑️ Clear History"):
-        st.session_state.messages = []
-        st.rerun()
-    
-    with st.expander("⚙️ Settings"):
-        api_key_input = st.text_input("API Key", value=st.session_state.api_key, type="password", key="api_key_input")
-        if api_key_input:
-            st.session_state.api_key = api_key_input
+    # 显示消息历史
+    for msg in st.session_state.messages:
+        if msg["role"] == "user":
+            with st.chat_message("user"):
+                st.markdown(msg["content"])
+        else:
+            with st.chat_message("assistant"):
+                st.markdown(msg["content"])
 
-st.markdown("""
-<div class="main-header">
-    <h1>🧠 RANGEN Intelligent Assistant</h1>
-    <p>Enterprise AI Agent Platform • ReAct Reasoning • Knowledge Retrieval</p>
-</div>
-""", unsafe_allow_html=True)
 
-if hasattr(st.session_state, 'pending_input'):
-    prompt = st.session_state.pending_input
-    del st.session_state.pending_input
-    st.rerun()
-
-for message in st.session_state.messages:
-    avatar = "👤" if message["role"] == "user" else "🧠"
-    with st.chat_message(message["role"], avatar=avatar):
-        st.markdown(message["content"])
-        
-        if "timestamp" in message:
-            st.markdown(f'<div class="timestamp">🕐 {message["timestamp"]}</div>', unsafe_allow_html=True)
-        
-        if "steps" in message and message["steps"]:
-            with st.expander("🔍 Reasoning Trace"):
-                for i, step in enumerate(message["steps"], 1):
-                    st.text(f"{i}. {step}")
-        
-        if "tool_result" in message and message["tool_result"]:
-            with st.expander("🔧 Tool Result"):
-                st.json(message["tool_result"])
-
-if prompt := st.chat_input("💬 Describe what you need me to do..."):
-    timestamp = datetime.now().strftime("%H:%M:%S")
-    
-    intent = detect_intent(prompt)
-    
-    st.session_state.messages.append({
-        "role": "user", 
-        "content": prompt,
-        "timestamp": timestamp
-    })
-    
-    with st.chat_message("user", avatar="👤"):
+# 底部输入区域
+if prompt := st.chat_input("输入您的问题..."):
+    # 添加用户消息
+    with st.chat_message("user"):
         st.markdown(prompt)
-        st.markdown(f'<div class="timestamp">🕐 {timestamp}</div>', unsafe_allow_html=True)
     
-    with st.chat_message("assistant", avatar="🧠"):
-        message_placeholder = st.empty()
-        message_placeholder.markdown("🤔 **Thinking...**")
-        
-        try:
-            headers = {}
-            api_key = st.session_state.get("api_key") or RANGEN_API_KEY
-            if api_key:
-                headers["Authorization"] = f"Bearer {api_key}"
-            
-            if intent == "create_workflow":
-                try:
-                    from apps.entry_app.workflow_creator import create_workflow
-                    result = create_workflow(prompt, headers)
-                    answer = result.get("message", "")
-                except Exception as e:
-                    answer = f"Workflow creation not available: {str(e)}"
-            else:
-                payload = {"query": prompt, "session_id": st.session_state.session_id}
-                response = requests.post(
-                    f"{RANGEN_API_BASE}/chat", 
-                    json=payload, 
-                    headers=headers, 
-                    timeout=120
-                )
-                
-                if response.status_code == 200:
-                    data = response.json()
-                    answer = data.get("answer", "")
-                else:
-                    answer = f"Error: {response.status_code}"
-            
-            message_placeholder.markdown(answer)
-            
-            response_timestamp = datetime.now().strftime("%H:%M:%S")
-            msg_data = {
-                "role": "assistant", 
-                "content": answer,
-                "timestamp": response_timestamp
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    
+    # 显示思考中状态
+    thinking_placeholder = st.empty()
+    with thinking_placeholder:
+        with st.chat_message("assistant"):
+            st.markdown("🤔 思考中...")
+    
+    # 调用API
+    try:
+        result = post_with_auth(
+            f"{RANGEN_API_BASE}/api/v1/conversation/chat",
+            data={
+                "message": prompt,
+                "session_id": st.session_state.session_id
             }
-            st.session_state.messages.append(msg_data)
-                
-        except Exception as e:
-            error_msg = f"❌ Error: {str(e)}"
-            message_placeholder.error(error_msg)
+        )
+        
+        # 清除思考中状态
+        thinking_placeholder.empty()
+        
+        if result and result.status_code == 200:
+            resp_data = result.json()
+            response = resp_data.get("response", "处理完成")
+            
+            with st.chat_message("assistant"):
+                st.markdown(response)
+            
+            st.session_state.messages.append({"role": "assistant", "content": response})
+            
+            # 处理确认请求
+            if resp_data.get("type") == "confirmation":
+                suggested = resp_data.get("suggested_actions", [])
+                if suggested:
+                    st.info("💡 您可以输入回复继续对话，如：" + "、".join(suggested))
+        elif result:
+            with st.chat_message("assistant"):
+                st.error(f"请求失败 (错误码: {result.status_code})")
             st.session_state.messages.append({
                 "role": "assistant", 
-                "content": error_msg,
-                "timestamp": datetime.now().strftime("%H:%M:%S")
+                "content": f"❌ 请求失败 (错误码: {result.status_code})"
             })
+        else:
+            with st.chat_message("assistant"):
+                st.error("❌ 无法连接到 RANGEN 服务")
+            st.session_state.messages.append({
+                "role": "assistant", 
+                "content": "❌ 无法连接到 RANGEN 服务"
+            })
+    except Exception as e:
+        thinking_placeholder.empty()
+        with st.chat_message("assistant"):
+            st.error(f"发生错误: {str(e)}")
+        st.session_state.messages.append({
+            "role": "assistant", 
+            "content": f"❌ 发生错误: {str(e)}"
+        })
 
-if not st.session_state.messages:
-    st.info("👋 Welcome to RANGEN! I'm your AI assistant.")
+
+# 侧边栏 - 设置
+with st.sidebar:
+    st.markdown("### ⚙️ 设置")
     
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.markdown("### 🌐 Web Browsing\nI can open websites for you.")
-    with col2:
-        st.markdown("### 🔍 Search\nSearch the web for information.")
-    with col3:
-        st.markdown("### 💻 Code\nHelp with coding tasks.")
+    # 连接状态
+    try:
+        resp = requests.get(f"{RANGEN_API_BASE}/health", timeout=5)
+        if resp.status_code == 200:
+            st.success("✅ RANGEN 已连接")
+        else:
+            st.warning("⚠️ RANGEN 连接异常")
+    except:
+        st.error("❌ 无法连接到 RANGEN")
     
     st.markdown("---")
-    st.caption("💡 Tip: Use quick action buttons in the sidebar!")
+    
+    # 清除对话
+    if st.button("🗑️ 新对话", use_container_width=True):
+        st.session_state.messages = []
+        st.session_state.session_id = str(uuid.uuid4())
+        st.rerun()
+    
+    st.markdown("---")
+    st.markdown("### 💡 使用提示")
+    st.markdown("""
+    - 直接输入问题，助手会智能理解
+    - 支持运维诊断："根路径404"
+    - 支持创建能力："创建一个Agent"
+    - 多轮对话：助手会主动询问
+    """)

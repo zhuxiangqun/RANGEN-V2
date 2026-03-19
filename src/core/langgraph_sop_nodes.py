@@ -5,26 +5,56 @@ LangGraph SOP节点模块 - SOP召回、执行和学习
 """
 import logging
 import time
-from typing import Dict, Any, Optional, List
-from src.core.sop_learning import SOPLearningSystem, get_sop_learning_system
-from src.core.langgraph_unified_workflow import ResearchSystemState
+from typing import Dict, Any, Optional, List, TypedDict, Annotated
+import operator
 
 logger = logging.getLogger(__name__)
+
+
+class AgentState(TypedDict):
+    """Agent 状态定义"""
+    query: str
+    context: Dict[str, Any]
+    route: str
+    steps: Annotated[list, operator.add]
+    final_answer: str
+    error: str
+    quality_score: float
+    quality_passed: bool
+    quality_feedback: str
+    retry_count: int
+    task_id: str
+    lint_issues: List[Dict[str, Any]]
+    review_passed: bool
+    review_feedback: str
+    contract_fulfilled: bool
+    harness_metrics: Dict[str, Any]
+    sop_recall_results: List[Dict[str, Any]]
+    sop_execution_results: List[Dict[str, Any]]
+    sop_execution_success: bool
+    has_relevant_sops: bool
+    sop_error: Optional[str]
+
+
+# 延迟导入避免循环依赖
+def _get_sop_learning_system():
+    from src.core.sop_learning import SOPLearningSystem, get_sop_learning_system as _get
+    return _get()
 
 
 class SOPNodes:
     """SOP相关LangGraph节点集合"""
     
-    def __init__(self, sop_system: Optional[SOPLearningSystem] = None):
+    def __init__(self, sop_system=None):
         """初始化SOP节点
         
         Args:
             sop_system: SOPLearningSystem实例（可选，默认单例）
         """
-        self.sop_system = sop_system or get_sop_learning_system()
+        self.sop_system = sop_system or _get_sop_learning_system()
         logger.info("SOP nodes initialized")
     
-    async def sop_recall_node(self, state: ResearchSystemState) -> ResearchSystemState:
+    async def sop_recall_node(self, state: AgentState) -> AgentState:
         """SOP召回节点
         
         从SOP记忆系统中召回与当前任务相关的SOP
@@ -79,7 +109,7 @@ class SOPNodes:
         
         return state
     
-    async def sop_execution_node(self, state: ResearchSystemState) -> ResearchSystemState:
+    async def sop_execution_node(self, state: AgentState) -> AgentState:
         """SOP执行节点
         
         执行已召回的SOP步骤序列
@@ -168,7 +198,7 @@ class SOPNodes:
         
         return state
     
-    async def _trigger_sop_learning(self, state: ResearchSystemState, sop, execution_results: List[Dict]) -> None:
+    async def _trigger_sop_learning(self, state: AgentState, sop, execution_results: List[Dict]) -> None:
         """触发SOP学习
         
         从成功执行中学习，更新SOP
@@ -201,7 +231,7 @@ class SOPNodes:
         except Exception as e:
             logger.warning(f"SOP Learning failed: {e}")
     
-    async def sop_learning_hook(self, state: ResearchSystemState) -> ResearchSystemState:
+    async def sop_learning_hook(self, state: AgentState) -> AgentState:
         """SOP学习钩子节点
         
         在任务完成后自动触发学习
@@ -251,19 +281,19 @@ def create_sop_nodes() -> "SOPNodes":
 
 
 # LangGraph节点函数（与状态类型兼容）
-async def sop_recall(state: ResearchSystemState) -> ResearchSystemState:
+async def sop_recall(state: AgentState) -> AgentState:
     """SOP召回节点函数（LangGraph兼容）"""
     nodes = SOPNodes()
     return await nodes.sop_recall_node(state)
 
 
-async def sop_execute(state: ResearchSystemState) -> ResearchSystemState:
+async def sop_execute(state: AgentState) -> AgentState:
     """SOP执行节点函数（LangGraph兼容）"""
     nodes = SOPNodes()
     return await nodes.sop_execution_node(state)
 
 
-async def sop_learn(state: ResearchSystemState) -> ResearchSystemState:
+async def sop_learn(state: AgentState) -> AgentState:
     """SOP学习节点函数（LangGraph兼容）"""
     nodes = SOPNodes()
     return await nodes.sop_learning_hook(state)
