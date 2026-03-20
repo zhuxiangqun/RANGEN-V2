@@ -10,4 +10,5 @@ data/
 models/
 .idea/
 .vscode/
+.swarm/
 
