@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """
-搜索工具示例
+搜索工具示例 ⚠️ DEPRECATED
 演示如何创建新的工具
+
+⚠️ 警告: 此文件仅作为示例，返回模拟数据
+请使用 RealSearchTool 或 WebSearchTool 替代
 """
 
 import time
