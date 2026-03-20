@@ -27,7 +27,7 @@ from src.hook.transparency import HookTransparencySystem
 from src.hook.hook_types import HookVisibilityLevel, HookEventType
 from src.hook.explainer import HookExplainer
 from src.hook.monitor import HookMonitor, SystemHealthStatus, AlertSeverity
-from src.integration.workflow_integration import get_workflow_integration
+from src.integrations.workflow_integration import get_workflow_integration
 from src.evolution.engine import EvolutionEngine
 from src.hands.registry import HandRegistry
 from src.services.logging_service import get_logger
