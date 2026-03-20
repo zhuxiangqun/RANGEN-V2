@@ -179,12 +179,13 @@ def render_design_review():
     st.header("📋 步骤 2: 审查设计")
     
     # Tabs for different sections
-    tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
         "📖 概览", 
         "🏗️ 架构", 
         "🔗 API", 
         "📁 文件结构",
-        "⚠️ 风险"
+        "⚠️ 风险",
+        "🤖 Agent审查"  # 新增
     ])
     
     with tab1:
@@ -238,6 +239,9 @@ def render_design_review():
                 st.warning(f"⚠️ {risk_desc}")
         else:
             st.success("✅ 暂无已识别风险")
+    
+    with tab6:
+        render_agent_design_review(design)
 
 
 def render_approval_section():
@@ -421,6 +425,89 @@ def render_modify_requirements():
                 
             except Exception as e:
                 st.error(f"❌ 添加失败: {e}")
+
+
+def render_agent_design_review(design):
+    """渲染 Agent 设计专项审查"""
+    st.subheader("🤖 Agent 设计审查")
+    
+    st.info("""
+    **如果设计涉及创建新 Agent，系统会进行专项审查:**
+    
+    审查维度:
+    1. **Agent 定义** - 名称、职责、边界
+    2. **能力定义** - Tools、Skills、接口
+    3. **集成点** - 与其他组件的交互
+    4. **安全约束** - 权限、Guardrails
+    5. **实现计划** - TDD 步骤、测试覆盖
+    """)
+    
+    # 运行审查
+    if st.button("🔍 运行 Agent 设计审查", use_container_width=True):
+        with st.spinner("🔄 正在审查..."):
+            try:
+                from src.agents.agent_design_review import AgentDesignReview
+                
+                reviewer = AgentDesignReview()
+                result = reviewer.review_design(design)
+                
+                # 显示结果
+                if result.is_approved:
+                    st.success("✅ Agent 设计审查通过!")
+                else:
+                    st.error("❌ Agent 设计审查未通过，需要修复问题")
+                
+                # 维度分数
+                st.subheader("📊 审查维度分数")
+                cols = st.columns(len(result.dimension_scores))
+                
+                for i, (dim, score) in enumerate(result.dimension_scores.items()):
+                    with cols[i]:
+                        color = "green" if score >= 0.7 else ("orange" if score >= 0.5 else "red")
+                        st.metric(
+                            label=dim.title(),
+                            value=f"{score:.0%}",
+                            delta="通过" if score >= 0.5 else "需改进"
+                        )
+                
+                # 问题列表
+                if result.issues:
+                    st.subheader("📋 发现的问题")
+                    
+                    if result.blockers:
+                        st.error(f"🚫 阻塞性问题 ({len(result.blockers)}):")
+                        for issue in result.blockers:
+                            with st.expander(f"🚫 {issue.title}", expanded=True):
+                                st.markdown(f"**描述:** {issue.description}")
+                                st.markdown(f"**建议:** {issue.suggestion}")
+                    
+                    if result.criticals:
+                        st.warning(f"⚠️ 关键问题 ({len(result.criticals)}):")
+                        for issue in result.criticals:
+                            with st.expander(f"⚠️ {issue.title}"):
+                                st.markdown(f"**描述:** {issue.description}")
+                                st.markdown(f"**建议:** {issue.suggestion}")
+                    
+                    if result.warnings:
+                        st.info(f"💡 警告 ({len(result.warnings)}):")
+                        for issue in result.warnings:
+                            with st.expander(f"💡 {issue.title}"):
+                                st.markdown(f"**描述:** {issue.description}")
+                
+                # 建议
+                if result.suggestions:
+                    st.subheader("💡 改进建议")
+                    for suggestion in result.suggestions:
+                        st.markdown(f"- {suggestion}")
+                
+                # 报告
+                with st.expander("📄 完整审查报告"):
+                    st.code(reviewer.get_review_report())
+                    
+            except ImportError as e:
+                st.error(f"❌ 审查器导入失败: {e}")
+            except Exception as e:
+                st.error(f"❌ 审查失败: {e}")
 
 
 def render_legacy_agent_handler():
