@@ -147,6 +147,36 @@ ClawTeam 核心:
 
 ## Task Details
 
+### T0: SmartSwarmRouter 智能路由 (前置任务)
+
+**What to do**:
+- 创建 `src/swarm/smart_router.py`
+- 实现自动模式选择逻辑
+- 根据复杂度/资源/偏好自动选择 Lite/Full
+
+**已实现**: ✅ (src/swarm/smart_router.py)
+
+**核心代码**:
+```python
+from src.swarm.smart_router import auto_route
+
+# 自动路由
+decision = auto_route("帮我做一个完整的电商系统")
+# decision.mode = ExecutionMode.FULL  # 复杂任务自动选择企业级
+```
+
+**路由逻辑**:
+```
+用户输入 → 复杂度评估 → 资源检测 → 综合决策
+                                    ↓
+                        ┌──────────┴──────────┐
+                        ↓                      ↓
+                   Lite 模式              Full 模式
+                (SwarmCLI)            (Gateway)
+```
+
+---
+
 ### T1: SwarmCLI 命令行接口
 
 **What to do**:
