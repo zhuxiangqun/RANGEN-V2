@@ -332,21 +332,119 @@ async def chat_endpoint(
         try:
             from src.api.unified_create_routes import EntityCreateRequest
             from src.services.unified_creator import get_unified_creator
+            from src.services.hard_gate_integration import get_hard_gate_integration
             
             creator = get_unified_creator()
-            result = await creator.create_from_natural_language(query)
+            integration = get_hard_gate_integration()
             
-            if result.success:
+            # 1. 分析意图，确定实体类型
+            intent = creator.analyze_intent(query)
+            entity_type = intent.entity_type.value
+            
+            # 2. 检查是否需要设计
+            design_check = await integration.check_design_required(query, entity_type)
+            
+            if design_check.design_required.value == "not_required":
+                # 不需要设计，直接创建
+                result = await creator.create_from_natural_language(query)
+                if result.success:
+                    return ChatResponse(
+                        answer=result.message,
+                        steps=[f"Entity creation: Created {result.entity_type}: {result.entity_name}"],
+                        status="completed"
+                    )
+            
+            # 3. 需要设计先生成设计
+            design_result = await integration.execute_design_workflow(query, entity_type)
+            
+            if design_result.get("success"):
+                design_id = design_result.get("design_id")
                 return ChatResponse(
-                    answer=result.message,
-                    steps=[f"Entity creation: Created {result.entity_type}: {result.entity_name}"],
-                    status="completed"
+                    answer=f"""📐 **设计待审查**
+
+我已经分析了您的需求，生成了设计草案。请按以下步骤完成:
+
+1. **审查设计**: 打开 http://localhost:8504 查看设计详情
+2. **批准或修改**: 在设计审查页面批准或提出修改意见
+3. **完成后**: 回来告诉我"已批准"，我将完成创建
+
+**设计概要:**
+- 实体类型: {entity_type.upper()}
+- 设计ID: {design_id}
+- 组件数: {len(design_result.get('design_summary', {}).get('components', []))} 个
+
+请先审查设计，谢谢！""",
+                    steps=["requirement_analysis", "design_generated", "awaiting_approval"],
+                    status="design_pending",
+                    error=None
                 )
             else:
-                # Fall through to normal chat if creation failed
-                logger.info(f"Entity creation failed, falling back to normal chat: {result.error}")
+                logger.warning(f"Design workflow failed: {design_result.get('message')}")
+                
         except Exception as e:
             logger.warning(f"Entity creation detection failed: {e}")
+    
+    # 检查是否是"已批准"命令
+    approval_patterns = [
+        r"已批准", r"批准了", r"设计通过了", r"可以创建了",
+        r"approved", r"design approved", r"ok", r"继续"
+    ]
+    
+    is_approval = any(re.match(pattern, query.lower()) for pattern in approval_patterns)
+    
+    if is_approval:
+        try:
+            from src.services.hard_gate_integration import get_hard_gate_integration
+            from src.services.unified_creator import get_unified_creator
+            
+            integration = get_hard_gate_integration()
+            can_write, reason = integration.can_write_code()
+            
+            if can_write:
+                # 检查 HARD-GATE 中是否有待创建的设计
+                gate_status = integration.get_gate_status()
+                design = gate_status.get("design")
+                
+                if design:
+                    # 从设计中提取原始需求并创建
+                    design_title = getattr(design, 'title', '')
+                    creator = get_unified_creator()
+                    
+                    # 根据设计确定实体类型
+                    entity_type = "agent"  # 默认
+                    if "skill" in design_title.lower():
+                        entity_type = "skill"
+                    elif "tool" in design_title.lower():
+                        entity_type = "tool"
+                    
+                    result = await creator.create_from_natural_language(design_title)
+                    
+                    if result.success:
+                        return ChatResponse(
+                            answer=f"🎉 **{entity_type.upper()} 创建成功!**\n\n{result.message}\n\n设计已通过 HARD-GATE 审查并完成创建。",
+                            steps=["design_approved", f"created_{entity_type}"],
+                            status="completed"
+                        )
+                    else:
+                        return ChatResponse(
+                            answer=f"⚠️ 设计已批准，但创建时遇到问题:\n{result.error}",
+                            steps=["design_approved", "creation_failed"],
+                            status="failed"
+                        )
+                else:
+                    return ChatResponse(
+                        answer="ℹ️ 我没有找到待创建的设计。您可以告诉我想要创建什么，我来帮您生成设计。",
+                        steps=[],
+                        status="completed"
+                    )
+            else:
+                return ChatResponse(
+                    answer=f"⚠️ 设计尚未批准。当前状态: {reason}\n\n请先在 http://localhost:8504 审查并批准设计。",
+                    steps=["awaiting_design_approval"],
+                    status="design_required"
+                )
+        except Exception as e:
+            logger.warning(f"Approval handling failed: {e}")
     
     try:
         # ===== Intelligent Tool Selection =====

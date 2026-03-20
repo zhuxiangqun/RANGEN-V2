@@ -187,9 +187,11 @@ class HardGateIntegration:
             logger.info(f"Submitting design to HARD-GATE")
             gate = HARD_GATE()
             
-            # 开始设计阶段
-            gate.start_design_phase()
-            gate.submit_design(design)
+            # 开始设计阶段并提交设计
+            design_spec = gate.start_design_phase(
+                title=design.title if hasattr(design, 'title') else "Generated Design",
+                description=requirements_text
+            )
             
             # 4. 组件设计审查
             from src.agents.component_design_review import ComponentDesignReview
@@ -283,6 +285,22 @@ class HardGateIntegration:
         except Exception as e:
             logger.error(f"can_write_code check failed: {e}")
             return False, f"Check failed: {e}"
+    
+    def get_gate_status(self) -> Dict[str, Any]:
+        """
+        获取 HARD-GATE 状态
+        
+        Returns:
+            状态字典
+        """
+        try:
+            from src.agents.hard_gate import HARD_GATE
+            
+            gate = HARD_GATE()
+            return gate.get_status()
+        except Exception as e:
+            logger.error(f"get_gate_status failed: {e}")
+            return {}
 
 
 # Global instance
