@@ -1,0 +1,103 @@
+# RANGEN V2 基础配置
+# =========================
+# 简化配置架构 - 使用 YAML 锚点减少重复
+# 
+# 使用方式:
+#   development.yaml:
+#     _extends: &base_config
+#       <<: *base_config
+#     system:
+#       debug: true  # 覆盖基础配置
+
+system: &system_defaults
+  name: "RANGEN V2"
+  version: "2.0.0"
+  debug: false
+  log_level: &log_level "INFO"
+
+llm: &llm_defaults
+  provider: &llm_provider "deepseek"
+  deepseek:
+    api_key: "${DEEPSEEK_API_KEY:}"
+    base_url: &deepseek_base_url "https://api.deepseek.com/v1"
+    reasoning_model: "deepseek-reasoner"
+    validation_model: "deepseek-chat"
+    citation_model: "deepseek-chat"
+    fallback_model: "deepseek-chat"
+  max_tokens: &max_tokens 8192
+  temperature: &temperature 0.7
+
+knowledge_base: &kb_defaults
+  vector_store_path: "./data/vector_store"
+  embedding_model: "all-mpnet-base-v2"
+  model_cache:
+    cache_dir: "~/.cache/huggingface/hub"
+    use_local_models: true
+
+kms: &kms_defaults
+  enabled: true
+  features:
+    vector_rerank: true
+    small_to_big_retrieval: true
+    knowledge_graph: true
+    multi_modal: false
+  performance:
+    default_top_k: 15
+    similarity_threshold: 0.6
+
+neural_models: &neural_defaults
+  embedding:
+    primary_model: "all-mpnet-base-v2"
+    secondary_model: "all-MiniLM-L6-v2"
+  cross_encoder:
+    model_name: "cross-encoder/ms-marco-MiniLM-L-6-v2"
+    enabled: true
+
+agents: &agent_defaults
+  reasoning_agent:
+    enabled: true
+    model: "deepseek-reasoner"
+    timeout: 60
+  validation_agent:
+    enabled: true
+    model: "deepseek-chat"
+    timeout: 30
+  citation_agent:
+    enabled: true
+    model: "deepseek-chat"
+    timeout: 15
+
+performance: &perf_defaults
+  max_concurrent_tasks: 10
+  task_timeout: 300
+  memory_limit: "2048MB"
+  cache:
+    deduplication_window: 60
+    long_term_cache_window: 300
+
+retrieval: &retrieval_defaults
+  max_query_length: 2000
+  top_k_results: 5
+  enable_reranking: true
+  rerank_top_k: 10
+
+security: &security_defaults
+  input_validation:
+    enabled: true
+    max_query_length: 10000
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 60
+
+monitoring: &monitoring_defaults
+  enabled: true
+  metrics_interval: 30
+  health_check_enabled: true
+  performance_tracking: true
+
+integrations: &integrations_defaults
+  langgraph:
+    enabled: true
+    fallback_on_error: true
+  mcp:
+    enabled: true

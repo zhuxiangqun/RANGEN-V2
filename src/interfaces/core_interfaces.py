@@ -1,12 +1,37 @@
 #!/usr/bin/env python3
 """
 Core Interfaces
+==============
+
+⚠️ DEPRECATED: Agent 接口请使用 src.interfaces.unified_agent 替代
+    - 统一接口: UnifiedAgentConfig, UnifiedAgentResult, IAgent
+    - 迁移: from src.interfaces.unified_agent import IAgent
+
+此文件保留 IConfigManager 和 IThresholdManager 接口。
+Agent 接口已弃用，请使用 unified_agent.py
 """
 
 import logging
+import warnings
 from typing import Dict, List, Any, Optional, Union, Tuple
 
 logger = logging.getLogger(__name__)
+
+# 发出弃用警告 (仅当导入 IAgent 时)
+_import_warned = False
+
+
+def _warn_if_needed():
+    global _import_warned
+    if not _import_warned:
+        warnings.warn(
+            "src.interfaces.core_interfaces.IAgent is deprecated. "
+            "Please use src.interfaces.unified_agent.IAgent instead.\n"
+            "Migration: from src.interfaces.unified_agent import IAgent",
+            DeprecationWarning,
+            stacklevel=3
+        )
+        _import_warned = True
 
 
 class CoreInterfaces:
@@ -25,12 +50,19 @@ class CoreInterfaces:
         return data is not None
 
 
-# Agent Interface
+# Agent Interface (DEPRECATED)
 class IAgent:
-    """Agent Interface"""
+    """
+    ⚠️ DEPRECATED: Agent Interface
+    
+    请使用 src.interfaces.unified_agent.IAgent
+    
+    这个接口返回 Dict 而非 UnifiedAgentResult，请迁移到统一接口。
+    """
     
     def __init__(self, agent_id: str) -> None:
         """初始化"""
+        _warn_if_needed()
         self.agent_id = agent_id
     
     async def process(self, query: str, context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
