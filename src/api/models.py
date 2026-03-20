@@ -12,6 +12,7 @@ class ChatRequest(BaseModel):
 
 class ChatResponse(BaseModel):
     answer: str = Field(..., description="Final answer")
-    steps: List[str] = Field(default_factory=list, description="Reasoning steps trace")
+    steps: List[Any] = Field(default_factory=list, description="Reasoning steps trace")
     status: str = Field(..., description="Execution status")
     error: Optional[str] = None
+    metadata: Optional[Dict[str, Any]] = Field(default_factory=dict, description="Additional metadata")

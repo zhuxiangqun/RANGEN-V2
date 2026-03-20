@@ -116,7 +116,7 @@ def render_test_ui(item_name: str, test_func, items: list, session_key: str, opt
     if f'selected_{session_key}' not in st.session_state:
         st.session_state[f'selected_{session_key}'] = items[0]['name'] if items else None
     
-    selected_item = st.session_state[f'selected_{session_key}']
+    selected_item: str = st.session_state[f'selected_{session_key}'] or ""
     current_item = next((s for s in items if s['name'] == selected_item), None)
     
     col1, col2 = st.columns([2, 0.7])
@@ -130,7 +130,7 @@ def render_test_ui(item_name: str, test_func, items: list, session_key: str, opt
         )
         if new_selected != selected_item:
             st.session_state[f'selected_{session_key}'] = new_selected
-            selected_item = new_selected
+            selected_item = str(new_selected) if new_selected else ""
             current_item = next((s for s in items if s['name'] == selected_item), None)
             if f'{session_key}_action' in st.session_state:
                 del st.session_state[f'{session_key}_action']
@@ -984,7 +984,7 @@ def test_center_page():
             options=list(report.keys()) if 'report' in dir() else ["system_module", "agent", "tool", "skill", "team", "workflow", "service"]
         )
         
-        if generate_coverage_report:
+        if generate_coverage_report and analyze_coverage:
             coverage = analyze_coverage(entity_type)
             
             for dim in coverage.dimensions:

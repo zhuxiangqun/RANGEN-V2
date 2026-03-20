@@ -68,7 +68,7 @@ from src.utils.input_validator import ValidationLevel
 logger = get_logger("api_server")
 
 # Global instances
-production_workflow: ProductionWorkflow = None  # type: ignore
+production_workflow: Optional[ProductionWorkflow] = None
 coordinator: Any = None  # ExecutionCoordinator (备用)
 research_system: Any = None  # UnifiedResearchSystem
 
@@ -331,7 +331,7 @@ async def chat_endpoint(
             if result.success:
                 return ChatResponse(
                     answer=result.message,
-                    steps=[{"step": f"Entity creation", "detail": f"Created {result.entity_type}: {result.entity_name}"}],
+                    steps=[f"Entity creation: Created {result.entity_type}: {result.entity_name}"],
                     status="completed"
                 )
             else:
@@ -375,12 +375,20 @@ async def chat_endpoint(
         
         # 其次使用统一研究系统
         if research_system is not None:
-            from src.unified_research_system import ResearchRequest
-            req = ResearchRequest(query=query, context=context or {})
+            from src.core.research_request import ResearchRequest
+            req = ResearchRequest(
+                request_id=f"api_{int(time.time())}",
+                query=query,
+                user_id=session_id or "anonymous",
+                context=context or {}
+            )
             res = await research_system.execute_research(req)
             steps = (res.metadata or {}).get("steps", [])
-            if isinstance(steps, list) and steps and not isinstance(steps[0], dict):
-                steps = [{"step": s} for s in steps]
+            if isinstance(steps, list) and steps:
+                if isinstance(steps[0], dict):
+                    steps = [s.get("step", str(s)) for s in steps]
+            else:
+                steps = []
             return ChatResponse(
                 answer=res.answer or "",
                 steps=steps,

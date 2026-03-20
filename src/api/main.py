@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 """
 RANGEN API主文件
+
+DEPRECATED: 此文件已被 src/api/server.py 取代
+请使用: python -m uvicorn src.api.server:app
 """
 
 import os
 import time
 import uuid
 import logging
+import warnings
 from datetime import datetime
 from typing import Dict, Any, Optional
 from fastapi import FastAPI, HTTPException, Request
@@ -14,12 +18,18 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
-# 导入系统组件
-from src.unified_research_system import UnifiedResearchSystem, ResearchRequest
-from src.core.research_request import ResearchResponse
+warnings.warn("src.api.main is deprecated. Use src.api.server instead.", DeprecationWarning, stacklevel=1)
+
+# 导入系统组件 - 使用正确的模块
+try:
+    from src.unified_research_system import UnifiedResearchSystem
+except ImportError:
+    UnifiedResearchSystem = None
+
+from src.core.research_request import ResearchRequest, ResearchResponse
 
 # 全局变量
-research_system: Optional[UnifiedResearchSystem] = None
+research_system: Optional[Any] = None
 start_time = time.time()
 
 # 创建FastAPI应用 - 增强版
@@ -345,12 +355,12 @@ async def startup_event():
     """应用启动事件"""
     global research_system
     try:
-        # 初始化研究系统
-        from src.unified_research_system import create_unified_research_system
-        research_system = await create_unified_research_system()
+        if UnifiedResearchSystem:
+            from src.unified_research_system import UnifiedResearchSystem
+            research_system = UnifiedResearchSystem()
         logger.info("RANGEN API启动完成")
     except Exception as e:
-        logger.error(f"启动失败: {e}")
+        logger.warning(f"研究系统未初始化: {e}")
 
 # 增强功能 - 关闭事件
 @app.on_event("shutdown")

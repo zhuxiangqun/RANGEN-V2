@@ -169,6 +169,10 @@ async def manage_mcp_server(
     try:
         manager = get_mcp_server_manager()
         
+        # Initialize default values
+        success = False
+        message = ""
+        
         if action == "start":
             success = await manager.start_server(server_name)
             message = f"MCP server '{server_name}' started" if success else f"Failed to start MCP server '{server_name}'"

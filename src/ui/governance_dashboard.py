@@ -6,13 +6,19 @@
 
 import streamlit as st
 import pandas as pd
-import plotly.graph_objects as go
-import plotly.express as px
+import time
 from datetime import datetime, timedelta
 import asyncio
 import json
 import sys
 import os
+
+try:
+    import plotly.graph_objects as go
+    import plotly.express as px
+except ImportError:
+    go = None
+    px = None
 
 # 添加项目根目录到路径
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
