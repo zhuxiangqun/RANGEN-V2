@@ -31,6 +31,7 @@ PORT_ENTRY=8500   # 统一入口
 PORT_CHAT=8501    # 聊天
 PORT_ADMIN=8502   # 管理平台
 PORT_GOV=8503     # 治理仪表盘
+PORT_DESIGN=8504  # 设计审查
 
 # ============================================================
 
@@ -161,6 +162,25 @@ start_gov() {
     return 1
 }
 
+start_design() {
+    log_app "Starting RANGEN 设计审查..."
+    if is_port_in_use $PORT_DESIGN; then
+        log_warn "Port $PORT_DESIGN is already in use!"
+        return 0
+    fi
+    cd "$SCRIPT_DIR"
+    nohup streamlit run apps/design_review_app/app.py --server.port $PORT_DESIGN --server.headless true > /dev/null 2>&1 &
+    for i in {1..10}; do
+        sleep 1
+        if is_port_in_use $PORT_DESIGN; then
+            log_app "✅ Design review app started on http://localhost:$PORT_DESIGN"
+            return 0
+        fi
+    done
+    log_error "❌ Failed to start design review app"
+    return 1
+}
+
 start_all_apps() {
     start_entry
     echo ""
@@ -169,6 +189,8 @@ start_all_apps() {
     start_admin
     echo ""
     start_gov
+    echo ""
+    start_design
 }
 
 start_all() {
@@ -187,6 +209,7 @@ start_all() {
     log_info "  💬 聊天:      http://localhost:$PORT_CHAT"
     log_info "  🔧 管理:      http://localhost:$PORT_ADMIN"
     log_info "  📊 治理:      http://localhost:$PORT_GOV"
+    log_info "  📐 设计审查:  http://localhost:$PORT_DESIGN"
     log_info "  📚 API:       http://localhost:$PORT_API/docs"
     log_info ""
 }
@@ -198,11 +221,13 @@ stop_all() {
     kill_port $PORT_CHAT
     kill_port $PORT_ADMIN
     kill_port $PORT_GOV
+    kill_port $PORT_DESIGN
     
     pkill -f "streamlit.*entry_app" 2>/dev/null || true
     pkill -f "streamlit.*chat_app" 2>/dev/null || true
     pkill -f "streamlit.*management_app" 2>/dev/null || true
     pkill -f "streamlit.*governance_app" 2>/dev/null || true
+    pkill -f "streamlit.*design_review_app" 2>/dev/null || true
     pkill -f "python.*src/api/server.py" 2>/dev/null || true
     
     log_info "✅ All services stopped"
@@ -221,10 +246,12 @@ stop_app() {
     kill_port $PORT_CHAT
     kill_port $PORT_ADMIN
     kill_port $PORT_GOV
+    kill_port $PORT_DESIGN
     pkill -f "streamlit.*entry_app" 2>/dev/null || true
     pkill -f "streamlit.*chat_app" 2>/dev/null || true
     pkill -f "streamlit.*management_app" 2>/dev/null || true
     pkill -f "streamlit.*governance_app" 2>/dev/null || true
+    pkill -f "streamlit.*design_review_app" 2>/dev/null || true
     log_app "✅ 所有应用已停止"
 }
 
@@ -266,6 +293,13 @@ show_status() {
     printf "  ${CYAN}●${NC} 治理仪表盘 (port $PORT_GOV): "
     if is_port_in_use $PORT_GOV; then
         echo -e "${GREEN}运行中${NC} (PID: $(get_pid_by_port $PORT_GOV))"
+    else
+        echo -e "${RED}未运行${NC}"
+    fi
+    
+    printf "  ${CYAN}●${NC} 设计审查 (port $PORT_DESIGN): "
+    if is_port_in_use $PORT_DESIGN; then
+        echo -e "${GREEN}运行中${NC} (PID: $(get_pid_by_port $PORT_DESIGN))"
     else
         echo -e "${RED}未运行${NC}"
     fi
