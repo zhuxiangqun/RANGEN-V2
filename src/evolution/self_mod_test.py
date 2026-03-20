@@ -1090,30 +1090,10 @@ def analyze_japan_market(self, industry: str, region: str = "全国") -> Dict[st
     
     async def _generate_service_layer(self, plan: EvolutionPlan) -> Optional[CodeModification]:
         """生成服务层添加"""
-        # 检查是否需要添加服务层
         service_dir = self.repo_path / "src" / "services"
         if not service_dir.exists():
-            # 创建基础服务层结构
-            service_content = """#!/usr/bin/env python3
-\"\"\"服务层 - 业务逻辑封装\"\"\"
+            return None
+        return None
 
-import logging
-from typing import Dict, List, Any, Optional
-
-
-class BaseService:
-    \"\"\"基础服务类\"\"\"
-    
-    def __init__(self):
-        self.logger = logging.getLogger(self.__class__.__name__)
-    
-    def validate_input(self, data: Dict[str, Any]) -> bool:
-        \"\"\"验证输入数据\"\"\"
-        # TODO: 实现具体验证逻辑
-        return True
-    
-    def handle_error(self, error: Exception, context: str = ""):
-        \"\"\"统一错误处理\"\"\"
-        self.logger.error(f"{context}: {error}")
 
 

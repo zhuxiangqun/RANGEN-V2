@@ -277,7 +277,7 @@ class GovernanceDashboard:
                 })
             
             # 获取宪法检查事件
-            constitution_events = await self.hook_system.recorder.get_events_by_type(HookEventType.CONSTITUTION_CHECK, limit=10)
+            constitution_events = await self.hook_system.recorder.get_events_by_type(HookEventType.CONSTITUTION_CHECK.value, limit=10)
             for event in constitution_events:
                 evolution_data["constitution_checks"].append({
                     "timestamp": event.timestamp,
@@ -306,14 +306,14 @@ class GovernanceDashboard:
                 "capability_list": []
             }
             
-            for cap_name, capability in capabilities.items():
+            for capability in capabilities:
                 capabilities_data["capability_list"].append({
-                    "name": cap_name,
-                    "description": capability.get("description", "无描述"),
-                    "enabled": capability.get("enabled", False),
-                    "usage_count": capability.get("usage_count", 0),
-                    "last_used": capability.get("last_used", "从未使用"),
-                    "category": capability.get("category", "unknown")
+                    "name": capability.name,
+                    "description": capability.description,
+                    "enabled": True,
+                    "usage_count": 0,
+                    "last_used": "从未使用",
+                    "category": capability.category.value if hasattr(capability.category, 'value') else str(capability.category)
                 })
             
             return capabilities_data

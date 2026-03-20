@@ -567,3 +567,17 @@ class HookRecorder:
         except Exception as e:
             self.logger.error(f"获取数据库信息失败: {e}")
             return {}
+
+    async def initialize(self) -> bool:
+        """初始化 HookRecorder"""
+        try:
+            await self._init_database()
+            self.logger.info("HookRecorder 初始化完成")
+            return True
+        except Exception as e:
+            self.logger.error(f"HookRecorder 初始化失败: {e}")
+            return False
+
+    async def get_event_by_id(self, event_id: str) -> Optional[HookEvent]:
+        """获取单个事件（别名方法）"""
+        return await self.get_event(event_id)

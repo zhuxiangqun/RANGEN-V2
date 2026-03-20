@@ -221,3 +221,7 @@ class HandRegistry:
             "by_safety_level": safety_stats,
             "hand_names": list(self.hands.keys())
         }
+
+    def get_registry_stats(self) -> Dict[str, Any]:
+        """获取注册表统计信息（别名方法）"""
+        return self.stats()

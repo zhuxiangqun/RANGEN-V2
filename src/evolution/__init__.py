@@ -14,7 +14,7 @@ RANGEN自进化系统
 
 from .engine import EvolutionEngine
 from .git_integration import GitIntegration
-from .self_modification import SelfModification
+from .self_mod_test import SelfModification
 from .multi_model_review import MultiModelReview
 from .consciousness import BackgroundConsciousness
 from .constitution import ConstitutionChecker

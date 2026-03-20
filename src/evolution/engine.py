@@ -15,7 +15,7 @@ from enum import Enum
 from pathlib import Path
 
 from .git_integration import GitIntegration
-from .self_modification import SelfModification
+from .self_mod_test import SelfModification
 from .multi_model_review import MultiModelReview
 from .consciousness import BackgroundConsciousness
 from .constitution import ConstitutionChecker
@@ -665,6 +665,23 @@ class EvolutionEngine:
             next_check = self.last_evolution_time + timedelta(hours=self.evolution_interval_hours)
         
         return next_check.isoformat()
+
+    async def get_pending_plans(self) -> List[Dict[str, Any]]:
+        """获取待执行的计划"""
+        return []
+
+    async def get_executed_plans(self) -> List[Dict[str, Any]]:
+        """获取已执行的计划"""
+        return [
+            {
+                "id": result.plan_id,
+                "goal": result.description,
+                "status": result.status.value,
+                "executed_at": result.timestamp,
+                "result": {"summary": result.summary}
+            }
+            for result in self.evolution_history
+        ]
 
 
 # 便捷启动函数
