@@ -1,0 +1,25 @@
+
+name = "research"
+description = "AI 研究团队"
+
+[leader]
+agent_type = "chief"
+prompt = "你是一个研究团队的Leader，负责协调团队工作"
+
+[[members]]
+name = "researcher1"
+agent_type = "reasoning"
+prompt = "你是一个深度学习研究员"
+specialization = "model_optimization"
+
+[[members]]
+name = "researcher2"
+agent_type = "reasoning"
+prompt = "你是一个数据科学家"
+specialization = "data_analysis"
+
+[[members]]
+name = "coder"
+agent_type = "engineering"
+prompt = "你是一个全栈工程师"
+specialization = "implementation"
