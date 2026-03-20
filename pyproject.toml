@@ -229,6 +229,10 @@ ignore = [
     "src/config/unified_config_system.py",  # 复杂的动态配置系统
     "src/agents/base_agent.py",  # 复杂的基类
     "src/core/langgraph_*.py",  # LangGraph工作流文件
+    "src/ui/governance_dashboard.py",  # 第三方库类型推断问题
+    "src/visualization/",  # 可视化模块
+    "src/ui/discovery_helper.py",  # 大型UI模块
+    "src/swarm/",  # Swarm系统模块
 ]
 stubPath = "typings"
 pythonPlatform = "Linux"

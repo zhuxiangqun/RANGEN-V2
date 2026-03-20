@@ -547,7 +547,7 @@ def run_dashboard():
     ])
     
     # 异步数据获取
-    async def load_data():
+    async def load_data() -> Dict[str, Any]:
         try:
             # 初始化仪表盘
             if not dashboard.initialized:
