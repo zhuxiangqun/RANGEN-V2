@@ -1336,6 +1336,219 @@ render_hud_streamlit(hud)
 
 ---
 
-> **文档版本**: 基于源码分析 v1.3  
+## 15. Swarm Intelligence System (ClawTeam-Inspired)
+
+### 15.1 概述
+
+借鉴 [ClawTeam](https://github.com/HKUDS/ClawTeam) 的 Swarm Intelligence 设计理念，RANGEN V2 新增完整的 Agent 蜂群协调系统。
+
+**核心价值**:
+- 智能模式选择: 自动判断 Lite/Full 执行模式
+- 团队协作: 多 Agent 分工合作
+- 文件系统通信: 基于 Inbox 的消息传递
+- 一键启动: TOML 模板系统
+- Git 隔离: 每个 Agent 独立 Worktree
+
+### 15.2 核心组件
+
+| 组件 | 文件 | 功能 |
+|------|------|------|
+| SmartSwarmRouter | `src/swarm/smart_router.py` | 智能路由，自动选择 Lite/Full 模式 |
+| SwarmCoordinator | `src/swarm/coordinator.py` | 统一协调器，团队和 Agent 生命周期管理 |
+| FileInbox | `src/swarm/inbox.py` | 文件系统消息传递 |
+| TaskStore | `src/swarm/task_store.py` | 任务管理 + 依赖跟踪 |
+| TeamStore | `src/swarm/team_store.py` | 团队配置和状态管理 |
+| TeamTemplate | `src/swarm/team_template.py` | TOML 模板系统 |
+| GitWorktreeManager | `src/swarm/worktree.py` | Git Worktree 隔离 |
+| SwarmBoard | `src/swarm/board.py` | 终端监控看板 |
+| SwarmMixin | `src/agents/swarm_mixin.py` | 自然语言 Swarm 控制 |
+
+### 15.3 SmartSwarmRouter (智能路由)
+
+**文件**: `src/swarm/smart_router.py`
+
+自动判断任务复杂度并选择执行模式:
+
+```python
+from src.swarm import auto_route, ExecutionMode
+
+# 智能路由
+decision = auto_route("做一个完整的电商系统")
+print(f"推荐模式: {decision.mode}")  # FULL
+print(f"决策理由: {decision.reason}")
+print(f"置信度: {decision.confidence}")
+```
+
+**决策因素**:
+| 因素 | 说明 |
+|------|------|
+| 任务复杂度 | simple/moderate/complex/critical |
+| 资源情况 | CPU/内存/磁盘使用率 |
+| 用户偏好 | lite/full/auto |
+| 任务类型 | 单Agent/多Agent |
+
+### 15.4 SwarmCoordinator (协调器)
+
+**文件**: `src/swarm/coordinator.py`
+
+统一协调接口，管理团队和 Agent 生命周期:
+
+```python
+from src.swarm import get_coordinator
+
+coord = get_coordinator()
+coord.create_team("my-team")
+coord.spawn_agent("my-team", "worker1", "实现认证模块")
+coord.send_message("my-team", "worker1", {"task": "完成"})
+result = coord.get_agent_result("my-team", "worker1")
+```
+
+### 15.5 FileInbox (消息传递)
+
+**文件**: `src/swarm/inbox.py`
+
+基于文件系统的异步消息传递，无需消息队列:
+
+```python
+from src.swarm import FileInbox, Message
+
+inbox = FileInbox(".swarm/team-id/inbox/agent-id")
+inbox.send(Message(to="worker2", content={"result": "done"}))
+messages = inbox.fetch()
+```
+
+### 15.6 TaskStore (任务管理)
+
+**文件**: `src/swarm/task_store.py`
+
+支持依赖跟踪的任务管理系统:
+
+```python
+from src.swarm import TaskStore, TaskStatus
+
+store = TaskStore(".swarm/team-id/tasks")
+store.add_task("task-1", "实现后端", dependencies=[])
+store.add_task("task-2", "实现前端", dependencies=["task-1"])
+store.update_status("task-1", TaskStatus.COMPLETED)
+ready = store.get_ready_tasks()
+```
+
+### 15.7 TeamTemplate (模板系统)
+
+**文件**: `src/swarm/team_template.py`
+
+TOML 格式的团队配置，一键启动:
+
+```toml
+# research.toml
+[team]
+name = "research"
+description = "研究团队"
+
+[agents.analyst]
+role = "analyst"
+instructions = "分析问题、收集信息"
+model = "deepseek-chat"
+
+[agents.coder]
+role = "coder"  
+instructions = "实现代码"
+model = "deepseek-chat"
+```
+
+```python
+from src.swarm import launch_team_from_template, get_coordinator
+
+coord = get_coordinator()
+result = launch_team_from_template(
+    "research",           # 模板名
+    "my-research",        # 团队ID
+    "优化transformer架构", # 任务描述
+    coord
+)
+```
+
+**内置模板**:
+| 模板 | 用途 |
+|------|------|
+| `research` | 研究分析团队 |
+| `dev` | 开发团队 |
+| `hedgefund` | 对冲基金分析 |
+
+### 15.8 GitWorktreeManager (隔离)
+
+**文件**: `src/swarm/worktree.py`
+
+为每个 Agent 创建独立的 Git Worktree:
+
+```python
+from src.swarm import GitWorktreeManager
+
+manager = GitWorktreeManager()
+info = manager.create_worktree("feature-branch")
+print(f"分支路径: {info.path}")
+manager.checkout(info.name, "src/agents/")
+```
+
+### 15.9 SwarmBoard (终端看板)
+
+**文件**: `src/swarm/board.py`
+
+实时终端监控面板:
+
+```python
+from src.swarm import SwarmBoard, get_coordinator
+
+coord = get_coordinator()
+board = SwarmBoard(coord)
+board.show("my-team")      # 显示快照
+board.watch("my-team")     # 实时监控
+```
+
+### 15.10 SwarmMixin (自然语言控制)
+
+**文件**: `src/agents/swarm_mixin.py`
+
+让 Agent 支持自然语言 Swarm 控制:
+
+```python
+from src.agents.swarm_mixin import SwarmMixin
+
+class MyAgent(SwarmMixin):
+    def __init__(self):
+        super().__init__()
+        
+# Agent 可响应自然语言命令:
+# "创建研究团队"
+# "分配任务给分析师"
+# "查看团队状态"
+```
+
+### 15.11 CLI 命令行
+
+**文件**: `src/swarm/cli.py`
+
+基于 Typer 的命令行工具:
+
+```bash
+# 查看帮助
+python -m src.swarm.cli --help
+
+# 创建团队
+python -m src.swarm.cli team create research my-team "优化架构"
+
+# 启动团队
+python -m src.swarm.cli team launch research my-team
+
+# 查看状态
+python -m src.swarm.cli status my-team
+
+# 监控看板
+python -m src.swarm.cli watch my-team
+```
+
+---
+
+> **文档版本**: 基于源码分析 v1.4  
 > **更新时间**: 2026-03-20  
-> **分析深度**: 源码级 (非文档推断)
+> **新增内容**: ClawTeam-inspired Swarm Intelligence System
