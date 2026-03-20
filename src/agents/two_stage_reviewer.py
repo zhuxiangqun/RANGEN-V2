@@ -479,3 +479,122 @@ def get_reviewer() -> TwoStageReviewer:
     if _reviewer is None:
         _reviewer = TwoStageReviewer()
     return _reviewer
+
+
+# ============================================================================
+# BlockingReviewer Integration for Critical Issues
+# ============================================================================
+
+def review_with_blocking(
+    code: str,
+    spec: Optional[str] = None
+) -> Dict:
+    """
+    使用 BlockingReviewer 进行 Critical 问题阻塞审查
+    
+    这是 TwoStageReviewer + BlockingReviewer 的组合:
+    - TwoStageReviewer: 详细的两阶段审查
+    - BlockingReviewer: Critical/HIGH 问题直接阻塞
+    """
+    try:
+        from src.agents.blocking_reviewer import BlockingReviewer
+        from src.agents.two_stage_reviewer import TwoStageReviewer
+        
+        two_stage = TwoStageReviewer()
+        blocking = BlockingReviewer()
+        
+        stage1_result = two_stage.review_stage1_spec_compliance(code, spec or "")
+        stage2_result = two_stage.review_stage2_code_quality(code)
+        blocking_result = blocking.review(code, spec)
+        
+        blocking_issues = blocking_result.get_blocking_issues()
+        
+        two_stage_fail = stage1_result.status == "fail" or stage2_result.status == "fail"
+        can_merge = blocking_result.status != "blocked" and not two_stage_fail
+        
+        return {
+            "can_merge": can_merge,
+            "blocking_issues": [
+                {
+                    "category": i.category,
+                    "severity": i.severity,
+                    "message": i.message,
+                    "line": i.line,
+                    "suggestion": i.suggestion
+                }
+                for i in blocking_issues
+            ],
+            "warnings": [
+                {
+                    "category": i.category,
+                    "severity": i.severity,
+                    "message": i.message
+                }
+                for i in blocking_result.issues if not i.blocking
+            ],
+            "stage1_result": stage1_result.to_dict(),
+            "stage2_result": stage2_result.to_dict(),
+            "blocking_result": blocking_result.to_dict(),
+            "summary": f"Blocking: {len(blocking_issues)}, Warnings: {len(blocking_result.issues) - len(blocking_issues)}"
+        }
+        
+    except ImportError as e:
+        logger.warning(f"BlockingReviewer not available: {e}")
+        two_stage = TwoStageReviewer()
+        stage1 = two_stage.review_stage1_spec_compliance(code, spec or "")
+        stage2 = two_stage.review_stage2_code_quality(code)
+        return {
+            "can_merge": stage1.status != "fail" and stage2.status != "fail",
+            "blocking_issues": [],
+            "warnings": [],
+            "stage1_result": stage1.to_dict(),
+            "stage2_result": stage2.to_dict(),
+            "blocking_result": None,
+            "summary": f"TwoStage only: {stage1.summary}"
+        }
+    except Exception as e:
+        logger.error(f"Review with blocking failed: {e}")
+        return {
+            "can_merge": False,
+            "blocking_issues": [{"severity": "critical", "message": str(e)}],
+            "warnings": [],
+            "stage1_result": None,
+            "stage2_result": None,
+            "blocking_result": None,
+            "summary": f"Error: {str(e)}"
+        }
+
+
+def assert_can_merge(code: str, spec: Optional[str] = None):
+    """
+    断言代码可以合并，如果有 Critical 问题则抛出异常
+    
+    Raises:
+        MergeBlockedError: 当存在 Critical/HIGH 问题时
+    """
+    result = review_with_blocking(code, spec)
+    
+    if not result["can_merge"]:
+        blocking = result["blocking_issues"]
+        msg = f"🔴 MERGE BLOCKED: {len(blocking)} Critical issue(s) found\n"
+        for issue in blocking:
+            msg += f"  - [{issue['severity']}] {issue['message']}"
+            if issue.get('suggestion'):
+                msg += f" (Suggestion: {issue['suggestion']})"
+            msg += "\n"
+        
+        if result.get("two_stage_result"):
+            two_stage = result["two_stage_result"]
+            if two_stage.get("status") == "fail":
+                msg += f"\nTwoStage Review failed: {two_stage.get('summary')}"
+        
+        raise MergeBlockedError(msg, blocking)
+    
+    logger.info(f"Merge allowed: {result['summary']}")
+
+
+class MergeBlockedError(Exception):
+    """合并被阻塞异常"""
+    def __init__(self, message: str, blocking_issues: List[Dict]):
+        self.blocking_issues = blocking_issues
+        super().__init__(message)

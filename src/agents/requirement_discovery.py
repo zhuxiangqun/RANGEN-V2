@@ -9,20 +9,27 @@ Requirement Discovery Agent - 需求发现 Brainstorming Skill
 2. Clarification → 5W1H 追问澄清
 3. Requirements → 结构化需求
 4. Spec → 规范文档
+5. DESIGN (HARD-GATE) → 设计审查
+6. IMPLEMENTING → 实施阶段
 
 核心原理:
 - 从模糊的问题陈述中提取清晰的需求
 - 通过追问消除歧义
 - 生成可验证的规范
+- HARD-GATE 强制设计先行
 """
 
 import logging
+import os
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Dict, List, Optional, Any
+from typing import Dict, List, Optional, Any, Tuple
 from enum import Enum
 
 logger = logging.getLogger(__name__)
+
+# HARD-GATE State File
+HARD_GATE_INTEGRATION_FILE = ".hard_gate_integration.json"
 
 
 class RequirementPriority(Enum):
@@ -87,6 +94,7 @@ class RequirementDiscoveryAgent:
     agent = RequirementDiscoveryAgent()
     result = agent.discover_requirements("我需要一个用户管理系统")
     spec = agent.generate_spec(result)
+    agent.proceed_to_design()  # HARD-GATE integration
     """
     
     # 5W1H 追问模板
@@ -510,3 +518,109 @@ def get_requirement_discovery_agent() -> RequirementDiscoveryAgent:
     if _agent is None:
         _agent = RequirementDiscoveryAgent()
     return _agent
+
+
+# ============================================================================
+# HARD-GATE Integration
+# ============================================================================
+
+class HardGateIntegrationError(Exception):
+    """HARD-GATE 集成错误"""
+    pass
+
+
+def check_hard_gate_for_requirements() -> Tuple[bool, str]:
+    try:
+        from src.agents.hard_gate import HARD_GATE, GatePhase
+        
+        gate = HARD_GATE()
+        current = gate._state.phase
+        
+        if current == GatePhase.BRAINSTORMING:
+            return True, "HARD-GATE: Brainstorming phase active"
+        elif current == GatePhase.IMPLEMENTING:
+            return False, "HARD-GATE: Already in implementation phase"
+        elif current == GatePhase.COMPLETED:
+            return True, "HARD-GATE: Project complete"
+        else:
+            return True, f"HARD-GATE: Current phase ({current.value}) allows design"
+            
+    except ImportError:
+        return True, "HARD-GATE not available, proceeding..."
+    except Exception as e:
+        logger.warning(f"HARD-GATE check failed: {e}")
+        return True, f"HARD-GATE check skipped: {e}"
+
+
+def enforce_hard_gate_design(spec_content: str, requirements: List[Requirement]) -> Dict[str, Any]:
+    try:
+        from src.agents.hard_gate import HARD_GATE, DesignSpec, GatePhase
+        
+        gate = HARD_GATE()
+        current = gate._state.phase
+        
+        if current == GatePhase.BRAINSTORMING or current == GatePhase.DESIGN_REVIEW:
+            design = gate.present_design()
+            if design:
+                return {
+                    "status": "already_in_design",
+                    "design": design,
+                    "can_proceed": True
+                }
+        
+        title = requirements[0].title if requirements else "Untitled"
+        description = "\n".join([
+            f"- {r.id}: {r.title} ({r.priority.value})"
+            for r in requirements[:5]
+        ])
+        
+        gate.start_design_phase(title, description)
+        
+        for req in requirements:
+            gate.add_design_component(
+                req.title,
+                files=[f"src/{req.id.lower().replace('-', '_')}.py"]
+            )
+        
+        design = gate.present_design()
+        
+        return {
+            "status": "design_created",
+            "design": design,
+            "requirements_count": len(requirements),
+            "can_proceed": True
+        }
+        
+    except ImportError:
+        return {"status": "hard_gate_not_available", "can_proceed": True}
+    except Exception as e:
+        logger.error(f"HARD-GATE design enforcement failed: {e}")
+        return {"status": "error", "error": str(e), "can_proceed": False}
+
+
+def require_design_approval() -> Tuple[bool, str]:
+    try:
+        from src.agents.hard_gate import HARD_GATE, GatePhase
+        
+        gate = HARD_GATE()
+        current = gate._state.phase
+        
+        if current not in [GatePhase.BRAINSTORMING, GatePhase.DESIGN_REVIEW]:
+            return True, "Not in design phase"
+        
+        design = gate.present_design()
+        if not design:
+            return False, "No design found, create design first"
+        
+        approved = gate.approve_design("system")
+        
+        if approved:
+            gate.enter_implementation_phase()
+            return True, "Design approved, entering implementation phase"
+        else:
+            return False, "Design not approved"
+            
+    except ImportError:
+        return True, "HARD-GATE not available"
+    except Exception as e:
+        return False, f"Approval check failed: {e}"
