@@ -349,6 +349,163 @@ def render_implementation_guide():
         """)
 
 
+def render_modify_requirements():
+    """渲染修改需求区域"""
+    st.header("✏️ 修改需求")
+    
+    st.info("""
+    **什么情况下需要修改需求?**
+    - 发现设计有问题
+    - 需求变更
+    - 添加新功能
+    
+    **注意:** 修改需求会重新生成设计，需要重新审查。
+    """)
+    
+    if not st.session_state.design_generated:
+        st.warning("⚠️ 请先生成初始设计")
+        return
+    
+    new_requirements = st.text_area(
+        "输入新的或修改后的需求",
+        placeholder="例如:\n- 修改密码功能\n- 添加双因素认证\n- 第三方登录",
+        height=100
+    )
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        modify_btn = st.button("🔄 重新生成设计", use_container_width=True)
+    
+    with col2:
+        add_btn = st.button("➕ 添加需求", use_container_width=True)
+    
+    if modify_btn and new_requirements:
+        with st.spinner("🔄 正在重新生成设计..."):
+            try:
+                from src.agents.ai_design_generator import AIDesignGenerator
+                
+                generator = AIDesignGenerator()
+                new_design = generator.modify_requirements(
+                    st.session_state.design,
+                    new_requirements
+                )
+                
+                st.session_state.design = new_design
+                st.session_state.approved = None
+                st.session_state.design_generated = True
+                
+                st.success("✅ 设计已更新，请重新审查!")
+                st.rerun()
+                
+            except Exception as e:
+                st.error(f"❌ 修改失败: {e}")
+    
+    if add_btn and new_requirements:
+        with st.spinner("🔄 正在添加需求..."):
+            try:
+                from src.agents.ai_design_generator import AIDesignGenerator
+                
+                generator = AIDesignGenerator()
+                new_design = generator.add_requirements(
+                    st.session_state.design,
+                    new_requirements
+                )
+                
+                st.session_state.design = new_design
+                st.session_state.approved = None
+                st.session_state.design_generated = True
+                
+                st.success("✅ 需求已添加，请重新审查!")
+                st.rerun()
+                
+            except Exception as e:
+                st.error(f"❌ 添加失败: {e}")
+
+
+def render_legacy_agent_handler():
+    """渲染老 Agent 处理区域"""
+    st.header("📦 处理没有设计的 Agent")
+    
+    st.info("""
+    **什么是没有设计的 Agent?**
+    
+    在引入 HARD-GATE 之前创建的 Agent，它们没有对应的设计文档。
+    
+    **处理方式:**
+    1. **跳过** - 如果 Agent 已经稳定工作，可以跳过
+    2. **回溯创建** - 分析代码，反向推断设计
+    3. **继续使用** - 不影响现有 Agent 的使用
+    """)
+    
+    # Agent 输入
+    agent_name = st.text_input("Agent 名称", placeholder="例如: reasoning_agent")
+    agent_file = st.text_input("Agent 文件路径 (可选)", placeholder="例如: src/agents/reasoning_agent.py")
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        analyze_btn = st.button("🔍 分析 Agent", use_container_width=True)
+    
+    with col2:
+        skip_btn = st.button("⏭️ 跳过", use_container_width=True)
+    
+    with col3:
+        retro_btn = st.button("📝 回溯创建设计", use_container_width=True)
+    
+    if analyze_btn and agent_name:
+        with st.spinner("🔄 分析中..."):
+            try:
+                from src.agents.ai_design_generator import handle_agent_without_design
+                
+                result = handle_agent_without_design(agent_name)
+                
+                st.info(f"**分析结果:** {result['message']}")
+                
+                if result['action'] == 'skip':
+                    st.success("✅ 可以继续使用此 Agent")
+                elif result['action'] == 'create_design':
+                    st.warning("⚠️ 需要为此 Agent 创建设计")
+                else:
+                    st.info("🔍 需要进一步分析")
+                    
+            except Exception as e:
+                st.error(f"❌ 分析失败: {e}")
+    
+    if skip_btn and agent_name:
+        st.success(f"✅ 已跳过 Agent '{agent_name}'")
+        st.info("💡 此 Agent 不需要设计即可使用")
+    
+    if retro_btn and agent_name:
+        with st.spinner("🔄 回溯分析中..."):
+            try:
+                from src.agents.ai_design_generator import retroactively_create_design
+                
+                # 尝试读取文件
+                code = ""
+                if agent_file:
+                    try:
+                        with open(agent_file, 'r') as f:
+                            code = f.read()[:3000]
+                    except:
+                        pass
+                
+                if not code:
+                    code = "# 代码未提供，使用默认分析"
+                
+                design = retroactively_create_design(agent_name, code)
+                
+                st.session_state.design = design
+                st.session_state.design_generated = True
+                
+                st.success(f"✅ 已为 '{agent_name}' 创建设计")
+                st.info(f"📋 设计标题: {design.title}")
+                st.info(f"📁 推断文件数: {len(design.file_structure)}")
+                
+            except Exception as e:
+                st.error(f"❌ 回溯失败: {e}")
+
+
 def render_history():
     """渲染历史记录"""
     st.header("📜 最近设计")
@@ -388,6 +545,14 @@ def main():
     
     # 实现指南
     render_implementation_guide()
+    
+    # 修改需求
+    render_modify_requirements()
+    
+    st.markdown("---")
+    
+    # 老 Agent 处理
+    render_legacy_agent_handler()
 
 
 if __name__ == "__main__":

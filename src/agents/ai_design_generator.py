@@ -499,6 +499,161 @@ src/
     def get_current_design(self) -> Optional[GeneratedDesign]:
         """获取当前设计"""
         return self._current_design
+    
+    def modify_requirements(
+        self,
+        design: GeneratedDesign,
+        new_requirements: str
+    ) -> GeneratedDesign:
+        """
+        修改需求并重新生成设计
+        
+        保留已批准的部分，只更新变化的需求
+        
+        Args:
+            design: 现有设计
+            new_requirements: 新需求
+            
+        Returns:
+            GeneratedDesign: 更新后的设计
+        """
+        logger.info("基于现有设计修改需求...")
+        
+        requirements_text = f"## 新需求\n{new_requirements}\n\n## 现有设计摘要\n- 标题: {design.title}\n- 文件: {len(design.file_structure)} 个"
+        
+        design_text = self._call_llm_design(requirements_text, None)
+        new_design = self._parse_design_response(design_text, new_requirements)
+        
+        # 保留原设计的标题
+        new_design.title = design.title
+        
+        self._current_design = new_design
+        
+        return new_design
+    
+    def add_requirements(
+        self,
+        design: GeneratedDesign,
+        additional_requirements: str
+    ) -> GeneratedDesign:
+        """
+        添加新需求到现有设计
+        
+        Args:
+            design: 现有设计
+            additional_requirements: 额外需求
+            
+        Returns:
+            GeneratedDesign: 更新后的设计
+        """
+        logger.info("添加新需求到现有设计...")
+        
+        existing = "\n".join(design.file_structure[:10])
+        requirements_text = f"## 现有设计\n{existing}\n\n## 新增需求\n{additional_requirements}"
+        
+        design_text = self._call_llm_design(requirements_text, None)
+        new_design = self._parse_design_response(design_text, additional_requirements)
+        
+        # 合并文件列表
+        new_design.title = design.title
+        new_design.file_structure = list(set(
+            design.file_structure + new_design.file_structure
+        ))
+        
+        self._current_design = new_design
+        
+        return new_design
+
+
+def handle_agent_without_design(agent_name: str) -> Dict[str, Any]:
+    """
+    处理没有设计的 Agent
+    
+    Args:
+        agent_name: Agent 名称
+        
+    Returns:
+        {
+            "action": "skip|create_design|analyze",
+            "design": Optional[GeneratedDesign],
+            "message": str
+        }
+    """
+    try:
+        from src.agents.hard_gate import HARD_GATE, GatePhase
+        
+        gate = HARD_GATE()
+        
+        # 检查 HARD-GATE 状态
+        if gate._state.phase == GatePhase.IDLE:
+            return {
+                "action": "create_design",
+                "design": None,
+                "message": f"Agent '{agent_name}' 没有设计，需要先创建设计"
+            }
+        
+        # 如果正在实现，检查设计是否包含此 Agent
+        design = gate.present_design()
+        if design and agent_name.lower() in design.lower():
+            return {
+                "action": "skip",
+                "design": None,
+                "message": f"Agent '{agent_name}' 已在当前设计中"
+            }
+        
+        return {
+            "action": "analyze",
+            "design": None,
+            "message": f"Agent '{agent_name}' 需要分析是否需要设计变更"
+        }
+        
+    except Exception as e:
+        logger.warning(f"检查 Agent 设计状态失败: {e}")
+        return {
+            "action": "skip",
+            "design": None,
+            "message": f"HARD-GATE 不可用，跳过检查: {e}"
+        }
+
+
+def retroactively_create_design(agent_name: str, agent_code: str) -> GeneratedDesign:
+    """
+    回溯创建设计
+    
+    分析现有 Agent 代码，反向生成设计文档
+    
+    Args:
+        agent_name: Agent 名称
+        agent_code: Agent 代码
+        
+    Returns:
+        GeneratedDesign: 推断的设计
+    """
+    generator = AIDesignGenerator()
+    
+    prompt = f"""
+分析以下 Agent 代码，推断其设计:
+
+## Agent 名称
+{agent_name}
+
+## 代码
+```
+{agent_code[:3000]}
+```
+
+请推断:
+1. 功能描述
+2. 主要类/函数
+3. 依赖关系
+4. 文件结构
+"""
+    
+    design_text = generator._call_llm_design(prompt, None)
+    design = generator._parse_design_response(design_text, f"Agent: {agent_name}")
+    design.title = f"[Legacy] {agent_name}"
+    
+    return design
 
 
 # ============================================================================
