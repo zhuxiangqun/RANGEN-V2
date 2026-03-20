@@ -55,6 +55,17 @@
 | **MiddlewareChain** | `src/core/middleware.py` | (基础架构) |
 | **AgentHUD** | `src/ui/agent_hud.py` | (可观测性) |
 
+### 2.2 新增组件 (2026-03-20)
+
+| 组件 | 文件 | 功能 |
+|------|------|------|
+| **HARD_GATE** | `src/agents/hard_gate.py` | 设计先行门控机制 |
+| **StrictTDDEnforcer** | `src/agents/strict_tdd_enforcer.py` | 不可绕过TDD强制 |
+| **BlockingReviewer** | `src/agents/blocking_reviewer.py` | Critical问题阻塞 |
+| **SubagentDispatcher** | `src/agents/subagent_dispatcher.py` | 精确上下文构造 |
+| **SpecReviewer** | `src/agents/spec_reviewer.py` | 规范合规检查 |
+| **集成测试** | `tests/test_superpowers_enforcement.py` | 21个测试 |
+
 ### 2.2 已有实现分析
 
 #### TDDEnforcer (376行)
