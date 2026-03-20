@@ -188,11 +188,26 @@ with st.sidebar:
     try:
         resp = requests.get(f"{RANGEN_API_BASE}/health", timeout=5)
         if resp.status_code == 200:
-            st.success("✅ RANGEN 已连接")
+            st.markdown("""
+            <div style="background-color: #28a745; color: white; padding: 12px 16px; 
+                        border-radius: 6px; font-weight: 500; margin: 8px 0;">
+                ✅ RANGEN 已连接
+            </div>
+            """, unsafe_allow_html=True)
         else:
-            st.warning("⚠️ RANGEN 连接异常")
+            st.markdown("""
+            <div style="background-color: #ffc107; color: #333; padding: 12px 16px; 
+                        border-radius: 6px; font-weight: 500; margin: 8px 0;">
+                ⚠️ RANGEN 连接异常
+            </div>
+            """, unsafe_allow_html=True)
     except:
-        st.error("❌ 无法连接到 RANGEN")
+        st.markdown("""
+        <div style="background-color: #dc3545; color: white; padding: 12px 16px; 
+                    border-radius: 6px; font-weight: 500; margin: 8px 0;">
+            ❌ 无法连接到 RANGEN
+        </div>
+        """, unsafe_allow_html=True)
     
     st.markdown("---")
     
