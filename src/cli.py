@@ -160,7 +160,7 @@ def main():
 
 def cmd_lite(args):
     """启动 RANGEN Lite 模式"""
-    from src.core.lite_configurator import LiteConfigurator, quick_start, interactive_configure
+    from src.core.config.lite_configurator import LiteConfigurator, quick_start, interactive_configure
     
     if args.interactive:
         interactive_configure()

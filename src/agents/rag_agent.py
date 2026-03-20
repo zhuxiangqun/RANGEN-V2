@@ -22,17 +22,15 @@ from concurrent.futures import ThreadPoolExecutor
 
 from .expert_agent import ExpertAgent
 from .base_agent import AgentResult
+
+logger = logging.getLogger(__name__)
+
 try:
     from src.utils.unified_centers import get_unified_config_center
     from src.utils.unified_threshold_manager import get_unified_threshold_manager
 except ImportError as e:
     logger.warning(f"Failed to import unified_centers in rag_agent.py: {e}")
     raise
-    from src.utils.unified_centers import get_unified_config_center
-    from src.utils.unified_threshold_manager import get_unified_threshold_manager
-    print("DEBUG: Successfully imported get_unified_config_center in rag_agent.py")
-except ImportError as e:
-    print(f"DEBUG: Failed to import unified_centers in rag_agent.py: {e}")
     # Fallback or re-raise
     raise
 

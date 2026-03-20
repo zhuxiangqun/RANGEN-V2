@@ -26,7 +26,7 @@ from datetime import datetime
 import threading
 
 # 导入优化组件
-from src.core.declarative_config import (
+from src.core.config.declarative_config import (
     register_llm_model, register_routing_strategy, register_processor,
     get_config_registry, on_event
 )
@@ -44,7 +44,7 @@ from src.core.event_system import (
     ConfigRegisteredEvent, ModelSelectedEvent, RoutingDecisionEvent,
     event_subscriber, on_routing_decision
 )
-from src.core.validation_system import (
+from src.core.validators.validation_system import (
     get_llm_model_validator, ValidationResult
 )
 

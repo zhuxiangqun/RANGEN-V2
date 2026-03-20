@@ -28,7 +28,7 @@ import threading
 
 try:
     from src.core.capability_service import CapabilityService, CapabilityInfo
-    from src.core.capability_orchestration_engine import (
+    from src.core.agents.capability_orchestration_engine import (
         CapabilityOrchestrationEngine,
         OrchestrationPlan,
         OrchestrationMode,
