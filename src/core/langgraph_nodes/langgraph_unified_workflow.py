@@ -568,7 +568,7 @@ class UnifiedResearchWorkflow:
         # 🚀 阶段3：初始化推理节点
         reasoning_nodes = None
         try:
-            from src.core.langgraph_reasoning_nodes import ReasoningNodes
+            from src.core.langgraph_nodes.langgraph_reasoning_nodes import ReasoningNodes
             reasoning_nodes = ReasoningNodes(system=self.system)
             logger.info("✅ 推理节点初始化成功")
         except Exception as e:
@@ -578,7 +578,7 @@ class UnifiedResearchWorkflow:
         self.agent_nodes = None
         try:
             print("🔧 初始化AgentNodes...")
-            from src.core.langgraph_agent_nodes import AgentNodes
+            from src.core.langgraph_nodes.langgraph_agent_nodes import AgentNodes
             self.agent_nodes = AgentNodes(system=self.system)
             print(f"🔧 AgentNodes初始化完成: {self.agent_nodes is not None}")
             logger.info("✅ Agent节点初始化成功")
@@ -589,7 +589,7 @@ class UnifiedResearchWorkflow:
         # 🚀 新增：初始化核心功能节点（RAG、提示词工程、上下文工程）
         core_nodes = None
         try:
-            from src.core.langgraph_core_nodes import CoreNodes
+            from src.core.langgraph_nodes.langgraph_core_nodes import CoreNodes
             core_nodes = CoreNodes(system=self.system)
             logger.info("✅ 核心功能节点（RAG、提示词工程、上下文工程）初始化成功")
         except Exception as e:
@@ -598,7 +598,7 @@ class UnifiedResearchWorkflow:
         # 🚀 新增：初始化详细处理节点（查询分析、调度优化、知识检索、推理分析、答案生成、引用生成）
         detailed_nodes = None
         try:
-            from src.core.langgraph_detailed_processing_nodes import DetailedProcessingNodes
+            from src.core.langgraph_nodes.langgraph_detailed_processing_nodes import DetailedProcessingNodes
             detailed_nodes = DetailedProcessingNodes(system=self.system)
             self._detailed_nodes = detailed_nodes  # 保存引用，供节点访问
             logger.info("✅ 详细处理节点初始化成功")
@@ -852,7 +852,7 @@ class UnifiedResearchWorkflow:
         # 如果需要使用协作流程，应该通过配置或环境变量启用，并添加到路由映射中
         
         # 🚀 阶段5：添加反馈收集节点（保留，因为它连接到主流程）
-        from src.core.langgraph_config_nodes import (
+        from src.core.langgraph_nodes.langgraph_config_nodes import (
             feedback_collection_node
         )
 
@@ -860,7 +860,7 @@ class UnifiedResearchWorkflow:
         self._all_added_nodes.append("feedback_collection")
 
         # 🚀 阶段6：添加学习节点
-        from src.core.langgraph_learning_nodes import (
+        from src.core.langgraph_nodes.langgraph_learning_nodes import (
             learning_aggregation_node,
             knowledge_distribution_node,
             continuous_learning_monitor,
@@ -881,7 +881,7 @@ class UnifiedResearchWorkflow:
         self._all_added_nodes.append("continuous_learning_monitor")
 
         # 🚀 阶段7：添加能力架构节点
-        from src.core.langgraph_capability_nodes import (
+        from src.core.langgraph_nodes.langgraph_capability_nodes import (
             create_capability_node,
             create_composite_capability_subgraph,
             standardized_interface_adapter
@@ -2605,7 +2605,7 @@ class UnifiedResearchWorkflow:
 
         try:
             # 导入能力节点工厂函数
-            from src.core.langgraph_capability_nodes import create_capability_node
+            from src.core.langgraph_nodes.langgraph_capability_nodes import create_capability_node
 
             # 尝试从配置中获取能力插件
             import os

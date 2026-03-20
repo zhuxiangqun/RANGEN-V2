@@ -12,7 +12,7 @@
 #NW|import logging
 #MJ|import warnings
 #MJ|from typing import Dict, Any, Optional, List
-#QJ|from src.core.langgraph_unified_workflow import ResearchSystemState
+#QJ|from src.core.langgraph_nodes.langgraph_unified_workflow import ResearchSystemState
 #JT|
 #TQ|logger = logging.getLogger(__name__)
 #TJ|
@@ -28,7 +28,7 @@ LangGraph 错误恢复模块
 """
 import logging
 from typing import Dict, Any, Optional, List
-from src.core.langgraph_unified_workflow import ResearchSystemState
+from src.core.langgraph_nodes.langgraph_unified_workflow import ResearchSystemState
 
 logger = logging.getLogger(__name__)
 

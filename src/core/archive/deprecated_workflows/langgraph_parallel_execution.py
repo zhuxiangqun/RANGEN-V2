@@ -38,7 +38,7 @@ LangGraph 并行执行优化模块
 """
 import logging
 from typing import Dict, Any, List, Optional
-from src.core.langgraph_unified_workflow import ResearchSystemState
+from src.core.langgraph_nodes.langgraph_unified_workflow import ResearchSystemState
 
 logger = logging.getLogger(__name__)
 

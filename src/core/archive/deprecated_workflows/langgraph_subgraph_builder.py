@@ -13,7 +13,7 @@ try:
 except ImportError:
     LANGGRAPH_AVAILABLE = False
 
-from src.core.langgraph_unified_workflow import ResearchSystemState
+from src.core.langgraph_nodes.langgraph_unified_workflow import ResearchSystemState
 
 logger = logging.getLogger(__name__)
 

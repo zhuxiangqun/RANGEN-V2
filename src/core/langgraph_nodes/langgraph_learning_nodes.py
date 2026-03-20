@@ -1003,7 +1003,7 @@ def _execute_adaptive_actions(state: "ResearchSystemState", cont_learn_ctx: Dict
 
 
 # 为了避免循环导入，在文件末尾导入
-from src.core.langgraph_unified_workflow import ResearchSystemState, record_node_time
+from src.core.langgraph_nodes.langgraph_unified_workflow import ResearchSystemState, record_node_time
 
 
 # ==================== 学习辅助函数 - 用于在各个节点中集成学习功能 ====================

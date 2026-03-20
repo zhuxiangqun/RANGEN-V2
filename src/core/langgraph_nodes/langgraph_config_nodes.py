@@ -703,4 +703,4 @@ def _apply_coordinated_configs(state: "ResearchSystemState", optimized_configs: 
 
 
 # 为了避免循环导入，在文件末尾导入
-from src.core.langgraph_unified_workflow import ResearchSystemState, record_node_time
+from src.core.langgraph_nodes.langgraph_unified_workflow import ResearchSystemState, record_node_time

@@ -535,7 +535,7 @@ class AdvancedConfigSystem:
 
     def __init__(self):
         # 核心组件
-        from src.core.dynamic_config_system import DynamicConfigManager
+        from src.core.config.dynamic_config_system import DynamicConfigManager
         self.config_manager = DynamicConfigManager()
 
         # 高级功能组件

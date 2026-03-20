@@ -18,7 +18,7 @@ import pickle
 from collections import defaultdict
 
 from src.agents.agent_history_manager import HistoryType
-from src.core.verdict import Verdict, VerdictValidator, get_verdict_validator, VerdictLevel
+from src.core.validators.verdict import Verdict, VerdictValidator, get_verdict_validator, VerdictLevel
 
 
 class SOPLevel(str, Enum):

@@ -13,7 +13,7 @@
 #YS|from typing import Dict, Any, Callable, Awaitable
 #ZJ|from functools import wraps
 #JT|
-#QJ|from src.core.langgraph_unified_workflow import ResearchSystemState
+#QJ|from src.core.langgraph_nodes.langgraph_unified_workflow import ResearchSystemState
 #JB|# 废弃警告
 #JB|warnings.warn(
 #JB|    "langgraph_performance_monitor.py is deprecated. Use PerformanceMonitor from src.tools.monitoring instead.",
@@ -28,7 +28,7 @@ import logging
 from typing import Dict, Any, Callable, Awaitable
 from functools import wraps
 
-from src.core.langgraph_unified_workflow import ResearchSystemState
+from src.core.langgraph_nodes.langgraph_unified_workflow import ResearchSystemState
 
 logger = logging.getLogger(__name__)
 

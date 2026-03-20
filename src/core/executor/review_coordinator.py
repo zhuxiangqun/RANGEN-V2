@@ -91,7 +91,7 @@ class ReviewEnabledCoordinator(ExecutionCoordinator):
             (decision, score)
         """
         try:
-            from src.core.review_pipeline import ReviewPipeline, ReviewLevel
+            from src.core.validators.review_pipeline import ReviewPipeline, ReviewLevel
             
             pipeline = ReviewPipeline(name="execution_review")
             
@@ -111,7 +111,7 @@ class ReviewEnabledCoordinator(ExecutionCoordinator):
                 context=state.get("context", {})
             )
             
-            from src.core.review_integration import ReviewDecisionMaker
+            from src.core.validators.review_integration import ReviewDecisionMaker
             decision = ReviewDecisionMaker.decide(report.to_dict())
             
             return decision, report.score
@@ -123,7 +123,7 @@ class ReviewEnabledCoordinator(ExecutionCoordinator):
     def _record_judgment(self, state: AgentState, decision: str):
         """记录判断到评价系统"""
         try:
-            from src.core.judgment_evaluation import (
+            from src.core.validators.judgment_evaluation import (
                 JudgmentEvaluationSystem, JudgmentType
             )
             

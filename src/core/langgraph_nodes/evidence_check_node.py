@@ -11,7 +11,7 @@ import time
 from typing import Dict, Any, List, Optional, TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from src.core.langgraph_unified_workflow import ResearchSystemState
+    from src.core.langgraph_nodes.langgraph_unified_workflow import ResearchSystemState
 
 from src.core.reasoning.evidence_processor import EvidenceProcessor
 from src.core.reasoning.models import Evidence
@@ -19,7 +19,7 @@ import logging
 import time
 from typing import Dict, Any, List, Optional
 
-from src.core.langgraph_unified_workflow import ResearchSystemState
+from src.core.langgraph_nodes.langgraph_unified_workflow import ResearchSystemState
 from src.core.reasoning.evidence_processor import EvidenceProcessor
 from src.core.reasoning.models import Evidence
 

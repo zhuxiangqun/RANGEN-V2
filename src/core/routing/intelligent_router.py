@@ -26,7 +26,7 @@ logger = logging.getLogger(__name__)
 
 # 尝试导入动态配置系统
 try:
-    from src.core.dynamic_config_system import (
+    from src.core.config.dynamic_config_system import (
         DynamicConfigManager, ConfigStore, FileConfigStore,
         ConfigValidator, ConfigMonitor
     )
@@ -35,7 +35,7 @@ try:
     ADVANCED_FEATURES_AVAILABLE = True
 except ImportError:
     try:
-        from src.core.dynamic_config_system import (
+        from src.core.config.dynamic_config_system import (
             DynamicConfigManager, ConfigStore, FileConfigStore,
             ConfigValidator, ConfigMonitor
         )

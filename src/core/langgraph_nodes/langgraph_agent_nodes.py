@@ -10,7 +10,7 @@ from typing import Dict, Any, Optional, List, TYPE_CHECKING
 if TYPE_CHECKING:
     from src.agents.base_agent import BaseAgent
 
-from src.core.langgraph_unified_workflow import ResearchSystemState
+from src.core.langgraph_nodes.langgraph_unified_workflow import ResearchSystemState
 
 logger = logging.getLogger(__name__)
 
@@ -135,7 +135,7 @@ class AgentNodes:
         
         # 🚀 学习集成：应用学习到的洞察
         try:
-            from src.core.langgraph_learning_nodes import apply_learned_insights
+            from src.core.langgraph_nodes.langgraph_learning_nodes import apply_learned_insights
             insights = apply_learned_insights(state, 'memory_agent')
             if insights:
                 logger.debug(f"✅ [Memory Agent] 应用学习洞察: {list(insights.keys())}")
@@ -219,7 +219,7 @@ class AgentNodes:
             
             # 🚀 学习集成：收集学习数据
             try:
-                from src.core.langgraph_learning_nodes import collect_node_learning_data, learn_from_node_execution
+                from src.core.langgraph_nodes.langgraph_learning_nodes import collect_node_learning_data, learn_from_node_execution
                 success = state.get('error') is None
                 collect_node_learning_data(state, 'memory_agent', execution_time, success, {
                     'context_updated': 'user_context' in state or 'context' in state
@@ -346,7 +346,7 @@ Sub-queries:"""
         
         # 🚀 学习集成：应用学习到的洞察
         try:
-            from src.core.langgraph_learning_nodes import apply_learned_insights
+            from src.core.langgraph_nodes.langgraph_learning_nodes import apply_learned_insights
             insights = apply_learned_insights(state, 'knowledge_retrieval_agent')
             if insights:
                 logger.debug(f"✅ [Knowledge Retrieval Agent] 应用学习洞察: {list(insights.keys())}")
@@ -597,7 +597,7 @@ Sub-queries:"""
             
             # 🚀 学习集成：收集学习数据
             try:
-                from src.core.langgraph_learning_nodes import collect_node_learning_data, learn_from_node_execution
+                from src.core.langgraph_nodes.langgraph_learning_nodes import collect_node_learning_data, learn_from_node_execution
                 success = state.get('error') is None
                 knowledge_count = len(state.get('knowledge', []))
                 evidence_count = len(state.get('evidence', []))
@@ -624,7 +624,7 @@ Sub-queries:"""
         
         # 🚀 学习集成：应用学习到的洞察
         try:
-            from src.core.langgraph_learning_nodes import apply_learned_insights
+            from src.core.langgraph_nodes.langgraph_learning_nodes import apply_learned_insights
             insights = apply_learned_insights(state, 'reasoning_agent')
             if insights:
                 logger.debug(f"✅ [Reasoning Agent] 应用学习洞察: {list(insights.keys())}")
@@ -883,7 +883,7 @@ Sub-queries:"""
             
             # 🚀 学习集成：收集学习数据
             try:
-                from src.core.langgraph_learning_nodes import collect_node_learning_data, learn_from_node_execution
+                from src.core.langgraph_nodes.langgraph_learning_nodes import collect_node_learning_data, learn_from_node_execution
                 success = state.get('error') is None
                 reasoning_answer = state.get('reasoning_answer', '')
                 needs_reasoning_chain = state.get('needs_reasoning_chain', False)
@@ -910,7 +910,7 @@ Sub-queries:"""
         
         # 🚀 学习集成：应用学习到的洞察
         try:
-            from src.core.langgraph_learning_nodes import apply_learned_insights
+            from src.core.langgraph_nodes.langgraph_learning_nodes import apply_learned_insights
             insights = apply_learned_insights(state, 'answer_generation_agent')
             if insights:
                 logger.debug(f"✅ [Answer Generation Agent] 应用学习洞察: {list(insights.keys())}")
@@ -1024,7 +1024,7 @@ Sub-queries:"""
             
             # 🚀 学习集成：收集学习数据
             try:
-                from src.core.langgraph_learning_nodes import collect_node_learning_data, learn_from_node_execution
+                from src.core.langgraph_nodes.langgraph_learning_nodes import collect_node_learning_data, learn_from_node_execution
                 success = state.get('error') is None
                 answer = state.get('answer') or state.get('final_answer', '')
                 collect_node_learning_data(state, 'answer_generation_agent', execution_time, success, {
@@ -1049,7 +1049,7 @@ Sub-queries:"""
         
         # 🚀 学习集成：应用学习到的洞察
         try:
-            from src.core.langgraph_learning_nodes import apply_learned_insights
+            from src.core.langgraph_nodes.langgraph_learning_nodes import apply_learned_insights
             insights = apply_learned_insights(state, 'citation_agent')
             if insights:
                 logger.debug(f"✅ [Citation Agent] 应用学习洞察: {list(insights.keys())}")
@@ -1132,7 +1132,7 @@ Sub-queries:"""
             
             # 🚀 学习集成：收集学习数据
             try:
-                from src.core.langgraph_learning_nodes import collect_node_learning_data, learn_from_node_execution
+                from src.core.langgraph_nodes.langgraph_learning_nodes import collect_node_learning_data, learn_from_node_execution
                 success = state.get('error') is None
                 citations_count = len(state.get('citations', []))
                 collect_node_learning_data(state, 'citation_agent', execution_time, success, {

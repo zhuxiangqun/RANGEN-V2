@@ -32,9 +32,9 @@ from src.core.task_contract import (
     TaskContract, ContractStatus, VerificationItem, VerificationType
 )
 from src.core.harness_entropy_manager import check_harness_health, needs_harness_cleanup
-from src.core.agent_linter import get_agent_linter
-from src.core.agent_reviewer import get_review_system, CodeChange
-from src.core.agent_observability_client import get_observability_client
+from src.core.agents.agent_linter import get_agent_linter
+from src.core.validators.agent_reviewer import get_review_system, CodeChange
+from src.core.agents.agent_observability_client import get_observability_client
 
 # Three Optimizations
 try:
@@ -46,7 +46,7 @@ try:
 except ImportError:
     get_dependency_guard = None
 try:
-    from src.core.verdict import create_minimal_verdict, VerdictValidator
+    from src.core.validators.verdict import create_minimal_verdict, VerdictValidator
 except ImportError:
     create_minimal_verdict = None
     VerdictValidator = None

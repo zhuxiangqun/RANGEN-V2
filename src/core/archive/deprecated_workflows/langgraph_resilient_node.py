@@ -8,7 +8,7 @@ import time
 from typing import Callable, Optional, Dict, Any, TypeVar, Awaitable
 from functools import wraps
 
-from src.core.langgraph_unified_workflow import (
+from src.core.langgraph_nodes.langgraph_unified_workflow import (
     ResearchSystemState,
     ErrorCategory,
     classify_error,

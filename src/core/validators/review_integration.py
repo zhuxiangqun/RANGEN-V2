@@ -45,7 +45,7 @@ class ReviewIntegration:
         Returns:
             评审报告字典
         """
-        from src.core.review_pipeline import (
+        from src.core.validators.review_pipeline import (
             ReviewPipeline, ReviewLevel, ReviewResult
         )
         
@@ -77,7 +77,7 @@ class ReviewIntegration:
     
     def _get_pipeline(self, level: str):
         """获取或创建 Pipeline"""
-        from src.core.review_pipeline import ReviewPipeline
+        from src.core.validators.review_pipeline import ReviewPipeline
         
         if level not in self._pipeline_cache:
             self._pipeline_cache[level] = ReviewPipeline(name=f"agent_{level}")

@@ -6,7 +6,7 @@ import logging
 import time
 import asyncio
 from typing import Dict, Any, Optional, List
-from src.core.langgraph_unified_workflow import ResearchSystemState
+from src.core.langgraph_nodes.langgraph_unified_workflow import ResearchSystemState
 
 logger = logging.getLogger(__name__)
 

@@ -736,4 +736,4 @@ def _calculate_capability_compatibility(cap1: Dict[str, Any], cap2: Dict[str, An
 
 
 # 为了避免循环导入，在文件末尾导入
-from src.core.langgraph_unified_workflow import ResearchSystemState, record_node_time
+from src.core.langgraph_nodes.langgraph_unified_workflow import ResearchSystemState, record_node_time

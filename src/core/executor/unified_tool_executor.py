@@ -18,7 +18,7 @@ from src.services.logging_service import get_logger
 from src.agents.priority_routing_engine import PriorityRoutingEngine, ToolSource
 
 try:
-    from src.core.skill_registry import SkillRegistry
+    from src.core.agents.skill_registry import SkillRegistry
 except ImportError:
     SkillRegistry = None
 
@@ -380,7 +380,7 @@ def get_unified_tool_executor() -> UnifiedToolExecutor:
     """获取全局统一工具执行器实例"""
     global _unified_executor
     if _unified_executor is None:
-        from src.core.skill_registry import get_skill_registry
+        from src.core.agents.skill_registry import get_skill_registry
         from src.agents.tools.tool_initializer import initialize_tools
         
         skill_registry = get_skill_registry()

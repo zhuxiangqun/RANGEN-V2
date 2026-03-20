@@ -9,7 +9,7 @@ from typing import Dict, Any, Optional, Callable, List
 from dataclasses import dataclass, field
 from enum import Enum
 
-from src.core.langgraph_unified_workflow import ResearchSystemState
+from src.core.langgraph_nodes.langgraph_unified_workflow import ResearchSystemState
 
 logger = logging.getLogger(__name__)
 

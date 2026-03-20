@@ -536,7 +536,7 @@ class CostOptimizerProcessor(BaseProcessor):
     
     async def _process(self, context: ProcessingContext) -> ProcessorResult:
         """成本优化"""
-        from src.core.declarative_config import get_config_registry
+        from src.core.config.declarative_config import get_config_registry
         
         # 获取模型成本配置
         registry = get_config_registry()

@@ -12,7 +12,7 @@
 #NK|import warnings
 #NK|import asyncio
 #QB|from typing import Dict, Any, Optional, Union
-#QJ|from src.core.langgraph_unified_workflow import ResearchSystemState
+#QJ|from src.core.langgraph_nodes.langgraph_unified_workflow import ResearchSystemState
 #SK|
 #JB|# 废弃警告
 #JB|warnings.warn(
@@ -27,7 +27,7 @@ LangGraph 增强错误恢复模块
 import logging
 import asyncio
 from typing import Dict, Any, Optional, Union
-from src.core.langgraph_unified_workflow import ResearchSystemState
+from src.core.langgraph_nodes.langgraph_unified_workflow import ResearchSystemState
 
 logger = logging.getLogger(__name__)
 
