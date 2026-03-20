@@ -148,15 +148,18 @@ class AgentCoordinator(ExpertAgent):
     - 智能任务分配算法：基于多维度匹配的任务分配
     - 实时负载均衡：动态资源调度和过载保护
     - 冲突预测解决：基于依赖图的冲突检测和解决
+    
+    遵循三大原则:
+    1. Superpowers: TDDEnforcer, TaskPlanner, TwoStageReviewer
+    2. Claude HUD: AgentHUD 实时状态追踪
+    3. Open SWE: MiddlewareChain 团队协作
     """
-
+    
     def __init__(self):
         """初始化AgentCoordinator"""
-        # 初始化统一配置中心
         self.config_center = get_unified_config_center()
         self.threshold_manager = get_unified_threshold_manager()
 
-        # Agent特定配置（使用统一配置中心）
         self.agent_config = {
             'enabled': True,
             'max_retries': 3,
@@ -164,7 +167,6 @@ class AgentCoordinator(ExpertAgent):
             'debug_mode': False
         }
 
-        # 阈值配置（使用统一阈值管理器）
         self.thresholds = {
             'performance_warning_threshold': self.threshold_manager.get_dynamic_threshold('performance', default_value=5.0),
             'error_rate_threshold': self.threshold_manager.get_dynamic_threshold('error_rate', default_value=0.1),
@@ -174,12 +176,14 @@ class AgentCoordinator(ExpertAgent):
         super().__init__(
             agent_id="agent_coordinator",
             domain_expertise="多智能体协调与调度",
-            capability_level=0.95,  # L5高级认知
+            capability_level=0.95,
             collaboration_style="authoritative"
         )
 
-        # 使用模块日志器
         self.module_logger = get_module_logger(ModuleType.AGENT, "AgentCoordinator")
+
+        # === OpenClaw: Superpowers 方法论工具集成 ===
+        self._init_openclaw_tools()
 
         # 🚀 新增：核心数据结构
         self._agents: Dict[str, AgentInfo] = {}  # Agent注册表
@@ -191,8 +195,8 @@ class AgentCoordinator(ExpertAgent):
         self._scheduler = ThreadPoolExecutor(max_workers=8, thread_name_prefix="coordinator_scheduler")
         self._monitor_thread: Optional[threading.Thread] = None
         self._running = False
-        self._load_balance_interval = 30  # 负载均衡检查间隔（秒）
-        self._conflict_check_interval = 15  # 冲突检查间隔（秒）
+        self._load_balance_interval = 30
+        self._conflict_check_interval = 15
 
         # 🚀 新增：性能统计
         self._stats = {
@@ -208,6 +212,63 @@ class AgentCoordinator(ExpertAgent):
 
         # 启动监控线程
         self._start_monitoring()
+    
+    def _init_openclaw_tools(self):
+        """初始化 OpenClaw 方法论工具 (Superpowers 原则)"""
+        # TDD Enforcer - 铁律检查
+        try:
+            from src.agents.tdd_enforcer import get_enforcer
+            self.tdd_enforcer = get_enforcer()
+            logger.debug("TDDEnforcer 集成成功")
+        except ImportError:
+            logger.warning("TDDEnforcer 不可用")
+            self.tdd_enforcer = None
+        
+        # Two Stage Reviewer - 代码审查
+        try:
+            from src.agents.two_stage_reviewer import TwoStageReviewer
+            self.code_reviewer = TwoStageReviewer()
+            logger.debug("TwoStageReviewer 集成成功")
+        except ImportError:
+            logger.warning("TwoStageReviewer 不可用")
+            self.code_reviewer = None
+        
+        # Requirement Discovery - 需求发现
+        try:
+            from src.agents.requirement_discovery import RequirementDiscoveryAgent
+            self.requirement_discoverer = RequirementDiscoveryAgent()
+            logger.debug("RequirementDiscoveryAgent 集成成功")
+        except ImportError:
+            logger.warning("RequirementDiscoveryAgent 不可用")
+            self.requirement_discoverer = None
+        
+        # Task Planner - 任务规划
+        try:
+            from src.agents.task_planner import get_planner
+            self.task_planner = get_planner()
+            logger.debug("TaskPlanner 集成成功")
+        except ImportError:
+            logger.warning("TaskPlanner 不可用")
+            self.task_planner = None
+    
+    def check_tdd_compliance(self, file_path: str) -> Tuple[bool, str]:
+        """检查 TDD 合规性 (Superpowers 铁律)"""
+        if self.tdd_enforcer:
+            return self.tdd_enforcer.check_can_write_production(file_path)
+        return True, "TDDEnforcer 未启用"
+    
+    def review_code(self, code: str, spec: str = "") -> Dict[str, Any]:
+        """审查代码 (两阶段审查)"""
+        if self.code_reviewer:
+            return self.code_reviewer.run_review(code, spec).to_dict()
+        return {"status": "skip", "reason": "Reviewer 未启用"}
+    
+    def discover_requirements(self, problem: str) -> Dict[str, Any]:
+        """发现需求"""
+        if self.requirement_discoverer:
+            result = self.requirement_discoverer.discover_requirements(problem)
+            return self.requirement_discoverer.export_to_dict()
+        return {"error": "Discoverer 未启用"}
 
     def _get_service(self):
         """AgentCoordinator不直接使用单一Service"""

@@ -27,7 +27,13 @@ from .self_evolving_mixin import SelfEvolvingMixin, SelfEvolvingConfig
 
 
 class BaseAgent(ABC):
-    """基础智能体抽象类"""
+    """基础智能体抽象类
+    
+    遵循三大原则:
+    1. Superpowers (方法论): TDDEnforcer, TaskPlanner, TwoStageReviewer
+    2. Claude HUD (可观测性): AgentHUD 实时状态追踪
+    3. Open SWE (团队协作): MiddlewareChain 统一架构
+    """
     
     def __init__(self, agent_id: str, capabilities: Optional[List[str]] = None, config: Optional[AgentConfig] = None, max_history_size: int = 1000):
         """初始化基础智能体 - 重构版，使用管理器模式"""
@@ -40,6 +46,9 @@ class BaseAgent(ABC):
         self.config_manager = AgentConfigManager(agent_id, config)
         self.performance_tracker = AgentPerformanceTracker(agent_id)
         self.history_manager = AgentHistoryManager(agent_id, max_history_size)
+        
+        # === OpenClaw: Claude HUD 可观测性集成 ===
+        self._init_hud()
         
         # 向后兼容：保持原有属性的访问
         self.config = self.config_manager.config
@@ -92,6 +101,32 @@ class BaseAgent(ABC):
             self.logger.warning(f"无法导入心跳监控器: {e}")
         except Exception as e:
             self.logger.error(f"注册到心跳监控器失败: {e}")
+    
+    def _init_hud(self):
+        """初始化 AgentHUD 可观测性 (Claude HUD 原则)"""
+        try:
+            from src.ui.agent_hud import AgentHUD, get_hud_instance
+            self.hud = get_hud_instance()
+            self.logger.debug(f"AgentHUD 集成成功: {self.agent_id}")
+        except ImportError as e:
+            self.logger.warning(f"无法导入 AgentHUD: {e}")
+            self.hud = None
+        except Exception as e:
+            self.logger.warning(f"AgentHUD 初始化失败: {e}")
+            self.hud = None
+    
+    def record_start(self, action: str = "execute"):
+        """记录操作开始 (Claude HUD)"""
+        if self.hud:
+            self.hud.record_agent_start(self.agent_id, self.__class__.__name__)
+            self.hud.set_current_action(self.agent_id, action)
+    
+    def record_complete(self, success: bool = True, error: str = None):
+        """记录操作完成 (Claude HUD)"""
+        if self.hud:
+            self.hud.record_agent_complete(self.agent_id, success=success)
+            if error:
+                self.hud.set_error(self.agent_id, error)
     
     # ==================== 自进化能力 ====================
     

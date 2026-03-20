@@ -21,19 +21,16 @@ class ExpertAgent(BaseAgent):
     
     专家Agent是符合标准Agent定义的Agent，有自己的Agent循环。
     它们使用对应的Service来执行具体的任务。
+    
+    遵循三大原则:
+    1. Superpowers: TDDEnforcer, TaskPlanner, TwoStageReviewer
+    2. Claude HUD: AgentHUD 实时状态追踪 (继承自 BaseAgent)
+    3. Open SWE: MiddlewareChain 团队协作架构
     """
     
     def __init__(self, agent_id: str, domain_expertise: str, 
                  capability_level: float = 0.9, 
                  collaboration_style: str = "supportive"):
-        """初始化专家Agent
-        
-        Args:
-            agent_id: Agent ID
-            domain_expertise: 专业领域
-            capability_level: 能力水平（0-1）
-            collaboration_style: 协作风格（supportive, analytical, synthesizing等）
-        """
         config = AgentConfig(
             agent_id=agent_id,
             agent_type="expert_agent"
@@ -48,8 +45,10 @@ class ExpertAgent(BaseAgent):
         self.capability_level = capability_level
         self.collaboration_style = collaboration_style
         
-        # 对应的Service（封装原有功能，作为回退方案）
         self.service = None
+        
+        # === OpenClaw: MiddlewareChain 团队协作集成 ===
+        self._init_middleware()
         
         # 🚀 方案1：工具注册表（优先使用Tools）
         self.tool_registry = None
@@ -70,6 +69,29 @@ class ExpertAgent(BaseAgent):
         self._init_llm_client()
         
         logger.info(f"✅ 专家Agent初始化完成: {agent_id}, 领域={domain_expertise}, 能力水平={capability_level}")
+    
+    def _init_middleware(self):
+        """初始化 MiddlewareChain (Open SWE 团队协作原则)"""
+        try:
+            from src.core.middleware import get_middleware_chain, LoggingMiddleware, TimingMiddleware
+            self.middleware_chain = get_middleware_chain()
+            logger.debug(f"MiddlewareChain 集成成功: {self.agent_id}")
+        except ImportError as e:
+            logger.warning(f"无法导入 MiddlewareChain: {e}")
+            self.middleware_chain = None
+        except Exception as e:
+            logger.warning(f"MiddlewareChain 初始化失败: {e}")
+            self.middleware_chain = None
+    
+    def execute_with_middleware(self, data: Any, request_id: str = None) -> Any:
+        """通过 MiddlewareChain 执行 (Open SWE)"""
+        if self.middleware_chain:
+            import asyncio
+            result = asyncio.get_event_loop().run_until_complete(
+                self.middleware_chain.execute(data, request_id or self.agent_id)
+            )
+            return result.data
+        return data
     
     def _init_llm_client(self):
         """初始化LLM客户端"""
