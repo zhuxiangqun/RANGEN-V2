@@ -471,6 +471,76 @@ class RequirementDiscoveryAgent:
         self._current_discovery.spec_document = spec
         return spec
     
+    def generate_design(self, auto_approve: bool = False):
+        """
+        基于发现的需求生成 AI 设计
+        
+        Args:
+            auto_approve: 是否自动批准 (跳过人工审查)
+            
+        Returns:
+            GeneratedDesign: AI 生成的设计
+        """
+        if not self._current_discovery:
+            raise ValueError("需要先调用 discover_requirements")
+        
+        try:
+            from src.agents.ai_design_generator import AIDesignGenerator
+            
+            generator = AIDesignGenerator()
+            design = generator.generate_design(self._current_discovery)
+            
+            if auto_approve:
+                generator.auto_approve_and_proceed(design)
+                logger.info("设计已自动批准并进入实现阶段")
+            else:
+                approved = generator.human_review(design)
+                if approved:
+                    generator.submit_to_hard_gate(design)
+                    logger.info("设计已批准并提交到 HARD-GATE")
+                else:
+                    logger.info("设计被拒绝")
+            
+            return design
+            
+        except ImportError:
+            logger.error("AIDesignGenerator 不可用")
+            return None
+        except Exception as e:
+            logger.error(f"设计生成失败: {e}")
+            return None
+    
+    def auto_workflow(self) -> Dict[str, Any]:
+        """
+        完整自动工作流: 需求 → 设计 → 实现
+        
+        Returns:
+            {
+                "requirements": DiscoveredRequirements,
+                "design": GeneratedDesign,
+                "status": str
+            }
+        """
+        if not self._current_discovery:
+            raise ValueError("需要先调用 discover_requirements")
+        
+        result = {
+            "requirements": self._current_discovery,
+            "design": None,
+            "status": "pending"
+        }
+        
+        try:
+            design = self.generate_design(auto_approve=True)
+            result["design"] = design
+            result["status"] = "implementation"
+            logger.info("自动工作流完成: 已进入实现阶段")
+        except Exception as e:
+            result["status"] = f"error: {e}"
+            logger.error(f"自动工作流失败: {e}")
+        
+        return result
+    
     def export_to_dict(self) -> Dict[str, Any]:
         """导出为字典格式"""
         if not self._current_discovery:
