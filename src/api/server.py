@@ -60,6 +60,7 @@ from src.api.ops_diagnosis_routes import router as ops_diagnosis_router
 from src.api.smart_handler_routes import router as smart_handler_router
 from src.api.conversation_routes import router as conversation_router
 from src.api.hub_routes import router as hub_router
+from src.api.design_routes import router as design_router
 
 from src.api.auth import verify_api_key_auth, require_read, require_write, require_admin, register_api_key, AuthService
 from src.middleware.validation import create_validation_middleware, create_security_headers_middleware, create_rate_limit_middleware
@@ -274,6 +275,13 @@ try:
     logger.info("Central Hub router loaded - Hands intelligent assistant platform ready!")
 except Exception as e:
     logger.warning(f"Hub router not loaded: {e}")
+
+# 设计工作流路由 - HARD-GATE 集成
+try:
+    app.include_router(design_router, tags=["design"])
+    logger.info("Design workflow router loaded - HARD-GATE integration ready!")
+except Exception as e:
+    logger.warning(f"Design router not loaded: {e}")
 
 app.add_middleware(create_rate_limit_middleware, max_requests=200, window_seconds=60)
 
