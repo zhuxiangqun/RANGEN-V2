@@ -205,7 +205,7 @@ class IntentUnderstandingService:
             try:
                 self._load_env()  # 确保环境变量已加载
                 
-                from src.core.llm_integration import LLMIntegration
+                from src.core.core_services.llm_integration import LLMIntegration
                 
                 api_key = os.getenv("DEEPSEEK_API_KEY", "")
                 logger.info(f"IntentUnderstandingService: API Key found: {api_key[:10] if api_key else 'None'}...")

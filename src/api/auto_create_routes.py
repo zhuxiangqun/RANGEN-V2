@@ -728,7 +728,7 @@ async def execute_workflow(workflow_id: str, request: WorkflowExecuteRequest):
     
     # 执行每个步骤
     try:
-        from src.core.production_workflow import ProductionWorkflow
+        from src.core.executor.production_workflow import ProductionWorkflow
         
         wf = ProductionWorkflow()
         

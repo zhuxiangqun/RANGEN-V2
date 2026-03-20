@@ -17,9 +17,9 @@ from src.di.unified_container import UnifiedDIContainer
 
 # 服务接口
 from src.core.interfaces import IConfigurationService, ILoggingService
-from src.core.execution_coordinator import ExecutionCoordinator
-from src.core.context_manager import ContextManager
-from src.core.configurable_router import ConfigurableRouter
+from src.core.executor.execution_coordinator import ExecutionCoordinator
+from src.core.routing.context_manager import ContextManager
+from src.core.routing.configurable_router import ConfigurableRouter
 
 # 工具和服务
 from src.agents.tools.tool_registry import ToolRegistry

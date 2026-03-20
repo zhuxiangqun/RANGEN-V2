@@ -15,10 +15,10 @@ import time
 from langgraph.graph import StateGraph, END
 from src.interfaces.coordinator import ICoordinator
 from src.interfaces.agent import ExecutionStatus
-from src.core.configurable_router import ConfigurableRouter, RouteTarget
-from src.core.context_manager import ContextManager
+from src.core.routing.configurable_router import ConfigurableRouter, RouteTarget
+from src.core.routing.context_manager import ContextManager
 from src.core.neural.factory import NeuralServiceFactory
-from src.core.llm_integration import LLMIntegration
+from src.core.core_services.llm_integration import LLMIntegration
 
 from src.services.logging_service import get_logger
 from src.agents.reasoning_agent import ReasoningAgent
@@ -71,14 +71,14 @@ except ImportError:
 
 # CLI Executor - 直接 CLI 工具调用（替代 MCP）
 try:
-    from src.core.cli_executor import CLIExecutor, get_cli_executor
+    from src.core.executor.cli_executor import CLIExecutor, get_cli_executor
 except ImportError:
     CLIExecutor = None
     get_cli_executor = None
 
 # Unified Tool Executor - 统一工具执行器（自动优先级选择）
 try:
-    from src.core.unified_tool_executor import UnifiedToolExecutor, get_unified_tool_executor
+    from src.core.executor.unified_tool_executor import UnifiedToolExecutor, get_unified_tool_executor
 except ImportError:
     UnifiedToolExecutor = None
     get_unified_tool_executor = None
@@ -89,7 +89,7 @@ try:
 except ImportError:
     get_cost_controller = None
 try:
-    from src.core.cache_system import get_cache_system
+    from src.core.core_services.cache_system import get_cache_system
 except ImportError:
     get_cache_system = None
 try:

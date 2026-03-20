@@ -548,7 +548,7 @@ class SkillFactoryIntegration:
             LLM 调用函数或 None
         """
         try:
-            from src.core.llm_integration import LLMIntegration
+            from src.core.core_services.llm_integration import LLMIntegration
             
             def llm_fix(prompt: str, error: str) -> str:
                 llm = LLMIntegration(config={})

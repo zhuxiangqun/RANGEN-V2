@@ -100,7 +100,7 @@ TEAM (团队层): 用户需要多个角色协作完成复杂任务
             from dotenv import load_dotenv
             load_dotenv()
             
-            from src.core.llm_integration import LLMIntegration
+            from src.core.core_services.llm_integration import LLMIntegration
             
             provider = os.getenv('LLM_PROVIDER', 'deepseek')
             api_key = os.getenv('DEEPSEEK_API_KEY') or os.getenv('OPENAI_API_KEY')

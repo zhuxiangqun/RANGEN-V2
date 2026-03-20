@@ -27,7 +27,7 @@ try:
 except ImportError:
     ToolRegistry = None
 
-from src.core.cli_executor import get_cli_executor, CLIExecutor
+from src.core.executor.cli_executor import get_cli_executor, CLIExecutor
 
 try:
     from src.core.cli_anything_generator import CLIAnythingGenerator, get_cli_anything_generator

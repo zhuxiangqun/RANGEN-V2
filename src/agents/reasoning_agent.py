@@ -7,10 +7,10 @@ import os
 from src.interfaces.agent import IAgent, AgentConfig, AgentResult, ExecutionStatus
 from src.core.workflows.react_workflow import create_react_workflow
 from src.services.logging_service import get_logger
-from src.core.llm_integration import LLMIntegration
+from src.core.core_services.llm_integration import LLMIntegration
 from src.agents.tools.tool_registry import ToolRegistry
 from src.agents.intelligent_tool_selector import get_intelligent_tool_selector
-from src.core.cli_executor import CLIExecutor
+from src.core.executor.cli_executor import CLIExecutor
 
 logger = get_logger(__name__)
 

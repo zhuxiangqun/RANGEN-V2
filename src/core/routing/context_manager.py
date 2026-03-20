@@ -10,7 +10,7 @@ from src.interfaces.context import IContext
 from src.services.logging_service import get_logger
 from src.core.neural.factory import NeuralServiceFactory
 from src.services.context_engineering.summarizer import ContextSummarizer
-from src.core.llm_integration import LLMIntegration
+from src.core.core_services.llm_integration import LLMIntegration
 
 logger = get_logger(__name__)
 

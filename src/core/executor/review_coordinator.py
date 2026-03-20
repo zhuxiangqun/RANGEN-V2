@@ -10,7 +10,7 @@ Execution Coordinator with Review Integration
 from typing import Dict, Any, TypedDict, Annotated, Literal, Optional
 import operator
 
-from src.core.execution_coordinator import AgentState, ExecutionCoordinator
+from src.core.executor.execution_coordinator import AgentState, ExecutionCoordinator
 
 
 class ReviewDecisionState(TypedDict):
@@ -134,7 +134,7 @@ class ReviewEnabledCoordinator(ExecutionCoordinator):
             self._judgment_system.record_judgment(
                 agent_id="ExecutionCoordinator",
                 period="default",
-            judgment_type = JudgmentType.BLOCK if decision == "block" else JudgmentType.APPROVE
+                judgment_type=JudgmentType.BLOCK if decision == "block" else JudgmentType.APPROVE,
                 artifact_name="execution_result",
                 reason=state.get("quality_feedback", "")
             )

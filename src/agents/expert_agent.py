@@ -96,7 +96,7 @@ class ExpertAgent(BaseAgent):
     def _init_llm_client(self):
         """初始化LLM客户端"""
         try:
-            from src.core.llm_integration import LLMIntegration
+            from src.core.core_services.llm_integration import LLMIntegration
             from src.utils.unified_centers import get_unified_config_center
             
             config_center = get_unified_config_center()

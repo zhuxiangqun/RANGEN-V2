@@ -156,7 +156,7 @@ class ProductionWorkflow:
         """初始化组件"""
         # LLM 服务
         try:
-            from src.core.llm_integration import LLMIntegration
+            from src.core.core_services.llm_integration import LLMIntegration
             self.llm_service = LLMIntegration(config={})
         except Exception as e:
             logger.warning(f"LLM service init failed: {e}")

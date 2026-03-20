@@ -53,7 +53,7 @@ class AgentSelector:
                 from dotenv import load_dotenv
                 load_dotenv()
                 
-                from src.core.llm_integration import LLMIntegration
+                from src.core.core_services.llm_integration import LLMIntegration
                 
                 api_key = os.getenv('DEEPSEEK_API_KEY') or os.getenv('OPENAI_API_KEY')
                 base_url = os.getenv('DEEPSEEK_BASE_URL') or os.getenv('OPENAI_BASE_URL')

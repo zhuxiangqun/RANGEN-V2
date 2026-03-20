@@ -233,7 +233,7 @@ async def get_llm_decision(user_query: str, timeout: float = 30.0) -> Optional[A
         AgentSkillDecision或None
     """
     try:
-        from src.core.llm_integration import LLMIntegration
+        from src.core.core_services.llm_integration import LLMIntegration
         import os
         from dotenv import load_dotenv
         

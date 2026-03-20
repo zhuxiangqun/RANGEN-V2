@@ -104,7 +104,7 @@ class UnifiedComplexityModelService:
     def _initialize_llm(self):
         """初始化LLM集成"""
         try:
-            from src.core.llm_integration import LLMIntegration
+            from src.core.core_services.llm_integration import LLMIntegration
             
             # 快速LLM（用于复杂度判断）
             fast_llm_config = {

@@ -250,7 +250,7 @@ class V3ComplianceChecker:
         
         try:
             # 检查上下文管理器
-            from src.core.context_manager import ContextManager, SessionContext
+            from src.core.routing.context_manager import ContextManager, SessionContext
             details["context_manager"] = "已实现"
             
             # 检查智能遗忘功能（通过导入成功假设已实现）
@@ -273,7 +273,7 @@ class V3ComplianceChecker:
         
         # 检查工作空间感知
         try:
-            from src.core.context_manager import WorkspaceAwareSessionContext
+            from src.core.routing.context_manager import WorkspaceAwareSessionContext
             details["workspace_aware_context"] = "已实现"
             implemented_requirements.append("支持工作空间感知")
         except ImportError:

@@ -56,7 +56,7 @@ class LLMCodeGenerator:
     def _init_llm(self):
         """初始化 LLM"""
         try:
-            from src.core.llm_integration import LLMIntegration
+            from src.core.core_services.llm_integration import LLMIntegration
             self.llm = LLMIntegration({})
             logger.info("LLM 代码生成器初始化成功")
         except Exception as e:

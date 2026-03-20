@@ -145,7 +145,7 @@ class ServiceRegistrar:
         """注册核心业务服务"""
         try:
             # 上下文管理器
-            from src.core.context_manager import ContextManager
+            from src.core.routing.context_manager import ContextManager
             self.container.register_singleton(ContextManager, ContextManager)
             self.logger.info("注册上下文管理器")
         except ImportError as e:
@@ -153,7 +153,7 @@ class ServiceRegistrar:
         
         try:
             # 执行协调器
-            from src.core.execution_coordinator import ExecutionCoordinator
+            from src.core.executor.execution_coordinator import ExecutionCoordinator
             self.container.register_singleton(ExecutionCoordinator, ExecutionCoordinator)
             self.logger.info("注册执行协调器")
         except ImportError as e:

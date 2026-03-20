@@ -1609,7 +1609,7 @@ Sub-queries:"""
                     
                     # ⚡ 快速路径：使用简单的LLM调用生成答案（不需要推理链）
                     import os
-                    from src.core.llm_integration import LLMIntegration
+                    from src.core.core_services.llm_integration import LLMIntegration
                     
                     # 尝试从系统获取LLM集成（如果可用）
                     llm = None

@@ -284,7 +284,7 @@ class RealReasoningEngine:
         try:
             import os
             from pathlib import Path
-            from src.core.llm_integration import create_llm_integration
+            from src.core.core_services.llm_integration import create_llm_integration
             
             # 🚀 修复：确保在读取环境变量前先加载.env文件
             if load_dotenv:
@@ -329,7 +329,7 @@ class RealReasoningEngine:
         """初始化快速LLM集成"""
         try:
             import os
-            from src.core.llm_integration import create_llm_integration
+            from src.core.core_services.llm_integration import create_llm_integration
             
             llm_config = self.config.get('llm_integration', {})
             fast_llm_config = llm_config.copy()

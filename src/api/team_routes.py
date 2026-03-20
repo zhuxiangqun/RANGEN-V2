@@ -43,7 +43,7 @@ async def execute_team(request: TeamExecuteRequest):
     - 执行结果
     - 执行步骤
     """
-    from src.core.team_executor import TeamExecutor, TeamExecutionRequest, get_team_executor
+    from src.core.executor.team_executor import TeamExecutor, TeamExecutionRequest, get_team_executor
     
     executor = get_team_executor()
     
@@ -75,7 +75,7 @@ async def list_teams():
     """
     列出所有可用的 Team
     """
-    from src.core.team_executor import get_team_executor
+    from src.core.executor.team_executor import get_team_executor
     
     executor = get_team_executor()
     teams = executor.list_teams()
@@ -91,7 +91,7 @@ async def get_team(team_id: str):
     """
     获取指定 Team 的详细信息
     """
-    from src.core.team_executor import get_team_executor
+    from src.core.executor.team_executor import get_team_executor
     
     executor = get_team_executor()
     team = executor.get_team(team_id)

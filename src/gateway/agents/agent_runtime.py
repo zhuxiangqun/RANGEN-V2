@@ -206,7 +206,7 @@ class AgentRuntime:
     async def _init_llm(self):
         """初始化 LLM 服务"""
         try:
-            from src.core.llm_integration import LLMIntegration
+            from src.core.core_services.llm_integration import LLMIntegration
             self.llm_service = LLMIntegration(config={})
             logger.info("LLM service initialized")
         except Exception as e:

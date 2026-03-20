@@ -8,7 +8,7 @@ import json
 import re
 from src.interfaces.agent import IAgent, AgentConfig, AgentResult, ExecutionStatus
 from src.services.logging_service import get_logger
-from src.core.llm_integration import LLMIntegration
+from src.core.core_services.llm_integration import LLMIntegration
 from src.prompts.validation.verify import VALIDATION_SYSTEM_PROMPT, VALIDATION_USER_PROMPT
 
 logger = get_logger(__name__)

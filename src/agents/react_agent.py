@@ -137,7 +137,7 @@ class ReActAgent(BaseAgent):
     def _init_llm_client(self):
         """初始化LLM客户端（用于思考阶段）"""
         try:
-            from src.core.llm_integration import LLMIntegration
+            from src.core.core_services.llm_integration import LLMIntegration
             from src.utils.unified_centers import get_unified_config_center
             
             # 获取配置中心

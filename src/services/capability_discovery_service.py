@@ -34,7 +34,7 @@ try:
         OrchestrationMode,
         CapabilityNode
     )
-    from src.core.llm_integration import LLMIntegration
+    from src.core.core_services.llm_integration import LLMIntegration
 except ImportError as e:
     logger.warning(f"Failed to import core modules: {e}")
     CapabilityService = None
@@ -192,11 +192,11 @@ class CapabilityDiscoveryService:
     
     def _register_handlers(self):
         """注册能力处理器"""
-        from src.core.production_workflow import ProductionWorkflow
+        from src.core.executor.production_workflow import ProductionWorkflow
         from src.agents.ops_diagnosis_agent import OpsDiagnosisAgent
         from src.kms.web_crawler import WebCrawler
         from src.services.intent_understanding_service import get_intent_understanding_service
-        from src.core.execution_coordinator import ExecutionCoordinator
+        from src.core.executor.execution_coordinator import ExecutionCoordinator
         
         self._capability_handlers = {
             "ProductionWorkflow": lambda ctx: ProductionWorkflow(),

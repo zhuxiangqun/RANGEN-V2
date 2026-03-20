@@ -5,7 +5,7 @@ from typing import TypedDict, Annotated, Literal, Union, Dict, Any, List
 import operator
 from langgraph.graph import StateGraph, END
 from src.services.logging_service import get_logger
-from src.core.llm_integration import LLMIntegration
+from src.core.core_services.llm_integration import LLMIntegration
 from src.interfaces.tool import ITool
 from src.prompts.reasoning.react import REACT_SYSTEM_PROMPT, REACT_USER_PROMPT
 from src.prompts.reasoning.dialectical import DIALECTICAL_SYSTEM_PROMPT, DIALECTICAL_USER_PROMPT

@@ -180,7 +180,7 @@ class TeamExecutor:
     ) -> TeamExecutionResult:
         """简单执行方式 - 使用 ExecutionCoordinator"""
         
-        from src.core.execution_coordinator import ExecutionCoordinator
+        from src.core.executor.execution_coordinator import ExecutionCoordinator
         
         coordinator = ExecutionCoordinator()
         

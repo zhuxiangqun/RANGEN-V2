@@ -60,7 +60,7 @@ class LLMSkillExecutor:
                 load_dotenv()
                 
                 import os
-                from src.core.llm_integration import LLMIntegration
+                from src.core.core_services.llm_integration import LLMIntegration
                 
                 # 从环境变量获取配置
                 provider = os.getenv('LLM_PROVIDER', 'deepseek')

@@ -92,7 +92,7 @@ class MultiHopReasoningEngine:
             # 初始化LLM集成
             import os
             from dotenv import load_dotenv
-            from src.core.llm_integration import LLMIntegration
+            from src.core.core_services.llm_integration import LLMIntegration
             
             # 🚀 确保从.env文件加载配置
             load_dotenv()

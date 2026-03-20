@@ -68,7 +68,7 @@ def test_llm(test_input: str = "测试 LLM 连接") -> Dict[str, Any]:
         project_root = Path(__file__).parent.parent.parent
         sys.path.insert(0, str(project_root))
         
-        from src.core.llm_integration import LLMIntegration
+        from src.core.core_services.llm_integration import LLMIntegration
         
         api_key = os.getenv('DEEPSEEK_API_KEY', '')
         
@@ -379,7 +379,7 @@ def test_execution_loop(test_input: str = "测试执行循环") -> Dict[str, Any
         sys.path.insert(0, str(project_root))
         
         from src.core.workflows.react_workflow import create_react_workflow
-        from src.core.llm_integration import LLMIntegration
+        from src.core.core_services.llm_integration import LLMIntegration
         from src.agents.tools.tool_registry import ToolRegistry
         
         config = {
@@ -470,7 +470,7 @@ def test_state_management(test_input: str = "测试状态管理") -> Dict[str, A
         for state_name in state_classes:
             try:
                 if state_name == 'AgentState':
-                    from src.core.execution_coordinator import AgentState
+                    from src.core.executor.execution_coordinator import AgentState
                     found_states.append(state_name)
                 elif state_name == 'ResearchSystemState':
                     from src.core.langgraph_unified_workflow import ResearchSystemState
@@ -650,7 +650,7 @@ def test_context_management(test_input: str = "测试上下文管理") -> Dict[s
         
         # Test ContextManager
         try:
-            from src.core.context_manager import ContextManager
+            from src.core.routing.context_manager import ContextManager
             context_managers.append('ContextManager')
             
             # Test actual session management
@@ -825,7 +825,7 @@ def test_cache(test_input: str = "测试缓存") -> Dict[str, Any]:
         
         # Test core cache_system
         try:
-            from src.core.cache_system import CacheSystem
+            from src.core.core_services.cache_system import CacheSystem
             cache_systems.append('CacheSystem')
         except ImportError:
             pass
@@ -1088,7 +1088,7 @@ def test_routing(test_input: str = "测试路由") -> Dict[str, Any]:
         
         # Test intelligent_router
         try:
-            from src.core.intelligent_router import IntelligentRouter
+            from src.core.routing.intelligent_router import IntelligentRouter
             routing_components.append('IntelligentRouter')
             
             try:
@@ -1109,7 +1109,7 @@ def test_routing(test_input: str = "测试路由") -> Dict[str, Any]:
         
         # Test configurable_router
         try:
-            from src.core.configurable_router import ConfigurableRouter
+            from src.core.routing.configurable_router import ConfigurableRouter
             routing_components.append('ConfigurableRouter')
         except ImportError:
             pass
@@ -2621,7 +2621,7 @@ def _get_langgraph_workflow_diagram(workflow_name: str = 'execution_coordinator'
         project_root = Path(__file__).parent.parent.parent
         sys.path.insert(0, str(project_root))
         
-        from src.core.execution_coordinator import ExecutionCoordinator
+        from src.core.executor.execution_coordinator import ExecutionCoordinator
         
         coordinator = ExecutionCoordinator()
         
@@ -2655,7 +2655,7 @@ def _get_react_workflow_diagram(agent_instance=None) -> str:
         sys.path.insert(0, str(project_root))
         
         from src.core.workflows.react_workflow import create_react_workflow
-        from src.core.llm_integration import LLMIntegration
+        from src.core.core_services.llm_integration import LLMIntegration
         from src.agents.tools.tool_registry import ToolRegistry
         
         registry = ToolRegistry()
@@ -2942,7 +2942,7 @@ def discover_tools_from_registry() -> List[Dict[str, Any]]:
     
     # ===== 添加 CLI 工具 =====
     try:
-        from src.core.cli_executor import CLIExecutor
+        from src.core.executor.cli_executor import CLIExecutor
         cli_executor = CLIExecutor()
         cli_tools = cli_executor.list_tools()
         
@@ -5521,7 +5521,7 @@ def test_workflow(workflow_name: str, test_input: str) -> Dict[str, Any]:
         wf_name_lower = workflow_name.lower().replace(' ', '_')
         
         if 'execution_coordinator' in wf_name_lower:
-            from src.core.execution_coordinator import ExecutionCoordinator
+            from src.core.executor.execution_coordinator import ExecutionCoordinator
             
             coordinator = ExecutionCoordinator()
             
@@ -5699,7 +5699,7 @@ def test_workflow(workflow_name: str, test_input: str) -> Dict[str, Any]:
                     'output': 'Using ExecutionCoordinator for analysis'
                 })
                 
-                from src.core.execution_coordinator import ExecutionCoordinator
+                from src.core.executor.execution_coordinator import ExecutionCoordinator
                 
                 coordinator = ExecutionCoordinator()
                 
@@ -5740,7 +5740,7 @@ def test_workflow(workflow_name: str, test_input: str) -> Dict[str, Any]:
                 }
         
         else:
-            from src.core.execution_coordinator import ExecutionCoordinator
+            from src.core.executor.execution_coordinator import ExecutionCoordinator
             
             coordinator = ExecutionCoordinator()
             

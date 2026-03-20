@@ -25,11 +25,11 @@ from fastapi import FastAPI, HTTPException, Depends, Request
 from contextlib import asynccontextmanager
 from typing import Optional, Any
 
-from src.core.context_manager import ContextManager
-from src.core.configurable_router import ConfigurableRouter
+from src.core.routing.context_manager import ContextManager
+from src.core.routing.configurable_router import ConfigurableRouter
 
 # 默认使用 ProductionWorkflow (基于 langgraph_unified_workflow 简化)
-from src.core.production_workflow import ProductionWorkflow, get_production_workflow
+from src.core.executor.production_workflow import ProductionWorkflow, get_production_workflow
 
 from src.agents.tools.tool_registry import ToolRegistry
 from src.agents.tools.retrieval_tool import RetrievalTool
@@ -129,7 +129,7 @@ async def lifespan(app: FastAPI):
     
     # 5. ExecutionCoordinator (备用)
     try:
-        from src.core.execution_coordinator import ExecutionCoordinator
+        from src.core.executor.execution_coordinator import ExecutionCoordinator
         coordinator = ExecutionCoordinator()
     except Exception as e:
         logger.warning(f"ExecutionCoordinator not available: {e}")
@@ -450,7 +450,7 @@ async def chat_endpoint(
         # ===== Intelligent Tool Selection =====
         # 在 workflow 执行之前先尝试智能工具选择
         try:
-            from src.core.unified_tool_executor import get_unified_tool_executor
+            from src.core.executor.unified_tool_executor import get_unified_tool_executor
             unified_executor = get_unified_tool_executor()
             if unified_executor:
                 tool_result = await unified_executor.execute_with_intelligent_selection(query)

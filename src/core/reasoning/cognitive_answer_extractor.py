@@ -7,7 +7,7 @@ from typing import List, Dict, Any, Optional
 # 🚀 DEBUG: 确认加载了修复后的文件
 print("🚀 DEBUG: 加载修复后的 cognitive_answer_extractor.py - 版本: 2026-01-10-fixed (Rebuilt)")
 
-from src.core.llm_integration import LLMIntegration
+from src.core.core_services.llm_integration import LLMIntegration
 from src.prompts.prompt_manager import PromptManager
 from src.utils.research_logger import log_info
 
