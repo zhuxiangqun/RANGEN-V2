@@ -191,22 +191,22 @@ with st.sidebar:
         resp = requests.get(f"{RANGEN_API_BASE}/health", timeout=5)
         if resp.status_code == 200:
             st.markdown("""
-            <div style="background-color: #28a745; color: white; padding: 12px 16px; 
-                        border-radius: 6px; font-weight: 500; margin: 8px 0;">
+            <div style="background-color: #d4edda; color: #155724; padding: 12px 16px; 
+                        border-radius: 6px; font-weight: 500; margin: 8px 0; border: 1px solid #c3e6cb;">
                 ✅ RANGEN 已连接
             </div>
             """, unsafe_allow_html=True)
         else:
             st.markdown("""
-            <div style="background-color: #ffc107; color: #333; padding: 12px 16px; 
-                        border-radius: 6px; font-weight: 500; margin: 8px 0;">
+            <div style="background-color: #fff3cd; color: #856404; padding: 12px 16px; 
+                        border-radius: 6px; font-weight: 500; margin: 8px 0; border: 1px solid #ffeeba;">
                 ⚠️ RANGEN 连接异常
             </div>
             """, unsafe_allow_html=True)
     except:
         st.markdown("""
-        <div style="background-color: #dc3545; color: white; padding: 12px 16px; 
-                    border-radius: 6px; font-weight: 500; margin: 8px 0;">
+        <div style="background-color: #f8d7da; color: #721c24; padding: 12px 16px; 
+                    border-radius: 6px; font-weight: 500; margin: 8px 0; border: 1px solid #f5c6cb;">
             ❌ 无法连接到 RANGEN
         </div>
         """, unsafe_allow_html=True)
