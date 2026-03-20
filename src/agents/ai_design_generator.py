@@ -176,8 +176,8 @@ src/
         """获取 LLM 客户端"""
         if self._llm_client is None:
             try:
-                from src.core.llm_integration import get_llm_integration
-                self._llm_client = get_llm_integration()
+                from src.core.llm_integration import create_llm_integration
+                self._llm_client = create_llm_integration(self.llm_config)
             except ImportError:
                 logger.warning("LLM 集成不可用，使用模拟模式")
                 return None
@@ -245,12 +245,11 @@ src/
             return self._generate_mock_design(requirements)
         
         try:
-            response = client.generate(
+            response = client.call_llm(
                 prompt=prompt,
-                max_tokens=4000,
-                temperature=0.3
+                max_tokens=4000
             )
-            return response
+            return response if response else self._generate_mock_design(requirements)
         except Exception as e:
             logger.error(f"LLM 调用失败: {e}")
             return self._generate_mock_design(requirements)
@@ -328,7 +327,7 @@ src/
             line = line.strip()
             
             # 检测章节
-            if line.startswith('# ') or line.startswith('## '):
+            if line.startswith('# ') or line.startswith('## ') or line.startswith('### '):
                 section_name = line.lstrip('# ').strip().lower()
                 if '概览' in section_name or 'overview' in section_name:
                     current_section = DesignSection.OVERVIEW
@@ -358,8 +357,8 @@ src/
                 if '/' in line and any(m in line for m in ['POST', 'GET', 'PUT', 'DELETE']):
                     design.api_endpoints.append({"endpoint": line})
             elif current_section == DesignSection.FILE_STRUCTURE:
-                if line.startswith('src/') or '/' in line:
-                    design.file_structure.append(line)
+                if '/' in line and not line.startswith('#'):
+                    design.file_structure.append(line.strip())
             elif current_section == DesignSection.RISKS:
                 if '-' in line or '风险' in line:
                     design.risks.append({"description": line})
