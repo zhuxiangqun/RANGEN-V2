@@ -428,47 +428,73 @@ def render_modify_requirements():
 
 
 def render_agent_design_review(design):
-    """渲染 Agent 设计专项审查"""
-    st.subheader("🤖 Agent 设计审查")
+    """渲染组件设计专项审查 (支持 Agent/Skill/Tool)"""
+    st.subheader("🔍 组件设计专项审查")
     
-    st.info("""
-    **如果设计涉及创建新 Agent，系统会进行专项审查:**
+    # 组件类型选择
+    col1, col2 = st.columns([1, 2])
     
-    审查维度:
-    1. **Agent 定义** - 名称、职责、边界
-    2. **能力定义** - Tools、Skills、接口
-    3. **集成点** - 与其他组件的交互
-    4. **安全约束** - 权限、Guardrails
-    5. **实现计划** - TDD 步骤、测试覆盖
-    """)
+    with col1:
+        component_type = st.selectbox(
+            "组件类型",
+            options=["auto", "agent", "skill", "tool"],
+            index=0,
+            format_func=lambda x: {
+                "auto": "🔮 自动检测",
+                "agent": "🤖 Agent",
+                "skill": "⚡ Skill",
+                "tool": "🔧 Tool"
+            }.get(x, x)
+        )
+    
+    with col2:
+        if component_type == "auto":
+            try:
+                from src.agents.component_design_review import ComponentDesignReview
+                reviewer = ComponentDesignReview()
+                detected = reviewer.detect_component_type(design)
+                st.info(f"自动检测: **{detected.value.upper()}**")
+            except:
+                st.info("自动检测不可用")
+        else:
+            st.info({
+                "agent": "🤖 审查 Agent: 职责、能力、集成、安全",
+                "skill": "⚡ 审查 Skill: 触发、工作流、工具组合",
+                "tool": "🔧 审查 Tool: 参数、错误处理、安全"
+            }.get(component_type, ""))
     
     # 运行审查
-    if st.button("🔍 运行 Agent 设计审查", use_container_width=True):
+    if st.button("🚀 运行审查", type="primary", use_container_width=True):
         with st.spinner("🔄 正在审查..."):
             try:
-                from src.agents.agent_design_review import AgentDesignReview
+                from src.agents.component_design_review import ComponentDesignReview
                 
-                reviewer = AgentDesignReview()
-                result = reviewer.review_design(design)
+                reviewer = ComponentDesignReview()
+                result = reviewer.review_design(
+                    design, 
+                    component_type=None if component_type == "auto" else component_type
+                )
                 
                 # 显示结果
                 if result.is_approved:
-                    st.success("✅ Agent 设计审查通过!")
+                    st.success(f"✅ {result.component_type.upper()} 设计审查通过!")
                 else:
-                    st.error("❌ Agent 设计审查未通过，需要修复问题")
+                    st.error(f"❌ {result.component_type.upper()} 设计审查未通过，需要修复问题")
                 
                 # 维度分数
                 st.subheader("📊 审查维度分数")
-                cols = st.columns(len(result.dimension_scores))
                 
-                for i, (dim, score) in enumerate(result.dimension_scores.items()):
-                    with cols[i]:
-                        color = "green" if score >= 0.7 else ("orange" if score >= 0.5 else "red")
-                        st.metric(
-                            label=dim.title(),
-                            value=f"{score:.0%}",
-                            delta="通过" if score >= 0.5 else "需改进"
-                        )
+                if result.dimension_scores:
+                    cols = st.columns(len(result.dimension_scores))
+                    
+                    for i, (dim, score) in enumerate(result.dimension_scores.items()):
+                        with cols[i]:
+                            if score >= 0.7:
+                                st.metric(label=dim.title(), value=f"{score:.0%}", delta="✅ 通过")
+                            elif score >= 0.5:
+                                st.metric(label=dim.title(), value=f"{score:.0%}", delta="⚠️ 需改进")
+                            else:
+                                st.metric(label=dim.title(), value=f"{score:.0%}", delta="❌ 不通过")
                 
                 # 问题列表
                 if result.issues:
@@ -478,6 +504,7 @@ def render_agent_design_review(design):
                         st.error(f"🚫 阻塞性问题 ({len(result.blockers)}):")
                         for issue in result.blockers:
                             with st.expander(f"🚫 {issue.title}", expanded=True):
+                                st.markdown(f"**维度:** {issue.dimension}")
                                 st.markdown(f"**描述:** {issue.description}")
                                 st.markdown(f"**建议:** {issue.suggestion}")
                     
@@ -485,6 +512,7 @@ def render_agent_design_review(design):
                         st.warning(f"⚠️ 关键问题 ({len(result.criticals)}):")
                         for issue in result.criticals:
                             with st.expander(f"⚠️ {issue.title}"):
+                                st.markdown(f"**维度:** {issue.dimension}")
                                 st.markdown(f"**描述:** {issue.description}")
                                 st.markdown(f"**建议:** {issue.suggestion}")
                     
@@ -492,13 +520,8 @@ def render_agent_design_review(design):
                         st.info(f"💡 警告 ({len(result.warnings)}):")
                         for issue in result.warnings:
                             with st.expander(f"💡 {issue.title}"):
+                                st.markdown(f"**维度:** {issue.dimension}")
                                 st.markdown(f"**描述:** {issue.description}")
-                
-                # 建议
-                if result.suggestions:
-                    st.subheader("💡 改进建议")
-                    for suggestion in result.suggestions:
-                        st.markdown(f"- {suggestion}")
                 
                 # 报告
                 with st.expander("📄 完整审查报告"):
@@ -508,6 +531,8 @@ def render_agent_design_review(design):
                 st.error(f"❌ 审查器导入失败: {e}")
             except Exception as e:
                 st.error(f"❌ 审查失败: {e}")
+                import traceback
+                st.code(traceback.format_exc())
 
 
 def render_legacy_agent_handler():
