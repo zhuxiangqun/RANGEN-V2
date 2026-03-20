@@ -144,8 +144,8 @@ class ReviewableValidationAgent(IAgent):
     async def _run_review(self, validation_result: Dict, context: Optional[Dict]) -> Dict:
         """执行评审"""
         try:
-            from src.core.review_pipeline import ReviewPipeline, ReviewLevel
-            from src.core.review_integration import ReviewDecisionMaker
+            from src.core.validators.review_pipeline import ReviewPipeline, ReviewLevel
+            from src.core.validators.review_integration import ReviewDecisionMaker
             
             pipeline = ReviewPipeline(name="validation_review")
             
@@ -188,13 +188,13 @@ class ReviewableValidationAgent(IAgent):
         if not review_result:
             return "proceed"
         
-        from src.core.review_integration import ReviewDecisionMaker
+        from src.core.validators.review_integration import ReviewDecisionMaker
         return ReviewDecisionMaker.decide(review_result)
     
     def _record_judgment(self, validation_result: Dict, review_result: Dict, decision: str):
         """记录判断用于评价"""
         try:
-            from src.core.judgment_evaluation import JudgmentEvaluationSystem, JudgmentType
+            from src.core.validators.judgment_evaluation import JudgmentEvaluationSystem, JudgmentType
             
             # 简单的内存记录
             self._review_results.append({

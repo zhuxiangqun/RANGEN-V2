@@ -929,17 +929,17 @@ class WorkflowGraphBuilder:
         
         # 🚀 新增：首先尝试从原始类方法和函数中提取docstring（最可靠的方法）
         try:
-            from src.core.langgraph_unified_workflow import UnifiedResearchWorkflow
-            from src.core.langgraph_agent_nodes import AgentNodes
-            from src.core.langgraph_reasoning_nodes import ReasoningNodes
-            from src.core.langgraph_detailed_processing_nodes import DetailedProcessingNodes
-            from src.core.langgraph_core_nodes import CoreNodes
-            from src.core.langgraph_config_nodes import feedback_collection_node
-            from src.core.langgraph_learning_nodes import (
+            from src.core.langgraph_nodes.langgraph_unified_workflow import UnifiedResearchWorkflow
+            from src.core.langgraph_nodes.langgraph_agent_nodes import AgentNodes
+            from src.core.langgraph_nodes.langgraph_reasoning_nodes import ReasoningNodes
+            from src.core.langgraph_nodes.langgraph_detailed_processing_nodes import DetailedProcessingNodes
+            from src.core.langgraph_nodes.langgraph_core_nodes import CoreNodes
+            from src.core.langgraph_nodes.langgraph_config_nodes import feedback_collection_node
+            from src.core.langgraph_nodes.langgraph_learning_nodes import (
                 learning_aggregation_node,
                 continuous_learning_monitor
             )
-            from src.core.langgraph_capability_nodes import standardized_interface_adapter
+            from src.core.langgraph_nodes.langgraph_capability_nodes import standardized_interface_adapter
             
             # 节点名称到原始类方法的映射
             node_to_method_map = {

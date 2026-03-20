@@ -43,7 +43,7 @@ import asyncio
 from src.agents.enhanced_react_agent import EnhancedReActAgentConfig
 from src, EnhancedReAct.core.task_decomposition import TaskDecompositionEngine, DecomposedTask, SubTask
 from src.core.task_execution_tracker import TaskExecutionTracker, ExecutionStatus
-from src.core.verification_loop import VerificationLoop, GAIAStyleVerifier, VerificationResult
+from src.core.validators.verification_loop import VerificationLoop, GAIAStyleVerifier, VerificationResult
 
 
 class Level3AgentConfig:

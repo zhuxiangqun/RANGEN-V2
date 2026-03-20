@@ -473,7 +473,7 @@ def test_state_management(test_input: str = "测试状态管理") -> Dict[str, A
                     from src.core.executor.execution_coordinator import AgentState
                     found_states.append(state_name)
                 elif state_name == 'ResearchSystemState':
-                    from src.core.langgraph_unified_workflow import ResearchSystemState
+                    from src.core.langgraph_nodes.langgraph_unified_workflow import ResearchSystemState
                     found_states.append(state_name)
                 elif state_name == 'RANGENState':
                     from src.core.rangen_state import RANGENState
@@ -552,7 +552,7 @@ def test_error_handling(test_input: str = "测试错误处理") -> Dict[str, Any
         
         # Test ErrorHandler
         try:
-            from src.core.langgraph_error_handler import ErrorHandler, ErrorType
+            from src.core.langgraph_nodes.langgraph_error_handler import ErrorHandler, ErrorType
             eh = ErrorHandler()
             error_handlers.append('ErrorHandler')
             
@@ -1215,7 +1215,7 @@ def test_configuration(test_input: str = "测试配置") -> Dict[str, Any]:
         
         # Test config_loader
         try:
-            from src.core.config_loader import ConfigLoader
+            from src.core.config.config_loader import ConfigLoader
             config_components.append('ConfigLoader')
         except ImportError:
             pass
@@ -1365,7 +1365,7 @@ def test_skill_registry(test_input: str = "测试技能注册") -> Dict[str, Any
         
         # Test skill_registry
         try:
-            from src.core.skill_registry import SkillRegistry
+            from src.core.agents.skill_registry import SkillRegistry
             registry_components.append('SkillRegistry')
             
             try:

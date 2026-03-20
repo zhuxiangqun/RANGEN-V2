@@ -238,7 +238,7 @@ def initialize_default_executors():
 
     try:
         # 导入现有节点（这需要根据实际项目结构调整）
-        from src.core.langgraph_agent_nodes import (
+        from src.core.langgraph_nodes.langgraph_agent_nodes import (
             knowledge_retrieval_agent,
             reasoning_agent,
             answer_generation_agent,
