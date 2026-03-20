@@ -34,11 +34,13 @@ st.set_page_config(
 
 def post_with_auth(url, data=None):
     headers = {"Content-Type": "application/json"}
-    if RANGEN_API_KEY:
-        headers["Authorization"] = f"Bearer {RANGEN_API_KEY}"
+    api_key = os.getenv("RANGEN_API_KEY", "")
+    if api_key:
+        headers["Authorization"] = f"Bearer {api_key}"
     try:
         return requests.post(url, headers=headers, json=data, timeout=60)
-    except:
+    except Exception as e:
+        st.error(f"连接错误: {str(e)}")
         return None
 
 
