@@ -553,3 +553,13 @@ def render_hud_streamlit(hud: AgentHUD, metrics: Optional[HUDMetrics] = None):
     # 错误
     if metrics.last_error:
         st.error(f"❌ {metrics.last_error}")
+
+
+_hud_instance: Optional[AgentHUD] = None
+
+
+def get_hud_instance() -> AgentHUD:
+    global _hud_instance
+    if _hud_instance is None:
+        _hud_instance = AgentHUD()
+    return _hud_instance

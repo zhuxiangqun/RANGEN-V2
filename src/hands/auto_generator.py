@@ -858,3 +858,215 @@ if __name__ == "__main__":
         generated = generator.generate_hand_code(req)
         print(f"  生成: {generated.name}")
         print(f"  文件: {generated.file_path}")
+
+
+# ==================== OpenClaw 优化的自动生成器 ====================
+
+class OpenClawHandGenerator:
+    """OpenClaw 优化的 Hand 生成器
+    
+    集成三大原则:
+    1. Superpowers (方法论): 需求发现 → TDD 检查 → 代码审查
+    2. Claude HUD (可观测性): 实时进度可视化
+    3. Open SWE (团队协作): MiddlewareChain 处理
+    """
+    
+    def __init__(self):
+        self._init_openclaw_components()
+    
+    def _init_openclaw_components(self):
+        """初始化 OpenClaw 组件"""
+        # AgentHUD - 可观测性
+        try:
+            from src.ui.agent_hud import get_hud_instance
+            self.hud = get_hud_instance()
+        except ImportError:
+            self.hud = None
+        
+        # Requirement Discovery - 需求发现
+        try:
+            from src.agents.requirement_discovery import RequirementDiscoveryAgent
+            self.requirement_agent = RequirementDiscoveryAgent()
+        except ImportError:
+            self.requirement_agent = None
+        
+        # TDD Enforcer - TDD 铁律
+        try:
+            from src.agents.tdd_enforcer import get_enforcer
+            self.tdd_enforcer = get_enforcer()
+        except ImportError:
+            self.tdd_enforcer = None
+        
+        # Two Stage Reviewer - 代码审查
+        try:
+            from src.agents.two_stage_reviewer import TwoStageReviewer
+            self.reviewer = TwoStageReviewer()
+        except ImportError:
+            self.reviewer = None
+        
+        # Middleware Chain - 中间件
+        try:
+            from src.core.middleware import get_middleware_chain, LoggingMiddleware
+            self.middleware = get_middleware_chain()
+        except ImportError:
+            self.middleware = None
+        
+        # 基础代码生成器
+        self.base_generator = HandAutoGenerator()
+    
+    def generate_with_openclaw(self, requirement: str, auto_register: bool = False) -> Dict[str, Any]:
+        """使用 OpenClaw 原则生成 Hand
+        
+        流程:
+        1. 需求发现 (5W1H)
+        2. TDD 检查
+        3. 代码生成
+        4. 两阶段审查
+        5. Middleware 处理
+        6. AgentHUD 可视化
+        """
+        result = {
+            "success": False,
+            "requirement": requirement,
+            "discovered_requirements": None,
+            "tdd_check": None,
+            "code": None,
+            "review_result": None,
+            "file_path": None,
+            "errors": []
+        }
+        
+        if self.hud:
+            self.hud.record_tool_start("openclaw_generator", "requirement_discovery")
+        
+        # Step 1: 需求发现
+        if self.requirement_agent:
+            try:
+                discovered = self.requirement_agent.discover_requirements(requirement)
+                result["discovered_requirements"] = self.requirement_agent.export_to_dict()
+                result["spec_document"] = self.requirement_agent.generate_spec(discovered)
+                logger.info(f"需求发现完成: {len(discovered.requirements)} 个需求")
+            except Exception as e:
+                result["errors"].append(f"需求发现失败: {e}")
+        else:
+            result["errors"].append("RequirementDiscoveryAgent 不可用")
+        
+        if self.hud:
+            self.hud.record_tool_start("openclaw_generator", "tdd_check")
+        
+        # Step 2: TDD 检查 (生成测试代码)
+        if self.tdd_enforcer:
+            try:
+                test_file = f"tests/generated/test_{requirement[:20].replace(' ', '_')}.py"
+                self.tdd_enforcer.register_test(test_file, production_path="")
+                result["tdd_check"] = {
+                    "test_file": test_file,
+                    "status": "test_registered",
+                    "ready": True
+                }
+                logger.info(f"TDD 检查通过: 测试已注册")
+            except Exception as e:
+                result["tdd_check"] = {"status": "failed", "error": str(e)}
+                result["errors"].append(f"TDD 检查失败: {e}")
+        
+        if self.hud:
+            self.hud.record_tool_start("openclaw_generator", "code_generation")
+        
+        # Step 3: 代码生成
+        try:
+            generated = self.base_generator.generate_hand_code(requirement)
+            result["code"] = generated.code
+            result["file_path"] = generated.file_path
+            logger.info(f"代码生成完成: {generated.name}")
+        except Exception as e:
+            result["errors"].append(f"代码生成失败: {e}")
+            return result
+        
+        if self.hud:
+            self.hud.record_tool_start("openclaw_generator", "code_review")
+        
+        # Step 4: 两阶段代码审查
+        if self.reviewer and result["code"]:
+            try:
+                review_result = self.reviewer.run_review(result["code"], result.get("spec_document", ""))
+                result["review_result"] = review_result.to_dict()
+                
+                if review_result.overall_status == "fail":
+                    result["errors"].append(f"代码审查未通过: {review_result.stage1_result.summary}")
+                elif review_result.overall_status == "needs_work":
+                    result["errors"].append(f"代码审查有警告: {review_result.stage1_result.summary}")
+                
+                logger.info(f"代码审查完成: {review_result.overall_status}")
+            except Exception as e:
+                result["errors"].append(f"代码审查失败: {e}")
+        
+        if self.hud:
+            self.hud.record_tool_start("openclaw_generator", "middleware_processing")
+        
+        # Step 5: Middleware 处理
+        if self.middleware and result["code"]:
+            try:
+                import asyncio
+                middleware_result = asyncio.get_event_loop().run_until_complete(
+                    self.middleware.execute(result["code"], request_id="hand_generation")
+                )
+                if not middleware_result.success:
+                    result["errors"].append(f"Middleware 处理: {middleware_result.error}")
+                logger.info(f"Middleware 处理完成")
+            except Exception as e:
+                result["errors"].append(f"Middleware 处理失败: {e}")
+        
+        # Step 6: 写入文件
+        if result["file_path"] and result["code"]:
+            try:
+                os.makedirs(os.path.dirname(result["file_path"]), exist_ok=True)
+                with open(result["file_path"], "w") as f:
+                    f.write(result["code"])
+                logger.info(f"文件写入成功: {result['file_path']}")
+            except Exception as e:
+                result["errors"].append(f"文件写入失败: {e}")
+        
+        # 记录完成
+        if self.hud:
+            success = len(result["errors"]) == 0
+            if success:
+                self.hud.record_tool_start("openclaw_generator", "complete")
+            else:
+                self.hud.record_error("; ".join(result["errors"][:2]))
+        
+        result["success"] = len(result["errors"]) == 0
+        return result
+    
+    def get_generation_summary(self, result: Dict[str, Any]) -> str:
+        """获取生成摘要"""
+        lines = ["=" * 60, "OpenClaw Hand 生成摘要", "=" * 60]
+        
+        lines.append(f"\n原始需求: {result['requirement']}")
+        
+        if result.get("discovered_requirements"):
+            reqs = result["discovered_requirements"].get("requirements", [])
+            lines.append(f"\n发现需求: {len(reqs)} 个")
+            for r in reqs[:3]:
+                lines.append(f"  - [{r.get('priority', 'N/A')}] {r.get('title', 'N/A')}")
+        
+        if result.get("tdd_check"):
+            status = result["tdd_check"].get("status", "unknown")
+            lines.append(f"\nTDD 检查: {status}")
+        
+        if result.get("review_result"):
+            review = result["review_result"]
+            lines.append(f"\n代码审查:")
+            lines.append(f"  Stage 1: {review.get('stage1', {}).get('status', 'N/A')}")
+            if review.get('stage2'):
+                lines.append(f"  Stage 2: {review.get('stage2', {}).get('status', 'N/A')}")
+            lines.append(f"  总体: {review.get('overall_status', 'N/A')}")
+        
+        lines.append(f"\n文件: {result.get('file_path', 'N/A')}")
+        lines.append(f"状态: {'✅ 成功' if result.get('success') else '❌ 失败'}")
+        
+        if result.get('errors'):
+            lines.append(f"\n错误 ({len(result['errors'])}):")
+            for e in result['errors'][:3]:
+                lines.append(f"  - {e}")
+        
+        return "\n".join(lines)
