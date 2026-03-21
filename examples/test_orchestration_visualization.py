@@ -29,7 +29,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 import logging
-from src.unified_research_system import UnifiedResearchSystem, ResearchRequest
+from src.services.unified_research_system import UnifiedResearchSystem, ResearchRequest
 from src.visualization.orchestration_tracker import get_orchestration_tracker
 
 logging.basicConfig(

@@ -703,7 +703,7 @@ class SmartConversationAgent(IAgent):
     
     def _get_production_workflow(self):
         try:
-            from src.core.executor.production_workflow import ProductionWorkflow
+            from src.orchestration.executor.production_workflow import ProductionWorkflow
             return ProductionWorkflow()
         except:
             return None
@@ -715,7 +715,7 @@ class SmartConversationAgent(IAgent):
     ) -> Dict[str, Any]:
         """执行ProductionWorkflow"""
         try:
-            from src.core.executor.production_workflow import ProductionWorkflow
+            from src.orchestration.executor.production_workflow import ProductionWorkflow
             
             workflow = ProductionWorkflow()
             result = await workflow.execute(query=query, context={})
@@ -742,7 +742,7 @@ class SmartConversationAgent(IAgent):
     ) -> Dict[str, Any]:
         """执行工具"""
         try:
-            from src.core.executor.unified_tool_executor import get_unified_tool_executor
+            from src.orchestration.executor.unified_tool_executor import get_unified_tool_executor
             
             executor = get_unified_tool_executor()
             if executor:

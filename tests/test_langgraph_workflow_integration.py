@@ -15,7 +15,7 @@ project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
 from src.core.langgraph_unified_workflow import UnifiedResearchWorkflow
-from src.unified_research_system import UnifiedResearchSystem
+from src.services.unified_research_system import UnifiedResearchSystem
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

@@ -17,7 +17,7 @@ def test_factory_availability():
     """测试 Skill Factory 可用性"""
     print("1. 测试 Skill Factory 可用性...")
     try:
-        from src.agents.skills.skill_factory_integration import is_skill_factory_available
+        from src.skills.runtime.skill_factory_integration import is_skill_factory_available
         
         available = is_skill_factory_available()
         if available:
@@ -34,7 +34,7 @@ def test_skill_trigger_integration():
     """测试技能触发器集成"""
     print("\n2. 测试技能触发器集成...")
     try:
-        from src.agents.skills.skill_trigger import get_skill_trigger
+        from src.skills.runtime.skill_trigger import get_skill_trigger
         
         trigger = get_skill_trigger()
         
@@ -74,7 +74,7 @@ def test_prototype_classification():
     """测试原型分类"""
     print("\n3. 测试原型分类...")
     try:
-        from src.agents.skills.skill_factory_integration import get_factory_integration
+        from src.skills.runtime.skill_factory_integration import get_factory_integration
         
         factory = get_factory_integration()
         
@@ -155,7 +155,7 @@ def test_quality_check():
     """测试质量检查"""
     print("\n5. 测试质量检查...")
     try:
-        from src.agents.skills.skill_factory_integration import get_factory_integration
+        from src.skills.runtime.skill_factory_integration import get_factory_integration
         
         factory = get_factory_integration()
         

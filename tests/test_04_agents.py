@@ -22,7 +22,7 @@ try:
     
     # 测试工具注册
     print('3. 测试工具注册系统...')
-    from src.agents.tools.tool_registry import ToolRegistry
+    from src.agents.execution_tools.tool_registry import ToolRegistry
     registry = ToolRegistry()
     tools = registry.list_tools()
     print(f'   ✓ 已注册工具数量: {len(tools)}')

@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 import asyncio
 from asyncio import Semaphore
 
-from src.core.utils.smart_model_manager import get_model_manager
+from src.orchestration.utils.smart_model_manager import get_model_manager
 
 # 🛡️ P4.5: 本地服务限流器 (防止本地模型过载)
 # Note: SmartModelManager now handles memory limiting, but concurrency limiting is still useful here

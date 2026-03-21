@@ -18,7 +18,7 @@ import statistics
 from typing import Dict, Any, List, Optional
 from dataclasses import dataclass, field
 
-from src.unified_research_system import UnifiedResearchSystem
+from src.services.unified_research_system import UnifiedResearchSystem
 from src.core.langgraph_unified_workflow import UnifiedResearchWorkflow
 
 # 配置日志输出

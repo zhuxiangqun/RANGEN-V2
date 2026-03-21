@@ -127,7 +127,7 @@ class ChiefAgent(BaseAgent):
         # 开发工作流审核 (代码安全检查)
         if self._dev_audit_enabled:
             try:
-                from src.core.dev_workflow_audit import DevWorkflowAudit, AuditLevel
+                from src.orchestration.dev_workflow_audit import DevWorkflowAudit, AuditLevel
                 self.dev_audit = DevWorkflowAudit(
                     audit_level=AuditLevel.STANDARD,
                     chief_agent=self,
@@ -170,7 +170,7 @@ class ChiefAgent(BaseAgent):
     def _init_llm_client(self):
         """初始化LLM客户端"""
         try:
-            from src.core.core_services.llm_integration import LLMIntegration
+            from src.orchestration.core_services.llm_integration import LLMIntegration
             from src.utils.unified_centers import get_unified_config_center
             
             config_center = get_unified_config_center()

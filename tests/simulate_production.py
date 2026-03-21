@@ -21,7 +21,7 @@ async def simulate_production():
     logger.info("Starting production simulation...")
     
     try:
-        from src.unified_research_system import create_unified_research_system, ResearchRequest
+        from src.services.unified_research_system import create_unified_research_system, ResearchRequest
         
         # Initialize system
         logger.info("Initializing UnifiedResearchSystem...")

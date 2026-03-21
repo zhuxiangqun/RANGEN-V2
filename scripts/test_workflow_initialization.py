@@ -31,7 +31,7 @@ print()
 async def test_workflow_initialization():
     """测试工作流初始化"""
     try:
-        from src.unified_research_system import UnifiedResearchSystem
+        from src.services.unified_research_system import UnifiedResearchSystem
         
         print("1. 创建 UnifiedResearchSystem 实例...")
         system = UnifiedResearchSystem()

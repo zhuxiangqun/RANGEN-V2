@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 class MLDLPersistenceManager:
     """ML/DL模型持久化管理器"""
     
-    def __init__(self, persistence_dir: str = "ml_dl_persistence"):
+    def __init__(self, persistence_dir: str = "src/ml_persistence"):
         self.persistence_dir = Path(persistence_dir)
         self.persistence_dir.mkdir(exist_ok=True)
         

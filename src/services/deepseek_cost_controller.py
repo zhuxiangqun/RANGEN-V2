@@ -32,7 +32,7 @@ from src.services.cost_control import (
     CostRecord, 
     TokenUsage
 )
-from src.core.rangen_state import (
+from src.orchestration.rangen_state import (
     get_global_state_manager,
     StateUpdate,
     StateUpdateStrategy

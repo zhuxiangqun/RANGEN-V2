@@ -9,7 +9,7 @@ from pathlib import Path
 project_root = Path(__file__).parent
 sys.path.insert(0, str(project_root))
 
-from src.agents.skills.skill_trigger import get_skill_trigger
+from src.skills.runtime.skill_trigger import get_skill_trigger
 
 def main():
     trigger = get_skill_trigger()

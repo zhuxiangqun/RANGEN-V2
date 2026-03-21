@@ -20,105 +20,61 @@
 
 import warnings
 
-# ============================================================================
-# 核心 Agent (生产使用)
-# ============================================================================
-
-from .base_agent import BaseAgent
-from .reasoning_agent import ReasoningAgent
-from .rag_agent import RAGAgent
-from .citation_agent import CitationAgent
-from .validation_agent import ValidationAgent
-from .chief_agent import ChiefAgent
-
-# React Agent (别名，保持向后兼容)
-try:
-    from .react_agent import ReActAgent
-except ImportError:
-    warnings.warn("ReActAgent not available - using ReasoningAgent as fallback", DeprecationWarning)
-    ReActAgent = ReasoningAgent
-
-# ============================================================================
-# 工厂与构建器
-# ============================================================================
-
-from .agent_factory import AgentFactory
-from .agent_builder import (
-    AgentBuilder,
-    AgentDirector,
-    get_agent_director,
-    create_agent_builder
-)
-
-# ============================================================================
-# 新系统 - 统一执行器 (试验性)
-# ============================================================================
-
-try:
-    from .unified_executor import (
-        UnifiedExecutor,
-        get_unified_executor,
-        execute_tool,
-        ExecutionResult
-    )
-    _HAS_UNIFIED_EXECUTOR = True
-except ImportError:
-    _HAS_UNIFIED_EXECUTOR = False
-    UnifiedExecutor = None
-    get_unified_executor = None
-    execute_tool = None
-    ExecutionResult = None
-    warnings.warn("UnifiedExecutor not available - using core agents", ImportWarning)
-
-# ============================================================================
-# 便捷函数
-# ============================================================================
-
-def create_agent(
-    agent_type: str,
-    config: dict = None
-):
-    """创建 Agent 工厂函数"""
-    factory = AgentFactory()
-    return factory.create_agent(agent_type, config or {})
+__version__ = "2.0.0"
+__all__ = []  # 延迟导出，避免循环依赖
 
 
-# ============================================================================
-# 导出列表
-# ============================================================================
-
-__all__ = [
+def __getattr__(name):
+    """延迟导入以避免循环依赖"""
+    
     # 核心 Agent
-    'BaseAgent',
-    'ReActAgent',
-    'ReasoningAgent',
-    'RAGAgent',
-    'CitationAgent',
-    'ValidationAgent',
-    'ChiefAgent',
+    if name == 'BaseAgent':
+        from .base_agent import BaseAgent
+        return BaseAgent
+    elif name == 'ReasoningAgent':
+        from .reasoning_agent import ReasoningAgent
+        return ReasoningAgent
+    elif name == 'RAGAgent':
+        from .rag_agent import RAGAgent
+        return RAGAgent
+    elif name == 'CitationAgent':
+        from .citation_agent import CitationAgent
+        return CitationAgent
+    elif name == 'ValidationAgent':
+        from .validation_agent import ValidationAgent
+        return ValidationAgent
+    elif name == 'ChiefAgent':
+        from .chief_agent import ChiefAgent
+        return ChiefAgent
+    elif name == 'ReActAgent':
+        try:
+            from .react_agent import ReActAgent
+            return ReActAgent
+        except ImportError:
+            warnings.warn("ReActAgent not available", DeprecationWarning)
+            raise AttributeError(f"module 'src.agents' has no attribute '{name}'")
     
     # 工厂
-    'AgentFactory',
-    'AgentBuilder',
-    
-    # 建造者模式
-    'AgentDirector',
-    'get_agent_director',
-    'create_agent_builder',
-    
-    # 新系统 (可能为None)
-    'UnifiedExecutor',
-    'get_unified_executor',
-    'execute_tool',
-    'ExecutionResult',
-    '_HAS_UNIFIED_EXECUTOR',
+    elif name == 'AgentFactory':
+        from .agent_factory import AgentFactory
+        return AgentFactory
+    elif name == 'AgentBuilder':
+        from .agent_builder import AgentBuilder
+        return AgentBuilder
+    elif name in ('AgentDirector', 'get_agent_director', 'create_agent_builder'):
+        from .agent_builder import get_agent_director, create_agent_builder, AgentDirector
+        if name == 'AgentDirector':
+            return AgentDirector
+        elif name == 'get_agent_director':
+            return get_agent_director
+        elif name == 'create_agent_builder':
+            return create_agent_builder
     
     # 便捷函数
-    'create_agent',
-]
-
-# ============================================================================
-# 版本信息
-# ============================================================================
-
-__version__ = "2.0.0"
+    elif name == 'create_agent':
+        def create_agent(agent_type: str, config: dict = None):
+            factory = AgentFactory()
+            return factory.create_agent(agent_type, config or {})
+        return create_agent
+    
+    raise AttributeError(f"module 'src.agents' has no attribute '{name}'")

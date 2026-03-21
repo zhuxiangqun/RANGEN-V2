@@ -73,8 +73,8 @@ class ServiceRegistrar:
         
         try:
             # 配置服务接口
-            from src.core.interfaces import IConfigurationService
-            from src.core.service_adapters import ConfigurationServiceAdapter
+            from src.orchestration.interfaces import IConfigurationService
+            from src.orchestration.service_adapters import ConfigurationServiceAdapter
             self.container.register_singleton(IConfigurationService, ConfigurationServiceAdapter)
             self.logger.info("注册配置服务适配器")
         except ImportError as e:
@@ -97,8 +97,8 @@ class ServiceRegistrar:
         
         try:
             # 日志服务接口
-            from src.core.interfaces import ILoggingService
-            from src.core.service_adapters import LoggingServiceAdapter
+            from src.orchestration.interfaces import ILoggingService
+            from src.orchestration.service_adapters import LoggingServiceAdapter
             self.container.register_singleton(ILoggingService, LoggingServiceAdapter)
             self.logger.info("注册日志服务适配器")
         except ImportError as e:
@@ -108,7 +108,7 @@ class ServiceRegistrar:
         """注册认证服务"""
         try:
             # 认证服务
-            from src.api.auth_service import AuthService
+            from src.access.api.auth_service import AuthService
             self.container.register_singleton(AuthService, AuthService)
             self.logger.info("注册认证服务")
         except ImportError as e:
@@ -145,7 +145,7 @@ class ServiceRegistrar:
         """注册核心业务服务"""
         try:
             # 上下文管理器
-            from src.core.routing.context_manager import ContextManager
+            from src.orchestration.routing.context_manager import ContextManager
             self.container.register_singleton(ContextManager, ContextManager)
             self.logger.info("注册上下文管理器")
         except ImportError as e:
@@ -153,7 +153,7 @@ class ServiceRegistrar:
         
         try:
             # 执行协调器
-            from src.core.executor.execution_coordinator import ExecutionCoordinator
+            from src.orchestration.executor.execution_coordinator import ExecutionCoordinator
             self.container.register_singleton(ExecutionCoordinator, ExecutionCoordinator)
             self.logger.info("注册执行协调器")
         except ImportError as e:
@@ -206,7 +206,7 @@ class ServiceRegistrar:
         """注册工具服务"""
         try:
             # 工具注册表
-            from src.agents.tools.tool_registry import ToolRegistry
+            from src.agents.execution_tools.tool_registry import ToolRegistry
             self.container.register_singleton(ToolRegistry, ToolRegistry)
             self.logger.info("注册工具注册表")
         except ImportError as e:
@@ -214,7 +214,7 @@ class ServiceRegistrar:
         
         try:
             # 基础工具
-            from src.agents.tools.base_tool import BaseTool
+            from src.agents.execution_tools.base_tool import BaseTool
             # 注册为工厂
             self.container.register_factory(BaseTool, lambda: None)
             self.logger.info("注册基础工具工厂")

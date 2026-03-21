@@ -57,7 +57,7 @@ class ReasoningEnginePool:
     def _create_engine(self):
         """创建新的推理引擎实例"""
         try:
-            from src.core.reasoning import RealReasoningEngine
+            from src.orchestration.reasoning import RealReasoningEngine
             engine = RealReasoningEngine()
             self._created_count += 1
             logger.info(f"✅ 创建新的推理引擎实例 (总数: {self._created_count})")

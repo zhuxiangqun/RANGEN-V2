@@ -11,7 +11,7 @@ from typing import Dict, List, Any, Optional, Type, Callable
 from dataclasses import dataclass, field
 from abc import ABC, abstractmethod
 
-from src.core.layered_architecture_types import TaskType, TaskResult
+from src.orchestration.layered_architecture_types import TaskType, TaskResult
 
 logger = logging.getLogger(__name__)
 

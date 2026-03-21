@@ -4,7 +4,7 @@ import asyncio
 import sys
 sys.path.insert(0, '/Users/apple/workdata/person/zy/RANGEN-main(syu-python)')
 
-from src.agents.skills.hybrid_tool_executor import get_hybrid_executor, ToolSource
+from src.skills.runtime.hybrid_tool_executor import get_hybrid_executor, ToolSource
 
 
 async def test_unified_mcp():

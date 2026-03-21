@@ -15,7 +15,7 @@ import sys
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-from src.unified_research_system import UnifiedResearchSystem, ResearchRequest
+from src.services.unified_research_system import UnifiedResearchSystem, ResearchRequest
 from src.core.langgraph_unified_workflow import UnifiedResearchWorkflow
 
 logging.basicConfig(level=logging.INFO)

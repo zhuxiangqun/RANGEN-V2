@@ -9,7 +9,7 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional, Union, Tuple
 from dataclasses import dataclass
 from enum import Enum
-from src.core.services import get_core_logger
+from src.orchestration.services import get_core_logger
 
 
 class OptimizerType(Enum):

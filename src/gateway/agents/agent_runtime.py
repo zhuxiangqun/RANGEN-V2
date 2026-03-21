@@ -206,7 +206,7 @@ class AgentRuntime:
     async def _init_llm(self):
         """初始化 LLM 服务"""
         try:
-            from src.core.core_services.llm_integration import LLMIntegration
+            from src.orchestration.core_services.llm_integration import LLMIntegration
             self.llm_service = LLMIntegration(config={})
             logger.info("LLM service initialized")
         except Exception as e:
@@ -217,7 +217,7 @@ class AgentRuntime:
         """初始化工具"""
         # 从现有的 ToolRegistry 获取工具
         try:
-            from src.agents.tools.tool_registry import ToolRegistry
+            from src.agents.execution_tools.tool_registry import ToolRegistry
             registry = ToolRegistry()
             self.tool_registry = registry.get_all_tools()
             logger.info(f"Initialized {len(self.tool_registry)} tools")

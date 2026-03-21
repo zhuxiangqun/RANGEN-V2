@@ -15,7 +15,7 @@ async def main():
     # 测试1: 导入并列出工具
     print("\n[1] 测试 InProcessMCPExecutor...")
     try:
-        from src.agents.tools.in_process_mcp import InProcessMCPExecutor
+        from src.agents.execution_tools.in_process_mcp import InProcessMCPExecutor
         executor = InProcessMCPExecutor()
         tools = executor.list_tools()
         print(f"    ✅ 工具数量: {len(tools)}")

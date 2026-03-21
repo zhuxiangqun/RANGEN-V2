@@ -136,7 +136,7 @@ def example_agent_usage():
     
     try:
         from src.agents.reasoning_agent import ReasoningAgent
-        from src.agents.tools.tool_registry import ToolRegistry
+        from src.agents.execution_tools.tool_registry import ToolRegistry
         from unittest.mock import Mock
         
         # 创建模拟工具注册表

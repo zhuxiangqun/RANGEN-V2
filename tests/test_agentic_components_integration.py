@@ -41,8 +41,8 @@ from src.core.hierarchical_tool_system import (
     get_global_tool_system, integrate_with_double_loop_processor,
     ToolCategory, ToolPermission
 )
-from src.agents.tools import get_tool_registry
-from src.agents.tools.base_tool import BaseTool
+from src.agents.execution_tools import get_tool_registry
+from src.agents.execution_tools.base_tool import BaseTool
 from src.interfaces.tool import ToolResult
 
 

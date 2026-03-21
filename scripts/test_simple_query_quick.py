@@ -142,7 +142,7 @@ async def test_fast_path():
     
     try:
         from src.core.langgraph_agent_nodes import AgentNodes
-        from src.unified_research_system import UnifiedResearchSystem
+        from src.services.unified_research_system import UnifiedResearchSystem
         from typing import Dict, Any
         
         system = UnifiedResearchSystem()

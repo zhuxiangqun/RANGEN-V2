@@ -8,7 +8,7 @@ from typing import Dict, Any, Optional, List
 from dataclasses import dataclass
 
 from src.agents.react_agent import ReActAgent, Action
-from src.core.context_engineering.autonomous_decision import (
+from src.orchestration.context_engineering.autonomous_decision import (
     AutonomousDecisionEngine, 
     DecisionType,
     Decision

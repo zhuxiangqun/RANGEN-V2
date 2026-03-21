@@ -74,7 +74,7 @@ class ComprehensiveSystemIntegrationTester:
         print("-" * 50)
 
         try:
-            from src.unified_research_system import UnifiedResearchSystem
+            from src.services.unified_research_system import UnifiedResearchSystem
 
             print("   初始化UnifiedResearchSystem...")
             system = UnifiedResearchSystem()
@@ -122,7 +122,7 @@ class ComprehensiveSystemIntegrationTester:
         print("\n🤖 步骤2: 单个Agent功能测试")
         print("-" * 50)
 
-        from src.unified_research_system import UnifiedResearchSystem
+        from src.services.unified_research_system import UnifiedResearchSystem
 
         system = UnifiedResearchSystem()
         await system.initialize()
@@ -239,7 +239,7 @@ class ComprehensiveSystemIntegrationTester:
         print("\n🔗 步骤3: 多Agent协作场景测试")
         print("-" * 50)
 
-        from src.unified_research_system import UnifiedResearchSystem
+        from src.services.unified_research_system import UnifiedResearchSystem
 
         system = UnifiedResearchSystem()
         await system.initialize()
@@ -344,7 +344,7 @@ class ComprehensiveSystemIntegrationTester:
         print("\n🔄 步骤4: 端到端完整流程测试")
         print("-" * 50)
 
-        from src.unified_research_system import UnifiedResearchSystem
+        from src.services.unified_research_system import UnifiedResearchSystem
 
         system = UnifiedResearchSystem()
         await system.initialize()
@@ -423,7 +423,7 @@ class ComprehensiveSystemIntegrationTester:
         print("\n🛡️ 步骤5: 错误处理和异常情况测试")
         print("-" * 50)
 
-        from src.unified_research_system import UnifiedResearchSystem
+        from src.services.unified_research_system import UnifiedResearchSystem
 
         system = UnifiedResearchSystem()
         await system.initialize()
@@ -496,7 +496,7 @@ class ComprehensiveSystemIntegrationTester:
         print("\n📊 步骤6: 性能和稳定性测试")
         print("-" * 50)
 
-        from src.unified_research_system import UnifiedResearchSystem
+        from src.services.unified_research_system import UnifiedResearchSystem
 
         system = UnifiedResearchSystem()
         await system.initialize()

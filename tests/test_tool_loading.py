@@ -32,7 +32,7 @@ class TestToolLoadingStrategy(unittest.TestCase):
         
         # 检查 Skill 系统存在
         try:
-            from src.agents.skills import get_skill_registry
+            from src.skills.runtime import get_skill_registry
             self.assertTrue(True, "Skill registry available")
         except ImportError:
             self.skipTest("Skill registry not fully implemented")
@@ -61,14 +61,14 @@ class TestToolRegistry(unittest.TestCase):
     
     def test_tool_registry_exists(self):
         """测试工具注册表存在"""
-        from src.agents.tools.tool_registry import ToolRegistry
+        from src.agents.execution_tools.tool_registry import ToolRegistry
         
         registry = ToolRegistry()
         self.assertIsNotNone(registry)
     
     def test_tools_registered(self):
         """Test tools can be listed"""
-        from src.agents.tools.tool_registry import ToolRegistry
+        from src.agents.execution_tools.tool_registry import ToolRegistry
         
         registry = ToolRegistry()
         

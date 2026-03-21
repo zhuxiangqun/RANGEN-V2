@@ -32,7 +32,7 @@ os.environ.setdefault('ENABLE_UNIFIED_WORKFLOW', 'true')
 os.environ.setdefault('ENABLE_BROWSER_VISUALIZATION', 'false')
 
 from src.visualization.browser_server import BrowserVisualizationServer
-from src.unified_research_system import create_unified_research_system
+from src.services.unified_research_system import create_unified_research_system
 
 # 全局变量用于信号处理
 _shutdown_flag = False

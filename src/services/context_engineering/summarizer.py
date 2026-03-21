@@ -4,7 +4,7 @@ Handles hierarchical context compression with NLP-enhanced multi-layer summariza
 V3 Feature: LLM+NLP driven hierarchical summarization with keyword extraction.
 """
 from typing import List, Dict, Tuple, Optional, Any
-from src.core.core_services.llm_integration import LLMIntegration
+from src.orchestration.core_services.llm_integration import LLMIntegration
 from src.services.logging_service import get_logger
 import re
 from collections import Counter

@@ -19,7 +19,7 @@ async def test_workflow_execution():
     try:
         # 1. 创建系统
         print("\n1. 创建UnifiedResearchSystem...")
-        from src.unified_research_system import create_unified_research_system
+        from src.services.unified_research_system import create_unified_research_system
 
         system = await create_unified_research_system()
         print("   ✅ 系统创建成功")

@@ -408,7 +408,7 @@ class RetrievalHelpers:
                 'wiki': 0.9,
                 'faiss': 0.8,
                 'kms': 0.8,
-                'knowledge_management_system': 0.8,
+                'kms_api': 0.8,
                 'fallback': 0.3,
                 'cache': 0.7,
                 'unknown': 0.5

@@ -150,7 +150,7 @@ Show your reasoning:
     def get_prompt_with_skills(self, name: str, skill_names: List[str] = None, **kwargs) -> str:
         """获取带Skills的提示"""
         try:
-            from src.agents.skills.prompt_builder import get_skill_prompt_builder
+            from src.skills.runtime.prompt_builder import get_skill_prompt_builder
             builder = get_skill_prompt_builder()
             
             tool_descriptions = builder.get_tool_descriptions(skill_names)
@@ -168,7 +168,7 @@ Show your reasoning:
     def get_tools_for_llm(self, skill_names: List[str] = None) -> List[Dict[str, Any]]:
         """获取LLM格式的工具"""
         try:
-            from src.agents.skills.prompt_builder import get_skill_prompt_builder
+            from src.skills.runtime.prompt_builder import get_skill_prompt_builder
             builder = get_skill_prompt_builder()
             return builder.get_available_tools(skill_names)
         except ImportError:

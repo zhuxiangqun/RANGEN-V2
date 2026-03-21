@@ -9,7 +9,7 @@ import pytest
 import pytest_asyncio
 from typing import Dict, Any
 
-from src.unified_research_system import UnifiedResearchSystem
+from src.services.unified_research_system import UnifiedResearchSystem
 from src.visualization.orchestration_tracker import (
     OrchestrationTracker,
     get_orchestration_tracker,

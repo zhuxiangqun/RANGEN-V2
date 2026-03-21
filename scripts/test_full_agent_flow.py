@@ -7,7 +7,7 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src.agents.agent_selector import select_agent
-from src.agents.skills.ai_skill_trigger import ai_auto_trigger_skills
+from src.skills.runtime.ai_skill_trigger import ai_auto_trigger_skills
 
 
 async def test_full_flow():

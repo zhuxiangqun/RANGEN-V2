@@ -211,7 +211,7 @@ class BuiltInTemplates:
     
     def get_template_as_sop(self, template_id: str):
         """将模板转换为SOP格式"""
-        from src.core.sop_learning import StandardOperatingProcedure, SOPStep, SOPCategory
+        from src.orchestration.sop_learning import StandardOperatingProcedure, SOPStep, SOPCategory
         
         template = self.get_template(template_id)
         if not template:

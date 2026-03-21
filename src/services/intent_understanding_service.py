@@ -176,7 +176,7 @@ class IntentUnderstandingService:
         """获取学习器 - 懒加载 SkillTriggerLearner"""
         if self._learner is None:
             try:
-                from src.core.self_learning.skill_trigger_learner import SkillTriggerLearner
+                from src.orchestration.self_learning.skill_trigger_learner import SkillTriggerLearner
                 self._learner = SkillTriggerLearner()
                 
                 # 注册所有意图类型作为"技能"
@@ -205,7 +205,7 @@ class IntentUnderstandingService:
             try:
                 self._load_env()  # 确保环境变量已加载
                 
-                from src.core.core_services.llm_integration import LLMIntegration
+                from src.orchestration.core_services.llm_integration import LLMIntegration
                 
                 api_key = os.getenv("DEEPSEEK_API_KEY", "")
                 logger.info(f"IntentUnderstandingService: API Key found: {api_key[:10] if api_key else 'None'}...")
@@ -516,7 +516,7 @@ class IntentUnderstandingService:
             learner = self._get_learner()
             if learner:
                 try:
-                    from src.core.self_learning.skill_trigger_learner import TriggerCondition
+                    from src.orchestration.self_learning.skill_trigger_learner import TriggerCondition
                     condition = TriggerCondition(
                         keywords=self._extract_keywords(query),
                         query_patterns=[query]
@@ -595,7 +595,7 @@ class IntentUnderstandingService:
         
         if learner:
             try:
-                from src.core.self_learning.skill_trigger_learner import TriggerCondition
+                from src.orchestration.self_learning.skill_trigger_learner import TriggerCondition
                 condition = TriggerCondition(
                     keywords=self._extract_keywords(query),
                     query_patterns=[query]

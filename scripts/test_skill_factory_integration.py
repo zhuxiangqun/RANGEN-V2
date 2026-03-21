@@ -20,7 +20,7 @@ async def test_skill_factory_integration():
     
     try:
         # 1. 导入测试
-        from skill_factory.factory import SkillFactory
+        from src.skills.factory.factory import SkillFactory
         print("✅ SkillFactory导入成功")
         
         # 2. 创建工厂实例

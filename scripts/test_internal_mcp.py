@@ -14,7 +14,7 @@ async def test_in_process_mcp():
     print("=" * 60)
     
     try:
-        from src.agents.tools.in_process_mcp import get_in_process_mcp_executor
+        from src.agents.execution_tools.in_process_mcp import get_in_process_mcp_executor
         
         executor = get_in_process_mcp_executor()
         
@@ -53,7 +53,7 @@ async def test_standalone_mcp_server():
     
     try:
         # 尝试导入
-        from src.agents.tools.internal_mcp_server import create_internal_mcp_server
+        from src.agents.execution_tools.internal_mcp_server import create_internal_mcp_server
         
         print("\n[1] 创建MCP服务器...")
         app = create_internal_mcp_server()
@@ -90,7 +90,7 @@ async def test_hybrid_executor():
     print("=" * 60)
     
     try:
-        from src.agents.skills.hybrid_tool_executor import HybridToolExecutor
+        from src.skills.runtime.hybrid_tool_executor import HybridToolExecutor
         
         # 使用MCP模式
         executor = HybridToolExecutor(internal_mode="mcp")

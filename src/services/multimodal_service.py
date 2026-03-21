@@ -64,32 +64,20 @@ class MultimodalService(BaseAgent):
     def _initialize_processors(self):
         """初始化多模态处理器"""
         try:
-            # 初始化图像处理器
-            try:
-                from knowledge_management_system.modalities.image_processor import ImageProcessor
-                self.image_processor = ImageProcessor()
-                logger.info("✅ 图像处理器初始化成功")
-            except Exception as e:
-                logger.warning(f"⚠️ 图像处理器初始化失败: {e}")
-                self.image_processor = None
+            # 初始化图像处理器 - KMS 已分离，使用内置处理器
+            self.image_processor = None
+            self.audio_processor = None
+            self.video_processor = None
+            logger.info("⚠️ 多模态处理器需要独立的 KMS 服务支持")
             
-            # 初始化音频处理器
+            # 如果需要使用 KMS 的多模态功能，通过 src.kms 调用独立服务
             try:
-                from knowledge_management_system.modalities.audio_processor import AudioProcessor
-                self.audio_processor = AudioProcessor()
-                logger.info("✅ 音频处理器初始化成功")
-            except Exception as e:
-                logger.warning(f"⚠️ 音频处理器初始化失败: {e}")
-                self.audio_processor = None
-            
-            # 初始化视频处理器
-            try:
-                from knowledge_management_system.modalities.video_processor import VideoProcessor
-                self.video_processor = VideoProcessor()
-                logger.info("✅ 视频处理器初始化成功")
-            except Exception as e:
-                logger.warning(f"⚠️ 视频处理器初始化失败: {e}")
-                self.video_processor = None
+                from src.kms import get_kms_client
+                self.kms_client = get_kms_client()
+                logger.info("✅ KMS 客户端初始化成功")
+            except ImportError:
+                self.kms_client = None
+                logger.warning("⚠️ KMS 模块不可用")
             
             # 初始化计算机视觉引擎
             try:

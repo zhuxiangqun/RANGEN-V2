@@ -8,7 +8,7 @@ import sys
 # Add project root to path
 sys.path.append(os.getcwd())
 
-from src.agents.tools.retrieval_tool import RetrievalTool
+from src.agents.execution_tools.retrieval_tool import RetrievalTool
 from src.services.logging_service import get_logger
 
 logger = get_logger("verify_kms")

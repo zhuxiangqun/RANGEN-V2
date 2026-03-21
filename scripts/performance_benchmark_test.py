@@ -121,7 +121,7 @@ class PerformanceBenchmarkTester:
         print("\n⏱️ 步骤2: 响应时间基准测试")
         print("-" * 50)
 
-        from src.unified_research_system import UnifiedResearchSystem
+        from src.services.unified_research_system import UnifiedResearchSystem
 
         system = UnifiedResearchSystem()
         await system.initialize()
@@ -197,7 +197,7 @@ class PerformanceBenchmarkTester:
         print("\n🔥 步骤3: 吞吐量压力测试")
         print("-" * 50)
 
-        from src.unified_research_system import UnifiedResearchSystem
+        from src.services.unified_research_system import UnifiedResearchSystem
 
         system = UnifiedResearchSystem()
         await system.initialize()
@@ -311,7 +311,7 @@ class PerformanceBenchmarkTester:
         print("\n📈 步骤4: 资源使用率监控")
         print("-" * 50)
 
-        from src.unified_research_system import UnifiedResearchSystem
+        from src.services.unified_research_system import UnifiedResearchSystem
 
         system = UnifiedResearchSystem()
         await system.initialize()
@@ -401,7 +401,7 @@ class PerformanceBenchmarkTester:
         print("\n🔄 步骤5: 稳定性持续测试")
         print("-" * 50)
 
-        from src.unified_research_system import UnifiedResearchSystem
+        from src.services.unified_research_system import UnifiedResearchSystem
 
         system = UnifiedResearchSystem()
         await system.initialize()

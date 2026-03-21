@@ -84,19 +84,12 @@ class FramesDatasetIntegrator:
     def _initialize_knowledge_service(self):
         """初始化知识库服务"""
         try:
-            # 优先使用知识库管理系统
-            from knowledge_management_system.api.service_interface import get_knowledge_service
-            self.knowledge_service = get_knowledge_service()
-            logger.info("✅ 知识库管理系统连接成功")
+            from src.kms import get_kms_client
+            self.knowledge_service = get_kms_client()
+            logger.info("✅ KMS 客户端连接成功")
         except ImportError:
-            logger.warning("⚠️ 知识库管理系统不可用，尝试使用向量知识库")
-            try:
-                from src.knowledge.vector_database import get_vector_knowledge_base
-                self.knowledge_service = get_vector_knowledge_base()
-                logger.info("✅ 向量知识库连接成功")
-            except ImportError as e:
-                logger.error(f"❌ 知识库服务初始化失败: {e}")
-                self.knowledge_service = None
+            logger.warning("⚠️ KMS 模块不可用，尝试使用内置知识库")
+            self.knowledge_service = None
     
     def load_frames_dataset(self, dataset_path: str) -> List[FramesDataItem]:
         """加载FRAMES数据集
@@ -448,16 +441,18 @@ class FramesDatasetIntegrator:
         
         if urls_to_fetch:
             try:
-                # 使用Wikipedia fetcher
-                from knowledge_management_system.utils.wikipedia_fetcher import get_wikipedia_fetcher
-                fetcher = get_wikipedia_fetcher()
+                # Wikipedia fetcher 需要 KMS 服务支持
+                logger.warning("⚠️ Wikipedia 抓取需要独立的 KMS 服务")
+                pages = []
                 
-                # 抓取内容
-                pages = fetcher.fetch_multiple_pages(
-                    urls_to_fetch,
-                    include_full_text=True,
-                    deduplicate=True
-                )
+                # 如果 KMS 服务可用，可以通过 API 调用
+                try:
+                    from src.kms import get_kms_client
+                    kms_client = get_kms_client()
+                    # 通过 KMS 服务抓取 Wikipedia
+                    logger.info("尝试通过 KMS 服务抓取 Wikipedia")
+                except ImportError:
+                    logger.warning("⚠️ KMS 模块不可用，跳过 Wikipedia 抓取")
                 
                 # 存储到缓存
                 for page in pages:

@@ -111,7 +111,7 @@ def test_agent_configuration():
     os.environ["LLM_PROVIDER"] = "stepflash"
     
     from src.agents.reasoning_agent import ReasoningAgent
-    from src.agents.tools.tool_registry import ToolRegistry
+    from src.agents.execution_tools.tool_registry import ToolRegistry
     
     # 创建模拟工具注册表
     mock_tool_registry = Mock(spec=ToolRegistry)

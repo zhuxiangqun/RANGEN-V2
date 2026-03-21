@@ -6,7 +6,7 @@ import sys
 # Add project root to path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-from src.unified_research_system import UnifiedResearchSystem
+from src.services.unified_research_system import UnifiedResearchSystem
 from src.core.research_request import ResearchRequest
 
 async def debug_specific_query():

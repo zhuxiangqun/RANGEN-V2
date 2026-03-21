@@ -9,7 +9,7 @@ import logging
 from typing import Dict, List, Any, Optional
 import time
 
-from src.core.layered_architecture_types import (
+from src.orchestration.layered_architecture_types import (
     StrategicPlan, ExecutionParams, TaskDefinition, TaskType,
     QueryAnalysis, SystemState
 )

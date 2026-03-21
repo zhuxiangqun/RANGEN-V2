@@ -18,8 +18,8 @@ from enum import Enum
 from datetime import datetime
 
 from src.agents.priority_routing_engine import get_priority_routing_engine
-from src.agents.skills.enhanced_registry import get_enhanced_skill_registry
-from src.agents.tools.tool_registry import get_tool_registry
+from src.skills.runtime.enhanced_registry import get_enhanced_skill_registry
+from src.agents.execution_tools.tool_registry import get_tool_registry
 
 logger = logging.getLogger(__name__)
 

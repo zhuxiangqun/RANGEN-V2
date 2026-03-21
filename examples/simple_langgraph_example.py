@@ -29,7 +29,7 @@ except Exception as e:
 # 启用 LangGraph（可选）
 os.environ['USE_LANGGRAPH'] = 'true'
 
-from src.unified_research_system import create_unified_research_system, ResearchRequest
+from src.services.unified_research_system import create_unified_research_system, ResearchRequest
 
 
 async def main():

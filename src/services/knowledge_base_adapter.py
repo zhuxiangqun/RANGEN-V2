@@ -10,30 +10,24 @@ import asyncio
 from ..utils.research_logger import log_info, log_warning, log_error
 
 try:
-    from knowledge_management_system.api.service_interface import get_knowledge_service
+    from src.kms import get_kms_client
     KMS_AVAILABLE = True
-    _get_knowledge_service_func = get_knowledge_service  # 保存引用
 except ImportError:
     KMS_AVAILABLE = False
-    _get_knowledge_service_func = None
-    log_warning("知识库管理系统不可用，适配器将无法工作")
 
 
 class KnowledgeBaseAdapter:
-    """知识库适配器 - 兼容旧接口，内部使用知识库管理系统"""
-    
     def __init__(self):
-        """初始化适配器"""
-        if not KMS_AVAILABLE or _get_knowledge_service_func is None:
-            self.kms_service = None
-            log_warning("知识库管理系统不可用，适配器功能受限")
+        if not KMS_AVAILABLE:
+            self.kms_client = None
+            log_warning("KMS 模块不可用")
         else:
             try:
-                self.kms_service = _get_knowledge_service_func()
-                log_info("知识库适配器初始化完成（使用知识库管理系统）")
+                self.kms_client = get_kms_client()
+                log_info("知识库适配器初始化完成（使用 KMS 客户端）")
             except Exception as e:
-                self.kms_service = None
-                log_error("knowledge_base_adapter", f"知识库管理系统初始化失败: {e}")
+                self.kms_client = None
+                log_error("knowledge_base_adapter", f"KMS 客户端初始化失败: {e}")
     
     def is_available(self) -> bool:
         """检查知识库管理系统是否可用"""

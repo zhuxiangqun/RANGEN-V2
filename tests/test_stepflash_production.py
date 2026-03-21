@@ -141,7 +141,7 @@ def test_agent_configuration_with_stepflash():
     # 模拟环境变量
     with patch.dict(os.environ, {"LLM_PROVIDER": "stepflash", "STEPSFLASH_API_KEY": "mock-key"}):
         from src.agents.reasoning_agent import ReasoningAgent
-        from src.agents.tools.tool_registry import ToolRegistry
+        from src.agents.execution_tools.tool_registry import ToolRegistry
         
         # 创建模拟工具注册表
         mock_tool_registry = Mock(spec=ToolRegistry)

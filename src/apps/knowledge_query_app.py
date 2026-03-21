@@ -47,9 +47,13 @@ from pathlib import Path
 project_root = Path(__file__).parent.parent.parent
 sys.path.append(str(project_root))
 
-from src.core.real_reasoning_engine import RealReasoningEngine
+from src.orchestration.real_reasoning_engine import RealReasoningEngine
 from src.utils.reasoning_visualizer import ReasoningVisualizer
-from knowledge_management_system.core.vector_index_builder import VectorIndexBuilder
+
+try:
+    from src.kms import get_kms_client
+except ImportError:
+    get_kms_client = None
 
 def main():
     st.set_page_config(page_title="RANGEN Intelligent Query", page_icon="🧠")

@@ -18,7 +18,7 @@ async def test_unified_react_init():
     try:
         print("1️⃣ 创建简化的UnifiedResearchSystem...")
         # 直接导入并创建实例，避免完整的初始化
-        from src.unified_research_system import UnifiedResearchSystem
+        from src.services.unified_research_system import UnifiedResearchSystem
 
         # 创建实例但不调用__init__
         system = UnifiedResearchSystem.__new__(UnifiedResearchSystem)

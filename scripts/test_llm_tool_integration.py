@@ -4,7 +4,7 @@ import asyncio
 import sys
 sys.path.insert(0, '/Users/apple/workdata/person/zy/RANGEN-main(syu-python)')
 
-from src.agents.skills.llm_driven_executor import LLMSkillExecutor, PromptStyle
+from src.skills.runtime.llm_driven_executor import LLMSkillExecutor, PromptStyle
 
 
 async def test_llm_to_tool():

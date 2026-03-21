@@ -25,7 +25,7 @@ logging.getLogger("httpx").setLevel(logging.WARNING)
 logging.getLogger("openai").setLevel(logging.WARNING)
 logging.getLogger("urllib3").setLevel(logging.WARNING)
 
-from src.unified_research_system import UnifiedResearchSystem, ResearchRequest
+from src.services.unified_research_system import UnifiedResearchSystem, ResearchRequest
 from src.core.entry_router import EntryRouter
 
 async def run_single_query(query: str):

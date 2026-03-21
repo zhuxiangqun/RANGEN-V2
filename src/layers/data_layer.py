@@ -6,7 +6,7 @@ import os
 
 import logging
 from typing import Dict, Any, Optional, List
-from src.core.research_request import ResearchRequest, ResearchResponse
+from src.orchestration.research_request import ResearchRequest, ResearchResponse
 # 数据层功能已合并到utils模块中
 
 

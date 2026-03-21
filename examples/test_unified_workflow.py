@@ -28,7 +28,7 @@ os.environ['ENABLE_UNIFIED_WORKFLOW'] = 'true'
 # 启用可视化
 os.environ['ENABLE_BROWSER_VISUALIZATION'] = 'true'
 
-from src.unified_research_system import create_unified_research_system, ResearchRequest
+from src.services.unified_research_system import create_unified_research_system, ResearchRequest
 
 
 async def test_simple_query():

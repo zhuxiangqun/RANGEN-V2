@@ -17,7 +17,7 @@ async def test_initialize_debug():
 
     try:
         print("1️⃣ 导入UnifiedResearchSystem...")
-        from src.unified_research_system import UnifiedResearchSystem
+        from src.services.unified_research_system import UnifiedResearchSystem
         print("   ✅ 导入成功")
 
         print("\n2️⃣ 创建实例...")

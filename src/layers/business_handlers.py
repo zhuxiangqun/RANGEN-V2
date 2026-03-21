@@ -7,7 +7,7 @@ Business Handler Chain Pattern Implementations
 """
 from abc import ABC, abstractmethod
 from typing import Any, Optional
-from src.core.services import get_core_logger
+from src.orchestration.services import get_core_logger
 
 
 class RuleHandler(ABC):

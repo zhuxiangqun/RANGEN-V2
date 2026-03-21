@@ -154,7 +154,7 @@ class PriorityRoutingEngine:
         
         # CLI 工具执行器
         try:
-            from src.core.executor.cli_executor import get_cli_executor
+            from src.orchestration.executor.cli_executor import get_cli_executor
             self.cli_executor = get_cli_executor()
         except Exception:
             self.cli_executor = None

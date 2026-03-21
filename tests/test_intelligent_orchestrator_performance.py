@@ -16,7 +16,7 @@ from src.core.intelligent_orchestrator import (
     ConservativePlan
 )
 from src.agents.base_agent import AgentResult
-from src.unified_research_system import ResearchResult
+from src.services.unified_research_system import ResearchResult
 
 
 class TestIntelligentOrchestratorPerformance(unittest.IsolatedAsyncioTestCase):

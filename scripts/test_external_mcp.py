@@ -84,7 +84,7 @@ async def test_external_mcp():
     print("架构验证: 测试 HybridToolExecutor")
     print("=" * 60)
     
-    from src.agents.skills.hybrid_tool_executor import get_hybrid_executor
+    from src.skills.runtime.hybrid_tool_executor import get_hybrid_executor
     
     executor = get_hybrid_executor()
     tools = executor.list_all_tools()

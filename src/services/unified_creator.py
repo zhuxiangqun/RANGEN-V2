@@ -84,7 +84,7 @@ class UnifiedCreator:
         """Lazy load skill factory"""
         if self._skill_factory is None:
             try:
-                from src.agents.skills.skill_factory_integration import SkillFactoryIntegration
+                from src.skills.runtime.skill_factory_integration import SkillFactoryIntegration
                 self._skill_factory = SkillFactoryIntegration()
             except Exception as e:
                 logger.warning(f"Skill factory not available: {e}")

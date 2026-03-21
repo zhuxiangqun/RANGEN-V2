@@ -56,7 +56,7 @@ class LLMCodeGenerator:
     def _init_llm(self):
         """初始化 LLM"""
         try:
-            from src.core.core_services.llm_integration import LLMIntegration
+            from src.orchestration.core_services.llm_integration import LLMIntegration
             self.llm = LLMIntegration({})
             logger.info("LLM 代码生成器初始化成功")
         except Exception as e:
@@ -878,7 +878,7 @@ class OpenClawHandGenerator:
         """初始化 OpenClaw 组件"""
         # AgentHUD - 可观测性
         try:
-            from src.ui.agent_hud import get_hud_instance
+            from src.access.ui.agent_hud import get_hud_instance
             self.hud = get_hud_instance()
         except ImportError:
             self.hud = None
@@ -906,7 +906,7 @@ class OpenClawHandGenerator:
         
         # Middleware Chain - 中间件
         try:
-            from src.core.middleware import get_middleware_chain, LoggingMiddleware
+            from src.orchestration.middleware import get_middleware_chain, LoggingMiddleware
             self.middleware = get_middleware_chain()
         except ImportError:
             self.middleware = None

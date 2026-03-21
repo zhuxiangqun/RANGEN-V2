@@ -33,7 +33,7 @@ from enum import Enum
 from dataclasses import dataclass, asdict
 from datetime import datetime
 
-from src.core.utils.circuit_breaker import CircuitBreaker, CircuitBreakerOpenError
+from src.orchestration.utils.circuit_breaker import CircuitBreaker, CircuitBreakerOpenError
 
 logger = logging.getLogger(__name__)
 

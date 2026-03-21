@@ -18,7 +18,7 @@ import sys
 import time
 from typing import Dict, Any, List
 
-from src.unified_research_system import UnifiedResearchSystem
+from src.services.unified_research_system import UnifiedResearchSystem
 from src.core.langgraph_unified_workflow import UnifiedResearchWorkflow
 
 # 配置日志输出

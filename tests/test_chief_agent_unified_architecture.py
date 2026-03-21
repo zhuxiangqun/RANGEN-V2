@@ -33,7 +33,7 @@ class TestChiefAgentUnifiedArchitecture:
         """创建工作流实例 fixture"""
         logger.info("🔧 设置测试环境...")
         try:
-            from src.unified_research_system import UnifiedResearchSystem
+            from src.services.unified_research_system import UnifiedResearchSystem
             system = UnifiedResearchSystem()
             workflow = UnifiedResearchWorkflow(system=system)
             logger.info("✅ 工作流实例创建成功")

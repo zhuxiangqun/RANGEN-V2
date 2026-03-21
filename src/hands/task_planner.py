@@ -66,7 +66,7 @@ class TaskPlanner:
         """懒加载任务分解引擎"""
         if self._decomposition_engine is None:
             try:
-                from src.core.task_decomposition import TaskDecompositionEngine
+                from src.orchestration.task_decomposition import TaskDecompositionEngine
                 self._decomposition_engine = TaskDecompositionEngine()
                 self.logger.info("任务分解引擎初始化成功")
             except Exception as e:

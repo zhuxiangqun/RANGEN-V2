@@ -15,8 +15,8 @@ sys.path.append(os.getcwd())
 from src.core.context_manager import ContextManager
 from src.core.configurable_router import ConfigurableRouter
 from src.core.execution_coordinator import ExecutionCoordinator
-from src.agents.tools.tool_registry import ToolRegistry
-from src.agents.tools.retrieval_tool import RetrievalTool
+from src.agents.execution_tools.tool_registry import ToolRegistry
+from src.agents.execution_tools.retrieval_tool import RetrievalTool
 from src.services.logging_service import get_logger
 
 logger = get_logger("evaluator")

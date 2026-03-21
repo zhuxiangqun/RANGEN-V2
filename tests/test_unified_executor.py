@@ -80,7 +80,7 @@ class TestToolToSkillMap:
     
     def test_get_skill_name(self):
         """测试获取Skill名称"""
-        from src.agents.skills.tool_to_skill_map import get_skill_name
+        from src.skills.runtime.tool_to_skill_map import get_skill_name
         
         assert get_skill_name("calculator") == "calculator-skill"
         assert get_skill_name("search") == "web-search"
@@ -88,7 +88,7 @@ class TestToolToSkillMap:
     
     def test_is_skill_available(self):
         """测试Skill可用性"""
-        from src.agents.skills.tool_to_skill_map import is_skill_available
+        from src.skills.runtime.tool_to_skill_map import is_skill_available
         
         # 已知存在的工具
         assert is_skill_available("calculator") is not None

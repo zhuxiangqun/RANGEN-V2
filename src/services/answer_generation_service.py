@@ -926,7 +926,7 @@ class AnswerGenerationService(BaseAgent):
         """生成事实性答案 - 基于真正推理的简洁答案"""
         try:
             # 使用真正的推理引擎
-            from src.core.reasoning import RealReasoningEngine
+            from src.orchestration.reasoning import RealReasoningEngine
             
             reasoning_engine = RealReasoningEngine()
             
@@ -1000,7 +1000,7 @@ class AnswerGenerationService(BaseAgent):
         """生成分析性答案 - 基于真正推理的简洁答案"""
         try:
             # 使用真正的推理引擎
-            from src.core.reasoning import RealReasoningEngine
+            from src.orchestration.reasoning import RealReasoningEngine
             
             reasoning_engine = RealReasoningEngine()
             

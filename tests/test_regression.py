@@ -13,7 +13,7 @@ from pathlib import Path
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-from src.unified_research_system import UnifiedResearchSystem, ResearchRequest
+from src.services.unified_research_system import UnifiedResearchSystem, ResearchRequest
 
 
 class TestRegression(unittest.IsolatedAsyncioTestCase):

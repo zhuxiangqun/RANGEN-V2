@@ -320,7 +320,7 @@ class AutoscalingService:
             
             # 2. 收集应用级指标（从性能监控器）
             try:
-                from src.tools.monitoring.performance_monitor import PerformanceMonitor
+                from src.services.performance_monitor import PerformanceMonitor
                 performance_monitor = PerformanceMonitor()
                 perf_metrics = performance_monitor.get_current_metrics()
                 

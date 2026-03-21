@@ -29,16 +29,14 @@ except ImportError:
     def get_config(key: str, default: Any = None) -> Any:
         return os.getenv(key, default)
 
-# 🚀 迁移：优先使用知识库管理系统（第四系统）
+# KMS 已分离为独立仓库，使用 src.kms 模块
 try:
-    from knowledge_management_system.api.service_interface import get_knowledge_service
+    from src.kms import get_kms_client
     KMS_AVAILABLE = True
-    _get_knowledge_service_func = get_knowledge_service
 except ImportError:
     KMS_AVAILABLE = False
-    _get_knowledge_service_func = None  # type: ignore
 
-# 回退：如果知识库管理系统不可用，使用旧系统（过渡期）
+# 回退：使用内置 FAISS 服务
 try:
     from memory.enhanced_faiss_memory import EnhancedFAISSMemory
     OLD_FAISS_AVAILABLE = True

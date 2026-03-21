@@ -5,7 +5,7 @@ import sys
 sys.path.insert(0, '.')
 
 async def test():
-    from src.agents.tools.tool_initializer import initialize_tools
+    from src.agents.execution_tools.tool_initializer import initialize_tools
     from src.core.cli_executor import CLIExecutor
     from src.agents.intelligent_tool_selector import get_intelligent_tool_selector
     

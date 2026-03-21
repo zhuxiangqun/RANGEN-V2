@@ -8,7 +8,7 @@ import os
 from typing import Dict, Any, Optional, List
 from abc import ABC, abstractmethod
 from datetime import datetime
-from src.core.research_request import ResearchRequest, ResearchResponse
+from src.orchestration.research_request import ResearchRequest, ResearchResponse
 
 logger = logging.getLogger(__name__)
 

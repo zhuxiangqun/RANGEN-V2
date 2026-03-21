@@ -11,7 +11,7 @@ print("检查工具注册表")
 print("=" * 60)
 
 try:
-    from src.agents.tools.tool_registry import get_tool_registry
+    from src.agents.execution_tools.tool_registry import get_tool_registry
     
     registry = get_tool_registry()
     tools = registry.get_all_tools()

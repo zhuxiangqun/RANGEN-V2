@@ -6,7 +6,7 @@ from typing import List, Dict, Optional
 import json
 import asyncio
 from src.services.logging_service import get_logger
-from src.core.neural.factory import NeuralServiceFactory
+from src.orchestration.neural.factory import NeuralServiceFactory
 
 logger = get_logger(__name__)
 

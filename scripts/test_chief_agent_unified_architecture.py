@@ -43,7 +43,7 @@ async def test_simple_query():
     logger.info("📝 测试1: Simple 查询快速路径")
     logger.info("=" * 80)
     
-    from src.unified_research_system import create_unified_research_system, ResearchRequest
+    from src.services.unified_research_system import create_unified_research_system, ResearchRequest
     
     test_query = "What is the capital of France?"
     start_time = time.time()
@@ -96,7 +96,7 @@ async def test_complex_query():
     logger.info("📝 测试2: Complex 查询完整智能体序列")
     logger.info("=" * 80)
     
-    from src.unified_research_system import create_unified_research_system, ResearchRequest
+    from src.services.unified_research_system import create_unified_research_system, ResearchRequest
     
     test_query = "Compare the economic policies of the United States and China in the 21st century"
     start_time = time.time()
@@ -144,7 +144,7 @@ async def test_reasoning_query():
     logger.info("📝 测试3: Reasoning 路径推理引擎")
     logger.info("=" * 80)
     
-    from src.unified_research_system import create_unified_research_system, ResearchRequest
+    from src.services.unified_research_system import create_unified_research_system, ResearchRequest
     
     test_query = "Who was the 15th first lady of the United States?"
     start_time = time.time()
@@ -194,7 +194,7 @@ async def test_routing_logic():
     
     try:
         from src.core.langgraph_unified_workflow import UnifiedResearchWorkflow
-        from src.unified_research_system import UnifiedResearchSystem
+        from src.services.unified_research_system import UnifiedResearchSystem
         
         system = UnifiedResearchSystem()
         workflow = UnifiedResearchWorkflow(system=system)

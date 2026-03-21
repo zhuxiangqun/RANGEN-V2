@@ -251,7 +251,7 @@ class MultiAgentIntegrationTest:
         print("\n🏗️ 测试系统整体集成...")
 
         try:
-            from src.unified_research_system import UnifiedResearchSystem
+            from src.services.unified_research_system import UnifiedResearchSystem
 
             # 初始化系统
             system = UnifiedResearchSystem()

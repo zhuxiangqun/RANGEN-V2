@@ -104,7 +104,7 @@ class UnifiedComplexityModelService:
     def _initialize_llm(self):
         """初始化LLM集成"""
         try:
-            from src.core.core_services.llm_integration import LLMIntegration
+            from src.orchestration.core_services.llm_integration import LLMIntegration
             
             # 快速LLM（用于复杂度判断）
             fast_llm_config = {
@@ -131,7 +131,7 @@ class UnifiedComplexityModelService:
     def _initialize_optimizer(self):
         """初始化ML/RL优化器"""
         try:
-            from src.core.adaptive_optimizer import AdaptiveOptimizer
+            from src.orchestration.adaptive_optimizer import AdaptiveOptimizer
             self._adaptive_optimizer = AdaptiveOptimizer()
             self.logger.info("✅ ML/RL优化器初始化成功")
         except Exception as e:

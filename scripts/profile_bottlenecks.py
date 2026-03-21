@@ -78,7 +78,7 @@ def apply_patches():
         logger.warning("⚠️ Could not patch RealReasoningEngine")
     
     try:
-        from src.unified_research_system import UnifiedResearchSystem
+        from src.services.unified_research_system import UnifiedResearchSystem
         UnifiedResearchSystem.execute_research = profile_method("UnifiedResearchSystem.execute_research")(UnifiedResearchSystem.execute_research)
         logger.info("✅ Patched UnifiedResearchSystem")
     except ImportError:
@@ -103,7 +103,7 @@ def apply_patches():
 async def run_diagnostic():
     apply_patches()
     
-    from src.unified_research_system import UnifiedResearchSystem, ResearchRequest
+    from src.services.unified_research_system import UnifiedResearchSystem, ResearchRequest
     
     system = UnifiedResearchSystem()
     query = "Imagine there is a building called Bronte tower whose height in feet is the same number as the dewey decimal classification for the Charlotte Bronte book that was published in 1847. Where would this building rank among tallest buildings in New York City, as of August 2024?"

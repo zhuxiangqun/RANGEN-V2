@@ -176,7 +176,7 @@ src/
         """获取 LLM 客户端"""
         if self._llm_client is None:
             try:
-                from src.core.core_services.llm_integration import create_llm_integration
+                from src.orchestration.core_services.llm_integration import create_llm_integration
                 self._llm_client = create_llm_integration(self.llm_config)
             except ImportError:
                 logger.warning("LLM 集成不可用，使用模拟模式")

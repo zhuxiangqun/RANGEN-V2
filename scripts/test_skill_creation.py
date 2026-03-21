@@ -19,7 +19,7 @@ def test_workflow_skill_creation():
     print("1. 测试创建工作流技能...")
     
     try:
-        from src.agents.skills.skill_factory_integration import get_factory_integration
+        from src.skills.runtime.skill_factory_integration import get_factory_integration
         
         factory = get_factory_integration()
         
@@ -86,7 +86,7 @@ def test_expert_skill_creation():
     print("\n2. 测试创建专家技能...")
     
     try:
-        from src.agents.skills.skill_factory_integration import get_factory_integration
+        from src.skills.runtime.skill_factory_integration import get_factory_integration
         
         factory = get_factory_integration()
         
@@ -150,7 +150,7 @@ def test_prototype_analysis():
     print("\n3. 测试原型分析功能...")
     
     try:
-        from src.agents.skills.skill_factory_integration import get_factory_integration
+        from src.skills.runtime.skill_factory_integration import get_factory_integration
         
         factory = get_factory_integration()
         
@@ -197,7 +197,7 @@ def test_skill_trigger_detection():
     print("\n4. 测试技能触发器检测...")
     
     try:
-        from src.agents.skills.skill_trigger import get_skill_trigger
+        from src.skills.runtime.skill_trigger import get_skill_trigger
         
         trigger = get_skill_trigger()
         
@@ -241,7 +241,7 @@ def test_factory_statistics():
     print("\n5. 测试工厂统计信息...")
     
     try:
-        from src.agents.skills.skill_factory_integration import get_factory_integration
+        from src.skills.runtime.skill_factory_integration import get_factory_integration
         
         factory = get_factory_integration()
         

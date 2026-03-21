@@ -175,7 +175,7 @@ class Voice:
         # 如果没有提供 LLM 客户端，尝试使用默认的
         if self.llm_client is None:
             try:
-                from src.core.core_services.llm_integration import LLMIntegration
+                from src.orchestration.core_services.llm_integration import LLMIntegration
                 self.llm_client = LLMIntegration()
             except ImportError:
                 logger.warning("LLM client not available")

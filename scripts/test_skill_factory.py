@@ -14,8 +14,8 @@ import os
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-# 添加skill_factory到路径
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "skill_factory"))
+# skill_factory 已移动到 src/skill_factory
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src", "skill_factory"))
 
 
 async def create_skill_with_factory():
@@ -24,7 +24,7 @@ async def create_skill_with_factory():
     print("步骤1: 使用SkillFactory创建Skill")
     print("=" * 60)
     
-    from skill_factory.factory import SkillFactory
+    from src.skills.factory.factory import SkillFactory
     
     factory = SkillFactory()
     

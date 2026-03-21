@@ -118,7 +118,7 @@ Show your reasoning:
         """
         # Try to import Skills related modules
         try:
-            from src.agents.skills.prompt_builder import get_skill_prompt_builder
+            from src.skills.runtime.prompt_builder import get_skill_prompt_builder
             builder = get_skill_prompt_builder()
             
             # Get Skills tool descriptions and prompts
@@ -144,7 +144,7 @@ Show your reasoning:
             List of tool definitions compatible with OpenAI function calling
         """
         try:
-            from src.agents.skills.prompt_builder import get_skill_prompt_builder
+            from src.skills.runtime.prompt_builder import get_skill_prompt_builder
             builder = get_skill_prompt_builder()
             return builder.get_available_tools(skill_names)
         except ImportError:

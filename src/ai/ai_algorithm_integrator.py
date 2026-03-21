@@ -16,7 +16,7 @@ from dataclasses import dataclass
 from abc import ABC, abstractmethod
 
 # 使用核心系统日志模块（生成标准格式日志供评测系统分析）
-from src.core.services import get_core_logger
+from src.orchestration.services import get_core_logger
 logger = get_core_logger("ai_algorithm_integrator")
 
 

@@ -44,7 +44,7 @@ async def test_complex_query_full_sequence():
     
     try:
         from src.core.langgraph_agent_nodes import AgentNodes
-        from src.unified_research_system import UnifiedResearchSystem
+        from src.services.unified_research_system import UnifiedResearchSystem
         
         # 初始化系统和工作流
         print("🔧 初始化系统...")
@@ -195,7 +195,7 @@ async def test_chief_agent_directly():
     print("=" * 80)
     
     try:
-        from src.unified_research_system import UnifiedResearchSystem
+        from src.services.unified_research_system import UnifiedResearchSystem
         
         system = UnifiedResearchSystem()
         

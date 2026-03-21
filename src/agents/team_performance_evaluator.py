@@ -24,7 +24,7 @@ import json
 # 导入现有的性能跟踪器和协调器
 from src.agents.agent_performance_tracker import AgentPerformanceTracker, PerformanceStats
 from src.agents.multi_agent_coordinator import MultiAgentCoordinator
-from src.core.enhanced_collaboration_coordinator import EnhancedCollaborationCoordinator, CollaborationPerformanceMetrics
+from src.orchestration.enhanced_collaboration_coordinator import EnhancedCollaborationCoordinator, CollaborationPerformanceMetrics
 
 logger = logging.getLogger(__name__)
 

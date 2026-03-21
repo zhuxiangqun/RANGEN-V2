@@ -10,7 +10,7 @@ import logging
 import time
 from typing import Dict, Any, Optional, Union, List, Callable
 from functools import wraps
-from src.core.unified_parameter_learner import get_parameter_learner
+from src.orchestration.unified_parameter_learner import get_parameter_learner
 
 
 # 初始化日志
@@ -1704,7 +1704,7 @@ register_unified_center('get_unified_config_center', SmartConfigCenter)
 # 注册增强性能监控器
 
 
-from src.tools.monitoring.performance_monitor import PerformanceMonitor, get_performance_monitor
+from src.services.performance_monitor import PerformanceMonitor, get_performance_monitor
 performance_monitor = get_performance_monitor()
 register_unified_center('get_performance_monitor', performance_monitor)
 

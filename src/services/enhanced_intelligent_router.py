@@ -26,25 +26,25 @@ from datetime import datetime
 import threading
 
 # 导入优化组件
-from src.core.config.declarative_config import (
+from src.orchestration.config.declarative_config import (
     register_llm_model, register_routing_strategy, register_processor,
     get_config_registry, on_event
 )
-from src.core.processor_chain import (
+from src.orchestration.processor_chain import (
     ProcessorChain, BaseProcessor, ProcessingContext,
     ProcessorResult, InputValidatorProcessor,
     CostOptimizerProcessor, PerformanceEvaluatorProcessor,
     ABTestingProcessor, CircuitBreakerProcessor, FinalSelectorProcessor
 )
-from src.core.storage_abstraction import (
+from src.orchestration.storage_abstraction import (
     StorageFactory, get_default_storage
 )
-from src.core.event_system import (
+from src.orchestration.event_system import (
     get_event_bus, EventTypes, EventMetadata,
     ConfigRegisteredEvent, ModelSelectedEvent, RoutingDecisionEvent,
     event_subscriber, on_routing_decision
 )
-from src.core.validators.validation_system import (
+from src.orchestration.validators.validation_system import (
     get_llm_model_validator, ValidationResult
 )
 

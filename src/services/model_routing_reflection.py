@@ -18,7 +18,7 @@ from typing import Dict, Any, List, Optional, Tuple, Union
 from dataclasses import dataclass, field
 from enum import Enum
 
-from src.core.reflection import ReflectionAgent, ReflexionAgent, ReflectionResult, ReflectionType
+from src.orchestration.reflection import ReflectionAgent, ReflexionAgent, ReflectionResult, ReflectionType
 
 logger = logging.getLogger(__name__)
 

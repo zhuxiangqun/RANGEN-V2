@@ -53,7 +53,7 @@ class UnifiedConfidenceService:
         """初始化置信度相关组件"""
         try:
             # 导入置信度校准器
-            from src.core.reasoning.confidence_calibrator import ConfidenceCalibrator
+            from src.orchestration.reasoning.confidence_calibrator import ConfidenceCalibrator
             self._confidence_calibrator = ConfidenceCalibrator()
             self.logger.debug("✅ 置信度校准器已初始化")
         except Exception as e:
@@ -61,7 +61,7 @@ class UnifiedConfidenceService:
         
         try:
             # 导入深度置信度评估器（可选）
-            from src.core.reasoning.ml_framework.deep_confidence_estimator import DeepConfidenceEstimator
+            from src.orchestration.reasoning.ml_framework.deep_confidence_estimator import DeepConfidenceEstimator
             self._deep_confidence_estimator = DeepConfidenceEstimator()
             self.logger.debug("✅ 深度置信度评估器已初始化")
         except Exception as e:

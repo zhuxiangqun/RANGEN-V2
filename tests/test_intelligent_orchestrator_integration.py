@@ -16,7 +16,7 @@ from src.core.intelligent_orchestrator import (
     HybridPlan
 )
 from src.agents.base_agent import AgentResult
-from src.unified_research_system import UnifiedResearchSystem, ResearchRequest, ResearchResult
+from src.services.unified_research_system import UnifiedResearchSystem, ResearchRequest, ResearchResult
 
 
 class TestIntelligentOrchestratorIntegration(unittest.IsolatedAsyncioTestCase):

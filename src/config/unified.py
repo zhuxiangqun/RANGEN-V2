@@ -64,7 +64,7 @@ class KnowledgeBaseConfig:
 @dataclass
 class KMSConfig:
     enabled: bool = True
-    config_path: str = "knowledge_management_system/config/system_config.json"
+    config_path: str = "/Users/apple/workdata/person/zy/knowledge-management-system/config/system_config.json"
     host: str = "localhost"
     port: int = 8001
     timeout: int = 30

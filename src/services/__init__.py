@@ -86,3 +86,10 @@ try:
     __all__.append('StepFlashAdapter')
 except ImportError:
     logger.warning("StepFlashAdapter not available")
+
+# 工具注册表
+try:
+    from .tool_registry import ToolRegistry
+    __all__.append('ToolRegistry')
+except ImportError:
+    logger.warning("ToolRegistry not available")

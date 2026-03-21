@@ -51,7 +51,7 @@ class ConfigService:
     def _load_kms_config(self):
         """Load KMS configuration from external JSON file"""
         try:
-            kms_config_path = self.get("kms.config_path", "knowledge_management_system/config/system_config.json")
+            kms_config_path = self.get("kms.config_path", "/Users/apple/workdata/person/zy/knowledge-management-system/config/system_config.json")
             if os.path.exists(kms_config_path):
                 with open(kms_config_path, 'r') as f:
                     kms_config = yaml.safe_load(f)

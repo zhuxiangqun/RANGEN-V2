@@ -47,8 +47,8 @@ from src.layers.business_states import (
     BusinessStateManager,
 )
 
-from src.core.research_request import ResearchRequest, ResearchResponse, RequestStatus
-from src.core.services import get_core_logger
+from src.orchestration.research_request import ResearchRequest, ResearchResponse, RequestStatus
+from src.orchestration.services import get_core_logger
 
 logger = get_core_logger("business_layer")
 # =============================================================================

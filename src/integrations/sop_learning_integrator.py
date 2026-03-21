@@ -15,11 +15,11 @@ from datetime import datetime
 
 from src.hands.executor import HandExecutor, HandExecutionResult
 from src.hands.base import BaseHand
-from src.core.sop_learning import (
+from src.orchestration.sop_learning import (
     SOPLearningSystem, get_sop_learning_system,
     StandardOperatingProcedure, SOPStep, SOPLevel, SOPCategory
 )
-from src.core.validators.verdict import Verdict
+from src.orchestration.validators.verdict import Verdict
 
 
 @dataclass

@@ -26,21 +26,14 @@ from src.services.retrieval_utils import QueryType, KnowledgeSource
 from src.services.retrieval_helpers import RetrievalHelpers
 from src.services.content_processor import ContentProcessor
 from src.services.knowledge_retriever import KnowledgeRetriever
-# 🚀 迁移：使用知识库管理系统（第四系统）替代旧模块
-get_vector_knowledge_base = None  # 🚀 修复：先初始化为None，避免未定义错误
-VectorKnowledgeBase = None
-
+# 🚀 迁移：使用 src.kms (KMS API 客户端) 替代旧模块
 try:
-    from knowledge_management_system.api.service_interface import get_knowledge_service
+    from src.kms import KMSClient, get_kms_client
     KMS_AVAILABLE = True
 except ImportError:
     KMS_AVAILABLE = False
-    # 向后兼容：如果知识库管理系统不可用，保留旧导入（过渡期）
-    try:
-        from src.knowledge.vector_database import get_vector_knowledge_base, VectorKnowledgeBase
-    except ImportError as e:
-        print(f"DEBUG: Failed to import VectorKnowledgeBase in KnowledgeRetrievalService: {e}")
-        pass
+    KMSClient = None
+    get_kms_client = None
 
 logger = logging.getLogger(__name__)
 
@@ -103,7 +96,7 @@ class KnowledgeRetrievalService(BaseAgent):
         
         # 🚀 ML/RL增强：初始化自适应优化器（用于优化相似度阈值和证据选择）
         try:
-            from src.core.adaptive_optimizer import AdaptiveOptimizer
+            from src.orchestration.adaptive_optimizer import AdaptiveOptimizer
             self.adaptive_optimizer = AdaptiveOptimizer()
             logger.info("✅ KnowledgeRetrievalService 的 AdaptiveOptimizer 已启用")
         except Exception as e:
@@ -345,33 +338,33 @@ class KnowledgeRetrievalService(BaseAgent):
         
         # 🚀 迁移：优先使用知识库管理系统
         try:
-            # 🚀 P0 修复：KMS_AVAILABLE 变量未定义，需要重新导入检查
+            # 使用 src.kms 模块 (KMS API 客户端)
             try:
-                from knowledge_management_system.api.service_interface import get_knowledge_service as _get_kms
+                from src.kms import get_kms_client
                 KMS_AVAILABLE_LOCAL = True
             except ImportError:
                 KMS_AVAILABLE_LOCAL = False
                 
             if KMS_AVAILABLE_LOCAL:
-                self.kms_service = _get_kms()
-                # 🚀 确保知识库服务已初始化
-                if not hasattr(self.kms_service, 'initialized') or not self.kms_service.initialized:
-                    logger.info("初始化知识库管理系统...")
-                    self.kms_service.initialize()
-                logger.info("✅ 知识库管理系统初始化成功")
+                self.kms_service = get_kms_client()
+                if self.kms_service.is_available():
+                    logger.info("✅ KMS 服务连接成功")
+                else:
+                    logger.warning("⚠️ KMS 服务不可用，请确保 KMS 服务运行在 KMS_API_URL")
+                    self.kms_service = None
             else:
-                logger.warning("⚠️ 知识库管理系统模块未找到，将无法使用向量检索")
+                logger.warning("⚠️ KMS 模块未找到，将无法使用向量检索")
         except Exception as e:
-            logger.error(f"知识库管理系统初始化失败: {e}", exc_info=True)
+            logger.error(f"KMS 客户端初始化失败: {e}", exc_info=True)
             self.kms_service = None
             
-        # 如果KMS不可用，尝试初始化旧FAISS服务
+        # 如果KMS不可用，尝试初始化FAISS服务
         if not self.kms_service:
             try:
-                logger.warning("知识库管理系统不可用，尝试使用旧FAISS服务")
+                logger.warning("KMS 不可用，尝试使用 FAISS 服务")
                 from src.services.faiss_service import FAISSService
                 self.faiss_service = FAISSService()
-                logger.info("✅ FAISS服务初始化成功（旧系统，过渡期）")
+                logger.info("✅ FAISS服务初始化成功")
             except Exception as e:
                 logger.warning(f"FAISS服务初始化失败: {e}")
                 self.faiss_service = None
@@ -398,34 +391,22 @@ class KnowledgeRetrievalService(BaseAgent):
         try:
             # 🚀 迁移：优先使用知识库管理系统
             if self.kms_service:
-                # 使用知识库管理系统，不需要初始化旧模块
+                # 使用 KMS 服务
                 self.knowledge_base.update({
                     'status': 'initialized',
-                    'type': 'knowledge_management_system',
-                    'version': getattr(self, 'version', '1.0.0'),
-                    'system': 'fourth_system'
+                    'type': 'kms_client',
+                    'version': getattr(self, 'version', '2.0.0'),
+                    'system': 'kms_api'
                 })
-                logger.info("✅ 知识库初始化成功（使用知识库管理系统）")
+                logger.info("✅ 知识库初始化成功（使用 KMS 服务）")
             else:
-                # 回退：使用旧向量知识库（过渡期）
-                try:
-                    # 🚀 修复：确保 get_vector_knowledge_base 可用
-                    # 尝试本地导入以防全局导入失败
-                    try:
-                        from src.knowledge.vector_database import get_vector_knowledge_base as local_get_vkb
-                    except ImportError:
-                        local_get_vkb = None
-                        
-                    if local_get_vkb:
-                        self.vector_kb = local_get_vkb()
-                        logger.info("✅ 向量知识库初始化成功（旧系统，过渡期）")
-                    else:
-                        self.vector_kb = None
-                except Exception as e:
-                    logger.warning(f"向量知识库初始化失败: {e}")
+                # 回退：使用 FAISS 服务
+                if self.faiss_service:
+                    logger.info("✅ 向量知识库初始化成功（使用 FAISS）")
+                else:
                     self.vector_kb = None
                 
-                # 更新知识库状态（旧系统）
+                # 更新知识库状态
                 self.knowledge_base.update({
                     'status': 'initialized' if self.vector_kb else 'error',
                     'type': 'enhanced_vector',

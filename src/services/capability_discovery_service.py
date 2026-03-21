@@ -27,14 +27,14 @@ from enum import Enum
 import threading
 
 try:
-    from src.core.capability_service import CapabilityService, CapabilityInfo
-    from src.core.agents.capability_orchestration_engine import (
+    from src.orchestration.capability_service import CapabilityService, CapabilityInfo
+    from src.orchestration.agents.capability_orchestration_engine import (
         CapabilityOrchestrationEngine,
         OrchestrationPlan,
         OrchestrationMode,
         CapabilityNode
     )
-    from src.core.core_services.llm_integration import LLMIntegration
+    from src.orchestration.core_services.llm_integration import LLMIntegration
 except ImportError as e:
     logger.warning(f"Failed to import core modules: {e}")
     CapabilityService = None
@@ -192,11 +192,11 @@ class CapabilityDiscoveryService:
     
     def _register_handlers(self):
         """注册能力处理器"""
-        from src.core.executor.production_workflow import ProductionWorkflow
+        from src.orchestration.executor.production_workflow import ProductionWorkflow
         from src.agents.ops_diagnosis_agent import OpsDiagnosisAgent
         from src.kms.web_crawler import WebCrawler
         from src.services.intent_understanding_service import get_intent_understanding_service
-        from src.core.executor.execution_coordinator import ExecutionCoordinator
+        from src.orchestration.executor.execution_coordinator import ExecutionCoordinator
         
         self._capability_handlers = {
             "ProductionWorkflow": lambda ctx: ProductionWorkflow(),

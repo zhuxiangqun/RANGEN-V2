@@ -12,7 +12,7 @@ from enum import Enum
 import time
 import math
 from collections import defaultdict
-from src.core.services import get_core_logger
+from src.orchestration.services import get_core_logger
 
 
 class CVTask(Enum):

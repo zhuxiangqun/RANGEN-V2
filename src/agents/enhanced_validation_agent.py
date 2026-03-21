@@ -15,7 +15,7 @@ from typing import Dict, Any, Optional
 
 from src.interfaces.agent import IAgent, AgentConfig, AgentResult, ExecutionStatus
 from src.services.logging_service import get_logger
-from src.core.core_services.llm_integration import LLMIntegration
+from src.orchestration.core_services.llm_integration import LLMIntegration
 from src.prompts.validation.verify import VALIDATION_SYSTEM_PROMPT, VALIDATION_USER_PROMPT
 
 
@@ -144,8 +144,8 @@ class ReviewableValidationAgent(IAgent):
     async def _run_review(self, validation_result: Dict, context: Optional[Dict]) -> Dict:
         """执行评审"""
         try:
-            from src.core.validators.review_pipeline import ReviewPipeline, ReviewLevel
-            from src.core.validators.review_integration import ReviewDecisionMaker
+            from src.orchestration.validators.review_pipeline import ReviewPipeline, ReviewLevel
+            from src.orchestration.validators.review_integration import ReviewDecisionMaker
             
             pipeline = ReviewPipeline(name="validation_review")
             
@@ -188,13 +188,13 @@ class ReviewableValidationAgent(IAgent):
         if not review_result:
             return "proceed"
         
-        from src.core.validators.review_integration import ReviewDecisionMaker
+        from src.orchestration.validators.review_integration import ReviewDecisionMaker
         return ReviewDecisionMaker.decide(review_result)
     
     def _record_judgment(self, validation_result: Dict, review_result: Dict, decision: str):
         """记录判断用于评价"""
         try:
-            from src.core.validators.judgment_evaluation import JudgmentEvaluationSystem, JudgmentType
+            from src.orchestration.validators.judgment_evaluation import JudgmentEvaluationSystem, JudgmentType
             
             # 简单的内存记录
             self._review_results.append({

@@ -38,9 +38,9 @@ from .monitoring_dashboard_service import MonitoringDashboardService, get_monito
 
 # 导入ML框架组件
 try:
-    from src.core.reasoning.ml_framework.continuous_learning_system import ContinuousLearningSystem
-    from src.core.reasoning.ml_framework.data_collection import DataCollectionPipeline
-    from src.core.reasoning.ml_framework.model_performance_monitor import ModelPerformanceMonitor
+    from src.orchestration.reasoning.ml_framework.continuous_learning_system import ContinuousLearningSystem
+    from src.orchestration.reasoning.ml_framework.data_collection import DataCollectionPipeline
+    from src.orchestration.reasoning.ml_framework.model_performance_monitor import ModelPerformanceMonitor
     ML_FRAMEWORK_AVAILABLE = True
 except ImportError:
     logger = logging.getLogger(__name__)

@@ -100,14 +100,14 @@ class ResearchSystemAdapter(ResearchSystemInterface):
         """创建研究请求对象"""
         try:
             # 尝试使用UnifiedResearchSystem的ResearchRequest
-            from src.unified_research_system import ResearchRequest
+            from src.orchestration.requests import ResearchRequest
             return ResearchRequest(
                 query=request.query,
                 context=request.context or {}
             )
         except ImportError:
             # 回退到UnifiedResearchSystem的ResearchRequest
-            from src.unified_research_system import ResearchRequest
+            from src.orchestration.requests import ResearchRequest
             return ResearchRequest(
                 query=request.query,
                 context=request.context or {}

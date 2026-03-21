@@ -15,7 +15,7 @@ from enum import Enum
 import schedule
 import threading
 
-from src.core.unified_workflow_facade import UnifiedWorkflowFacade, WorkflowMode, WorkflowConfig
+from src.orchestration.unified_workflow_facade import UnifiedWorkflowFacade, WorkflowMode, WorkflowConfig
 from src.hook.transparency import HookTransparencySystem
 from src.hook.hook_types import HookEventType, HookVisibilityLevel
 from src.evolution.engine import EvolutionEngine
