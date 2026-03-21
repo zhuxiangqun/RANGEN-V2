@@ -450,7 +450,7 @@ src/agents/tools/ 目录：
 #### 10.1 现有Skill统计（2026-03）
 
 ```
-src/agents/skills/bundled/ (17个Skill)
+src/skills/runtime/bundled/ (17个Skill)
 ├── 检索增强类（3个）
 ├── 工作流类（3个）
 ├── 智能体类（5个）
