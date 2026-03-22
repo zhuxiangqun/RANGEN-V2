@@ -191,28 +191,27 @@ class SmartServerLauncher:
         print("🚀 RANGEN 智能统一服务器启动器")
         print("=" * 50)
 
-        try:
+        if base_port is None:
+            print("🔍 自动查找可用端口...")
+            base_port = self.find_available_port()
             if base_port is None:
-                print("🔍 自动查找可用端口...")
-                base_port = self.find_available_port()
-                if base_port is None:
+                print("❌ 未找到可用端口")
+                return False
+        else:
+            print(f"🎯 指定端口: {base_port} (统一服务)")
+            # 清理指定端口
+            if not self.cleanup_port(base_port):
+                print("❌ 无法清理指定端口，寻找替代端口...")
+                alt_port = self.find_available_port()
+                if alt_port is None:
                     print("❌ 未找到可用端口")
                     return False
-            else:
-                print(f"🎯 指定端口: {base_port} (统一服务)")
-                # 清理指定端口
-                if not self.cleanup_port(base_port):
-                    print("❌ 无法清理指定端口，寻找替代端口...")
-                    alt_port = self.find_available_port()
-                    if alt_port is None:
-                        print("❌ 未找到可用端口")
-                        return False
-                    base_port = alt_port
+                base_port = alt_port
 
-            print(f"✅ 使用端口: {base_port} (统一服务)")
-            print()
-            print("🚀 启动统一服务器...")
-            time.sleep(0.5)  # 给系统一点时间回收端口
+        print(f"✅ 使用端口: {base_port} (统一服务)")
+        print()
+        print("🚀 启动统一服务器...")
+        time.sleep(0.5)  # 给系统一点时间回收端口
 
         # 启动服务器
         try:
