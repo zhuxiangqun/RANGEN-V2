@@ -6,7 +6,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│              RANGEN AI 基座 (src/api/)                    │
+│              RANGEN AI 基座 (src/access/api/)             │
 │                                                              │
 │  - /api/v1/agents      (CRUD + 测试)                      │
 │  - /api/v1/skills     (CRUD + 优化)                       │
@@ -31,7 +31,13 @@
 
 ```bash
 cd RANGEN-main(syu-python)
-uvicorn src.api.server:app --host 0.0.0.0 --port 8000
+uvicorn src.access.api.server:app --host 0.0.0.0 --port 8000
+```
+
+或使用一键启动脚本：
+
+```bash
+./scripts/start_rangen.sh start
 ```
 
 ### 2. 启动管理应用
