@@ -31,9 +31,6 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-if "show_eval_modal" not in st.session_state:
-    st.session_state.show_eval_modal = False
-
 def get_with_auth(url):
     headers = {}
     if RANGEN_API_KEY:
@@ -749,7 +746,7 @@ asyncio.run(RANGENEvaluator().run_full_evaluation())
                                         st.write("### 📊 新评估框架结果")
                                         
                                         overall = data.get("overall_score", 0)
-                                        col1, col2, col3, col4 = st.columns([1, 1, 1, 0.3])
+                                        col1, col2, col3 = st.columns(3)
                                         with col1:
                                             st.metric("综合评分", f"{overall*100:.1f}%")
                                         with col2:
@@ -758,55 +755,38 @@ asyncio.run(RANGENEvaluator().run_full_evaluation())
                                             st.metric("评估维度", f"{completed}/{total}")
                                         with col3:
                                             st.metric("评估时间", data.get("timestamp", "N/A")[:19])
-                                        with col4:
-                                            if st.button("📋 详情", key="eval_detail_btn", use_container_width=True):
-                                                st.session_state.show_eval_modal = True
+                                        
+                                        st.markdown("---")
+                                        st.caption("💡 点击下方每个维度卡片查看详情")
                                         
                                         dims = data.get("dimensions", {})
-                                        dim_cols = st.columns(3)
-                                        col_idx = 0
                                         for dim_name, dim_data in dims.items():
                                             score = dim_data.get("score", 0)
                                             status = dim_data.get("status", "unknown")
+                                            details = dim_data.get("details", "")
+                                            evidence = dim_data.get("evidence", [])
+                                            suggestions = dim_data.get("suggestions", [])
                                             
-                                            with dim_cols[col_idx % 3]:
-                                                status_icon = "✅" if status == "completed" else "❌" if status == "failed" else "⏭️"
-                                                st.metric(f"{status_icon} {dim_name}", f"{score*100:.1f}%")
+                                            status_icon = "✅" if status == "completed" else "❌" if status == "failed" else "⏭️"
                                             
-                                            col_idx += 1
-                                        
-                                        if st.session_state.get("show_eval_modal", False):
-                                            with st.container():
-                                                st.markdown("---")
-                                                st.markdown("#### 📋 评估详情")
-                                                
-                                                for dim_name, dim_data in dims.items():
-                                                    score = dim_data.get("score", 0)
-                                                    status = dim_data.get("status", "unknown")
-                                                    details = dim_data.get("details", "")
-                                                    evidence = dim_data.get("evidence", [])
-                                                    suggestions = dim_data.get("suggestions", [])
-                                                    
-                                                    status_icon = "✅" if status == "completed" else "❌" if status == "failed" else "⏭️"
-                                                    
-                                                    with st.expander(f"{status_icon} {dim_name}: {score*100:.1f}%"):
-                                                        st.write(f"**状态**: {status}")
-                                                        if details:
-                                                            st.write(f"**说明**: {details}")
-                                                        if evidence:
-                                                            st.write("**证据**:")
-                                                            for e in evidence[:10]:
-                                                                st.markdown(f"- {e}")
-                                                            if len(evidence) > 10:
-                                                                st.info(f"还有 {len(evidence) - 10} 条证据...")
-                                                        if suggestions:
-                                                            st.write("**建议**:")
-                                                            for s in suggestions:
-                                                                st.markdown(f"- {s}")
-                                                
-                                                if st.button("🔒 关闭", key="close_eval_modal"):
-                                                    st.session_state.show_eval_modal = False
-                                                    st.rerun()
+                                            with st.expander(f"{status_icon} **{dim_name}**: {score*100:.1f}%", expanded=False):
+                                                col_d1, col_d2 = st.columns([1, 3])
+                                                with col_d1:
+                                                    st.metric("评分", f"{score*100:.1f}%")
+                                                    st.write(f"状态: {status}")
+                                                with col_d2:
+                                                    if details:
+                                                        st.write(f"**说明**: {details}")
+                                                    if evidence:
+                                                        st.write("**证据**:")
+                                                        for e in evidence[:5]:
+                                                            st.markdown(f"- {e}")
+                                                        if len(evidence) > 5:
+                                                            st.caption(f"... 还有 {len(evidence) - 5} 条")
+                                                    if suggestions:
+                                                        st.write("**建议**:")
+                                                        for s in suggestions[:3]:
+                                                            st.markdown(f"- {s}")
                                             
                                     except Exception as e:
                                         st.warning(f"无法解析新评估结果: {e}")
