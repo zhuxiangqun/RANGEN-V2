@@ -39,7 +39,7 @@ def quick_status_check():
     # 检查模块导入
     print('\\n🔧 模块状态:')
     try:
-        from src.core.llm_integration import LLMIntegration
+        from src.orchestration.core_services.llm_integration import LLMIntegration
         print('   ✅ LLMIntegration模块导入成功')
     except Exception as e:
         print(f'   ❌ LLMIntegration模块导入失败: {e}')

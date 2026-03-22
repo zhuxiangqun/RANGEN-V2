@@ -10,7 +10,7 @@ logger = logging.getLogger("evaluate_risk_detection")
 # 导入 StepGenerator
 try:
     from src.core.reasoning.step_generator import StepGenerator
-    from src.core.llm_integration import LLMIntegration
+    from src.orchestration.core_services.llm_integration import LLMIntegration
 except ImportError:
     print("❌ 无法导入 src.core 模块，请确保在项目根目录运行")
     exit(1)

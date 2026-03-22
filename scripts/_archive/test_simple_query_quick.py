@@ -89,7 +89,7 @@ async def test_llm_integration():
     print(f"✅ API Key 已设置: {api_key[:10]}...")
     
     try:
-        from src.core.llm_integration import LLMIntegration
+        from src.orchestration.core_services.llm_integration import LLMIntegration
         
         llm_config = {
             'llm_provider': 'deepseek',

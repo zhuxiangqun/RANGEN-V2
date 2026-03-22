@@ -81,7 +81,7 @@ def check_env_config():
     # 检查Python代码中的配置
     print('\\n🐍 检查Python代码中的配置:')
     try:
-        from src.core.llm_integration import LLMIntegration
+        from src.orchestration.core_services.llm_integration import LLMIntegration
         print('   ✅ LLMIntegration模块导入成功')
 
         # 创建一个测试配置来检查默认行为

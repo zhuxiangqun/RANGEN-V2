@@ -1,7 +1,7 @@
 
 import os
 import asyncio
-from src.core.llm_integration import LLMIntegration
+from src.orchestration.core_services.llm_integration import LLMIntegration
 
 async def verify_knowledge():
     # Mock config

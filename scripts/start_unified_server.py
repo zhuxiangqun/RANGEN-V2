@@ -183,7 +183,7 @@ class UnifiedServer:
             try:
                 # 🚀 修复：只清理 LLMIntegration 实例，避免触发 Torch/CUDA 检查
                 import gc
-                from src.core.llm_integration import LLMIntegration
+                from src.orchestration.core_services.llm_integration import LLMIntegration
                 closed_count = 0
                 for obj in gc.get_objects():
                     # 只处理 LLMIntegration 实例，避免处理其他对象（如 Torch 对象）

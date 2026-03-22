@@ -25,7 +25,7 @@ async def quick_test():
     
     try:
         # 导入必要的模块
-        from src.core.llm_integration import LLMIntegration
+        from src.orchestration.core_services.llm_integration import LLMIntegration
         
         print("✅ 模块导入成功")
         

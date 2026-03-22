@@ -94,7 +94,7 @@ def apply_patches():
         logger.warning("⚠️ Could not patch ExpertAgent")
 
     try:
-        from src.core.llm_integration import LLMIntegration
+        from src.orchestration.core_services.llm_integration import LLMIntegration
         LLMIntegration._call_llm = profile_method("LLMIntegration._call_llm")(LLMIntegration._call_llm)
         logger.info("✅ Patched LLMIntegration")
     except ImportError:

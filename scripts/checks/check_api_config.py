@@ -52,7 +52,7 @@ def check_api_config():
 
     print('\n🧪 测试API连接:')
     try:
-        from src.core.llm_integration import LLMIntegration
+        from src.orchestration.core_services.llm_integration import LLMIntegration
 
         print('   🔄 初始化LLM客户端...')
         llm_client = LLMIntegration()

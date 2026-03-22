@@ -28,7 +28,7 @@ class BenchmarkLogHandler(logging.Handler):
 # 导入 StepGenerator
 try:
     from src.core.reasoning.step_generator import StepGenerator
-    from src.core.llm_integration import LLMIntegration
+    from src.orchestration.core_services.llm_integration import LLMIntegration
 except ImportError:
     print("❌ 无法导入 src.core 模块，请确保在项目根目录运行")
     exit(1)
@@ -77,7 +77,7 @@ def run_benchmark(use_mock=True, num_queries=5):
     else:
         # 尝试使用真实 LLM (需要配置)
         try:
-            from src.core.llm_integration import LLMIntegration
+            from src.orchestration.core_services.llm_integration import LLMIntegration
             import os
             # 尝试从环境变量加载配置，或者使用默认值
             config = {

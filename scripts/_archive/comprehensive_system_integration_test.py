@@ -212,7 +212,7 @@ class ComprehensiveSystemIntegrationTester:
                             })
 
                             status_icon = "✅" if success else "❌"
-                            print(".2f"
+                            print(f"     {status_icon} {test_case['description']}: 成功 - {execution_time:.2f}s")
                         except Exception as e:
                             print(f"     ❌ {test_case['description']}: 异常 - {e}")
                             self.test_results.append({
@@ -305,8 +305,9 @@ class ComprehensiveSystemIntegrationTester:
                                 scenario_success = False
                                 print(f"     ❌ {step_desc}: 失败")
                             else:
-                                print(".2f"                        else:
-                            print(f"     ⚠️ {step_desc}: Agent未初始化")
+                                print(f"     ✅ {step_desc}: 成功")
+                            if not agent:
+                                print(f"     ⚠️ {step_desc}: Agent未初始化")
                             scenario_success = False
                     else:
                         print(f"     ❌ {step_desc}: Agent属性不存在")
@@ -707,8 +708,7 @@ def main():
 
     success = asyncio.run(tester.run_comprehensive_integration_test())
 
-    print("
-" + "=" * 80)
+    print("=" * 80)
     if success:
         print("🎉 全面系统集成测试通过！")
         print("✅ 所有Agent协作正常")

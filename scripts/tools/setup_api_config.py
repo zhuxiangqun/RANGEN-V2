@@ -78,7 +78,7 @@ def setup_api_config():
         print('\\n🧪 测试API连接:')
 
         try:
-            from src.core.llm_integration import LLMIntegration
+            from src.orchestration.core_services.llm_integration import LLMIntegration
 
             config = {
                 'llm_provider': 'deepseek',

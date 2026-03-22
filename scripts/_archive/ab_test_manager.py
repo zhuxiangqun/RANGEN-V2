@@ -26,7 +26,7 @@ load_dotenv(dotenv_path=project_root / '.env')
 def create_ab_test(model_name: str, variant_a: str, variant_b: str, traffic_split: float = 0.5):
     """创建A/B测试"""
     try:
-        from src.core.reasoning.engine import RealReasoningEngine
+        from src.orchestration.reasoning.engine import RealReasoningEngine
         engine = RealReasoningEngine()
         
         if not hasattr(engine, 'continuous_learning') or not engine.continuous_learning:
@@ -52,7 +52,7 @@ def create_ab_test(model_name: str, variant_a: str, variant_b: str, traffic_spli
 def list_ab_tests():
     """列出所有A/B测试"""
     try:
-        from src.core.reasoning.engine import RealReasoningEngine
+        from src.orchestration.reasoning.engine import RealReasoningEngine
         engine = RealReasoningEngine()
         
         if not hasattr(engine, 'continuous_learning') or not engine.continuous_learning:
@@ -91,7 +91,7 @@ def list_ab_tests():
 def show_ab_test_results(test_id: str):
     """显示A/B测试结果"""
     try:
-        from src.core.reasoning.engine import RealReasoningEngine
+        from src.orchestration.reasoning.engine import RealReasoningEngine
         engine = RealReasoningEngine()
         
         if not hasattr(engine, 'continuous_learning') or not engine.continuous_learning:
@@ -144,7 +144,7 @@ def show_ab_test_results(test_id: str):
 def end_ab_test(test_id: str):
     """结束A/B测试"""
     try:
-        from src.core.reasoning.engine import RealReasoningEngine
+        from src.orchestration.reasoning.engine import RealReasoningEngine
         engine = RealReasoningEngine()
         
         if not hasattr(engine, 'continuous_learning') or not engine.continuous_learning:
