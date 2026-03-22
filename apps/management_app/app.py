@@ -32,19 +32,45 @@ COLORS = {
 
 st.markdown(f"""
 <style>
+    /* 全局紧凑布局 */
+    .block-container {{padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; padding-left: 1rem !important; padding-right: 1rem !important;}}
+    
+    /* 头部紧凑 */
     .main-header {{
         background: linear-gradient(135deg, {COLORS['primary']} 0%, {COLORS['secondary']} 100%);
-        padding: 0.75rem 1rem;
-        border-radius: 8px;
-        margin-bottom: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        margin-bottom: 0.3rem;
     }}
     .main-header h1 {{
         color: white;
         margin: 0;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         font-weight: 600;
     }}
-    .block-container {{padding-top: 0.5rem; padding-bottom: 0.5rem;}}
+    
+    /* 标题紧凑 */
+    h1 {{font-size: 1.3rem !important; margin-bottom: 0.3rem !important;}}
+    h2 {{font-size: 1.1rem !important; margin-bottom: 0.2rem !important;}}
+    h3 {{font-size: 0.95rem !important; margin-bottom: 0.2rem !important;}}
+    
+    /* 元素间距 */
+    hr {{margin: 0.3rem 0 !important;}}
+    p {{margin-bottom: 0.2rem !important;}}
+    
+    /* Tabs紧凑 */
+    .stTabs [data-baseweb="tab-list"] {{gap: 4px !important;}}
+    .stTabs [data-baseweb="tab"] {{padding: 4px 12px !important; font-size: 0.85rem !important;}}
+    
+    /* Alert紧凑 */
+    .stAlert {{margin-bottom: 0.3rem !important; padding: 0.5rem !important;}}
+    
+    /* Expander紧凑 */
+    .streamlit-expanderHeader {{padding: 0.3rem 0.5rem !important;}}
+    .streamlit-expanderContent {{padding: 0.3rem !important;}}
+    
+    /* DataFrame紧凑 */
+    .dataframe {{font-size: 0.85rem !important;}}
 </style>
 """, unsafe_allow_html=True)
 

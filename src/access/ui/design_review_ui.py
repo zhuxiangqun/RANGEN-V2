@@ -19,12 +19,28 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspa
 
 st.markdown("""
 <style>
-    .block-container {padding-top: 0.5rem; padding-bottom: 0.5rem;}
-    h1 {font-size: 1.5rem !important; margin-bottom: 0.5rem !important;}
-    h2 {font-size: 1.2rem !important;}
-    h3 {font-size: 1rem !important;}
-    .stTabs [data-baseweb="tab-list"] {gap: 8px;}
-    .stTabs [data-baseweb="tab"] {padding: 6px 16px; font-size: 0.9rem;}
+    /* 全局紧凑布局 */
+    .block-container {padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; padding-left: 1rem !important; padding-right: 1rem !important;}
+    
+    /* 标题紧凑 */
+    h1 {font-size: 1.3rem !important; margin-bottom: 0.3rem !important;}
+    h2 {font-size: 1.1rem !important; margin-bottom: 0.2rem !important;}
+    h3 {font-size: 0.95rem !important; margin-bottom: 0.2rem !important;}
+    
+    /* Tabs紧凑 */
+    .stTabs [data-baseweb="tab-list"] {gap: 4px !important;}
+    .stTabs [data-baseweb="tab"] {padding: 4px 12px !important; font-size: 0.85rem !important;}
+    
+    /* 元素间距 */
+    hr {margin: 0.3rem 0 !important;}
+    p {margin-bottom: 0.2rem !important;}
+    
+    /* Alert紧凑 */
+    .stAlert {margin-bottom: 0.3rem !important; padding: 0.5rem !important;}
+    
+    /* Expander紧凑 */
+    .streamlit-expanderHeader {padding: 0.3rem 0.5rem !important;}
+    .streamlit-expanderContent {padding: 0.3rem !important;}
 </style>
 """, unsafe_allow_html=True)
 

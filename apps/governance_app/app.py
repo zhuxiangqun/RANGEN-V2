@@ -51,60 +51,68 @@ def post_with_auth(url, data=None):
 
 st.markdown("""
 <style>
-    .block-container {padding-top: 0.5rem; padding-bottom: 0.5rem;}
-    .metric-box {background: #1E3A5F; border-radius: 6px; padding: 8px; text-align: center;}
+    /* 全局紧凑布局 */
+    .block-container {padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; padding-left: 1rem !important; padding-right: 1rem !important;}
+    
+    /* Metric卡片紧凑 */
+    .metric-box {background: #1E3A5F; border-radius: 6px; padding: 6px; text-align: center;}
     div[data-testid="stMetric"] {
         background: linear-gradient(135deg, #1E3A5F 0%, #2D5A87 100%);
-        padding: 10px;
-        border-radius: 8px;
+        padding: 8px !important;
+        border-radius: 6px;
         color: white !important;
+        margin: 2px !important;
     }
     div[data-testid="stMetricLabel"] {
         color: rgba(255,255,255,0.8) !important;
-        font-size: 0.8rem;
+        font-size: 0.75rem !important;
     }
     div[data-testid="stMetricValue"] {
         color: #FFFFFF !important;
         font-weight: bold;
-        font-size: 1.2rem;
+        font-size: 1rem !important;
     }
-    div[data-testid="stMetricDelta"] {
-        color: #90EE90 !important;
-    }
-    .stTabs [data-baseweb="tab-list"] {gap: 8px;}
+    div[data-testid="stMetricDelta"] {color: #90EE90 !important;}
+    
+    /* Tabs紧凑 */
+    .stTabs [data-baseweb="tab-list"] {gap: 4px !important; padding: 0 !important;}
     .stTabs [data-baseweb="tab"] {
         background: #E8EEF4;
-        border-radius: 6px 6px 0 0;
-        padding: 6px 16px;
+        border-radius: 4px 4px 0 0;
+        padding: 4px 12px !important;
         color: #1E3A5F !important;
         font-weight: 600;
-        font-size: 0.9rem;
+        font-size: 0.85rem !important;
     }
-    .stTabs [aria-selected="true"] {
-        background: #1E3A5F !important;
-        color: white !important;
-    }
+    .stTabs [aria-selected="true"] {background: #1E3A5F !important; color: white !important;}
     .stTabs [aria-selected="false"] {color: #1E3A5F !important;}
-    hr {margin: 0.5rem 0;}
-    h3 {color: #1E3A5F; margin-top: 0.5rem;}
-    h4 {font-size: 1rem;}
+    
+    /* 标题紧凑 */
+    h1 {font-size: 1.5rem !important; margin-bottom: 0.5rem !important;}
+    h2 {font-size: 1.2rem !important; margin-bottom: 0.3rem !important;}
+    h3 {color: #1E3A5F; margin-top: 0.3rem !important; margin-bottom: 0.3rem !important;}
+    h4 {font-size: 0.9rem !important; margin-bottom: 0.2rem !important;}
+    
+    /* 元素间距 */
+    hr {margin: 0.3rem 0 !important;}
+    p {margin-bottom: 0.2rem !important;}
+    
+    /* 分区紧凑 */
     .capability-section {
         background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        border-radius: 8px;
-        padding: 10px;
-        margin: 8px 0;
+        border-radius: 6px;
+        padding: 8px;
+        margin: 6px 0;
     }
-    .capability-section h4 {
-        color: #1E3A5F;
-        margin: 0 0 6px 0;
-        font-size: 0.9rem;
-    }
-    .capability-section p {
-        color: #495057;
-        margin: 0;
-        font-size: 0.85rem;
-        font-size: 0.85rem;
-    }
+    .capability-section h4 {color: #1E3A5F; margin: 0 0 4px 0; font-size: 0.85rem !important;}
+    .capability-section p {color: #495057; margin: 0; font-size: 0.8rem !important;}
+    
+    /* Alert紧凑 */
+    .stAlert {margin-bottom: 0.3rem !important; padding: 0.5rem !important;}
+    
+    /* Expander紧凑 */
+    .streamlit-expanderHeader {padding: 0.3rem 0.5rem !important;}
+    .streamlit-expanderContent {padding: 0.3rem !important;}
 </style>
 """, unsafe_allow_html=True)
 
