@@ -757,36 +757,52 @@ asyncio.run(RANGENEvaluator().run_full_evaluation())
                                             st.metric("评估时间", data.get("timestamp", "N/A")[:19])
                                         
                                         st.markdown("---")
-                                        st.caption("💡 点击下方每个维度卡片查看详情")
                                         
                                         dims = data.get("dimensions", {})
-                                        for dim_name, dim_data in dims.items():
-                                            score = dim_data.get("score", 0)
-                                            status = dim_data.get("status", "unknown")
-                                            details = dim_data.get("details", "")
-                                            evidence = dim_data.get("evidence", [])
-                                            suggestions = dim_data.get("suggestions", [])
-                                            
-                                            status_icon = "✅" if status == "completed" else "❌" if status == "failed" else "⏭️"
-                                            
-                                            with st.expander(f"{status_icon} **{dim_name}**: {score*100:.1f}%", expanded=False):
-                                                col_d1, col_d2 = st.columns([1, 3])
-                                                with col_d1:
-                                                    st.metric("评分", f"{score*100:.1f}%")
-                                                    st.write(f"状态: {status}")
-                                                with col_d2:
-                                                    if details:
-                                                        st.write(f"**说明**: {details}")
-                                                    if evidence:
-                                                        st.write("**证据**:")
-                                                        for e in evidence[:5]:
-                                                            st.markdown(f"- {e}")
-                                                        if len(evidence) > 5:
-                                                            st.caption(f"... 还有 {len(evidence) - 5} 条")
-                                                    if suggestions:
-                                                        st.write("**建议**:")
-                                                        for s in suggestions[:3]:
-                                                            st.markdown(f"- {s}")
+                                        dim_items = list(dims.items())
+                                        
+                                        for i in range(0, len(dim_items), 3):
+                                            cols = st.columns(3)
+                                            for j, (dim_name, dim_data) in enumerate(dim_items[i:i+3]):
+                                                score = dim_data.get("score", 0)
+                                                status = dim_data.get("status", "unknown")
+                                                details = dim_data.get("details", "")
+                                                evidence = dim_data.get("evidence", [])
+                                                suggestions = dim_data.get("suggestions", [])
+                                                
+                                                status_icon = "✅" if status == "completed" else "❌" if status == "failed" else "⏭️"
+                                                
+                                                with cols[j]:
+                                                    with st.container():
+                                                        st.markdown(f"""
+                                                        <div style="background: linear-gradient(135deg, #1E3A5F 0%, #2D5A87 100%); 
+                                                                    padding: 15px; border-radius: 8px; margin: 5px 0;">
+                                                            <h4 style="color: white; margin: 0 0 10px 0;">{status_icon} {dim_name}</h4>
+                                                            <h2 style="color: white; margin: 0; text-align: center;">{score*100:.1f}%</h2>
+                                                        </div>
+                                                        """, unsafe_allow_html=True)
+                                                        
+                                                        if details:
+                                                            st.caption(f"📝 {details[:50]}..." if len(details) > 50 else f"📝 {details}")
+                                                        if evidence:
+                                                            st.caption(f"📊 {len(evidence)} 条证据")
+                                                        if suggestions:
+                                                            st.caption(f"💡 {len(suggestions)} 条建议")
+                                                        
+                                                        with st.expander("📋 详情"):
+                                                            st.write(f"**状态**: {status}")
+                                                            if details:
+                                                                st.write(f"**说明**: {details}")
+                                                            if evidence:
+                                                                st.write("**证据**:")
+                                                                for e in evidence[:5]:
+                                                                    st.markdown(f"- {e[:100]}..." if len(e) > 100 else f"- {e}")
+                                                                if len(evidence) > 5:
+                                                                    st.caption(f"... 还有 {len(evidence) - 5} 条")
+                                                            if suggestions:
+                                                                st.write("**建议**:")
+                                                                for s in suggestions[:3]:
+                                                                    st.markdown(f"- {s}")
                                             
                                     except Exception as e:
                                         st.warning(f"无法解析新评估结果: {e}")
