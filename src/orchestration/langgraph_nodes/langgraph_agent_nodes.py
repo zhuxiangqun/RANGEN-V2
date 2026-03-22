@@ -8,7 +8,7 @@ import time
 from typing import Dict, Any, Optional, List, TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from src.agents.base_agent import BaseAgent
+    from src.agents.core.base_agent import BaseAgent
 
 from src.orchestration.langgraph_nodes.langgraph_unified_workflow import ResearchSystemState
 
@@ -93,7 +93,7 @@ class AgentNodes:
             try:
                 # 根据不同Agent类型导入不同的类
                 if agent_name == 'reasoning':
-                    from src.agents.reasoning_agent import ReasoningAgent
+                    from src.agents.core.reasoning_agent import ReasoningAgent
                     # ReasoningAgent 需要 tool_registry
                     if self.system and hasattr(self.system, 'tool_registry'):
                         self.expert_agents[agent_name] = ReasoningAgent(self.system.tool_registry)

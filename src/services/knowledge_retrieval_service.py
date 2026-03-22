@@ -19,7 +19,7 @@ import re
 
 # 导入统一中心系统的函数
 from src.utils.unified_centers import get_smart_config, create_query_context
-from src.agents.base_agent import BaseAgent, AgentResult, AgentConfig
+from src.agents.core.base_agent import BaseAgent, AgentResult, AgentConfig
 # 🚀 拆分：导入查询分析器、检索辅助工具、内容处理器和知识检索执行器
 from src.services.query_analyzer import QueryAnalyzer
 from src.services.retrieval_utils import QueryType, KnowledgeSource

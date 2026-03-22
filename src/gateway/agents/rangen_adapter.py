@@ -46,7 +46,7 @@ class RANGENAgentAdapter:
         
         # 2. 初始化 ReActAgent (执行者)
         try:
-            from src.agents.react_agent import ReActAgent
+            from src.agents.core.react_agent import ReActAgent
             self.react_agent = ReActAgent(agent_name="GatewayReActAgent")
             logger.info("ReActAgent initialized")
         except Exception as e:

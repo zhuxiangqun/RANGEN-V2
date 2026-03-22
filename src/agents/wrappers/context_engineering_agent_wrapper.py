@@ -21,7 +21,7 @@ import logging
 from typing import Dict, Any, Optional
 
 from src.adapters.context_engineering_agent_adapter import ContextEngineeringAgentAdapter
-from src.agents.base_agent import AgentResult
+from src.agents.core.base_agent import AgentResult
 
 logger = logging.getLogger(__name__)
 

@@ -9,7 +9,7 @@ from src.orchestration.workflows.react_workflow import create_react_workflow
 from src.services.logging_service import get_logger
 from src.orchestration.core_services.llm_integration import LLMIntegration
 from src.agents.execution_tools.tool_registry import ToolRegistry
-from src.agents.intelligent_tool_selector import get_intelligent_tool_selector
+from src.agents.execution.intelligent_tool_selector import get_intelligent_tool_selector
 from src.orchestration.executor.cli_executor import CLIExecutor
 
 logger = get_logger(__name__)

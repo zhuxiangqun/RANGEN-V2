@@ -21,7 +21,7 @@ from functools import lru_cache
 from concurrent.futures import ThreadPoolExecutor
 
 from .expert_agent import ExpertAgent
-from .base_agent import AgentResult
+from ..agent_models import AgentResult
 
 logger = logging.getLogger(__name__)
 

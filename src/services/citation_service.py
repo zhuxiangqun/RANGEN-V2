@@ -13,7 +13,7 @@ import time
 import re
 import threading
 import asyncio
-from src.agents.base_agent import BaseAgent, AgentResult, AgentConfig
+from src.agents.core.base_agent import BaseAgent, AgentResult, AgentConfig
 
 # 统一配置中心与智能阈值获取（首选绝对导入，失败时提供最小兜底）
 try:

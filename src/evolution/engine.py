@@ -306,7 +306,7 @@ class EvolutionEngine:
         try:
             # 检查 Agent 状态
             try:
-                from src.agents.base_agent import BaseAgent
+                from src.agents.core.base_agent import BaseAgent
                 health_result["components"]["agents"] = {
                     "status": "healthy",
                     "details": "Agent 基类可访问"

@@ -40,7 +40,7 @@ LangGraph ReAct Agent Wrapper
 import logging
 from typing import Dict, Any, Optional
 
-from src.agents.react_agent import ReActAgent
+from src.agents.core.react_agent import ReActAgent
 
 logger = logging.getLogger(__name__)
 

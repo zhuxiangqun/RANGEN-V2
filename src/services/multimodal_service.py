@@ -12,7 +12,7 @@ import time
 import asyncio
 import inspect
 
-from src.agents.base_agent import BaseAgent, AgentResult, AgentConfig
+from src.agents.core.base_agent import BaseAgent, AgentResult, AgentConfig
 
 logger = logging.getLogger(__name__)
 

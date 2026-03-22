@@ -25,6 +25,10 @@ NC='\033[0m'
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VENV_PYTHON="$SCRIPT_DIR/venv/bin/python"
 
+if [ ! -f "$VENV_PYTHON" ]; then
+    VENV_PYTHON="python3"
+fi
+
 # Ports
 PORT_API=8000
 PORT_ENTRY=8500   # 统一入口
@@ -64,15 +68,15 @@ start_base() {
         return 0
     fi
     
-    cd "$SCRIPT_DIR"
-    export PYTHONPATH="$SCRIPT_DIR:$PYTHONPATH"
+    cd "$SCRIPT_DIR/.."
+    export PYTHONPATH="$(pwd):$PYTHONPATH"
     
     log_base "Starting API server on port $PORT_API..."
     
-    nohup $VENV_PYTHON src/access/api/server.py > /dev/null 2>&1 &
+    nohup $VENV_PYTHON -m uvicorn src.access.api.server:app --host 0.0.0.0 --port $PORT_API > /dev/null 2>&1 &
     API_PID=$!
     
-    for i in {1..15}; do
+    for i in {1..25}; do
         sleep 1
         if is_port_in_use $PORT_API; then
             log_base "✅ API server started on http://localhost:$PORT_API"
@@ -92,7 +96,7 @@ start_entry() {
         log_warn "Port $PORT_ENTRY is already in use!"
         return 0
     fi
-    cd "$SCRIPT_DIR"
+    cd "$SCRIPT_DIR/.."
     nohup streamlit run apps/entry_app/app.py --server.port $PORT_ENTRY --server.headless true > /dev/null 2>&1 &
     for i in {1..10}; do
         sleep 1
@@ -111,7 +115,7 @@ start_chat() {
         log_warn "Port $PORT_CHAT is already in use!"
         return 0
     fi
-    cd "$SCRIPT_DIR"
+    cd "$SCRIPT_DIR/.."
     nohup streamlit run apps/chat_app/app.py --server.port $PORT_CHAT --server.headless true > /dev/null 2>&1 &
     for i in {1..10}; do
         sleep 1
@@ -130,7 +134,7 @@ start_admin() {
         log_warn "Port $PORT_ADMIN is already in use!"
         return 0
     fi
-    cd "$SCRIPT_DIR"
+    cd "$SCRIPT_DIR/.."
     nohup streamlit run apps/management_app/app.py --server.port $PORT_ADMIN --server.headless true > /dev/null 2>&1 &
     for i in {1..10}; do
         sleep 1
@@ -149,7 +153,7 @@ start_gov() {
         log_warn "Port $PORT_GOV is already in use!"
         return 0
     fi
-    cd "$SCRIPT_DIR"
+    cd "$SCRIPT_DIR/.."
     nohup streamlit run apps/governance_app/app.py --server.port $PORT_GOV --server.headless true > /dev/null 2>&1 &
     for i in {1..10}; do
         sleep 1
@@ -168,7 +172,7 @@ start_design() {
         log_warn "Port $PORT_DESIGN is already in use!"
         return 0
     fi
-    cd "$SCRIPT_DIR"
+    cd "$SCRIPT_DIR/.."
     nohup streamlit run apps/design_review_app/app.py --server.port $PORT_DESIGN --server.headless true > /dev/null 2>&1 &
     for i in {1..10}; do
         sleep 1

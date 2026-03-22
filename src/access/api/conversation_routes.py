@@ -9,7 +9,7 @@ from pydantic import BaseModel
 from typing import Optional, List, Dict, Any
 
 from src.agents.smart_conversation_agent import get_smart_conversation_agent
-from src.api.auth import require_read, require_write
+from .auth import require_read, require_write
 
 router = APIRouter(prefix="/api/v1/conversation", tags=["conversation"])
 

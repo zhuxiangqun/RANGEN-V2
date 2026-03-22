@@ -11,14 +11,14 @@ from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from typing import Optional, Dict, Any, List
 
-from src.agents.requirement_analyzer_agent import (
+from src.agents.specialized.requirement_analyzer_agent import (
     get_requirement_analyzer,
     RequirementAnalyzerAgent,
     CapabilityMatch
 )
-from src.agents.ops_diagnosis_agent import get_ops_diagnosis_agent
+from src.agents.specialized.ops_diagnosis_agent import get_ops_diagnosis_agent
 from src.services.unified_creator import get_unified_creator, EntityType
-from src.api.auth import require_read, require_write
+from .auth import require_read, require_write
 
 router = APIRouter(prefix="/api/v1/smart", tags=["smart-handler"])
 

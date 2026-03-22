@@ -3,7 +3,7 @@ import logging
 import time
 import json
 from typing import Dict, Any, List, Optional, Tuple
-from src.agents.base_agent import AgentResult
+from src.agents.core.base_agent import AgentResult
 from src.services.retrieval_utils import KnowledgeSource
 
 logger = logging.getLogger(__name__)

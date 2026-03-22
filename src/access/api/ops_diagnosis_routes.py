@@ -5,8 +5,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from typing import Optional, Dict, Any
 
-from src.agents.ops_diagnosis_agent import get_ops_diagnosis_agent, OpsDiagnosisAgent
-from src.api.auth import require_read
+from src.agents.specialized.ops_diagnosis_agent import get_ops_diagnosis_agent, OpsDiagnosisAgent
+from .auth import require_read
 
 router = APIRouter(prefix="/api/v1/ops-diagnosis", tags=["ops-diagnosis"])
 

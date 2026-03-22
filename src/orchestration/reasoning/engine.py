@@ -78,7 +78,7 @@ class RealReasoningEngine:
         try:
             from src.agents.execution_tools.tool_registry import get_tool_registry
             from src.agents.execution_tools.knowledge_retrieval_tool import KnowledgeRetrievalTool
-            from src.agents.retrieval_agent import RetrievalAgent
+            from src.agents.core.retrieval_agent import RetrievalAgent
             
             # 1. 获取工具注册表单例
             tool_registry = get_tool_registry()

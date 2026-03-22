@@ -195,7 +195,7 @@ class ServiceRegistrar:
         
         try:
             # 基础智能体
-            from src.agents.base_agent import BaseAgent
+            from src.agents.core.base_agent import BaseAgent
             # 注册为工厂，因为BaseAgent通常是基类，具体实现由子类提供
             self.container.register_factory(BaseAgent, lambda: None)
             self.logger.info("注册基础智能体工厂")

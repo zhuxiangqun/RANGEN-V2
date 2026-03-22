@@ -13,7 +13,7 @@ from pydantic import BaseModel
 from src.services.logging_service import get_logger
 from src.services.mcp_server_manager import get_mcp_server_manager
 from src.services.mcp_config_service import get_mcp_config_service
-from src.api.auth import require_admin, require_read
+from .auth import require_admin, require_read
 
 logger = get_logger(__name__)
 

@@ -18,8 +18,18 @@ import time
 import re
 import json
 from typing import Dict, List, Any, Optional, Tuple
-from gradual_migration_manager import GradualMigrationManager
-from unified_error_handler import UnifiedErrorHandler
+
+# Optional imports - may not exist in all environments
+try:
+    from gradual_migration_manager import GradualMigrationManager
+except ImportError:
+    GradualMigrationManager = None
+
+try:
+    from unified_error_handler import UnifiedErrorHandler
+except ImportError:
+    UnifiedErrorHandler = None
+
 from src.utils.semantic_understanding_pipeline import get_semantic_understanding_pipeline
 
 

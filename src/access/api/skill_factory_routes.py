@@ -13,7 +13,7 @@ from fastapi import APIRouter, HTTPException, status, Depends
 from typing import Dict, Any, List, Optional
 from pydantic import BaseModel, Field
 
-from src.api.auth import require_admin
+from .auth import require_admin
 from src.skills.runtime.skill_factory_integration import (
     get_factory_integration, 
     is_skill_factory_available,

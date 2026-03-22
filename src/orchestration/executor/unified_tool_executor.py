@@ -334,7 +334,7 @@ class UnifiedToolExecutor:
         这是一个高级接口，直接集成 IntelligentToolSelector
         """
         try:
-            from src.agents.intelligent_tool_selector import get_intelligent_tool_selector
+            from src.agents.execution.intelligent_tool_selector import get_intelligent_tool_selector
             
             # 获取智能选择器
             selector = get_intelligent_tool_selector(self.tool_registry, self.cli_executor)

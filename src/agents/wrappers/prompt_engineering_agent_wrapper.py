@@ -9,7 +9,7 @@ import logging
 from typing import Dict, Any, Optional
 
 from src.adapters.prompt_engineering_agent_adapter import PromptEngineeringAgentAdapter
-from src.agents.base_agent import AgentResult
+from src.agents.core.base_agent import AgentResult
 
 logger = logging.getLogger(__name__)
 

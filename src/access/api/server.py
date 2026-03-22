@@ -32,37 +32,37 @@ from src.orchestration.routing.configurable_router import ConfigurableRouter
 from src.orchestration.executor.production_workflow import ProductionWorkflow, get_production_workflow
 
 from src.agents.execution_tools.tool_registry import ToolRegistry
-from src.agents.execution_tools.retrieval_tool import RetrievalTool
+from src.agents.execution_tools.agents.retrieval_tool import RetrievalTool
 from src.services.logging_service import get_logger
-from src.api.models import ChatRequest, ChatResponse
-from src.api.sop_routes import router as sop_router
-from src.api.unified_create_routes import router as unified_create_router
-from src.api.workflows import router as workflows_router
-from src.api.auto_create_routes import router as auto_create_router
-from src.api.team_routes import router as team_router
-from src.api.agents import router as agents_router
-from src.api.skills import router as skills_router
-from src.api.tools import router as tools_router
-from src.api.teams import router as teams_router
+from .models import ChatRequest, ChatResponse
+from .sop_routes import router as sop_router
+from .unified_create_routes import router as unified_create_router
+from .workflows import router as workflows_router
+from .auto_create_routes import router as auto_create_router
+from .team_routes import router as team_router
+from .agents import router as agents_router
+from .skills import router as skills_router
+from .tools import router as tools_router
+from .teams import router as teams_router
 
 # 新增路由
-from src.api.cost_control import router as cost_router
-from src.api.security_control import router as security_router
-from src.api.sandbox import router as sandbox_router
-from src.api.mcp_routes import router as mcp_router
-from src.api.external_integration import router as external_router
-from src.api.model_routes import router as model_router
-from src.api.test_execution import router as test_router
-from src.api.routing_monitor_routes import router as routing_monitor_router
-from src.api.cost_alert import router as cost_alert_router
-from src.api.execution_control import router as execution_control_router
-from src.api.ops_diagnosis_routes import router as ops_diagnosis_router
-from src.api.smart_handler_routes import router as smart_handler_router
-from src.api.conversation_routes import router as conversation_router
-from src.api.hub_routes import router as hub_router
-from src.api.design_routes import router as design_router
+from .cost_control import router as cost_router
+from .security_control import router as security_router
+from .sandbox import router as sandbox_router
+from .mcp_routes import router as mcp_router
+from .external_integration import router as external_router
+from .model_routes import router as model_router
+from .test_execution import router as test_router
+from .routing_monitor_routes import router as routing_monitor_router
+from .cost_alert import router as cost_alert_router
+from .execution_control import router as execution_control_router
+from .ops_diagnosis_routes import router as ops_diagnosis_router
+from .smart_handler_routes import router as smart_handler_router
+from .conversation_routes import router as conversation_router
+from .hub_routes import router as hub_router
+from .design_routes import router as design_router
 
-from src.api.auth import verify_api_key_auth, require_read, require_write, require_admin, register_api_key, AuthService
+from .auth import verify_api_key_auth, require_read, require_write, require_admin, register_api_key, AuthService
 from src.middleware.validation import create_validation_middleware, create_security_headers_middleware, create_rate_limit_middleware
 from src.utils.input_validator import ValidationLevel
 
@@ -172,7 +172,7 @@ app.include_router(auto_create_router)
 
 # 添加 Team 执行路由
 try:
-    from src.api.team_routes import router as team_router
+    from .team_routes import router as team_router
     app.include_router(team_router)
 except Exception:
     pass
@@ -287,7 +287,7 @@ except Exception as e:
 PLATFORM_ENABLED = os.getenv("RANGEN_PLATFORM_ENABLED", "false").lower() == "true"
 if PLATFORM_ENABLED:
     try:
-        from src.api.routes.platform import router as platform_router
+        from .routes.platform import router as platform_router
         app.include_router(platform_router)
         logger.info("✅ Platform router loaded - AI 基盘平台已启用")
         
@@ -350,7 +350,7 @@ async def chat_endpoint(
     
     if is_creation_request:
         try:
-            from src.api.unified_create_routes import EntityCreateRequest
+            from .unified_create_routes import EntityCreateRequest
             from src.services.unified_creator import get_unified_creator
             from src.services.hard_gate_integration import get_hard_gate_integration
             

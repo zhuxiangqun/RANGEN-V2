@@ -21,7 +21,7 @@ from src.orchestration.neural.factory import NeuralServiceFactory
 from src.orchestration.core_services.llm_integration import LLMIntegration
 
 from src.services.logging_service import get_logger
-from src.agents.reasoning_agent import ReasoningAgent
+from src.agents.core.reasoning_agent import ReasoningAgent
 from src.agents.execution_tools.tool_registry import ToolRegistry
 from src.orchestration.monitoring.monitor_decorator import monitor
 from src.orchestration.nodes.quality_evaluator import QualityEvaluatorNode

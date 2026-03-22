@@ -3,7 +3,7 @@ Agent API Routes - REST API for Agent CRUD operations
 """
 from fastapi import APIRouter, HTTPException, status
 from typing import List, Optional
-from src.api.models_agent import (
+from .models_agent import (
     AgentCreate, 
     AgentUpdate, 
     AgentResponse, 

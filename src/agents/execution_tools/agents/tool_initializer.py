@@ -5,14 +5,14 @@ Auto-register existing RANGEN tools to ToolRegistry.
 """
 
 from typing import Dict, Any, Optional
-from src.agents.execution_tools import (
+from . import (
     RAGTool, SearchTool, CalculatorTool, KnowledgeRetrievalTool,
     ReasoningTool, AnswerGenerationTool, CitationTool, MultimodalTool,
     BrowserTool, ToolRegistry, get_tool_registry
 )
-from src.agents.execution_tools.real_search_tool import RealSearchTool, BingSearchTool
-from src.agents.execution_tools.web_search_tool import WebSearchTool
-from src.agents.execution_tools.file_hand_tool import FileReadHandTool
+from .real_search_tool import RealSearchTool, BingSearchTool
+from .web_search_tool import WebSearchTool
+from .file_hand_tool import FileReadHandTool
 from src.services.logging_service import get_logger
 
 logger = get_logger(__name__)

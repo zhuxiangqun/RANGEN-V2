@@ -15,7 +15,7 @@ import re
 import threading
 import asyncio
 
-from src.agents.base_agent import BaseAgent, AgentResult, AgentConfig
+from src.agents.core.base_agent import BaseAgent, AgentResult, AgentConfig
 from src.utils.unified_centers import get_unified_config_center
 
 logger = logging.getLogger(__name__)

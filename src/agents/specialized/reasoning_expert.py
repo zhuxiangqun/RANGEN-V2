@@ -26,7 +26,7 @@ from concurrent.futures import ThreadPoolExecutor
 import re
 
 from .expert_agent import ExpertAgent
-from .base_agent import AgentResult
+from ..agent_models import AgentResult
 from ..utils.unified_centers import get_unified_config_center
 from ..utils.unified_threshold_manager import get_unified_threshold_manager
 from src.utils.logging_helper import get_module_logger, ModuleType

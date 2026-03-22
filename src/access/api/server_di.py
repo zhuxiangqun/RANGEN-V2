@@ -26,8 +26,8 @@ from src.agents.execution_tools.tool_registry import ToolRegistry
 from src.agents.execution_tools.retrieval_tool import RetrievalTool
 
 # 模型和认证
-from src.api.models import ChatRequest, ChatResponse
-from src.api.auth import verify_api_key_auth, require_read, require_write, require_admin, register_api_key, AuthService
+from .models import ChatRequest, ChatResponse
+from .auth import verify_api_key_auth, require_read, require_write, require_admin, register_api_key, AuthService
 from src.middleware.validation import create_validation_middleware, create_security_headers_middleware, create_rate_limit_middleware
 from src.utils.input_validator import ValidationLevel
 

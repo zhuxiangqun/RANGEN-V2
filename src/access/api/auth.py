@@ -15,7 +15,7 @@ from src.services.logging_service import get_logger
 
 # 导入新的统一认证服务
 try:
-    from src.api.auth_service import (
+    from .auth_service import (
         get_auth_service,
         verify_authentication as new_verify_authentication,
         require_permission as new_require_permission,

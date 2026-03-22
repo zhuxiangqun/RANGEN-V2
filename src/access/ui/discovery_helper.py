@@ -4686,7 +4686,7 @@ def test_agent(agent_name: str, test_input: str) -> Dict[str, Any]:
         project_root = Path(__file__).parent.parent.parent
         sys.path.insert(0, str(project_root))
         
-        from src.agents.reasoning_agent import ReasoningAgent
+        from src.agents.core.reasoning_agent import ReasoningAgent
         from src.agents.execution_tools.tool_registry import ToolRegistry
         
         execution_trace = []

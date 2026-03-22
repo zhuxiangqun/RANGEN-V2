@@ -10,7 +10,7 @@ from typing import Dict, Any, Optional, List
 from dataclasses import dataclass
 
 from src.agents.reasoning_expert import ReasoningExpert as ReActAgent
-from src.agents.base_agent import AgentResult
+from src.agents.core.base_agent import AgentResult
 from src.agents.execution_tools.tool_registry import get_tool_registry
 from src.utils.logging_helper import get_module_logger, ModuleType
 from src.orchestration.reasoning.ml_framework.model_auto_loader import auto_load_model

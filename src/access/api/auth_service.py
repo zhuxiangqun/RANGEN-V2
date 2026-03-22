@@ -13,7 +13,7 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials, OAuth2Pas
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 
-from src.api.models_auth import get_auth_database, AuthDatabase
+from .models_auth import get_auth_database, AuthDatabase
 from src.services.logging_service import get_logger
 from src.utils.security_utils import SecurityUtils
 from src.services.audit_log_service import (
@@ -595,7 +595,7 @@ def init_default_api_keys():
         key_info = auth_service.verify_api_key(default_key)
         if not key_info:
             # 使用register_api_key注册环境变量中的密钥 (import here to avoid circular import)
-            from src.api.auth import register_api_key
+            from .auth import register_api_key
             register_api_key(
                 default_key,
                 name="default",

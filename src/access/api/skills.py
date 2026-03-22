@@ -3,7 +3,7 @@ Skill API Routes - REST API for Skill CRUD operations
 """
 from fastapi import APIRouter, HTTPException, status
 from typing import List, Optional
-from src.api.models_skill import (
+from .models_skill import (
     SkillCreate, 
     SkillResponse, 
     SkillListResponse

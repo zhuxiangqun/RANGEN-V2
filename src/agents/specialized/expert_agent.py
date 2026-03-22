@@ -9,8 +9,8 @@ import logging
 from typing import Dict, List, Any, Optional
 from abc import ABC, abstractmethod
 
-from .base_agent import BaseAgent, AgentResult, AgentConfig
-from .react_agent import Action
+from ..core.base_agent import BaseAgent, AgentResult, AgentConfig
+from ..core.react_agent import Action
 from src.visualization.orchestration_tracker import get_orchestration_tracker
 
 logger = logging.getLogger(__name__)

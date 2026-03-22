@@ -23,8 +23,8 @@ from typing import Dict, Any, Optional, List
 from dataclasses import dataclass
 
 from .base_agent import BaseAgent, AgentResult, AgentConfig
-from .tools.base_tool import BaseTool, ToolResult
-from .tools.tool_registry import get_tool_registry
+from src.agents.execution_tools.base_tool import BaseTool, ToolResult
+from src.agents.execution_tools.tool_registry import get_tool_registry
 # 🚀 架构优化：RAGTool现在内部使用RAGAgent
 # from .tools.rag_tool import RAGTool  # 延迟导入，在_register_default_tools中使用
 from src.utils.logging_helper import get_module_logger, ModuleType
@@ -177,7 +177,7 @@ class ReActAgent(BaseAgent):
             except Exception as e:
                 # 如果新方式失败，回退到传统RAGTool（向后兼容）
                 self.module_logger.warning(f"⚠️ 使用RAGExpert.as_tool()失败，回退到RAGTool: {e}")
-                from .tools.rag_tool import RAGTool
+                from src.agents.execution_tools.agents.rag_tool import RAGTool
                 rag_tool = RAGTool()
                 self.tool_registry.register_tool(rag_tool, {
                     "category": "knowledge",

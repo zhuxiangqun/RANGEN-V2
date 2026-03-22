@@ -16,7 +16,7 @@ from src.services.logging_service import get_logger
 from src.agents.priority_routing_engine import get_priority_routing_engine
 from src.skills.runtime.enhanced_registry import get_enhanced_skill_registry
 from src.agents.execution_tools.tool_registry import get_tool_registry
-from src.api.auth import require_read, require_admin
+from .auth import require_read, require_admin
 
 logger = get_logger(__name__)
 

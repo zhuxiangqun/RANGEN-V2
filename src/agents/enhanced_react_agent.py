@@ -7,7 +7,7 @@ Enhanced ReAct Agent with Autonomous Decision Making
 from typing import Dict, Any, Optional, List
 from dataclasses import dataclass
 
-from src.agents.react_agent import ReActAgent, Action
+from src.agents.core.react_agent import ReActAgent, Action
 from src.orchestration.context_engineering.autonomous_decision import (
     AutonomousDecisionEngine, 
     DecisionType,

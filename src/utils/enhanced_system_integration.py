@@ -15,7 +15,7 @@ from dataclasses import dataclass, field
 
 # 导入现有系统组件（修复后的）
 try:
-    from src.agents.base_agent import BaseAgent
+    from src.agents.core.base_agent import BaseAgent
 except ImportError:
     BaseAgent = None
 

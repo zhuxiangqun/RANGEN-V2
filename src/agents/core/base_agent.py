@@ -13,14 +13,14 @@ from dataclasses import dataclass, field, asdict
 from abc import ABC, abstractmethod
 from enum import Enum
 
-from .agent_models import (
+from src.agents.agent_models import (
     AgentConfig, AgentState, ProcessingResult, AgentResult, 
     AgentCapability, StrategyDecision, PerformanceMetrics, LearningResult
 )
-from .agent_config_manager import AgentConfigManager
-from .agent_performance_tracker import AgentPerformanceTracker
-from .agent_history_manager import AgentHistoryManager, HistoryType, HistoryQuery
-from .self_evolving_mixin import SelfEvolvingMixin, SelfEvolvingConfig
+from src.agents.agent_config_manager import AgentConfigManager
+from src.agents.agent_performance_tracker import AgentPerformanceTracker
+from src.agents.agent_history_manager import AgentHistoryManager, HistoryType, HistoryQuery
+from src.agents.learning.self_evolving_mixin import SelfEvolvingMixin, SelfEvolvingConfig
 
 
 

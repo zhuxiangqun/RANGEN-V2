@@ -74,9 +74,9 @@ import logging
 from typing import Dict, Any, Optional, List
 from dataclasses import dataclass
 
-from ..agents.react_agent import ReActAgent
-from ..agents.base_agent import AgentResult, AgentConfig
-from ..agents.tools.tool_registry import get_tool_registry
+from ..core.react_agent import ReActAgent
+from ..agent_models import AgentResult, AgentConfig
+from ..execution_tools.tool_registry import get_tool_registry
 
 from src.orchestration.self_learning import (
     get_tool_selection_learner,

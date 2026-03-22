@@ -18,8 +18,8 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
 
-from .base_agent import BaseAgent
-from .agent_models import AgentResult, ProcessingResult, AgentConfig
+from ..core.base_agent import BaseAgent
+from ..agent_models import AgentResult, ProcessingResult, AgentConfig
 from src.services.logging_service import get_logger
 from src.hook.transparency import HookTransparencySystem
 from src.hook.hook_types import HookEventType, HookVisibilityLevel
