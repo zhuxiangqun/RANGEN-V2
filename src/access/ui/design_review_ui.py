@@ -17,6 +17,17 @@ from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
+st.markdown("""
+<style>
+    .block-container {padding-top: 0.5rem; padding-bottom: 0.5rem;}
+    h1 {font-size: 1.5rem !important; margin-bottom: 0.5rem !important;}
+    h2 {font-size: 1.2rem !important;}
+    h3 {font-size: 1rem !important;}
+    .stTabs [data-baseweb="tab-list"] {gap: 8px;}
+    .stTabs [data-baseweb="tab"] {padding: 6px 16px; font-size: 0.9rem;}
+</style>
+""", unsafe_allow_html=True)
+
 
 def init_session_state():
     """初始化 session state"""

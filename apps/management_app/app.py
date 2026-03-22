@@ -34,16 +34,17 @@ st.markdown(f"""
 <style>
     .main-header {{
         background: linear-gradient(135deg, {COLORS['primary']} 0%, {COLORS['secondary']} 100%);
-        padding: 1rem 2rem;
-        border-radius: 10px;
-        margin-bottom: 1rem;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
     }}
     .main-header h1 {{
         color: white;
         margin: 0;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         font-weight: 600;
     }}
+    .block-container {{padding-top: 0.5rem; padding-bottom: 0.5rem;}}
 </style>
 """, unsafe_allow_html=True)
 

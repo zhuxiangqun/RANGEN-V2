@@ -51,53 +51,58 @@ def post_with_auth(url, data=None):
 
 st.markdown("""
 <style>
-    .block-container {padding-top: 1rem; padding-bottom: 1rem;}
-    .metric-box {background: #1E3A5F; border-radius: 8px; padding: 10px; text-align: center;}
+    .block-container {padding-top: 0.5rem; padding-bottom: 0.5rem;}
+    .metric-box {background: #1E3A5F; border-radius: 6px; padding: 8px; text-align: center;}
     div[data-testid="stMetric"] {
         background: linear-gradient(135deg, #1E3A5F 0%, #2D5A87 100%);
-        padding: 15px;
-        border-radius: 10px;
+        padding: 10px;
+        border-radius: 8px;
         color: white !important;
     }
     div[data-testid="stMetricLabel"] {
         color: rgba(255,255,255,0.8) !important;
+        font-size: 0.8rem;
     }
     div[data-testid="stMetricValue"] {
         color: #FFFFFF !important;
         font-weight: bold;
+        font-size: 1.2rem;
     }
     div[data-testid="stMetricDelta"] {
         color: #90EE90 !important;
     }
-    .stTabs [data-baseweb="tab-list"] {gap: 10px;}
+    .stTabs [data-baseweb="tab-list"] {gap: 8px;}
     .stTabs [data-baseweb="tab"] {
         background: #E8EEF4;
-        border-radius: 8px 8px 0 0;
-        padding: 10px 20px;
+        border-radius: 6px 6px 0 0;
+        padding: 6px 16px;
         color: #1E3A5F !important;
         font-weight: 600;
+        font-size: 0.9rem;
     }
     .stTabs [aria-selected="true"] {
         background: #1E3A5F !important;
         color: white !important;
     }
     .stTabs [aria-selected="false"] {color: #1E3A5F !important;}
-    hr {margin: 1rem 0;}
-    h3 {color: #1E3A5F; margin-top: 1rem;}
+    hr {margin: 0.5rem 0;}
+    h3 {color: #1E3A5F; margin-top: 0.5rem;}
+    h4 {font-size: 1rem;}
     .capability-section {
         background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        border-radius: 12px;
-        padding: 15px;
-        margin: 10px 0;
+        border-radius: 8px;
+        padding: 10px;
+        margin: 8px 0;
     }
     .capability-section h4 {
         color: #1E3A5F;
-        margin: 0 0 8px 0;
-        font-size: 1rem;
+        margin: 0 0 6px 0;
+        font-size: 0.9rem;
     }
     .capability-section p {
         color: #495057;
         margin: 0;
+        font-size: 0.85rem;
         font-size: 0.85rem;
     }
 </style>

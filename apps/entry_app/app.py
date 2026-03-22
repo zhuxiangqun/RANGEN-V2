@@ -26,42 +26,51 @@ st.markdown(f"""
 <style>
     .main-header {{
         background: linear-gradient(135deg, {COLORS['primary']} 0%, {COLORS['secondary']} 100%);
-        padding: 2rem;
-        border-radius: 10px;
+        padding: 1rem;
+        border-radius: 8px;
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
     }}
     .main-header h1 {{
         color: white;
         margin: 0;
-        font-size: 2.5rem;
+        font-size: 1.8rem;
         font-weight: 600;
     }}
     .main-header p {{
         color: rgba(255,255,255,0.8);
-        margin: 0.5rem 0 0 0;
-        font-size: 1.1rem;
+        margin: 0.3rem 0 0 0;
+        font-size: 0.95rem;
     }}
     .app-card {{
         background: white;
         border: 1px solid #E0E0E0;
-        border-radius: 10px;
-        padding: 1.5rem;
+        border-radius: 8px;
+        padding: 0.75rem;
         text-align: center;
         transition: all 0.2s;
         cursor: pointer;
     }}
     .app-card:hover {{
         border-color: {COLORS['primary']};
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }}
     .app-card h3 {{
-        margin: 0.5rem 0;
+        margin: 0.3rem 0;
         color: {COLORS['primary']};
+        font-size: 1rem;
     }}
     .app-card p {{
         color: #757575;
         margin: 0;
+        font-size: 0.85rem;
+    }}
+    .app-card span {{
+        font-size: 1.5rem;
+    }}
+    /* Compact footer */
+    .stHorizontalBlock {{
+        gap: 0.5rem;
     }}
 </style>
 """, unsafe_allow_html=True)
