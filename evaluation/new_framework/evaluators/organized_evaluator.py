@@ -149,10 +149,20 @@ class PerformanceEvaluator:
             "details": f"延迟:{latency_str}, QPS:{results['throughput'].get('qps', 0):.1f}"
         }
     
+    def _get_auth_headers(self) -> Dict[str, str]:
+        """获取认证头"""
+        import os
+        headers = {}
+        api_key = os.environ.get("RANGEN_API_KEY") or os.environ.get("DEEPSEEK_API_KEY")
+        if api_key:
+            headers["Authorization"] = f"Bearer {api_key}"
+        return headers
+    
     async def _measure_latency(self) -> Dict[str, Any]:
         import asyncio
         latencies = []
         success_count = 0
+        auth_headers = self._get_auth_headers()
         
         for i in range(3):
             await asyncio.sleep(2)
@@ -161,6 +171,7 @@ class PerformanceEvaluator:
                 resp = requests.post(
                     f"{self.system_url}/chat",
                     json={"query": "hello"},
+                    headers=auth_headers,
                     timeout=15
                 )
                 elapsed = (time.time() - start) * 1000
@@ -185,12 +196,14 @@ class PerformanceEvaluator:
         start = time.time()
         count = 0
         request_count = 0
+        auth_headers = self._get_auth_headers()
         
         while time.time() - start < duration:
             try:
                 resp = requests.post(
                     f"{self.system_url}/chat",
                     json={"query": "hi"},
+                    headers=auth_headers,
                     timeout=5
                 )
                 request_count += 1
