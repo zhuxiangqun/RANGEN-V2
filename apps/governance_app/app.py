@@ -809,29 +809,10 @@ asyncio.run(RANGENEvaluator().run_full_evaluation())
                                 else:
                                     st.info("未找到新评估框架的结果文件")
                             
-                            if result.stdout:
-                                with st.expander("查看原始输出"):
-                                    st.text(result.stdout[:5000])
-                        else:
-                            st.error("Evaluation failed")
-                            if result.stderr:
-                                with st.expander("View Error"):
-                                    st.text(result.stderr[:2000])
                 except subprocess.TimeoutExpired:
-                    st.warning("Timed out - try fewer samples or run manually")
+                    st.warning("Timed out - try fewer samples")
                 except Exception as e:
                     st.error(f"Evaluation failed: {str(e)}")
-    
-    st.markdown("---")
-    st.write("**Manual Run**")
-    st.info("You can also run evaluation manually in terminal:")
-    st.code(f"cd {os.path.expanduser('~')}/workdata/person/zy/RANGEN-main\\(syu-python\\)")
-    st.code("python evaluation/run_evaluation.py --type quality")
-    
-    st.markdown("---")
-    st.write("**Evaluation Results Location**")
-    st.code("evaluation/results/")
-    st.code("evaluation/comprehensive_eval_results/")
 
 with tab9:
     st.subheader("📋 SOP 标准流程")
