@@ -269,7 +269,7 @@ Team → Workflow → Agent → Skill → Tool
 | **Coordinator** | 编排/协调/路由 | ChiefAgent, MultiAgentCoordinator |
 
 **实现**：
-- 已有 `src/core/agent_role_registry.py` 角色注册中心
+- 已有角色注册中心（位于 `src/platform/capability/agents/`）
 - 30+ Agent 已完成分类：23 Builder, 4 Reviewer, 3 Coordinator
 
 **团队协作模式**：
@@ -593,7 +593,7 @@ workflow:
 | 添加工具热度统计 | 无 | 统计使用频率 | P1 | ✅ 完成 |
 | 实现工具动态注册 | 静态注册 | 动态按需 | P2 | 🔄 进行中 |
 
-**新增组件**：`src/core/progressive_tool_loader.py`
+**新增组件**：渐进式工具加载器（位于 `src/agents/execution_tools/`）
 - ToolLoader类：渐进式披露工具加载器
 - 支持按任务类型（simple/local/api/external）加载工具
 - 支持工具使用统计和热度排序
@@ -606,7 +606,7 @@ workflow:
 | 标准化CLI调用封装 | 无 | 统一封装 | P1 | ✅ 完成 |
 | 添加CLI健康检查 | 无 | 可靠性保障 | P2 | 🔄 进行中 |
 
-**新增组件**：`src/core/cli_tools.py`
+**新增组件**：CLI工具封装（位于 `src/agents/execution_tools/`）
 - CLITool类：标准化CLI工具封装
 - 预置工具：git, docker, npm, curl, filesystem
 - 可扩展：支持自定义CLI命令
@@ -627,7 +627,7 @@ workflow:
 
 | 项目 | 说明 |
 |------|------|
-| 文件 | `src/core/progressive_tool_loader.py` |
+| 文件 | `src/agents/execution_tools/` |
 | 核心类 | `ToolLoader`, `ToolPriority`, `ToolLoadConfig` |
 | 功能 | 按任务类型（simple/local/api/external）按需加载工具 |
 | 特性 | 工具优先级管理、使用统计、热度排序 |
@@ -636,7 +636,7 @@ workflow:
 
 | 项目 | 说明 |
 |------|------|
-| 文件 | `src/core/cli_tools.py` |
+| 文件 | `src/agents/execution_tools/` |
 | 核心类 | `CLITool`, `CLICommand` |
 | 预置工具 | git, docker, npm, curl, filesystem, search, process, network, system, python, grep |
 
@@ -644,7 +644,7 @@ workflow:
 
 | 项目 | 说明 |
 |------|------|
-| 文件 | `src/core/tool_loader_integration.py` |
+| 文件 | `src/agents/execution_tools/tool_registry.py` |
 | 核心类 | `ToolLoaderIntegration`, `IntegrationConfig` |
 | 功能 | 将ToolLoader集成到现有工具注册系统 |
 
@@ -730,10 +730,10 @@ class ToolLoader:
 | 维度 | 定义 | RANGEN 实现 |
 |------|------|-------------|
 | **信息喂送** | 渐进式文档披露 | ✅ docs/harness/ |
-| **约束拦截** | Agent 友好 Linter | ✅ src/core/agent_linter.py |
-| **自我验证** | Agent ↔ Agent 评审 | ✅ src/core/agent_reviewer.py |
-| **可观测性** | Agent 查询运行时 | ✅ src/core/agent_observability_client.py |
-| **熵管理** | 定期清理腐化 | ✅ src/core/harness_entropy_manager.py |
+| **约束拦截** | Agent 友好 Linter | ✅ src/agents/core/agent_linter.py |
+| **自我验证** | Agent ↔ Agent 评审 | ✅ src/orchestration/validators/agent_reviewer.py |
+| **可观测性** | Agent 查询运行时 | ✅ src/agents/core/agent_observability_client.py |
+| **熵管理** | 定期清理腐化 | ✅ src/orchestration/harness_entropy_manager.py |
 
 #### 相关文件
 
@@ -743,7 +743,7 @@ docs/harness/
   ├── ARCHITECTURE.md             # 架构约束
   ├── QUALITY.md                  # 质量标准（含 Linter/Review）
   └── SECURITY.md                  # 安全约束
-src/core/
+src/agents/core/
   ├── agent_linter.py             # Agent Linter
   ├── agent_reviewer.py           # Agent 自动化评审
   ├── agent_observability_client.py # Agent 可观测性

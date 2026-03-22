@@ -455,10 +455,10 @@ pytest -n auto
 ### 启动API服务器
 ```bash
 # 启动FastAPI服务器
-python src/api/server.py
+python src/access/api/server.py
 
 # 或使用uvicorn直接启动
-uvicorn src.api.server:app --reload --host 0.0.0.0 --port 8000
+uvicorn src.access.api.server:app --reload --host 0.0.0.0 --port 8000
 
 # 启动后访问：http://localhost:8000
 # API文档：http://localhost:8000/docs
@@ -543,7 +543,7 @@ git checkout -b feature/new-feature
 pip install -r requirements.txt
 
 # 启动开发服务器
-python src/api/server.py
+python src/access/api/server.py
 ```
 
 ### 2. 编写和测试代码
@@ -637,7 +637,7 @@ netstat -ano | findstr :8000  # Windows
 kill -9 <PID>
 
 # 或使用其他端口
-python src/api/server.py --port 8080
+python src/access/api/server.py --port 8080
 ```
 
 #### 问题2：导入错误
@@ -695,7 +695,7 @@ ENV LOG_LEVEL=DEBUG
 EXPOSE 8000 8501
 
 # 启动命令
-CMD ["python", "src/api/server.py"]
+CMD ["python", "src/access/api/server.py"]
 ```
 
 使用Docker Compose：
@@ -716,7 +716,7 @@ services:
     volumes:
       - .:/app
       - ./data:/app/data
-    command: python src/api/server.py
+    command: python src/access/api/server.py
 
   ui:
     build:
