@@ -619,84 +619,116 @@ asyncio.run(RANGENEvaluator().run_full_evaluation())
                                                 
                                                 st.write("### 📊 质量分析结果")
                                                 
-                                                col1, col2, col3 = st.columns(3)
-                                                with col1:
-                                                    st.metric("🧠 智能质量", f"{all_scores.get('智能质量分数', 0):.3f}" if '智能质量分数' in all_scores else "N/A")
-                                                    st.metric("🏗️ 架构质量", f"{all_scores.get('架构质量分数', 0):.3f}" if '架构质量分数' in all_scores else "N/A")
-                                                with col2:
-                                                    st.metric("🔒 安全质量", f"{all_scores.get('安全质量分数', 0):.3f}" if '安全质量分数' in all_scores else "N/A")
-                                                    st.metric("⚡ 性能质量", f"{all_scores.get('性能质量分数', 0):.3f}" if '性能质量分数' in all_scores else "N/A")
-                                                with col3:
-                                                    st.metric("💻 代码质量", f"{all_scores.get('代码质量分数', 0):.3f}" if '代码质量分数' in all_scores else "N/A")
+                                                main_scores = {
+                                                    "🧠 智能质量": all_scores.get('智能质量分数'),
+                                                    "🏗️ 架构质量": all_scores.get('架构质量分数'),
+                                                    "🔒 安全质量": all_scores.get('安全质量分数'),
+                                                    "⚡ 性能质量": all_scores.get('性能质量分数'),
+                                                    "💻 代码质量": all_scores.get('代码质量分数'),
+                                                }
+                                                
+                                                cols = st.columns(len(main_scores) + 1)
+                                                for i, (name, score) in enumerate(main_scores.items()):
+                                                    with cols[i]:
+                                                        st.metric(name, f"{score:.3f}" if score is not None else "N/A")
+                                                
+                                                with cols[-1]:
+                                                    if st.button("📋 查看详情", key="iq_detail_btn", use_container_width=True):
+                                                        st.session_state.iq_show_detail = True
+                                                
+                                                if st.session_state.get("iq_show_detail", False):
+                                                    with st.container():
+                                                        st.markdown("#### 📋 评估详情")
+                                                        
+                                                        exclude_patterns = ["数量", "问题", "检测", "分数:", "生成时间", "分析文件数", "分析模式", "nTc机制", "证据积累", "决策承诺", "几何化轨迹", "动态阈值", "承诺锁定"]
+                                                        
+                                                        category_mapping = {
+                                                            "智能质量分数": "基础质量",
+                                                            "架构质量分数": "基础质量",
+                                                            "安全质量分数": "基础质量",
+                                                            "性能质量分数": "基础质量",
+                                                            "代码质量分数": "基础质量",
+                                                            "大脑决策机制分数": "大脑决策",
+                                                            "ML-RL协同作用分数": "ML/RL",
+                                                            "提示词-上下文协同分数": "提示词",
+                                                            "复杂推理能力分数": "推理能力",
+                                                            "查询处理流程分数": "查询处理",
+                                                            "智能维度综合分数": "智能维度",
+                                                            "上下文管理分数": "上下文",
+                                                            "系统监控分数": "系统监控",
+                                                            "配置管理分数": "配置管理",
+                                                            "评分评估分数": "评分评估",
+                                                            "安全防护分数": "安全防护",
+                                                            "系统集成分数": "系统集成",
+                                                            "数据管理分数": "数据管理",
+                                                            "学习能力综合分数": "学习能力",
+                                                            "业务价值分数": "业务逻辑",
+                                                        }
+                                                        
+                                                        suggestions = {
+                                                            "智能质量分数": "增加智能推理模块，优化决策逻辑",
+                                                            "架构质量分数": "优化代码结构，减少过度设计",
+                                                            "安全质量分数": "加强安全检查和权限控制",
+                                                            "性能质量分数": "优化算法复杂度，减少阻塞操作",
+                                                            "代码质量分数": "改善代码规范，减少重复代码",
+                                                            "大脑决策机制分数": "实现nTc机制、证据积累、决策承诺",
+                                                            "ML-RL协同作用分数": "加强ML和RL模块的协同",
+                                                            "提示词-上下文协同分数": "优化提示词设计",
+                                                            "复杂推理能力分数": "增强复杂问题处理能力",
+                                                            "查询处理流程分数": "优化查询理解和处理流程",
+                                                            "智能维度综合分数": "提升系统智能水平",
+                                                            "上下文管理分数": "优化上下文窗口管理",
+                                                            "系统监控分数": "完善监控指标和告警",
+                                                            "配置管理分数": "改进配置管理机制",
+                                                            "评分评估分数": "完善评分和评估体系",
+                                                            "安全防护分数": "加强安全防护措施",
+                                                            "系统集成分数": "改进系统集成方案",
+                                                            "数据管理分数": "优化数据存储和处理",
+                                                            "学习能力综合分数": "增强系统自学习能力",
+                                                            "业务价值分数": "提升业务逻辑实现",
+                                                        }
+                                                        
+                                                        ep_for_detail = ["数量", "问题", "检测", "分数:", "生成时间", "分析文件数", "分析模式", "nTc机制", "证据积累", "决策承诺", "几何化轨迹", "动态阈值", "承诺锁定"]
+                                                        meaningful_scores = []
+                                                        for name, value in scores:
+                                                            if any(p in name for p in ep_for_detail):
+                                                                continue
+                                                            try:
+                                                                float_val = float(value)
+                                                                category = category_mapping.get(name, "其他")
+                                                                suggestion = suggestions.get(name, "建议优化") if float_val < 0.7 else "良好"
+                                                                meaningful_scores.append((name, f"{float_val:.3f}", category, suggestion))
+                                                            except:
+                                                                pass
+                                                        
+                                                        if meaningful_scores:
+                                                            for name, value, category, suggestion in meaningful_scores:
+                                                                float_val = float(value)
+                                                                status_icon = "✅" if float_val >= 0.7 else "⚠️" if float_val >= 0.5 else "❌"
+                                                                with st.expander(f"{status_icon} {name}: {value}"):
+                                                                    st.write(f"**类别**: {category}")
+                                                                    st.write(f"**状态**: {'良好' if float_val >= 0.7 else '需改进' if float_val >= 0.5 else '严重'}")
+                                                                    st.write(f"**建议**: {suggestion}")
+                                                        
+                                                        if st.button("🔒 关闭详情", key="iq_close_detail"):
+                                                            st.session_state.iq_show_detail = False
+                                                            st.rerun()
                                                 
                                                 st.markdown("---")
-                                                
-                                                with st.expander("📋 详细评分表格"):
-                                                    exclude_patterns = ["数量", "问题", "检测", "分数:", "生成时间", "分析文件数", "分析模式", "nTc机制", "证据积累", "决策承诺", "几何化轨迹", "动态阈值", "承诺锁定"]
-                                                    meaningful_scores = []
-                                                    
-                                                    category_mapping = {
-                                                        "智能质量分数": "基础质量",
-                                                        "架构质量分数": "基础质量",
-                                                        "安全质量分数": "基础质量",
-                                                        "性能质量分数": "基础质量",
-                                                        "代码质量分数": "基础质量",
-                                                        "大脑决策机制分数": "大脑决策",
-                                                        "ML-RL协同作用分数": "ML/RL",
-                                                        "提示词-上下文协同分数": "提示词",
-                                                        "复杂推理能力分数": "推理能力",
-                                                        "查询处理流程分数": "查询处理",
-                                                        "智能维度综合分数": "智能维度",
-                                                        "上下文管理分数": "上下文",
-                                                        "系统监控分数": "系统监控",
-                                                        "配置管理分数": "配置管理",
-                                                        "评分评估分数": "评分评估",
-                                                        "安全防护分数": "安全防护",
-                                                        "系统集成分数": "系统集成",
-                                                        "数据管理分数": "数据管理",
-                                                        "学习能力综合分数": "学习能力",
-                                                        "业务价值分数": "业务逻辑",
-                                                    }
-                                                    
-                                                    suggestions = {
-                                                        "智能质量分数": "增加智能推理模块，优化决策逻辑",
-                                                        "架构质量分数": "优化代码结构，减少过度设计",
-                                                        "安全质量分数": "加强安全检查和权限控制",
-                                                        "性能质量分数": "优化算法复杂度，减少阻塞操作",
-                                                        "代码质量分数": "改善代码规范，减少重复代码",
-                                                        "大脑决策机制分数": "实现nTc机制、证据积累、决策承诺",
-                                                        "ML-RL协同作用分数": "加强ML和RL模块的协同",
-                                                        "提示词-上下文协同分数": "优化提示词设计",
-                                                        "复杂推理能力分数": "增强复杂问题处理能力",
-                                                        "查询处理流程分数": "优化查询理解和处理流程",
-                                                        "智能维度综合分数": "提升系统智能水平",
-                                                        "上下文管理分数": "优化上下文窗口管理",
-                                                        "系统监控分数": "完善监控指标和告警",
-                                                        "配置管理分数": "改进配置管理机制",
-                                                        "评分评估分数": "完善评分和评估体系",
-                                                        "安全防护分数": "加强安全防护措施",
-                                                        "系统集成分数": "改进系统集成方案",
-                                                        "数据管理分数": "优化数据存储和处理",
-                                                        "学习能力综合分数": "增强系统自学习能力",
-                                                        "业务价值分数": "提升业务逻辑实现",
-                                                    }
-                                                    
-                                                    for name, value in scores:
-                                                        if any(p in name for p in exclude_patterns):
-                                                            continue
-                                                        try:
-                                                            float_val = float(value)
-                                                            category = category_mapping.get(name, "其他")
-                                                            suggestion = suggestions.get(name, "建议优化") if float_val < 0.7 else "良好"
-                                                            meaningful_scores.append((name, f"{float_val:.3f}", category, suggestion))
-                                                        except:
-                                                            pass
-                                                    
-                                                    if meaningful_scores:
-                                                        table_md = "| 指标 | 分数 | 质量类别 | 质量问题及解决方式 |\n|------|------|----------|--------------------|\n"
-                                                        for name, value, category, suggestion in meaningful_scores:
-                                                            table_md += f"| {name} | {value} | {category} | {suggestion} |\n"
-                                                        st.markdown(table_md)
+                                                dim_cols = st.columns(3)
+                                                col_idx = 0
+                                                ep_for_summary = ["数量", "问题", "检测", "分数:", "生成时间", "分析文件数", "分析模式", "nTc机制", "证据积累", "决策承诺", "几何化轨迹", "动态阈值", "承诺锁定"]
+                                                for name, value in scores:
+                                                    if any(p in name for p in ep_for_summary):
+                                                        continue
+                                                    try:
+                                                        float_val = float(value)
+                                                        with dim_cols[col_idx % 3]:
+                                                            status_icon = "✅" if float_val >= 0.7 else "⚠️" if float_val >= 0.5 else "❌"
+                                                            st.metric(f"{status_icon} {name}", f"{float_val:.3f}")
+                                                        col_idx += 1
+                                                    except:
+                                                        pass
                                         except Exception as e:
                                             st.warning(f"无法解析评估报告: {e}")
                             
