@@ -1,0 +1,151 @@
+{
+  "overall_score": 0.8688746355685133,
+  "dimensions": {
+    "core_capability": {
+      "dimension": "core_capability",
+      "score": 0.875,
+      "status": "completed",
+      "metrics": {
+        "chat_api": {
+          "score": 0.5,
+          "available": false
+        },
+        "agent_count": {
+          "count": 69
+        },
+        "skill_count": {
+          "count": 45
+        },
+        "tool_count": {
+          "count": 42
+        }
+      },
+      "details": "Agent:69, Skill:45, Tool:42",
+      "execution_time_ms": 3207.418203353882
+    },
+    "performance": {
+      "dimension": "performance",
+      "score": 0.5,
+      "status": "skipped",
+      "metrics": {
+        "latency": {
+          "p50_ms": null,
+          "samples": 0,
+          "success": 0,
+          "error": "需要认证"
+        },
+        "throughput": {
+          "qps": 0.0,
+          "total": 0
+        },
+        "resource": {
+          "memory": 81.3
+        }
+      },
+      "details": "需要API认证，跳过性能测试",
+      "execution_time_ms": 7467.652797698975
+    },
+    "reliability": {
+      "dimension": "reliability",
+      "score": 1,
+      "status": "completed",
+      "metrics": {
+        "error_handling": {
+          "score": 1.0,
+          "handled": 3
+        },
+        "timeout": {
+          "score": 1.0,
+          "handled": true
+        },
+        "health": {
+          "score": 1.0,
+          "healthy": true
+        }
+      },
+      "details": "错误处理:100%, 超时处理:100%",
+      "execution_time_ms": 53.42698097229004
+    },
+    "security": {
+      "dimension": "security",
+      "score": 1.0,
+      "status": "completed",
+      "metrics": {
+        "input_validation": {
+          "score": 1.0
+        }
+      },
+      "details": "输入验证: 100%",
+      "execution_time_ms": 5.630016326904297
+    },
+    "code_quality": {
+      "dimension": "code_quality",
+      "score": 0.6887463556851312,
+      "status": "completed",
+      "metrics": {
+        "file_count": 1029,
+        "complexity": {
+          "avg": 25.937803692905735,
+          "score": 0.48124392614188527,
+          "files": 1029
+        }
+      },
+      "details": "文件数:1029, 复杂度:25.937803692905735",
+      "execution_time_ms": 9859.12823677063
+    },
+    "platform_features": {
+      "dimension": "platform_features",
+      "score": 1,
+      "status": "completed",
+      "metrics": {
+        "workflow": {
+          "score": 1.0,
+          "available": true
+        },
+        "rag": {
+          "score": 1.0,
+          "available": true
+        },
+        "cache": {
+          "score": 1.0,
+          "available": true
+        },
+        "gateway": {
+          "score": 1.0,
+          "available": true
+        },
+        "mcp": {
+          "score": 1.0,
+          "available": true
+        },
+        "monitoring": {
+          "score": 1.0,
+          "available": true
+        }
+      },
+      "details": "活跃功能:6/6 - workflow, rag, cache, gateway, mcp, monitoring",
+      "execution_time_ms": 347.3961353302002
+    },
+    "integration": {
+      "dimension": "integration",
+      "score": 1,
+      "status": "completed",
+      "metrics": {
+        "api_endpoints": {
+          "available": 5,
+          "total": 5,
+          "score": 1.0
+        },
+        "docs": {
+          "available": true,
+          "score": 1.0
+        }
+      },
+      "details": "API端点:5, 文档:True",
+      "execution_time_ms": 176.91588401794434
+    }
+  },
+  "timestamp": "2026-03-22T11:21:26.604021",
+  "evaluator_count": 7,
+  "completed_count": 6
+}

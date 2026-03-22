@@ -714,7 +714,7 @@ asyncio.run(RANGENEvaluator().run_full_evaluation())
                                         st.write("### 📊 新评估框架结果")
                                         
                                         overall = data.get("overall_score", 0)
-                                        col1, col2, col3 = st.columns(3)
+                                        col1, col2, col3, col4 = st.columns(4)
                                         with col1:
                                             st.metric("综合评分", f"{overall*100:.1f}%")
                                         with col2:
@@ -723,9 +723,42 @@ asyncio.run(RANGENEvaluator().run_full_evaluation())
                                             st.metric("评估维度", f"{completed}/{total}")
                                         with col3:
                                             st.metric("评估时间", data.get("timestamp", "N/A")[:19])
+                                        with col4:
+                                            if st.button("📋 查看详情", key="eval_detail_btn", use_container_width=True):
+                                                st.session_state.show_eval_detail = True
                                         
-                                        st.markdown("---")
-                                        st.write("#### 各维度评分")
+                                        if st.session_state.get("show_eval_detail", False):
+                                            with st.container():
+                                                st.markdown("#### 📋 评估详情")
+                                                
+                                                dims = data.get("dimensions", {})
+                                                for dim_name, dim_data in dims.items():
+                                                    score = dim_data.get("score", 0)
+                                                    status = dim_data.get("status", "unknown")
+                                                    details = dim_data.get("details", "")
+                                                    evidence = dim_data.get("evidence", [])
+                                                    suggestions = dim_data.get("suggestions", [])
+                                                    
+                                                    status_icon = "✅" if status == "completed" else "❌" if status == "failed" else "⏭️"
+                                                    
+                                                    with st.expander(f"{status_icon} {dim_name}: {score*100:.1f}%"):
+                                                        st.write(f"**状态**: {status}")
+                                                        if details:
+                                                            st.write(f"**说明**: {details}")
+                                                        if evidence:
+                                                            st.write("**证据**:")
+                                                            for e in evidence[:5]:
+                                                                st.markdown(f"- {e}")
+                                                            if len(evidence) > 5:
+                                                                st.info(f"还有 {len(evidence) - 5} 条证据...")
+                                                        if suggestions:
+                                                            st.write("**建议**:")
+                                                            for s in suggestions:
+                                                                st.markdown(f"- {s}")
+                                                
+                                                if st.button("🔒 关闭详情", key="close_eval_detail"):
+                                                    st.session_state.show_eval_detail = False
+                                                    st.rerun()
                                         
                                         dims = data.get("dimensions", {})
                                         dim_cols = st.columns(3)
@@ -733,11 +766,10 @@ asyncio.run(RANGENEvaluator().run_full_evaluation())
                                         for dim_name, dim_data in dims.items():
                                             score = dim_data.get("score", 0)
                                             status = dim_data.get("status", "unknown")
-                                            details = dim_data.get("details", "")
                                             
                                             with dim_cols[col_idx % 3]:
                                                 status_icon = "✅" if status == "completed" else "❌" if status == "failed" else "⏭️"
-                                                st.metric(f"{status_icon} {dim_name}", f"{score*100:.1f}%", details)
+                                                st.metric(f"{status_icon} {dim_name}", f"{score*100:.1f}%")
                                             
                                             col_idx += 1
                                             
