@@ -1,0 +1,2006 @@
+{
+  "overall_score": 0.7223550724826068,
+  "categories": {
+    "A": {
+      "name": "基础能力",
+      "weight": 0.25,
+      "score": 0.7730200000000002,
+      "count": 4
+    },
+    "B": {
+      "name": "智能能力",
+      "weight": 0.3,
+      "score": 0.6856633333333333,
+      "count": 7
+    },
+    "C": {
+      "name": "架构能力",
+      "weight": 0.28,
+      "score": 0.759392857142857,
+      "count": 6
+    },
+    "D": {
+      "name": "数据能力",
+      "weight": 0.1,
+      "score": 0.5725374999999999,
+      "count": 4
+    },
+    "E": {
+      "name": "平台能力",
+      "weight": 0.07,
+      "score": 0.5780666666666666,
+      "count": 3
+    }
+  },
+  "dimensions": {
+    "orchestration": {
+      "dimension": "orchestration",
+      "name": "编排能力",
+      "category": "A",
+      "weight": 0.08,
+      "score": 0.8370000000000001,
+      "status": "good",
+      "subitems": [
+        {
+          "name": "workflow_design",
+          "description": "工作流定义完整性",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到 11 个工作流定义",
+            "工作流包含错误处理机制"
+          ],
+          "details": ""
+        },
+        {
+          "name": "parallel_execution",
+          "description": "并行任务执行能力",
+          "score": 0.85,
+          "status": "good",
+          "evidence": [
+            "工作流引擎API可访问"
+          ],
+          "details": ""
+        },
+        {
+          "name": "sequential_chaining",
+          "description": "串行链式调用",
+          "score": 0.85,
+          "status": "good",
+          "evidence": [
+            "检测到 2 个链式调用相关文件"
+          ],
+          "details": ""
+        },
+        {
+          "name": "conditional_branching",
+          "description": "条件分支逻辑",
+          "score": 0.5,
+          "status": "fair",
+          "evidence": [
+            "检测到 5 个路由相关文件"
+          ],
+          "details": ""
+        },
+        {
+          "name": "error_recovery",
+          "description": "错误恢复机制",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到 8 个错误恢复相关文件"
+          ],
+          "details": ""
+        },
+        {
+          "name": "state_persistence",
+          "description": "状态持久化",
+          "score": 0.8,
+          "status": "good",
+          "evidence": [
+            "检测到状态管理文件: 5 个"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "编排能力评估完成，良好项: workflow_design, parallel_execution, sequential_chaining",
+      "evidence": [
+        "检测到 11 个工作流定义",
+        "工作流包含错误处理机制",
+        "工作流引擎API可访问",
+        "检测到 2 个链式调用相关文件",
+        "检测到 5 个路由相关文件",
+        "检测到 8 个错误恢复相关文件",
+        "检测到状态管理文件: 5 个"
+      ],
+      "suggestions": [
+        "可优化条件分支逻辑"
+      ],
+      "execution_time_ms": 220.82901000976562
+    },
+    "agent_completeness": {
+      "dimension": "agent_completeness",
+      "name": "Agent完备性",
+      "category": "A",
+      "weight": 0.07,
+      "score": 0.764,
+      "status": "good",
+      "subitems": [
+        {
+          "name": "perception",
+          "description": "输入感知与解析",
+          "score": 0.8,
+          "status": "good",
+          "evidence": [
+            "检测到输入解析相关文件: 4 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "cognition",
+          "description": "认知与推理",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到 11 个包含推理逻辑的Agent文件"
+          ],
+          "details": ""
+        },
+        {
+          "name": "action",
+          "description": "工具/API调用",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到工具/执行文件: 45 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "memory",
+          "description": "短期/长期记忆",
+          "score": 0.5,
+          "status": "fair",
+          "evidence": [
+            "未检测到明确的记忆模块"
+          ],
+          "details": ""
+        },
+        {
+          "name": "reflection",
+          "description": "自我反思能力",
+          "score": 0.8,
+          "status": "good",
+          "evidence": [
+            "检测到反思/审查相关文件: 14 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "meta_cognition",
+          "description": "元认知能力",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "未检测到元认知实现"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "Agent完备性评估完成，4/6项达标",
+      "evidence": [
+        "检测到输入解析相关文件: 4 个",
+        "检测到 11 个包含推理逻辑的Agent文件",
+        "检测到工具/执行文件: 45 个",
+        "未检测到明确的记忆模块",
+        "检测到反思/审查相关文件: 14 个",
+        "未检测到元认知实现"
+      ],
+      "suggestions": [
+        "建议增强元认知能力能力"
+      ],
+      "execution_time_ms": 136.89398765563965
+    },
+    "prompt_engineering": {
+      "dimension": "prompt_engineering",
+      "name": "提示词工程",
+      "category": "A",
+      "weight": 0.05,
+      "score": 0.92,
+      "status": "excellent",
+      "subitems": [
+        {
+          "name": "template_design",
+          "description": "模板结构设计",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到 18 个提示词模板文件"
+          ],
+          "details": ""
+        },
+        {
+          "name": "few_shot_learning",
+          "description": "Few-shot示例",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到 68 个文件包含示例"
+          ],
+          "details": ""
+        },
+        {
+          "name": "chain_of_thought",
+          "description": "思维链引导",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到 25 个思维链相关文件"
+          ],
+          "details": ""
+        },
+        {
+          "name": "role_definition",
+          "description": "角色定义",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到 340 个文件包含角色定义"
+          ],
+          "details": ""
+        },
+        {
+          "name": "output_constraint",
+          "description": "输出格式约束",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到 578 个文件包含输出格式约束"
+          ],
+          "details": ""
+        },
+        {
+          "name": "instruction_clarity",
+          "description": "指令清晰度",
+          "score": 0.5,
+          "status": "fair",
+          "evidence": [
+            "未检测到专门的指令模块"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "提示词工程评估完成，5/6项达标",
+      "evidence": [
+        "检测到 18 个提示词模板文件",
+        "检测到 68 个文件包含示例",
+        "检测到 25 个思维链相关文件",
+        "检测到 340 个文件包含角色定义",
+        "检测到 578 个文件包含输出格式约束",
+        "未检测到专门的指令模块"
+      ],
+      "suggestions": [],
+      "execution_time_ms": 555.419921875
+    },
+    "context_engineering": {
+      "dimension": "context_engineering",
+      "name": "上下文工程",
+      "category": "A",
+      "weight": 0.05,
+      "score": 0.5363,
+      "status": "fair",
+      "subitems": [
+        {
+          "name": "window_management",
+          "description": "窗口管理",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "未检测到明确的窗口管理"
+          ],
+          "details": ""
+        },
+        {
+          "name": "priority_ranking",
+          "description": "优先级排序",
+          "score": 0.75,
+          "status": "good",
+          "evidence": [
+            "检测到优先级相关文件: 2 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "compression_quality",
+          "description": "上下文压缩",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "未检测到上下文压缩实现"
+          ],
+          "details": ""
+        },
+        {
+          "name": "history_completeness",
+          "description": "历史完整性",
+          "score": 0.28,
+          "status": "poor",
+          "evidence": [
+            "检测到 1 个历史追踪文件"
+          ],
+          "details": ""
+        },
+        {
+          "name": "slot_tracking",
+          "description": "槽位追踪",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到槽位/实体追踪文件: 1 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "cross_session",
+          "description": "跨会话延续",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到会话管理相关文件: 2 个"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "上下文工程评估完成，3/6项达标",
+      "evidence": [
+        "未检测到明确的窗口管理",
+        "检测到优先级相关文件: 2 个",
+        "未检测到上下文压缩实现",
+        "检测到 1 个历史追踪文件",
+        "检测到槽位/实体追踪文件: 1 个",
+        "检测到会话管理相关文件: 2 个"
+      ],
+      "suggestions": [
+        "建议增强窗口管理",
+        "建议增强上下文压缩",
+        "建议增强历史完整性"
+      ],
+      "execution_time_ms": 125.99325180053711
+    },
+    "response_quality": {
+      "dimension": "response_quality",
+      "name": "回答质量",
+      "category": "B",
+      "weight": 0.08,
+      "score": 0.634,
+      "status": "fair",
+      "subitems": [
+        {
+          "name": "relevance",
+          "description": "回答相关性",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "API调用失败"
+          ],
+          "details": ""
+        },
+        {
+          "name": "factual_accuracy",
+          "description": "事实准确性",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到 6 个验证模块"
+          ],
+          "details": ""
+        },
+        {
+          "name": "completeness",
+          "description": "回答完整性",
+          "score": 0.5,
+          "status": "fair",
+          "evidence": [
+            "未检测到专门的完整性检查"
+          ],
+          "details": ""
+        },
+        {
+          "name": "conciseness",
+          "description": "回答简洁性",
+          "score": 0.6,
+          "status": "fair",
+          "evidence": [
+            "简洁性通过代码审查评估"
+          ],
+          "details": ""
+        },
+        {
+          "name": "logical_coherence",
+          "description": "逻辑连贯性",
+          "score": 0.5,
+          "status": "fair",
+          "evidence": [
+            "未检测到专门的连贯性检查"
+          ],
+          "details": ""
+        },
+        {
+          "name": "safety_filter",
+          "description": "安全过滤",
+          "score": 0.8,
+          "status": "good",
+          "evidence": [
+            "检测到安全过滤相关文件"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "回答质量评估完成，2/6项达标",
+      "evidence": [
+        "API调用失败",
+        "检测到 6 个验证模块",
+        "未检测到专门的完整性检查",
+        "简洁性通过代码审查评估",
+        "未检测到专门的连贯性检查",
+        "检测到安全过滤相关文件"
+      ],
+      "suggestions": [
+        "建议增强回答相关性"
+      ],
+      "execution_time_ms": 56.98204040527344
+    },
+    "routing": {
+      "dimension": "routing",
+      "name": "路由准确率",
+      "category": "B",
+      "weight": 0.06,
+      "score": 0.69,
+      "status": "fair",
+      "subitems": [
+        {
+          "name": "intent_classification",
+          "description": "意图分类准确率",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到意图分类相关文件: 7 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "domain_routing",
+          "description": "领域路由",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到路由文件: 12 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "priority_queue",
+          "description": "优先级队列",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "未检测到优先级队列"
+          ],
+          "details": ""
+        },
+        {
+          "name": "fallback_strategy",
+          "description": "兜底策略",
+          "score": 0.5,
+          "status": "fair",
+          "evidence": [
+            "未检测到明确的兜底策略"
+          ],
+          "details": ""
+        },
+        {
+          "name": "load_balance",
+          "description": "负载均衡",
+          "score": 0.5,
+          "status": "fair",
+          "evidence": [
+            "未检测到专门的负载均衡"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "路由准确率评估完成，2/5项达标",
+      "evidence": [
+        "检测到意图分类相关文件: 7 个",
+        "检测到路由文件: 12 个",
+        "未检测到优先级队列",
+        "未检测到明确的兜底策略",
+        "未检测到专门的负载均衡"
+      ],
+      "suggestions": [
+        "建议增强优先级队列"
+      ],
+      "execution_time_ms": 96.80318832397461
+    },
+    "reasoning": {
+      "dimension": "reasoning",
+      "name": "推理深度",
+      "category": "B",
+      "weight": 0.05,
+      "score": 0.6395000000000001,
+      "status": "fair",
+      "subitems": [
+        {
+          "name": "multi_step_reasoning",
+          "description": "多步推理",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到多步推理相关文件: 8 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "logical_inference",
+          "description": "逻辑推演",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到逻辑推理相关文件"
+          ],
+          "details": ""
+        },
+        {
+          "name": "causal_analysis",
+          "description": "因果分析",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "未检测到因果分析"
+          ],
+          "details": ""
+        },
+        {
+          "name": "analogical_thinking",
+          "description": "类比思维",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "未检测到类比推理"
+          ],
+          "details": ""
+        },
+        {
+          "name": "critical_evaluation",
+          "description": "批判性评估",
+          "score": 0.65,
+          "status": "fair",
+          "evidence": [
+            "检测到批判性评估实现"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "推理深度评估完成，2/5项达标",
+      "evidence": [
+        "检测到多步推理相关文件: 8 个",
+        "检测到逻辑推理相关文件",
+        "未检测到因果分析",
+        "未检测到类比推理",
+        "检测到批判性评估实现"
+      ],
+      "suggestions": [
+        "建议增强因果分析",
+        "建议增强类比思维"
+      ],
+      "execution_time_ms": 102.94795036315918
+    },
+    "knowledge_recall": {
+      "dimension": "knowledge_recall",
+      "name": "知识召回",
+      "category": "B",
+      "weight": 0.04,
+      "score": 0.7452,
+      "status": "good",
+      "subitems": [
+        {
+          "name": "retrieval_precision",
+          "description": "检索精确率",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到检索相关文件: 30 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "reranking_quality",
+          "description": "重排质量",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到重排相关文件: 1 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "knowledge_freshness",
+          "description": "知识新鲜度",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到知识更新机制"
+          ],
+          "details": ""
+        },
+        {
+          "name": "source_tracking",
+          "description": "来源追踪",
+          "score": 0.65,
+          "status": "fair",
+          "evidence": [
+            "检测到来源追踪实现"
+          ],
+          "details": ""
+        },
+        {
+          "name": "vector_index",
+          "description": "向量索引",
+          "score": 0.64,
+          "status": "fair",
+          "evidence": [
+            "检测到向量索引相关文件: 3 个"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "知识召回评估完成，3/5项达标",
+      "evidence": [
+        "检测到检索相关文件: 30 个",
+        "检测到重排相关文件: 1 个",
+        "检测到知识更新机制",
+        "检测到来源追踪实现",
+        "检测到向量索引相关文件: 3 个"
+      ],
+      "suggestions": [],
+      "execution_time_ms": 119.26794052124023
+    },
+    "tool_calling": {
+      "dimension": "tool_calling",
+      "name": "工具调用",
+      "category": "B",
+      "weight": 0.03,
+      "score": 0.6792,
+      "status": "fair",
+      "subitems": [
+        {
+          "name": "tool_selection",
+          "description": "工具选择",
+          "score": 0.56,
+          "status": "fair",
+          "evidence": [
+            "检测到工具文件: 9 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "parameter_mapping",
+          "description": "参数映射",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到参数映射相关文件: 4 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "execution_reliability",
+          "description": "执行可靠性",
+          "score": 0.75,
+          "status": "good",
+          "evidence": [
+            "检测到执行引擎"
+          ],
+          "details": ""
+        },
+        {
+          "name": "result_interpretation",
+          "description": "结果解析",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到结果解析实现"
+          ],
+          "details": ""
+        },
+        {
+          "name": "availability_check",
+          "description": "可用性检测",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到可用性检查实现"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "工具调用评估完成，4/5项达标",
+      "evidence": [
+        "检测到工具文件: 9 个",
+        "检测到参数映射相关文件: 4 个",
+        "检测到执行引擎",
+        "检测到结果解析实现",
+        "检测到可用性检查实现"
+      ],
+      "suggestions": [],
+      "execution_time_ms": 103.42812538146973
+    },
+    "multi_turn": {
+      "dimension": "multi_turn",
+      "name": "多轮对话",
+      "category": "B",
+      "weight": 0.02,
+      "score": 0.778,
+      "status": "good",
+      "subitems": [
+        {
+          "name": "context_preservation",
+          "description": "上下文保持",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到上下文文件: 15 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "reference_resolution",
+          "description": "指代消解",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "未检测到指代消解"
+          ],
+          "details": ""
+        },
+        {
+          "name": "conversation_flow",
+          "description": "对话流畅",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到对话流管理"
+          ],
+          "details": ""
+        },
+        {
+          "name": "task_continuation",
+          "description": "任务延续",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到任务管理文件: 13 个"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "多轮对话评估完成，3/4项达标",
+      "evidence": [
+        "检测到上下文文件: 15 个",
+        "未检测到指代消解",
+        "检测到对话流管理",
+        "检测到任务管理文件: 13 个"
+      ],
+      "suggestions": [
+        "建议增强指代消解"
+      ],
+      "execution_time_ms": 68.41611862182617
+    },
+    "self_learning": {
+      "dimension": "self_learning",
+      "name": "自学习能力",
+      "category": "B",
+      "weight": 0.02,
+      "score": 0.7929999999999999,
+      "status": "good",
+      "subitems": [
+        {
+          "name": "feedback_integration",
+          "description": "反馈整合",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到反馈相关文件: 3 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "pattern_extraction",
+          "description": "模式提取",
+          "score": 0.65,
+          "status": "fair",
+          "evidence": [
+            "检测到模式提取实现"
+          ],
+          "details": ""
+        },
+        {
+          "name": "policy_update",
+          "description": "策略更新",
+          "score": 0.6,
+          "status": "fair",
+          "evidence": [
+            "检测到策略更新机制"
+          ],
+          "details": ""
+        },
+        {
+          "name": "performance_feedback",
+          "description": "效果反馈",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到性能反馈机制"
+          ],
+          "details": ""
+        },
+        {
+          "name": "continual_learning",
+          "description": "持续学习",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到学习相关文件: 30 个"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "自学习能力评估完成，3/5项达标",
+      "evidence": [
+        "检测到反馈相关文件: 3 个",
+        "检测到模式提取实现",
+        "检测到策略更新机制",
+        "检测到性能反馈机制",
+        "检测到学习相关文件: 30 个"
+      ],
+      "suggestions": [],
+      "execution_time_ms": 91.00890159606934
+    },
+    "harness": {
+      "dimension": "harness",
+      "name": "Harness能力",
+      "category": "C",
+      "weight": 0.08,
+      "score": 0.7200000000000001,
+      "status": "good",
+      "subitems": [
+        {
+          "name": "llm_utilization",
+          "description": "LLM利用率",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到缓存相关文件: 7 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "gpu_scheduling",
+          "description": "GPU调度",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到GPU调度实现"
+          ],
+          "details": ""
+        },
+        {
+          "name": "cache_harnessing",
+          "description": "缓存利用",
+          "score": 0.5,
+          "status": "fair",
+          "evidence": [
+            "缓存实现较少"
+          ],
+          "details": ""
+        },
+        {
+          "name": "parallel_efficiency",
+          "description": "并行效率",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到异步/并行文件: 11 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "batch_processing",
+          "description": "批处理",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "未检测到批处理实现"
+          ],
+          "details": ""
+        },
+        {
+          "name": "resource_pooling",
+          "description": "资源池化",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到资源池化文件: 3 个"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "Harness能力评估完成，4/6项达标",
+      "evidence": [
+        "检测到缓存相关文件: 7 个",
+        "检测到GPU调度实现",
+        "缓存实现较少",
+        "检测到异步/并行文件: 11 个",
+        "未检测到批处理实现",
+        "检测到资源池化文件: 3 个"
+      ],
+      "suggestions": [
+        "建议增强批处理"
+      ],
+      "execution_time_ms": 101.79471969604492
+    },
+    "architecture": {
+      "dimension": "architecture",
+      "name": "架构合理性",
+      "category": "C",
+      "weight": 0.06,
+      "score": 0.862,
+      "status": "good",
+      "subitems": [
+        {
+          "name": "modularity",
+          "description": "模块化设计",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到 35 个模块目录，34 个Python包"
+          ],
+          "details": ""
+        },
+        {
+          "name": "loose_coupling",
+          "description": "低耦合",
+          "score": 0.75,
+          "status": "good",
+          "evidence": [
+            "模块耦合度较低"
+          ],
+          "details": ""
+        },
+        {
+          "name": "extensibility",
+          "description": "可扩展性",
+          "score": 0.75,
+          "status": "good",
+          "evidence": [
+            "检测到扩展相关文件: 6 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "design_patterns",
+          "description": "设计模式",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到设计模式应用: 53 处"
+          ],
+          "details": ""
+        },
+        {
+          "name": "code_organization",
+          "description": "代码组织",
+          "score": 0.8,
+          "status": "good",
+          "evidence": [
+            "代码组织良好: 1049 个Python文件"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "架构合理性评估完成，5/5项达标",
+      "evidence": [
+        "检测到 35 个模块目录，34 个Python包",
+        "模块耦合度较低",
+        "检测到扩展相关文件: 6 个",
+        "检测到设计模式应用: 53 处",
+        "代码组织良好: 1049 个Python文件"
+      ],
+      "suggestions": [],
+      "execution_time_ms": 119.66896057128906
+    },
+    "observability": {
+      "dimension": "observability",
+      "name": "可观测性",
+      "category": "C",
+      "weight": 0.05,
+      "score": 0.853,
+      "status": "good",
+      "subitems": [
+        {
+          "name": "logging",
+          "description": "日志体系",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "日志覆盖: 754/1033 个文件 (73%)"
+          ],
+          "details": ""
+        },
+        {
+          "name": "metrics",
+          "description": "指标采集",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到指标采集实现"
+          ],
+          "details": ""
+        },
+        {
+          "name": "tracing",
+          "description": "链路追踪",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到链路追踪实现"
+          ],
+          "details": ""
+        },
+        {
+          "name": "logging_levels",
+          "description": "日志分级",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到 639 个文件使用分级日志"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "可观测性评估完成，4/4项达标",
+      "evidence": [
+        "日志覆盖: 754/1033 个文件 (73%)",
+        "检测到指标采集实现",
+        "检测到链路追踪实现",
+        "检测到 639 个文件使用分级日志"
+      ],
+      "suggestions": [],
+      "execution_time_ms": 319.1111087799072
+    },
+    "monitoring": {
+      "dimension": "monitoring",
+      "name": "监控告警",
+      "category": "C",
+      "weight": 0.05,
+      "score": 0.7329999999999999,
+      "status": "good",
+      "subitems": [
+        {
+          "name": "latency_monitoring",
+          "description": "延迟监控",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到延迟监控实现: 366 个文件"
+          ],
+          "details": ""
+        },
+        {
+          "name": "error_tracking",
+          "description": "错误追踪",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到错误追踪实现: 141 个文件"
+          ],
+          "details": ""
+        },
+        {
+          "name": "token_consumption",
+          "description": "Token消耗统计",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到Token消耗统计实现"
+          ],
+          "details": ""
+        },
+        {
+          "name": "model_drift_detection",
+          "description": "模型漂移检测",
+          "score": 0.6,
+          "status": "fair",
+          "evidence": [
+            "检测到模型漂移检测"
+          ],
+          "details": ""
+        },
+        {
+          "name": "alert_rules",
+          "description": "告警规则",
+          "score": 0.65,
+          "status": "fair",
+          "evidence": [
+            "检测到告警规则文件: 6 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "alert_channels",
+          "description": "告警通道",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "告警通道较少"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "监控告警评估完成，3/6项达标",
+      "evidence": [
+        "检测到延迟监控实现: 366 个文件",
+        "检测到错误追踪实现: 141 个文件",
+        "检测到Token消耗统计实现",
+        "检测到模型漂移检测",
+        "检测到告警规则文件: 6 个",
+        "告警通道较少"
+      ],
+      "suggestions": [
+        "建议增强告警通道"
+      ],
+      "execution_time_ms": 307.61218070983887
+    },
+    "self_healing": {
+      "dimension": "self_healing",
+      "name": "故障自愈",
+      "category": "C",
+      "weight": 0.02,
+      "score": 0.6884999999999999,
+      "status": "fair",
+      "subitems": [
+        {
+          "name": "graceful_degradation",
+          "description": "优雅降级",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到优雅降级实现: 176 个文件"
+          ],
+          "details": ""
+        },
+        {
+          "name": "retry_mechanism",
+          "description": "自动重试",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到重试机制实现"
+          ],
+          "details": ""
+        },
+        {
+          "name": "circuit_breaker",
+          "description": "熔断器",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到熔断器实现"
+          ],
+          "details": ""
+        },
+        {
+          "name": "auto_restart",
+          "description": "自动恢复",
+          "score": 0.65,
+          "status": "fair",
+          "evidence": [
+            "检测到自动恢复实现"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "故障自愈评估完成，3/4项达标",
+      "evidence": [
+        "检测到优雅降级实现: 176 个文件",
+        "检测到重试机制实现",
+        "检测到熔断器实现",
+        "检测到自动恢复实现"
+      ],
+      "suggestions": [],
+      "execution_time_ms": 210.27708053588867
+    },
+    "rollout": {
+      "dimension": "rollout",
+      "name": "灰度发布",
+      "category": "C",
+      "weight": 0.02,
+      "score": 0.512,
+      "status": "fair",
+      "subitems": [
+        {
+          "name": "ab_testing",
+          "description": "A/B测试",
+          "score": 0.65,
+          "status": "fair",
+          "evidence": [
+            "检测到A/B测试文件: 27 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "canary_release",
+          "description": "金丝雀发布",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "未检测到金丝雀发布"
+          ],
+          "details": ""
+        },
+        {
+          "name": "traffic_splitting",
+          "description": "流量切分",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "未检测到流量切分"
+          ],
+          "details": ""
+        },
+        {
+          "name": "feature_flags",
+          "description": "特性开关",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到特性开关文件: 27 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "rollback_capability",
+          "description": "快速回滚",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "未检测到回滚机制"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "灰度发布评估完成，1/5项达标",
+      "evidence": [
+        "检测到A/B测试文件: 27 个",
+        "未检测到金丝雀发布",
+        "未检测到流量切分",
+        "检测到特性开关文件: 27 个",
+        "未检测到回滚机制"
+      ],
+      "suggestions": [
+        "建议增强金丝雀发布",
+        "建议增强流量切分",
+        "建议增强快速回滚"
+      ],
+      "execution_time_ms": 102.70214080810547
+    },
+    "data_source": {
+      "dimension": "data_source",
+      "name": "数据源接入",
+      "category": "D",
+      "weight": 0.03,
+      "score": 0.6283,
+      "status": "fair",
+      "subitems": [
+        {
+          "name": "connectors",
+          "description": "数据连接器",
+          "score": 0.8400000000000001,
+          "status": "good",
+          "evidence": [
+            "检测到数据连接器: 4 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "data_formats",
+          "description": "多格式支持",
+          "score": 0.36000000000000004,
+          "status": "poor",
+          "evidence": [
+            "检测到数据格式处理: 1 个文件"
+          ],
+          "details": ""
+        },
+        {
+          "name": "batch_import",
+          "description": "批量导入",
+          "score": 0.65,
+          "status": "fair",
+          "evidence": [
+            "检测到批量导入实现"
+          ],
+          "details": ""
+        },
+        {
+          "name": "stream_processing",
+          "description": "流处理",
+          "score": 0.6,
+          "status": "fair",
+          "evidence": [
+            "检测到流处理实现"
+          ],
+          "details": ""
+        },
+        {
+          "name": "connector_registry",
+          "description": "连接器注册",
+          "score": 0.6,
+          "status": "fair",
+          "evidence": [
+            "检测到连接器注册: 13 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "data_validation",
+          "description": "数据验证",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到数据验证"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "数据源接入评估完成，2/6项达标",
+      "evidence": [
+        "检测到数据连接器: 4 个",
+        "检测到数据格式处理: 1 个文件",
+        "检测到批量导入实现",
+        "检测到流处理实现",
+        "检测到连接器注册: 13 个",
+        "检测到数据验证"
+      ],
+      "suggestions": [
+        "建议增强多格式支持"
+      ],
+      "execution_time_ms": 147.9020118713379
+    },
+    "knowledge_mgmt": {
+      "dimension": "knowledge_mgmt",
+      "name": "知识管理",
+      "category": "D",
+      "weight": 0.02,
+      "score": 0.5255000000000001,
+      "status": "fair",
+      "subitems": [
+        {
+          "name": "incremental_update",
+          "description": "增量更新",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "增量更新实现较少"
+          ],
+          "details": ""
+        },
+        {
+          "name": "version_control",
+          "description": "版本管理",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "版本管理较少"
+          ],
+          "details": ""
+        },
+        {
+          "name": "freshness_guarantee",
+          "description": "时效保障",
+          "score": 0.6,
+          "status": "fair",
+          "evidence": [
+            "检测到时效保障"
+          ],
+          "details": ""
+        },
+        {
+          "name": "knowledge_validation",
+          "description": "知识验证",
+          "score": 0.65,
+          "status": "fair",
+          "evidence": [
+            "检测到知识验证: 1 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "lifecycle_management",
+          "description": "生命周期管理",
+          "score": 0.6,
+          "status": "fair",
+          "evidence": [
+            "检测到生命周期管理"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "知识管理评估完成，0/5项达标",
+      "evidence": [
+        "增量更新实现较少",
+        "版本管理较少",
+        "检测到时效保障",
+        "检测到知识验证: 1 个",
+        "检测到生命周期管理"
+      ],
+      "suggestions": [
+        "建议增强增量更新",
+        "建议增强版本管理"
+      ],
+      "execution_time_ms": 68.32003593444824
+    },
+    "vector_mgmt": {
+      "dimension": "vector_mgmt",
+      "name": "向量管理",
+      "category": "D",
+      "weight": 0.02,
+      "score": 0.5417000000000001,
+      "status": "fair",
+      "subitems": [
+        {
+          "name": "embedding_generation",
+          "description": "向量生成",
+          "score": 0.36000000000000004,
+          "status": "poor",
+          "evidence": [
+            "检测到向量生成: 1 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "index_management",
+          "description": "索引管理",
+          "score": 0.52,
+          "status": "fair",
+          "evidence": [
+            "检测到索引管理: 2 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "similarity_search",
+          "description": "相似度检索",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到相似度检索"
+          ],
+          "details": ""
+        },
+        {
+          "name": "index_optimization",
+          "description": "索引优化",
+          "score": 0.6,
+          "status": "fair",
+          "evidence": [
+            "检测到索引优化: 22 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "dimension_handling",
+          "description": "维度管理",
+          "score": 0.55,
+          "status": "fair",
+          "evidence": [
+            "检测到维度管理: 1 个"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "向量管理评估完成，1/5项达标",
+      "evidence": [
+        "检测到向量生成: 1 个",
+        "检测到索引管理: 2 个",
+        "检测到相似度检索",
+        "检测到索引优化: 22 个",
+        "检测到维度管理: 1 个"
+      ],
+      "suggestions": [
+        "建议增强向量生成"
+      ],
+      "execution_time_ms": 79.94484901428223
+    },
+    "data_lineage": {
+      "dimension": "data_lineage",
+      "name": "数据血缘",
+      "category": "D",
+      "weight": 0.01,
+      "score": 0.561,
+      "status": "fair",
+      "subitems": [
+        {
+          "name": "source_tracking",
+          "description": "来源追踪",
+          "score": 0.6,
+          "status": "fair",
+          "evidence": [
+            "检测到来源追踪"
+          ],
+          "details": ""
+        },
+        {
+          "name": "transformation_log",
+          "description": "转换记录",
+          "score": 0.55,
+          "status": "fair",
+          "evidence": [
+            "检测到转换记录: 2 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "usage_tracking",
+          "description": "使用追踪",
+          "score": 0.55,
+          "status": "fair",
+          "evidence": [
+            "检测到使用追踪: 2 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "audit_trail",
+          "description": "审计日志",
+          "score": 0.6,
+          "status": "fair",
+          "evidence": [
+            "检测到审计日志: 3 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "provenance_vis",
+          "description": "溯源可视化",
+          "score": 0.5,
+          "status": "fair",
+          "evidence": [
+            "检测到溯源可视化"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "数据血缘评估完成，0/5项达标",
+      "evidence": [
+        "检测到来源追踪",
+        "检测到转换记录: 2 个",
+        "检测到使用追踪: 2 个",
+        "检测到审计日志: 3 个",
+        "检测到溯源可视化"
+      ],
+      "suggestions": [],
+      "execution_time_ms": 79.88905906677246
+    },
+    "app_support": {
+      "dimension": "app_support",
+      "name": "应用支撑",
+      "category": "E",
+      "weight": 0.03,
+      "score": 0.5068,
+      "status": "fair",
+      "subitems": [
+        {
+          "name": "multi_tenant",
+          "description": "多租户",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "多租户实现较少"
+          ],
+          "details": ""
+        },
+        {
+          "name": "quota_management",
+          "description": "配额管理",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "配额管理较少"
+          ],
+          "details": ""
+        },
+        {
+          "name": "rbac_control",
+          "description": "权限控制",
+          "score": 0.8400000000000001,
+          "status": "good",
+          "evidence": [
+            "检测到权限管理: 4 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "sso_integration",
+          "description": "SSO集成",
+          "score": 0.6,
+          "status": "fair",
+          "evidence": [
+            "检测到SSO集成"
+          ],
+          "details": ""
+        },
+        {
+          "name": "webhook_support",
+          "description": "Webhook",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "Webhook支持较少"
+          ],
+          "details": ""
+        },
+        {
+          "name": "sdk_support",
+          "description": "SDK支持",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "SDK支持较少"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "应用支撑评估完成，1/6项达标",
+      "evidence": [
+        "多租户实现较少",
+        "配额管理较少",
+        "检测到权限管理: 4 个",
+        "检测到SSO集成",
+        "Webhook支持较少",
+        "SDK支持较少"
+      ],
+      "suggestions": [
+        "建议增强多租户",
+        "建议增强配额管理",
+        "建议增强Webhook"
+      ],
+      "execution_time_ms": 142.9159641265869
+    },
+    "cost_control": {
+      "dimension": "cost_control",
+      "name": "成本控制",
+      "category": "E",
+      "weight": 0.02,
+      "score": 0.6679999999999999,
+      "status": "fair",
+      "subitems": [
+        {
+          "name": "token_optimization",
+          "description": "Token优化",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到Token优化实现"
+          ],
+          "details": ""
+        },
+        {
+          "name": "model_selection",
+          "description": "模型选择",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到模型选择实现"
+          ],
+          "details": ""
+        },
+        {
+          "name": "caching_strategy",
+          "description": "缓存策略",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到缓存策略实现"
+          ],
+          "details": ""
+        },
+        {
+          "name": "batch_discount",
+          "description": "批量处理",
+          "score": 0.6,
+          "status": "fair",
+          "evidence": [
+            "检测到批量处理实现"
+          ],
+          "details": ""
+        },
+        {
+          "name": "cost_attribution",
+          "description": "成本归因",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到成本归因实现"
+          ],
+          "details": ""
+        },
+        {
+          "name": "budget_alerts",
+          "description": "预算告警",
+          "score": 0.6,
+          "status": "fair",
+          "evidence": [
+            "检测到预算告警实现"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "成本控制评估完成，4/6项达标",
+      "evidence": [
+        "检测到Token优化实现",
+        "检测到模型选择实现",
+        "检测到缓存策略实现",
+        "检测到批量处理实现",
+        "检测到成本归因实现",
+        "检测到预算告警实现"
+      ],
+      "suggestions": [],
+      "execution_time_ms": 509.97114181518555
+    },
+    "integration": {
+      "dimension": "integration",
+      "name": "集成扩展",
+      "category": "E",
+      "weight": 0.01,
+      "score": 0.6120000000000001,
+      "status": "fair",
+      "subitems": [
+        {
+          "name": "api_completeness",
+          "description": "API完备性",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到API文件: 66 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "webhook_events",
+          "description": "Webhook事件",
+          "score": 0.6,
+          "status": "fair",
+          "evidence": [
+            "检测到Webhook事件"
+          ],
+          "details": ""
+        },
+        {
+          "name": "plugin_system",
+          "description": "插件系统",
+          "score": 0.6,
+          "status": "fair",
+          "evidence": [
+            "检测到插件系统: 6 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "openapi_spec",
+          "description": "OpenAPI规范",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "未检测到OpenAPI规范"
+          ],
+          "details": ""
+        },
+        {
+          "name": "sdk_availability",
+          "description": "SDK可用性",
+          "score": 0.4,
+          "status": "poor",
+          "evidence": [
+            "SDK文件较少"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "集成扩展评估完成，1/5项达标",
+      "evidence": [
+        "检测到API文件: 66 个",
+        "检测到Webhook事件",
+        "检测到插件系统: 6 个",
+        "未检测到OpenAPI规范",
+        "SDK文件较少"
+      ],
+      "suggestions": [
+        "建议增强OpenAPI规范",
+        "建议增强SDK可用性"
+      ],
+      "execution_time_ms": 116.2259578704834
+    },
+    "security": {
+      "dimension": "security",
+      "name": "安全性",
+      "category": "S",
+      "weight": 0.1,
+      "score": 0.8188,
+      "status": "good",
+      "subitems": [
+        {
+          "name": "input_validation",
+          "description": "输入验证",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到输入验证实现: 288 个文件"
+          ],
+          "details": ""
+        },
+        {
+          "name": "authentication",
+          "description": "认证授权",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到认证授权实现"
+          ],
+          "details": ""
+        },
+        {
+          "name": "data_encryption",
+          "description": "数据加密",
+          "score": 0.7,
+          "status": "good",
+          "evidence": [
+            "检测到加密相关文件: 1 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "error_handling",
+          "description": "错误处理",
+          "score": 0.8400000000000001,
+          "status": "good",
+          "evidence": [
+            "检测到错误处理文件: 8 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "sensitive_data",
+          "description": "敏感数据保护",
+          "score": 1.0,
+          "status": "excellent",
+          "evidence": [
+            "检测到敏感数据处理文件: 200 个"
+          ],
+          "details": ""
+        },
+        {
+          "name": "rate_limiting",
+          "description": "限流机制",
+          "score": 0.6,
+          "status": "fair",
+          "evidence": [
+            "检测到限流文件: 19 个"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "安全性评估完成，5/6项达标",
+      "evidence": [
+        "检测到输入验证实现: 288 个文件",
+        "检测到认证授权实现",
+        "检测到加密相关文件: 1 个",
+        "检测到错误处理文件: 8 个",
+        "检测到敏感数据处理文件: 200 个",
+        "检测到限流文件: 19 个"
+      ],
+      "suggestions": [],
+      "execution_time_ms": 403.16009521484375
+    },
+    "code_quality": {
+      "dimension": "code_quality",
+      "name": "代码质量",
+      "category": "Q",
+      "weight": 0.12,
+      "score": 0.7137628021191862,
+      "status": "good",
+      "subitems": [
+        {
+          "name": "type_annotations",
+          "description": "类型注解",
+          "score": 0.8322211630123928,
+          "status": "good",
+          "evidence": [
+            "检测到类型注解文件: 873/1049"
+          ],
+          "details": ""
+        },
+        {
+          "name": "docstrings",
+          "description": "文档完整性",
+          "score": 0.888973136915078,
+          "status": "good",
+          "evidence": [
+            "文档覆盖率: 16414/18464"
+          ],
+          "details": ""
+        },
+        {
+          "name": "naming_conventions",
+          "description": "命名规范",
+          "score": 0.8846520495710201,
+          "status": "good",
+          "evidence": [
+            "命名规范文件: 928/1049"
+          ],
+          "details": ""
+        },
+        {
+          "name": "test_coverage",
+          "description": "测试覆盖",
+          "score": 0.22393822393822393,
+          "status": "poor",
+          "evidence": [
+            "测试文件: 116 个, 源代码文件: 1036 个",
+            "估计测试用例: 232 个（pytest收集失败）",
+            "测试覆盖率得分: 22%"
+          ],
+          "details": ""
+        },
+        {
+          "name": "complexity",
+          "description": "代码复杂度",
+          "score": 0.5617832847424685,
+          "status": "fair",
+          "evidence": [
+            "平均复杂度: 37.5, 最大: 860"
+          ],
+          "details": ""
+        },
+        {
+          "name": "consistency",
+          "description": "代码一致性",
+          "score": 0.9523355576739753,
+          "status": "excellent",
+          "evidence": [
+            "风格一致文件: 999/1049"
+          ],
+          "details": ""
+        }
+      ],
+      "details": "代码质量评估完成，4/6项达标",
+      "evidence": [
+        "检测到类型注解文件: 873/1049",
+        "文档覆盖率: 16414/18464",
+        "命名规范文件: 928/1049",
+        "测试文件: 116 个, 源代码文件: 1036 个",
+        "估计测试用例: 232 个（pytest收集失败）",
+        "测试覆盖率得分: 22%",
+        "平均复杂度: 37.5, 最大: 860",
+        "风格一致文件: 999/1049"
+      ],
+      "suggestions": [
+        "建议增强测试覆盖"
+      ],
+      "execution_time_ms": 4789.171934127808
+    }
+  },
+  "timestamp": "2026-03-23T20:56:06.934380",
+  "evaluator_count": 26,
+  "completed_count": 26
+}

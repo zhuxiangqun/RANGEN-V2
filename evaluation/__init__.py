@@ -7,24 +7,12 @@ RANGEN 评测系统
 与生产代码完全分离，通过标准接口进行交互。
 
 主要功能：
-- 基准测试（FRAMES、统一评测等）
-- 性能评测
-- 质量分析
-- 报告生成
+- V1能力评估 (7维度)
+- V2能力评估 (24维度)
+- 日志分析评估
 """
 
-__version__ = "1.0.0"
+__version__ = "2.0.0"
 __author__ = "RANGEN Team"
 
-# 导出主要评测器
-from .benchmarks.frames_evaluator import FramesEvaluator
-from .benchmarks.unified_evaluator import UnifiedEvaluator
-from .benchmarks.performance_evaluator import PerformanceEvaluator
-from .benchmarks.intelligent_quality_evaluator import IntelligentQualityAnalyzer
-
-__all__ = [
-    "FramesEvaluator",
-    "UnifiedEvaluator",
-    "PerformanceEvaluator",
-    "IntelligentQualityAnalyzer"
-]
+__all__ = []

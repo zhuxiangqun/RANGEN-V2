@@ -1,0 +1,45 @@
+{
+  "total_issues": 4,
+  "issues": [
+    {
+      "file_path": "src/ai/engines/nlp_cv_engines.py",
+      "line_number": 46,
+      "issue_type": "empty_function",
+      "severity": "high",
+      "description": "方法 _update_metrics 为空实现",
+      "suggestion": "实现方法的具体逻辑或添加文档说明",
+      "code_snippet": "    def _update_metrics(self, success: bool, processing_time: float):\n        pass",
+      "confidence": 1.0
+    },
+    {
+      "file_path": "src/ai/engines/nlp_cv_engines.py",
+      "line_number": 83,
+      "issue_type": "empty_function",
+      "severity": "high",
+      "description": "方法 _update_metrics 为空实现",
+      "suggestion": "实现方法的具体逻辑或添加文档说明",
+      "code_snippet": "    def _update_metrics(self, success: bool, processing_time: float):\n        pass",
+      "confidence": 1.0
+    },
+    {
+      "file_path": "src/ai/engines/nlp_cv_engines.py",
+      "line_number": 46,
+      "issue_type": "empty_function",
+      "severity": "high",
+      "description": "方法 _update_metrics 为空实现",
+      "suggestion": "实现方法的具体逻辑或添加文档说明",
+      "code_snippet": "    def _update_metrics(self, success: bool, processing_time: float):\n        pass",
+      "confidence": 1.0
+    },
+    {
+      "file_path": "src/ai/engines/nlp_cv_engines.py",
+      "line_number": 83,
+      "issue_type": "empty_function",
+      "severity": "high",
+      "description": "方法 _update_metrics 为空实现",
+      "suggestion": "实现方法的具体逻辑或添加文档说明",
+      "code_snippet": "    def _update_metrics(self, success: bool, processing_time: float):\n        pass",
+      "confidence": 1.0
+    }
+  ]
+}

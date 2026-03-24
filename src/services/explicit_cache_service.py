@@ -127,9 +127,9 @@ class ExplicitCacheService:
         )
         self._cleanup_thread.start()
         
-        logger.info("显式缓存服务已 def stop(self)启动")
+        logger.info("显式缓存服务已启动")
     
-    -> None:
+    def stop(self) -> None:
         """停止缓存服务"""
         self._running = False
         

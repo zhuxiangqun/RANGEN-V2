@@ -1,0 +1,882 @@
+{
+  "log_file": "/Users/apple/workdata/person/zy/RANGEN-main(syu-python)/research_system.log",
+  "analysis_time": "2026-03-23T13:57:08.361795",
+  "file_size": 588,
+  "total_lines": 22,
+  "sample_count": 0,
+  "frames_analysis": {
+    "accuracy": {
+      "real_accuracy": 0.0,
+      "total_comparisons": 0,
+      "correct_count": 0,
+      "exact_matches": 0,
+      "similarity_matches": 0,
+      "expected_answers": [],
+      "actual_answers": [],
+      "confidence_stats": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "average_accuracy": 0.0,
+      "max_accuracy": 0.0,
+      "min_accuracy": 0.0,
+      "total_tests": 0
+    },
+    "reasoning_efficiency": {
+      "time_stats": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "step_stats": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "avg_time_per_step": 0.0,
+      "efficiency_score": 0.0
+    },
+    "innovation": {
+      "innovation_stats": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "avg_innovation": 0.0,
+      "max_innovation": 0.0,
+      "min_innovation": 0.0,
+      "innovation_count": 0,
+      "innovation_score": 0.0
+    },
+    "vector_search": {
+      "vector_stats": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "avg_similarity": 0.0,
+      "search_quality": 0.0,
+      "search_count": 0
+    }
+  },
+  "performance_analysis": {
+    "response_time": {
+      "time_stats": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "response_categories": {
+        "fast": 0,
+        "normal": 0,
+        "slow": 0,
+        "very_slow": 0
+      },
+      "avg_response_time": 0.0,
+      "max_response_time": 0.0,
+      "min_response_time": 0.0
+    },
+    "resource_usage": {
+      "memory": {
+        "log_data": {
+          "average": 0.0,
+          "max": 0.0,
+          "min": 0.0,
+          "count": 0,
+          "sum": 0.0
+        },
+        "current_usage": 84.4,
+        "current_available": 2681126912,
+        "current_total": 17179869184
+      },
+      "cpu": {
+        "log_data": {
+          "average": 0.0,
+          "max": 0.0,
+          "min": 0.0,
+          "count": 0,
+          "sum": 0.0
+        },
+        "current_usage": 9.5,
+        "core_count": 8
+      },
+      "disk": {
+        "log_data": {
+          "average": 0.0,
+          "max": 0.0,
+          "min": 0.0,
+          "count": 0,
+          "sum": 0.0
+        },
+        "current_usage": 0.7,
+        "current_free": 1750469914624,
+        "current_total": 1995218165760
+      }
+    },
+    "throughput": {
+      "processing_events": 0,
+      "time_span": 0.0,
+      "throughput": 0.0,
+      "events_per_second": 0.0,
+      "events_per_minute": 0.0
+    },
+    "memory_efficiency": {
+      "memory_usage_stats": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "efficiency_score": 0.0,
+      "avg_memory_usage": 0.0
+    },
+    "cpu_efficiency": {
+      "cpu_usage_stats": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "load_stats": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "efficiency_score": 0.0,
+      "avg_cpu_usage": 0.0
+    }
+  },
+  "quality_analysis": {
+    "error_analysis": {
+      "error_count": 0,
+      "warning_count": 0,
+      "error_rate": 0.0,
+      "warning_rate": 0.0,
+      "error_types": {
+        "connection": 0,
+        "timeout": 0,
+        "validation": 0,
+        "permission": 0,
+        "resource": 0,
+        "data": 0,
+        "system": 0,
+        "other": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "stability": {
+      "status_distribution": {},
+      "stability_score": 0.0,
+      "restart_count": 0,
+      "total_status_changes": 0
+    },
+    "code_quality": {
+      "quality_stats": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "avg_quality_score": 0.0,
+      "complexity_indicators": 0,
+      "optimization_indicators": 0,
+      "quality_trend": "insufficient_data"
+    },
+    "reliability": {
+      "success_count": 1,
+      "failure_count": 0,
+      "reliability_score": 1.0,
+      "recovery_count": 0,
+      "total_operations": 1
+    },
+    "maintainability": {
+      "maintenance_indicators": 4,
+      "modularity_indicators": 50,
+      "documentation_indicators": 0,
+      "maintainability_score": 1.0
+    }
+  },
+  "intelligence_analysis": {
+    "ai_algorithm_usage": {
+      "algorithm_usage": {
+        "neural_network": 0,
+        "machine_learning": 0,
+        "deep_learning": 0,
+        "reinforcement_learning": 0,
+        "natural_language_processing": 0,
+        "computer_vision": 0,
+        "clustering": 0,
+        "classification": 0,
+        "regression": 0,
+        "optimization": 0
+      },
+      "total_ai_mentions": 0,
+      "ai_usage_rate": 0.0,
+      "most_used_algorithm": "neural_network"
+    },
+    "learning_capability": {
+      "learning_indicators": 0,
+      "learning_type_usage": {
+        "supervised": 0,
+        "unsupervised": 0,
+        "reinforcement": 0,
+        "transfer": 0,
+        "online": 0
+      },
+      "performance_stats": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "learning_activity_score": 0.0
+    },
+    "reasoning_ability": {
+      "reasoning_indicators": 0,
+      "reasoning_type_usage": {
+        "logical": 0,
+        "causal": 0,
+        "analogical": 0,
+        "abductive": 0,
+        "statistical": 0
+      },
+      "reasoning_steps": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "reasoning_complexity": 0.0
+    },
+    "adaptation": {
+      "adaptation_indicators": 2,
+      "adaptation_type_usage": {
+        "parameter_adaptation": 0,
+        "structure_adaptation": 0,
+        "behavior_adaptation": 0,
+        "environment_adaptation": 0
+      },
+      "adaptation_scores": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "adaptation_activity": 0.04
+    },
+    "intelligence_score": {
+      "ai_score": 0.0,
+      "learning_score": 0.0,
+      "reasoning_score": 0.0,
+      "adaptation_score": 0.04,
+      "overall_intelligence_score": 0.01,
+      "intelligence_level": "poor",
+      "ai_algorithm_score": 0.0
+    }
+  },
+  "system_health_analysis": {
+    "resource_health": {
+      "memory": {
+        "health_score": 0.6,
+        "current_usage": 83.2,
+        "log_data": {
+          "average": 0.0,
+          "max": 0.0,
+          "min": 0.0,
+          "count": 0,
+          "sum": 0.0
+        },
+        "status": "critical"
+      },
+      "cpu": {
+        "health_score": 1.0,
+        "current_usage": 13.1,
+        "log_data": {
+          "average": 0.0,
+          "max": 0.0,
+          "min": 0.0,
+          "count": 0,
+          "sum": 0.0
+        },
+        "status": "good"
+      },
+      "disk": {
+        "health_score": 1.0,
+        "current_usage": 0.7,
+        "log_data": {
+          "average": 0.0,
+          "max": 0.0,
+          "min": 0.0,
+          "count": 0,
+          "sum": 0.0
+        },
+        "status": "good"
+      }
+    },
+    "error_health": {
+      "error_count": 0,
+      "warning_count": 0,
+      "error_rate": 0.0,
+      "warning_rate": 0.0,
+      "error_health_score": 1.0,
+      "warning_health_score": 1.0,
+      "error_trend": "stable",
+      "overall_error_health": 1.0
+    },
+    "performance_health": {
+      "response_time": {
+        "health_score": 0.5,
+        "stats": {
+          "average": 0.0,
+          "max": 0.0,
+          "min": 0.0,
+          "count": 0,
+          "sum": 0.0
+        },
+        "status": "unknown"
+      },
+      "throughput": {
+        "health_score": 0.5,
+        "stats": {
+          "average": 0.0,
+          "max": 0.0,
+          "min": 0.0,
+          "count": 0,
+          "sum": 0.0
+        },
+        "status": "unknown"
+      },
+      "overall_performance_health": 0.5
+    },
+    "stability_health": {
+      "restart_count": 0,
+      "recovery_count": 0,
+      "success_count": 1,
+      "stability_score": 1,
+      "stability_status": "excellent"
+    },
+    "overall_health": {
+      "overall_health_score": 0.835,
+      "health_level": "good",
+      "dimension_scores": {
+        "resource": 0.8666666666666667,
+        "error": 1.0,
+        "performance": 0.5,
+        "stability": 1
+      },
+      "recommendations": [
+        "系统运行状况良好，继续保持"
+      ]
+    }
+  },
+  "reasoning_analysis": {
+    "logical_reasoning": {
+      "logical_indicators": 0,
+      "reasoning_steps": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "complexity_indicators": 0,
+      "logical_reasoning_score": 0.0
+    },
+    "causal_reasoning": {
+      "causal_indicators": 0,
+      "chain_lengths": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "strength_scores": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "causal_reasoning_score": 0.0
+    },
+    "analogical_reasoning": {
+      "analogical_indicators": 0,
+      "similarity_scores": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "analogy_counts": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "analogical_reasoning_score": 0.0
+    },
+    "abductive_reasoning": {
+      "abductive_indicators": 0,
+      "hypothesis_scores": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "hypothesis_counts": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "abductive_reasoning_score": 0.0
+    },
+    "spatial_reasoning": {
+      "spatial_indicators": 0,
+      "complexity_scores": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "operation_counts": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "spatial_reasoning_score": 0.0
+    },
+    "temporal_reasoning": {
+      "temporal_indicators": 0,
+      "sequence_lengths": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "prediction_scores": {
+        "average": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "count": 0,
+        "sum": 0.0
+      },
+      "temporal_reasoning_score": 0.0
+    },
+    "overall_reasoning": {
+      "overall_reasoning_score": 0.0,
+      "reasoning_scores": {
+        "logical": 0.0,
+        "causal": 0.0,
+        "analogical": 0.0,
+        "abductive": 0.0,
+        "spatial": 0.0,
+        "temporal": 0.0
+      },
+      "reasoning_distribution": {
+        "logical": 0,
+        "causal": 0,
+        "analogical": 0,
+        "abductive": 0,
+        "spatial": 0,
+        "temporal": 0
+      },
+      "reasoning_level": "poor",
+      "strongest_reasoning_type": "logical",
+      "weakest_reasoning_type": "logical"
+    }
+  },
+  "code_quality_analysis": {
+    "overall_score": 0.6539697223480613,
+    "metrics": {
+      "file_count": {
+        "score": 0.5,
+        "count": 1049,
+        "evidence": "Python文件: 1049个",
+        "status": "poor"
+      },
+      "complexity": {
+        "score": 0.22477162293488823,
+        "avg_complexity": 37.52,
+        "high_complexity_count": 527,
+        "evidence": "平均复杂度: 37.5",
+        "status": "poor"
+      },
+      "type_annotations": {
+        "score": 1.0,
+        "coverage": 0.85,
+        "typed_count": 10539,
+        "total_count": 12424,
+        "evidence": "类型注解覆盖率: 84.8%",
+        "status": "good"
+      },
+      "docstrings": {
+        "score": 1.0,
+        "coverage": 0.88,
+        "documented_count": 13720,
+        "total_count": 15538,
+        "evidence": "文档覆盖率: 88.3%",
+        "status": "good"
+      },
+      "naming": {
+        "score": 0.9990467111534795,
+        "violation_count": 1,
+        "evidence": "命名规范违规: 1处",
+        "status": "good"
+      },
+      "test_coverage": {
+        "score": 0.2,
+        "coverage": 0.01,
+        "test_count": 9,
+        "total_count": 1049,
+        "evidence": "测试覆盖率: 0.9%",
+        "status": "poor"
+      }
+    },
+    "passed_count": 3,
+    "total_count": 6
+  },
+  "static_architecture_analysis": {
+    "overall_score": 0.9444444444444445,
+    "metrics": {
+      "harness": {
+        "score": 1.0,
+        "found": [
+          "timeout",
+          "fallback",
+          "retry",
+          "circuit",
+          "breaker",
+          "graceful"
+        ],
+        "evidence": "发现6个容错机制"
+      },
+      "architecture": {
+        "score": 1.0,
+        "found": [
+          "factory",
+          "strategy",
+          "interface",
+          "builder",
+          "base",
+          "abstract"
+        ],
+        "evidence": "发现6个设计模式"
+      },
+      "observability": {
+        "score": 1.0,
+        "found": [
+          "log",
+          "event",
+          "trace",
+          "metric",
+          "span",
+          "hook"
+        ],
+        "evidence": "发现6个可观测性特性"
+      },
+      "monitoring": {
+        "score": 1.0,
+        "found": [
+          "dashboard",
+          "status",
+          "health",
+          "check",
+          "alert",
+          "notify"
+        ],
+        "evidence": "发现6个监控特性"
+      },
+      "self_healing": {
+        "score": 1.0,
+        "found": [
+          "heal",
+          "recovery",
+          "recover",
+          "restart",
+          "rollback",
+          "repair"
+        ],
+        "evidence": "发现6个自愈机制"
+      },
+      "rollout": {
+        "score": 0.6666666666666666,
+        "found": [
+          "release",
+          "gradual",
+          "deploy",
+          "ab_test"
+        ],
+        "evidence": "发现4个发布特性"
+      }
+    },
+    "passed_count": 5,
+    "total_count": 6
+  },
+  "static_data_analysis": {
+    "overall_score": 0.65,
+    "metrics": {
+      "data_source": {
+        "score": 1.0,
+        "found": [
+          "db",
+          "redis",
+          "database",
+          "mysql",
+          "postgres",
+          "elasticsearch",
+          "mongodb"
+        ],
+        "evidence": "支持7种数据源"
+      },
+      "knowledge_mgmt": {
+        "score": 0.6,
+        "found": [
+          "knowledge",
+          "kb",
+          "knowledge_base"
+        ],
+        "evidence": "发现3个知识管理特性"
+      },
+      "vector_mgmt": {
+        "score": 0.6,
+        "found": [
+          "vector",
+          "faiss",
+          "embedding"
+        ],
+        "evidence": "发现3个向量管理特性"
+      },
+      "data_lineage": {
+        "score": 0.4,
+        "found": [
+          "trace",
+          "dependency"
+        ],
+        "evidence": "发现2个血缘追踪特性"
+      }
+    },
+    "passed_count": 1,
+    "total_count": 4
+  },
+  "static_platform_analysis": {
+    "overall_score": 0.9333333333333332,
+    "metrics": {
+      "app_support": {
+        "score": 0.8,
+        "found": [
+          "app",
+          "project",
+          "workspace",
+          "namespace"
+        ],
+        "evidence": "发现4个应用支撑特性"
+      },
+      "cost_control": {
+        "score": 1.0,
+        "found": [
+          "rate",
+          "limit",
+          "token",
+          "quota",
+          "cost",
+          "budget"
+        ],
+        "evidence": "发现6个成本控制特性"
+      },
+      "integration": {
+        "score": 1.0,
+        "found": [
+          "api",
+          "callback",
+          "event",
+          "plugin",
+          "extension",
+          "webhook"
+        ],
+        "evidence": "发现6个集成特性"
+      }
+    },
+    "passed_count": 3,
+    "total_count": 3
+  },
+  "frames_accuracy": {
+    "real_accuracy": 0.0,
+    "total_comparisons": 0,
+    "correct_count": 0,
+    "exact_matches": 0,
+    "similarity_matches": 0,
+    "expected_answers": [],
+    "actual_answers": [],
+    "confidence_stats": {
+      "average": 0.0,
+      "max": 0.0,
+      "min": 0.0,
+      "count": 0,
+      "sum": 0.0
+    },
+    "average_accuracy": 0.0,
+    "max_accuracy": 0.0,
+    "min_accuracy": 0.0,
+    "total_tests": 0
+  },
+  "reasoning_efficiency": {
+    "time_stats": {
+      "average": 0.0,
+      "max": 0.0,
+      "min": 0.0,
+      "count": 0,
+      "sum": 0.0
+    },
+    "step_stats": {
+      "average": 0.0,
+      "max": 0.0,
+      "min": 0.0,
+      "count": 0,
+      "sum": 0.0
+    },
+    "avg_time_per_step": 0.0,
+    "efficiency_score": 0.0
+  },
+  "method_innovation": {
+    "innovation_stats": {
+      "average": 0.0,
+      "max": 0.0,
+      "min": 0.0,
+      "count": 0,
+      "sum": 0.0
+    },
+    "avg_innovation": 0.0,
+    "max_innovation": 0.0,
+    "min_innovation": 0.0,
+    "innovation_count": 0,
+    "innovation_score": 0.0
+  },
+  "intelligence_level": 0.01,
+  "agent_coordination": {
+    "maintenance_indicators": 4,
+    "modularity_indicators": 50,
+    "documentation_indicators": 0,
+    "maintainability_score": 1.0
+  },
+  "module_integration": {
+    "maintenance_indicators": 4,
+    "modularity_indicators": 50,
+    "documentation_indicators": 0,
+    "maintainability_score": 1.0
+  },
+  "ml_learning": {
+    "ml_activities": 2,
+    "ml_score": 0.1
+  },
+  "rl_learning": {
+    "rl_activities": 0,
+    "rl_score": 0.0
+  },
+  "self_learning": {
+    "self_learning_activities": 0,
+    "self_learning_score": 0.0
+  },
+  "performance_metrics": {
+    "average_time": 0.0,
+    "max_time": 0.0,
+    "min_time": 0.0
+  },
+  "system_health": {
+    "memory_usage": 0.0,
+    "cpu_usage": 0.0,
+    "active_connections": 0,
+    "cache_hit_rate": 0.0,
+    "reasoning_engine_pool": {
+      "pool_size": 0,
+      "in_use_count": 0,
+      "created_count": 0,
+      "max_size": 0,
+      "utilization_rate": 0.0
+    }
+  },
+  "research_report_quality": {
+    "report_count": 0,
+    "report_quality_score": 0.0
+  },
+  "ml_rl_synergy": {
+    "synergy_count": 0,
+    "synergy_score": 0.0
+  },
+  "prompt_context_synergy": {
+    "prompt_context_synergy_count": 0,
+    "prompt_context_synergy_score": 0.0
+  },
+  "complex_reasoning": {
+    "reasoning_activities": 0,
+    "average_steps": 0.0,
+    "reasoning_score": 0.0
+  },
+  "query_processing_flow": {
+    "flow_steps": {
+      "查询接收": 0,
+      "查询处理": 0,
+      "结果生成": 0,
+      "查询完成": 0
+    },
+    "sample_flow_steps": {
+      "查询接收": 0,
+      "查询处理": 0,
+      "查询完成": 0
+    },
+    "total_flow_activities": 0,
+    "sample_total_flow_activities": 0,
+    "unique_sample_ids": 0,
+    "flow_completeness_score": 0.0,
+    "sample_flow_completeness_score": 0.0
+  },
+  "queries_analyzed": 0,
+  "query_count": 0,
+  "success_rate_analysis": {
+    "query_success_rate": 0.0,
+    "query_success_count": 0,
+    "query_error_count": 0,
+    "query_total": 0,
+    "sample_success_rate": 0.0,
+    "sample_success_count": 0,
+    "sample_total": 0,
+    "success_rate": 0.0
+  },
+  "success_rate": 0.0,
+  "error_analysis": {
+    "error|错误|exception|异常": 0,
+    "warning|警告|warning": 0,
+    "critical|严重|critical": 0
+  }
+}

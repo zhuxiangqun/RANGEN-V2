@@ -511,308 +511,202 @@ with tab7:
         st.info("🤖 可用模型: 暂无数据")
 
 with tab8:
-    st.subheader("System Evaluation")
+    st.subheader("📊 System Evaluation")
     
-    st.write("**RANGEN Evaluation System**")
-    st.write("Run benchmark tests, performance evaluations and quality analysis")
-    
-    col_eval1, col_eval2 = st.columns(2)
+    col_eval1, col_eval2 = st.columns([1, 3])
     
     with col_eval1:
-        st.info("""
-        **Evaluation Types:**
-        - FRAMES Benchmark
-        - Unified Evaluation
-        - Performance Evaluation
-        - Quality Analysis
-        """)
+        eval_desc_html = """
+        <div style="height: 200px; overflow-y: auto; border: 1px solid #ddd; border-radius: 8px; padding: 12px; background: #fafafa;">
+            <h4 style="margin-top: 0; color: #333;">📋 评估类型说明</h4>
+            <div>
+                <b>📡 端到端集成测试 (E2E)</b><br/>
+                <span style="color: #666; font-size: 13px;">通过真实API调用验证系统能力:</span><br/>
+                <span style="font-size: 12px; color: #555;">
+                • 编排能力 · Agent完整性 · Prompt工程<br/>
+                • 响应质量 · 路由机制 · 推理能力<br/>
+                • 知识召回 · 工具调用 · 多轮对话<br/>
+                • 监控告警 · 故障自愈 · 安全防护<br/>
+                • 数据管理 · 成本控制 · 集成扩展
+                </span>
+            </div>
+            <br/>
+            <div>
+                <b>🔍 静态代码分析</b><br/>
+                <span style="color: #666; font-size: 13px;">分析源码结构验证系统质量:</span><br/>
+                <span style="font-size: 12px; color: #555;">
+                • 架构合理性：模块结构、分层设计<br/>
+                • 代码质量：复杂度、文档、测试覆盖
+                </span>
+            </div>
+            <br/>
+            <div style="border-top: 1px solid #ddd; padding-top: 8px; margin-top: 8px;">
+                <span style="font-size: 12px; color: #888;">
+                共 <b>26个维度</b>：<br/>
+                • E2E测试: 24个维度 (79个测试用例)<br/>
+                • 静态分析: 2个维度
+                </span>
+            </div>
+        </div>
+        """
+        st.html(eval_desc_html)
     
     with col_eval2:
         st.write("**Run Evaluation**")
         
-        col_eval_type, col_sample, col_concurrent, col_max_files = st.columns(4)
+        col1, col2 = st.columns(2)
+        with col1:
+            sample_count = st.selectbox("样本数", ["1", "3", "5", "10", "20"], index=1, key="sample_count")
+        with col2:
+            max_concurrent = st.selectbox("并发数", ["1", "2", "3", "5", "10"], index=2, key="max_concurrent")
         
-        with col_eval_type:
-            eval_type = st.selectbox(
-                "Evaluation type",
-                ["frames", "unified", "performance", "intelligent_quality", "new_framework"],
-                index=4
-            )
+        use_real_api = st.toggle("真实API测试 (E2E)", value=True, help="开启后调用真实DeepSeek API进行测试")
         
-        with col_sample:
-            sample_count = st.selectbox(
-                "Samples",
-                ["1", "3", "5", "10", "20"],
-                index=1
-            )
-        
-        with col_concurrent:
-            max_concurrent = st.selectbox(
-                "Parallel",
-                ["1", "2", "3", "5", "10"],
-                index=2
-            )
-        
-        with col_max_files:
-            max_files = st.selectbox(
-                "Max files",
-                ["10", "20", "30", "50"],
-                index=0
-            )
-        
-        if st.button("Run Evaluation", type="primary"):
-            with st.spinner("Evaluating..."):
+        if st.button("🚀 Run Full Evaluation", type="primary", use_container_width=True):
+            with st.spinner("正在运行全部评估..."):
                 try:
                     project_root = "/Users/apple/workdata/person/zy/RANGEN-main(syu-python)"
-                    cmd = None
                     
-                    if eval_type == "frames":
-                        cmd = ["python", f"{project_root}/evaluation/run_frames_evaluation.py", "--sample-count", sample_count, "--max-concurrent", max_concurrent, "--max-files", max_files]
-                    elif eval_type == "unified":
-                        cmd = ["python", f"{project_root}/evaluation/run_evaluation.py", "--type", "unified", "--sample-count", sample_count, "--max-concurrent", max_concurrent, "--max-files", max_files]
-                    elif eval_type == "performance":
-                        cmd = ["python", f"{project_root}/evaluation/run_evaluation.py", "--type", "performance", "--sample-count", sample_count, "--max-concurrent", max_concurrent, "--max-files", max_files]
-                    elif eval_type == "intelligent_quality":
-                        cmd = ["python", f"{project_root}/evaluation/run_evaluation.py", "--type", "intelligent_quality", "--max-files", max_files]
-                    elif eval_type == "new_framework":
-                        cmd = ["python", "-c", f"""
-import asyncio
-import sys
-sys.path.insert(0, '{project_root}/evaluation/new_framework')
-from runner import RANGENEvaluator
-asyncio.run(RANGENEvaluator().run_full_evaluation())
-"""]
+                    # 运行完整评估（E2E + 静态分析）
+                    cmd = [
+                        "python", "-m", "evaluation.main",
+                        "--mode", "all",
+                        "--sample-count", str(sample_count),
+                        "--max-concurrent", str(max_concurrent),
+                        "--output", f"/Users/apple/workdata/person/zy/RANGEN-main(syu-python)/evaluation/v2_capability/results/unified_evaluation.json"
+                    ]
+                    result = subprocess.run(cmd, capture_output=True, text=True, timeout=600, cwd=project_root, env=os.environ.copy())
                     
-                    if cmd is None:
-                        st.warning("Invalid evaluation type")
+                    if result.returncode == 0:
+                        st.success("✅ 评估完成！")
+                        st.session_state.eval_results_updated = True
                     else:
-                        result = subprocess.run(
-                            cmd,
-                            capture_output=True,
-                            text=True,
-                            timeout=600,
-                            cwd=project_root
-                        )
-                        
-                        if result.returncode == 0:
-                            st.success("Evaluation completed successfully!")
-                            
-                            if eval_type == "intelligent_quality":
-                                    report_path = os.path.join(project_root, "comprehensive_eval_results/intelligent_quality_analysis_report.md")
-                                    if os.path.exists(report_path):
-                                        try:
-                                            with open(report_path, 'r', encoding='utf-8') as f:
-                                                content = f.read()
-                                            
-                                            import re
-                                            score_pattern = r'\*\*([^\*]+)\*\*:\s*([0-9.]+)'
-                                            scores = re.findall(score_pattern, content)
-                                            
-                                            if scores:
-                                                all_scores = {}
-                                                for name, value in scores:
-                                                    name = name.strip()
-                                                    try:
-                                                        all_scores[name] = float(value)
-                                                    except:
-                                                        pass
-                                                
-                                                st.write("### 📊 质量分析结果")
-                                                
-                                                main_scores = {
-                                                    "🧠 智能质量": all_scores.get('智能质量分数'),
-                                                    "🏗️ 架构质量": all_scores.get('架构质量分数'),
-                                                    "🔒 安全质量": all_scores.get('安全质量分数'),
-                                                    "⚡ 性能质量": all_scores.get('性能质量分数'),
-                                                    "💻 代码质量": all_scores.get('代码质量分数'),
-                                                }
-                                                
-                                                cols = st.columns(len(main_scores) + 1)
-                                                for i, (name, score) in enumerate(main_scores.items()):
-                                                    with cols[i]:
-                                                        st.metric(name, f"{score:.3f}" if score is not None else "N/A")
-                                                
-                                                with cols[-1]:
-                                                    if st.button("📋 查看详情", key="iq_detail_btn", use_container_width=True):
-                                                        st.session_state.iq_show_detail = True
-                                                
-                                                if st.session_state.get("iq_show_detail", False):
-                                                    with st.container():
-                                                        st.markdown("#### 📋 评估详情")
-                                                        
-                                                        exclude_patterns = ["数量", "问题", "检测", "分数:", "生成时间", "分析文件数", "分析模式", "nTc机制", "证据积累", "决策承诺", "几何化轨迹", "动态阈值", "承诺锁定"]
-                                                        
-                                                        category_mapping = {
-                                                            "智能质量分数": "基础质量",
-                                                            "架构质量分数": "基础质量",
-                                                            "安全质量分数": "基础质量",
-                                                            "性能质量分数": "基础质量",
-                                                            "代码质量分数": "基础质量",
-                                                            "大脑决策机制分数": "大脑决策",
-                                                            "ML-RL协同作用分数": "ML/RL",
-                                                            "提示词-上下文协同分数": "提示词",
-                                                            "复杂推理能力分数": "推理能力",
-                                                            "查询处理流程分数": "查询处理",
-                                                            "智能维度综合分数": "智能维度",
-                                                            "上下文管理分数": "上下文",
-                                                            "系统监控分数": "系统监控",
-                                                            "配置管理分数": "配置管理",
-                                                            "评分评估分数": "评分评估",
-                                                            "安全防护分数": "安全防护",
-                                                            "系统集成分数": "系统集成",
-                                                            "数据管理分数": "数据管理",
-                                                            "学习能力综合分数": "学习能力",
-                                                            "业务价值分数": "业务逻辑",
-                                                        }
-                                                        
-                                                        suggestions = {
-                                                            "智能质量分数": "增加智能推理模块，优化决策逻辑",
-                                                            "架构质量分数": "优化代码结构，减少过度设计",
-                                                            "安全质量分数": "加强安全检查和权限控制",
-                                                            "性能质量分数": "优化算法复杂度，减少阻塞操作",
-                                                            "代码质量分数": "改善代码规范，减少重复代码",
-                                                            "大脑决策机制分数": "实现nTc机制、证据积累、决策承诺",
-                                                            "ML-RL协同作用分数": "加强ML和RL模块的协同",
-                                                            "提示词-上下文协同分数": "优化提示词设计",
-                                                            "复杂推理能力分数": "增强复杂问题处理能力",
-                                                            "查询处理流程分数": "优化查询理解和处理流程",
-                                                            "智能维度综合分数": "提升系统智能水平",
-                                                            "上下文管理分数": "优化上下文窗口管理",
-                                                            "系统监控分数": "完善监控指标和告警",
-                                                            "配置管理分数": "改进配置管理机制",
-                                                            "评分评估分数": "完善评分和评估体系",
-                                                            "安全防护分数": "加强安全防护措施",
-                                                            "系统集成分数": "改进系统集成方案",
-                                                            "数据管理分数": "优化数据存储和处理",
-                                                            "学习能力综合分数": "增强系统自学习能力",
-                                                            "业务价值分数": "提升业务逻辑实现",
-                                                        }
-                                                        
-                                                        ep_for_detail = ["数量", "问题", "检测", "分数:", "生成时间", "分析文件数", "分析模式", "nTc机制", "证据积累", "决策承诺", "几何化轨迹", "动态阈值", "承诺锁定"]
-                                                        meaningful_scores = []
-                                                        for name, value in scores:
-                                                            if any(p in name for p in ep_for_detail):
-                                                                continue
-                                                            try:
-                                                                float_val = float(value)
-                                                                category = category_mapping.get(name, "其他")
-                                                                suggestion = suggestions.get(name, "建议优化") if float_val < 0.7 else "良好"
-                                                                meaningful_scores.append((name, f"{float_val:.3f}", category, suggestion))
-                                                            except:
-                                                                pass
-                                                        
-                                                        if meaningful_scores:
-                                                            for name, value, category, suggestion in meaningful_scores:
-                                                                float_val = float(value)
-                                                                status_icon = "✅" if float_val >= 0.7 else "⚠️" if float_val >= 0.5 else "❌"
-                                                                with st.expander(f"{status_icon} {name}: {value}"):
-                                                                    st.write(f"**类别**: {category}")
-                                                                    st.write(f"**状态**: {'良好' if float_val >= 0.7 else '需改进' if float_val >= 0.5 else '严重'}")
-                                                                    st.write(f"**建议**: {suggestion}")
-                                                        
-                                                        if st.button("🔒 关闭详情", key="iq_close_detail"):
-                                                            st.session_state.iq_show_detail = False
-                                                            st.rerun()
-                                                
-                                                st.markdown("---")
-                                                dim_cols = st.columns(3)
-                                                col_idx = 0
-                                                ep_for_summary = ["数量", "问题", "检测", "分数:", "生成时间", "分析文件数", "分析模式", "nTc机制", "证据积累", "决策承诺", "几何化轨迹", "动态阈值", "承诺锁定"]
-                                                for name, value in scores:
-                                                    if any(p in name for p in ep_for_summary):
-                                                        continue
-                                                    try:
-                                                        float_val = float(value)
-                                                        with dim_cols[col_idx % 3]:
-                                                            status_icon = "✅" if float_val >= 0.7 else "⚠️" if float_val >= 0.5 else "❌"
-                                                            st.metric(f"{status_icon} {name}", f"{float_val:.3f}")
-                                                        col_idx += 1
-                                                    except:
-                                                        pass
-                                        except Exception as e:
-                                            st.warning(f"无法解析评估报告: {e}")
-                            
-                            elif eval_type == "new_framework":
-                                import json
-                                result_path = os.path.join(project_root, "evaluation_results")
-                                import glob
-                                new_framework_files = glob.glob(os.path.join(result_path, "new_framework_*.json"))
-                                if new_framework_files:
-                                    latest_file = max(new_framework_files, key=os.path.getmtime)
-                                    try:
-                                        with open(latest_file, 'r', encoding='utf-8') as f:
-                                            data = json.load(f)
-                                        
-                                        st.write("### 📊 新评估框架结果")
-                                        
-                                        overall = data.get("overall_score", 0)
-                                        col1, col2, col3 = st.columns(3)
-                                        with col1:
-                                            st.metric("综合评分", f"{overall*100:.1f}%")
-                                        with col2:
-                                            completed = data.get("completed_count", 0)
-                                            total = data.get("evaluator_count", 0)
-                                            st.metric("评估维度", f"{completed}/{total}")
-                                        with col3:
-                                            st.metric("评估时间", data.get("timestamp", "N/A")[:19])
-                                        
-                                        st.markdown("---")
-                                        
-                                        dims = data.get("dimensions", {})
-                                        dim_items = list(dims.items())
-                                        
-                                        for i in range(0, len(dim_items), 3):
-                                            cols = st.columns(3)
-                                            for j, (dim_name, dim_data) in enumerate(dim_items[i:i+3]):
-                                                score = dim_data.get("score", 0)
-                                                status = dim_data.get("status", "unknown")
-                                                details = dim_data.get("details", "")
-                                                evidence = dim_data.get("evidence", [])
-                                                suggestions = dim_data.get("suggestions", [])
-                                                
-                                                status_icon = "✅" if status == "completed" else "❌" if status == "failed" else "⏭️"
-                                                
-                                                with cols[j]:
-                                                    with st.container():
-                                                        st.markdown(f"""
-                                                        <div style="background: linear-gradient(135deg, #1E3A5F 0%, #2D5A87 100%); 
-                                                                    padding: 15px; border-radius: 8px; margin: 5px 0;">
-                                                            <h4 style="color: white; margin: 0 0 10px 0;">{status_icon} {dim_name}</h4>
-                                                            <h2 style="color: white; margin: 0; text-align: center;">{score*100:.1f}%</h2>
-                                                        </div>
-                                                        """, unsafe_allow_html=True)
-                                                        
-                                                        if details:
-                                                            st.caption(f"📝 {details[:50]}..." if len(details) > 50 else f"📝 {details}")
-                                                        if evidence:
-                                                            st.caption(f"📊 {len(evidence)} 条证据")
-                                                        if suggestions:
-                                                            st.caption(f"💡 {len(suggestions)} 条建议")
-                                                        
-                                                        with st.expander("📋 详情"):
-                                                            st.write(f"**状态**: {status}")
-                                                            if details:
-                                                                st.write(f"**说明**: {details}")
-                                                            if evidence:
-                                                                st.write("**证据**:")
-                                                                for e in evidence[:5]:
-                                                                    st.markdown(f"- {e[:100]}..." if len(e) > 100 else f"- {e}")
-                                                                if len(evidence) > 5:
-                                                                    st.caption(f"... 还有 {len(evidence) - 5} 条")
-                                                            if suggestions:
-                                                                st.write("**建议**:")
-                                                                for s in suggestions[:3]:
-                                                                    st.markdown(f"- {s}")
-                                            
-                                    except Exception as e:
-                                        st.warning(f"无法解析新评估结果: {e}")
-                                else:
-                                    st.info("未找到新评估框架的结果文件")
-                            
-                except subprocess.TimeoutExpired:
-                    st.warning("Timed out - try fewer samples")
+                        st.error(f"评估失败: {result.stderr[:500]}")
+                        st.session_state.eval_results_updated = None
                 except Exception as e:
-                    st.error(f"Evaluation failed: {str(e)}")
+                    st.error(f"评估执行出错: {str(e)}")
+                    st.session_state.eval_results_updated = None
+        
+        # 显示评估结果
+        if 'eval_results_updated' not in st.session_state:
+            st.session_state.eval_results_updated = None
+        
+        result_file = "/Users/apple/workdata/person/zy/RANGEN-main(syu-python)/evaluation/v2_capability/results/unified_evaluation.json"
+        if os.path.exists(result_file):
+            try:
+                import json
+                with open(result_file, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                
+                st.markdown("---")
+                st.write("### 📊 评估结果 (26个维度)")
+                
+                overall = data.get("overall_score", 0)
+                dim_count = data.get("dimensions_tested", 0)
+                timestamp = data.get("summary", {}).get("timestamp", "N/A")
+                
+                col1, col2, col3, col4 = st.columns(4)
+                with col1:
+                    st.metric("综合评分", f"{overall*100:.1f}%")
+                with col2:
+                    st.metric("评估维度", f"{dim_count}个")
+                with col3:
+                    passed = data.get("summary", {}).get("passed", 0)
+                    st.metric("通过", f"{passed}个")
+                with col4:
+                    failed = data.get("summary", {}).get("failed", 0)
+                    st.metric("待改进", f"{failed}个")
+                
+                st.markdown("---")
+                st.write("### 📊 评估维度详情")
+                
+                # E2E维度映射
+                e2e_dims = [
+                    {"name": "编排能力", "icon": "🔄", "id": "orchestration"},
+                    {"name": "Agent完备性", "icon": "🤖", "id": "agent_completeness"},
+                    {"name": "Prompt工程", "icon": "💬", "id": "prompt_engineering"},
+                    {"name": "上下文工程", "icon": "🧠", "id": "context_engineering"},
+                    {"name": "响应质量", "icon": "✨", "id": "response_quality"},
+                    {"name": "路由机制", "icon": "🛤️", "id": "routing"},
+                    {"name": "推理能力", "icon": "🧩", "id": "reasoning"},
+                    {"name": "知识召回", "icon": "📚", "id": "knowledge_recall"},
+                    {"name": "工具调用", "icon": "🔧", "id": "tool_calling"},
+                    {"name": "多轮对话", "icon": "💭", "id": "multi_turn"},
+                    {"name": "自学习能力", "icon": "📈", "id": "self_learning"},
+                    {"name": "Harness治理", "icon": "🛡️", "id": "harness"},
+                    {"name": "可观测性", "icon": "👁️", "id": "observability"},
+                    {"name": "监控告警", "icon": "🚨", "id": "monitoring"},
+                    {"name": "故障自愈", "icon": "🔄", "id": "self_healing"},
+                    {"name": "灰度发布", "icon": "🚀", "id": "rollout"},
+                    {"name": "数据源接入", "icon": "🗄️", "id": "data_source"},
+                    {"name": "知识管理", "icon": "📖", "id": "knowledge_mgmt"},
+                    {"name": "向量管理", "icon": "📐", "id": "vector_mgmt"},
+                    {"name": "数据血缘", "icon": "🔗", "id": "data_lineage"},
+                    {"name": "应用支撑", "icon": "🏗️", "id": "app_support"},
+                    {"name": "成本控制", "icon": "💰", "id": "cost_control"},
+                    {"name": "集成扩展", "icon": "🔌", "id": "integration"},
+                    {"name": "安全能力", "icon": "🔒", "id": "security"},
+                ]
+                
+                # 静态分析维度
+                static_dims = [
+                    {"name": "架构合理性", "icon": "🏛️", "id": "architecture"},
+                    {"name": "代码质量", "icon": "📝", "id": "code_quality"},
+                ]
+                
+                dim_results = data.get("dimension_results", {})
+                
+                # E2E测试部分
+                st.markdown("**📡 端到端集成测试 (E2E)**")
+                e2e_cols = st.columns(6)
+                for idx, dim in enumerate(e2e_dims):
+                    dim_id = dim["id"]
+                    dim_result = dim_results.get(dim_id, {})
+                    score = dim_result.get("score", 0)
+                    status_icon = "🌟" if score >= 0.9 else "✅" if score >= 0.7 else "⚠️" if score >= 0.5 else "❌"
+                    
+                    with e2e_cols[idx % 6]:
+                        st.markdown(f"{dim['icon']} {dim['name']}<br>{status_icon} {score*100:.0f}%", unsafe_allow_html=True)
+                
+                # 静态分析部分
+                st.markdown("---")
+                st.markdown("**🔍 静态代码分析**")
+                static_cols = st.columns(2)
+                for idx, dim in enumerate(static_dims):
+                    dim_id = dim["id"]
+                    dim_result = dim_results.get(dim_id, {})
+                    score = dim_result.get("score", 0)
+                    status_icon = "🌟" if score >= 0.9 else "✅" if score >= 0.7 else "⚠️" if score >= 0.5 else "❌"
+                    
+                    with static_cols[idx % 2]:
+                        st.markdown(f"{dim['icon']} **{dim['name']}** - {status_icon} {score*100:.0f}%")
+                        
+                        # 显示检查项详情
+                        checks = dim_result.get("checks", [])
+                        if checks:
+                            for check in checks:
+                                check_icon = "✅" if check.get("passed") else "❌"
+                                st.caption(f"&nbsp;&nbsp;{check_icon} {check.get('name', '')}: {check.get('score', 0)*100:.0f}%")
+                
+                # 详细结果展开
+                st.markdown("---")
+                with st.expander("📋 详细评估结果", expanded=False):
+                    for dim in e2e_dims + static_dims:
+                        dim_id = dim["id"]
+                        dim_result = dim_results.get(dim_id, {})
+                        if dim_result:
+                            score = dim_result.get("score", 0)
+                            test_count = dim_result.get("test_count", 0) or len(dim_result.get("checks", []))
+                            test_type = "📡 E2E" if dim_id not in ["architecture", "code_quality"] else "🔍 静态"
+                            
+                            st.markdown(f"**{dim['icon']} {dim['name']}** [{test_type}] - {score*100:.1f}%")
+                            st.caption(f"&nbsp;&nbsp;&nbsp;&nbsp;测试项: {test_count}个")
+                
+            except Exception as e:
+                st.warning(f"无法解析评估结果: {e}")
+        else:
+            st.info("请点击上方按钮运行评估")
+            st.caption(f"结果文件: {result_file}")
 
 with tab9:
     st.subheader("📋 SOP 标准流程")

@@ -467,7 +467,7 @@ uvicorn src.access.api.server:app --reload --host 0.0.0.0 --port 8000
 ### 启动Web界面
 ```bash
 # 启动Streamlit界面
-streamlit run src/access/ui/app.py
+streamlit run apps/entry_app/app.py
 
 # 启动后访问：http://localhost:8501
 ```
@@ -728,7 +728,7 @@ services:
       - LLM_PROVIDER=mock
     volumes:
       - .:/app
-    command: streamlit run src/access/ui/app.py
+    command: streamlit run apps/entry_app/app.py
 ```
 
 ### 数据库配置
